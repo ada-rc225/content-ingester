@@ -21,6 +21,11 @@ Reference `.github/instructions/updating-proposed-structure.md` for the required
 - Refine prerequisite ordering and avoid cycles.
 - Improve split decisions to keep one learning objective per page.
 - Reconcile tags against `<input-dir>/live-website-export/tags_current.md`.
+- Review all assumptions inferred in `generation_context`.
+- Confirm that every learner profile has exactly one intended pathway unless multiple alternatives are explicitly requested.
+- Verify that core concept definitions, formulae, conditions, and dependencies remain discipline-independent.
+- Check that pathway entry points, ordering, required/optional choices, examples, proof depth, implementation focus, and assessment match the learner profile.
+- Ensure required steps do not depend on optional steps and that prerequisites appear earlier in each pathway.
 
 ## Regenerate graph after edits
 
@@ -32,3 +37,4 @@ python .github/skills/input-to-proposed-structure/generate_prerequisite_graph.py
 
 - Updated `<output-dir>/proposed_structure.json`
 - Updated `<output-dir>/dependency_graph.md`
+- Updated `<output-dir>/pathways/<pathway-id>.md` files

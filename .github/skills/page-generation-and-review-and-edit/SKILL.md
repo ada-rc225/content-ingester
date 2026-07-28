@@ -15,6 +15,7 @@ Resolve paths from `.env` before running:
 - `<output-dir>/proposed_structure.json`
 - `<input-dir>/current_content.md`
 - `.github/instructions/content_file_details.md`
+- `.github/instructions/discipline-aware-teaching-guidelines.md`
 - `.github/instructions/pdf-data-extraction.md` (mandatory image-embedding rules when source material includes PDFs)
 - `.github/instructions/pptx-data-extraction.md` (mandatory image-embedding rules when source material includes PPTX files)
 
@@ -29,3 +30,4 @@ Resolve paths from `.env` before running:
 - Generate pages strictly in dependency order.
 - Work one page at a time.
 - Pause for user review before proceeding to the next page.
+- If the page has discipline-specific adaptation guidance, tailor the examples, technical depth, and explanation order to that audience instead of using a single generic version.

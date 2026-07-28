@@ -23,6 +23,7 @@ applyTo: "**"
 - Before using PPTX source material for structure or page generation, run `python tools/extract_pptx_assets.py` and follow `.github/instructions/pptx-data-extraction.md`.
 - Reuse existing support docs as references when needed:
   - `.github/instructions/atomisation-guidelines.md`
+  - `.github/instructions/discipline-aware-teaching-guidelines.md`
   - `.github/instructions/updating-proposed-structure.md`
   - `.github/instructions/content_file_details.md`
   - `.github/instructions/pdf-data-extraction.md`

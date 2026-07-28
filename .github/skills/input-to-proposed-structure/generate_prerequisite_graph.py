@@ -252,6 +252,100 @@ def write_markdown_wrapper(markdown_file: Path, mermaid_content: str, mode: str)
     markdown_file.write_text(markdown, encoding="utf-8")
 
 
+def build_pathway_mermaid(pathway: dict, direction: str) -> str:
+    steps = sorted(
+        [
+            step
+            for step in pathway.get("ordered_steps", [])
+            if isinstance(step, dict)
+        ],
+        key=lambda step: step.get("order", 0),
+    )
+    used_ids: Set[str] = set()
+    lines: List[str] = [f"flowchart {direction}"]
+    node_ids: List[str] = []
+    classes: Dict[str, List[str]] = {
+        "required": [],
+        "optional": [],
+        "assumed": [],
+    }
+
+    for step in steps:
+        slug = str(step.get("page_slug", "")).strip()
+        node_id = _safe_id(f"step_{step.get('order')}_{slug}", used_ids)
+        node_ids.append(node_id)
+        role = str(step.get("role", "")).replace("_", " ")
+        requirement = str(step.get("requirement", "required"))
+        label = f"{step.get('order')}. {slug}\\n{role}".replace('"', "'")
+        lines.append(f'    {node_id}["{label}"]')
+        classes.setdefault(requirement, []).append(node_id)
+
+    for source, target in zip(node_ids, node_ids[1:]):
+        lines.append(f"    {source} --> {target}")
+
+    lines.append("")
+    lines.append(
+        "    classDef required fill:#b6e7a7,stroke:#2d6a4f,color:#111,stroke-width:1px;"
+    )
+    lines.append(
+        "    classDef optional fill:#d8e8ff,stroke:#3267a8,color:#111,stroke-width:1px;"
+    )
+    lines.append(
+        "    classDef assumed fill:#ffe8a3,stroke:#946200,color:#111,stroke-width:1px;"
+    )
+    for requirement in ["required", "optional", "assumed"]:
+        if classes.get(requirement):
+            lines.append(
+                f"    class {','.join(classes[requirement])} {requirement};"
+            )
+
+    return "\n".join(lines) + "\n"
+
+
+def write_pathway_graphs(payload: dict, output_dir: Path, direction: str) -> List[Path]:
+    pathways_dir = output_dir / "pathways"
+    pathways_dir.mkdir(parents=True, exist_ok=True)
+    written: List[Path] = []
+    used_filenames: Set[str] = set()
+
+    for index, pathway in enumerate(payload.get("learning_pathways", []), start=1):
+        if not isinstance(pathway, dict):
+            continue
+        pathway_id = str(pathway.get("pathway_id", f"pathway-{index}"))
+        safe_name = re.sub(r"[^a-zA-Z0-9._-]+", "-", pathway_id).strip(".-")
+        if not safe_name:
+            safe_name = f"pathway-{index}"
+        original_name = safe_name
+        suffix = 2
+        while safe_name in used_filenames:
+            safe_name = f"{original_name}-{suffix}"
+            suffix += 1
+        used_filenames.add(safe_name)
+
+        title = str(pathway.get("title", pathway_id))
+        profile_id = str(pathway.get("profile_id", "unknown"))
+        rationale = str(pathway.get("pathway_rationale", ""))
+        mermaid = build_pathway_mermaid(pathway, direction)
+        markdown = (
+            f"# {title}\n\n"
+            f"- Pathway ID: `{pathway_id}`\n"
+            f"- Learner profile: `{profile_id}`\n\n"
+            f"{rationale}\n\n"
+            "## Legend\n\n"
+            "- Green: required learning step\n"
+            "- Blue: optional learning step\n"
+            "- Yellow: assumed prior knowledge\n\n"
+            "```mermaid\n"
+            f"{mermaid}"
+            "```\n"
+        )
+        output_file = pathways_dir / f"{safe_name}.md"
+        output_file.write_text(markdown, encoding="utf-8")
+        written.append(output_file)
+
+    return written
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Generate dependency graph markdown as Mermaid from proposed structure or metadata.",
@@ -331,9 +425,12 @@ def main() -> None:
     if args.source == "proposed_structure":
         if not args.proposed_file.exists():
             raise FileNotFoundError(f"Proposed structure file not found: {args.proposed_file}")
+        with args.proposed_file.open("r", encoding="utf-8-sig") as handle:
+            proposed_payload = json.load(handle)
         pages, proposed_missing = parse_proposed_structure(args.proposed_file)
         selected_mode = "proposed"
     else:
+        proposed_payload = None
         pages = parse_metadata_pages(args.metadata_root)
         proposed_missing = set()
         selected_mode = "metadata"
@@ -357,8 +454,17 @@ def main() -> None:
     output_markdown_file = args.output_dir / DEFAULT_GRAPH_MARKDOWN.name
     output_markdown_file.parent.mkdir(parents=True, exist_ok=True)
     write_markdown_wrapper(output_markdown_file, mermaid, selected_mode)
+    pathway_files: List[Path] = []
+    if proposed_payload is not None:
+        pathway_files = write_pathway_graphs(
+            proposed_payload,
+            args.output_dir,
+            args.direction,
+        )
 
     print(f"Generated dependency graph markdown: {output_markdown_file}")
+    for pathway_file in pathway_files:
+        print(f"Generated pathway graph markdown: {pathway_file}")
     print(f"Mode: {selected_mode}")
     print(f"Page count: {len(pages)}")
     print(f"Existing content file: {existing_content_file if existing_content_file else 'none found'}")

@@ -90,7 +90,9 @@ Review before approval:
 2. Page slugs and prerequisites make sense for your curriculum.
 3. status is used correctly (new vs missing prerequisites).
 4. `<output-dir>/dependency_graph.md` has no obvious circular dependencies.
-5. Proposed tags align with current tags, with any new tags clearly justified.
+5. Each learner profile has a pathway in `<output-dir>/pathways/` with prerequisites in valid order.
+6. Core mathematical definitions and conditions remain consistent across pathways.
+7. Proposed tags align with current tags, with any new tags clearly justified.
 
 ### Checkpoint 2: Page generation
 

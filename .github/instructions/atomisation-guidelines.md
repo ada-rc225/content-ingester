@@ -11,6 +11,19 @@ The atomisation strategy is guided by the following goals:
 
 ## Key Principles
 
+### Cross-disciplinary Mapping Principle
+
+When the same concept appears in multiple subject areas, the teaching approach should be adapted to the learner's disciplinary context rather than treated as one universal explanation. A topic can be conceptually similar while still requiring very different mathematical, computational, or methodological prerequisites. For example, in finance, learners from business management and quantitative finance may need very different foundational support, even though they are studying the same broad domain.
+
+This principle should be applied in a more explicit and operational way when the user specifies a learner discipline. In this case, the generator should produce a discipline-aware teaching pathway rather than a single generic explanation. The full operational guidance is available in `.github/instructions/discipline-aware-teaching-guidelines.md`.
+
+To apply this principle:
+* Identify the disciplinary context explicitly before drafting the page (for example: finance-business, finance-quant, physics, engineering, computer science, biology).
+* Adapt the depth of explanation, examples, and technical assumptions to the expected background of that discipline.
+* Choose examples and case studies that are recognisable in that discipline rather than using one generic scenario.
+* Order the teaching sequence so that prerequisites match the discipline's expectations (for example, conceptual and managerial framing first for business-oriented audiences, mathematical foundations first for quantitative audiences).
+* When the same topic truly needs different pathways, create separate page variants or capture a discipline-specific adaptation note in the proposed structure instead of forcing one generic explanation.
+
 ### Explicit vs. Implicit Prerequisites
 
 When creating pages, distinguish between:
@@ -33,7 +46,71 @@ To achieve these goals, the following atomisation strategy is recommended:
 
 ### Single Learning Objective per Page
 * Each content page should be focused on a single learning objective. This means that the content should be structured in such a way that it is clear what the learning objective is and that all content on the page is directly related to that objective. If there are multiple learning objectives, they should be broken down into separate pages.
+* "One learning objective per page" does not mean "one learning objective per input file". A source file may contain many independently teachable objectives. Identify those objectives before proposing any pages.
+* Do not compress a multi-topic lecture, chapter, notebook, PDF, or slide deck into a single overview page merely because the user requested one disciplinary pathway. Atomisation and disciplinary adaptation are separate decisions: first identify the learning units, then adapt their order and presentation for the target audience.
 * Content will often follow an escalating structure, starting with a high-level overview and then breaking down into more detailed components. For example, a series of pages relating to the neutron diffusion equation might start with qualitative description of the equation (requiring only minimal physics as prerequisites). The next page might introduce the mathematical form of the equation and the meaning of each term (requiring some mathematical prerequisites and more complex physics prerequisites). A further page might introduce the derivation of the equation (requiring more complex mathematical and physics prerequisites). This structure allows a learner who only needs a qualitative understanding to get it without having to navigate through more complex content.
+
+### Mandatory Source-content Analysis
+
+Before deciding how many pages to create, analyse every source file section by section.
+
+1. Inventory the source headings, notebook sections, slide groups, exercises, examples, proofs, and other meaningful blocks.
+2. For each block, identify:
+   - the concepts introduced or practised;
+   - one candidate learner-centred objective using an observable verb;
+   - the knowledge a learner must already have;
+   - whether the block is foundational, explanatory, applied, proof-based, exercise-based, or an extension;
+   - which split signals below apply.
+3. Compare the candidate units and decide whether each should become a page, be merged with another unit, become a prerequisite or related page, or be omitted with an explicit reason.
+4. Only after this analysis, construct the final page list and dependency order.
+
+Do not infer the number of pages from the number of source files or from the user's requested number of disciplines.
+
+### Explicit Split-decision Rules
+
+Create separate pages when **any strong split signal** applies:
+
+* The source block has a learning objective that can be taught or assessed independently.
+* It introduces a new method, algorithm, theorem, proof, implementation, exercise, or application with a purpose distinct from the preceding material.
+* It requires additional prerequisites that the preceding material does not require.
+* It changes the expected level of treatment, for example from intuition to derivation, from use to convergence proof, or from deterministic to stochastic methods.
+* It is reusable in another learning path without the surrounding source material.
+* It is an optional extension, advanced topic, worked example, exercise, or sample solution rather than a necessary part of the current objective.
+* Keeping it on the same page would require two or more independently assessable verbs, such as "explain gradient descent **and** prove its convergence", or "apply SGD **and** compare adaptive optimisers".
+
+The following are **supporting split signals**. Two or more normally indicate a split:
+
+* The source introduces a new major heading or a substantial group of slides/notebook cells.
+* The terminology, representation, or domain task changes substantially.
+* The combined page would need a compound title joined by "and", "&", a slash, or a long list.
+* The estimated study time would exceed 15 minutes for explanatory content.
+* A learner might reasonably need the first part but not the second.
+
+Combine units only when all of the following are true:
+
+* They contribute to the same single assessable learning objective.
+* Neither unit is independently useful or assessable at the intended depth.
+* They require substantially the same prerequisites.
+* Combining them does not hide a change in level, method, or disciplinary task.
+* The combined scope remains suitable for a short atomic page.
+
+Source headings are evidence, not automatic page boundaries. A heading may be merged when it only supports the same objective, while one source section may be split when it contains multiple independent objectives.
+
+### Split-decision Test
+
+For every proposed page, complete this sentence:
+
+> After this page, the learner can **[one observable action]**.
+
+Then apply these tests:
+
+1. **Independent assessment test:** Could part of the page be assessed without assessing the rest? If yes, split.
+2. **Prerequisite test:** Does one part need additional prior knowledge? If yes, split.
+3. **Reuse test:** Would one part be useful in another pathway on its own? If yes, split.
+4. **Depth test:** Does the page move between introduction, application, derivation, proof, or extension? Usually split.
+5. **Removal test:** Could one part be removed while the other still meets its objective? If yes, split or make it related content.
+
+If the decision remains uncertain, default to separate pages and record the uncertainty for human review.
 
 ### Granularity: When to Split vs. Combine
 * **Default to splitting**: When in doubt, create separate pages rather than combining content. It is easier for users to access multiple related pages than to navigate past irrelevant content within a single page. This is especially true for:
