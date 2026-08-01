@@ -1,0 +1,4 @@
+interface:
+  display_name: "Discipline-aware Teaching Adaptation"
+  short_description: "Replan grounded teaching material for a learner profile"
+  default_prompt: "Use $discipline-aware-teaching-adaptation to adapt the supplied authoritative teaching material for the specified learner profile while preserving mathematical and algorithmic correctness."

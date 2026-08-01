@@ -1,0 +1,124 @@
+{
+  "profile_id": "mechanical-engineering-year-2",
+  "source_files": [
+    "inputs/content-to-ingest/gradient_descent_and_optimization.md"
+  ],
+  "records": [
+    {
+      "record_id": "r1",
+      "source_locator": "Section 1 Introduction & Problem Formulation",
+      "core_item": "Optimization problem min_{x in R^d} f(x)",
+      "transformation": "preserved",
+      "preservation_status": "exact",
+      "destination": "Chapter 1",
+      "reason": "Retained the canonical unconstrained minimization formulation as potential energy minimization."
+    },
+    {
+      "record_id": "r2",
+      "source_locator": "Section 1 Introduction & Problem Formulation",
+      "core_item": "First-order necessary condition \nabla f(x^*) = 0",
+      "transformation": "discipline_bridge",
+      "preservation_status": "exact",
+      "destination": "Chapter 1",
+      "reason": "Mapped the stationary condition to mechanical force balance at equilibrium."
+    },
+    {
+      "record_id": "r3",
+      "source_locator": "Section 2.1 L-Smoothness",
+      "core_item": "L-smoothness definition and descent lemma",
+      "transformation": "reordered",
+      "preservation_status": "exact",
+      "destination": "Chapter 3",
+      "reason": "Introduced after the mechanical framing to explain stability of energy decrease."
+    },
+    {
+      "record_id": "r4",
+      "source_locator": "Section 2.2 Convexity and μ-Strong Convexity",
+      "core_item": "Convexity and strong convexity definitions",
+      "transformation": "preserved",
+      "preservation_status": "exact",
+      "destination": "Chapter 4",
+      "reason": "Kept the definitions and used them for describing stable energy wells."
+    },
+    {
+      "record_id": "r5",
+      "source_locator": "Section 3.1 Algorithm Definition",
+      "core_item": "Gradient Descent update x_{k+1} = x_k - α_k ∇f(x_k)",
+      "transformation": "preserved",
+      "preservation_status": "exact",
+      "destination": "Chapter 2",
+      "reason": "Preserved the core iterative method as numerical relaxation."
+    },
+    {
+      "record_id": "r6",
+      "source_locator": "Section 3.2 Step-Size Selection Rules",
+      "core_item": "Step-size choices: constant, exact line search, backtracking",
+      "transformation": "preserved",
+      "preservation_status": "meaning_preserved",
+      "destination": "Chapter 2",
+      "reason": "Retained the rules with mechanical stability analogies."
+    },
+    {
+      "record_id": "r7",
+      "source_locator": "Section 3.3 Convergence Analysis for L-Smooth Convex Functions",
+      "core_item": "O(1/k) convergence bound for convex L-smooth functions",
+      "transformation": "preserved",
+      "preservation_status": "exact",
+      "destination": "Chapter 3",
+      "reason": "Preserved the main result and the interpretation in terms of energy decrease."
+    },
+    {
+      "record_id": "r8",
+      "source_locator": "Section 3.4 Convergence Analysis for μ-Strongly Convex Functions",
+      "core_item": "Linear convergence for strongly convex functions and condition number κ = L/μ",
+      "transformation": "preserved",
+      "preservation_status": "exact",
+      "destination": "Chapter 4",
+      "reason": "Kept the strong convexity convergence statements for stiff mechanical systems."
+    },
+    {
+      "record_id": "r9",
+      "source_locator": "Section 4.1 Polyak's Heavy-Ball Method",
+      "core_item": "Heavy-ball momentum update",
+      "transformation": "preserved",
+      "preservation_status": "exact",
+      "destination": "Chapter 5",
+      "reason": "Retained the momentum extension with a damped relaxation interpretation."
+    },
+    {
+      "record_id": "r10",
+      "source_locator": "Section 4.2 Nesterov's Accelerated Gradient (NAG)",
+      "core_item": "Nesterov look-ahead update and optimal rate O(1/k^2)",
+      "transformation": "preserved",
+      "preservation_status": "exact",
+      "destination": "Chapter 5",
+      "reason": "Included the accelerated gradient formulation as an advanced method."
+    },
+    {
+      "record_id": "r11",
+      "source_locator": "Section 5 Stochastic Gradient Optimization",
+      "core_item": "SGD update and Robbins-Monro conditions",
+      "transformation": "summarised",
+      "preservation_status": "meaning_preserved",
+      "destination": "Chapter 6",
+      "reason": "Summarised advanced stochastic and adaptive methods for context while keeping the lesson focused on deterministic energy minimization."
+    },
+    {
+      "record_id": "r12",
+      "source_locator": "Section 6 Second-Order Methods",
+      "core_item": "Newton's method and quasi-Newton BFGS overview",
+      "transformation": "preserved",
+      "preservation_status": "exact",
+      "destination": "Chapter 6",
+      "reason": "Retained second-order method statements to show the broader numerical landscape."
+    }
+  ],
+  "source_issues": [
+    {
+      "source_locator": "Section 5.1 Stochastic Gradient Descent (SGD)",
+      "issue": "The source contains duplicated and partially truncated SGD text, including repeated formulas and broken LaTeX formatting.",
+      "impact": "The meaning of the stochastic gradient section is still recoverable, but the duplicated text is a source artifact.",
+      "status": "interpretation_recorded"
+    }
+  ]
+}
