@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Generated Claim Ledger",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["generated_claims"],
+  "properties": {
+    "generated_claims": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["generated_claim_id", "anchor", "claim_type", "generated_content", "support_class", "source_claim_ids", "verification_status", "verification_evidence"],
+        "properties": {
+          "generated_claim_id": {"type": "string", "pattern": "^GEN-[A-Za-z0-9._-]+$"},
+          "anchor": {"type": "string", "pattern": "^claim-GEN-[A-Za-z0-9._-]+$"},
+          "claim_type": {"type": "string", "enum": ["definition", "equation", "assumption", "theorem", "algorithm_step", "convergence_result", "code_semantics", "example", "exercise", "domain_claim", "implementation_claim"]},
+          "generated_content": {"type": "string", "minLength": 1},
+          "support_class": {"type": "string", "enum": ["directly_supported", "derived_from_source", "pedagogical_adaptation", "domain_bridge", "implementation_bridge", "unsupported", "contradicted"]},
+          "source_claim_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^SRC-[A-Za-z0-9._-]+$"}},
+          "verification_status": {"type": "string", "enum": ["unverified", "mechanically_matched", "symbolically_equivalent", "execution_verified", "expert_verified", "failed"]},
+          "verification_evidence": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}

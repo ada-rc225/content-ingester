@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Source Claims",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["claims"],
+  "properties": {
+    "claims": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["source_claim_id", "source_id", "locator", "claim_type", "canonical_content", "conditions", "importance", "coverage_decision", "destination", "decision_reason"],
+        "properties": {
+          "source_claim_id": {"type": "string", "pattern": "^SRC-[A-Za-z0-9._-]+$"},
+          "source_id": {"type": "string", "minLength": 1},
+          "locator": {
+            "type": "object", "additionalProperties": false,
+            "required": ["type", "value"],
+            "properties": {
+              "type": {"type": "string", "enum": ["heading", "line", "cell", "page", "slide", "section", "other"]},
+              "value": {"type": "string", "minLength": 1}
+            }
+          },
+          "claim_type": {"$ref": "#/$defs/claim_type"},
+          "canonical_content": {"type": "string", "minLength": 1},
+          "conditions": {"type": "array", "items": {"type": "string"}},
+          "importance": {"type": "string", "enum": ["core", "supporting"]},
+          "coverage_decision": {"type": "string", "enum": ["retained", "reordered", "summarised", "deferred", "omitted"]},
+          "destination": {"type": "string"},
+          "decision_reason": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "claim_type": {"type": "string", "enum": ["definition", "equation", "assumption", "theorem", "algorithm_step", "convergence_result", "code_semantics", "example", "exercise"]}
+  }
+}

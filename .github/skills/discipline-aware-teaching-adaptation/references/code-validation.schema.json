@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Generated Code Validation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["content_file", "overall_status", "blocks"],
+  "properties": {
+    "content_file": {"type": "string", "minLength": 1},
+    "overall_status": {"type": "string", "enum": ["passed", "failed", "no_code"]},
+    "blocks": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["block_id", "anchor", "language", "code_sha256", "execution_status", "stdout", "stderr", "return_code", "duration_ms"],
+        "properties": {
+          "block_id": {"type": "string", "pattern": "^CODE-[0-9]{3,}$"},
+          "anchor": {"type": ["string", "null"]},
+          "language": {"const": "python"},
+          "code_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "execution_status": {"type": "string", "enum": ["passed", "failed", "timeout"]},
+          "stdout": {"type": "string"},
+          "stderr": {"type": "string"},
+          "return_code": {"type": ["integer", "null"]},
+          "duration_ms": {"type": "integer", "minimum": 0}
+        }
+      }
+    }
+  }
+}

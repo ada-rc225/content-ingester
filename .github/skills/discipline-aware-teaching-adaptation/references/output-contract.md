@@ -1,60 +1,40 @@
 # Output contract
 
-## Directory
+## Required run directory
 
 ```text
-<adapter-output-dir>/<topic>/<profile-id>/
+<run-dir>/
+├── run_manifest.json
+├── source_manifest.json
 ├── learner_profile.json
+├── source_claims.json
 ├── adaptation_plan.json
 ├── adapted_content.md
+├── claim_ledger.json
 ├── provenance.json
-├── adaptation_summary.md
-└── resources/
+├── code_validation.json
+├── validation_report.json
+└── adaptation_summary.md
 ```
 
-Create `resources/` only when the adapted lesson needs source-derived assets or data.
+Create `resources/` only for required source-derived assets or data. Validate each JSON artifact against its same-named schema where present.
 
-## learner_profile.json
+## Evidence roles
 
-Validate against `learner-profile.schema.json`.
+- `run_manifest.json`: records the experimental condition and generation configuration.
+- `source_manifest.json`: freezes source identity with SHA-256 hashes.
+- `learner_profile.json`: records the actual adaptation target and inferred assumptions.
+- `source_claims.json`: enumerates authoritative claims, conditions, locators, and coverage decisions before generation.
+- `adaptation_plan.json`: records pedagogical design before prose generation.
+- `adapted_content.md`: contains one coherent lesson and machine-readable `<!-- claim-GEN-* -->` anchors.
+- `claim_ledger.json`: classifies every generated claim and its evidence status.
+- `provenance.json`: maps generated claims and anchors back to source claims.
+- `code_validation.json`: records actual Python-block execution results.
+- `validation_report.json`: records deterministic treatment-integrity checks; it never certifies content correctness.
+- `adaptation_summary.md`: gives a human-readable internal review, not the formal RQ1 score.
 
-It records the actual adaptation target, including inferred assumptions. Do not rely only on the chat prompt because the artifact must be reproducible.
+## Cross-file invariants
 
-## adaptation_plan.json
+Use unique IDs. Every `source_id` must exist in `source_manifest.json`; every `SRC-*` reference must exist in `source_claims.json`; every `GEN-*` reference must exist in `claim_ledger.json`; every generated claim must have exactly one provenance record and one content anchor. Cover every non-deferred and non-omitted source claim through provenance.
 
-Validate against `adaptation-plan.schema.json`.
-
-It records the teaching design before prose generation:
-
-- entry point;
-- chapter sequence;
-- bridges;
-- depth;
-- implementation;
-- assessment;
-- source coverage decisions.
-
-## adapted_content.md
-
-Write one coherent lesson. Chapters are allowed and expected. Do not create platform page boundaries, slugs, metadata, prerequisite lists, or publication instructions.
-
-Use standard Markdown. Preserve mathematical notation faithfully. Reference local resources with relative paths.
-
-## provenance.json
-
-Validate against `provenance.schema.json`.
-
-Each record must connect a source locator to an adapted destination or record why it was deferred or omitted.
-
-## adaptation_summary.md
-
-Include:
-
-- target profile;
-- major structural changes;
-- mathematical invariants checked;
-- added disciplinary and implementation bridges;
-- deferred or omitted material;
-- assumptions requiring review;
-- source defects;
-- final rubric findings.
+For reproducibility, do not rely on the chat prompt as the sole record of learner profile, source version, model identity, or treatment condition.

@@ -2,131 +2,59 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Teaching Adaptation Plan",
   "type": "object",
-  "required": [
-    "topic",
-    "profile_id",
-    "source_files",
-    "entry_point",
-    "chapter_sequence",
-    "discipline_bridges",
-    "implementation_strategy",
-    "assessment_strategy",
-    "coverage_decisions"
-  ],
+  "additionalProperties": false,
+  "required": ["topic", "profile_id", "source_ids", "entry_point", "chapter_sequence", "discipline_bridges", "implementation_strategy", "assessment_strategy", "coverage_decisions"],
   "properties": {
-    "topic": {
-      "type": "string",
-      "minLength": 1
-    },
-    "profile_id": {
-      "type": "string",
-      "minLength": 1
-    },
-    "source_files": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "string"
-      },
-      "uniqueItems": true
-    },
+    "topic": {"type": "string", "minLength": 1},
+    "profile_id": {"type": "string", "minLength": 1},
+    "source_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
     "entry_point": {
-      "type": "object",
+      "type": "object", "additionalProperties": false,
       "required": ["core_concept", "discipline_context", "rationale"],
       "properties": {
-        "core_concept": {
-          "type": "string"
-        },
-        "discipline_context": {
-          "type": "string"
-        },
-        "rationale": {
-          "type": "string"
-        }
+        "core_concept": {"type": "string", "minLength": 1},
+        "discipline_context": {"type": "string", "minLength": 1},
+        "rationale": {"type": "string", "minLength": 1}
       }
     },
     "chapter_sequence": {
-      "type": "array",
-      "minItems": 1,
+      "type": "array", "minItems": 1,
       "items": {
-        "type": "object",
-        "required": ["order", "title", "purpose", "source_locators"],
+        "type": "object", "additionalProperties": false,
+        "required": ["order", "title", "purpose", "source_claim_ids"],
         "properties": {
-          "order": {
-            "type": "integer",
-            "minimum": 1
-          },
-          "title": {
-            "type": "string"
-          },
-          "purpose": {
-            "type": "string"
-          },
-          "source_locators": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
+          "order": {"type": "integer", "minimum": 1},
+          "title": {"type": "string", "minLength": 1},
+          "purpose": {"type": "string", "minLength": 1},
+          "source_claim_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^SRC-[A-Za-z0-9._-]+$"}}
         }
       }
     },
     "discipline_bridges": {
       "type": "array",
       "items": {
-        "type": "object",
-        "required": ["core_concept", "domain_mapping", "analogy_boundary"],
+        "type": "object", "additionalProperties": false,
+        "required": ["core_concept", "source_claim_ids", "domain_mapping", "analogy_boundary"],
         "properties": {
-          "core_concept": {
-            "type": "string"
-          },
-          "domain_mapping": {
-            "type": "string"
-          },
-          "analogy_boundary": {
-            "type": "string"
-          }
+          "core_concept": {"type": "string", "minLength": 1},
+          "source_claim_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^SRC-[A-Za-z0-9._-]+$"}},
+          "domain_mapping": {"type": "string", "minLength": 1},
+          "analogy_boundary": {"type": "string", "minLength": 1}
         }
       }
     },
-    "implementation_strategy": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "assessment_strategy": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
+    "implementation_strategy": {"type": "array", "items": {"type": "string"}},
+    "assessment_strategy": {"type": "array", "items": {"type": "string"}},
     "coverage_decisions": {
-      "type": "array",
-      "minItems": 1,
+      "type": "array", "minItems": 1,
       "items": {
-        "type": "object",
-        "required": ["source_locator", "decision", "destination", "reason"],
+        "type": "object", "additionalProperties": false,
+        "required": ["source_claim_id", "decision", "destination", "reason"],
         "properties": {
-          "source_locator": {
-            "type": "string"
-          },
-          "decision": {
-            "type": "string",
-            "enum": [
-              "retained",
-              "reordered",
-              "summarised",
-              "deferred",
-              "omitted"
-            ]
-          },
-          "destination": {
-            "type": "string"
-          },
-          "reason": {
-            "type": "string"
-          }
+          "source_claim_id": {"type": "string", "pattern": "^SRC-[A-Za-z0-9._-]+$"},
+          "decision": {"type": "string", "enum": ["retained", "reordered", "summarised", "deferred", "omitted"]},
+          "destination": {"type": "string"},
+          "reason": {"type": "string", "minLength": 1}
         }
       }
     }

@@ -1,0 +1,17 @@
+{
+  "content_file": "experiments/rq1/gradient-descent/mechanical-engineering-year-2/c2-structured-grounding/run-02/adapted_content.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "claim-GEN-011",
+      "language": "python",
+      "code_sha256": "4f913b347ffae17d63231d02334eabf08f7ddc961723494a441ae9e513907fa7",
+      "execution_status": "passed",
+      "stdout": "k=0, x=3.800, f(x)=3.240\nk=1, x=3.080, f(x)=1.166\nk=2, x=2.648, f(x)=0.420\nk=3, x=2.389, f(x)=0.151\nk=4, x=2.233, f(x)=0.054\nk=5, x=2.140, f(x)=0.020\nk=6, x=2.084, f(x)=0.007\nk=7, x=2.050, f(x)=0.003\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 0
+    }
+  ]
+}

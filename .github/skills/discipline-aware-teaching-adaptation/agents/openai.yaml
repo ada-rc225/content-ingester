@@ -1,4 +1,4 @@
 interface:
   display_name: "Discipline-aware Teaching Adaptation"
-  short_description: "Replan grounded teaching material for a learner profile"
-  default_prompt: "Use $discipline-aware-teaching-adaptation to adapt the supplied authoritative teaching material for the specified learner profile while preserving mathematical and algorithmic correctness."
+  short_description: "Adapt lessons with claim-level grounding evidence"
+  default_prompt: "Use $discipline-aware-teaching-adaptation to create a long-form adaptation for the specified learner profile, preserving source meaning and producing source fingerprints, claim-level provenance, code execution evidence, and a passing structured-grounding validation report."

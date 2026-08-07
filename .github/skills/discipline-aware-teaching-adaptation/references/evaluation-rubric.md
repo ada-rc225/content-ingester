@@ -1,48 +1,17 @@
-# Adaptation evaluation rubric
+# Internal adaptation review rubric
 
-Score each dimension from 1 to 5 and add concise evidence.
+This rubric is formative quality control for the generating Agent. It is not the formal RQ1 outcome instrument and must not be used as blinded ground truth.
 
-## Mathematical fidelity
+Score each dimension from 1 to 5 and cite claim IDs, anchors, or validation evidence:
 
-- 1: Core mathematics is changed or incorrect.
-- 3: Core content is broadly correct but conditions or notation are incomplete.
-- 5: Definitions, formulae, conditions, conclusions, and algorithm semantics are preserved.
+- source fidelity: definitions, equations, conditions, conclusions, and algorithm semantics remain source-consistent;
+- source traceability: substantive claims and coverage decisions have claim-level links;
+- learner-profile alignment: entry point, depth, implementation, and assessment match the recorded profile;
+- disciplinary authenticity: representations and tasks reflect credible disciplinary reasoning rather than noun substitution;
+- theory-to-implementation alignment: formulae, code operations, numerical behaviour, and checks are connected;
+- pedagogical coherence: progression and prerequisite bridges are defensible;
+- analogy safety: mappings have explicit limitations.
 
-## Source traceability
+Do not mark the artifact internally ready when `treatment_valid` is false, a core source issue is unresolved, a generated claim is contradicted, or a substantial analogy has no boundary.
 
-- 1: Core claims cannot be traced.
-- 3: Major sections are traced but important gaps remain.
-- 5: Every core item and coverage decision has a precise source locator.
-
-## Learner-profile alignment
-
-- 1: Assumes unsuitable knowledge or depth.
-- 3: Some choices match the profile.
-- 5: Entry point, explanations, depth, implementation, and assessment consistently match the profile.
-
-## Disciplinary authenticity
-
-- 1: Only discipline nouns are substituted.
-- 3: Examples are relevant but teaching logic remains generic.
-- 5: Representations, sequence, vocabulary, tasks, and limitations reflect credible disciplinary reasoning.
-
-## Theory-to-implementation alignment
-
-- 1: Mathematics and code are disconnected or inconsistent.
-- 3: Main steps correspond but important links are implicit.
-- 5: Formulae, algorithm steps, code operations, numerical behaviour, and verification are explicitly connected.
-
-## Pedagogical coherence
-
-- 1: Chapter order is confusing or assumes undeclared prerequisites.
-- 3: The lesson is usable but transitions or scaffolding are uneven.
-- 5: The lesson has a defensible progression with explicit bridges and appropriate exercises.
-
-## Acceptance rule
-
-Do not mark the adaptation ready if:
-
-- mathematical fidelity is below 4;
-- source traceability is below 4;
-- any core source issue remains unresolved;
-- the lesson contains an unbounded misleading analogy.
+Record source consistency and independent correctness separately. A high internal score cannot establish reduced drift or errors; compare C0, C1, and C2 using an independent evaluator, common item definitions, blinded ordering, and repeated runs.

@@ -2,104 +2,49 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Teaching Adaptation Provenance",
   "type": "object",
-  "required": [
-    "profile_id",
-    "source_files",
-    "records",
-    "source_issues"
-  ],
+  "additionalProperties": false,
+  "required": ["profile_id", "source_ids", "records", "source_issues"],
   "properties": {
-    "profile_id": {
-      "type": "string",
-      "minLength": 1
-    },
-    "source_files": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "string"
-      },
-      "uniqueItems": true
+    "profile_id": {"type": "string", "minLength": 1},
+    "source_ids": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
     },
     "records": {
-      "type": "array",
-      "minItems": 1,
+      "type": "array", "minItems": 1,
       "items": {
-        "type": "object",
-        "required": [
-          "record_id",
-          "source_locator",
-          "core_item",
-          "transformation",
-          "preservation_status",
-          "destination"
-        ],
+        "type": "object", "additionalProperties": false,
+        "required": ["provenance_id", "generated_claim_id", "source_claim_ids", "transformation", "destination_anchor", "preservation_claim", "reason"],
         "properties": {
-          "record_id": {
-            "type": "string",
-            "minLength": 1
-          },
-          "source_locator": {
-            "type": "string",
-            "minLength": 1
-          },
-          "core_item": {
-            "type": "string",
-            "minLength": 1
+          "provenance_id": {"type": "string", "pattern": "^PRV-[A-Za-z0-9._-]+$"},
+          "generated_claim_id": {"type": "string", "pattern": "^GEN-[A-Za-z0-9._-]+$"},
+          "source_claim_ids": {
+            "type": "array", "uniqueItems": true,
+            "items": {"type": "string", "pattern": "^SRC-[A-Za-z0-9._-]+$"}
           },
           "transformation": {
             "type": "string",
-            "enum": [
-              "preserved",
-              "reordered",
-              "summarised",
-              "discipline_bridge",
-              "implementation_bridge",
-              "deferred",
-              "omitted"
-            ]
+            "enum": ["preserved", "reordered", "summarised", "discipline_bridge", "implementation_bridge", "derived_explanation"]
           },
-          "preservation_status": {
+          "destination_anchor": {"type": "string", "pattern": "^claim-GEN-[A-Za-z0-9._-]+$"},
+          "preservation_claim": {
             "type": "string",
-            "enum": [
-              "exact",
-              "notation_normalised",
-              "meaning_preserved",
-              "not_included"
-            ]
+            "enum": ["claimed_exact", "notation_normalised", "meaning_preserved", "not_applicable"]
           },
-          "destination": {
-            "type": "string"
-          },
-          "reason": {
-            "type": "string"
-          }
+          "reason": {"type": "string", "minLength": 1}
         }
       }
     },
     "source_issues": {
       "type": "array",
       "items": {
-        "type": "object",
-        "required": ["source_locator", "issue", "impact", "status"],
+        "type": "object", "additionalProperties": false,
+        "required": ["source_claim_id", "issue", "impact", "status"],
         "properties": {
-          "source_locator": {
-            "type": "string"
-          },
-          "issue": {
-            "type": "string"
-          },
-          "impact": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "review_required",
-              "interpretation_recorded",
-              "not_blocking"
-            ]
-          }
+          "source_claim_id": {"type": "string", "pattern": "^SRC-[A-Za-z0-9._-]+$"},
+          "issue": {"type": "string", "minLength": 1},
+          "impact": {"type": "string", "minLength": 1},
+          "status": {"type": "string", "enum": ["review_required", "interpretation_recorded", "not_blocking"]}
         }
       }
     }

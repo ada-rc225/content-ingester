@@ -1,77 +1,40 @@
 # Grounding and adaptation rules
 
-## Authority hierarchy
+## Authority and claims
 
-1. Supplied institutional teaching material
-2. User-provided learner profile and teaching requirements
-3. Explicitly identified supplementary material
-4. Model-generated pedagogical bridges
+Use this hierarchy: supplied teaching material; user-specified learner requirements; explicitly identified supplementary sources; model-generated bridges. Never let a lower level silently override a higher level.
 
-Never use a lower level to silently override a higher level.
+Grounding means that a generated claim has a recorded evidence relationship. It does not mean the supplied source is universally correct. Report these separately:
 
-## Mathematical invariants
+- `source_consistent`: meaning is supported by the supplied source;
+- `mathematically_verified`: equivalence or correctness was checked by an independent mechanism or evaluator.
 
-Preserve:
+Never turn an LLM's self-assessment into `expert_verified`, `symbolically_equivalent`, or `execution_verified` evidence.
 
-- definitions and notation;
-- formulae;
-- theorem assumptions and conclusions;
-- algorithm update rules;
-- convergence conditions;
-- logical dependencies;
-- mathematical meaning of code.
+## Invariants
 
-If notation is normalised, record the old and new notation in provenance.
+Preserve definitions, notation, equations, theorem assumptions and conclusions, update rules, convergence conditions, logical dependencies, and code semantics. Record notation normalisation explicitly.
 
-## Adaptable dimensions
+## Support classes
 
-Adapt:
+- `directly_supported`: restates one or more source claims.
+- `derived_from_source`: follows from cited source claims; state the derivation.
+- `pedagogical_adaptation`: added explanation or scaffold.
+- `domain_bridge`: added disciplinary mapping with an explicit boundary.
+- `implementation_bridge`: added theory-to-code connection.
+- `unsupported`: lacks sufficient source support.
+- `contradicted`: conflicts with the supplied source.
 
-- entry point;
-- chapter order;
-- vocabulary;
-- examples and applications;
-- prerequisite refreshers;
-- derivation and proof depth;
-- code language and implementation emphasis;
-- visual explanations;
-- exercises and assessment context.
+Added content is allowed, but its status must remain visible. A citation to a related source claim does not automatically make a new domain fact supported.
 
-An adaptation must change teaching logic where the profile requires it, not merely replace nouns.
+## Adaptation
 
-## Domain bridges
+Adapt entry point, chapter order, vocabulary, examples, prerequisite refreshers, proof depth, implementation emphasis, visuals, and assessment. Change teaching logic where the learner profile requires it; do not merely replace nouns.
 
-Use a domain bridge only when the mapping is mathematically defensible.
+For every substantial analogy, identify the core concept, give the familiar representation, return to canonical mathematics, and state where the analogy stops being exact.
 
-For every substantial analogy:
+## Coverage and defects
 
-1. identify the core mathematical concept;
-2. explain the familiar domain representation;
-3. state the canonical mathematical form;
-4. state where the analogy stops being exact.
+Classify each meaningful source item as retained, reordered, summarised, deferred, or omitted. Give a scope- or profile-based reason for deferral and omission.
 
-## Coverage decisions
-
-Classify every meaningful source section as:
-
-- retained;
-- reordered;
-- summarised;
-- deferred;
-- omitted.
-
-Do not silently omit source content. Deferral and omission require profile-based or scope-based reasons.
-
-## Source defects
-
-When the source appears malformed or incorrect:
-
-- quote only the minimal locator and description needed to identify the issue;
-- mark it as `source_issue`;
-- do not silently correct the authoritative record;
-- provide a clearly labelled proposed interpretation only when needed to continue;
-- request review if the defect affects a core result.
-
-## Added content
-
-Added examples, explanations, code, and exercises must be labelled as adaptations in provenance. Do not attribute them to the institutional source.
+When a source appears malformed or incorrect, preserve the locator, mark the issue, avoid silent correction, label any proposed interpretation, and request review when it affects a core result.

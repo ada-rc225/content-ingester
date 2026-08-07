@@ -1,0 +1,57 @@
+{
+  "run_id": "gradient-descent-mechanical-engineering-year-2-run-02",
+  "generated_at": "2026-08-07T15:29:54.363992+00:00",
+  "schema_checks": [
+    {
+      "artifact": "run_manifest.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "source_manifest.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "learner_profile.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "adaptation_plan.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "source_claims.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "claim_ledger.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "provenance.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "code_validation.json",
+      "status": "passed",
+      "errors": []
+    }
+  ],
+  "source_hashes_valid": true,
+  "claim_anchors_valid": true,
+  "source_coverage_complete": true,
+  "provenance_complete": true,
+  "code_execution_passed": true,
+  "treatment_valid": true,
+  "content_correctness_verified": false,
+  "errors": [],
+  "warnings": [
+    "This report verifies treatment integrity and mechanical checks, not mathematical correctness; use an independent evaluator for RQ1 outcomes."
+  ]
+}

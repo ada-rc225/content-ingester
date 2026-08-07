@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Structured Grounding Validation Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run_id", "generated_at", "schema_checks", "source_hashes_valid", "claim_anchors_valid", "source_coverage_complete", "provenance_complete", "code_execution_passed", "treatment_valid", "content_correctness_verified", "errors", "warnings"],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "schema_checks": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["artifact", "status", "errors"],
+        "properties": {
+          "artifact": {"type": "string"},
+          "status": {"type": "string", "enum": ["passed", "failed"]},
+          "errors": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "source_hashes_valid": {"type": "boolean"},
+    "claim_anchors_valid": {"type": "boolean"},
+    "source_coverage_complete": {"type": "boolean"},
+    "provenance_complete": {"type": "boolean"},
+    "code_execution_passed": {"type": "boolean"},
+    "treatment_valid": {"type": "boolean"},
+    "content_correctness_verified": {"const": false},
+    "errors": {"type": "array", "items": {"type": "string"}},
+    "warnings": {"type": "array", "items": {"type": "string"}}
+  }
+}
