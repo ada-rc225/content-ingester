@@ -1,0 +1,13 @@
+{
+  "hash_algorithm": "sha256",
+  "sources": [
+    {
+      "source_id": "newtons-method-for-nonlinear-equations",
+      "path": "inputs/content-to-ingest/newtons_method_for_nonlinear_equations.md",
+      "format": "markdown",
+      "sha256": "1b73f998ba639bf68e448a31dbb924532ec6ce0982cd9bd796dce1072b833d3e",
+      "size_bytes": 9208,
+      "role": "authoritative"
+    }
+  ]
+}

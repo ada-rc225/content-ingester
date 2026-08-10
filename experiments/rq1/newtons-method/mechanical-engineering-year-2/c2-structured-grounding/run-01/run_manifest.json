@@ -1,0 +1,22 @@
+{
+  "research_question": "RQ1",
+  "condition": "c2-structured-grounding",
+  "run_id": "newtons-method-mechanical-engineering-year-2-run-01",
+  "topic": "Newton's method for nonlinear spring equilibrium in second-year mechanical engineering",
+  "profile_id": "mechanical-engineering-year-2",
+  "provider": "GitHub Copilot",
+  "model": "MAI-Code-1-Flash",
+  "access_route": "workspace",
+  "prompt_version": "2.1",
+  "agent_version": "2.1",
+  "skill_version": "2.1",
+  "run_date": "2026-08-10T00:00:00Z",
+  "source_ids": [
+    "newtons-method-for-nonlinear-equations"
+  ],
+  "code_execution_required": true,
+  "notes": [
+    "Adapted a generic Newton's method lesson into a mechanical-engineering narrative around spring equilibrium and force balance.",
+    "Kept the source definitions, equations, convergence conditions, stopping criteria, damping rules, and failure boundaries intact."
+  ]
+}

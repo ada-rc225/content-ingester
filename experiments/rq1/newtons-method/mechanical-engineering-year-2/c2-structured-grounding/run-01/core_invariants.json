@@ -1,0 +1,92 @@
+{
+  "invariants": [
+    {
+      "invariant_id": "INV-001",
+      "source_id": "newtons-method-for-nonlinear-equations",
+      "locator": "root definition",
+      "type": "definition",
+      "statement": "A root r of a scalar equation satisfies g(r)=0.",
+      "conditions": [
+        "g is the force-balance residual",
+        "r is the displacement that balances the applied load"
+      ]
+    },
+    {
+      "invariant_id": "INV-002",
+      "source_id": "newtons-method-for-nonlinear-equations",
+      "locator": "Newton update from linearisation",
+      "type": "equation",
+      "statement": "Newton's method uses x_{k+1}=x_k-g(x_k)/g'(x_k), obtained by setting the tangent-line approximation to zero.",
+      "conditions": [
+        "g'(x_k) is non-zero",
+        "the tangent line is used as a local model"
+      ]
+    },
+    {
+      "invariant_id": "INV-003",
+      "source_id": "newtons-method-for-nonlinear-equations",
+      "locator": "simple-root condition",
+      "type": "assumption",
+      "statement": "A simple root satisfies g'(r) != 0, and the standard local convergence result applies there.",
+      "conditions": [
+        "r is a root",
+        "g is differentiable near r"
+      ]
+    },
+    {
+      "invariant_id": "INV-004",
+      "source_id": "newtons-method-for-nonlinear-equations",
+      "locator": "local quadratic convergence",
+      "type": "convergence_result",
+      "statement": "Near a simple root, Newton's method converges quadratically, so the error satisfies |e_{k+1}| <= C|e_k|^2 asymptotically.",
+      "conditions": [
+        "initial guess is sufficiently close to the root",
+        "g is twice continuously differentiable near the root"
+      ]
+    },
+    {
+      "invariant_id": "INV-005",
+      "source_id": "newtons-method-for-nonlinear-equations",
+      "locator": "stopping criteria",
+      "type": "algorithm_rule",
+      "statement": "A practical implementation checks both a step test and a residual test, and also imposes a maximum iteration count.",
+      "conditions": [
+        "step tolerance and residual tolerance are chosen",
+        "the iteration is not allowed to continue indefinitely"
+      ]
+    },
+    {
+      "invariant_id": "INV-006",
+      "source_id": "newtons-method-for-nonlinear-equations",
+      "locator": "derivative threshold",
+      "type": "algorithm_rule",
+      "statement": "If |g'(x_k)| is too small, the Newton step is undefined or excessively large, so the method should stop with a breakdown message.",
+      "conditions": [
+        "the derivative threshold is set",
+        "the current iterate is not near a valid step"
+      ]
+    },
+    {
+      "invariant_id": "INV-007",
+      "source_id": "newtons-method-for-nonlinear-equations",
+      "locator": "damped Newton update",
+      "type": "algorithm_rule",
+      "statement": "Damped Newton uses x_{k+1}=x_k-\u03b1_k g(x_k)/g'(x_k) with 0<\u03b1_k<=1 to reduce overly large steps.",
+      "conditions": [
+        "the initial step is too aggressive",
+        "a damping rule is selected"
+      ]
+    },
+    {
+      "invariant_id": "INV-008",
+      "source_id": "newtons-method-for-nonlinear-equations",
+      "locator": "failure boundaries",
+      "type": "assumption",
+      "statement": "Newton's method can fail for poor initial guesses, near-zero derivatives, multiple roots, domain restrictions, or cycles; damping improves robustness but does not guarantee global convergence.",
+      "conditions": [
+        "the current iterate is far from a useful local basin",
+        "the problem is not well behaved near the iterate"
+      ]
+    }
+  ]
+}

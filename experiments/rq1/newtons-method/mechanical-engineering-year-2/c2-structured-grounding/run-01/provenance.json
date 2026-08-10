@@ -1,0 +1,89 @@
+{
+  "profile_id": "mechanical-engineering-year-2",
+  "source_ids": [
+    "newtons-method-for-nonlinear-equations"
+  ],
+  "sections": [
+    {
+      "section_id": "SEC-01",
+      "invariant_ids": [
+        "INV-001"
+      ],
+      "adaptation_types": [
+        "discipline_bridge",
+        "preserved"
+      ],
+      "note": "Reframed the abstract root-finding problem as spring equilibrium and force balance for a mechanical engineering audience."
+    },
+    {
+      "section_id": "SEC-02",
+      "invariant_ids": [
+        "INV-002",
+        "INV-003"
+      ],
+      "adaptation_types": [
+        "preserved",
+        "implementation_bridge"
+      ],
+      "note": "Kept the tangent-line derivation and simple-root condition while linking them to a mechanical residual and its slope."
+    },
+    {
+      "section_id": "SEC-03",
+      "invariant_ids": [
+        "INV-003",
+        "INV-004"
+      ],
+      "adaptation_types": [
+        "preserved",
+        "pedagogical_scaffold"
+      ],
+      "note": "Retained the local convergence statement and clarified its meaning in the context of a physical spring response."
+    },
+    {
+      "section_id": "SEC-04",
+      "invariant_ids": [
+        "INV-005",
+        "INV-006"
+      ],
+      "adaptation_types": [
+        "preserved",
+        "pedagogical_scaffold"
+      ],
+      "note": "Kept the step and residual tests and added a short explanation of why both are useful in engineering calculations."
+    },
+    {
+      "section_id": "SEC-05",
+      "invariant_ids": [
+        "INV-007",
+        "INV-008"
+      ],
+      "adaptation_types": [
+        "preserved",
+        "discipline_bridge"
+      ],
+      "note": "Preserved the damping rule and failure boundaries while tying them to physically realistic spring responses and starting guesses."
+    },
+    {
+      "section_id": "SEC-06",
+      "invariant_ids": [
+        "INV-002",
+        "INV-005",
+        "INV-006",
+        "INV-007"
+      ],
+      "adaptation_types": [
+        "implementation_bridge",
+        "pedagogical_scaffold"
+      ],
+      "note": "Connected the mathematical rules to a compact Python implementation and exercises that reinforce the same logic."
+    }
+  ],
+  "source_issues": [
+    {
+      "source_id": "newtons-method-for-nonlinear-equations",
+      "locator": "source lesson",
+      "issue": "The source notes are general and do not include a mechanical engineering application, so the lesson uses a discipline bridge and a concrete spring example without changing the core mathematical content.",
+      "status": "interpretation_recorded"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "topic": "Power iteration for dominant vibration modes in second-year mechanical engineering",
+  "profile_id": "mechanical-engineering-year-2",
+  "source_ids": [
+    "eigenvalues-and-power-iteration"
+  ],
+  "entry_point": {
+    "discipline_context": "Mechanical engineers often need the dominant vibration mode of a structure to predict resonance and design safer systems.",
+    "rationale": "Starting from a simple mass-spring analogy makes eigenvalues and eigenvectors concrete before the numerical iteration is introduced.",
+    "analogy_boundary": "The structural vibration analogy is helpful for intuition, but the iteration itself is the same linear algebra method used for any square matrix."
+  },
+  "chapter_sequence": [
+    {
+      "section_id": "SEC-01",
+      "order": 1,
+      "title": "From vibration modes to eigenvalue problems",
+      "purpose": "Introduce eigenvalues and eigenvectors as the mathematical language of free vibration and modal analysis.",
+      "invariant_ids": [
+        "INV-001",
+        "INV-002"
+      ]
+    },
+    {
+      "section_id": "SEC-02",
+      "order": 2,
+      "title": "Why the dominant mode matters",
+      "purpose": "Explain the role of the largest-magnitude eigenvalue and the meaning of a dominant vibration mode.",
+      "invariant_ids": [
+        "INV-003"
+      ]
+    },
+    {
+      "section_id": "SEC-03",
+      "order": 3,
+      "title": "Power iteration as a repeated vibration update",
+      "purpose": "Present the update rule, normalisation, and the intuition behind repeated matrix-vector products.",
+      "invariant_ids": [
+        "INV-004"
+      ]
+    },
+    {
+      "section_id": "SEC-04",
+      "order": 4,
+      "title": "Estimating the modal frequency and checking the approximation",
+      "purpose": "Introduce the Rayleigh quotient and residual as practical measures of quality.",
+      "invariant_ids": [
+        "INV-005",
+        "INV-006"
+      ]
+    },
+    {
+      "section_id": "SEC-05",
+      "order": 5,
+      "title": "Python implementation and exercises",
+      "purpose": "Show a readable NumPy implementation and provide exercises that connect the mathematics to code and vibration interpretation.",
+      "invariant_ids": [
+        "INV-004",
+        "INV-005",
+        "INV-006",
+        "INV-007",
+        "INV-008"
+      ]
+    }
+  ],
+  "implementation_strategy": "Use a compact symmetric 2x2 matrix example and a short NumPy implementation so the code remains readable and directly connected to the vibration interpretation.",
+  "assessment_strategy": "Provide 6 exercises that test the definition of eigenpairs, the role of the dominant mode, the stopping criterion, and simple implementation choices."
+}

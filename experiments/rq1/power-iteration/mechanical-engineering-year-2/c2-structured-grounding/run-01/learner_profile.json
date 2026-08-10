@@ -1,0 +1,30 @@
+{
+  "profile_id": "mechanical-engineering-year-2",
+  "discipline": "Mechanical engineering",
+  "education_level": "Second-year undergraduate",
+  "prior_knowledge": [
+    "Vectors and matrices",
+    "Basic linear algebra",
+    "Basic Python"
+  ],
+  "computational_background": [
+    "Can write simple NumPy code",
+    "Understands loops and functions"
+  ],
+  "learning_goals": [
+    "Understand eigenvalues and eigenvectors in the context of vibration modes",
+    "See how power iteration finds the dominant vibration mode",
+    "Interpret the Rayleigh quotient and residual in a mechanical setting"
+  ],
+  "preferred_contexts": [
+    "Structural vibration",
+    "Modal analysis",
+    "Dominant mode identification"
+  ],
+  "target_depth": "Applied and conceptual",
+  "proof_depth": "Minimal formal proof",
+  "time_budget_minutes": 90,
+  "assumptions_requiring_review": [
+    "The learner may not have seen numerical eigenvalue algorithms before."
+  ]
+}

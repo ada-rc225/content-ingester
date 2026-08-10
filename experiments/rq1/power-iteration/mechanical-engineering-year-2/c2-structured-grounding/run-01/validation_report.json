@@ -1,0 +1,52 @@
+{
+  "run_id": "power-iteration-mechanical-engineering-year-2-run-01",
+  "generated_at": "2026-08-10T12:13:45.175624+00:00",
+  "schema_checks": [
+    {
+      "artifact": "run_manifest.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "source_manifest.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "learner_profile.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "core_invariants.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "adaptation_plan.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "provenance.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "code_validation.json",
+      "status": "passed",
+      "errors": []
+    }
+  ],
+  "source_hashes_valid": true,
+  "section_structure_valid": true,
+  "invariant_coverage_complete": true,
+  "provenance_complete": true,
+  "code_execution_passed": true,
+  "treatment_valid": true,
+  "content_correctness_verified": false,
+  "errors": [],
+  "warnings": [
+    "This report verifies compact C2 treatment integrity, not mathematical correctness; use an independent evaluator for RQ1 outcomes."
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "topic": "Newton's method for nonlinear spring equilibrium in second-year mechanical engineering",
+  "profile_id": "mechanical-engineering-year-2",
+  "source_ids": [
+    "newtons-method-for-nonlinear-equations"
+  ],
+  "entry_point": {
+    "discipline_context": "Mechanical engineers often use nonlinear force-displacement laws to model springs, linkages, and compliant structures.",
+    "rationale": "Starting from a spring equilibrium problem makes the root-finding target concrete before the Newton update is introduced.",
+    "analogy_boundary": "The spring analogy helps with intuition, but the numerical method is the same root-finding procedure used for any differentiable nonlinear equation."
+  },
+  "chapter_sequence": [
+    {
+      "section_id": "SEC-01",
+      "order": 1,
+      "title": "From a nonlinear spring to a root-finding problem",
+      "purpose": "Introduce equilibrium as a force-balance equation and define the root of interest.",
+      "invariant_ids": [
+        "INV-001"
+      ]
+    },
+    {
+      "section_id": "SEC-02",
+      "order": 2,
+      "title": "Deriving Newton's step from a tangent line",
+      "purpose": "Show how a local linear approximation produces the Newton iteration for the spring problem.",
+      "invariant_ids": [
+        "INV-002",
+        "INV-003"
+      ]
+    },
+    {
+      "section_id": "SEC-03",
+      "order": 3,
+      "title": "When the method is locally reliable",
+      "purpose": "State the simple-root condition and the local quadratic convergence result.",
+      "invariant_ids": [
+        "INV-003",
+        "INV-004"
+      ]
+    },
+    {
+      "section_id": "SEC-04",
+      "order": 4,
+      "title": "Stopping criteria and practical checks",
+      "purpose": "Explain step tests, residual tests, derivative thresholds, and iteration limits.",
+      "invariant_ids": [
+        "INV-005",
+        "INV-006"
+      ]
+    },
+    {
+      "section_id": "SEC-05",
+      "order": 5,
+      "title": "Why Newton can fail and how damping helps",
+      "purpose": "Explain the main failure boundaries and the purpose of damping.",
+      "invariant_ids": [
+        "INV-007",
+        "INV-008"
+      ]
+    },
+    {
+      "section_id": "SEC-06",
+      "order": 6,
+      "title": "Python implementation and exercises",
+      "purpose": "Connect the mathematics to a short Python implementation and provide exercises that reinforce the main ideas.",
+      "invariant_ids": [
+        "INV-002",
+        "INV-005",
+        "INV-006",
+        "INV-007"
+      ]
+    }
+  ],
+  "implementation_strategy": "Use one compact spring example and a short Python function so the code directly mirrors the force-balance residual and the Newton update.",
+  "assessment_strategy": "Provide six exercises that test derivation, interpretation, stopping criteria, damping choice, and simple implementation behaviour."
+}
