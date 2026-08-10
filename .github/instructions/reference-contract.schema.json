@@ -1,0 +1,653 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/reference-contract.schema.json",
+  "title": "Human-reviewable Grounding Reference Contract",
+  "description": "A source-faithful contract that separates institutional-source evidence from mathematical and algorithmic approval.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "contract_id",
+    "contract_version",
+    "topic",
+    "lifecycle_status",
+    "authority_policy",
+    "source_materials",
+    "contract_items",
+    "candidate_source_issues",
+    "approval"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "contract_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "contract_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "topic": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "lifecycle_status": {
+      "type": "string",
+      "enum": ["candidate", "frozen"]
+    },
+    "authority_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_of_truth",
+        "silent_correction_forbidden",
+        "conflict_handling"
+      ],
+      "properties": {
+        "source_of_truth": {
+          "const": "curated_institutional_material"
+        },
+        "silent_correction_forbidden": {
+          "const": true
+        },
+        "conflict_handling": {
+          "const": "flag_for_human_review"
+        }
+      }
+    },
+    "source_materials": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_id",
+          "path",
+          "format",
+          "sha256",
+          "role"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "markdown",
+              "notebook",
+              "pdf",
+              "pptx",
+              "code",
+              "text",
+              "other"
+            ]
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "role": {
+            "type": "string",
+            "enum": ["authoritative", "supplementary"]
+          }
+        }
+      },
+      "contains": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "const": "authoritative"
+          }
+        },
+        "required": ["role"]
+      }
+    },
+    "contract_items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/contractItem"
+      }
+    },
+    "candidate_source_issues": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/sourceIssue"
+      }
+    },
+    "approval": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/approval"
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "locator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["locator_type", "value"],
+      "properties": {
+        "locator_type": {
+          "type": "string",
+          "enum": [
+            "markdown_heading_lines",
+            "notebook_cell",
+            "pdf_page",
+            "pptx_slide",
+            "code_lines",
+            "text_lines",
+            "other"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "locator", "exact_excerpt"],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "locator": {
+          "$ref": "#/$defs/locator"
+        },
+        "exact_excerpt": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1600
+        }
+      }
+    },
+    "semanticCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["check_id", "check_type", "specification", "expected_result", "review_status"],
+      "properties": {
+        "check_id": {
+          "type": "string",
+          "pattern": "^CHK-[0-9]{3,}$"
+        },
+        "check_type": {
+          "type": "string",
+          "enum": [
+            "formula_equivalence",
+            "symbolic_property",
+            "numerical_example",
+            "algorithm_property",
+            "code_test",
+            "expert_review"
+          ]
+        },
+        "specification": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 800
+        },
+        "expected_result": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 800
+        },
+        "review_status": {
+          "type": "string",
+          "enum": ["proposed", "approved"]
+        }
+      }
+    },
+    "itemReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_fidelity",
+        "mathematical_status",
+        "algorithmic_status",
+        "decision",
+        "reviewer_notes"
+      ],
+      "properties": {
+        "source_fidelity": {
+          "type": "string",
+          "enum": ["unreviewed", "verified", "mismatch"]
+        },
+        "mathematical_status": {
+          "type": "string",
+          "enum": [
+            "unreviewed",
+            "verified_correct",
+            "source_issue",
+            "not_applicable"
+          ]
+        },
+        "algorithmic_status": {
+          "type": "string",
+          "enum": [
+            "unreviewed",
+            "verified_correct",
+            "source_issue",
+            "not_applicable"
+          ]
+        },
+        "decision": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "approved_as_written",
+            "approved_with_correction",
+            "excluded"
+          ]
+        },
+        "reviewer_notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 600
+          }
+        }
+      }
+    },
+    "contractItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "item_id",
+        "item_type",
+        "criticality",
+        "required_for_generation",
+        "evidence",
+        "canonical_statement",
+        "canonical_latex",
+        "conditions",
+        "prohibited_drift",
+        "semantic_checks",
+        "review"
+      ],
+      "properties": {
+        "item_id": {
+          "type": "string",
+          "pattern": "^RC-[0-9]{3,}$"
+        },
+        "item_type": {
+          "type": "string",
+          "enum": [
+            "definition",
+            "notation",
+            "equation",
+            "assumption",
+            "theorem",
+            "convergence_result",
+            "algorithm_rule",
+            "initialisation",
+            "stopping_condition",
+            "failure_condition",
+            "code_semantics",
+            "worked_result"
+          ]
+        },
+        "criticality": {
+          "type": "string",
+          "enum": ["critical", "required", "supporting"]
+        },
+        "required_for_generation": {
+          "type": "boolean"
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "canonical_statement": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1200
+        },
+        "canonical_latex": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 800
+          }
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          }
+        },
+        "prohibited_drift": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          }
+        },
+        "semantic_checks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/semanticCheck"
+          }
+        },
+        "review": {
+          "$ref": "#/$defs/itemReview"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "item_type": {
+                "const": "equation"
+              }
+            },
+            "required": ["item_type"]
+          },
+          "then": {
+            "properties": {
+              "canonical_latex": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "sourceIssue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "issue_id",
+        "issue_type",
+        "affected_item_ids",
+        "evidence",
+        "description",
+        "resolution",
+        "approved_generation_content"
+      ],
+      "properties": {
+        "issue_id": {
+          "type": "string",
+          "pattern": "^ISSUE-[0-9]{3,}$"
+        },
+        "issue_type": {
+          "type": "string",
+          "enum": [
+            "ambiguity",
+            "internal_conflict",
+            "missing_condition",
+            "suspected_mathematical_error",
+            "suspected_algorithmic_error",
+            "prose_code_mismatch",
+            "unsupported_claim",
+            "other"
+          ]
+        },
+        "affected_item_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^RC-[0-9]{3,}$"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1200
+        },
+        "resolution": {
+          "type": "string",
+          "enum": [
+            "pending_review",
+            "preserve_source",
+            "approved_correction",
+            "exclude_from_generation"
+          ]
+        },
+        "approved_generation_content": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["statement", "latex", "rationale"],
+              "properties": {
+                "statement": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1200
+                },
+                "latex": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 800
+                  }
+                },
+                "rationale": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1200
+                }
+              }
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "resolution": {
+                "const": "approved_correction"
+              }
+            },
+            "required": ["resolution"]
+          },
+          "then": {
+            "properties": {
+              "approved_generation_content": {
+                "type": "object"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "approved_generation_content": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reviewer_id",
+        "reviewer_role",
+        "reviewed_at",
+        "approval_statement",
+        "freeze_note"
+      ],
+      "properties": {
+        "reviewer_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "reviewer_role": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "reviewed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "approval_statement": {
+          "const": "I approve this contract as the frozen generation reference for the identified source version."
+        },
+        "freeze_note": {
+          "const": "Record the SHA-256 of this complete frozen contract outside this file before generation."
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "lifecycle_status": {
+            "const": "candidate"
+          }
+        },
+        "required": ["lifecycle_status"]
+      },
+      "then": {
+        "properties": {
+          "approval": {
+            "type": "null"
+          },
+          "contract_items": {
+            "items": {
+              "properties": {
+                "semantic_checks": {
+                  "items": {
+                    "properties": {
+                      "review_status": {
+                        "const": "proposed"
+                      }
+                    }
+                  }
+                },
+                "review": {
+                  "properties": {
+                    "source_fidelity": {
+                      "const": "unreviewed"
+                    },
+                    "mathematical_status": {
+                      "const": "unreviewed"
+                    },
+                    "algorithmic_status": {
+                      "const": "unreviewed"
+                    },
+                    "decision": {
+                      "const": "pending"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "candidate_source_issues": {
+            "items": {
+              "properties": {
+                "resolution": {
+                  "const": "pending_review"
+                },
+                "approved_generation_content": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "approval": {
+            "$ref": "#/$defs/approval"
+          },
+          "contract_items": {
+            "items": {
+              "properties": {
+                "semantic_checks": {
+                  "items": {
+                    "properties": {
+                      "review_status": {
+                        "const": "approved"
+                      }
+                    }
+                  }
+                },
+                "review": {
+                  "properties": {
+                    "source_fidelity": {
+                      "enum": ["verified", "mismatch"]
+                    },
+                    "mathematical_status": {
+                      "enum": ["verified_correct", "source_issue", "not_applicable"]
+                    },
+                    "algorithmic_status": {
+                      "enum": ["verified_correct", "source_issue", "not_applicable"]
+                    },
+                    "decision": {
+                      "enum": [
+                        "approved_as_written",
+                        "approved_with_correction",
+                        "excluded"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "candidate_source_issues": {
+            "items": {
+              "properties": {
+                "resolution": {
+                  "enum": [
+                    "preserve_source",
+                    "approved_correction",
+                    "exclude_from_generation"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
