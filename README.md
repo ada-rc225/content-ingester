@@ -143,6 +143,27 @@ Prompt:
 
 `Run validate-workflow for all cases in workflow-validation/.`
 
+## Grounded teaching-contract workflow
+
+The Grounding Contract Builder creates a candidate mathematical source of truth before discipline-aware adaptation. Exercises are excluded by default because they may be regenerated for each learner profile; definitions, assumptions, theorem statements, convergence bounds, and algorithm updates remain in scope.
+
+For a Markdown source, the pipeline produces four review artifacts:
+
+1. `source_manifest.json`: authoritative file identity and SHA-256.
+2. `grounding_inventory.json`: deterministic source units and exact formula blocks, classified as core material, derivation, or exercise.
+3. `contract_plan.json`: compact semantic item proposals containing source-unit and formula IDs.
+4. `reference_contract.json`: materialized evidence and source-exact LaTeX for human review.
+
+Build and validate them with:
+
+```bash
+python3 .github/scripts/build_grounding_inventory.py --workspace-root . --source <source.md> --source-id <source-id> --output <contract-dir>/grounding_inventory.json
+python3 .github/scripts/materialize_reference_contract.py --workspace-root . --plan <contract-dir>/contract_plan.json --inventory <contract-dir>/grounding_inventory.json --source-manifest <contract-dir>/source_manifest.json --output <contract-dir>/reference_contract.json
+python3 .github/scripts/validate_reference_contract.py --workspace-root . --contract <contract-dir>/reference_contract.json --source-manifest <contract-dir>/source_manifest.json --grounding-inventory <contract-dir>/grounding_inventory.json --report <contract-dir>/contract_validation_report.json
+```
+
+The deterministic validator requires every core formula to map to a contract item, preserves derivation formulas as reference-only, excludes exercise formulas from the denominator, and requires complete inventory source units rather than short evidence fragments. A passing report establishes provenance and coverage, not mathematical approval: an expert must still review the candidate before changing its lifecycle to `frozen`.
+
 ## Minimal Checklist
 
 1. Approve proposed_structure.json and dependency_graph.md.

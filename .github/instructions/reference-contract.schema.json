@@ -13,13 +13,15 @@
     "lifecycle_status",
     "authority_policy",
     "source_materials",
+    "grounding_inventory",
+    "coverage_scope",
     "contract_items",
     "candidate_source_issues",
     "approval"
   ],
   "properties": {
     "schema_version": {
-      "const": "1.0"
+      "const": "2.0"
     },
     "contract_id": {
       "type": "string",
@@ -36,7 +38,7 @@
     },
     "lifecycle_status": {
       "type": "string",
-      "enum": ["candidate", "frozen"]
+      "enum": ["candidate", "under_review", "frozen"]
     },
     "authority_policy": {
       "type": "object",
@@ -113,6 +115,63 @@
         "required": ["role"]
       }
     },
+    "grounding_inventory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "coverage_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "included_source_roles",
+        "excluded_source_roles",
+        "exercise_policy",
+        "reference_only_source_unit_ids",
+        "reference_only_formula_ids",
+        "core_formula_mapping_target"
+      ],
+      "properties": {
+        "included_source_roles": {
+          "const": ["core_material", "derivation"]
+        },
+        "excluded_source_roles": {
+          "const": ["exercise"]
+        },
+        "exercise_policy": {
+          "const": "excluded_by_default"
+        },
+        "reference_only_formula_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^FM-[0-9]{3,}$"
+          }
+        },
+        "reference_only_source_unit_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^SU-[0-9]{3,}$"
+          }
+        },
+        "core_formula_mapping_target": {
+          "const": 1.0
+        }
+      }
+    },
     "contract_items": {
       "type": "array",
       "minItems": 1,
@@ -165,11 +224,15 @@
     "evidence": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["source_id", "locator", "exact_excerpt"],
+      "required": ["source_id", "source_unit_id", "locator", "exact_excerpt"],
       "properties": {
         "source_id": {
           "type": "string",
           "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "source_unit_id": {
+          "type": "string",
+          "pattern": "^SU-[0-9]{3,}$"
         },
         "locator": {
           "$ref": "#/$defs/locator"
@@ -276,9 +339,11 @@
         "item_type",
         "criticality",
         "required_for_generation",
+        "generation_requirement",
         "evidence",
         "canonical_statement",
         "canonical_latex",
+        "formula_refs",
         "conditions",
         "prohibited_drift",
         "semantic_checks",
@@ -303,7 +368,8 @@
             "stopping_condition",
             "failure_condition",
             "code_semantics",
-            "worked_result"
+            "worked_result",
+            "exercise"
           ]
         },
         "criticality": {
@@ -312,6 +378,10 @@
         },
         "required_for_generation": {
           "type": "boolean"
+        },
+        "generation_requirement": {
+          "type": "string",
+          "enum": ["required", "conditional"]
         },
         "evidence": {
           "type": "array",
@@ -334,6 +404,14 @@
             "maxLength": 800
           }
         },
+        "formula_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^FM-[0-9]{3,}$"
+          }
+        },
         "conditions": {
           "type": "array",
           "items": {
@@ -352,6 +430,7 @@
         },
         "semantic_checks": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "$ref": "#/$defs/semanticCheck"
           }
@@ -594,56 +673,73 @@
         }
       },
       "else": {
-        "properties": {
-          "approval": {
-            "$ref": "#/$defs/approval"
+        "if": {
+          "properties": {
+            "lifecycle_status": {
+              "const": "frozen"
+            }
           },
-          "contract_items": {
-            "items": {
-              "properties": {
-                "semantic_checks": {
-                  "items": {
+          "required": ["lifecycle_status"]
+        },
+        "then": {
+          "properties": {
+            "approval": {
+              "$ref": "#/$defs/approval"
+            },
+            "contract_items": {
+              "items": {
+                "properties": {
+                  "semantic_checks": {
+                    "items": {
+                      "properties": {
+                        "review_status": {
+                          "const": "approved"
+                        }
+                      }
+                    }
+                  },
+                  "review": {
                     "properties": {
-                      "review_status": {
-                        "const": "approved"
+                      "source_fidelity": {
+                        "enum": ["verified", "mismatch"]
+                      },
+                      "mathematical_status": {
+                        "enum": ["verified_correct", "source_issue", "not_applicable"]
+                      },
+                      "algorithmic_status": {
+                        "enum": ["verified_correct", "source_issue", "not_applicable"]
+                      },
+                      "decision": {
+                        "enum": [
+                          "approved_as_written",
+                          "approved_with_correction",
+                          "excluded"
+                        ]
                       }
                     }
                   }
-                },
-                "review": {
-                  "properties": {
-                    "source_fidelity": {
-                      "enum": ["verified", "mismatch"]
-                    },
-                    "mathematical_status": {
-                      "enum": ["verified_correct", "source_issue", "not_applicable"]
-                    },
-                    "algorithmic_status": {
-                      "enum": ["verified_correct", "source_issue", "not_applicable"]
-                    },
-                    "decision": {
-                      "enum": [
-                        "approved_as_written",
-                        "approved_with_correction",
-                        "excluded"
-                      ]
-                    }
+                }
+              }
+            },
+            "candidate_source_issues": {
+              "items": {
+                "properties": {
+                  "resolution": {
+                    "enum": [
+                      "preserve_source",
+                      "approved_correction",
+                      "exclude_from_generation"
+                    ]
                   }
                 }
               }
             }
-          },
-          "candidate_source_issues": {
-            "items": {
-              "properties": {
-                "resolution": {
-                  "enum": [
-                    "preserve_source",
-                    "approved_correction",
-                    "exclude_from_generation"
-                  ]
-                }
-              }
+          }
+        },
+        "else": {
+          "properties": {
+            "approval": {
+              "type": "null"
             }
           }
         }

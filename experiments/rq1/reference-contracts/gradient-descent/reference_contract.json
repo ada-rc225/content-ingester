@@ -1,0 +1,270 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "gradient-descent",
+  "contract_version": "1.0.0",
+  "topic": "Gradient Descent and Optimisation",
+  "lifecycle_status": "candidate",
+  "authority_policy": {
+    "source_of_truth": "curated_institutional_material",
+    "silent_correction_forbidden": true,
+    "conflict_handling": "flag_for_human_review"
+  },
+  "source_materials": [
+    {
+      "source_id": "gradient-descent-and-optimization",
+      "path": "inputs/content-to-ingest/gradient_descent_and_optimization.md",
+      "format": "markdown",
+      "sha256": "659fe3d57a617323224e0237586b43ee4d1987363de10e1ef03983b265a8db58",
+      "role": "authoritative"
+    }
+  ],
+  "contract_items": [
+    {
+      "item_id": "RC-001",
+      "item_type": "definition",
+      "criticality": "critical",
+      "required_for_generation": true,
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "## 1. Introduction & Problem Formulation, lines 32-38"}, "exact_excerpt": "In unconstrained mathematical optimization, we consider the canonical problem:\n\n$$\\min_{x \\in \\mathbb{R}^d} f(x)$$"}],
+      "canonical_statement": "The unconstrained optimisation problem is to minimise f(x) over x in R^d, with f assumed to be at least continuously differentiable.",
+      "canonical_latex": ["\\min_{x \\in \\mathbb{R}^d} f(x)", "f \\in C^1"],
+      "conditions": ["The problem is unconstrained.", "The objective is at least continuously differentiable."],
+      "prohibited_drift": ["Do not change minimisation into root finding or a constrained problem.", "Do not omit the differentiability assumption."],
+      "semantic_checks": [{"check_id": "CHK-001", "check_type": "expert_review", "specification": "Check that the generated definition states unconstrained minimisation and the C^1 assumption.", "expected_result": "Both elements are present without adding unsupported constraints.", "review_status": "proposed"}],
+      "review": {"source_fidelity": "unreviewed", "mathematical_status": "unreviewed", "algorithmic_status": "unreviewed", "decision": "pending", "reviewer_notes": []}
+    },
+    {
+      "item_id": "RC-002",
+      "item_type": "theorem",
+      "criticality": "required",
+      "required_for_generation": true,
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "First- and second-order necessary/sufficient conditions, lines 40-55"}, "exact_excerpt": "If x^* is a local minimizer of f and f is differentiable at x^*, then:\n$$\n\\nabla f(x^*) = 0$$"}],
+      "canonical_statement": "At a differentiable local minimiser, the gradient is zero. Under C^2 regularity, a local minimiser has a positive-semidefinite Hessian, while a stationary point with positive-definite Hessian is a strict local minimiser.",
+      "canonical_latex": ["\\nabla f(x^*) = 0", "\\nabla^2 f(x^*) \\succeq 0", "\\nabla^2 f(x^*) \\succ 0"],
+      "conditions": ["The first-order statement assumes differentiability at x^*.", "The second-order statements assume f in C^2."],
+      "prohibited_drift": ["Do not present positive semidefiniteness as sufficient for a strict local minimum.", "Do not claim every stationary point is a minimiser."],
+      "semantic_checks": [{"check_id": "CHK-002", "check_type": "expert_review", "specification": "Check the distinction between necessary and sufficient second-order conditions.", "expected_result": "Necessary and sufficient roles remain distinct.", "review_status": "proposed"}],
+      "review": {"source_fidelity": "unreviewed", "mathematical_status": "unreviewed", "algorithmic_status": "unreviewed", "decision": "pending", "reviewer_notes": []}
+    },
+    {
+      "item_id": "RC-003",
+      "item_type": "definition",
+      "criticality": "critical",
+      "required_for_generation": true,
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "### 2.1 L-Smoothness, lines 63-70"}, "exact_excerpt": "A continuously differentiable function f is L-smooth (L > 0) if:\n$$\\|\\nabla f(x) - \\nabla f(y)\\| \\le L \\|x - y\\|, \\quad \\forall x, y \\in \\mathbb{R}^d$$"}],
+      "canonical_statement": "An objective is L-smooth when its gradient is Lipschitz continuous with constant L in the Euclidean norm.",
+      "canonical_latex": ["\\|\\nabla f(x) - \\nabla f(y)\\| \\le L \\|x-y\\|, \\quad \\forall x,y\\in\\mathbb{R}^d"],
+      "conditions": ["f is continuously differentiable.", "L is positive.", "The inequality holds for all x and y in R^d."],
+      "prohibited_drift": ["Do not replace gradient Lipschitz continuity with bounded function values.", "Do not omit the Euclidean norm context."],
+      "semantic_checks": [{"check_id": "CHK-003", "check_type": "formula_equivalence", "specification": "Verify that the stated smoothness inequality bounds gradient differences by L times point differences.", "expected_result": "The quantifiers and both norms are retained.", "review_status": "proposed"}],
+      "review": {"source_fidelity": "unreviewed", "mathematical_status": "unreviewed", "algorithmic_status": "unreviewed", "decision": "pending", "reviewer_notes": []}
+    },
+    {
+      "item_id": "RC-004",
+      "item_type": "theorem",
+      "criticality": "required",
+      "required_for_generation": true,
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "Descent Lemma / Quadratic Upper Bound, lines 72-85"}, "exact_excerpt": "If f is L-smooth, then for all x, y in R^d:\n$$f(y) \\le f(x) + \\langle \\nabla f(x), y - x \\rangle + \\frac{L}{2} \\|y - x\\|^2$$"}],
+      "canonical_statement": "L-smoothness implies the quadratic upper bound known as the Descent Lemma.",
+      "canonical_latex": ["f(y) \\le f(x) + \\langle \\nabla f(x),y-x\\rangle + \\frac{L}{2}\\|y-x\\|^2"],
+      "conditions": ["f is L-smooth.", "The bound holds for all x and y in R^d."],
+      "prohibited_drift": ["Do not reverse the inequality.", "Do not remove the quadratic L/2 term."],
+      "semantic_checks": [{"check_id": "CHK-004", "check_type": "formula_equivalence", "specification": "Compare the generated upper bound term by term with the source expression.", "expected_result": "The linear gradient term and quadratic smoothness term match.", "review_status": "proposed"}],
+      "review": {"source_fidelity": "unreviewed", "mathematical_status": "unreviewed", "algorithmic_status": "unreviewed", "decision": "pending", "reviewer_notes": []}
+    },
+    {
+      "item_id": "RC-005",
+      "item_type": "definition",
+      "criticality": "critical",
+      "required_for_generation": true,
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "### 2.2 Convexity and Strong Convexity, lines 87-107"}, "exact_excerpt": "A differentiable function f is convex if for all x, y:\n$$f(y) \\ge f(x) + \\langle \\nabla f(x), y - x \\rangle$$\n\nA differentiable function f is \\mu-strongly convex (\\mu > 0) if:\n$$f(y) \\ge f(x) + \\langle \\nabla f(x), y - x \\rangle + \\frac{\\mu}{2} \\|y - x\\|^2$$"}],
+      "canonical_statement": "Convexity gives the first-order global lower bound; μ-strong convexity adds a positive quadratic lower-bound term. For C^2 functions, the source characterises these properties through Hessian bounds and defines κ=L/μ.",
+      "canonical_latex": ["f(y) \\ge f(x)+\\langle \\nabla f(x),y-x\\rangle", "f(y) \\ge f(x)+\\langle \\nabla f(x),y-x\\rangle+\\frac{\\mu}{2}\\|y-x\\|^2", "\\kappa=\\frac{L}{\\mu}\\ge1"],
+      "conditions": ["f is differentiable for the definitions.", "The Hessian characterisations assume f in C^2.", "μ is positive for strong convexity."],
+      "prohibited_drift": ["Do not conflate convexity with strong convexity.", "Do not use κ when μ is absent or nonpositive."],
+      "semantic_checks": [{"check_id": "CHK-005", "check_type": "symbolic_property", "specification": "Check that the strong-convexity inequality contains the additional μ/2 norm-square term.", "expected_result": "The stronger lower bound is explicit.", "review_status": "proposed"}],
+      "review": {"source_fidelity": "unreviewed", "mathematical_status": "unreviewed", "algorithmic_status": "unreviewed", "decision": "pending", "reviewer_notes": []}
+    },
+    {
+      "item_id": "RC-006",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "required_for_generation": true,
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "### 3.1 Algorithm Definition, lines 111-117"}, "exact_excerpt": "Given an initial point x_0 and step sizes (learning rates) \\alpha_k > 0, the Gradient Descent iteration is given by:\n\n$$x_{k+1} = x_k - \\alpha_k \\nabla f(x_k), \\quad k = 0, 1, 2, \\dots$$"}],
+      "canonical_statement": "Starting from x_0, gradient descent updates x_{k+1}=x_k-α_k∇f(x_k) with positive step sizes.",
+      "canonical_latex": ["x_{k+1}=x_k-\\alpha_k\\nabla f(x_k), \\quad k=0,1,2,\\dots"],
+      "conditions": ["An initial point x_0 is given.", "Each step size α_k is positive."],
+      "prohibited_drift": ["Do not move in the positive gradient direction.", "Do not replace the gradient at x_k with a future iterate's gradient."],
+      "semantic_checks": [{"check_id": "CHK-006", "check_type": "algorithm_property", "specification": "For a nonzero gradient, verify that the update direction is negative gradient.", "expected_result": "The update subtracts α_k times the gradient evaluated at x_k.", "review_status": "proposed"}],
+      "review": {"source_fidelity": "unreviewed", "mathematical_status": "unreviewed", "algorithmic_status": "unreviewed", "decision": "pending", "reviewer_notes": []}
+    },
+    {
+      "item_id": "RC-007",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "required_for_generation": true,
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "### 3.2 Step-Size Selection Rules, lines 119-126"}, "exact_excerpt": "1. Constant Step Size: \\alpha_k = \\alpha. Typically chosen as \\alpha = \\frac{1}{L} or \\alpha \\in (0, \\frac{2}{L}).\n2. Exact Line Search: \\alpha_k = \\arg\\min_{\\alpha > 0} f(x_k - \\alpha \\nabla f(x_k))."}],
+      "canonical_statement": "The source gives constant-step choices, exact line search, and backtracking with an Armijo-Goldstein acceptance condition.",
+      "canonical_latex": ["\\alpha=\\frac{1}{L}", "\\alpha\\in(0,\\frac{2}{L})", "\\alpha_k=\\arg\\min_{\\alpha>0}f(x_k-\\alpha\\nabla f(x_k))", "f(x_k-\\alpha_k\\nabla f(x_k))\\le f(x_k)-c\\alpha_k\\|\\nabla f(x_k)\\|^2"],
+      "conditions": ["For backtracking, η is in (0,1) and c is in (0,1/2).", "The backtracking exponent m is the smallest nonnegative integer satisfying the condition."],
+      "prohibited_drift": ["Do not state that every constant step size converges under the source assumptions.", "Do not omit the acceptance condition when describing backtracking."],
+      "semantic_checks": [{"check_id": "CHK-007", "check_type": "algorithm_property", "specification": "Check that backtracking decreases the trial step geometrically until the stated sufficient-decrease inequality holds.", "expected_result": "The generated rule retains η^m ᾱ and the source acceptance inequality.", "review_status": "proposed"}],
+      "review": {"source_fidelity": "unreviewed", "mathematical_status": "unreviewed", "algorithmic_status": "unreviewed", "decision": "pending", "reviewer_notes": []}
+    },
+    {
+      "item_id": "RC-008",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "required_for_generation": true,
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "### 3.3 O(1/k) Convergence Rate, lines 130-135"}, "exact_excerpt": "Let f be L-smooth and convex, and let x^* be a global minimizer. Using constant step size \\alpha_k = \\frac{1}{L}, the sequence satisfies:\n\n$$f(x_k) - f(x^*) \\le \\frac{L \\|x_0 - x^*\\|^2}{2k}$$"}],
+      "canonical_statement": "For an L-smooth convex function with a global minimiser, gradient descent with α_k=1/L satisfies the source's O(1/k) objective-gap bound.",
+      "canonical_latex": ["f(x_k)-f(x^*)\\le\\frac{L\\|x_0-x^*\\|^2}{2k}"],
+      "conditions": ["f is L-smooth and convex.", "x^* is a global minimiser.", "The constant step size is 1/L."],
+      "prohibited_drift": ["Do not apply this bound to arbitrary nonconvex functions.", "Do not remove dependence on the initial distance, L, or k."],
+      "semantic_checks": [{"check_id": "CHK-008", "check_type": "formula_equivalence", "specification": "Compare the objective-gap bound and all assumptions with the source theorem.", "expected_result": "The 1/(2k) rate and hypotheses match.", "review_status": "proposed"}],
+      "review": {"source_fidelity": "unreviewed", "mathematical_status": "unreviewed", "algorithmic_status": "unreviewed", "decision": "pending", "reviewer_notes": []}
+    },
+    {
+      "item_id": "RC-009",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "required_for_generation": true,
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "### 3.4 Linear Convergence Rate, lines 174-183"}, "exact_excerpt": "If f is L-smooth and \\mu-strongly convex, then with \\alpha = \\frac{2}{L + \\mu}, GD achieves linear convergence:\n\n$$\\|x_k - x^*\\|^2 \\le \\left( \\frac{\\kappa - 1}{\\kappa + 1} \\right)^{2k} \\|x_0 - x^*\\|^2$$"}],
+      "canonical_statement": "For an L-smooth, μ-strongly convex function, the source gives a distance linear-convergence bound for α=2/(L+μ), and an objective-gap bound for α=1/L, with κ=L/μ.",
+      "canonical_latex": ["\\|x_k-x^*\\|^2\\le\\left(\\frac{\\kappa-1}{\\kappa+1}\\right)^{2k}\\|x_0-x^*\\|^2", "f(x_k)-f(x^*)\\le\\left(1-\\frac{\\mu}{L}\\right)^k(f(x_0)-f(x^*))"],
+      "conditions": ["f is L-smooth and μ-strongly convex.", "κ=L/μ.", "The first bound uses α=2/(L+μ); the second uses α=1/L."],
+      "prohibited_drift": ["Do not swap the step sizes between the two stated bounds.", "Do not call the rate sublinear under the strong-convexity assumptions."],
+      "semantic_checks": [{"check_id": "CHK-009", "check_type": "formula_equivalence", "specification": "Check each step size against its corresponding convergence statement.", "expected_result": "The α=2/(L+μ) distance bound and α=1/L objective bound remain paired correctly.", "review_status": "proposed"}],
+      "review": {"source_fidelity": "unreviewed", "mathematical_status": "unreviewed", "algorithmic_status": "unreviewed", "decision": "pending", "reviewer_notes": []}
+    },
+    {
+      "item_id": "RC-010",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "required_for_generation": true,
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "### 4.1 Polyak's Heavy-Ball Method, lines 189-198"}, "exact_excerpt": "To mitigate oscillations in ill-conditioned problems (\\kappa \\gg 1), Polyak introduced momentum:\n\n$$x_{k+1} = x_k - \\alpha \\nabla f(x_k) + \\beta (x_k - x_{k-1})$$\n\nwhere \\beta \\in [0, 1) is the momentum coefficient."}],
+      "canonical_statement": "Polyak's heavy-ball method adds β(x_k−x_{k−1}) to the gradient step, with β in [0,1), to mitigate oscillations in ill-conditioned problems.",
+      "canonical_latex": ["x_{k+1}=x_k-\\alpha\\nabla f(x_k)+\\beta(x_k-x_{k-1})", "\\beta\\in[0,1)"],
+      "conditions": ["The momentum coefficient β is in [0,1).", "The source discusses the method for ill-conditioned problems and gives quadratic-function parameter choices."],
+      "prohibited_drift": ["Do not evaluate the gradient at x_{k-1} or add momentum with the opposite sign.", "Do not present the listed parameter choices as universal beyond their stated quadratic context."],
+      "semantic_checks": [{"check_id": "CHK-010", "check_type": "algorithm_property", "specification": "Verify that the heavy-ball update contains both the negative current gradient and the displacement momentum term.", "expected_result": "Both terms and β's range are retained.", "review_status": "proposed"}],
+      "review": {"source_fidelity": "unreviewed", "mathematical_status": "unreviewed", "algorithmic_status": "unreviewed", "decision": "pending", "reviewer_notes": []}
+    },
+    {
+      "item_id": "RC-011",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "required_for_generation": true,
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "### 4.2 Nesterov's Accelerated Gradient, lines 202-214"}, "exact_excerpt": "Nesterov modified momentum by computing the gradient at the \"look-ahead\" point:\n\n$$y_k = x_k + \\beta_k (x_k - x_{k-1})$$\n$$x_{k+1} = y_k - \\alpha \\nabla f(y_k)$$"}],
+      "canonical_statement": "Nesterov acceleration first forms a look-ahead point y_k and then evaluates the gradient at y_k before updating x_{k+1}.",
+      "canonical_latex": ["y_k=x_k+\\beta_k(x_k-x_{k-1})", "x_{k+1}=y_k-\\alpha\\nabla f(y_k)", "\\lambda_k=\\frac{1+\\sqrt{1+4\\lambda_{k-1}^2}}{2}", "\\beta_k=\\frac{\\lambda_{k-1}-1}{\\lambda_k}"],
+      "conditions": ["The source uses α=1/L.", "The parameter sequence begins with λ_0=0."],
+      "prohibited_drift": ["Do not evaluate the Nesterov gradient at x_k instead of y_k.", "Do not conflate the Nesterov rule with the heavy-ball rule."],
+      "semantic_checks": [{"check_id": "CHK-011", "check_type": "algorithm_property", "specification": "Check that the gradient is evaluated at the look-ahead point and that the parameter recurrence is preserved.", "expected_result": "The two-stage update and λ recurrence are present.", "review_status": "proposed"}],
+      "review": {"source_fidelity": "unreviewed", "mathematical_status": "unreviewed", "algorithmic_status": "unreviewed", "decision": "pending", "reviewer_notes": []}
+    },
+    {
+      "item_id": "RC-012",
+      "item_type": "convergence_result",
+      "criticality": "required",
+      "required_for_generation": true,
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "Theorem 4.1 Nesterov Optimal Rate, lines 211-214"}, "exact_excerpt": "For any L-smooth convex function, NAG achieves:\n$$f(x_k) - f(x^*) \\le \\frac{2 L \\|x_0 - x^*\\|^2}{(k + 1)^2} = O\\left(\\frac{1}{k^2}\\right)$$"}],
+      "canonical_statement": "For any L-smooth convex function, the source states that NAG achieves an O(1/k^2) objective-gap rate with the displayed bound.",
+      "canonical_latex": ["f(x_k)-f(x^*)\\le\\frac{2L\\|x_0-x^*\\|^2}{(k+1)^2}=O\\left(\\frac{1}{k^2}\\right)"],
+      "conditions": ["The function is L-smooth and convex.", "The NAG parameterisation from the source is used."],
+      "prohibited_drift": ["Do not attribute this rate to unaccelerated GD.", "Do not remove the convexity and smoothness assumptions."],
+      "semantic_checks": [{"check_id": "CHK-012", "check_type": "formula_equivalence", "specification": "Check the exponent and denominator in the NAG objective-gap bound.", "expected_result": "The rate is proportional to 1/(k+1)^2 and is labelled O(1/k^2).", "review_status": "proposed"}],
+      "review": {"source_fidelity": "unreviewed", "mathematical_status": "unreviewed", "algorithmic_status": "unreviewed", "decision": "pending", "reviewer_notes": []}
+    },
+    {
+      "item_id": "RC-013",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "required_for_generation": true,
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "### 5.1 Stochastic Gradient Descent, lines 220-231"}, "exact_excerpt": "SGD replaces the exact gradient with an unbiased estimate g_k(x_k):\n\n$$\\mathbb{E}[g_k(x_k) \\mid x_k] = \\nabla f(x_k), \\quad \\mathbb{E}[\\|g_k(x_k) - \\nabla f(x_k)\\|^2 \\mid x_k] \\le \\sigma^2$$\n\n$$x_{k+1} = x_k - \\eta_k g_k(x_k)$$"}],
+      "canonical_statement": "For an empirical objective, SGD uses an unbiased stochastic gradient with conditional variance bounded by σ² and updates x_{k+1}=x_k−η_k g_k(x_k). The source states that fixed steps converge only to a neighbourhood under nonzero variance and gives the Robbins–Monro sum conditions for asymptotic convergence.",
+      "canonical_latex": ["f(x)=\\frac{1}{N}\\sum_{i=1}^N f_i(x)", "\\mathbb{E}[g_k(x_k)\\mid x_k]=\\nabla f(x_k)", "\\mathbb{E}[\\|g_k(x_k)-\\nabla f(x_k)\\|^2\\mid x_k]\\le\\sigma^2", "x_{k+1}=x_k-\\eta_k g_k(x_k)", "\\sum_{k=1}^{\\infty}\\eta_k=\\infty", "\\sum_{k=1}^{\\infty}\\eta_k^2<\\infty"],
+      "conditions": ["The objective is an average of component objectives.", "The stochastic gradient is conditionally unbiased.", "The conditional second moment of the noise is bounded by σ²."],
+      "prohibited_drift": ["Do not describe g_k as the exact gradient when variance is present.", "Do not claim a fixed step size reaches x^* under the source's noisy setting."],
+      "semantic_checks": [{"check_id": "CHK-013", "check_type": "algorithm_property", "specification": "Check that the stochastic update uses g_k and that the unbiasedness and step-sum conditions are stated with their source roles.", "expected_result": "The stochastic and deterministic gradients are not conflated.", "review_status": "proposed"}],
+      "review": {"source_fidelity": "unreviewed", "mathematical_status": "unreviewed", "algorithmic_status": "unreviewed", "decision": "pending", "reviewer_notes": []}
+    },
+    {
+      "item_id": "RC-014",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "required_for_generation": true,
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "### 5.2 Adaptive Learning Rate Methods, lines 242-260"}, "exact_excerpt": "AdaGrad ... $$v_k = v_{k-1} + g_k \\odot g_k$$\nRMSProp ... $$v_k = \\gamma v_{k-1} + (1 - \\gamma) g_k \\odot g_k$$\nAdam ... $$m_k = \\beta_1 m_{k-1} + (1 - \\beta_1) g_k$$"}],
+      "canonical_statement": "AdaGrad accumulates squared gradients element-wise; RMSProp uses an exponential moving average of squared gradients; Adam combines first- and second-moment moving averages with bias correction before its adaptive update.",
+      "canonical_latex": ["v_k=v_{k-1}+g_k\\odot g_k", "v_k=\\gamma v_{k-1}+(1-\\gamma)g_k\\odot g_k", "m_k=\\beta_1m_{k-1}+(1-\\beta_1)g_k", "v_k=\\beta_2v_{k-1}+(1-\\beta_2)(g_k\\odot g_k)", "\\hat m_k=\\frac{m_k}{1-\\beta_1^k},\\quad \\hat v_k=\\frac{v_k}{1-\\beta_2^k}"],
+      "conditions": ["The methods operate component-wise through the Hadamard product.", "Adam applies bias correction before its displayed parameter update."],
+      "prohibited_drift": ["Do not describe RMSProp as a cumulative sum identical to AdaGrad.", "Do not omit Adam's bias correction when describing the source algorithm."],
+      "semantic_checks": [{"check_id": "CHK-014", "check_type": "algorithm_property", "specification": "Compare the accumulator update for each method and verify Adam's first- and second-moment corrections.", "expected_result": "The three adaptive mechanisms remain distinct.", "review_status": "proposed"}],
+      "review": {"source_fidelity": "unreviewed", "mathematical_status": "unreviewed", "algorithmic_status": "unreviewed", "decision": "pending", "reviewer_notes": []}
+    },
+    {
+      "item_id": "RC-015",
+      "item_type": "algorithm_rule",
+      "criticality": "supporting",
+      "required_for_generation": true,
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "## 6. Second-Order Methods, lines 264-282"}, "exact_excerpt": "Newton's method uses second-order Taylor expansion:\n$$f(x_k + p) \\approx f(x_k) + \\nabla f(x_k)^T p + \\frac{1}{2} p^T \\nabla^2 f(x_k) p$$\n\nSetting derivative with respect to p to zero yields update:\n$$x_{k+1} = x_k - [\\nabla^2 f(x_k)]^{-1} \\nabla f(x_k)$$"}],
+      "canonical_statement": "Newton's method uses the Hessian in a second-order Taylor model and updates by subtracting the inverse Hessian applied to the gradient. The source also states a local quadratic convergence theorem under C^2, positive-definite Hessian, and Lipschitz Hessian assumptions.",
+      "canonical_latex": ["f(x_k+p)\\approx f(x_k)+\\nabla f(x_k)^Tp+\\frac{1}{2}p^T\\nabla^2f(x_k)p", "x_{k+1}=x_k-[\\nabla^2f(x_k)]^{-1}\\nabla f(x_k)", "\\|x_{k+1}-x^*\\|\\le C\\|x_k-x^*\\|^2"],
+      "conditions": ["The convergence theorem assumes f in C^2.", "The Hessian at x^* is positive definite.", "The Hessian is Lipschitz continuous near x^*.", "The initial point is sufficiently close to x^*."],
+      "prohibited_drift": ["Do not present Newton's method as first-order only.", "Do not state local quadratic convergence without the listed source conditions."],
+      "semantic_checks": [{"check_id": "CHK-015", "check_type": "formula_equivalence", "specification": "Check that the second-order model contains the Hessian quadratic term and that the update uses the Hessian inverse applied to the gradient.", "expected_result": "The source's second-order structure is preserved.", "review_status": "proposed"}],
+      "review": {"source_fidelity": "unreviewed", "mathematical_status": "unreviewed", "algorithmic_status": "unreviewed", "decision": "pending", "reviewer_notes": []}
+    },
+    {
+      "item_id": "RC-016",
+      "item_type": "algorithm_rule",
+      "criticality": "supporting",
+      "required_for_generation": true,
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "### 6.2 Quasi-Newton Methods (BFGS), lines 284-288"}, "exact_excerpt": "Computes approximations B_k \\approx \\nabla^2 f(x_k) or H_k \\approx [\\nabla^2 f(x_k)]^{-1} using gradient differences y_k = \\nabla f(x_{k+1}) - \\nabla f(x_k) and displacement s_k = x_{k+1} - x_k, enforcing the Secant Equation:\n$$B_{k+1} s_k = y_k$$"}],
+      "canonical_statement": "Quasi-Newton methods approximate the Hessian or its inverse from gradient differences and displacements, enforcing the secant equation B_{k+1}s_k=y_k.",
+      "canonical_latex": ["y_k=\\nabla f(x_{k+1})-\\nabla f(x_k)", "s_k=x_{k+1}-x_k", "B_{k+1}s_k=y_k"],
+      "conditions": ["The update uses successive iterates and gradients.", "B_{k+1} approximates the Hessian in the stated secant relation."],
+      "prohibited_drift": ["Do not claim BFGS computes the exact Hessian at every iteration.", "Do not replace the secant equation with an unrelated finite-difference identity."],
+      "semantic_checks": [{"check_id": "CHK-016", "check_type": "formula_equivalence", "specification": "Verify the definitions of y_k and s_k and the secant equation.", "expected_result": "All three relations are preserved.", "review_status": "proposed"}],
+      "review": {"source_fidelity": "unreviewed", "mathematical_status": "unreviewed", "algorithmic_status": "unreviewed", "decision": "pending", "reviewer_notes": []}
+    }
+  ],
+  "candidate_source_issues": [
+    {
+      "issue_id": "ISSUE-001",
+      "issue_type": "other",
+      "affected_item_ids": ["RC-001", "RC-003", "RC-005", "RC-006", "RC-008", "RC-009", "RC-010", "RC-011", "RC-013", "RC-015", "RC-016"],
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "text_lines", "value": "lines 38, 47-55, 66-69, 90-107, 117, 133-169, 177-183, 193, 206-213"}, "exact_excerpt": "\\nabla f(x^*) = 0"}],
+      "description": "The supplied Markdown contains visibly malformed or altered LaTeX control sequences in multiple places, including instances where commands such as \\to, \\nabla, \\text, and \\right appear truncated or represented inconsistently. The contract preserves the intended-looking source expressions where they are recoverable but does not silently repair the source.",
+      "resolution": "pending_review",
+      "approved_generation_content": null
+    },
+    {
+      "issue_id": "ISSUE-002",
+      "issue_type": "internal_conflict",
+      "affected_item_ids": ["RC-013"],
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "### 5.1 Stochastic Gradient Descent, lines 220-240"}, "exact_excerpt": "**Update rule:**\n$$x_{k+1} = x_k - \\eta_k g_k(x_k)$$"}],
+      "description": "The SGD formulation, update rule, variance statement, and Robbins-Monro conditions are duplicated after the section separator. The repeated material is materially consistent, but the duplication and malformed intervening text require human review before freezing.",
+      "resolution": "pending_review",
+      "approved_generation_content": null
+    },
+    {
+      "issue_id": "ISSUE-003",
+      "issue_type": "suspected_mathematical_error",
+      "affected_item_ids": ["RC-008"],
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "Theorem 3.1 proof, lines 148-169"}, "exact_excerpt": "By convexity:\n$$f(x_k) \\le f(x^*) + \\langle \\nabla f(x_k), x_k - x^* \\rangle$$"}],
+      "description": "The source labels the displayed inequality as following from convexity while writing the inequality in a direction that may not match the standard first-order convexity inequality. The theorem statement is preserved as source content, but the proof and its derivation require expert mathematical review.",
+      "resolution": "pending_review",
+      "approved_generation_content": null
+    },
+    {
+      "issue_id": "ISSUE-004",
+      "issue_type": "suspected_algorithmic_error",
+      "affected_item_ids": ["RC-015"],
+      "evidence": [{"source_id": "gradient-descent-and-optimization", "locator": {"locator_type": "markdown_heading_lines", "value": "Newton's Method, lines 264-282"}, "exact_excerpt": "$$x_{k+1} = x_k - [\\nabla^2 f(x_k)]^{-1} \\nabla f(x_k)$$"}],
+      "description": "The source presents an explicit Hessian inverse in the Newton update. Whether implementation guidance should instead describe solving a linear system is an algorithmic review decision; no correction is supplied in this candidate contract.",
+      "resolution": "pending_review",
+      "approved_generation_content": null
+    }
+  ],
+  "approval": null
+}
