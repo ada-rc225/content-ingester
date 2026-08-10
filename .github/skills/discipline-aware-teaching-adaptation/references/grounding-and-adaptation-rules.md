@@ -1,40 +1,9 @@
-# Grounding and adaptation rules
+# Compact grounding and adaptation rules
 
-## Authority and claims
+Use supplied teaching material as authority for mathematical meaning and user requirements as authority for the learner target. Do not let generated bridges override source definitions, conditions, formulae, conclusions, update rules, convergence assumptions, or code semantics.
 
-Use this hierarchy: supplied teaching material; user-specified learner requirements; explicitly identified supplementary sources; model-generated bridges. Never let a lower level silently override a higher level.
+Record only high-risk invariants whose alteration would create drift or algorithmic error. Keep ordinary explanations, examples, analogies, exercises, and transitions out of the invariant file. Cover those at section level in provenance.
 
-Grounding means that a generated claim has a recorded evidence relationship. It does not mean the supplied source is universally correct. Report these separately:
+Adapt entry point, order, vocabulary, prerequisite refreshers, proof depth, examples, implementation, and assessment. For a substantial analogy, introduce the familiar representation, return to canonical mathematics, and state where the analogy stops being exact.
 
-- `source_consistent`: meaning is supported by the supplied source;
-- `mathematically_verified`: equivalence or correctness was checked by an independent mechanism or evaluator.
-
-Never turn an LLM's self-assessment into `expert_verified`, `symbolically_equivalent`, or `execution_verified` evidence.
-
-## Invariants
-
-Preserve definitions, notation, equations, theorem assumptions and conclusions, update rules, convergence conditions, logical dependencies, and code semantics. Record notation normalisation explicitly.
-
-## Support classes
-
-- `directly_supported`: restates one or more source claims.
-- `derived_from_source`: follows from cited source claims; state the derivation.
-- `pedagogical_adaptation`: added explanation or scaffold.
-- `domain_bridge`: added disciplinary mapping with an explicit boundary.
-- `implementation_bridge`: added theory-to-code connection.
-- `unsupported`: lacks sufficient source support.
-- `contradicted`: conflicts with the supplied source.
-
-Added content is allowed, but its status must remain visible. A citation to a related source claim does not automatically make a new domain fact supported.
-
-## Adaptation
-
-Adapt entry point, chapter order, vocabulary, examples, prerequisite refreshers, proof depth, implementation emphasis, visuals, and assessment. Change teaching logic where the learner profile requires it; do not merely replace nouns.
-
-For every substantial analogy, identify the core concept, give the familiar representation, return to canonical mathematics, and state where the analogy stops being exact.
-
-## Coverage and defects
-
-Classify each meaningful source item as retained, reordered, summarised, deferred, or omitted. Give a scope- or profile-based reason for deferral and omission.
-
-When a source appears malformed or incorrect, preserve the locator, mark the issue, avoid silent correction, label any proposed interpretation, and request review when it affects a core result.
+Report source consistency separately from independent mathematical correctness. Flag malformed source material; do not silently repair it. Added disciplinary and implementation bridges are permitted when labelled in section provenance.

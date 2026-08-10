@@ -1,4 +1,4 @@
 interface:
   display_name: "Discipline-aware Teaching Adaptation"
-  short_description: "Adapt lessons with claim-level grounding evidence"
-  default_prompt: "Use $discipline-aware-teaching-adaptation to create a long-form adaptation for the specified learner profile, preserving source meaning and producing source fingerprints, claim-level provenance, code execution evidence, and a passing structured-grounding validation report."
+  short_description: "Create readable lessons with compact grounding"
+  default_prompt: "Use $discipline-aware-teaching-adaptation to create a readable long-form lesson for the specified learner profile with compact core invariants, explicit chapter headings, section-level provenance, code execution evidence, and a passing validation report. Write files directly and do not emit artifact-generating heredoc commands."

@@ -1,0 +1,26 @@
+{
+  "research_question": "RQ1",
+  "condition": "c2-structured-grounding",
+  "run_id": "gradient-descent-mechanical-engineering-year-2-run-03",
+  "topic": "Gradient descent and optimisation for second-year mechanical engineering undergraduates",
+  "profile_id": "mechanical-engineering-year-2",
+  "provider": "not-exposed-by-runtime",
+  "model": "not-exposed-by-runtime",
+  "access_route": "not-exposed-by-runtime",
+  "prompt_version": "discipline-aware-teaching-adaptation-v2.1",
+  "agent_version": "2.1",
+  "skill_version": "2.1",
+  "run_date": "2026-08-07T00:00:00+00:00",
+  "source_ids": [
+    "gradient-descent-and-optimization"
+  ],
+  "code_execution_required": true,
+  "generation_parameters": {
+    "target_word_count": 2200,
+    "language": "en-gb",
+    "structure": "single-long-form-lesson"
+  },
+  "notes": [
+    "Reframed the source around potential energy, equilibrium, and numerical relaxation for second-year mechanical engineering students."
+  ]
+}

@@ -1,49 +1,37 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Teaching Adaptation Provenance",
+  "title": "Compact Section-level Provenance",
   "type": "object",
   "additionalProperties": false,
-  "required": ["profile_id", "source_ids", "records", "source_issues"],
+  "required": ["profile_id", "source_ids", "sections", "source_issues"],
   "properties": {
     "profile_id": {"type": "string", "minLength": 1},
-    "source_ids": {
-      "type": "array", "minItems": 1, "uniqueItems": true,
-      "items": {"type": "string", "minLength": 1}
-    },
-    "records": {
-      "type": "array", "minItems": 1,
+    "source_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "sections": {
+      "type": "array", "minItems": 3, "maxItems": 12,
       "items": {
         "type": "object", "additionalProperties": false,
-        "required": ["provenance_id", "generated_claim_id", "source_claim_ids", "transformation", "destination_anchor", "preservation_claim", "reason"],
+        "required": ["section_id", "invariant_ids", "adaptation_types"],
         "properties": {
-          "provenance_id": {"type": "string", "pattern": "^PRV-[A-Za-z0-9._-]+$"},
-          "generated_claim_id": {"type": "string", "pattern": "^GEN-[A-Za-z0-9._-]+$"},
-          "source_claim_ids": {
-            "type": "array", "uniqueItems": true,
-            "items": {"type": "string", "pattern": "^SRC-[A-Za-z0-9._-]+$"}
+          "section_id": {"type": "string", "pattern": "^SEC-[0-9]{2}$"},
+          "invariant_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^INV-[A-Za-z0-9._-]+$"}},
+          "adaptation_types": {
+            "type": "array", "minItems": 1, "uniqueItems": true,
+            "items": {"type": "string", "enum": ["preserved", "reordered", "summarised", "discipline_bridge", "implementation_bridge", "pedagogical_scaffold"]}
           },
-          "transformation": {
-            "type": "string",
-            "enum": ["preserved", "reordered", "summarised", "discipline_bridge", "implementation_bridge", "derived_explanation"]
-          },
-          "destination_anchor": {"type": "string", "pattern": "^claim-GEN-[A-Za-z0-9._-]+$"},
-          "preservation_claim": {
-            "type": "string",
-            "enum": ["claimed_exact", "notation_normalised", "meaning_preserved", "not_applicable"]
-          },
-          "reason": {"type": "string", "minLength": 1}
+          "note": {"type": "string", "maxLength": 300}
         }
       }
     },
     "source_issues": {
-      "type": "array",
+      "type": "array", "maxItems": 10,
       "items": {
         "type": "object", "additionalProperties": false,
-        "required": ["source_claim_id", "issue", "impact", "status"],
+        "required": ["source_id", "locator", "issue", "status"],
         "properties": {
-          "source_claim_id": {"type": "string", "pattern": "^SRC-[A-Za-z0-9._-]+$"},
-          "issue": {"type": "string", "minLength": 1},
-          "impact": {"type": "string", "minLength": 1},
+          "source_id": {"type": "string", "minLength": 1},
+          "locator": {"type": "string", "minLength": 1, "maxLength": 160},
+          "issue": {"type": "string", "minLength": 1, "maxLength": 500},
           "status": {"type": "string", "enum": ["review_required", "interpretation_recorded", "not_blocking"]}
         }
       }

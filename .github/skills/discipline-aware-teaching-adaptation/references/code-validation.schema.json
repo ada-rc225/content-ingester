@@ -14,7 +14,7 @@
         "required": ["block_id", "anchor", "language", "code_sha256", "execution_status", "stdout", "stderr", "return_code", "duration_ms"],
         "properties": {
           "block_id": {"type": "string", "pattern": "^CODE-[0-9]{3,}$"},
-          "anchor": {"type": ["string", "null"]},
+          "anchor": {"type": "string", "pattern": "^SEC-[0-9]{2}$"},
           "language": {"const": "python"},
           "code_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
           "execution_status": {"type": "string", "enum": ["passed", "failed", "timeout"]},

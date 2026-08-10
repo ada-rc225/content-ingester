@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate C2 artifacts, cross-references, hashes, anchors, coverage, and code."""
+"""Validate compact C2 evidence, section structure, source hashes, and code."""
 
 from __future__ import annotations
 
@@ -17,25 +17,26 @@ ARTIFACT_SCHEMAS = {
     "run_manifest.json": "run-manifest.schema.json",
     "source_manifest.json": "source-manifest.schema.json",
     "learner_profile.json": "learner-profile.schema.json",
+    "core_invariants.json": "core-invariants.schema.json",
     "adaptation_plan.json": "adaptation-plan.schema.json",
-    "source_claims.json": "source-claims.schema.json",
-    "claim_ledger.json": "claim-ledger.schema.json",
     "provenance.json": "provenance.schema.json",
     "code_validation.json": "code-validation.schema.json",
 }
+SECTION_RE = re.compile(r"<!--\s*section:\s*(SEC-[0-9]{2})\s*-->\s*\n##\s+(.+?)\s*$", re.MULTILINE)
+CODE_RE = re.compile(r"```(?:python|py)\s*\n(.*?)```", re.DOTALL | re.IGNORECASE)
 
 
 def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def duplicate_values(values):
-    seen, duplicates = set(), set()
+def duplicates(values):
+    seen, repeated = set(), set()
     for value in values:
         if value in seen:
-            duplicates.add(value)
+            repeated.add(value)
         seen.add(value)
-    return duplicates
+    return repeated
 
 
 def main() -> int:
@@ -48,14 +49,12 @@ def main() -> int:
     run_dir = Path(args.run_dir).resolve()
     root = Path(args.workspace_root).resolve()
     schemas_dir = Path(args.schemas_dir).resolve()
-    errors, warnings, schema_checks = [], [], []
-    documents = {}
+    errors, warnings, schema_checks, documents = [], [], [], {}
 
     for artifact, schema_name in ARTIFACT_SCHEMAS.items():
-        artifact_path = run_dir / artifact
         artifact_errors = []
         try:
-            document = load_json(artifact_path)
+            document = load_json(run_dir / artifact)
             schema = load_json(schemas_dir / schema_name)
             validator = Draft202012Validator(schema, format_checker=FormatChecker())
             for issue in sorted(validator.iter_errors(document), key=lambda item: list(item.path)):
@@ -68,14 +67,15 @@ def main() -> int:
         errors.extend(f"{artifact}: {message}" for message in artifact_errors)
 
     source_hashes_valid = False
-    claim_anchors_valid = False
-    source_coverage_complete = False
+    section_structure_valid = False
+    invariant_coverage_complete = False
     provenance_complete = False
     code_execution_passed = False
 
-    if "source_manifest.json" in documents:
+    manifest = documents.get("source_manifest.json")
+    if manifest:
         source_hashes_valid = True
-        for source in documents["source_manifest.json"].get("sources", []):
+        for source in manifest.get("sources", []):
             source_path = Path(source["path"])
             if not source_path.is_absolute():
                 source_path = root / source_path
@@ -83,118 +83,121 @@ def main() -> int:
                 errors.append(f"missing source file: {source['path']}")
                 source_hashes_valid = False
                 continue
-            actual = hashlib.sha256(source_path.read_bytes()).hexdigest()
-            if actual != source["sha256"]:
+            if hashlib.sha256(source_path.read_bytes()).hexdigest() != source["sha256"]:
                 errors.append(f"source hash mismatch: {source['source_id']}")
                 source_hashes_valid = False
             if source_path.stat().st_size != source["size_bytes"]:
                 errors.append(f"source size mismatch: {source['source_id']}")
                 source_hashes_valid = False
 
-    required_cross_docs = {"source_manifest.json", "source_claims.json", "claim_ledger.json", "provenance.json"}
-    if required_cross_docs.issubset(documents):
-        source_ids = [item["source_id"] for item in documents["source_manifest.json"].get("sources", [])]
-        source_claims = documents["source_claims.json"].get("claims", [])
-        generated_claims = documents["claim_ledger.json"].get("generated_claims", [])
-        records = documents["provenance.json"].get("records", [])
-        source_claim_ids = [item["source_claim_id"] for item in source_claims]
-        generated_claim_ids = [item["generated_claim_id"] for item in generated_claims]
+    required = {"run_manifest.json", "source_manifest.json", "learner_profile.json", "core_invariants.json", "adaptation_plan.json", "provenance.json", "code_validation.json"}
+    if required.issubset(documents):
+        run = documents["run_manifest.json"]
+        plan = documents["adaptation_plan.json"]
+        profile = documents["learner_profile.json"]
+        provenance = documents["provenance.json"]
+        invariants = documents["core_invariants.json"].get("invariants", [])
+        source_ids = {item["source_id"] for item in manifest.get("sources", [])}
+        if run.get("agent_version") != "2.1" or run.get("skill_version") != "2.1":
+            errors.append("compact validator requires agent_version=2.1 and skill_version=2.1")
+        invariant_ids = [item["invariant_id"] for item in invariants]
+        invariant_set = set(invariant_ids)
+        planned_sections = plan.get("chapter_sequence", [])
+        planned_ids = [item["section_id"] for item in planned_sections]
 
-        for label, values in (("source_id", source_ids), ("source_claim_id", source_claim_ids), ("generated_claim_id", generated_claim_ids), ("provenance_id", [r["provenance_id"] for r in records])):
-            for duplicate in sorted(duplicate_values(values)):
+        for label, values in (("invariant_id", invariant_ids), ("section_id", planned_ids)):
+            for duplicate in sorted(duplicates(values)):
                 errors.append(f"duplicate {label}: {duplicate}")
 
-        source_id_set, source_claim_set, generated_claim_set = set(source_ids), set(source_claim_ids), set(generated_claim_ids)
-        run_manifest = documents.get("run_manifest.json", {})
-        plan = documents.get("adaptation_plan.json", {})
-        learner_profile = documents.get("learner_profile.json", {})
-        provenance = documents["provenance.json"]
-        if set(run_manifest.get("source_ids", [])) != source_id_set:
-            errors.append("run_manifest source_ids do not exactly match source_manifest")
-        if set(plan.get("source_ids", [])) != source_id_set:
-            errors.append("adaptation_plan source_ids do not exactly match source_manifest")
-        profile_ids = {run_manifest.get("profile_id"), plan.get("profile_id"), learner_profile.get("profile_id"), provenance.get("profile_id")}
+        if set(run.get("source_ids", [])) != source_ids or set(plan.get("source_ids", [])) != source_ids or set(provenance.get("source_ids", [])) != source_ids:
+            errors.append("source_ids must exactly match source_manifest across run, plan, and provenance")
+        profile_ids = {run.get("profile_id"), plan.get("profile_id"), profile.get("profile_id"), provenance.get("profile_id")}
         if len(profile_ids) != 1:
             errors.append(f"profile_id mismatch across artifacts: {sorted(str(value) for value in profile_ids)}")
-        if set(provenance.get("source_ids", [])) != source_id_set:
-            errors.append("provenance source_ids do not exactly match source_manifest")
-        for claim in source_claims:
-            if claim["source_id"] not in source_id_set:
-                errors.append(f"unknown source_id in {claim['source_claim_id']}: {claim['source_id']}")
-        for claim in generated_claims:
-            unknown = set(claim["source_claim_ids"]) - source_claim_set
-            if unknown:
-                errors.append(f"unknown source claims in {claim['generated_claim_id']}: {sorted(unknown)}")
-            if claim["support_class"] in {"directly_supported", "derived_from_source"} and not claim["source_claim_ids"]:
-                errors.append(f"supported claim has no source reference: {claim['generated_claim_id']}")
-        for record in records:
-            if record["generated_claim_id"] not in generated_claim_set:
-                errors.append(f"unknown generated claim in {record['provenance_id']}: {record['generated_claim_id']}")
-            unknown = set(record["source_claim_ids"]) - source_claim_set
-            if unknown:
-                errors.append(f"unknown source claims in {record['provenance_id']}: {sorted(unknown)}")
-        plan_claim_ids = {
-            claim_id
-            for chapter in plan.get("chapter_sequence", [])
-            for claim_id in chapter.get("source_claim_ids", [])
-        } | {
-            claim_id
-            for bridge in plan.get("discipline_bridges", [])
-            for claim_id in bridge.get("source_claim_ids", [])
-        } | {
-            item.get("source_claim_id") for item in plan.get("coverage_decisions", [])
-        }
-        unknown_plan_claims = plan_claim_ids - source_claim_set
-        if unknown_plan_claims:
-            errors.append(f"unknown source claims in adaptation_plan: {sorted(unknown_plan_claims)}")
-        source_decisions = {claim["source_claim_id"]: claim["coverage_decision"] for claim in source_claims}
-        plan_decisions = {item["source_claim_id"]: item["decision"] for item in plan.get("coverage_decisions", [])}
-        if plan_decisions != source_decisions:
-            errors.append("adaptation_plan coverage_decisions do not exactly match source_claims")
+        for invariant in invariants:
+            if invariant["source_id"] not in source_ids:
+                errors.append(f"unknown source_id in {invariant['invariant_id']}: {invariant['source_id']}")
+
+        orders = [item["order"] for item in planned_sections]
+        if orders != list(range(1, len(planned_sections) + 1)):
+            errors.append("chapter order must be consecutive and match array order")
+        planned_invariants = {value for item in planned_sections for value in item.get("invariant_ids", [])}
+        unknown_plan_invariants = planned_invariants - invariant_set
+        if unknown_plan_invariants:
+            errors.append(f"unknown invariants in adaptation_plan: {sorted(unknown_plan_invariants)}")
 
         content_path = run_dir / "adapted_content.md"
         if content_path.is_file():
-            anchors = set(re.findall(r"<!--\s*(claim-GEN-[A-Za-z0-9._-]+)\s*-->", content_path.read_text(encoding="utf-8")))
-            expected = {claim["anchor"] for claim in generated_claims}
-            claim_anchors_valid = anchors == expected and all(claim["anchor"] == f"claim-{claim['generated_claim_id']}" for claim in generated_claims)
-            code_anchors = {block.get("anchor") for block in documents.get("code_validation.json", {}).get("blocks", [])}
-            if None in code_anchors or not code_anchors.issubset(expected):
-                claim_anchors_valid = False
-                errors.append("every executable code block must follow a valid generated-claim anchor")
-            if anchors != expected:
-                errors.append(f"claim anchor mismatch; missing={sorted(expected - anchors)}, extra={sorted(anchors - expected)}")
+            content = content_path.read_text(encoding="utf-8")
+            actual_sections = SECTION_RE.findall(content)
+            actual_pairs = [(section_id, title.strip()) for section_id, title in actual_sections]
+            expected_pairs = [(item["section_id"], item["title"].strip()) for item in planned_sections]
+            section_structure_valid = actual_pairs == expected_pairs
+            if not section_structure_valid:
+                errors.append(f"content sections must exactly match plan; expected={expected_pairs}, actual={actual_pairs}")
+            if "claim-GEN-" in content:
+                warnings.append("Legacy claim anchors remain in adapted_content.md; v2.1 uses section anchors only.")
         else:
             errors.append("missing adapted_content.md")
 
-        covered_source_claims = {claim_id for record in records for claim_id in record["source_claim_ids"]}
-        required_source_claims = {claim["source_claim_id"] for claim in source_claims if claim["coverage_decision"] not in {"deferred", "omitted"}}
-        source_coverage_complete = required_source_claims.issubset(covered_source_claims)
-        if not source_coverage_complete:
-            errors.append(f"uncovered source claims: {sorted(required_source_claims - covered_source_claims)}")
+        provenance_sections = provenance.get("sections", [])
+        provenance_ids = [item["section_id"] for item in provenance_sections]
+        provenance_by_id = {item["section_id"]: item for item in provenance_sections}
+        plan_by_id = {item["section_id"]: item for item in planned_sections}
+        provenance_complete = provenance_ids == planned_ids and not duplicates(provenance_ids)
+        if provenance_complete:
+            for section_id in planned_ids:
+                recorded = set(provenance_by_id[section_id].get("invariant_ids", []))
+                planned = set(plan_by_id[section_id].get("invariant_ids", []))
+                if recorded != planned:
+                    provenance_complete = False
+                    errors.append(f"provenance invariant mismatch for {section_id}")
+                unknown = recorded - invariant_set
+                if unknown:
+                    provenance_complete = False
+                    errors.append(f"unknown invariants in provenance {section_id}: {sorted(unknown)}")
+        else:
+            errors.append("provenance sections must exactly match planned section order")
 
-        record_generated_ids = [record["generated_claim_id"] for record in records]
-        provenance_complete = set(record_generated_ids) == generated_claim_set and not duplicate_values(record_generated_ids)
-        if not provenance_complete:
-            errors.append("each generated claim must have exactly one provenance record")
+        covered = {value for item in provenance_sections for value in item.get("invariant_ids", [])}
+        invariant_coverage_complete = invariant_set == planned_invariants == covered
+        if not invariant_coverage_complete:
+            errors.append(f"invariant coverage mismatch; uncovered={sorted(invariant_set - covered)}, unplanned={sorted(invariant_set - planned_invariants)}")
 
-    if "run_manifest.json" in documents and "code_validation.json" in documents:
-        status = documents["code_validation.json"].get("overall_status")
-        required = documents["run_manifest.json"].get("code_execution_required", False)
-        code_execution_passed = status == "passed" or (status == "no_code" and not required)
+        code = documents["code_validation.json"]
+        status = code.get("overall_status")
+        code_required = run.get("code_execution_required", False)
+        code_execution_passed = status == "passed" or (status == "no_code" and not code_required)
+        try:
+            recorded_content_path = Path(code.get("content_file", "")).resolve()
+        except OSError:
+            recorded_content_path = Path()
+        if recorded_content_path != content_path.resolve():
+            code_execution_passed = False
+            errors.append("code_validation content_file does not identify this run's adapted_content.md")
+        content_code_hashes = [hashlib.sha256(block.encode("utf-8")).hexdigest() for block in CODE_RE.findall(content)] if content_path.is_file() else []
+        recorded_code_hashes = [block.get("code_sha256") for block in code.get("blocks", [])]
+        if content_code_hashes != recorded_code_hashes:
+            code_execution_passed = False
+            errors.append("code_validation hashes do not match current Python blocks")
+        valid_section_ids = set(planned_ids)
+        invalid_code_anchors = [block.get("block_id") for block in code.get("blocks", []) if block.get("anchor") not in valid_section_ids]
+        if invalid_code_anchors:
+            code_execution_passed = False
+            errors.append(f"code blocks without valid section anchors: {invalid_code_anchors}")
         if not code_execution_passed:
-            errors.append(f"code validation does not satisfy code_execution_required={required}: {status}")
+            errors.append(f"code validation does not satisfy code_execution_required={code_required}: {status}")
 
     schemas_passed = all(item["status"] == "passed" for item in schema_checks)
-    treatment_valid = all([schemas_passed, source_hashes_valid, claim_anchors_valid, source_coverage_complete, provenance_complete, code_execution_passed])
-    warnings.append("This report verifies treatment integrity and mechanical checks, not mathematical correctness; use an independent evaluator for RQ1 outcomes.")
-    run_id = documents.get("run_manifest.json", {}).get("run_id", run_dir.name)
+    treatment_valid = not errors and all([schemas_passed, source_hashes_valid, section_structure_valid, invariant_coverage_complete, provenance_complete, code_execution_passed])
+    warnings.append("This report verifies compact C2 treatment integrity, not mathematical correctness; use an independent evaluator for RQ1 outcomes.")
     report = {
-        "run_id": run_id,
+        "run_id": documents.get("run_manifest.json", {}).get("run_id", run_dir.name),
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "schema_checks": schema_checks,
         "source_hashes_valid": source_hashes_valid,
-        "claim_anchors_valid": claim_anchors_valid,
-        "source_coverage_complete": source_coverage_complete,
+        "section_structure_valid": section_structure_valid,
+        "invariant_coverage_complete": invariant_coverage_complete,
         "provenance_complete": provenance_complete,
         "code_execution_passed": code_execution_passed,
         "treatment_valid": treatment_valid,

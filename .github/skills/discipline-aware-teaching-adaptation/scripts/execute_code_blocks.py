@@ -20,7 +20,7 @@ from pathlib import Path
 
 
 BLOCK_RE = re.compile(r"```(?:python|py)\s*\n(.*?)```", re.DOTALL | re.IGNORECASE)
-ANCHOR_RE = re.compile(r"<!--\s*(claim-GEN-[A-Za-z0-9._-]+)\s*-->")
+ANCHOR_RE = re.compile(r"<!--\s*section:\s*(SEC-[0-9]{2})\s*-->")
 
 
 def main() -> int:

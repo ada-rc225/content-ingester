@@ -1,0 +1,130 @@
+{
+  "invariants": [
+    {
+      "invariant_id": "INV-001",
+      "source_id": "gradient-descent-and-optimization",
+      "locator": "optimisation objective and stationarity",
+      "type": "equation",
+      "statement": "The optimisation problem is to minimise f(x) over x in R^d, and a differentiable local minimiser x* satisfies \u03c0f(x*) = 0.",
+      "conditions": [
+        "f is differentiable at x*",
+        "x* is a local minimiser"
+      ]
+    },
+    {
+      "invariant_id": "INV-002",
+      "source_id": "gradient-descent-and-optimization",
+      "locator": "mechanical equilibrium",
+      "type": "equation",
+      "statement": "For a potential-energy function V(q), the force is F(q) = -dV/dq(q), so equilibrium corresponds to dV/dq(q) = 0.",
+      "conditions": [
+        "V is differentiable",
+        "equilibrium means zero net force"
+      ]
+    },
+    {
+      "invariant_id": "INV-003",
+      "source_id": "gradient-descent-and-optimization",
+      "locator": "L-smoothness",
+      "type": "definition",
+      "statement": "A differentiable function is L-smooth when ||\u2207f(x) - \u2207f(y)|| <= L||x - y|| for all x,y.",
+      "conditions": [
+        "f is continuously differentiable",
+        "L > 0"
+      ]
+    },
+    {
+      "invariant_id": "INV-004",
+      "source_id": "gradient-descent-and-optimization",
+      "locator": "descent lemma",
+      "type": "equation",
+      "statement": "If f is L-smooth, then f(y) <= f(x) + <\u2207f(x), y-x> + (L/2)||y-x||^2.",
+      "conditions": [
+        "f is L-smooth"
+      ]
+    },
+    {
+      "invariant_id": "INV-005",
+      "source_id": "gradient-descent-and-optimization",
+      "locator": "convexity",
+      "type": "definition",
+      "statement": "A differentiable function is convex if f(y) >= f(x) + <\u2207f(x), y-x> for all x,y.",
+      "conditions": [
+        "f is differentiable"
+      ]
+    },
+    {
+      "invariant_id": "INV-006",
+      "source_id": "gradient-descent-and-optimization",
+      "locator": "strong convexity",
+      "type": "definition",
+      "statement": "A differentiable function is \u03bc-strongly convex if f(y) >= f(x) + <\u2207f(x), y-x> + (\u03bc/2)||y-x||^2 for all x,y with \u03bc > 0.",
+      "conditions": [
+        "\u03bc > 0"
+      ]
+    },
+    {
+      "invariant_id": "INV-007",
+      "source_id": "gradient-descent-and-optimization",
+      "locator": "gradient descent update",
+      "type": "algorithm_rule",
+      "statement": "Gradient descent uses x_{k+1} = x_k - \u03b1_k \u2207f(x_k), where \u03b1_k > 0 is the step size.",
+      "conditions": [
+        "current point x_k and gradient at x_k are known"
+      ]
+    },
+    {
+      "invariant_id": "INV-008",
+      "source_id": "gradient-descent-and-optimization",
+      "locator": "Armijo backtracking condition",
+      "type": "algorithm_rule",
+      "statement": "A backtracking step is accepted when f(x_k - \u03b1_k \u2207f(x_k)) <= f(x_k) - c\u03b1_k||\u2207f(x_k)||^2 with 0 < c < 1/2.",
+      "conditions": [
+        "c in (0, 1/2)"
+      ]
+    },
+    {
+      "invariant_id": "INV-009",
+      "source_id": "gradient-descent-and-optimization",
+      "locator": "convex rate bound",
+      "type": "convergence_result",
+      "statement": "For an L-smooth convex function and constant step size 1/L, gradient descent satisfies f(x_k) - f(x*) <= L||x_0 - x*||^2/(2k).",
+      "conditions": [
+        "f is L-smooth and convex",
+        "\u03b1_k = 1/L"
+      ]
+    },
+    {
+      "invariant_id": "INV-010",
+      "source_id": "gradient-descent-and-optimization",
+      "locator": "strongly convex linear rate",
+      "type": "convergence_result",
+      "statement": "For an L-smooth \u03bc-strongly convex function, gradient descent with step size 1/L can achieve f(x_k) - f(x*) <= (1 - \u03bc/L)^k (f(x_0) - f(x*)).",
+      "conditions": [
+        "f is L-smooth and \u03bc-strongly convex",
+        "\u03b1 = 1/L"
+      ]
+    },
+    {
+      "invariant_id": "INV-011",
+      "source_id": "gradient-descent-and-optimization",
+      "locator": "momentum update",
+      "type": "algorithm_rule",
+      "statement": "Momentum uses x_{k+1} = x_k - \u03b1\u2207f(x_k) + \u03b2(x_k - x_{k-1}) with \u03b2 in [0,1).",
+      "conditions": [
+        "\u03b2 in [0,1)"
+      ]
+    },
+    {
+      "invariant_id": "INV-012",
+      "source_id": "gradient-descent-and-optimization",
+      "locator": "stochastic gradient update",
+      "type": "algorithm_rule",
+      "statement": "Stochastic gradient descent uses x_{k+1} = x_k - \u03b7_k g_k(x_k), where g_k(x_k) is an unbiased estimate of the gradient.",
+      "conditions": [
+        "g_k is unbiased",
+        "step sizes satisfy the Robbins-Monro conditions"
+      ]
+    }
+  ]
+}
