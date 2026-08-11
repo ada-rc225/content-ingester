@@ -63,6 +63,8 @@ class ReferenceContractValidatorTests(unittest.TestCase):
         inventory_path = root / "grounding_inventory.json"
         inventory_path.write_text(json.dumps(inventory), encoding="utf-8")
         contract = {
+            "lifecycle_status": "candidate",
+            "approval": None,
             "grounding_inventory": {
                 "path": "grounding_inventory.json",
                 "sha256": hashlib.sha256(inventory_path.read_bytes()).hexdigest(),
@@ -99,7 +101,14 @@ class ReferenceContractValidatorTests(unittest.TestCase):
                     ],
                     "canonical_latex": ["alpha\nbeta"],
                     "formula_refs": ["FM-001"],
-                    "semantic_checks": [{"check_id": "CHK-001"}],
+                    "semantic_checks": [{"check_id": "CHK-001", "review_status": "proposed"}],
+                    "review": {
+                        "source_fidelity": "unreviewed",
+                        "mathematical_status": "unreviewed",
+                        "algorithmic_status": "unreviewed",
+                        "decision": "pending",
+                        "reviewer_notes": [],
+                    },
                 }
             ],
             "candidate_source_issues": [],
@@ -194,7 +203,7 @@ class ReferenceContractValidatorTests(unittest.TestCase):
         temporary, root, contract_path, contract = self.fixture()
         self.addCleanup(temporary.cleanup)
         duplicate = dict(contract["contract_items"][0])
-        duplicate["semantic_checks"] = [{"check_id": "CHK-002"}]
+        duplicate["semantic_checks"] = [{"check_id": "CHK-002", "review_status": "proposed"}]
         contract["contract_items"].append(duplicate)
         contract["candidate_source_issues"] = [
             {
@@ -216,6 +225,40 @@ class ReferenceContractValidatorTests(unittest.TestCase):
         self.assertIn("ITEM_ID_DUPLICATE", codes)
         self.assertIn("AFFECTED_ITEM_UNKNOWN", codes)
         self.assertIn("EVIDENCE_SOURCE_UNKNOWN", codes)
+
+    def test_invalid_review_enums_fail(self):
+        temporary, root, contract_path, contract = self.fixture()
+        self.addCleanup(temporary.cleanup)
+        contract["lifecycle_status"] = "under_review"
+        review = contract["contract_items"][0]["review"]
+        review["source_fidelity"] = "verified_correct"
+        review["decision"] = "approved"
+        codes = {finding.code for finding in self.validate(root, contract_path, contract)}
+        self.assertIn("SOURCE_FIDELITY_STATUS_INVALID", codes)
+        self.assertIn("ITEM_DECISION_INVALID", codes)
+
+    def test_candidate_cannot_contain_approved_checks(self):
+        temporary, root, contract_path, contract = self.fixture()
+        self.addCleanup(temporary.cleanup)
+        contract["contract_items"][0]["semantic_checks"][0]["review_status"] = "approved"
+        codes = {finding.code for finding in self.validate(root, contract_path, contract)}
+        self.assertIn("CANDIDATE_SEMANTIC_CHECK_ALREADY_APPROVED", codes)
+
+    def test_frozen_contract_requires_complete_approval(self):
+        temporary, root, contract_path, contract = self.fixture()
+        self.addCleanup(temporary.cleanup)
+        contract["lifecycle_status"] = "frozen"
+        item = contract["contract_items"][0]
+        item["semantic_checks"][0]["review_status"] = "approved"
+        item["review"] = {
+            "source_fidelity": "verified",
+            "mathematical_status": "verified_correct",
+            "algorithmic_status": "not_applicable",
+            "decision": "approved_as_written",
+            "reviewer_notes": ["Reviewed."],
+        }
+        codes = {finding.code for finding in self.validate(root, contract_path, contract)}
+        self.assertIn("FROZEN_APPROVAL_MISSING", codes)
 
 
 if __name__ == "__main__":

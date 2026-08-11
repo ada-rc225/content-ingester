@@ -1,0 +1,286 @@
+{
+  "schema_version": "1.0",
+  "contract_binding": {
+    "contract_id": "gradient-descent",
+    "contract_version": "4.0.0",
+    "review_basis_sha256": "0f59c35b68b1953ac6e8a7da46ea393a44810983dbba8f3cbaf4b154d9058369"
+  },
+  "review_status": "in_progress",
+  "reviewer": null,
+  "semantic_check_reviews": [
+    {
+      "check_id": "CHK-001",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-002",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-003",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-004",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-005",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-006",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-007",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-008",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-009",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-010",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-011",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-012",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-013",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-014",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-015",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-016",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-017",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-018",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-019",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-020",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-021",
+      "review_status": "proposed"
+    },
+    {
+      "check_id": "CHK-022",
+      "review_status": "proposed"
+    }
+  ],
+  "item_reviews": [
+    {
+      "item_id": "RC-001",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-002",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-003",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-004",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-005",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-006",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-007",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-008",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-009",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-010",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-011",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-012",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-013",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-014",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-015",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-016",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-017",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-018",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-019",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-020",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-021",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    },
+    {
+      "item_id": "RC-022",
+      "source_fidelity": "unreviewed",
+      "mathematical_status": "unreviewed",
+      "algorithmic_status": "unreviewed",
+      "decision": "pending",
+      "reviewer_notes": []
+    }
+  ],
+  "source_issue_reviews": [
+    {
+      "issue_id": "ISSUE-001",
+      "resolution": "pending_review",
+      "approved_generation_content": null
+    }
+  ],
+  "final_approval": null
+}

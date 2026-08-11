@@ -4,7 +4,7 @@
 This validator deliberately uses only the Python standard library. It checks
 properties that must not be delegated to an LLM: source identity, exact
 substring evidence, line-range containment, canonical-LaTeX evidence coverage,
-structural-only evidence, grounding-inventory coverage, and identifier/reference integrity. Version 3
+structural-only evidence, grounding-inventory coverage, review lifecycle, and identifier/reference integrity. Version 4
 supports line-addressable UTF-8 Markdown, text, and code sources.
 """
 
@@ -17,6 +17,7 @@ import re
 import sys
 import unicodedata
 from dataclasses import asdict, dataclass
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -26,6 +27,18 @@ ISSUE_ID_RE = re.compile(r"^ISSUE-[0-9]{3,}$")
 CHECK_ID_RE = re.compile(r"^CHK-[0-9]{3,}$")
 SOURCE_UNIT_ID_RE = re.compile(r"^SU-[0-9]{3,}$")
 FORMULA_ID_RE = re.compile(r"^FM-[0-9]{3,}$")
+LIFECYCLE_STATUSES = {"candidate", "under_review", "frozen"}
+SOURCE_FIDELITY_STATUSES = {"unreviewed", "verified", "mismatch"}
+MATHEMATICAL_STATUSES = {"unreviewed", "verified_correct", "source_issue", "not_applicable"}
+ALGORITHMIC_STATUSES = {"unreviewed", "verified_correct", "source_issue", "not_applicable"}
+ITEM_DECISIONS = {"pending", "approved_as_written", "approved_with_correction", "excluded"}
+SEMANTIC_CHECK_REVIEW_STATUSES = {"proposed", "approved"}
+FINAL_ITEM_DECISIONS = {"approved_as_written", "approved_with_correction", "excluded"}
+APPROVAL_STATEMENT = (
+    "I approve this contract as the frozen generation reference for the identified source version."
+)
+FREEZE_NOTE = "Record the SHA-256 of this complete frozen contract outside this file before generation."
+VALIDATOR_VERSION = "reference-contract-evidence-v4"
 LINE_RANGE_RE = re.compile(
     r"\blines?\s+([0-9]+)(?:\s*[-–—]\s*([0-9]+))?\b",
     re.IGNORECASE,
@@ -117,6 +130,16 @@ def validate_contract(
     contract = load_json(contract_path)
     if not isinstance(contract, dict):
         return [Finding("CONTRACT_NOT_OBJECT", "$", "contract root must be an object")]
+
+    lifecycle_status = contract.get("lifecycle_status")
+    if lifecycle_status not in LIFECYCLE_STATUSES:
+        findings.append(
+            Finding(
+                "LIFECYCLE_STATUS_INVALID",
+                "$.lifecycle_status",
+                f"lifecycle_status must be one of {sorted(LIFECYCLE_STATUSES)}",
+            )
+        )
 
     raw_sources = contract.get("source_materials")
     if not isinstance(raw_sources, list) or not raw_sources:
@@ -674,6 +697,113 @@ def validate_contract(
                     )
                 else:
                     check_ids.add(check_id)
+                review_status = check.get("review_status") if isinstance(check, dict) else None
+                if review_status not in SEMANTIC_CHECK_REVIEW_STATUSES:
+                    findings.append(
+                        Finding(
+                            "SEMANTIC_CHECK_REVIEW_STATUS_INVALID",
+                            f"{location}.semantic_checks[{check_index}].review_status",
+                            "review_status must be proposed or approved",
+                        )
+                    )
+                elif lifecycle_status == "candidate" and review_status != "proposed":
+                    findings.append(
+                        Finding(
+                            "CANDIDATE_SEMANTIC_CHECK_ALREADY_APPROVED",
+                            f"{location}.semantic_checks[{check_index}].review_status",
+                            "candidate contracts must keep semantic checks proposed",
+                        )
+                    )
+                elif lifecycle_status == "frozen" and review_status != "approved":
+                    findings.append(
+                        Finding(
+                            "FROZEN_SEMANTIC_CHECK_NOT_APPROVED",
+                            f"{location}.semantic_checks[{check_index}].review_status",
+                            "frozen contracts require every semantic check to be approved",
+                        )
+                    )
+
+        review = item.get("review")
+        if not isinstance(review, dict):
+            findings.append(
+                Finding("ITEM_REVIEW_INVALID", f"{location}.review", "review must be an object")
+            )
+        else:
+            review_fields = (
+                ("source_fidelity", SOURCE_FIDELITY_STATUSES, "SOURCE_FIDELITY_STATUS_INVALID"),
+                ("mathematical_status", MATHEMATICAL_STATUSES, "MATHEMATICAL_STATUS_INVALID"),
+                ("algorithmic_status", ALGORITHMIC_STATUSES, "ALGORITHMIC_STATUS_INVALID"),
+                ("decision", ITEM_DECISIONS, "ITEM_DECISION_INVALID"),
+            )
+            for field, allowed, code in review_fields:
+                value = review.get(field)
+                if value not in allowed:
+                    findings.append(
+                        Finding(code, f"{location}.review.{field}", f"{field} must be one of {sorted(allowed)}")
+                    )
+            reviewer_notes = review.get("reviewer_notes")
+            if not isinstance(reviewer_notes, list) or not all(
+                isinstance(note, str) for note in reviewer_notes
+            ):
+                findings.append(
+                    Finding(
+                        "REVIEWER_NOTES_INVALID",
+                        f"{location}.review.reviewer_notes",
+                        "reviewer_notes must be an array of strings",
+                    )
+                )
+            if lifecycle_status == "candidate":
+                expected_candidate = {
+                    "source_fidelity": "unreviewed",
+                    "mathematical_status": "unreviewed",
+                    "algorithmic_status": "unreviewed",
+                    "decision": "pending",
+                }
+                for field, expected in expected_candidate.items():
+                    if review.get(field) != expected:
+                        findings.append(
+                            Finding(
+                                "CANDIDATE_ITEM_REVIEW_ALREADY_DECIDED",
+                                f"{location}.review.{field}",
+                                f"candidate contracts require {field}={expected}",
+                            )
+                        )
+            if lifecycle_status == "frozen":
+                for field in ("source_fidelity", "mathematical_status", "algorithmic_status"):
+                    if review.get(field) == "unreviewed":
+                        findings.append(
+                            Finding(
+                                "FROZEN_ITEM_REVIEW_INCOMPLETE",
+                                f"{location}.review.{field}",
+                                "frozen contracts cannot contain unreviewed item statuses",
+                            )
+                        )
+                if review.get("decision") not in FINAL_ITEM_DECISIONS:
+                    findings.append(
+                        Finding(
+                            "FROZEN_ITEM_DECISION_INCOMPLETE",
+                            f"{location}.review.decision",
+                            "frozen contracts require a final item decision",
+                        )
+                    )
+            if review.get("decision") == "approved_as_written":
+                if review.get("source_fidelity") != "verified":
+                    findings.append(
+                        Finding(
+                            "APPROVED_ITEM_SOURCE_NOT_VERIFIED",
+                            f"{location}.review.source_fidelity",
+                            "approved_as_written requires verified source fidelity",
+                        )
+                    )
+                for field in ("mathematical_status", "algorithmic_status"):
+                    if review.get(field) not in {"verified_correct", "not_applicable"}:
+                        findings.append(
+                            Finding(
+                                "APPROVED_ITEM_DOMAIN_REVIEW_INVALID",
+                                f"{location}.review.{field}",
+                                "approved_as_written requires verified_correct or not_applicable",
+                            )
+                        )
 
         raw_formula_refs = item.get("formula_refs")
         valid_formula_refs: list[str] = []
@@ -979,6 +1109,107 @@ def validate_contract(
                     )
         validate_evidence(issue.get("evidence"), location)
 
+        resolution = issue.get("resolution")
+        allowed_resolutions = {
+            "pending_review",
+            "preserve_source",
+            "approved_correction",
+            "exclude_from_generation",
+        }
+        if resolution not in allowed_resolutions:
+            findings.append(
+                Finding(
+                    "SOURCE_ISSUE_RESOLUTION_INVALID",
+                    f"{location}.resolution",
+                    f"resolution must be one of {sorted(allowed_resolutions)}",
+                )
+            )
+        elif lifecycle_status == "candidate" and resolution != "pending_review":
+            findings.append(
+                Finding(
+                    "CANDIDATE_SOURCE_ISSUE_ALREADY_RESOLVED",
+                    f"{location}.resolution",
+                    "candidate contracts require pending_review source issues",
+                )
+            )
+        elif lifecycle_status == "frozen" and resolution == "pending_review":
+            findings.append(
+                Finding(
+                    "FROZEN_SOURCE_ISSUE_UNRESOLVED",
+                    f"{location}.resolution",
+                    "frozen contracts cannot contain pending source issues",
+                )
+            )
+
+    approval = contract.get("approval")
+    if lifecycle_status in {"candidate", "under_review"}:
+        if approval is not None:
+            findings.append(
+                Finding(
+                    "PRE_FREEZE_APPROVAL_MUST_BE_NULL",
+                    "$.approval",
+                    "candidate and under_review contracts must not contain final approval",
+                )
+            )
+    elif lifecycle_status == "frozen":
+        if not isinstance(approval, dict):
+            findings.append(
+                Finding(
+                    "FROZEN_APPROVAL_MISSING",
+                    "$.approval",
+                    "frozen contracts require a complete approval object",
+                )
+            )
+        else:
+            for field in ("reviewer_id", "reviewer_role"):
+                value = approval.get(field)
+                if not isinstance(value, str) or not value.strip():
+                    findings.append(
+                        Finding(
+                            "FROZEN_APPROVAL_FIELD_INVALID",
+                            f"$.approval.{field}",
+                            f"{field} must be a non-empty string",
+                        )
+                    )
+            reviewed_at = approval.get("reviewed_at")
+            if not isinstance(reviewed_at, str):
+                findings.append(
+                    Finding(
+                        "FROZEN_APPROVAL_DATE_INVALID",
+                        "$.approval.reviewed_at",
+                        "reviewed_at must be an ISO 8601 date-time string",
+                    )
+                )
+            else:
+                try:
+                    parsed_reviewed_at = datetime.fromisoformat(reviewed_at.replace("Z", "+00:00"))
+                except ValueError:
+                    parsed_reviewed_at = None
+                if parsed_reviewed_at is None or parsed_reviewed_at.tzinfo is None:
+                    findings.append(
+                        Finding(
+                            "FROZEN_APPROVAL_DATE_INVALID",
+                            "$.approval.reviewed_at",
+                            "reviewed_at must be an ISO 8601 date-time with a timezone",
+                        )
+                    )
+            if approval.get("approval_statement") != APPROVAL_STATEMENT:
+                findings.append(
+                    Finding(
+                        "FROZEN_APPROVAL_STATEMENT_INVALID",
+                        "$.approval.approval_statement",
+                        "approval_statement does not match the required declaration",
+                    )
+                )
+            if approval.get("freeze_note") != FREEZE_NOTE:
+                findings.append(
+                    Finding(
+                        "FROZEN_APPROVAL_NOTE_INVALID",
+                        "$.approval.freeze_note",
+                        "freeze_note does not match the required declaration",
+                    )
+                )
+
     return findings
 
 
@@ -1009,7 +1240,7 @@ def main() -> int:
         findings = [Finding("VALIDATION_INPUT_ERROR", "$", str(exc))]
 
     report = {
-        "validator": "reference-contract-evidence-v3",
+        "validator": VALIDATOR_VERSION,
         "valid": not findings,
         "error_count": len(findings),
         "coverage_metrics": metrics,
@@ -1028,7 +1259,7 @@ def main() -> int:
 
     print(
         "PASS: source/inventory hashes, complete source units, formula mappings, "
-        "coverage targets, IDs, and evidence references are valid"
+        "coverage targets, review lifecycle, approval state, IDs, and evidence references are valid"
     )
     return 0
 

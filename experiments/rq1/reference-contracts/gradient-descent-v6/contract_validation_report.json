@@ -12,8 +12,8 @@
     "core_formula_mapping_rate": 1.0,
     "core_formula_classification_rate": 1.0,
     "core_source_unit_count": 132,
-    "mapped_core_source_unit_count": 97,
-    "reference_only_source_unit_count": 35,
+    "mapped_core_source_unit_count": 91,
+    "reference_only_source_unit_count": 41,
     "core_source_unit_classification_rate": 1.0
   },
   "errors": []
