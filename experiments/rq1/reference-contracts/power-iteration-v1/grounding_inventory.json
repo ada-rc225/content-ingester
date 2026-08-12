@@ -1,0 +1,1457 @@
+{
+  "schema_version": "1.0",
+  "inventory_id": "eigenvalues-and-power-iteration-grounding-inventory",
+  "source": {
+    "source_id": "eigenvalues-and-power-iteration",
+    "path": "inputs/content-to-ingest/eigenvalues_and_power_iteration.md",
+    "format": "markdown",
+    "sha256": "6d79ba90ed3f922332304ec48668dd47f2b9542fbc5ab87dbb978691cc6f5bd5"
+  },
+  "scope_policy": {
+    "included_roles": [
+      "core_material",
+      "derivation"
+    ],
+    "excluded_roles": [
+      "exercise"
+    ],
+    "exercise_detection": "markdown heading contains exercise or plural problems"
+  },
+  "source_units": [
+    {
+      "source_unit_id": "SU-001",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration"
+      ],
+      "locator": {
+        "line_start": 1,
+        "line_end": 1
+      },
+      "exact_text": "# Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration"
+    },
+    {
+      "source_unit_id": "SU-002",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "Learning objectives"
+      ],
+      "locator": {
+        "line_start": 3,
+        "line_end": 3
+      },
+      "exact_text": "## Learning objectives"
+    },
+    {
+      "source_unit_id": "SU-003",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "Learning objectives"
+      ],
+      "locator": {
+        "line_start": 5,
+        "line_end": 5
+      },
+      "exact_text": "After studying this material, a learner should be able to:"
+    },
+    {
+      "source_unit_id": "SU-004",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "Learning objectives"
+      ],
+      "locator": {
+        "line_start": 7,
+        "line_end": 12
+      },
+      "exact_text": "1. define eigenvalues and eigenvectors;\n2. interpret the dominant eigenpair of a real symmetric matrix;\n3. derive and implement the power iteration;\n4. state the assumptions under which the method converges;\n5. use the Rayleigh quotient and residual to assess an approximation;\n6. recognise important failure modes."
+    },
+    {
+      "source_unit_id": "SU-005",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "1. Eigenvalues and eigenvectors"
+      ],
+      "locator": {
+        "line_start": 14,
+        "line_end": 14
+      },
+      "exact_text": "## 1. Eigenvalues and eigenvectors"
+    },
+    {
+      "source_unit_id": "SU-006",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "1. Eigenvalues and eigenvectors"
+      ],
+      "locator": {
+        "line_start": 16,
+        "line_end": 16
+      },
+      "exact_text": "Let $A\\in\\mathbb{R}^{n\\times n}$. A non-zero vector $v\\in\\mathbb{R}^n$ is an eigenvector of $A$ if there is a scalar $\\lambda$ such that"
+    },
+    {
+      "source_unit_id": "SU-007",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "1. Eigenvalues and eigenvectors"
+      ],
+      "locator": {
+        "line_start": 18,
+        "line_end": 20
+      },
+      "exact_text": "$$\nAv=\\lambda v.\n$$"
+    },
+    {
+      "source_unit_id": "SU-008",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "1. Eigenvalues and eigenvectors"
+      ],
+      "locator": {
+        "line_start": 22,
+        "line_end": 22
+      },
+      "exact_text": "The scalar $\\lambda$ is the eigenvalue associated with $v$. The requirement $v\\ne 0$ is essential because the zero vector satisfies $A0=\\lambda 0$ for every scalar and therefore carries no eigenvalue information."
+    },
+    {
+      "source_unit_id": "SU-009",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "1. Eigenvalues and eigenvectors"
+      ],
+      "locator": {
+        "line_start": 24,
+        "line_end": 24
+      },
+      "exact_text": "Eigenvalues are roots of the characteristic equation"
+    },
+    {
+      "source_unit_id": "SU-010",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "1. Eigenvalues and eigenvectors"
+      ],
+      "locator": {
+        "line_start": 26,
+        "line_end": 28
+      },
+      "exact_text": "$$\n\\det(A-\\lambda I)=0.\n$$"
+    },
+    {
+      "source_unit_id": "SU-011",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "1. Eigenvalues and eigenvectors"
+      ],
+      "locator": {
+        "line_start": 30,
+        "line_end": 30
+      },
+      "exact_text": "For large matrices, explicitly forming the characteristic polynomial is usually a poor numerical strategy. Iterative methods instead use repeated matrix-vector products to estimate selected eigenpairs."
+    },
+    {
+      "source_unit_id": "SU-012",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "2. Real symmetric matrices"
+      ],
+      "locator": {
+        "line_start": 32,
+        "line_end": 32
+      },
+      "exact_text": "## 2. Real symmetric matrices"
+    },
+    {
+      "source_unit_id": "SU-013",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "2. Real symmetric matrices"
+      ],
+      "locator": {
+        "line_start": 34,
+        "line_end": 34
+      },
+      "exact_text": "If $A=A^T$ is real and symmetric, the spectral theorem states that $A$ has an orthonormal basis of real eigenvectors. Thus"
+    },
+    {
+      "source_unit_id": "SU-014",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "2. Real symmetric matrices"
+      ],
+      "locator": {
+        "line_start": 36,
+        "line_end": 38
+      },
+      "exact_text": "$$\nA=Q\\Lambda Q^T,\n$$"
+    },
+    {
+      "source_unit_id": "SU-015",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "2. Real symmetric matrices"
+      ],
+      "locator": {
+        "line_start": 40,
+        "line_end": 40
+      },
+      "exact_text": "where $Q=[v_1,\\ldots,v_n]$ is orthogonal and"
+    },
+    {
+      "source_unit_id": "SU-016",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "2. Real symmetric matrices"
+      ],
+      "locator": {
+        "line_start": 42,
+        "line_end": 44
+      },
+      "exact_text": "$$\n\\Lambda=\\operatorname{diag}(\\lambda_1,\\ldots,\\lambda_n).\n$$"
+    },
+    {
+      "source_unit_id": "SU-017",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "2. Real symmetric matrices"
+      ],
+      "locator": {
+        "line_start": 46,
+        "line_end": 46
+      },
+      "exact_text": "Every vector $x\\in\\mathbb{R}^n$ can therefore be written as"
+    },
+    {
+      "source_unit_id": "SU-018",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "2. Real symmetric matrices"
+      ],
+      "locator": {
+        "line_start": 48,
+        "line_end": 51
+      },
+      "exact_text": "$$\nx=\\sum_{i=1}^n c_i v_i,\n\\qquad c_i=v_i^T x.\n$$"
+    },
+    {
+      "source_unit_id": "SU-019",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "2. Real symmetric matrices"
+      ],
+      "locator": {
+        "line_start": 53,
+        "line_end": 53
+      },
+      "exact_text": "This decomposition provides a clean setting for understanding the power iteration. In these notes, order the eigenvalues by magnitude:"
+    },
+    {
+      "source_unit_id": "SU-020",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "2. Real symmetric matrices"
+      ],
+      "locator": {
+        "line_start": 55,
+        "line_end": 57
+      },
+      "exact_text": "$$\n|\\lambda_1|>|\\lambda_2|\\ge\\cdots\\ge|\\lambda_n|.\n$$"
+    },
+    {
+      "source_unit_id": "SU-021",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "2. Real symmetric matrices"
+      ],
+      "locator": {
+        "line_start": 59,
+        "line_end": 59
+      },
+      "exact_text": "The strict inequality means that the dominant eigenvalue is unique in magnitude."
+    },
+    {
+      "source_unit_id": "SU-022",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration"
+      ],
+      "locator": {
+        "line_start": 61,
+        "line_end": 61
+      },
+      "exact_text": "## 3. The power iteration"
+    },
+    {
+      "source_unit_id": "SU-023",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration"
+      ],
+      "locator": {
+        "line_start": 63,
+        "line_end": 63
+      },
+      "exact_text": "Choose a non-zero initial vector $x_0$ and repeatedly compute"
+    },
+    {
+      "source_unit_id": "SU-024",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration"
+      ],
+      "locator": {
+        "line_start": 65,
+        "line_end": 69
+      },
+      "exact_text": "$$\ny_{k+1}=Ax_k,\n\\qquad\nx_{k+1}=\\frac{y_{k+1}}{\\|y_{k+1}\\|_2}.\n$$"
+    },
+    {
+      "source_unit_id": "SU-025",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration"
+      ],
+      "locator": {
+        "line_start": 71,
+        "line_end": 71
+      },
+      "exact_text": "The normalisation prevents the vector norm from growing without bound or shrinking towards zero. It does not change the direction of the iterate."
+    },
+    {
+      "source_unit_id": "SU-026",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration"
+      ],
+      "locator": {
+        "line_start": 73,
+        "line_end": 73
+      },
+      "exact_text": "The unnormalised sequence satisfies"
+    },
+    {
+      "source_unit_id": "SU-027",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration"
+      ],
+      "locator": {
+        "line_start": 75,
+        "line_end": 80
+      },
+      "exact_text": "$$\nA^k x_0\n=\\sum_{i=1}^n c_i\\lambda_i^k v_i\n=\\lambda_1^k\\left(c_1v_1+\n\\sum_{i=2}^n c_i\\left(\\frac{\\lambda_i}{\\lambda_1}\\right)^k v_i\\right).\n$$"
+    },
+    {
+      "source_unit_id": "SU-028",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration"
+      ],
+      "locator": {
+        "line_start": 82,
+        "line_end": 82
+      },
+      "exact_text": "If"
+    },
+    {
+      "source_unit_id": "SU-029",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration"
+      ],
+      "locator": {
+        "line_start": 84,
+        "line_end": 86
+      },
+      "exact_text": "$$\nc_1=v_1^Tx_0\\ne0\n$$"
+    },
+    {
+      "source_unit_id": "SU-030",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration"
+      ],
+      "locator": {
+        "line_start": 88,
+        "line_end": 88
+      },
+      "exact_text": "and $|\\lambda_1|>|\\lambda_2|$, then the ratios"
+    },
+    {
+      "source_unit_id": "SU-031",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration"
+      ],
+      "locator": {
+        "line_start": 90,
+        "line_end": 92
+      },
+      "exact_text": "$$\n\\left|\\frac{\\lambda_i}{\\lambda_1}\\right|^k\n$$"
+    },
+    {
+      "source_unit_id": "SU-032",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration"
+      ],
+      "locator": {
+        "line_start": 94,
+        "line_end": 94
+      },
+      "exact_text": "tend to zero for $i\\ge2$. The normalised iterates therefore approach the direction of $v_1$, up to sign."
+    },
+    {
+      "source_unit_id": "SU-033",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration",
+        "Convergence statement"
+      ],
+      "locator": {
+        "line_start": 96,
+        "line_end": 96
+      },
+      "exact_text": "### Convergence statement"
+    },
+    {
+      "source_unit_id": "SU-034",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration",
+        "Convergence statement"
+      ],
+      "locator": {
+        "line_start": 98,
+        "line_end": 98
+      },
+      "exact_text": "For a real symmetric matrix, suppose:"
+    },
+    {
+      "source_unit_id": "SU-035",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration",
+        "Convergence statement"
+      ],
+      "locator": {
+        "line_start": 100,
+        "line_end": 102
+      },
+      "exact_text": "1. $|\\lambda_1|>|\\lambda_2|$;\n2. the initial vector has non-zero projection onto $v_1$;\n3. no iterate produces $Ax_k=0$."
+    },
+    {
+      "source_unit_id": "SU-036",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration",
+        "Convergence statement"
+      ],
+      "locator": {
+        "line_start": 104,
+        "line_end": 104
+      },
+      "exact_text": "Then the direction error generally decreases asymptotically at a rate governed by"
+    },
+    {
+      "source_unit_id": "SU-037",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration",
+        "Convergence statement"
+      ],
+      "locator": {
+        "line_start": 106,
+        "line_end": 108
+      },
+      "exact_text": "$$\n\\left|\\frac{\\lambda_2}{\\lambda_1}\\right|^k.\n$$"
+    },
+    {
+      "source_unit_id": "SU-038",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration",
+        "Convergence statement"
+      ],
+      "locator": {
+        "line_start": 110,
+        "line_end": 110
+      },
+      "exact_text": "The closer $|\\lambda_2/\\lambda_1|$ is to one, the slower the convergence."
+    },
+    {
+      "source_unit_id": "SU-039",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration",
+        "Convergence statement"
+      ],
+      "locator": {
+        "line_start": 112,
+        "line_end": 112
+      },
+      "exact_text": "If $\\lambda_1<0$, successive normalised iterates may alternate sign. This is not a failure because $v_1$ and $-v_1$ represent the same eigendirection."
+    },
+    {
+      "source_unit_id": "SU-040",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "4. Estimating the eigenvalue"
+      ],
+      "locator": {
+        "line_start": 114,
+        "line_end": 114
+      },
+      "exact_text": "## 4. Estimating the eigenvalue"
+    },
+    {
+      "source_unit_id": "SU-041",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "4. Estimating the eigenvalue"
+      ],
+      "locator": {
+        "line_start": 116,
+        "line_end": 116
+      },
+      "exact_text": "Once an approximate eigenvector $x_k$ is available, estimate its eigenvalue with the Rayleigh quotient"
+    },
+    {
+      "source_unit_id": "SU-042",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "4. Estimating the eigenvalue"
+      ],
+      "locator": {
+        "line_start": 118,
+        "line_end": 120
+      },
+      "exact_text": "$$\n\\rho(x_k)=\\frac{x_k^TAx_k}{x_k^Tx_k}.\n$$"
+    },
+    {
+      "source_unit_id": "SU-043",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "4. Estimating the eigenvalue"
+      ],
+      "locator": {
+        "line_start": 122,
+        "line_end": 122
+      },
+      "exact_text": "For a normalised vector, this simplifies to"
+    },
+    {
+      "source_unit_id": "SU-044",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "4. Estimating the eigenvalue"
+      ],
+      "locator": {
+        "line_start": 124,
+        "line_end": 126
+      },
+      "exact_text": "$$\n\\rho(x_k)=x_k^TAx_k.\n$$"
+    },
+    {
+      "source_unit_id": "SU-045",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "4. Estimating the eigenvalue"
+      ],
+      "locator": {
+        "line_start": 128,
+        "line_end": 128
+      },
+      "exact_text": "For a symmetric matrix, if $x_k$ approaches an eigenvector $v_1$, then $\\rho(x_k)$ approaches $\\lambda_1$."
+    },
+    {
+      "source_unit_id": "SU-046",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "4. Estimating the eigenvalue"
+      ],
+      "locator": {
+        "line_start": 130,
+        "line_end": 130
+      },
+      "exact_text": "The eigenpair residual is"
+    },
+    {
+      "source_unit_id": "SU-047",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "4. Estimating the eigenvalue"
+      ],
+      "locator": {
+        "line_start": 132,
+        "line_end": 134
+      },
+      "exact_text": "$$\nr_k=Ax_k-\\rho(x_k)x_k.\n$$"
+    },
+    {
+      "source_unit_id": "SU-048",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "4. Estimating the eigenvalue"
+      ],
+      "locator": {
+        "line_start": 136,
+        "line_end": 136
+      },
+      "exact_text": "An exact eigenpair has $r_k=0$. In computation, a small residual norm"
+    },
+    {
+      "source_unit_id": "SU-049",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "4. Estimating the eigenvalue"
+      ],
+      "locator": {
+        "line_start": 138,
+        "line_end": 140
+      },
+      "exact_text": "$$\n\\|r_k\\|_2\n$$"
+    },
+    {
+      "source_unit_id": "SU-050",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "4. Estimating the eigenvalue"
+      ],
+      "locator": {
+        "line_start": 142,
+        "line_end": 142
+      },
+      "exact_text": "is a more meaningful stopping measure than simply checking whether two successive vectors look similar. Because eigenvectors are defined only up to sign, a sign flip can make $\\|x_{k+1}-x_k\\|_2$ large even when both vectors represent the same eigendirection."
+    },
+    {
+      "source_unit_id": "SU-051",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "5. Algorithm"
+      ],
+      "locator": {
+        "line_start": 144,
+        "line_end": 144
+      },
+      "exact_text": "## 5. Algorithm"
+    },
+    {
+      "source_unit_id": "SU-052",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "5. Algorithm"
+      ],
+      "locator": {
+        "line_start": 146,
+        "line_end": 146
+      },
+      "exact_text": "Given a matrix $A$, initial vector $x_0\\ne0$, tolerance $\\varepsilon>0$, and maximum iteration count $K$:"
+    },
+    {
+      "source_unit_id": "SU-053",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "5. Algorithm"
+      ],
+      "locator": {
+        "line_start": 148,
+        "line_end": 155
+      },
+      "exact_text": "1. normalise $x_0$;\n2. compute $y=Ax_k$;\n3. stop with a breakdown message if $\\|y\\|_2=0$;\n4. set $x_{k+1}=y/\\|y\\|_2$;\n5. compute $\\rho_{k+1}=x_{k+1}^TAx_{k+1}$;\n6. compute $r_{k+1}=Ax_{k+1}-\\rho_{k+1}x_{k+1}$;\n7. stop if $\\|r_{k+1}\\|_2\\le\\varepsilon$;\n8. otherwise continue until $K$ iterations have been performed."
+    },
+    {
+      "source_unit_id": "SU-054",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "5. Algorithm"
+      ],
+      "locator": {
+        "line_start": 157,
+        "line_end": 157
+      },
+      "exact_text": "This algorithm returns an approximate dominant eigenvalue, a unit-norm approximate eigenvector, the residual norm, and the number of iterations."
+    },
+    {
+      "source_unit_id": "SU-055",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "6. Failure modes and limitations"
+      ],
+      "locator": {
+        "line_start": 159,
+        "line_end": 159
+      },
+      "exact_text": "## 6. Failure modes and limitations"
+    },
+    {
+      "source_unit_id": "SU-056",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "6. Failure modes and limitations",
+        "Missing the dominant eigendirection"
+      ],
+      "locator": {
+        "line_start": 161,
+        "line_end": 161
+      },
+      "exact_text": "### Missing the dominant eigendirection"
+    },
+    {
+      "source_unit_id": "SU-057",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "6. Failure modes and limitations",
+        "Missing the dominant eigendirection"
+      ],
+      "locator": {
+        "line_start": 163,
+        "line_end": 163
+      },
+      "exact_text": "If $v_1^Tx_0=0$, then the initial vector contains no component in the dominant eigendirection. Exact arithmetic cannot create that missing component, so the method will not converge to $v_1$."
+    },
+    {
+      "source_unit_id": "SU-058",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "6. Failure modes and limitations",
+        "No unique dominant magnitude"
+      ],
+      "locator": {
+        "line_start": 165,
+        "line_end": 165
+      },
+      "exact_text": "### No unique dominant magnitude"
+    },
+    {
+      "source_unit_id": "SU-059",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "6. Failure modes and limitations",
+        "No unique dominant magnitude"
+      ],
+      "locator": {
+        "line_start": 167,
+        "line_end": 167
+      },
+      "exact_text": "If $|\\lambda_1|=|\\lambda_2|$, the method need not select a unique eigenvector. It may remain in or oscillate within the invariant subspace associated with the dominant magnitudes."
+    },
+    {
+      "source_unit_id": "SU-060",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "6. Failure modes and limitations",
+        "Small spectral gap"
+      ],
+      "locator": {
+        "line_start": 169,
+        "line_end": 169
+      },
+      "exact_text": "### Small spectral gap"
+    },
+    {
+      "source_unit_id": "SU-061",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "6. Failure modes and limitations",
+        "Small spectral gap"
+      ],
+      "locator": {
+        "line_start": 171,
+        "line_end": 171
+      },
+      "exact_text": "If $|\\lambda_2/\\lambda_1|$ is close to one, convergence can be very slow."
+    },
+    {
+      "source_unit_id": "SU-062",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "6. Failure modes and limitations",
+        "Dominant versus largest algebraic eigenvalue"
+      ],
+      "locator": {
+        "line_start": 173,
+        "line_end": 173
+      },
+      "exact_text": "### Dominant versus largest algebraic eigenvalue"
+    },
+    {
+      "source_unit_id": "SU-063",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "6. Failure modes and limitations",
+        "Dominant versus largest algebraic eigenvalue"
+      ],
+      "locator": {
+        "line_start": 175,
+        "line_end": 175
+      },
+      "exact_text": "The power iteration targets the eigenvalue of largest magnitude, not necessarily the most positive eigenvalue. For example, between eigenvalues $5$ and $-8$, the dominant eigenvalue by magnitude is $-8$."
+    },
+    {
+      "source_unit_id": "SU-064",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "6. Failure modes and limitations",
+        "Non-symmetric matrices"
+      ],
+      "locator": {
+        "line_start": 177,
+        "line_end": 177
+      },
+      "exact_text": "### Non-symmetric matrices"
+    },
+    {
+      "source_unit_id": "SU-065",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "6. Failure modes and limitations",
+        "Non-symmetric matrices"
+      ],
+      "locator": {
+        "line_start": 179,
+        "line_end": 179
+      },
+      "exact_text": "The power iteration can also be applied to some non-symmetric matrices, but the clean orthogonal decomposition used above is no longer generally available. Defective matrices, complex dominant eigenvalues, and non-normal behaviour require additional care and are outside the scope of these notes."
+    },
+    {
+      "source_unit_id": "SU-066",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "7. Python implementation"
+      ],
+      "locator": {
+        "line_start": 181,
+        "line_end": 181
+      },
+      "exact_text": "## 7. Python implementation"
+    },
+    {
+      "source_unit_id": "SU-067",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "7. Python implementation"
+      ],
+      "locator": {
+        "line_start": 183,
+        "line_end": 184
+      },
+      "exact_text": "```python\nimport numpy as np"
+    },
+    {
+      "source_unit_id": "SU-068",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "7. Python implementation"
+      ],
+      "locator": {
+        "line_start": 187,
+        "line_end": 189
+      },
+      "exact_text": "def power_iteration(A, x0, tolerance=1e-10, max_iterations=1000):\n    A = np.asarray(A, dtype=float)\n    x = np.asarray(x0, dtype=float)"
+    },
+    {
+      "source_unit_id": "SU-069",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "7. Python implementation"
+      ],
+      "locator": {
+        "line_start": 191,
+        "line_end": 194
+      },
+      "exact_text": "    if A.ndim != 2 or A.shape[0] != A.shape[1]:\n        raise ValueError(\"A must be square\")\n    if x.shape != (A.shape[0],):\n        raise ValueError(\"x0 has incompatible dimensions\")"
+    },
+    {
+      "source_unit_id": "SU-070",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "7. Python implementation"
+      ],
+      "locator": {
+        "line_start": 196,
+        "line_end": 199
+      },
+      "exact_text": "    x_norm = np.linalg.norm(x)\n    if x_norm == 0:\n        raise ValueError(\"x0 must be non-zero\")\n    x = x / x_norm"
+    },
+    {
+      "source_unit_id": "SU-071",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "7. Python implementation"
+      ],
+      "locator": {
+        "line_start": 201,
+        "line_end": 205
+      },
+      "exact_text": "    for iteration in range(1, max_iterations + 1):\n        y = A @ x\n        y_norm = np.linalg.norm(y)\n        if y_norm == 0:\n            raise RuntimeError(\"power iteration broke down because A @ x is zero\")"
+    },
+    {
+      "source_unit_id": "SU-072",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "7. Python implementation"
+      ],
+      "locator": {
+        "line_start": 207,
+        "line_end": 210
+      },
+      "exact_text": "        x = y / y_norm\n        eigenvalue = float(x @ (A @ x))\n        residual = A @ x - eigenvalue * x\n        residual_norm = float(np.linalg.norm(residual))"
+    },
+    {
+      "source_unit_id": "SU-073",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "7. Python implementation"
+      ],
+      "locator": {
+        "line_start": 212,
+        "line_end": 213
+      },
+      "exact_text": "        if residual_norm <= tolerance:\n            return eigenvalue, x, residual_norm, iteration"
+    },
+    {
+      "source_unit_id": "SU-074",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "7. Python implementation"
+      ],
+      "locator": {
+        "line_start": 215,
+        "line_end": 215
+      },
+      "exact_text": "    return eigenvalue, x, residual_norm, max_iterations"
+    },
+    {
+      "source_unit_id": "SU-075",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "7. Python implementation"
+      ],
+      "locator": {
+        "line_start": 218,
+        "line_end": 219
+      },
+      "exact_text": "A = np.array([[4.0, 1.0],\n              [1.0, 2.0]])"
+    },
+    {
+      "source_unit_id": "SU-076",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "7. Python implementation"
+      ],
+      "locator": {
+        "line_start": 221,
+        "line_end": 223
+      },
+      "exact_text": "eigenvalue, eigenvector, residual, iterations = power_iteration(\n    A, np.array([1.0, 1.0])\n)"
+    },
+    {
+      "source_unit_id": "SU-077",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "7. Python implementation"
+      ],
+      "locator": {
+        "line_start": 225,
+        "line_end": 229
+      },
+      "exact_text": "print(\"Estimated dominant eigenvalue:\", eigenvalue)\nprint(\"Estimated eigenvector:\", eigenvector)\nprint(\"Residual norm:\", residual)\nprint(\"Iterations:\", iterations)\n```"
+    },
+    {
+      "source_unit_id": "SU-078",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "7. Python implementation"
+      ],
+      "locator": {
+        "line_start": 231,
+        "line_end": 231
+      },
+      "exact_text": "For this matrix, the exact eigenvalues are"
+    },
+    {
+      "source_unit_id": "SU-079",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "7. Python implementation"
+      ],
+      "locator": {
+        "line_start": 233,
+        "line_end": 237
+      },
+      "exact_text": "$$\n3+\\sqrt{2}\n\\quad\\text{and}\\quad\n3-\\sqrt{2}.\n$$"
+    },
+    {
+      "source_unit_id": "SU-080",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "7. Python implementation"
+      ],
+      "locator": {
+        "line_start": 239,
+        "line_end": 239
+      },
+      "exact_text": "The code should estimate the dominant eigenvalue $3+\\sqrt{2}$ and produce a small residual."
+    },
+    {
+      "source_unit_id": "SU-081",
+      "unit_type": "heading",
+      "scope_role": "exercise",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "8. Exercises"
+      ],
+      "locator": {
+        "line_start": 241,
+        "line_end": 241
+      },
+      "exact_text": "## 8. Exercises"
+    },
+    {
+      "source_unit_id": "SU-082",
+      "unit_type": "paragraph",
+      "scope_role": "exercise",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "8. Exercises"
+      ],
+      "locator": {
+        "line_start": 243,
+        "line_end": 248
+      },
+      "exact_text": "1. For $A=\\operatorname{diag}(5,2)$ and $x_0=(1,1)^T$, write down the first three unnormalised iterates and explain the observed direction.\n2. Repeat the previous exercise with $x_0=(0,1)^T$. Which assumption fails?\n3. Explain why a dominant negative eigenvalue may cause sign alternation without preventing convergence of the eigendirection.\n4. Construct a symmetric $2\\times2$ matrix with eigenvalues $4$ and $3.9$. Explain why the power iteration is slow.\n5. Modify the Python program to store the residual norm at each iteration and plot it on a logarithmic scale.\n6. Compare the computed eigenvalue with `numpy.linalg.eigh`. Use the residual, rather than decimal agreement alone, to assess the result."
+    },
+    {
+      "source_unit_id": "SU-083",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "Summary"
+      ],
+      "locator": {
+        "line_start": 250,
+        "line_end": 250
+      },
+      "exact_text": "## Summary"
+    },
+    {
+      "source_unit_id": "SU-084",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "Summary"
+      ],
+      "locator": {
+        "line_start": 252,
+        "line_end": 252
+      },
+      "exact_text": "The power iteration extracts an eigenvector associated with the eigenvalue of largest magnitude by repeatedly applying the matrix and normalising. Its convergence depends on a unique dominant magnitude and a non-zero initial projection onto the dominant eigenvector. The Rayleigh quotient estimates the eigenvalue, while the residual measures the quality of the approximate eigenpair."
+    }
+  ],
+  "formulas": [
+    {
+      "formula_id": "FM-001",
+      "source_unit_id": "SU-007",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "1. Eigenvalues and eigenvectors"
+      ],
+      "locator": {
+        "line_start": 18,
+        "line_end": 20
+      },
+      "exact_latex": "Av=\\lambda v.",
+      "exact_block": "$$\nAv=\\lambda v.\n$$"
+    },
+    {
+      "formula_id": "FM-002",
+      "source_unit_id": "SU-010",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "1. Eigenvalues and eigenvectors"
+      ],
+      "locator": {
+        "line_start": 26,
+        "line_end": 28
+      },
+      "exact_latex": "\\det(A-\\lambda I)=0.",
+      "exact_block": "$$\n\\det(A-\\lambda I)=0.\n$$"
+    },
+    {
+      "formula_id": "FM-003",
+      "source_unit_id": "SU-014",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "2. Real symmetric matrices"
+      ],
+      "locator": {
+        "line_start": 36,
+        "line_end": 38
+      },
+      "exact_latex": "A=Q\\Lambda Q^T,",
+      "exact_block": "$$\nA=Q\\Lambda Q^T,\n$$"
+    },
+    {
+      "formula_id": "FM-004",
+      "source_unit_id": "SU-016",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "2. Real symmetric matrices"
+      ],
+      "locator": {
+        "line_start": 42,
+        "line_end": 44
+      },
+      "exact_latex": "\\Lambda=\\operatorname{diag}(\\lambda_1,\\ldots,\\lambda_n).",
+      "exact_block": "$$\n\\Lambda=\\operatorname{diag}(\\lambda_1,\\ldots,\\lambda_n).\n$$"
+    },
+    {
+      "formula_id": "FM-005",
+      "source_unit_id": "SU-018",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "2. Real symmetric matrices"
+      ],
+      "locator": {
+        "line_start": 48,
+        "line_end": 51
+      },
+      "exact_latex": "x=\\sum_{i=1}^n c_i v_i,\n\\qquad c_i=v_i^T x.",
+      "exact_block": "$$\nx=\\sum_{i=1}^n c_i v_i,\n\\qquad c_i=v_i^T x.\n$$"
+    },
+    {
+      "formula_id": "FM-006",
+      "source_unit_id": "SU-020",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "2. Real symmetric matrices"
+      ],
+      "locator": {
+        "line_start": 55,
+        "line_end": 57
+      },
+      "exact_latex": "|\\lambda_1|>|\\lambda_2|\\ge\\cdots\\ge|\\lambda_n|.",
+      "exact_block": "$$\n|\\lambda_1|>|\\lambda_2|\\ge\\cdots\\ge|\\lambda_n|.\n$$"
+    },
+    {
+      "formula_id": "FM-007",
+      "source_unit_id": "SU-024",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration"
+      ],
+      "locator": {
+        "line_start": 65,
+        "line_end": 69
+      },
+      "exact_latex": "y_{k+1}=Ax_k,\n\\qquad\nx_{k+1}=\\frac{y_{k+1}}{\\|y_{k+1}\\|_2}.",
+      "exact_block": "$$\ny_{k+1}=Ax_k,\n\\qquad\nx_{k+1}=\\frac{y_{k+1}}{\\|y_{k+1}\\|_2}.\n$$"
+    },
+    {
+      "formula_id": "FM-008",
+      "source_unit_id": "SU-027",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration"
+      ],
+      "locator": {
+        "line_start": 75,
+        "line_end": 80
+      },
+      "exact_latex": "A^k x_0\n=\\sum_{i=1}^n c_i\\lambda_i^k v_i\n=\\lambda_1^k\\left(c_1v_1+\n\\sum_{i=2}^n c_i\\left(\\frac{\\lambda_i}{\\lambda_1}\\right)^k v_i\\right).",
+      "exact_block": "$$\nA^k x_0\n=\\sum_{i=1}^n c_i\\lambda_i^k v_i\n=\\lambda_1^k\\left(c_1v_1+\n\\sum_{i=2}^n c_i\\left(\\frac{\\lambda_i}{\\lambda_1}\\right)^k v_i\\right).\n$$"
+    },
+    {
+      "formula_id": "FM-009",
+      "source_unit_id": "SU-029",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration"
+      ],
+      "locator": {
+        "line_start": 84,
+        "line_end": 86
+      },
+      "exact_latex": "c_1=v_1^Tx_0\\ne0",
+      "exact_block": "$$\nc_1=v_1^Tx_0\\ne0\n$$"
+    },
+    {
+      "formula_id": "FM-010",
+      "source_unit_id": "SU-031",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration"
+      ],
+      "locator": {
+        "line_start": 90,
+        "line_end": 92
+      },
+      "exact_latex": "\\left|\\frac{\\lambda_i}{\\lambda_1}\\right|^k",
+      "exact_block": "$$\n\\left|\\frac{\\lambda_i}{\\lambda_1}\\right|^k\n$$"
+    },
+    {
+      "formula_id": "FM-011",
+      "source_unit_id": "SU-037",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "3. The power iteration",
+        "Convergence statement"
+      ],
+      "locator": {
+        "line_start": 106,
+        "line_end": 108
+      },
+      "exact_latex": "\\left|\\frac{\\lambda_2}{\\lambda_1}\\right|^k.",
+      "exact_block": "$$\n\\left|\\frac{\\lambda_2}{\\lambda_1}\\right|^k.\n$$"
+    },
+    {
+      "formula_id": "FM-012",
+      "source_unit_id": "SU-042",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "4. Estimating the eigenvalue"
+      ],
+      "locator": {
+        "line_start": 118,
+        "line_end": 120
+      },
+      "exact_latex": "\\rho(x_k)=\\frac{x_k^TAx_k}{x_k^Tx_k}.",
+      "exact_block": "$$\n\\rho(x_k)=\\frac{x_k^TAx_k}{x_k^Tx_k}.\n$$"
+    },
+    {
+      "formula_id": "FM-013",
+      "source_unit_id": "SU-044",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "4. Estimating the eigenvalue"
+      ],
+      "locator": {
+        "line_start": 124,
+        "line_end": 126
+      },
+      "exact_latex": "\\rho(x_k)=x_k^TAx_k.",
+      "exact_block": "$$\n\\rho(x_k)=x_k^TAx_k.\n$$"
+    },
+    {
+      "formula_id": "FM-014",
+      "source_unit_id": "SU-047",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "4. Estimating the eigenvalue"
+      ],
+      "locator": {
+        "line_start": 132,
+        "line_end": 134
+      },
+      "exact_latex": "r_k=Ax_k-\\rho(x_k)x_k.",
+      "exact_block": "$$\nr_k=Ax_k-\\rho(x_k)x_k.\n$$"
+    },
+    {
+      "formula_id": "FM-015",
+      "source_unit_id": "SU-049",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "4. Estimating the eigenvalue"
+      ],
+      "locator": {
+        "line_start": 138,
+        "line_end": 140
+      },
+      "exact_latex": "\\|r_k\\|_2",
+      "exact_block": "$$\n\\|r_k\\|_2\n$$"
+    },
+    {
+      "formula_id": "FM-016",
+      "source_unit_id": "SU-079",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Eigenvalues, Eigenvectors, and the Power Iteration",
+        "7. Python implementation"
+      ],
+      "locator": {
+        "line_start": 233,
+        "line_end": 237
+      },
+      "exact_latex": "3+\\sqrt{2}\n\\quad\\text{and}\\quad\n3-\\sqrt{2}.",
+      "exact_block": "$$\n3+\\sqrt{2}\n\\quad\\text{and}\\quad\n3-\\sqrt{2}.\n$$"
+    }
+  ]
+}

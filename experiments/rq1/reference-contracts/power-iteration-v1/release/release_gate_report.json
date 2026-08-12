@@ -1,0 +1,27 @@
+{
+  "release_gate": "grounding-release-gate-v1",
+  "status": "released",
+  "released_at": "2026-08-12T03:13:48.322731+00:00",
+  "contract_id": "power-iteration",
+  "contract_version": "1.0.0",
+  "review_basis_sha256": "0ad58280591d2d5f9ec1131a382959f6b94f3f3682e966be3cc155b0f67b1ce6",
+  "reviewer": {
+    "reviewer_id": "tester-001",
+    "reviewer_role": "Mathematics/Numerical Linear Algebra Reviewer",
+    "reviewed_at": "2026-08-12T04:30:00+01:00"
+  },
+  "inputs": {
+    "contract": "experiments/rq1/reference-contracts/power-iteration-v1/reference_contract.json",
+    "contract_sha256": "6d2bbecec26e5ec2090a0cc266017cf8d71c8b996a2ca59990e3e016fee66b17",
+    "human_review": "experiments/rq1/reference-contracts/power-iteration-v1/human_review.json",
+    "human_review_sha256": "89eacea856c618889f9778a931aa464a25b431b965fe9379eccc345f4c9770cb",
+    "source_manifest": "experiments/rq1/reference-contracts/power-iteration-v1/source_manifest.json",
+    "grounding_inventory": "experiments/rq1/reference-contracts/power-iteration-v1/grounding_inventory.json"
+  },
+  "outputs": {
+    "frozen_contract": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+    "frozen_contract_sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7",
+    "validation_report": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_contract_validation_report.json",
+    "sha256_file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_contract.sha256"
+  }
+}
