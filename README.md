@@ -147,12 +147,13 @@ Prompt:
 
 The Grounding Contract Builder creates a candidate mathematical source of truth before discipline-aware adaptation. Exercises are excluded by default because they may be regenerated for each learner profile; definitions, assumptions, theorem statements, convergence bounds, and algorithm updates remain in scope.
 
-For a Markdown source, the pipeline produces four review artifacts:
+For a Markdown source, the pipeline produces five review artifacts:
 
 1. `source_manifest.json`: authoritative file identity and SHA-256.
 2. `grounding_inventory.json`: deterministic source units and exact formula blocks, classified as core material, derivation, or exercise.
 3. `contract_plan.json`: compact semantic item proposals containing source-unit and formula IDs.
 4. `reference_contract.json`: materialized evidence and source-exact LaTeX for human review.
+5. `human_review.json`: a separately persisted review record bound to the immutable generation content.
 
 Build and validate them with:
 
@@ -161,6 +162,65 @@ python3 .github/scripts/build_grounding_inventory.py --workspace-root . --source
 python3 .github/scripts/materialize_reference_contract.py --workspace-root . --plan <contract-dir>/contract_plan.json --inventory <contract-dir>/grounding_inventory.json --source-manifest <contract-dir>/source_manifest.json --output <contract-dir>/reference_contract.json
 python3 .github/scripts/validate_reference_contract.py --workspace-root . --contract <contract-dir>/reference_contract.json --source-manifest <contract-dir>/source_manifest.json --grounding-inventory <contract-dir>/grounding_inventory.json --report <contract-dir>/contract_validation_report.json
 ```
+
+Capture completed or in-progress item reviews without rerunning the materializer:
+
+```bash
+python3 .github/scripts/manage_human_review.py capture --contract <contract-dir>/reference_contract.json --output <contract-dir>/human_review.json
+```
+
+To restore the review onto matching generation content, always write a separate output file:
+
+```bash
+python3 .github/scripts/manage_human_review.py apply --contract <contract-dir>/reference_contract.json --review <contract-dir>/human_review.json --output <contract-dir>/reviewed_reference_contract.json
+```
+
+The review record is bound through a SHA-256 computed after removing mutable review decisions. It can therefore survive regeneration of review fields, but it refuses to apply if a mathematical statement, formula, evidence unit, source fingerprint, or other generation content has changed.
+
+After an authorised reviewer changes `human_review.review_status` to `approved` and completes `reviewer` and `final_approval`, select the `Grounding Release Gate` agent or run its deterministic command directly:
+
+```bash
+python3 .github/scripts/release_grounding_contract.py \
+  --workspace-root . \
+  --contract <contract-dir>/reference_contract.json \
+  --review <contract-dir>/human_review.json \
+  --source-manifest <contract-dir>/source_manifest.json \
+  --grounding-inventory <contract-dir>/grounding_inventory.json \
+  --output-dir <new-release-dir>
+```
+
+The release gate never runs the materializer and never edits approval data. It refuses incomplete or mismatched reviews and refuses to overwrite an existing release. A successful run atomically produces `frozen_reference_contract.json`, `frozen_contract_validation_report.json`, `frozen_contract.sha256`, and `release_gate_report.json`.
+
+### Run the C2 Frozen Contract adapter
+
+Give the `Discipline-aware Teaching Adapter` the `frozen_reference_contract.json` inside the successful release directory, not an earlier candidate or a similarly named pre-release artifact. The adapter first runs:
+
+```bash
+python3 .github/skills/discipline-aware-teaching-adaptation/scripts/prepare_frozen_grounding.py \
+  --workspace-root . \
+  --contract <release-dir>/frozen_reference_contract.json \
+  --output <run-dir>/grounding_receipt.json
+```
+
+This preflight refuses an incomplete release and creates a fingerprinted `grounding_receipt.json` plus a compact `grounding_view.json`. C2 version 3.5 generates only from that approved view, covers every required Contract item, records a decision for every conditional item, enforces the structured `word_count_protocol`, and keeps Contract IDs out of student-facing prose.
+
+When exercises are enabled, record their common experimental protocol in `run_manifest.json`. Each exercise is generated for the learner rather than copied into the Frozen Contract, but its mathematical meaning and worked solution must map to selected Contract items. Numeric exercises use hidden `derived-answer` and `answer` markers with visible JSON results; code exercises use `expected-stdout` markers with visible JSON strings. Then run:
+
+```bash
+python3 .github/skills/discipline-aware-teaching-adaptation/scripts/execute_code_blocks.py \
+  --content <run-dir>/adapted_content.md \
+  --output <run-dir>/code_validation.json
+python3 .github/skills/discipline-aware-teaching-adaptation/scripts/validate_exercises.py \
+  --content <run-dir>/adapted_content.md \
+  --plan <run-dir>/adaptation_plan.json \
+  --code-validation <run-dir>/code_validation.json \
+  --output <run-dir>/exercise_validation.json
+python3 .github/skills/discipline-aware-teaching-adaptation/scripts/validate_adapter_outputs.py \
+  --workspace-root . \
+  --run-dir <run-dir>
+```
+
+The exercise validator checks that all exercises occur in the final planned chapter, then checks reading-order IDs, worked-solution presence, RC bindings, unified objective-gradient-update computation, agreement between visible derivation and Checked answer, and agreement between visible expected output and executed stdout. Conceptual, derivational, and transfer exercises use `contract_binding`, which validates their structure, solution presence, and selected RC-item binding without creating a post-generation human-review task or claiming semantic proof. Historical C2 runs before v3.5 remain pilot artifacts and should not be mixed with v3.5 confirmatory RQ1 runs.
 
 The deterministic validator requires every core formula to map to a contract item, preserves derivation formulas as reference-only, excludes exercise formulas from the denominator, and requires complete inventory source units rather than short evidence fragments. A passing report establishes provenance and coverage, not mathematical approval: an expert must still review the candidate before changing its lifecycle to `frozen`.
 

@@ -1,13 +1,23 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Compact Teaching Adaptation Plan",
+  "title": "Frozen-contract Teaching Adaptation Plan",
   "type": "object",
   "additionalProperties": false,
-  "required": ["topic", "profile_id", "source_ids", "entry_point", "chapter_sequence", "implementation_strategy", "assessment_strategy"],
+  "required": ["topic", "profile_id", "source_ids", "grounding_contract", "entry_point", "required_contract_item_ids", "conditional_item_decisions", "chapter_sequence", "exercise_section_id", "implementation_strategy", "assessment_strategy", "exercise_plan"],
   "properties": {
     "topic": {"type": "string", "minLength": 1},
     "profile_id": {"type": "string", "minLength": 1},
     "source_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "grounding_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contract_id", "contract_version", "sha256"],
+      "properties": {
+        "contract_id": {"type": "string", "minLength": 1},
+        "contract_version": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
     "entry_point": {
       "type": "object", "additionalProperties": false,
       "required": ["discipline_context", "rationale", "analogy_boundary"],
@@ -17,21 +27,90 @@
         "analogy_boundary": {"type": "string", "minLength": 1, "maxLength": 500}
       }
     },
+    "required_contract_item_ids": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^RC-[0-9]{3,}$"}
+    },
+    "conditional_item_decisions": {
+      "type": "array", "uniqueItems": true,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["item_id", "included", "rationale"],
+        "properties": {
+          "item_id": {"type": "string", "pattern": "^RC-[0-9]{3,}$"},
+          "included": {"type": "boolean"},
+          "rationale": {"type": "string", "minLength": 1, "maxLength": 300}
+        }
+      }
+    },
     "chapter_sequence": {
       "type": "array", "minItems": 3, "maxItems": 12,
       "items": {
         "type": "object", "additionalProperties": false,
-        "required": ["section_id", "order", "title", "purpose", "invariant_ids"],
+        "required": ["section_id", "order", "title", "purpose", "contract_item_ids"],
         "properties": {
           "section_id": {"type": "string", "pattern": "^SEC-[0-9]{2}$"},
           "order": {"type": "integer", "minimum": 1},
           "title": {"type": "string", "minLength": 1, "maxLength": 120},
           "purpose": {"type": "string", "minLength": 1, "maxLength": 300},
-          "invariant_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^INV-[A-Za-z0-9._-]+$"}}
+          "contract_item_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^RC-[0-9]{3,}$"}}
         }
       }
     },
+    "exercise_section_id": {"type": ["string", "null"], "pattern": "^SEC-[0-9]{2}$"},
     "implementation_strategy": {"type": "string", "minLength": 1, "maxLength": 500},
-    "assessment_strategy": {"type": "string", "minLength": 1, "maxLength": 500}
+    "assessment_strategy": {"type": "string", "minLength": 1, "maxLength": 500},
+    "exercise_plan": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["exercise_id", "order", "section_id", "exercise_type", "difficulty", "learning_objective", "contract_item_ids", "discipline_context", "solution_required", "verification"],
+        "properties": {
+          "exercise_id": {"type": "string", "pattern": "^EX-[0-9]{3,}$"},
+          "order": {"type": "integer", "minimum": 1},
+          "section_id": {"type": "string", "pattern": "^SEC-[0-9]{2}$"},
+          "exercise_type": {"type": "string", "enum": ["concept_check", "hand_calculation", "code_diagnostic", "derivation", "transfer", "other"]},
+          "difficulty": {"type": "string", "enum": ["introductory", "intermediate", "advanced"]},
+          "learning_objective": {"type": "string", "minLength": 1, "maxLength": 300},
+          "contract_item_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^RC-[0-9]{3,}$"}},
+          "discipline_context": {"type": "string", "minLength": 1, "maxLength": 300},
+          "solution_required": {"type": "boolean"},
+          "verification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["method", "python_expression", "expected_value", "absolute_tolerance", "consistency_checks"],
+            "properties": {
+              "method": {"type": "string", "enum": ["contract_binding", "deterministic_calculation", "code_execution", "combined"]},
+              "python_expression": {"type": ["string", "null"]},
+              "expected_value": {"type": ["number", "array", "null"], "items": {"type": "number"}},
+              "absolute_tolerance": {"type": "number", "minimum": 0},
+              "consistency_checks": {
+                "type": "array",
+                "maxItems": 10,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["check_id", "kind", "objective_expression", "expressions", "variables", "point", "step_size", "expected_gradient", "expected_value", "absolute_tolerance"],
+                  "properties": {
+                    "check_id": {"type": "string", "pattern": "^CK-[0-9]{3,}$"},
+                    "kind": {"type": "string", "enum": ["objective_gradient", "objective_gradient_update", "expression_values"]},
+                    "objective_expression": {"type": ["string", "null"], "maxLength": 500},
+                    "expressions": {"type": "array", "maxItems": 20, "items": {"type": "string", "minLength": 1, "maxLength": 500}},
+                    "variables": {"type": "array", "minItems": 1, "maxItems": 10, "uniqueItems": true, "items": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}},
+                    "point": {"type": "array", "minItems": 1, "maxItems": 10, "items": {"type": "number"}},
+                    "step_size": {"type": ["number", "null"], "minimum": 0},
+                    "expected_gradient": {"type": ["array", "null"], "items": {"type": "number"}},
+                    "expected_value": {"type": ["number", "array"], "items": {"type": "number"}},
+                    "absolute_tolerance": {"type": "number", "minimum": 0}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

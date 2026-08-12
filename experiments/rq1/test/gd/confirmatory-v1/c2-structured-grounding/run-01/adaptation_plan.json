@@ -1,0 +1,44 @@
+{
+  "topic": "Gradient Descent and Optimisation",
+  "profile_id": "mechanical-engineering-year-2",
+  "source_ids": ["gradient-descent-and-optimization"],
+  "grounding_contract": {"contract_id": "gradient-descent", "contract_version": "3.0.0", "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"},
+  "entry_point": {"discipline_context": "Parameter fitting and design tuning in mechanical engineering use a scalar performance objective over a vector of design variables.", "rationale": "Learners can connect familiar gradients and matrix curvature to a systematic optimisation workflow before meeting formal convexity.", "analogy_boundary": "Engineering language motivates the examples; the definitions, algorithms, assumptions, and rates below are mathematical statements."},
+  "required_contract_item_ids": ["RC-001","RC-002","RC-003","RC-004","RC-005","RC-006","RC-007","RC-008","RC-009","RC-010","RC-011","RC-014","RC-015"],
+  "conditional_item_decisions": [
+    {"item_id":"RC-012","included":true,"rationale":"Exact line search is requested and provides a direct comparison with adaptive step selection."},
+    {"item_id":"RC-013","included":true,"rationale":"Armijo backtracking is requested as a practical step-size strategy."},
+    {"item_id":"RC-016","included":true,"rationale":"Heavy Ball is explicitly requested for comparison with gradient descent."},
+    {"item_id":"RC-017","included":true,"rationale":"The requested acceleration scope includes the approved quadratic Heavy Ball result."},
+    {"item_id":"RC-018","included":true,"rationale":"Nesterov acceleration is explicitly requested."},
+    {"item_id":"RC-019","included":true,"rationale":"The requested acceleration scope includes the Nesterov convergence result."},
+    {"item_id":"RC-020","included":true,"rationale":"Stochastic-gradient assumptions are explicitly requested."},
+    {"item_id":"RC-021","included":true,"rationale":"The requested stochastic-gradient scope includes its update and error-floor qualification."},
+    {"item_id":"RC-022","included":true,"rationale":"Step-size conditions for stochastic gradients are explicitly requested."},
+    {"item_id":"RC-023","included":true,"rationale":"AdaGrad is explicitly requested."},
+    {"item_id":"RC-024","included":true,"rationale":"RMSProp is explicitly requested."},
+    {"item_id":"RC-025","included":true,"rationale":"Adam is explicitly requested."},
+    {"item_id":"RC-026","included":true,"rationale":"Newton's second-order model is explicitly requested."},
+    {"item_id":"RC-027","included":true,"rationale":"Newton's implementation update is explicitly requested."},
+    {"item_id":"RC-028","included":true,"rationale":"The requested Newton scope includes its local convergence result."},
+    {"item_id":"RC-029","included":true,"rationale":"BFGS is explicitly requested."},
+    {"item_id":"RC-030","included":true,"rationale":"The requested BFGS scope includes its curvature condition and direction."}
+  ],
+  "chapter_sequence": [
+    {"section_id":"SEC-01","order":1,"title":"From engineering design to an optimisation problem","purpose":"Define unconstrained optimisation, stationarity, and first- and second-order tests.","contract_item_ids":["RC-001","RC-002","RC-003"]},
+    {"section_id":"SEC-02","order":2,"title":"Smoothness, convexity, and the geometry of curvature","purpose":"Build the assumptions behind global lower bounds, quadratic upper bounds, Hessian tests, and condition numbers.","contract_item_ids":["RC-004","RC-005","RC-006","RC-007","RC-008","RC-009"]},
+    {"section_id":"SEC-03","order":3,"title":"Gradient descent and choosing a step","purpose":"Explain the basic update, fixed steps, exact line search, Armijo backtracking, and convergence rates.","contract_item_ids":["RC-010","RC-011","RC-012","RC-013","RC-014","RC-015"]},
+    {"section_id":"SEC-04","order":4,"title":"Momentum, acceleration, and stochastic gradients","purpose":"Compare Heavy Ball and the specified Nesterov recurrence, then introduce stochastic assumptions and diminishing steps.","contract_item_ids":["RC-016","RC-017","RC-018","RC-019","RC-020","RC-021","RC-022"]},
+    {"section_id":"SEC-05","order":5,"title":"Coordinate scaling and adaptive methods","purpose":"Explain AdaGrad, RMSProp, and Adam as distinct moment or accumulation updates.","contract_item_ids":["RC-023","RC-024","RC-025"]},
+    {"section_id":"SEC-06","order":6,"title":"Using curvature: Newton and BFGS","purpose":"Connect Taylor models, linear solves, local Newton convergence, and the BFGS secant update to implementation.","contract_item_ids":["RC-026","RC-027","RC-028","RC-029","RC-030"]},
+    {"section_id":"SEC-07","order":7,"title":"Exercises and worked solutions","purpose":"Consolidate theorem scope, one gradient update, and Python implementation diagnosis.","contract_item_ids":[]}
+  ],
+  "exercise_section_id": "SEC-07",
+  "implementation_strategy": "Show each mathematical update beside a short executable Python pattern, emphasising current versus look-ahead gradients, element-wise operations, bias correction, and linear solves.",
+  "assessment_strategy": "Use exactly three final worked exercises: a theorem-scope check, a unified objective-gradient-update calculation, and a code diagnostic with buggy and corrected code.",
+  "exercise_plan": [
+    {"exercise_id":"EX-001","order":1,"section_id":"SEC-07","exercise_type":"concept_check","difficulty":"intermediate","learning_objective":"Distinguish the hypotheses and conclusions of convex GD, strongly convex GD, Heavy Ball, NAG, and Newton results.","contract_item_ids":["RC-014","RC-015","RC-017","RC-019","RC-022","RC-028"],"discipline_context":"Choose a trustworthy solver for a parameter-identification objective in a compliant finite-element model.","solution_required":true,"verification":{"method":"contract_binding","python_expression":null,"expected_value":null,"absolute_tolerance":0.0,"consistency_checks":[]}},
+    {"exercise_id":"EX-002","order":2,"section_id":"SEC-07","exercise_type":"hand_calculation","difficulty":"introductory","learning_objective":"Differentiate a quadratic objective and perform one positive-step gradient descent update.","contract_item_ids":["RC-001","RC-010"],"discipline_context":"Update two design variables in a simple quadratic calibration objective.","solution_required":true,"verification":{"method":"deterministic_calculation","python_expression":null,"expected_value":[1.5,1.25],"absolute_tolerance":1e-12,"consistency_checks":[{"check_id":"CK-001","kind":"objective_gradient_update","objective_expression":"(x-2)**2 + 0.5*(y+1)**2","expressions":[],"variables":["x","y"],"point":[1.0,2.0],"step_size":0.25,"expected_gradient":[-2.0,3.0],"expected_value":[1.5,1.25],"absolute_tolerance":1e-12}]} } ,
+    {"exercise_id":"EX-003","order":3,"section_id":"SEC-07","exercise_type":"code_diagnostic","difficulty":"intermediate","learning_objective":"Identify a sign and evaluation-point error in gradient descent code and verify the corrected update.","contract_item_ids":["RC-010","RC-023","RC-027"],"discipline_context":"Inspect a small optimisation routine used to tune a pair of stiffness-related parameters.","solution_required":true,"verification":{"method":"code_execution","python_expression":null,"expected_value":null,"absolute_tolerance":0.0,"consistency_checks":[]}}
+  ]
+}

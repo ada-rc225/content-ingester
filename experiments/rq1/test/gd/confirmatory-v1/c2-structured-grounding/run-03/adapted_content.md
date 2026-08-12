@@ -1,0 +1,167 @@
+# Gradient Descent and Optimisation
+
+<!-- section: SEC-01 -->
+## From design objective to optimality
+
+In a mechanical design study, a simulator may accept a vector of design variables and return one scalar score. The variables could represent thicknesses, geometric proportions, or material parameters, while the score combines quantities such as compliance, mass, or a model residual. We begin with the mathematical problem rather than with a particular simulator: unconstrained optimisation minimises a continuously differentiable objective $f$ from $\mathbb{R}^d$ to $\mathbb{R}$ over $\mathbb{R}^d$, written as $\min_{x\in\mathbb{R}^d} f(x)$. The design analogy gives intuition only; it does not add constraints or an engineering guarantee to this mathematical problem.
+
+A local minimiser $x^*$ is a point whose objective is no larger than that of sufficiently nearby points. If $f$ is differentiable at a local minimiser, its gradient must vanish: $\nabla f(x^*)=0$. This is a necessary stationarity test. It is not, by itself, a certificate of a minimum. A flat maximum and a saddle can also have zero gradient, so an optimisation program should not stop merely because a numerical gradient is small without considering the surrounding structure.
+
+For a twice continuously differentiable objective, the Hessian supplies the next test. At a local minimiser, stationarity together with a positive-semidefinite Hessian is necessary. Conversely, stationarity together with a positive-definite Hessian is sufficient for a strict local minimiser. The distinction matters: positive semidefinite means that curvature is nonnegative in every direction and may be zero in some direction; positive definite means that every nonzero direction has positive curvature. These are different logical roles, not interchangeable labels.
+
+In practice, a mechanical model can have poorly scaled variables, so a zero-gradient test may be numerically misleading. Rescaling variables, checking a directional perturbation, and inspecting curvature can make the interpretation more reliable. The mathematical workflow remains: define the objective, compute its gradient, understand the assumptions, and then choose an update method.
+
+<!-- section: SEC-02 -->
+## Geometry of smooth and convex objectives
+
+Smoothness controls how quickly the gradient can change. An objective is $L$-smooth when its gradient is $L$-Lipschitz in the Euclidean norm: $\|\nabla f(x)-\nabla f(y)\|\leq L\|x-y\|$ for every $x,y\in\mathbb{R}^d$, with $L>0$. This is not the same as saying that function values are Lipschitz. Smoothness constrains changes in slope, which is exactly what is needed to control a gradient step.
+
+The key consequence is the Descent Lemma. For an $L$-smooth objective and any $x$ and $y$, $f(y)\leq f(x)+\langle\nabla f(x),y-x\rangle+(L/2)\|y-x\|^2$. The right side is a quadratic upper model. The first-order term predicts the local change and the final term limits the error made by treating the objective as linear. Substituting a gradient step into this upper bound explains why a step related to $1/L$ is natural.
+
+Differentiable convexity is expressed by a global first-order lower bound: $f(y)\geq f(x)+\langle\nabla f(x),y-x\rangle$ for all $x,y$. The tangent plane is therefore below the graph everywhere. This global property makes a stationary point a global minimiser, unlike stationarity alone. It also allows a local gradient calculation to support a statement about the entire objective landscape.
+
+Strong convexity adds curvature. An objective is $\mu$-strongly convex when $\mu>0$ and $f(y)\geq f(x)+\langle\nabla f(x),y-x\rangle+(\mu/2)\|y-x\|^2$ for all $x,y$. The added quadratic term rules out arbitrarily flat directions. When an objective is both $L$-smooth and $\mu$-strongly convex, its condition number is $\kappa=L/\mu\geq1$. A large condition number describes an elongated landscape: progress in one direction can be limited by the curvature scale in another.
+
+For a twice continuously differentiable objective, the Hessian view makes these definitions tangible. Smooth convexity is characterised by $0\preceq\nabla^2f(x)\preceq LI$ for every $x$, where the positive-semidefinite lower bound includes the convexity qualifier. Strong convexity is characterised by $\nabla^2f(x)\succeq\mu I$ for every $x$. In a stiffness-like quadratic model, eigenvalues of the Hessian play the role of directional stiffnesses. That interpretation is useful for intuition, but the inequalities remain the mathematical conditions.
+
+These properties answer different questions. Smoothness asks how sharply the slope can change and therefore helps select a safe movement scale. Convexity asks whether a tangent lower bound works globally and therefore supports global interpretation of stationarity. Strong convexity adds a quantitative lower curvature scale, which supports uniqueness and geometric progress in the stated convergence results. A problem can be smooth without being convex, or convex without having a positive strong-convexity parameter. Naming the property before applying a theorem prevents a plausible calculation from becoming an unjustified guarantee.
+
+Conditioning also explains why a method may appear to stall even when its gradient is implemented correctly. If one direction has much larger curvature than another, a step large enough to move efficiently along the shallow direction can be too large along the steep direction. A conservative constant step must respect the largest relevant scale. Curvature-aware and accelerated methods address this imbalance differently: one changes the direction using curvature estimates, while another uses carefully controlled memory. Their mechanisms should not be confused with a change in the definition of the objective.
+
+<!-- section: SEC-03 -->
+## Gradient descent and choosing a step
+
+Gradient descent evaluates the gradient at the current iterate and moves in the opposite direction: $x_{k+1}=x_k-\alpha_k\nabla f(x_k)$ for $k=0,1,2,\ldots$. The initial point lies in $\mathbb{R}^d$ and each step size is positive. The minus sign is essential: the gradient points toward local increase, so its negative is the first-order descent direction when the gradient is nonzero.
+
+A constant-step method sets $\alpha_k=\alpha$. If $L$ is known, $\alpha=1/L$ is a common choice. Under the usual smooth-convex assumptions, the interval $\alpha\in(0,2/L)$ is also a common stability range. The interval is not a universal promise for every objective or every implementation; its assumptions belong with the claim. In a design loop, a step that is too large can overshoot a narrow valley, while a step that is too small can make progress hard to observe.
+
+Exact line search chooses the positive step that minimises the objective along the current negative-gradient ray: $\alpha_k=\arg\min_{\alpha>0}f(x_k-\alpha\nabla f(x_k))$. It is an exact one-dimensional minimisation, not merely a test that accepts a sufficiently decreasing step. Exact search can be expensive when each objective evaluation calls a simulation, but it is a useful reference and is particularly transparent for simple quadratics.
+
+Armijo backtracking is a less demanding alternative. Start from a positive trial $\bar\alpha$, choose a contraction factor $\eta\in(0,1)$ and a sufficient-decrease constant $c\in(0,1)$, and test contracted candidates. The accepted step is the first candidate, with smallest nonnegative contraction index $m$, satisfying $f(x_k-\alpha_k\nabla f(x_k))\leq f(x_k)-c\alpha_k\|\nabla f(x_k)\|^2$. The squared gradient norm is part of the test. Backtracking spends extra function evaluations to reduce the risk of an unsuitable trial step.
+
+<!-- section: SEC-04 -->
+## Rates and acceleration
+
+A convergence rate is meaningful only with its hypotheses. If $f$ is $L$-smooth and convex, has a global minimiser $x^*$, and gradient descent uses $\alpha_k=1/L$, then for $k\geq1$ the objective gap satisfies $f(x_k)-f(x^*)\leq L\|x_0-x^*\|^2/(2k)$. This is an $O(1/k)$ objective-gap result. It does not assert the same rate for an arbitrary step or a nonconvex objective.
+
+For an $L$-smooth, $\mu$-strongly convex objective, two related bounds use different step sizes. With $\alpha=2/(L+\mu)$, the squared distance obeys $\|x_k-x^*\|^2\leq((\kappa-1)/(\kappa+1))^{2k}\|x_0-x^*\|^2$. With $\alpha=1/L$, the objective gap obeys $f(x_k)-f(x^*)\leq(1-\mu/L)^k(f(x_0)-f(x^*))$. Keep each rate attached to its own step size. Strong curvature changes the sublinear convex picture into a geometric contraction.
+
+Heavy Ball adds a memory term to the current-gradient step: $x_{k+1}=x_k-\alpha\nabla f(x_k)+\beta(x_k-x_{k-1})$, with $\beta\in[0,1)$ and parameters chosen to keep the iteration stable. The gradient is still evaluated at $x_k$; the extra term uses the difference between the two most recent iterates. For the quadratic $f(x)=\tfrac12x^TAx$, where $A$ is symmetric positive definite with spectrum in $[\mu,L]$, the stated optimal parameters are $\alpha^*=4/(\sqrt L+\sqrt\mu)^2$ and $\beta^*=((\sqrt\kappa-1)/(\sqrt\kappa+1))^2$. The improved condition-number dependence belongs specifically to this quadratic setting, not to arbitrary objectives.
+
+The Nesterov variant considered here uses a look-ahead sequence. Initialise $y_0=x_0$ and $\lambda_0=1$. At iteration $k$, calculate $x_{k+1}=y_k-(1/L)\nabla f(y_k)$, then $\lambda_{k+1}=(1+\sqrt{1+4\lambda_k^2})/2$, and finally $y_{k+1}=x_{k+1}+((\lambda_k-1)/\lambda_{k+1})(x_{k+1}-x_k)$. Thus its gradient is evaluated at $y_k$, not at $x_k$, and the indices matter. For an $L$-smooth convex objective with a global minimiser, this parameterisation gives $f(x_k)-f(x^*)\leq2L\|x_0-x^*\|^2/(k+1)^2=O(1/k^2)$. The rate belongs to this recurrence and its stated assumptions.
+
+<!-- section: SEC-05 -->
+## Noisy gradients and adaptive steps
+
+When an objective is an empirical average, write $f(x)=N^{-1}\sum_{i=1}^Nf_i(x)$. A stochastic gradient estimate $g_k(x_k)$ is conditionally unbiased when $\mathbb{E}[g_k(x_k)\mid x_k]=\nabla f(x_k)$, and its conditional variance is bounded when $\mathbb{E}[\|g_k(x_k)-\nabla f(x_k)\|^2\mid x_k]\leq\sigma^2$. Conditioning on the current iterate is important: the distribution of the next sample is assessed after the current state is known.
+
+Stochastic gradient descent uses $x_{k+1}=x_k-\eta_kg_k(x_k)$. With persistent nonzero variance and a small constant step, the usual smooth strongly convex picture is a nonzero error floor rather than exact convergence. This is often acceptable when simulation noise, sampling noise, or measurement uncertainty makes a tiny neighbourhood sufficient. It is not correct to claim exact convergence in that persistent-variance constant-step regime.
+
+Diminishing steps can reduce the noise contribution. The Robbins–Monro conditions are $\sum_{k=1}^{\infty}\eta_k=\infty$ and $\sum_{k=1}^{\infty}\eta_k^2<\infty$. The first prevents steps from becoming collectively too short to travel, while the second controls accumulated noise. These two series conditions are not sufficient alone: a convergence theorem also needs appropriate objective, bias, moment, and iterate-stability assumptions.
+
+Adaptive methods change the scale of each coordinate using recent gradient information. AdaGrad starts with $v_{-1}=0$, accumulates element-wise squared gradients using $v_k=v_{k-1}+g_k\odot g_k$, and updates $x_{k+1}=x_k-[\eta/(\sqrt{v_k}+\epsilon)]\odot g_k$ with positive $\epsilon$. A coordinate that has repeatedly received large gradients is consequently scaled down. The accumulation is cumulative, not an exponential average.
+
+RMSProp instead starts with $v_{-1}=0$ and uses $v_k=\gamma v_{k-1}+(1-\gamma)g_k\odot g_k$, followed by the same scaled update $x_{k+1}=x_k-[\eta/(\sqrt{v_k}+\epsilon)]\odot g_k$. Here $\gamma\in[0,1)$ and $\epsilon>0$. The factor $(1-\gamma)$ and the exponential memory distinguish RMSProp from AdaGrad.
+
+Adam keeps both a first and a second exponential moment. With $m_{-1}=v_{-1}=0$, $m_k=\beta_1m_{k-1}+(1-\beta_1)g_k$ and $v_k=\beta_2v_{k-1}+(1-\beta_2)(g_k\odot g_k)$. For iterations starting at zero, correct the initial bias with $\hat m_k=m_k/(1-\beta_1^{k+1})$ and $\hat v_k=v_k/(1-\beta_2^{k+1})$, then use $x_{k+1}=x_k-[\eta/(\sqrt{\hat v_k}+\epsilon)]\odot\hat m_k$. The bias correction and the $k+1$ exponent are part of the algorithm.
+
+<!-- section: SEC-06 -->
+## Curvature-aware methods
+
+Newton's method uses more local information than a gradient step. Around $x_k$, its second-order Taylor model is $f(x_k+p)\approx f(x_k)+\nabla f(x_k)^Tp+\tfrac12p^T\nabla^2f(x_k)p$. Minimising this model with respect to $p$ leads to the linear system $\nabla^2f(x_k)p_k=-\nabla f(x_k)$, followed by $x_{k+1}=x_k+p_k$. The inverse form is a mathematical equivalent only when the Hessian is invertible: $x_{k+1}=x_k-[\nabla^2f(x_k)]^{-1}\nabla f(x_k)$. In numerical code, solve the linear system rather than explicitly forming the inverse.
+
+Newton's attractive local rate has a narrow scope. If $\nabla f(x^*)=0$, the Hessian at $x^*$ is positive definite, the Hessian is locally Lipschitz, and $x_0$ is sufficiently close to $x^*$, then locally $\|x_{k+1}-x^*\|\leq C\|x_k-x^*\|^2$. This is local quadratic convergence, not a global guarantee. A line search or a safeguarded variant may be needed when the starting point is not close or the model is not well behaved.
+
+BFGS avoids computing the exact Hessian at every iteration. Define $s_k=x_{k+1}-x_k$ and $y_k=\nabla f(x_{k+1})-\nabla f(x_k)$. The next Hessian approximation satisfies the secant equation $B_{k+1}s_k=y_k$. In inverse-Hessian form, when $y_k^Ts_k>0$, the update is $H_{k+1}=(I-\rho_ks_ky_k^T)H_k(I-\rho_ky_ks_k^T)+\rho_ks_ks_k^T$, where $\rho_k=1/(y_k^Ts_k)$. The search direction is $p_k=-H_k\nabla f(x_k)$ and a suitable line search supports the curvature condition. Transposes, the negative direction, and the curvature test are all operational details, not decoration.
+
+For mechanical computation, Newton can be efficient when assembling and solving with a Hessian is affordable. BFGS can be attractive when gradients are available but second derivatives are costly. Neither comparison changes the mathematical conditions: curvature information can improve direction choice, but convergence claims must remain tied to their stated assumptions.
+
+<!-- section: SEC-07 -->
+## Turning updates into Python
+
+A reliable implementation keeps the mathematical state visible. Store the current vector in an array, evaluate a function that returns the gradient at that same vector, choose a positive step, and calculate `x_next = x - alpha * grad`. Printing the gradient and the new vector is a simple diagnostic: a sign error usually moves a test point uphill, while evaluating a stale gradient applies information from the wrong iterate.
+
+For adaptive algorithms, store the moment arrays with the same shape as the gradient. AdaGrad adds the element-wise square to its accumulator; RMSProp multiplies the old accumulator by $\gamma$ and adds $(1-\gamma)$ times the new square; Adam updates both moments before applying bias correction. The small positive $\epsilon$ in the formulas protects the denominator, and the code should use the corrected moments in Adam's final update.
+
+Newton code should call a linear solver with the Hessian and negative gradient. Writing an explicit matrix inverse is both unnecessary and numerically less desirable. BFGS code should update $s$ and $y$ only after the new gradient is available, check $y^Ts>0$, and use a line search that supports that condition. Across all methods, compare the code's order of operations with the equation's order of operations.
+
+A useful test uses a small quadratic whose answer can be checked by hand. Verify the objective, gradient, step size, and resulting vector separately. Then add a stopping rule based on a stated tolerance and a maximum iteration count. A convergence plot is informative only when its axes and objective-gap definition match the theorem being discussed.
+
+Before trusting a long optimisation run, test one iteration on a small problem with a known gradient. Record the starting vector, the gradient returned by the code, the chosen step, and the new vector. Then test an intentionally perturbed sign or step to ensure the diagnostic distinguishes descent from ascent. For a vector implementation, check shapes as well as values: a scalar broadcast can silently apply the wrong operation while still producing syntactically valid Python. A printed intermediate is often more useful than a final objective alone because it reveals where the mathematical sequence diverged from the program sequence.
+
+When comparing methods, separate algorithmic behaviour from implementation details. A noisy objective evaluation may make a line search reject steps even when the underlying method is appropriate. A badly scaled parameterisation may make a constant step look ineffective. A missing bias correction may make an adaptive method behave differently during its first iterations. These observations motivate testing and interpretation; they do not alter the update rules or the assumptions attached to convergence statements.
+
+<!-- section: SEC-08 -->
+## Exercises and worked solutions
+
+<!-- exercise: EX-001 -->
+### Exercise 1: Match claims to assumptions
+
+A colleague makes three statements about a mechanical design objective. (a) “A zero gradient proves a strict local minimum.” (b) “For every smooth objective, gradient descent with step $1/L$ has the convex $O(1/k)$ objective-gap bound.” (c) “Newton's method is globally quadratically convergent.” Identify the correct response to each statement and state the missing scope conditions.
+
+<!-- solution: EX-001 -->
+### Worked solution 1
+
+(a) The statement is too strong. A zero gradient is necessary at a differentiable local minimiser, but it is not sufficient. For a twice continuously differentiable objective, stationarity with a positive-definite Hessian is sufficient for a strict local minimiser; a positive-semidefinite Hessian with stationarity is a necessary condition at a local minimiser.
+
+(b) The statement omits hypotheses. The bound applies when the objective is $L$-smooth and convex, has a global minimiser, and gradient descent uses step $1/L$. Then the objective gap is bounded by $L\|x_0-x^*\|^2/(2k)$ for $k\geq1$. It is not a claim for arbitrary smooth or nonconvex objectives.
+
+(c) The statement is also too strong. Newton's quadratic result is local: stationarity at the solution, a positive-definite Hessian there, locally Lipschitz Hessian, and sufficiently close initialisation are required. These corrections distinguish a useful theorem from an attractive but unsupported slogan.
+
+<!-- exercise: EX-002 -->
+### Exercise 2: One design-variable update in two coordinates
+
+Consider the surrogate objective $f(x,y)=\tfrac12(x-2)^2+(y+1)^2$. At $(x_0,y_0)=(0,1)$, use gradient descent with positive step size $\alpha=0.25$. Find the gradient and the next point. Check that the update uses the current gradient and the descent sign.
+
+The partial derivatives are $\partial f/\partial x=x-2$ and $\partial f/\partial y=2(y+1)$. At $(0,1)$, the gradient is $(-2,4)$. Therefore
+
+$$(x_1,y_1)=(0,1)-0.25(-2,4)=(0.5,0.0).$$
+
+<!-- solution: EX-002 -->
+### Worked solution 2
+
+The gradient calculation gives $\nabla f(0,1)=(-2,4)$. Applying $z_1=z_0-\alpha\nabla f(z_0)$ gives $z_1=(0,1)-0.25(-2,4)=(0.5,0.0)$. The first coordinate increases because its gradient component is negative; the second decreases because its gradient component is positive. This is consistent with moving opposite to the current gradient.
+
+<!-- derived-answer: EX-002 -->
+**Result from the derivation:** `[0.5, 0.0]`
+
+<!-- answer: EX-002 -->
+**Checked answer:** `[0.5, 0.0]`
+
+<!-- exercise: EX-003 -->
+### Exercise 3: Diagnose a Python update
+
+The following short script is intended to perform one gradient-descent step for $f(x)=\tfrac12(x-3)^2$ from $x=1$ with step size $0.25$, but it contains two bugs. Inspect it, then provide corrected code and state both outputs.
+
+Identify both bugs, provide corrected code, and state the expected printed values.
+
+<!-- solution: EX-003 -->
+### Worked solution 3
+
+The buggy version is:
+
+```python
+x = 1.0
+alpha = 0.25
+grad = x - 3.0
+x = x + alpha * (x - 3.0)
+print(grad, x)
+```
+
+The gradient at the current point is $x-3=-2$. The first bug is the plus sign: gradient descent subtracts the positive step-size multiple of the gradient. The second bug is conceptual duplication: the update should use the named current gradient, so that the code visibly matches the equation and cannot accidentally use a changed or stale expression. A corrected version is:
+
+```python
+x = 1.0
+a = 0.25
+grad = x - 3.0
+x_next = x - a * grad
+print(grad, x_next)
+```
+
+<!-- expected-stdout: EX-003/1 -->
+**Expected output:** `"-2.0 0.5\n"`
+
+<!-- expected-stdout: EX-003/2 -->
+**Expected output:** `"-2.0 1.5\n"`
+
+Executing it prints `-2.0 1.5`, represented by the expected-output JSON string `[-2.0, 1.5]`. The corrected point is $1.5$, which moves toward the minimiser $x=3$; the buggy plus sign would move in the opposite direction. The same discipline applies to vector code: evaluate the gradient at the current vector, subtract the step, and inspect the resulting state.

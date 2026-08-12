@@ -1,0 +1,62 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/c2-structured-grounding/run-03/adapted_content.md",
+  "content_sha256": "283aa1aaacb49c646cb98082fd011304ba342b25b1acd02865a9aa825456a48b",
+  "plan_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/c2-structured-grounding/run-03/adaptation_plan.json",
+  "plan_sha256": "22b2bdea32ca211a76a8f44faf2b60a85f5948736e72b3b2d3e3dc78a13307c8",
+  "code_validation_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/c2-structured-grounding/run-03/code_validation.json",
+  "code_validation_sha256": "549016f6c0c9aab187537645dd72f41be9c5caac63f33e78452e353ad9c253cb",
+  "overall_status": "passed",
+  "exercise_count": 3,
+  "exercises": [
+    {
+      "exercise_id": "EX-001",
+      "exercise_type": "concept_check",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "contract_binding",
+      "model_consistency_passed": true,
+      "unified_calculation_passed": true,
+      "visible_derivation_consistent": true,
+      "stdout_claims_consistent": true,
+      "verification_status": "passed",
+      "details": []
+    },
+    {
+      "exercise_id": "EX-002",
+      "exercise_type": "hand_calculation",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "deterministic_calculation",
+      "model_consistency_passed": true,
+      "unified_calculation_passed": true,
+      "visible_derivation_consistent": true,
+      "stdout_claims_consistent": true,
+      "verification_status": "passed",
+      "details": [
+        "CK-001: objective value=22.0; gradient=[-4.0, 12.0]; expected gradient=[-4, 12]; update=[1.4, 0.7999999999999998]; expected update=[1.4, 0.8]",
+        "unified objective-gradient-update chain produced [1.4, 0.7999999999999998]; expected [1.4, 0.8]"
+      ]
+    },
+    {
+      "exercise_id": "EX-003",
+      "exercise_type": "code_diagnostic",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "combined",
+      "model_consistency_passed": true,
+      "unified_calculation_passed": true,
+      "visible_derivation_consistent": true,
+      "stdout_claims_consistent": true,
+      "verification_status": "passed",
+      "details": [
+        "deterministic calculation produced 1.265625; expected 1.265625",
+        "2 exercise-linked Python block(s) found"
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": []
+}

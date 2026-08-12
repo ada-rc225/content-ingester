@@ -1,0 +1,7 @@
+# Adaptation summary
+
+This RQ1 C2 lesson adapts Gradient Descent and Optimisation for second-year mechanical engineering undergraduates who know calculus, vectors, matrices, eigenvalues, and basic Python. It begins with a bounded potential-energy analogy, then develops unconstrained optimality, smoothness, convexity, conditioning, step-size strategies, convergence, momentum, stochastic and adaptive methods, Newton, and BFGS. The instructional sequence is complete before the final chapter of three worked exercises.
+
+The run uses the released Frozen Reference Contract through the deterministic grounding preflight. The plan and provenance account for all required items and include every conditional item because each is within the fixed requested scope. The lesson keeps theorem hypotheses beside their results and connects update equations to implementation-level concerns without exposing internal identifiers.
+
+Configured automatic checks passed: schema validation, frozen-contract binding, source-hash checks, section and provenance alignment, required and conditional coverage, exercise structure, the unified objective-gradient-update calculation, Python execution, and exact visible stdout matching. The prose count is within the configured 2500–3000 English-word interval using english_prose_v1. These checks establish treatment protocol integrity and configured evidence only; they do not establish complete mathematical correctness or answer the RQ1 outcome question.

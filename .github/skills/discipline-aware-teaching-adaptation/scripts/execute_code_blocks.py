@@ -21,6 +21,7 @@ from pathlib import Path
 
 BLOCK_RE = re.compile(r"```(?:python|py)\s*\n(.*?)```", re.DOTALL | re.IGNORECASE)
 ANCHOR_RE = re.compile(r"<!--\s*section:\s*(SEC-[0-9]{2})\s*-->")
+EXERCISE_RE = re.compile(r"<!--\s*exercise:\s*(EX-[0-9]{3,})\s*-->")
 
 
 def main() -> int:
@@ -38,6 +39,8 @@ def main() -> int:
         code = match.group(1)
         anchors = list(ANCHOR_RE.finditer(text[: match.start()]))
         anchor = anchors[-1].group(1) if anchors else None
+        exercises = list(EXERCISE_RE.finditer(text[: match.start()]))
+        exercise_id = exercises[-1].group(1) if exercises and (not anchors or exercises[-1].start() > anchors[-1].start()) else None
         started = time.monotonic()
         try:
             with tempfile.TemporaryDirectory(prefix="adapter-code-") as temp_dir:
@@ -60,6 +63,7 @@ def main() -> int:
             {
                 "block_id": f"CODE-{index:03d}",
                 "anchor": anchor,
+                "exercise_id": exercise_id,
                 "language": "python",
                 "code_sha256": hashlib.sha256(code.encode("utf-8")).hexdigest(),
                 "execution_status": status,

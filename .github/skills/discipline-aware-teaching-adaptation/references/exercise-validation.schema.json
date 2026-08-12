@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Generated Exercise Validation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["content_file", "content_sha256", "plan_file", "plan_sha256", "code_validation_file", "code_validation_sha256", "overall_status", "exercise_count", "exercises", "errors", "warnings"],
+  "properties": {
+    "content_file": {"type": "string", "minLength": 1},
+    "content_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "plan_file": {"type": "string", "minLength": 1},
+    "plan_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "code_validation_file": {"type": "string", "minLength": 1},
+    "code_validation_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "overall_status": {"type": "string", "enum": ["passed", "failed"]},
+    "exercise_count": {"type": "integer", "minimum": 0},
+    "exercises": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["exercise_id", "exercise_type", "markers_valid", "solution_present", "contract_binding_declared", "verification_method", "model_consistency_passed", "unified_calculation_passed", "visible_derivation_consistent", "stdout_claims_consistent", "verification_status", "details"],
+        "properties": {
+          "exercise_id": {"type": "string", "pattern": "^EX-[0-9]{3,}$"},
+          "exercise_type": {"type": "string", "enum": ["concept_check", "hand_calculation", "code_diagnostic", "derivation", "transfer", "other"]},
+          "markers_valid": {"type": "boolean"},
+          "solution_present": {"type": "boolean"},
+          "contract_binding_declared": {"type": "boolean"},
+          "verification_method": {"type": "string", "enum": ["contract_binding", "deterministic_calculation", "code_execution", "combined"]},
+          "model_consistency_passed": {"type": "boolean"},
+          "unified_calculation_passed": {"type": "boolean"},
+          "visible_derivation_consistent": {"type": "boolean"},
+          "stdout_claims_consistent": {"type": "boolean"},
+          "verification_status": {"type": "string", "enum": ["passed", "failed"]},
+          "details": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "errors": {"type": "array", "items": {"type": "string"}},
+    "warnings": {"type": "array", "items": {"type": "string"}}
+  }
+}
