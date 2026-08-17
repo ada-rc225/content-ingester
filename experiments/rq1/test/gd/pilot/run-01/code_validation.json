@@ -1,0 +1,30 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/c2-structured-grounding/run-01/adapted_content.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-07",
+      "exercise_id": "EX-003",
+      "language": "python",
+      "code_sha256": "1849c5385ab120ee7d3654496f74ca22e961a5a18ffd7480a978e7523da5ac6c",
+      "execution_status": "passed",
+      "stdout": "30.51578112\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 35
+    },
+    {
+      "block_id": "CODE-002",
+      "anchor": "SEC-07",
+      "exercise_id": "EX-003",
+      "language": "python",
+      "code_sha256": "fe20b54917af4001915c6387f9eac91adf3cc6a6ff5892f11165d953fa8c787d",
+      "execution_status": "passed",
+      "stdout": "1.0335923200000001\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 33
+    }
+  ]
+}

@@ -1,0 +1,367 @@
+{
+  "schema_version": "1.0",
+  "contract": {
+    "contract_id": "power-iteration",
+    "contract_version": "1.0.0",
+    "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7",
+    "topic": "Eigenvalues, Eigenvectors, and the Power Iteration"
+  },
+  "required_items": [
+    {
+      "item_id": "RC-001",
+      "item_type": "definition",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "For A in R^{n x n}, a non-zero vector v is an eigenvector when Av=lambda v; lambda is its associated eigenvalue. The non-zero condition is essential.",
+      "canonical_latex": [
+        "Av=\\lambda v."
+      ],
+      "formula_refs": [
+        "FM-001"
+      ],
+      "conditions": [
+        "A is a real n by n matrix.",
+        "v is non-zero."
+      ],
+      "prohibited_drift": [
+        "Do not allow the zero vector as an eigenvector carrying eigenvalue information.",
+        "Do not interchange the roles of v and lambda."
+      ]
+    },
+    {
+      "item_id": "RC-003",
+      "item_type": "theorem",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "For a real symmetric matrix A=A^T, the spectral theorem supplies an orthonormal basis of real eigenvectors, giving A=Q Lambda Q^T and representing every x as a sum of eigenvector components with c_i=v_i^T x.",
+      "canonical_latex": [
+        "A=Q\\Lambda Q^T,",
+        "\\Lambda=\\operatorname{diag}(\\lambda_1,\\ldots,\\lambda_n).",
+        "x=\\sum_{i=1}^n c_i v_i,\n\\qquad c_i=v_i^T x."
+      ],
+      "formula_refs": [
+        "FM-003",
+        "FM-004",
+        "FM-005"
+      ],
+      "conditions": [
+        "A is real and symmetric.",
+        "Q has eigenvectors as columns and is orthogonal."
+      ],
+      "prohibited_drift": [
+        "Do not claim this orthogonal real decomposition for arbitrary non-symmetric matrices.",
+        "Preserve the coefficient relation c_i=v_i^T x."
+      ]
+    },
+    {
+      "item_id": "RC-004",
+      "item_type": "assumption",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "The eigenvalues are ordered by magnitude as |lambda_1|>|lambda_2|>=...>=|lambda_n|, so lambda_1 is unique in magnitude and is the dominant eigenvalue.",
+      "canonical_latex": [
+        "|\\lambda_1|>|\\lambda_2|\\ge\\cdots\\ge|\\lambda_n|."
+      ],
+      "formula_refs": [
+        "FM-006"
+      ],
+      "conditions": [
+        "The strict first inequality is required for a unique dominant magnitude."
+      ],
+      "prohibited_drift": [
+        "Do not replace largest magnitude with largest algebraic value.",
+        "Do not weaken the strict dominant-gap condition when stating the convergence result."
+      ]
+    },
+    {
+      "item_id": "RC-005",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "Starting from a non-zero x_0, power iteration computes y_{k+1}=Ax_k and normalises x_{k+1}=y_{k+1}/||y_{k+1}||_2; normalisation controls scale without changing direction.",
+      "canonical_latex": [
+        "y_{k+1}=Ax_k,\n\\qquad\nx_{k+1}=\\frac{y_{k+1}}{\\|y_{k+1}\\|_2}."
+      ],
+      "formula_refs": [
+        "FM-007"
+      ],
+      "conditions": [
+        "x_0 is non-zero.",
+        "The normalising denominator is non-zero."
+      ],
+      "prohibited_drift": [
+        "Do not omit normalisation from the displayed update rule.",
+        "Do not describe normalisation as changing the iterate direction."
+      ]
+    },
+    {
+      "item_id": "RC-006",
+      "item_type": "equation",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "Under the symmetric eigenbasis expansion, A^k x_0 separates the dominant term lambda_1^k c_1 v_1 from terms scaled by (lambda_i/lambda_1)^k; a non-zero c_1 and a strict magnitude gap make the subordinate ratios vanish.",
+      "canonical_latex": [
+        "A^k x_0\n=\\sum_{i=1}^n c_i\\lambda_i^k v_i\n=\\lambda_1^k\\left(c_1v_1+\n\\sum_{i=2}^n c_i\\left(\\frac{\\lambda_i}{\\lambda_1}\\right)^k v_i\\right).",
+        "c_1=v_1^Tx_0\\ne0",
+        "\\left|\\frac{\\lambda_i}{\\lambda_1}\\right|^k"
+      ],
+      "formula_refs": [
+        "FM-008",
+        "FM-009",
+        "FM-010"
+      ],
+      "conditions": [
+        "A is in the real symmetric setting with the stated eigenbasis.",
+        "c_1=v_1^T x_0 is non-zero.",
+        "|lambda_1|>|lambda_2|."
+      ],
+      "prohibited_drift": [
+        "Do not drop the initial projection condition.",
+        "Do not claim all components vanish without the magnitude comparison."
+      ]
+    },
+    {
+      "item_id": "RC-007",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "For a real symmetric matrix, a unique dominant magnitude, non-zero initial projection onto v_1, and no zero Ax_k iterate imply that direction error generally decreases asymptotically at a rate governed by |lambda_2/lambda_1|^k.",
+      "canonical_latex": [
+        "\\left|\\frac{\\lambda_2}{\\lambda_1}\\right|^k."
+      ],
+      "formula_refs": [
+        "FM-011"
+      ],
+      "conditions": [
+        "A is real and symmetric.",
+        "|lambda_1|>|lambda_2|.",
+        "The initial vector has non-zero projection onto v_1.",
+        "No iterate produces Ax_k=0."
+      ],
+      "prohibited_drift": [
+        "Do not state convergence without all three listed assumptions.",
+        "Do not turn the generally asymptotic rate into an unconditional finite-iteration error bound."
+      ]
+    },
+    {
+      "item_id": "RC-008",
+      "item_type": "failure_condition",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "When lambda_1<0, successive normalised iterates may alternate sign; this is not failure because v_1 and -v_1 describe the same eigendirection.",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "The dominant eigenvalue is negative."
+      ],
+      "prohibited_drift": [
+        "Do not interpret sign alternation alone as failure to converge in direction.",
+        "Do not identify v_1 and -v_1 as different eigendirections."
+      ]
+    },
+    {
+      "item_id": "RC-009",
+      "item_type": "equation",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "The Rayleigh quotient rho(x_k)=x_k^T A x_k/(x_k^T x_k), reducing to x_k^T A x_k for a normalised vector, estimates lambda_1 as x_k approaches v_1 for symmetric A.",
+      "canonical_latex": [
+        "\\rho(x_k)=\\frac{x_k^TAx_k}{x_k^Tx_k}.",
+        "\\rho(x_k)=x_k^TAx_k."
+      ],
+      "formula_refs": [
+        "FM-012",
+        "FM-013"
+      ],
+      "conditions": [
+        "x_k is non-zero for the quotient.",
+        "The convergence-to-lambda_1 statement uses a symmetric matrix and x_k approaching v_1."
+      ],
+      "prohibited_drift": [
+        "Do not use the simplified quotient for an unnormalised vector without its denominator.",
+        "Do not claim the quotient targets the dominant eigenvalue under conditions not stated in the source."
+      ]
+    },
+    {
+      "item_id": "RC-010",
+      "item_type": "stopping_condition",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "The eigenpair residual is r_k=Ax_k-rho(x_k)x_k; an exact eigenpair has zero residual, and ||r_k||_2 is a meaningful computational stopping measure because vector differences can be distorted by sign flips.",
+      "canonical_latex": [
+        "r_k=Ax_k-\\rho(x_k)x_k.",
+        "\\|r_k\\|_2"
+      ],
+      "formula_refs": [
+        "FM-014",
+        "FM-015"
+      ],
+      "conditions": [
+        "rho(x_k) is the Rayleigh quotient used with x_k."
+      ],
+      "prohibited_drift": [
+        "Do not replace the residual test with only successive-vector similarity.",
+        "Do not omit the sign ambiguity when interpreting vector differences."
+      ]
+    },
+    {
+      "item_id": "RC-011",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "The stated algorithm normalises x_0, applies matrix-vector multiplication and normalisation, checks breakdown, computes the Rayleigh estimate and residual, stops when the residual norm is at most epsilon, and otherwise stops after K iterations.",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "x_0 is non-zero.",
+        "epsilon is positive.",
+        "K is the maximum iteration count."
+      ],
+      "prohibited_drift": [
+        "Do not move the breakdown check after division by ||y||_2.",
+        "Do not remove either the residual tolerance stop or the maximum-iteration fallback."
+      ]
+    },
+    {
+      "item_id": "RC-012",
+      "item_type": "failure_condition",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "If v_1^T x_0=0, the initial vector has no dominant eigendirection component, exact arithmetic cannot create it, and power iteration will not converge to v_1.",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "The dominant eigenvector is v_1 and the initial projection is exactly zero."
+      ],
+      "prohibited_drift": [
+        "Do not imply that repeated multiplication creates a missing exact eigencomponent.",
+        "Do not treat this case as ordinary slow convergence to v_1."
+      ]
+    },
+    {
+      "item_id": "RC-013",
+      "item_type": "failure_condition",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "If the two largest eigenvalue magnitudes are equal, a unique eigenvector need not be selected; if their ratio is close to one while still separated, convergence can be very slow.",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "The equal-magnitude case has |lambda_1|=|lambda_2|.",
+        "The slow-convergence case has |lambda_2/lambda_1| close to one."
+      ],
+      "prohibited_drift": [
+        "Do not conflate non-unique dominance with merely slow convergence.",
+        "Do not promise a unique eigenvector when the dominant magnitude is repeated."
+      ]
+    },
+    {
+      "item_id": "RC-014",
+      "item_type": "definition",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "Power iteration targets the eigenvalue of largest magnitude, not necessarily the most positive eigenvalue; between 5 and -8, -8 is dominant by magnitude.",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "Eigenvalues are compared by absolute value."
+      ],
+      "prohibited_drift": [
+        "Do not describe the target as the largest algebraic eigenvalue.",
+        "Preserve the negative example's conclusion."
+      ]
+    }
+  ],
+  "conditional_items": [
+    {
+      "item_id": "RC-002",
+      "item_type": "equation",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "Eigenvalues are roots of det(A-lambda I)=0; for large matrices, iterative matrix-vector products are presented as a preferable numerical strategy to explicitly forming the characteristic polynomial.",
+      "canonical_latex": [
+        "\\det(A-\\lambda I)=0."
+      ],
+      "formula_refs": [
+        "FM-002"
+      ],
+      "conditions": [
+        "I is the identity matrix of compatible dimension."
+      ],
+      "prohibited_drift": [
+        "Do not replace the characteristic equation with a different determinant convention without review.",
+        "Do not present the iterative-strategy statement as an exact algebraic equivalence."
+      ]
+    },
+    {
+      "item_id": "RC-015",
+      "item_type": "assumption",
+      "criticality": "supporting",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "Although power iteration applies to some non-symmetric matrices, the clean orthogonal decomposition is not generally available; defective matrices, complex dominant eigenvalues, and non-normal behaviour require additional care and are outside these notes' scope.",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "The core convergence explanation is restricted to the real symmetric setting."
+      ],
+      "prohibited_drift": [
+        "Do not generalise the symmetric proof or convergence claim to all non-symmetric matrices."
+      ]
+    },
+    {
+      "item_id": "RC-016",
+      "item_type": "code_semantics",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "The Python implementation converts A and x0 to floating NumPy arrays, requires A to be square and x0 to have compatible one-dimensional shape, rejects a zero initial vector, and normalises x before iteration.",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "NumPy is available.",
+        "A and x0 can be converted to floating arrays."
+      ],
+      "prohibited_drift": [
+        "Do not remove the square-matrix, dimension, or non-zero-initial-vector checks.",
+        "Do not silently change the stated exception behaviour."
+      ]
+    },
+    {
+      "item_id": "RC-017",
+      "item_type": "code_semantics",
+      "criticality": "critical",
+      "content_basis": "approved_correction",
+      "canonical_statement": "Generated implementations must validate that max_iterations is a positive integer before entering the iteration loop. Invalid values must raise a clear ValueError. For valid values, preserve the source iteration, breakdown check, normalization, residual stopping test, maximum-iteration fallback, and four-value return structure.",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "The iteration range is 1 through max_iterations inclusive.",
+        "The returned tuple is (eigenvalue, x, residual_norm, iteration count)."
+      ],
+      "prohibited_drift": [
+        "Do not divide by a zero y norm before raising the breakdown error.",
+        "Do not change the residual-based early return or the four-value return structure."
+      ]
+    },
+    {
+      "item_id": "RC-018",
+      "item_type": "worked_result",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "For A=[[4,1],[1,2]] with x0=(1,1), the exact eigenvalues are 3+sqrt(2) and 3-sqrt(2); the implementation should estimate the dominant value 3+sqrt(2) and produce a small residual.",
+      "canonical_latex": [
+        "3+\\sqrt{2}\n\\quad\\text{and}\\quad\n3-\\sqrt{2}."
+      ],
+      "formula_refs": [
+        "FM-016"
+      ],
+      "conditions": [
+        "The implementation is run with the supplied initial vector and default parameters."
+      ],
+      "prohibited_drift": [
+        "Do not identify 3-sqrt(2) as the dominant eigenvalue for this matrix.",
+        "Do not treat a small residual as requiring a particular sign of the eigenvector."
+      ]
+    }
+  ],
+  "excluded_item_ids": []
+}

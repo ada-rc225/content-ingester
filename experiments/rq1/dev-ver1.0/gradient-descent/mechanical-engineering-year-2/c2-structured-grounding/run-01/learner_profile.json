@@ -1,0 +1,13 @@
+{
+  "profile_id": "mechanical-engineering-year-2",
+  "discipline": "Mechanical engineering",
+  "education_level": "Second-year undergraduate",
+  "prior_knowledge": ["single-variable and multivariable calculus", "vectors and Euclidean norm", "basic linear algebra", "basic Python"],
+  "computational_background": ["Python functions and loops", "NumPy arrays", "reading simple numerical code"],
+  "learning_goals": ["connect optimisation to equilibrium and numerical relaxation", "derive and use gradient-descent updates", "distinguish assumptions behind convergence rates", "recognise momentum, stochastic, adaptive, Newton, and quasi-Newton methods", "diagnose implementation errors in Python"],
+  "preferred_contexts": ["potential energy", "equilibrium", "stiffness and conditioning", "numerical simulation"],
+  "target_depth": "Conceptual and computational introduction with selected theorem statements and worked calculations",
+  "proof_depth": "Interpret theorem conditions and explain their role; no full proofs",
+  "time_budget_minutes": 120,
+  "assumptions_requiring_review": ["Analogy with potential energy is pedagogical: not every objective is physical energy and iterations are not automatically physical time evolution.", "Convergence claims apply only under their stated smoothness, convexity, initialization, and algorithm conditions."]
+}

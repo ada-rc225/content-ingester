@@ -1,0 +1,56 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/final/gradient-descent/mechanical-engineering-year-2/c2-structured-grounding/run-03/adapted_content.md",
+  "content_sha256": "ec5b54f96b22fa44ecec49d75c200b45a200f2d4af940a54173e511df7f77826",
+  "plan_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/final/gradient-descent/mechanical-engineering-year-2/c2-structured-grounding/run-03/adaptation_plan.json",
+  "plan_sha256": "bdb092db4b91b1f73df1bf2e202e382071dc158afc7a7ff9388ba36352bb6b8f",
+  "code_validation_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/final/gradient-descent/mechanical-engineering-year-2/c2-structured-grounding/run-03/code_validation.json",
+  "code_validation_sha256": "3d04f58f159e1e2eb2895b0b5b6fa6417206672fc4fff4cea7a7449d910ceda6",
+  "overall_status": "passed",
+  "exercise_count": 3,
+  "manual_review_required": true,
+  "exercises": [
+    {
+      "exercise_id": "EX-001",
+      "exercise_type": "concept_check",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "expert_review",
+      "model_consistency_passed": true,
+      "verification_status": "manual_review_required",
+      "details": []
+    },
+    {
+      "exercise_id": "EX-002",
+      "exercise_type": "hand_calculation",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "deterministic_calculation",
+      "model_consistency_passed": true,
+      "verification_status": "passed",
+      "details": [
+        "CK-001: objective value=22.0; gradient=[-4.0, 12.0]; expected=[-4, 12]",
+        "deterministic calculation produced [1.4, 0.7999999999999998]; expected [1.4, 0.8]"
+      ]
+    },
+    {
+      "exercise_id": "EX-003",
+      "exercise_type": "code_diagnostic",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "combined",
+      "model_consistency_passed": true,
+      "verification_status": "passed",
+      "details": [
+        "deterministic calculation produced 1.265625; expected 1.265625",
+        "2 exercise-linked Python block(s) found"
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "EX-001: conceptual or derivational correctness requires independent review"
+  ]
+}

@@ -1,0 +1,538 @@
+{
+  "schema_version": "1.0",
+  "evaluation_protocol": "RQ1-EVAL-v1",
+  "generated_at": "2026-08-17T14:40:05.639097+00:00",
+  "bundle_id": "gd-confirmatory-v1",
+  "condition_summaries": {
+    "c0-ungrounded": {
+      "lesson_sample_count": 3,
+      "evaluation_pass_count": 6,
+      "sample_ids": [
+        "S003",
+        "S004",
+        "S009"
+      ],
+      "dimension_metrics": {
+        "learner_alignment": {
+          "n": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0
+        },
+        "disciplinary_authenticity": {
+          "n": 3,
+          "mean": 3.333333,
+          "median": 3.0,
+          "minimum": 3.0,
+          "maximum": 4.0
+        },
+        "pedagogical_coherence": {
+          "n": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0
+        },
+        "theory_implementation_alignment": {
+          "n": 3,
+          "mean": 2.5,
+          "median": 2.5,
+          "minimum": 2.5,
+          "maximum": 2.5
+        },
+        "readability": {
+          "n": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0
+        },
+        "analogy_safety": {
+          "n": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0
+        },
+        "exercise_validity": {
+          "n": 3,
+          "mean": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "maximum": 4.0
+        }
+      }
+    },
+    "c1-source-conditioned": {
+      "lesson_sample_count": 3,
+      "evaluation_pass_count": 6,
+      "sample_ids": [
+        "S001",
+        "S002",
+        "S008"
+      ],
+      "dimension_metrics": {
+        "learner_alignment": {
+          "n": 3,
+          "mean": 5.0,
+          "median": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        },
+        "disciplinary_authenticity": {
+          "n": 3,
+          "mean": 5.0,
+          "median": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        },
+        "pedagogical_coherence": {
+          "n": 3,
+          "mean": 5.0,
+          "median": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        },
+        "theory_implementation_alignment": {
+          "n": 3,
+          "mean": 5.0,
+          "median": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        },
+        "readability": {
+          "n": 3,
+          "mean": 5.0,
+          "median": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        },
+        "analogy_safety": {
+          "n": 3,
+          "mean": 5.0,
+          "median": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        },
+        "exercise_validity": {
+          "n": 3,
+          "mean": 5.0,
+          "median": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        }
+      }
+    },
+    "c2-structured-grounding": {
+      "lesson_sample_count": 3,
+      "evaluation_pass_count": 6,
+      "sample_ids": [
+        "S005",
+        "S006",
+        "S007"
+      ],
+      "dimension_metrics": {
+        "learner_alignment": {
+          "n": 3,
+          "mean": 5.0,
+          "median": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        },
+        "disciplinary_authenticity": {
+          "n": 3,
+          "mean": 5.0,
+          "median": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        },
+        "pedagogical_coherence": {
+          "n": 3,
+          "mean": 5.0,
+          "median": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        },
+        "theory_implementation_alignment": {
+          "n": 3,
+          "mean": 5.0,
+          "median": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        },
+        "readability": {
+          "n": 3,
+          "mean": 5.0,
+          "median": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        },
+        "analogy_safety": {
+          "n": 3,
+          "mean": 5.0,
+          "median": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        },
+        "exercise_validity": {
+          "n": 3,
+          "mean": 4.166667,
+          "median": 4.0,
+          "minimum": 3.5,
+          "maximum": 5.0
+        }
+      }
+    }
+  },
+  "sample_rows": [
+    {
+      "sample_id": "S001",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_pass_count": 2,
+      "learner_alignment": 5.0,
+      "disciplinary_authenticity": 5.0,
+      "pedagogical_coherence": 5.0,
+      "theory_implementation_alignment": 5.0,
+      "readability": 5.0,
+      "analogy_safety": 5.0,
+      "exercise_validity": 5.0
+    },
+    {
+      "sample_id": "S002",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_pass_count": 2,
+      "learner_alignment": 5.0,
+      "disciplinary_authenticity": 5.0,
+      "pedagogical_coherence": 5.0,
+      "theory_implementation_alignment": 5.0,
+      "readability": 5.0,
+      "analogy_safety": 5.0,
+      "exercise_validity": 5.0
+    },
+    {
+      "sample_id": "S003",
+      "condition_label": "c0-ungrounded",
+      "evaluator_pass_count": 2,
+      "learner_alignment": 4.0,
+      "disciplinary_authenticity": 3.0,
+      "pedagogical_coherence": 4.0,
+      "theory_implementation_alignment": 2.5,
+      "readability": 4.0,
+      "analogy_safety": 4.0,
+      "exercise_validity": 4.0
+    },
+    {
+      "sample_id": "S004",
+      "condition_label": "c0-ungrounded",
+      "evaluator_pass_count": 2,
+      "learner_alignment": 4.0,
+      "disciplinary_authenticity": 3.0,
+      "pedagogical_coherence": 4.0,
+      "theory_implementation_alignment": 2.5,
+      "readability": 4.0,
+      "analogy_safety": 4.0,
+      "exercise_validity": 4.0
+    },
+    {
+      "sample_id": "S005",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_pass_count": 2,
+      "learner_alignment": 5.0,
+      "disciplinary_authenticity": 5.0,
+      "pedagogical_coherence": 5.0,
+      "theory_implementation_alignment": 5.0,
+      "readability": 5.0,
+      "analogy_safety": 5.0,
+      "exercise_validity": 5.0
+    },
+    {
+      "sample_id": "S006",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_pass_count": 2,
+      "learner_alignment": 5.0,
+      "disciplinary_authenticity": 5.0,
+      "pedagogical_coherence": 5.0,
+      "theory_implementation_alignment": 5.0,
+      "readability": 5.0,
+      "analogy_safety": 5.0,
+      "exercise_validity": 4.0
+    },
+    {
+      "sample_id": "S007",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_pass_count": 2,
+      "learner_alignment": 5.0,
+      "disciplinary_authenticity": 5.0,
+      "pedagogical_coherence": 5.0,
+      "theory_implementation_alignment": 5.0,
+      "readability": 5.0,
+      "analogy_safety": 5.0,
+      "exercise_validity": 3.5
+    },
+    {
+      "sample_id": "S008",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_pass_count": 2,
+      "learner_alignment": 5.0,
+      "disciplinary_authenticity": 5.0,
+      "pedagogical_coherence": 5.0,
+      "theory_implementation_alignment": 5.0,
+      "readability": 5.0,
+      "analogy_safety": 5.0,
+      "exercise_validity": 5.0
+    },
+    {
+      "sample_id": "S009",
+      "condition_label": "c0-ungrounded",
+      "evaluator_pass_count": 2,
+      "learner_alignment": 4.0,
+      "disciplinary_authenticity": 4.0,
+      "pedagogical_coherence": 4.0,
+      "theory_implementation_alignment": 2.5,
+      "readability": 4.0,
+      "analogy_safety": 4.0,
+      "exercise_validity": 4.0
+    }
+  ],
+  "pass_rows": [
+    {
+      "sample_id": "S001",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_run_id": "rq1-gd-judge-sol-S001-pass-01",
+      "pass_index": 1,
+      "learner_alignment": 5,
+      "disciplinary_authenticity": 5,
+      "pedagogical_coherence": 5,
+      "theory_implementation_alignment": 5,
+      "readability": 5,
+      "analogy_safety": 5,
+      "exercise_validity": 5
+    },
+    {
+      "sample_id": "S001",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_run_id": "rq1-gd-judge-sol-S001-pass-02",
+      "pass_index": 2,
+      "learner_alignment": 5,
+      "disciplinary_authenticity": 5,
+      "pedagogical_coherence": 5,
+      "theory_implementation_alignment": 5,
+      "readability": 5,
+      "analogy_safety": 5,
+      "exercise_validity": 5
+    },
+    {
+      "sample_id": "S002",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_run_id": "rq1-gd-judge-sol-S002-pass-01",
+      "pass_index": 1,
+      "learner_alignment": 5,
+      "disciplinary_authenticity": 5,
+      "pedagogical_coherence": 5,
+      "theory_implementation_alignment": 5,
+      "readability": 5,
+      "analogy_safety": 5,
+      "exercise_validity": 5
+    },
+    {
+      "sample_id": "S002",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_run_id": "rq1-gd-judge-sol-S002-pass-02",
+      "pass_index": 2,
+      "learner_alignment": 5,
+      "disciplinary_authenticity": 5,
+      "pedagogical_coherence": 5,
+      "theory_implementation_alignment": 5,
+      "readability": 5,
+      "analogy_safety": 5,
+      "exercise_validity": 5
+    },
+    {
+      "sample_id": "S003",
+      "condition_label": "c0-ungrounded",
+      "evaluator_run_id": "rq1-gd-judge-sol-S003-pass-01",
+      "pass_index": 1,
+      "learner_alignment": 4,
+      "disciplinary_authenticity": 3,
+      "pedagogical_coherence": 4,
+      "theory_implementation_alignment": 3,
+      "readability": 4,
+      "analogy_safety": 4,
+      "exercise_validity": 4
+    },
+    {
+      "sample_id": "S003",
+      "condition_label": "c0-ungrounded",
+      "evaluator_run_id": "rq1-gd-judge-sol-S003-pass-02",
+      "pass_index": 2,
+      "learner_alignment": 4,
+      "disciplinary_authenticity": 3,
+      "pedagogical_coherence": 4,
+      "theory_implementation_alignment": 2,
+      "readability": 4,
+      "analogy_safety": 4,
+      "exercise_validity": 4
+    },
+    {
+      "sample_id": "S004",
+      "condition_label": "c0-ungrounded",
+      "evaluator_run_id": "rq1-gd-judge-sol-S004-pass-01",
+      "pass_index": 1,
+      "learner_alignment": 4,
+      "disciplinary_authenticity": 3,
+      "pedagogical_coherence": 4,
+      "theory_implementation_alignment": 3,
+      "readability": 4,
+      "analogy_safety": 4,
+      "exercise_validity": 4
+    },
+    {
+      "sample_id": "S004",
+      "condition_label": "c0-ungrounded",
+      "evaluator_run_id": "rq1-gd-judge-sol-S004-pass-02",
+      "pass_index": 2,
+      "learner_alignment": 4,
+      "disciplinary_authenticity": 3,
+      "pedagogical_coherence": 4,
+      "theory_implementation_alignment": 2,
+      "readability": 4,
+      "analogy_safety": 4,
+      "exercise_validity": 4
+    },
+    {
+      "sample_id": "S005",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_run_id": "rq1-gd-judge-sol-S005-pass-01",
+      "pass_index": 1,
+      "learner_alignment": 5,
+      "disciplinary_authenticity": 5,
+      "pedagogical_coherence": 5,
+      "theory_implementation_alignment": 5,
+      "readability": 5,
+      "analogy_safety": 5,
+      "exercise_validity": 5
+    },
+    {
+      "sample_id": "S005",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_run_id": "rq1-gd-judge-sol-S005-pass-02",
+      "pass_index": 2,
+      "learner_alignment": 5,
+      "disciplinary_authenticity": 5,
+      "pedagogical_coherence": 5,
+      "theory_implementation_alignment": 5,
+      "readability": 5,
+      "analogy_safety": 5,
+      "exercise_validity": 5
+    },
+    {
+      "sample_id": "S006",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_run_id": "rq1-gd-judge-sol-S006-pass-01",
+      "pass_index": 1,
+      "learner_alignment": 5,
+      "disciplinary_authenticity": 5,
+      "pedagogical_coherence": 5,
+      "theory_implementation_alignment": 5,
+      "readability": 5,
+      "analogy_safety": 5,
+      "exercise_validity": 4
+    },
+    {
+      "sample_id": "S006",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_run_id": "rq1-gd-judge-sol-S006-pass-02",
+      "pass_index": 2,
+      "learner_alignment": 5,
+      "disciplinary_authenticity": 5,
+      "pedagogical_coherence": 5,
+      "theory_implementation_alignment": 5,
+      "readability": 5,
+      "analogy_safety": 5,
+      "exercise_validity": 4
+    },
+    {
+      "sample_id": "S007",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_run_id": "rq1-gd-judge-sol-S007-pass-01",
+      "pass_index": 1,
+      "learner_alignment": 5,
+      "disciplinary_authenticity": 5,
+      "pedagogical_coherence": 5,
+      "theory_implementation_alignment": 5,
+      "readability": 5,
+      "analogy_safety": 5,
+      "exercise_validity": 4
+    },
+    {
+      "sample_id": "S007",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_run_id": "rq1-gd-judge-sol-S007-pass-02",
+      "pass_index": 2,
+      "learner_alignment": 5,
+      "disciplinary_authenticity": 5,
+      "pedagogical_coherence": 5,
+      "theory_implementation_alignment": 5,
+      "readability": 5,
+      "analogy_safety": 5,
+      "exercise_validity": 3
+    },
+    {
+      "sample_id": "S008",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_run_id": "rq1-gd-judge-sol-S008-pass-01",
+      "pass_index": 1,
+      "learner_alignment": 5,
+      "disciplinary_authenticity": 5,
+      "pedagogical_coherence": 5,
+      "theory_implementation_alignment": 5,
+      "readability": 5,
+      "analogy_safety": 5,
+      "exercise_validity": 5
+    },
+    {
+      "sample_id": "S008",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_run_id": "rq1-gd-judge-sol-S008-pass-02",
+      "pass_index": 2,
+      "learner_alignment": 5,
+      "disciplinary_authenticity": 5,
+      "pedagogical_coherence": 5,
+      "theory_implementation_alignment": 5,
+      "readability": 5,
+      "analogy_safety": 5,
+      "exercise_validity": 5
+    },
+    {
+      "sample_id": "S009",
+      "condition_label": "c0-ungrounded",
+      "evaluator_run_id": "rq1-gd-judge-sol-S009-pass-01",
+      "pass_index": 1,
+      "learner_alignment": 4,
+      "disciplinary_authenticity": 4,
+      "pedagogical_coherence": 4,
+      "theory_implementation_alignment": 3,
+      "readability": 4,
+      "analogy_safety": 4,
+      "exercise_validity": 4
+    },
+    {
+      "sample_id": "S009",
+      "condition_label": "c0-ungrounded",
+      "evaluator_run_id": "rq1-gd-judge-sol-S009-pass-02",
+      "pass_index": 2,
+      "learner_alignment": 4,
+      "disciplinary_authenticity": 4,
+      "pedagogical_coherence": 4,
+      "theory_implementation_alignment": 2,
+      "readability": 4,
+      "analogy_safety": 4,
+      "exercise_validity": 4
+    }
+  ],
+  "warnings": [
+    "Pedagogy dimensions are reported separately from fidelity outcomes.",
+    "No overall fidelity-pedagogy composite score is formed."
+  ]
+}

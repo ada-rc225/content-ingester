@@ -1,0 +1,7 @@
+# C2 adaptation summary
+
+This run produced one self-contained Gradient Descent and Optimisation resource for second-year mechanical engineering undergraduates. The lesson follows the requested sequence from unconstrained optimisation and local curvature through smooth convex geometry, gradient descent, convergence, momentum, stochastic methods, adaptive methods, Newton, BFGS, and Python implementation. Potential energy, equilibrium, curvature, and numerical relaxation are used as bounded contexts; the lesson explicitly distinguishes an optimisation objective from physical energy and computational iterations from physical time.
+
+All required generation items RC-001 through RC-030 were included, including the conditional items. The plan and provenance preserve section-level mappings while keeping RC identifiers out of student-facing prose. The final chapter contains exactly three worked exercises: a theorem-scope check, a deterministic hand calculation with a gradient consistency check, and a code diagnostic with separate executable incorrect and corrected programs.
+
+The deterministic Frozen Contract preflight passed. Configured code execution, exercise verification, schema checks, Contract binding, required-item coverage, conditional-item accounting, provenance checks, section checks, and treatment-integrity validation all passed. The validation report is limited to Frozen Contract treatment integrity and configured automatic checks; it does not establish complete lesson correctness or answer the RQ1 outcome question.

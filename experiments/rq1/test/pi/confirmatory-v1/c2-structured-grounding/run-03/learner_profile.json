@@ -1,0 +1,12 @@
+{
+  "profile_id": "mechanical-engineering-year-2",
+  "discipline": "mechanical engineering",
+  "education_level": "second-year undergraduate",
+  "prior_knowledge": ["vectors", "matrices", "basic calculus", "basic Python", "basic NumPy"],
+  "computational_background": ["Can read matrix-vector multiplication", "Can write short NumPy scripts", "Has not used iterative eigensolvers"],
+  "learning_goals": ["Define eigenvalues and eigenvectors", "Explain the dominant eigenpair of a real symmetric matrix", "Derive and implement power iteration", "State convergence assumptions and asymptotic rate", "Use the Rayleigh quotient and residual", "Diagnose sign ambiguity, breakdown, missing dominant projection, repeated dominant magnitude, small spectral gap, and non-symmetric limitations", "Distinguish largest magnitude from largest algebraic eigenvalue"],
+  "preferred_contexts": ["mechanical vibration", "modal reasoning", "matrix-based engineering computation"],
+  "target_depth": "Conceptual definitions, mathematical derivation, convergence assumptions, algorithm behaviour, and implementation",
+  "proof_depth": "Explain reasoning and assumptions without requiring a fully formal proof",
+  "assumptions_requiring_review": ["Do not assume prior knowledge of iterative eigensolvers", "Disciplinary contexts are bounded pedagogical framing rather than unsupported physical claims", "The clean convergence explanation is for real symmetric matrices" ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "evaluation_protocol": "RQ1-EVAL-v1",
+  "bundle_id": "pi-confirmatory-v1",
+  "created_at": "2026-08-17T13:11:42.214894+00:00",
+  "contract": {
+    "file": "frozen_reference_contract.json",
+    "contract_id": "power-iteration",
+    "contract_version": "1.0.0",
+    "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+  },
+  "learner_profile": {
+    "file": "learner_profile.json",
+    "sha256": "0f18dc1f5e28d0accf9cdcee62b93792c475ae539ee9f6400646edebaee7f95d"
+  },
+  "task_brief": {
+    "file": "task_brief.txt",
+    "sha256": "2775d9c5013bd0b491f2844045ad854ca5b0a2f45958a124a0fca32f175f8811"
+  },
+  "sanitisation": {
+    "html_comments_removed": true,
+    "trailing_whitespace_removed": true
+  },
+  "samples": [
+    {
+      "sample_id": "S001",
+      "file": "samples/S001.md",
+      "content_sha256": "d056ea366abe1f7462d0203471175e2cb0740b179822e6fa4eb41e593496057b"
+    },
+    {
+      "sample_id": "S002",
+      "file": "samples/S002.md",
+      "content_sha256": "6bb4d20d6133801f27ed4b9c507855ad1b48b173f25e1d4dfd7b15a430c5972a"
+    },
+    {
+      "sample_id": "S003",
+      "file": "samples/S003.md",
+      "content_sha256": "d560e7d51b58cc79457eb23230f765f8ae4dca0b9e8779f5f953fe0f65be7d49"
+    },
+    {
+      "sample_id": "S004",
+      "file": "samples/S004.md",
+      "content_sha256": "d32fa9184edc21a845ab76a6cc04efe21c22faf6f80e4bec6d01d7979dcd998b"
+    },
+    {
+      "sample_id": "S005",
+      "file": "samples/S005.md",
+      "content_sha256": "2c2f96736bc254340bd884e56fcb937c13d87034c47409ce89cdb02f4f01236d"
+    },
+    {
+      "sample_id": "S006",
+      "file": "samples/S006.md",
+      "content_sha256": "2132c1da37a0e9f382fd08f8481caa210becbd63266196fcb160305f7abf4bad"
+    },
+    {
+      "sample_id": "S007",
+      "file": "samples/S007.md",
+      "content_sha256": "eb62e54a6995d97089f7e3aa17cc57b40d0ab2a5ddb6294cee7497916e5f3f62"
+    },
+    {
+      "sample_id": "S008",
+      "file": "samples/S008.md",
+      "content_sha256": "10a9d9c19798f917ddec5fc4a09288ef3c8d29ebd5afddca268d730fa7333cfc"
+    },
+    {
+      "sample_id": "S009",
+      "file": "samples/S009.md",
+      "content_sha256": "432daac9de2e530bd1d65ccc42a4497d4a0998afee54aab5e397301add757ebd"
+    }
+  ]
+}

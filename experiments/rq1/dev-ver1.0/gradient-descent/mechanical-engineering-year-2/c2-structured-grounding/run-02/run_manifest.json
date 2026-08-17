@@ -1,0 +1,24 @@
+{
+  "run_id": "gradient-descent-mechanical-engineering-year-2-c2-run-02",
+  "research_question": "RQ1",
+  "condition": "c2-structured-grounding",
+  "topic": "Gradient Descent and Optimisation",
+  "provider": "GitHub Copilot",
+  "model": "GPT-5.6 Terra",
+  "access_route": "VS Code",
+  "prompt_version": "RQ1-C2-run-02",
+  "agent_version": "3.3",
+  "skill_version": "3.3",
+  "run_date": "2026-08-11",
+  "grounding_receipt_file": "grounding_receipt.json",
+  "grounding_receipt_sha256": "c0131673a58589a6a65ce8ee780ac780782e3888a5297b5dfa077eb7d7e6544f",
+  "source_ids": ["gradient-descent-and-optimization"],
+  "profile_id": "mechanical-engineering-year-2",
+  "code_execution_required": true,
+  "exercise_protocol": {
+    "enabled": true,
+    "expected_count": 3,
+    "required_types": ["concept_check", "hand_calculation", "code_diagnostic"],
+    "worked_solutions_required": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/final/gradient-descent/mechanical-engineering-year-2/c2-structured-grounding/run-01/adapted_content.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-08",
+      "language": "python",
+      "code_sha256": "b3a010df9c4954b27f68f151d50feeedcf1827cdb618a6232dd1545806917a2b",
+      "execution_status": "passed",
+      "stdout": "GD final objective: 0.0005981525981032123\nHeavy Ball final objective: 0.0010634204673540223\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 19
+    }
+  ]
+}

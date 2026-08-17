@@ -1,0 +1,30 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/final/gradient-descent/mechanical-engineering-year-2/c2-structured-grounding/run-03/adapted_content.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-07",
+      "exercise_id": "EX-003",
+      "language": "python",
+      "code_sha256": "0696f63518ef13b8dd1a3638540783b4d9d7262c8f24979fb281c78016656191",
+      "execution_status": "passed",
+      "stdout": "[9.765625]\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 49
+    },
+    {
+      "block_id": "CODE-002",
+      "anchor": "SEC-07",
+      "exercise_id": "EX-003",
+      "language": "python",
+      "code_sha256": "ed95db89a617b1dc86eabc60d49ba5b3b8b022e8bab2513e7bdb8c42709fd105",
+      "execution_status": "passed",
+      "stdout": "[1.265625]\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 48
+    }
+  ]
+}

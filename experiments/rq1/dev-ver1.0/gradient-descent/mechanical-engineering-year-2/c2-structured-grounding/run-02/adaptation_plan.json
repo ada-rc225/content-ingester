@@ -1,0 +1,44 @@
+{
+  "profile_id": "mechanical-engineering-year-2",
+  "source_ids": ["gradient-descent-and-optimization"],
+  "topic": "Gradient Descent and Optimisation",
+  "entry_point": {"discipline_context": "Potential energy, equilibrium, and numerical relaxation", "analogy_boundary": "The mechanical framing supports intuition but does not replace the unconstrained mathematical formulation or represent all physical constraints and dynamics.", "rationale": "Connect familiar mechanical intuition to the canonical unconstrained optimisation formulation before introducing algorithms."},
+  "implementation_strategy": "Use one executable Python diagnostic to connect the current-gradient update with its numerical result.",
+  "assessment_strategy": "Finish with exactly three generated worked exercises: conceptual, hand calculation, and code diagnostic.",
+  "grounding_contract": {"contract_id": "gradient-descent", "contract_version": "3.0.0", "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"},
+  "required_contract_item_ids": ["RC-001", "RC-002", "RC-003", "RC-004", "RC-005", "RC-006", "RC-007", "RC-008", "RC-009", "RC-010", "RC-011", "RC-014", "RC-015"],
+  "conditional_item_decisions": [
+    {"item_id": "RC-012", "included": true, "rationale": "The requested step-size selection scope includes exact line search."},
+    {"item_id": "RC-013", "included": true, "rationale": "The requested step-size selection scope includes backtracking."},
+    {"item_id": "RC-016", "included": true, "rationale": "The requested momentum scope requires Heavy Ball."},
+    {"item_id": "RC-017", "included": true, "rationale": "The acceleration scope benefits from its explicitly limited quadratic result."},
+    {"item_id": "RC-018", "included": true, "rationale": "The requested acceleration scope includes this NAG recurrence."},
+    {"item_id": "RC-019", "included": true, "rationale": "The requested acceleration scope includes its stated convergence result."},
+    {"item_id": "RC-020", "included": true, "rationale": "The requested stochastic-gradient scope requires the stochastic model."},
+    {"item_id": "RC-021", "included": true, "rationale": "The requested stochastic-gradient scope requires the SGD update and constant-step limitation."},
+    {"item_id": "RC-022", "included": true, "rationale": "The requested stochastic-gradient scope includes diminishing-step conditions."},
+    {"item_id": "RC-023", "included": false, "rationale": "Adaptive cumulative scaling is outside the requested introductory stochastic-method scope."},
+    {"item_id": "RC-024", "included": false, "rationale": "Adaptive exponential scaling is outside the requested introductory stochastic-method scope."},
+    {"item_id": "RC-025", "included": false, "rationale": "Adaptive moment estimation is outside the requested introductory stochastic-method scope."},
+    {"item_id": "RC-026", "included": true, "rationale": "The requested second-order introduction requires the Taylor model."},
+    {"item_id": "RC-027", "included": true, "rationale": "The requested second-order introduction requires the Newton linear system."},
+    {"item_id": "RC-028", "included": true, "rationale": "The requested second-order introduction includes the local convergence scope."},
+    {"item_id": "RC-029", "included": false, "rationale": "Quasi-Newton secant construction is beyond the requested introductory second-order coverage."},
+    {"item_id": "RC-030", "included": false, "rationale": "The detailed inverse-BFGS update is beyond the requested introductory second-order coverage."}
+  ],
+  "chapter_sequence": [
+    {"section_id": "SEC-01", "order": 1, "title": "From potential energy to an optimisation problem", "purpose": "Introduce unconstrained objectives, equilibrium intuition, and local optimality tests.", "contract_item_ids": ["RC-001", "RC-002", "RC-003"]},
+    {"section_id": "SEC-02", "order": 2, "title": "Landscape geometry: smoothness and curvature", "purpose": "Develop smoothness, convexity, strong convexity, Hessian bounds, and conditioning.", "contract_item_ids": ["RC-004", "RC-005", "RC-006", "RC-007", "RC-008", "RC-009"]},
+    {"section_id": "SEC-03", "order": 3, "title": "Gradient descent as numerical relaxation", "purpose": "State gradient descent and relate step selection to local relaxation.", "contract_item_ids": ["RC-010", "RC-011", "RC-012", "RC-013"]},
+    {"section_id": "SEC-04", "order": 4, "title": "What convergence guarantees actually say", "purpose": "Give convex and strongly convex gradient-descent bounds with their distinct steps.", "contract_item_ids": ["RC-014", "RC-015"]},
+    {"section_id": "SEC-05", "order": 5, "title": "Momentum and accelerated first-order methods", "purpose": "Introduce Heavy Ball and the stated NAG parameterisation and scope.", "contract_item_ids": ["RC-016", "RC-017", "RC-018", "RC-019"]},
+    {"section_id": "SEC-06", "order": 6, "title": "Stochastic and second-order directions", "purpose": "Introduce stochastic gradients, diminishing steps, and Newton's local model and convergence conditions.", "contract_item_ids": ["RC-020", "RC-021", "RC-022", "RC-026", "RC-027", "RC-028"]},
+    {"section_id": "SEC-07", "order": 7, "title": "Exercises and worked solutions", "purpose": "Consolidate assumptions, a gradient-descent update, and executable diagnostics.", "contract_item_ids": []}
+  ],
+  "exercise_section_id": "SEC-07",
+  "exercise_plan": [
+    {"exercise_id": "EX-001", "order": 1, "section_id": "SEC-07", "exercise_type": "concept_check", "difficulty": "introductory", "learning_objective": "Distinguish necessary stationarity from sufficient local-minimum conditions.", "discipline_context": "equilibrium configurations in a potential-energy model", "contract_item_ids": ["RC-002", "RC-003"], "solution_required": true, "verification": {"method": "contract_binding", "python_expression": null, "expected_value": null, "absolute_tolerance": 0.0, "consistency_checks": []}},
+    {"exercise_id": "EX-002", "order": 2, "section_id": "SEC-07", "exercise_type": "hand_calculation", "difficulty": "introductory", "learning_objective": "Apply the current-gradient update to a quadratic energy.", "discipline_context": "two-coordinate numerical relaxation", "contract_item_ids": ["RC-010"], "solution_required": true, "verification": {"method": "deterministic_calculation", "python_expression": "[1 - 0.25 * 2 * 1, -2 - 0.25 * 2 * (-2)]", "expected_value": [0.5, -1.0], "absolute_tolerance": 0.0, "consistency_checks": [{"check_id": "CK-001", "kind": "objective_gradient", "variables": ["u", "v"], "point": [1, -2], "objective_expression": "u**2 + v**2", "expressions": [], "expected_value": [2, -4], "absolute_tolerance": 0.0}]}},
+    {"exercise_id": "EX-003", "order": 3, "section_id": "SEC-07", "exercise_type": "code_diagnostic", "difficulty": "introductory", "learning_objective": "Diagnose whether code evaluates the gradient at the current iterate and descends with a positive step.", "discipline_context": "iterative relaxation of a scalar potential", "contract_item_ids": ["RC-010", "RC-011"], "solution_required": true, "verification": {"method": "code_execution", "python_expression": null, "expected_value": null, "absolute_tolerance": 0.0, "consistency_checks": []}}
+  ]
+}

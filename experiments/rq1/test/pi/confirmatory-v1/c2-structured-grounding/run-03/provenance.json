@@ -1,0 +1,17 @@
+{
+  "profile_id": "mechanical-engineering-year-2",
+  "source_ids": ["eigenvalues-and-power-iteration"],
+  "grounding_contract": {"contract_id": "power-iteration", "contract_version": "1.0.0", "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"},
+  "sections": [
+    {"section_id":"SEC-01","contract_item_ids":["RC-001","RC-002","RC-014"],"adaptation_types":["preserved","pedagogical_scaffold"]},
+    {"section_id":"SEC-02","contract_item_ids":["RC-003","RC-004"],"adaptation_types":["preserved","discipline_bridge"]},
+    {"section_id":"SEC-03","contract_item_ids":["RC-005","RC-006","RC-016"],"adaptation_types":["preserved","implementation_bridge","pedagogical_scaffold"]},
+    {"section_id":"SEC-04","contract_item_ids":["RC-007","RC-008","RC-009","RC-010","RC-011","RC-012","RC-013","RC-015","RC-017","RC-018"],"adaptation_types":["preserved","implementation_bridge","discipline_bridge"]},
+    {"section_id":"SEC-05","contract_item_ids":[],"adaptation_types":["pedagogical_scaffold"]}
+  ],
+  "exercises": [
+    {"exercise_id":"EX-001","section_id":"SEC-05","contract_item_ids":["RC-004","RC-007","RC-008","RC-012","RC-013","RC-014","RC-015"],"content_origin":"generated_pedagogical_material","verification_method":"contract_binding"},
+    {"exercise_id":"EX-002","section_id":"SEC-05","contract_item_ids":["RC-005","RC-009","RC-010","RC-018"],"content_origin":"generated_pedagogical_material","verification_method":"deterministic_calculation"},
+    {"exercise_id":"EX-003","section_id":"SEC-05","contract_item_ids":["RC-005","RC-010","RC-011","RC-016","RC-017"],"content_origin":"generated_pedagogical_material","verification_method":"code_execution"}
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "profile_id": "mechanical-engineering-year-2",
+  "discipline": "mechanical engineering",
+  "education_level": "second-year undergraduate",
+  "prior_knowledge": ["calculus", "vectors", "matrices", "eigenvalues", "potential energy", "equilibrium"],
+  "computational_background": ["basic Python", "basic numerical experimentation"],
+  "learning_goals": ["connect optimisation mathematics to engineering models", "state assumptions behind convergence results", "implement and diagnose update rules"],
+  "preferred_contexts": ["potential energy", "equilibrium", "curvature", "numerical relaxation"],
+  "target_depth": "formal definitions, theorem conditions, algorithm recurrences, and short executable implementation",
+  "proof_depth": "interpret theorem statements and verify local algebra rather than reproduce full proofs",
+  "time_budget_minutes": 120,
+  "assumptions_requiring_review": ["an objective is not necessarily physical energy", "an optimisation iteration is not necessarily physical time evolution", "convergence guarantees require their stated hypotheses"]
+}

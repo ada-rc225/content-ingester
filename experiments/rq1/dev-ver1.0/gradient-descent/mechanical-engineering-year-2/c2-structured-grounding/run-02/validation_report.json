@@ -1,0 +1,62 @@
+{
+  "run_id": "gradient-descent-mechanical-engineering-year-2-c2-run-02",
+  "generated_at": "2026-08-11T19:29:40.519468+00:00",
+  "validation_scope": "grounding_and_configured_checks_only",
+  "schema_checks": [
+    {
+      "artifact": "run_manifest.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "grounding_receipt.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "grounding_view.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "learner_profile.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "adaptation_plan.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "provenance.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "code_validation.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "artifact": "exercise_validation.json",
+      "status": "passed",
+      "errors": []
+    }
+  ],
+  "frozen_contract_valid": true,
+  "contract_binding_valid": true,
+  "source_hashes_valid": true,
+  "section_structure_valid": true,
+  "required_item_coverage_complete": true,
+  "conditional_item_accounting_complete": true,
+  "provenance_complete": true,
+  "exercise_structure_valid": true,
+  "exercise_verification_passed": true,
+  "code_execution_passed": true,
+  "treatment_valid": true,
+  "errors": [],
+  "warnings": [
+    "Validation is limited to frozen-grounding treatment integrity, declared RC-item coverage, and configured automatic checks; complete lesson correctness is outside this report's scope."
+  ]
+}

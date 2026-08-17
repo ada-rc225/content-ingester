@@ -1,0 +1,1795 @@
+{
+  "schema_version": "1.0",
+  "evaluation_protocol": "RQ1-EVAL-v1",
+  "evaluator": {
+    "evaluator_run_id": "rq1-pi-judge-sol-S003-pass-02",
+    "evaluator_id": "rq1-pi-judge-sol",
+    "provider": "OpenAI Codex CLI",
+    "model": "gpt-5.6-sol",
+    "prompt_version": "RQ1-EVAL-v1",
+    "pass_index": 2,
+    "generated_at": "2026-08-16T14:42:13.534Z"
+  },
+  "bundle_binding": {
+    "bundle_id": "pi-confirmatory-v1",
+    "manifest_sha256": "7159b8a785d6e73ae43da27f27aa97d7f6bc0c4c854a133b5adc5e3938b1f2d1",
+    "contract_id": "power-iteration",
+    "contract_version": "1.0.0",
+    "contract_sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7",
+    "sample_id": "S003",
+    "content_sha256": "6bb4d20d6133801f27ed4b9c507855ad1b48b173f25e1d4dfd7b15a430c5972a"
+  },
+  "item_evaluations": [
+    {
+      "item_id": "RC-001",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "An eigenpair describes a special direction for a matrix transformation. Let $A\\in\\mathbb{R}^{n\\times n}$. A non-zero vector $v$ is an eigenvector if there is a scalar $\\lambda$ such that"
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "The scalar $\\lambda$ is the corresponding eigenvalue. The vector must be non-zero: the zero vector satisfies this equation for every scalar and therefore gives no useful information about the action of $A$."
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "A is a real n by n matrix.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "An eigenpair describes a special direction for a matrix transformation. Let $A\\in\\mathbb{R}^{n\\times n}$. A non-zero vector $v$ is an eigenvector if there is a scalar $\\lambda$ such that"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        },
+        {
+          "condition": "v is non-zero.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "The scalar $\\lambda$ is the corresponding eigenvalue. The vector must be non-zero: the zero vector satisfies this equation for every scalar and therefore gives no useful information about the action of $A$."
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "Define Av=lambda v for real square A, associate lambda with non-zero v, and explain why zero is excluded.",
+      "rationale": "The lesson gives the required statement, material conditions, and semantics without detected contradiction or drift.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-002",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "Eigenvalues can be found as roots of the characteristic equation"
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "but explicitly forming a characteristic polynomial is usually a poor numerical strategy for large matrices. Iterative methods instead use repeated matrix-vector products."
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "I is the identity matrix of compatible dimension.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "Eigenvalues can be found as roots of the characteristic equation"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "State det(A-lambda I)=0 and distinguish it from the numerical preference for iterative matrix-vector methods on large matrices.",
+      "rationale": "The lesson gives the required statement, material conditions, and semantics without detected contradiction or drift.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-003",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "This lesson focuses on a real symmetric matrix, meaning $A=A^T$. The spectral theorem gives an orthonormal basis of real eigenvectors. Consequently, we can write"
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "where the columns of the orthogonal matrix $Q$ are eigenvectors $v_1,\\ldots,v_n$"
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "Because the eigenvectors form a basis, every vector $x$ can be decomposed as"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "A is real and symmetric.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "This lesson focuses on a real symmetric matrix, meaning $A=A^T$. The spectral theorem gives an orthonormal basis of real eigenvectors. Consequently, we can write"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        },
+        {
+          "condition": "Q has eigenvectors as columns and is orthogonal.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "where the columns of the orthogonal matrix $Q$ are eigenvectors $v_1,\\ldots,v_n$"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "Restrict the orthonormal real eigenbasis and A=Q Lambda Q^T expansion to real symmetric A, with orthogonal Q and c_i=v_i^T x.",
+      "rationale": "The lesson gives the required statement, material conditions, and semantics without detected contradiction or drift.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-004",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "Order the eigenvalues by magnitude:"
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "The strict first inequality means that the dominant eigenvalue is unique in magnitude. Notice that “dominant” here means largest absolute value, not largest algebraic value."
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "The strict first inequality is required for a unique dominant magnitude.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "Order the eigenvalues by magnitude:"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "Order eigenvalues by magnitude with a strict dominant gap and distinguish magnitude from algebraic ordering.",
+      "rationale": "The lesson gives the required statement, material conditions, and semantics without detected contradiction or drift.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-005",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "Start with a non-zero vector $x_0$. Repeatedly multiply by $A$, while normalising after each multiplication:"
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "Normalisation prevents the vector from becoming extremely large or extremely small. It does not change the direction of the vector, which is the part of the information we need."
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "x_0 is non-zero.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "Start with a non-zero vector $x_0$. Repeatedly multiply by $A$, while normalising after each multiplication:"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        },
+        {
+          "condition": "The normalising denominator is non-zero.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "Normalisation prevents the vector from becoming extremely large or extremely small. It does not change the direction of the vector, which is the part of the information we need."
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "Give the multiply-then-2-norm-normalise update from non-zero x0, requiring a non-zero denominator and preserving direction.",
+      "rationale": "The lesson gives the required statement, material conditions, and semantics without detected contradiction or drift.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-006",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "After $k$ multiplications,"
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "Factor out the term associated with the largest magnitude:"
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "Suppose the initial vector has a non-zero dominant component, $c_1=v_1^Tx_0\\ne0$. Since $|\\lambda_i/\\lambda_1|<1$ for $i\\ge2$, the unwanted terms shrink as $k$ increases."
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "A is in the real symmetric setting with the stated eigenbasis.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "After $k$ multiplications,"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        },
+        {
+          "condition": "c_1=v_1^T x_0 is non-zero.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "Factor out the term associated with the largest magnitude:"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        },
+        {
+          "condition": "|lambda_1|>|lambda_2|.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "Suppose the initial vector has a non-zero dominant component, $c_1=v_1^Tx_0\\ne0$. Since $|\\lambda_i/\\lambda_1|<1$ for $i\\ge2$, the unwanted terms shrink as $k$ increases."
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "Derive A^k x0 in the symmetric eigenbasis, retain non-zero dominant projection and strict magnitude-gap conditions.",
+      "rationale": "The lesson gives the required statement, material conditions, and semantics without detected contradiction or drift.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-007",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "For a real symmetric matrix, the usual convergence statement requires three conditions. First, the dominant magnitude must be unique: $|\\lambda_1|>|\\lambda_2|$. Second, the initial vector must have non-zero projection onto $v_1$, so $v_1^Tx_0\\ne0$. Third, no iteration may produce $Ax_k=0$, because then normalisation is impossible."
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "Under these conditions, the direction error generally decreases asymptotically at a rate governed by"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "A is real and symmetric.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "For a real symmetric matrix, the usual convergence statement requires three conditions. First, the dominant magnitude must be unique: $|\\lambda_1|>|\\lambda_2|$. Second, the initial vector must have non-zero projection onto $v_1$, so $v_1^Tx_0\\ne0$. Third, no iteration may produce $Ax_k=0$, because then normalisation is impossible."
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        },
+        {
+          "condition": "|lambda_1|>|lambda_2|.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "Under these conditions, the direction error generally decreases asymptotically at a rate governed by"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        },
+        {
+          "condition": "The initial vector has non-zero projection onto v_1.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "Under these conditions, the direction error generally decreases asymptotically at a rate governed by"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        },
+        {
+          "condition": "No iterate produces Ax_k=0.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "Under these conditions, the direction error generally decreases asymptotically at a rate governed by"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "State symmetric power-iteration convergence with unique dominant magnitude, non-zero dominant projection, no zero product, and asymptotic factor |lambda2/lambda1|^k.",
+      "rationale": "The lesson gives the required statement, material conditions, and semantics without detected contradiction or drift.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-008",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "If the dominant eigenvalue is negative, the multiplication may reverse the direction on alternating steps. Such sign alternation does not mean that the eigendirection has been lost."
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "The dominant eigenvalue is negative.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "If the dominant eigenvalue is negative, the multiplication may reverse the direction on alternating steps. Such sign alternation does not mean that the eigendirection has been lost."
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "Explain sign alternation for a negative dominant eigenvalue and the equivalence of v1 and -v1 as eigendirections.",
+      "rationale": "The lesson gives the required statement, material conditions, and semantics without detected contradiction or drift.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-009",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "After obtaining an approximate unit vector $x_k$, estimate its eigenvalue with the Rayleigh quotient:"
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "When $x_k$ is normalised, $x_k^Tx_k=1$, so this becomes $\\rho(x_k)=x_k^TAx_k$. For a symmetric matrix, the quotient approaches the eigenvalue associated with the limiting eigendirection."
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "x_k is non-zero for the quotient.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "After obtaining an approximate unit vector $x_k$, estimate its eigenvalue with the Rayleigh quotient:"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        },
+        {
+          "condition": "The convergence-to-lambda_1 statement uses a symmetric matrix and x_k approaching v_1.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "When $x_k$ is normalised, $x_k^Tx_k=1$, so this becomes $\\rho(x_k)=x_k^TAx_k$. For a symmetric matrix, the quotient approaches the eigenvalue associated with the limiting eigendirection."
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "Define the Rayleigh quotient, its unit-vector simplification, and its symmetric limiting interpretation.",
+      "rationale": "The lesson gives the required statement, material conditions, and semantics without detected contradiction or drift.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-010",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "The residual is"
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "An exact eigenpair has $r_k=0$. In numerical work, the norm $\\|r_k\\|_2$ is a meaningful measure of how well the computed vector and eigenvalue satisfy the defining equation. It is generally preferable to stopping only when successive vectors look similar."
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "rho(x_k) is the Rayleigh quotient used with x_k.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "The residual is"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "Define the eigenpair residual and residual-norm stopping rationale, including sign ambiguity of vector differences.",
+      "rationale": "The lesson gives the required statement, material conditions, and semantics without detected contradiction or drift.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-011",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "partial",
+      "severity": "major",
+      "drift_types": [
+        "condition_dropped"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "The following implementation validates the dimensions and starting vector, normalises the initial vector, checks for breakdown, and stops using the residual norm."
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "for iteration in range(1, max_iterations + 1):"
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "if residual_norm <= tolerance:\n            return eigenvalue, x, residual_norm, iteration\n\n    return eigenvalue, x, residual_norm, max_iterations"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "x_0 is non-zero.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "The following implementation validates the dimensions and starting vector, normalises the initial vector, checks for breakdown, and stops using the residual norm."
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        },
+        {
+          "condition": "epsilon is positive.",
+          "status": "omitted",
+          "lesson_evidence": [],
+          "rationale": "The lesson neither states nor validates that tolerance/epsilon is positive."
+        },
+        {
+          "condition": "K is the maximum iteration count.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "if residual_norm <= tolerance:\n            return eigenvalue, x, residual_norm, iteration\n\n    return eigenvalue, x, residual_norm, max_iterations"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "State/implement initial normalization, multiply, pre-division breakdown check, normalization, Rayleigh/residual computation, positive epsilon, residual stop, and positive maximum-iteration fallback.",
+      "rationale": "The core iteration and stopping/fallback sequence is present, but positive tolerance is neither stated nor validated, and the implementation also lacks the Contract-approved positive-integer max_iterations validation. Invalid non-positive max_iterations can leave return variables unbound; this is a material robustness omission.",
+      "confidence": 0.99,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-012",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "If $v_1^Tx_0=0$, exact arithmetic cannot create the missing dominant component, so the iteration cannot converge to $v_1$ from that starting vector."
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "The dominant eigenvector is v_1 and the initial projection is exactly zero.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "If $v_1^Tx_0=0$, exact arithmetic cannot create the missing dominant component, so the iteration cannot converge to $v_1$ from that starting vector."
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "Explain that an exactly missing dominant projection cannot be created in exact arithmetic and prevents convergence to v1.",
+      "rationale": "The lesson gives the required statement, material conditions, and semantics without detected contradiction or drift.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-013",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "Thus a small spectral gap in magnitude—meaning $|\\lambda_1|$ and $|\\lambda_2|$ are close—can make a correct algorithm appear ineffective when the real issue is that many iterations are required."
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "If $|\\lambda_1|=|\\lambda_2|$, the method need not select a unique eigenvector. The iterates may remain in, or oscillate within, the invariant subspace corresponding to the dominant magnitudes."
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "The equal-magnitude case has |lambda_1|=|lambda_2|.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "Thus a small spectral gap in magnitude—meaning $|\\lambda_1|$ and $|\\lambda_2|$ are close—can make a correct algorithm appear ineffective when the real issue is that many iterations are required."
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        },
+        {
+          "condition": "The slow-convergence case has |lambda_2/lambda_1| close to one.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "If $|\\lambda_1|=|\\lambda_2|$, the method need not select a unique eigenvector. The iterates may remain in, or oscillate within, the invariant subspace corresponding to the dominant magnitudes."
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "Separate repeated dominant magnitude (no unique selected eigenvector) from a close but strict gap (slow convergence).",
+      "rationale": "The lesson gives the required statement, material conditions, and semantics without detected contradiction or drift.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-014",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "For eigenvalues $5$ and $-8$, the dominant eigenvalue for power iteration is $-8$, since $|-8|>5$."
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "Eigenvalues are compared by absolute value.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "For eigenvalues $5$ and $-8$, the dominant eigenvalue for power iteration is $-8$, since $|-8|>5$."
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "State that power iteration targets largest magnitude, illustrated by -8 rather than 5.",
+      "rationale": "The lesson gives the required statement, material conditions, and semantics without detected contradiction or drift.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-015",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "It also relies on the clean orthogonal eigenvector decomposition available for symmetric matrices. For non-symmetric matrices, that decomposition is not generally available; defective matrices, complex dominant eigenvalues, and non-normal behaviour require additional care and are outside this treatment."
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "The core convergence explanation is restricted to the real symmetric setting.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "It also relies on the clean orthogonal eigenvector decomposition available for symmetric matrices. For non-symmetric matrices, that decomposition is not generally available; defective matrices, complex dominant eigenvalues, and non-normal behaviour require additional care and are outside this treatment."
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "Bound the orthogonal derivation to symmetric matrices and flag defective, complex, and non-normal non-symmetric cases.",
+      "rationale": "The lesson gives the required statement, material conditions, and semantics without detected contradiction or drift.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-016",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "A = np.asarray(A, dtype=float)\n    x = np.asarray(x0, dtype=float)"
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "if A.ndim != 2 or A.shape[0] != A.shape[1]:\n        raise ValueError(\"A must be square\")\n    if x.shape != (A.shape[0],):\n        raise ValueError(\"x0 has incompatible dimensions\")"
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "if x_norm == 0:\n        raise ValueError(\"x0 must be non-zero\")\n    x = x / x_norm"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "NumPy is available.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "A = np.asarray(A, dtype=float)\n    x = np.asarray(x0, dtype=float)"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        },
+        {
+          "condition": "A and x0 can be converted to floating arrays.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "if A.ndim != 2 or A.shape[0] != A.shape[1]:\n        raise ValueError(\"A must be square\")\n    if x.shape != (A.shape[0],):\n        raise ValueError(\"x0 has incompatible dimensions\")"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "Convert inputs to floating arrays; validate square A, compatible one-dimensional x0, non-zero x0; normalize x0.",
+      "rationale": "The lesson gives the required statement, material conditions, and semantics without detected contradiction or drift.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-017",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "partial",
+      "severity": "major",
+      "drift_types": [
+        "condition_dropped",
+        "prohibited_drift_triggered"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "def power_iteration(A, x0, tolerance=1e-10, max_iterations=1000):"
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "for iteration in range(1, max_iterations + 1):"
+        },
+        {
+          "heading": "",
+          "exact_excerpt": "return eigenvalue, x, residual_norm, max_iterations"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "The iteration range is 1 through max_iterations inclusive.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "def power_iteration(A, x0, tolerance=1e-10, max_iterations=1000):"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        },
+        {
+          "condition": "The returned tuple is (eigenvalue, x, residual_norm, iteration count).",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "for iteration in range(1, max_iterations + 1):"
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "Implement each loop step, breakdown, normalization, Rayleigh/residual stop and four-value fallback; approved correction additionally requires positive-integer max_iterations validation with ValueError.",
+      "rationale": "The selected code preserves the loop, breakdown-before-division, normalization, residual early return, and tuple shape, but omits the approved correction requiring max_iterations to be validated as a positive integer with clear ValueError. Non-positive values can bypass the loop and reach an undefined-variable return path.",
+      "confidence": 0.99,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-018",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "For this symmetric matrix, the exact eigenvalues are $3+\\sqrt{2}$ and $3-\\sqrt{2}$. The first has the larger magnitude, so the program should estimate $3+\\sqrt{2}$ and return an eigenvector in its direction, up to sign. The residual should be small when the requested tolerance is reached."
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "The implementation is run with the supplied initial vector and default parameters.",
+          "status": "preserved",
+          "lesson_evidence": [
+            {
+              "heading": "",
+              "exact_excerpt": "For this symmetric matrix, the exact eigenvalues are $3+\\sqrt{2}$ and $3-\\sqrt{2}$. The first has the larger magnitude, so the program should estimate $3+\\sqrt{2}$ and return an eigenvector in its direction, up to sign. The residual should be small when the requested tolerance is reached."
+            }
+          ],
+          "rationale": "The cited lesson text preserves this stated condition."
+        }
+      ],
+      "contract_requirement_checked": "Use the supplied matrix/x0, exact eigenvalues, dominant 3+sqrt(2), small residual, and sign-invariant eigenvector interpretation.",
+      "rationale": "The lesson gives the required statement, material conditions, and semantics without detected contradiction or drift.",
+      "confidence": 0.98,
+      "abstain": false
+    }
+  ],
+  "atomic_claim_evaluations": [
+    {
+      "claim_id": "AC-001",
+      "heading": "",
+      "exact_claim": "An eigenpair describes a special direction for a matrix transformation.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-001"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "An eigenpair describes a special direction for a matrix transformation."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-002",
+      "heading": "",
+      "exact_claim": "A non-zero vector $v$ is an eigenvector if there is a scalar $\\lambda$ such that",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-001"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "A non-zero vector $v$ is an eigenvector if there is a scalar $\\lambda$ such that"
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-003",
+      "heading": "",
+      "exact_claim": "The vector must be non-zero: the zero vector satisfies this equation for every scalar and therefore gives no useful information about the action of $A$.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-001"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "The vector must be non-zero: the zero vector satisfies this equation for every scalar and therefore gives no useful information about the action of $A$."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-004",
+      "heading": "",
+      "exact_claim": "applying $A$ to $v$ does not turn $v$ toward a new direction. It only scales it, possibly reversing its sign when $\\lambda$ is negative.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-001",
+        "RC-008"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "applying $A$ to $v$ does not turn $v$ toward a new direction. It only scales it, possibly reversing its sign when $\\lambda$ is negative."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-005",
+      "heading": "",
+      "exact_claim": "a special displacement pattern can be associated with a scalar response factor.",
+      "claim_type": "disciplinary_application",
+      "verdict": "not_verifiable",
+      "supporting_item_ids": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "a special displacement pattern can be associated with a scalar response factor."
+        }
+      ],
+      "severity": "none",
+      "rationale": "This is explicitly bounded as an analogy, but the Contract does not establish the physical mapping as a factual equivalence.",
+      "confidence": 0.94,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-006",
+      "heading": "",
+      "exact_claim": "Eigenvalues can be found as roots of the characteristic equation",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-002"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "Eigenvalues can be found as roots of the characteristic equation"
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-007",
+      "heading": "",
+      "exact_claim": "explicitly forming a characteristic polynomial is usually a poor numerical strategy for large matrices.",
+      "claim_type": "algorithmic",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-002"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "explicitly forming a characteristic polynomial is usually a poor numerical strategy for large matrices."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-008",
+      "heading": "",
+      "exact_claim": "The spectral theorem gives an orthonormal basis of real eigenvectors.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-003"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "The spectral theorem gives an orthonormal basis of real eigenvectors."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-009",
+      "heading": "",
+      "exact_claim": "The strict first inequality means that the dominant eigenvalue is unique in magnitude.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-004"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "The strict first inequality means that the dominant eigenvalue is unique in magnitude."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-010",
+      "heading": "",
+      "exact_claim": "For eigenvalues $5$ and $-8$, the dominant eigenvalue for power iteration is $-8$, since $|-8|>5$.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-014"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "For eigenvalues $5$ and $-8$, the dominant eigenvalue for power iteration is $-8$, since $|-8|>5$."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-011",
+      "heading": "",
+      "exact_claim": "Normalisation prevents the vector from becoming extremely large or extremely small.",
+      "claim_type": "algorithmic",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-005"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "Normalisation prevents the vector from becoming extremely large or extremely small."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-012",
+      "heading": "",
+      "exact_claim": "It does not change the direction of the vector",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-005"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "It does not change the direction of the vector"
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-013",
+      "heading": "",
+      "exact_claim": "Since $|\\lambda_i/\\lambda_1|<1$ for $i\\ge2$, the unwanted terms shrink as $k$ increases.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-006"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "Since $|\\lambda_i/\\lambda_1|<1$ for $i\\ge2$, the unwanted terms shrink as $k$ increases."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-014",
+      "heading": "",
+      "exact_claim": "After normalisation, the vector therefore approaches the direction of $v_1$, possibly with either sign.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-006",
+        "RC-007",
+        "RC-008"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "After normalisation, the vector therefore approaches the direction of $v_1$, possibly with either sign."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-015",
+      "heading": "",
+      "exact_claim": "if $v$ is an eigenvector, then $-v$ is also an eigenvector for the same eigenvalue.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-008"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "if $v$ is an eigenvector, then $-v$ is also an eigenvector for the same eigenvalue."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-016",
+      "heading": "",
+      "exact_claim": "Such sign alternation does not mean that the eigendirection has been lost.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-008"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "Such sign alternation does not mean that the eigendirection has been lost."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-017",
+      "heading": "",
+      "exact_claim": "Under these conditions, the direction error generally decreases asymptotically at a rate governed by",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-007"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "Under these conditions, the direction error generally decreases asymptotically at a rate governed by"
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-018",
+      "heading": "",
+      "exact_claim": "This is linear, or geometric, convergence in the iteration count.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-007"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "This is linear, or geometric, convergence in the iteration count."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-019",
+      "heading": "",
+      "exact_claim": "A ratio close to zero gives rapid reduction, while a ratio close to one gives slow progress.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-007",
+        "RC-013"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "A ratio close to zero gives rapid reduction, while a ratio close to one gives slow progress."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-020",
+      "heading": "",
+      "exact_claim": "If $|\\lambda_1|=|\\lambda_2|$, the method need not select a unique eigenvector.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-013"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "If $|\\lambda_1|=|\\lambda_2|$, the method need not select a unique eigenvector."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-021",
+      "heading": "",
+      "exact_claim": "If $v_1^Tx_0=0$, exact arithmetic cannot create the missing dominant component",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-012"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "If $v_1^Tx_0=0$, exact arithmetic cannot create the missing dominant component"
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-022",
+      "heading": "",
+      "exact_claim": "When $x_k$ is normalised, $x_k^Tx_k=1$, so this becomes $\\rho(x_k)=x_k^TAx_k$.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-009"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "When $x_k$ is normalised, $x_k^Tx_k=1$, so this becomes $\\rho(x_k)=x_k^TAx_k$."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-023",
+      "heading": "",
+      "exact_claim": "An exact eigenpair has $r_k=0$.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-010"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "An exact eigenpair has $r_k=0$."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-024",
+      "heading": "",
+      "exact_claim": "the norm $\\|r_k\\|_2$ is a meaningful measure of how well the computed vector and eigenvalue satisfy the defining equation.",
+      "claim_type": "algorithmic",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-010"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "the norm $\\|r_k\\|_2$ is a meaningful measure of how well the computed vector and eigenvalue satisfy the defining equation."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-025",
+      "heading": "",
+      "exact_claim": "a sign flip can make $\\|x_{k+1}-x_k\\|_2$ large even though the two vectors describe the same eigendirection.",
+      "claim_type": "algorithmic",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-010"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "a sign flip can make $\\|x_{k+1}-x_k\\|_2$ large even though the two vectors describe the same eigendirection."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-026",
+      "heading": "",
+      "exact_claim": "The following implementation validates the dimensions and starting vector, normalises the initial vector, checks for breakdown, and stops using the residual norm.",
+      "claim_type": "implementation",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-016",
+        "RC-017"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "The following implementation validates the dimensions and starting vector, normalises the initial vector, checks for breakdown, and stops using the residual norm."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-027",
+      "heading": "",
+      "exact_claim": "if A.ndim != 2 or A.shape[0] != A.shape[1]:\n        raise ValueError(\"A must be square\")",
+      "claim_type": "implementation",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-016"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "if A.ndim != 2 or A.shape[0] != A.shape[1]:\n        raise ValueError(\"A must be square\")"
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-028",
+      "heading": "",
+      "exact_claim": "if y_norm == 0:\n            raise RuntimeError(\"power iteration broke down because A @ x is zero\")",
+      "claim_type": "implementation",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-017"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "if y_norm == 0:\n            raise RuntimeError(\"power iteration broke down because A @ x is zero\")"
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-029",
+      "heading": "",
+      "exact_claim": "if residual_norm <= tolerance:\n            return eigenvalue, x, residual_norm, iteration",
+      "claim_type": "implementation",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-017"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "if residual_norm <= tolerance:\n            return eigenvalue, x, residual_norm, iteration"
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-030",
+      "heading": "",
+      "exact_claim": "The first has the larger magnitude, so the program should estimate $3+\\sqrt{2}$",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-018"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "The first has the larger magnitude, so the program should estimate $3+\\sqrt{2}$"
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-031",
+      "heading": "",
+      "exact_claim": "The residual should be small when the requested tolerance is reached.",
+      "claim_type": "implementation",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-018"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "The residual should be small when the requested tolerance is reached."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-032",
+      "heading": "",
+      "exact_claim": "Power iteration is attractive because each step requires a matrix-vector product and a normalisation",
+      "claim_type": "algorithmic",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-005"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "Power iteration is attractive because each step requires a matrix-vector product and a normalisation"
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-033",
+      "heading": "",
+      "exact_claim": "it only targets one eigenpair and its speed depends strongly on the spectrum.",
+      "claim_type": "algorithmic",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-007",
+        "RC-013"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "it only targets one eigenpair and its speed depends strongly on the spectrum."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-034",
+      "heading": "",
+      "exact_claim": "For non-symmetric matrices, that decomposition is not generally available",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-015"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "For non-symmetric matrices, that decomposition is not generally available"
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-035",
+      "heading": "",
+      "exact_claim": "defective matrices, complex dominant eigenvalues, and non-normal behaviour require additional care and are outside this treatment.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-015"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "defective matrices, complex dominant eigenvalues, and non-normal behaviour require additional care and are outside this treatment."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-036",
+      "heading": "",
+      "exact_claim": "A zero product $Ax_k$ causes algorithmic breakdown because there is no vector to normalise.",
+      "claim_type": "algorithmic",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-005",
+        "RC-011"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "A zero product $Ax_k$ causes algorithmic breakdown because there is no vector to normalise."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-037",
+      "heading": "",
+      "exact_claim": "Power iteration targets $-8$, because it has the largest magnitude: $|-8|=8>5$.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-014"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "Power iteration targets $-8$, because it has the largest magnitude: $|-8|=8>5$."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-038",
+      "heading": "",
+      "exact_claim": "Applying $A$ repeatedly gives",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-006"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "Applying $A$ repeatedly gives"
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-039",
+      "heading": "",
+      "exact_claim": "The ratio of the second coordinate to the first is $2/5$ after one multiplication, $4/25$ after two, and $8/125$ after three.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-006"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "The ratio of the second coordinate to the first is $2/5$ after one multiplication, $4/25$ after two, and $8/125$ after three."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-040",
+      "heading": "",
+      "exact_claim": "It tends to zero, so the direction approaches $(1,0)^T$, up to scaling.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-006"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "It tends to zero, so the direction approaches $(1,0)^T$, up to scaling."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-041",
+      "heading": "",
+      "exact_claim": "The residual is therefore $Av-\\lambda v=(0,0)^T$",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-010"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "The residual is therefore $Av-\\lambda v=(0,0)^T$"
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-042",
+      "heading": "",
+      "exact_claim": "If the dominant eigenvalue is negative, the iterates may alternate sign even after they have converged to the correct eigendirection",
+      "claim_type": "algorithmic",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-008",
+        "RC-010"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "If the dominant eigenvalue is negative, the iterates may alternate sign even after they have converged to the correct eigendirection"
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-043",
+      "heading": "",
+      "exact_claim": "a small change between successive vectors does not by itself establish that the defining eigenpair equation is accurately satisfied.",
+      "claim_type": "algorithmic",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-010"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "a small change between successive vectors does not by itself establish that the defining eigenpair equation is accurately satisfied."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-044",
+      "heading": "",
+      "exact_claim": "Stopping when this norm is below the tolerance directly tests the approximate eigenpair relation.",
+      "claim_type": "algorithmic",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-010",
+        "RC-017"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "Stopping when this norm is below the tolerance directly tests the approximate eigenpair relation."
+        }
+      ],
+      "severity": "none",
+      "rationale": "The claim is entailed by the cited Frozen Contract item(s).",
+      "confidence": 0.97,
+      "abstain": false
+    }
+  ],
+  "pedagogy_evaluations": [
+    {
+      "dimension": "learner_alignment",
+      "score": 4,
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "The power iteration is one of the simplest such methods and is designed to identify the eigenvalue with largest magnitude and its eigendirection."
+        }
+      ],
+      "rationale": "The definitions, derivation, diagnostics, and readable NumPy routine fit learners with basic linear algebra and NumPy; minor exercise-design shortcomings limit consolidation.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "dimension": "disciplinary_authenticity",
+      "score": 3,
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "In a mechanical-engineering setting, this is a useful bridge to familiar mode shapes: a special displacement pattern can be associated with a scalar response factor. That analogy is only a bridge, however."
+        }
+      ],
+      "rationale": "The mechanical framing is cautious and credible but sparse; most of the resource is generic numerical linear algebra.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "dimension": "pedagogical_coherence",
+      "score": 4,
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "To see why this works, first ignore normalisation. Using the eigenvector expansion of $x_0$, write"
+        }
+      ],
+      "rationale": "The progression from definition to symmetric decomposition, derivation, assumptions, diagnostics, code, and limitations is coherent, though the final exercises do not fully reinforce the requested computational skills.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "dimension": "theory_implementation_alignment",
+      "score": 4,
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "The following implementation validates the dimensions and starting vector, normalises the initial vector, checks for breakdown, and stops using the residual norm."
+        }
+      ],
+      "rationale": "The displayed code largely matches the mathematical algorithm, but it omits positive tolerance and positive-integer max_iterations validation, leaving a material invalid-input path.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "dimension": "readability",
+      "score": 5,
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "A zero product $Ax_k$ causes algorithmic breakdown because there is no vector to normalise. A missing initial dominant projection, equal dominant magnitudes, and a small spectral gap are different issues"
+        }
+      ],
+      "rationale": "Clear headings, concise paragraphs, consistent notation, and explicit distinctions make the lesson highly usable.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "dimension": "analogy_safety",
+      "score": 5,
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "That analogy is only a bridge, however. The power iteration discussed here is a general matrix algorithm, not a complete vibration or structural-dynamics model."
+        }
+      ],
+      "rationale": "The only disciplinary analogy is explicitly and proportionately bounded.",
+      "confidence": 0.98,
+      "abstain": false
+    },
+    {
+      "dimension": "exercise_validity",
+      "score": 2,
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "Let $A=\\operatorname{diag}(5,2)$ and $x_0=(1,1)^T$. Write the first three unnormalised iterates, identify the limiting direction, and perform a consistency check using the eigenpair equation."
+        }
+      ],
+      "rationale": "There are exactly three solved exercises, but Exercise 2 does not perform the mandated normalised step, Rayleigh quotient, and approximate residual, while Exercise 3 contains neither buggy nor corrected code. The exercises are mostly internally correct but substantially miss the required forms.",
+      "confidence": 0.98,
+      "abstain": false
+    }
+  ],
+  "limitations": [
+    "Automated operational judgement against the Frozen Contract, not expert ground truth.",
+    "The bounded mechanical mode-shape analogy is outside the Contract's factual authority and is therefore marked not verifiable rather than treated as an error.",
+    "Exercise-format compliance affects pedagogy scoring; it does not alter Contract-item mathematical fidelity unless a Contract obligation is implicated."
+  ]
+}

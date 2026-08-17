@@ -1,0 +1,62 @@
+{
+  "schema_version": "0.2",
+  "protocol_id": "RQ2-PATHWAY-v0.2-pilot",
+  "topic": "power-iteration",
+  "shared_permissions": {
+    "may_read_master_contract": true,
+    "may_read_common_core": true,
+    "may_read_canonical_pathway": true,
+    "may_read_other_condition_outputs": false,
+    "may_read_evaluation_results_before_generation": false,
+    "may_use_external_retrieval": false,
+    "may_modify_frozen_contract_semantics": false,
+    "must_output_one_continuous_lesson": true,
+    "must_not_create_atomic_pages": true,
+    "must_use_shared_validators": true,
+    "must_write_only_assigned_run_directory": true
+  },
+  "conditions": {
+    "P0": {
+      "agent_name": "RQ2 Generic Fixed-Sequence Adapter",
+      "learner_profile_access": "forbidden",
+      "canonical_sequence": "exact",
+      "contract_item_selection": "canonical_exact",
+      "within_unit_wording_adaptation": "generic_only",
+      "disciplinary_examples": "forbidden",
+      "notation_adaptation": "canonical_only",
+      "add_prerequisite_bridges": false,
+      "regroup_contract_items": false,
+      "reorder_learning_units": false,
+      "change_prerequisite_relations": false,
+      "required_validator": "validate_fixed_pathway.py"
+    },
+    "P1": {
+      "agent_name": "RQ2 Profile Local-Content Adapter",
+      "learner_profile_access": "exactly_one_named_profile",
+      "canonical_sequence": "exact",
+      "contract_item_selection": "canonical_exact",
+      "within_unit_wording_adaptation": "profile_aware",
+      "disciplinary_examples": "allowed_with_boundary",
+      "notation_adaptation": "approved_mapping_only",
+      "add_prerequisite_bridges": false,
+      "regroup_contract_items": false,
+      "reorder_learning_units": false,
+      "change_prerequisite_relations": false,
+      "required_validator": "validate_fixed_pathway.py"
+    },
+    "P2": {
+      "agent_name": "RQ2 Profile Pathway Adapter",
+      "learner_profile_access": "exactly_one_named_profile",
+      "canonical_sequence": "mutable_with_rationale",
+      "contract_item_selection": "universal_core_plus_declared_selectables",
+      "within_unit_wording_adaptation": "profile_aware",
+      "disciplinary_examples": "allowed_with_boundary",
+      "notation_adaptation": "approved_mapping_only",
+      "add_prerequisite_bridges": true,
+      "regroup_contract_items": true,
+      "reorder_learning_units": true,
+      "change_prerequisite_relations": true,
+      "required_validator": "validate_adaptive_pathway.py"
+    }
+  }
+}

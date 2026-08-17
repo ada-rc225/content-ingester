@@ -1,0 +1,52 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/c2-structured-grounding/run-01/adapted_content.md",
+  "content_sha256": "92395e745af9d55c6617f0ae62250fa54ef866a1ba39a48b006797c0095f7a4b",
+  "plan_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/c2-structured-grounding/run-01/adaptation_plan.json",
+  "plan_sha256": "54564dfcc645fb7e72f7decb611e2155e9a51014fbc92ffc94510454a68d27d5",
+  "code_validation_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/c2-structured-grounding/run-01/code_validation.json",
+  "code_validation_sha256": "b6ddb562b80035e1ca1cb19030a0580cf025fa6c721b54aadb373157773e8fa4",
+  "overall_status": "passed",
+  "exercise_count": 3,
+  "exercises": [
+    {
+      "exercise_id": "EX-001",
+      "exercise_type": "concept_check",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "contract_binding",
+      "model_consistency_passed": true,
+      "verification_status": "passed",
+      "details": []
+    },
+    {
+      "exercise_id": "EX-002",
+      "exercise_type": "hand_calculation",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "deterministic_calculation",
+      "model_consistency_passed": true,
+      "verification_status": "passed",
+      "details": [
+        "CK-001: objective value=2.5; gradient=[1.0, -4.0]; expected=[1.0, -4.0]",
+        "deterministic calculation produced [1.75, -2.0]; expected [1.75, -2.0]"
+      ]
+    },
+    {
+      "exercise_id": "EX-003",
+      "exercise_type": "code_diagnostic",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "code_execution",
+      "model_consistency_passed": true,
+      "verification_status": "passed",
+      "details": [
+        "2 exercise-linked Python block(s) found"
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,12 @@
+{
+  "profile_id": "mechanical-engineering-year-2",
+  "discipline": "mechanical engineering",
+  "education_level": "second-year undergraduate",
+  "prior_knowledge": ["single- and multivariable calculus", "vectors", "basic matrix operations", "basic Python"],
+  "computational_background": ["basic Python"],
+  "learning_goals": ["Explain the assumptions and scope of first-order optimisation methods.", "Apply gradient descent and interpret its convergence conditions.", "Connect optimisation concepts to potential-energy and relaxation intuition."],
+  "preferred_contexts": ["potential energy", "equilibrium", "numerical relaxation"],
+  "target_depth": "conceptual and computational introduction with stated theorem conditions",
+  "proof_depth": "interpret theorem statements and conditions without full proofs",
+  "assumptions_requiring_review": ["No formal convex optimisation background.", "Learners can interpret gradients, norms, and simple linear systems when introduced in context.", "Mechanical examples are pedagogical models rather than empirical claims."]
+}

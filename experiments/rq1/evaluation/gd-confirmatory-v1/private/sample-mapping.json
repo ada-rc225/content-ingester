@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "gd-confirmatory-v1",
+  "seed": 20260817,
+  "bundle_manifest_sha256": "435d1cd2c16797679db22b5c862cf42594156b130397bc2c0d18691e1156e50d",
+  "samples": [
+    {
+      "sample_id": "S001",
+      "condition_label": "c1-source-conditioned",
+      "source_run_id": "run-01",
+      "original_path": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/confirmatory-v1/c1-source-conditioned/run-01/adapted_content.md",
+      "original_sha256": "c9e88a76f6465c577f1fadd4cca88e6664167ae30d2880af3cdead5368e6d3aa",
+      "prepared_sha256": "c9e88a76f6465c577f1fadd4cca88e6664167ae30d2880af3cdead5368e6d3aa"
+    },
+    {
+      "sample_id": "S002",
+      "condition_label": "c1-source-conditioned",
+      "source_run_id": "run-02",
+      "original_path": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/confirmatory-v1/c1-source-conditioned/run-02/adapted_content.md",
+      "original_sha256": "1f9d60ebecdd9a9b79baffa1a6bfb1b4f3aa61e541847b9942374be1b429fc37",
+      "prepared_sha256": "1f9d60ebecdd9a9b79baffa1a6bfb1b4f3aa61e541847b9942374be1b429fc37"
+    },
+    {
+      "sample_id": "S003",
+      "condition_label": "c0-ungrounded",
+      "source_run_id": "run-03",
+      "original_path": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/confirmatory-v1/c0-ungrounded/run-03/adapted_content.md",
+      "original_sha256": "89cb7d7dc0439cd6cb22fad870bd3834e6cf3056a2aa143af5f9cbbb5e208e8c",
+      "prepared_sha256": "89cb7d7dc0439cd6cb22fad870bd3834e6cf3056a2aa143af5f9cbbb5e208e8c"
+    },
+    {
+      "sample_id": "S004",
+      "condition_label": "c0-ungrounded",
+      "source_run_id": "run-02",
+      "original_path": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/confirmatory-v1/c0-ungrounded/run-02/adapted_content.md",
+      "original_sha256": "b27913e23d32096a9acb6d88be48b8e6eeae0ac68df47bfb55bae0e027a01ee7",
+      "prepared_sha256": "b27913e23d32096a9acb6d88be48b8e6eeae0ac68df47bfb55bae0e027a01ee7"
+    },
+    {
+      "sample_id": "S005",
+      "condition_label": "c2-structured-grounding",
+      "source_run_id": "run-01",
+      "original_path": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/confirmatory-v1/c2-structured-grounding/run-01/adapted_content.md",
+      "original_sha256": "e4317845e2a612299e86d51ad566af212d0f44206d25b1c2cfce919319a25ef8",
+      "prepared_sha256": "b98c8cef83b62a9360091cc9404e322ada3bdf5b9da402df86469f5050de530a"
+    },
+    {
+      "sample_id": "S006",
+      "condition_label": "c2-structured-grounding",
+      "source_run_id": "run-02",
+      "original_path": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/confirmatory-v1/c2-structured-grounding/run-02/adapted_content.md",
+      "original_sha256": "283aa1aaacb49c646cb98082fd011304ba342b25b1acd02865a9aa825456a48b",
+      "prepared_sha256": "73a07e84cd62142de6ed1d63370d5e46969a86376070caae4974bb30845e41d6"
+    },
+    {
+      "sample_id": "S007",
+      "condition_label": "c2-structured-grounding",
+      "source_run_id": "run-03",
+      "original_path": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/confirmatory-v1/c2-structured-grounding/run-03/adapted_content.md",
+      "original_sha256": "8638041df11161b9f02247a6713753fdef6be8af31d7d7952ec6c75d30a00cfe",
+      "prepared_sha256": "6101714dc3d27c44a56da798a83b1de638d0049d7da1303e9c323684c291ce15"
+    },
+    {
+      "sample_id": "S008",
+      "condition_label": "c1-source-conditioned",
+      "source_run_id": "run-03",
+      "original_path": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/confirmatory-v1/c1-source-conditioned/run-03/adapted_content.md",
+      "original_sha256": "c0523ed7c0d90855e13362d5fa5e5fda974aa24bb89b80e1e01f76512753cd3a",
+      "prepared_sha256": "c0523ed7c0d90855e13362d5fa5e5fda974aa24bb89b80e1e01f76512753cd3a"
+    },
+    {
+      "sample_id": "S009",
+      "condition_label": "c0-ungrounded",
+      "source_run_id": "run-01",
+      "original_path": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/confirmatory-v1/c0-ungrounded/run-01/adapted_content.md",
+      "original_sha256": "f06a08e8d0def457df4accbe008a91c436af48afb190bd320524e38d81a33800",
+      "prepared_sha256": "f06a08e8d0def457df4accbe008a91c436af48afb190bd320524e38d81a33800"
+    }
+  ]
+}

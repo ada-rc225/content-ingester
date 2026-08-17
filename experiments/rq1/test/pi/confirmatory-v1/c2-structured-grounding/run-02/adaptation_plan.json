@@ -1,0 +1,30 @@
+{
+  "topic": "Eigenvalues, Eigenvectors, and the Power Iteration",
+  "profile_id": "mechanical-engineering-year-2",
+  "source_ids": ["eigenvalues-and-power-iteration"],
+  "grounding_contract": {"contract_id": "power-iteration", "contract_version": "1.0.0", "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"},
+  "entry_point": {"discipline_context": "Modal reasoning in a matrix model of mechanical vibration motivates finding an important direction without solving every mode explicitly.", "rationale": "The learner knows matrices and basic Python but not iterative eigensolvers.", "analogy_boundary": "The vibration language motivates interpretation; definitions and computations are mathematical statements."},
+  "required_contract_item_ids": ["RC-001", "RC-003", "RC-004", "RC-005", "RC-006", "RC-007", "RC-008", "RC-009", "RC-010", "RC-011", "RC-012", "RC-013", "RC-014"],
+  "conditional_item_decisions": [
+    {"item_id": "RC-002", "included": true, "rationale": "The characteristic equation is explicitly in scope."},
+    {"item_id": "RC-015", "included": true, "rationale": "The requested non-symmetric scope limitation is taught."},
+    {"item_id": "RC-016", "included": true, "rationale": "Implementation-level NumPy material is required."},
+    {"item_id": "RC-017", "included": true, "rationale": "The corrected positive-integer max_iterations validation is required."},
+    {"item_id": "RC-018", "included": true, "rationale": "The supplied worked matrix result is requested."}
+  ],
+  "chapter_sequence": [
+    {"section_id": "SEC-01", "order": 1, "title": "Eigenpairs as special matrix directions", "purpose": "Define eigenpairs, introduce the characteristic equation, and distinguish magnitude dominance.", "contract_item_ids": ["RC-001", "RC-002", "RC-014"]},
+    {"section_id": "SEC-02", "order": 2, "title": "Symmetric matrices and modal components", "purpose": "Build the orthonormal eigenbasis and derive dominant-component selection.", "contract_item_ids": ["RC-003", "RC-004", "RC-006"]},
+    {"section_id": "SEC-03", "order": 3, "title": "Power iteration and convergence behaviour", "purpose": "State the normalized iteration, convergence assumptions, rate, and failure cases.", "contract_item_ids": ["RC-005", "RC-007", "RC-008", "RC-012", "RC-013"]},
+    {"section_id": "SEC-04", "order": 4, "title": "Estimates, residuals, and a NumPy implementation", "purpose": "Connect diagnostics to an executable implementation and the worked matrix result.", "contract_item_ids": ["RC-009", "RC-010", "RC-011", "RC-015", "RC-016", "RC-017", "RC-018"]},
+    {"section_id": "SEC-05", "order": 5, "title": "Exercises and worked solutions", "purpose": "Assess the taught concepts, one iteration step, and implementation diagnostics.", "contract_item_ids": []}
+  ],
+  "exercise_section_id": "SEC-05",
+  "implementation_strategy": "Executable NumPy iteration with floating conversion, shape and input validation, positive-integer iteration validation, breakdown check, residual stop, maximum-iteration fallback, and four-value return.",
+  "assessment_strategy": "Exactly three final worked exercises: one concept check, one power-iteration hand calculation, and one code diagnostic.",
+  "exercise_plan": [
+    {"exercise_id": "EX-001", "order": 1, "section_id": "SEC-05", "exercise_type": "concept_check", "difficulty": "intermediate", "learning_objective": "Identify the target, convergence assumptions, failure cases, and non-symmetric scope limitation.", "contract_item_ids": ["RC-004", "RC-007", "RC-012", "RC-013", "RC-014", "RC-015"], "discipline_context": "Interpret a symmetric modal computation.", "solution_required": true, "verification": {"method": "contract_binding", "python_expression": null, "expected_value": null, "absolute_tolerance": 0.0, "consistency_checks": []}},
+    {"exercise_id": "EX-002", "order": 2, "section_id": "SEC-05", "exercise_type": "hand_calculation", "difficulty": "introductory", "learning_objective": "Compute one normalized power-iteration step, the Rayleigh quotient, and residual diagnostics as one chain.", "contract_item_ids": ["RC-005", "RC-009", "RC-010"], "discipline_context": "Carry out a two-coordinate modal calculation.", "solution_required": true, "verification": {"method": "deterministic_calculation", "python_expression": null, "expected_value": {"initial_vector_used": [3.0, 1.0], "product": [12.0, 1.0], "next_vector": [0.9965457582448796, 0.08304547985373997], "rayleigh_quotient": 3.979310344827586, "residual": [0.02061818810161853, -0.24741825721941837], "residual_norm": 0.24827586206896554}, "absolute_tolerance": 1e-9, "consistency_checks": [{"check_id": "CK-001", "kind": "power_iteration_step", "matrix": [[4.0, 0.0], [0.0, 1.0]], "initial_vector": [3.0, 1.0], "normalize_initial": false, "expected_value": {"initial_vector_used": [3.0, 1.0], "product": [12.0, 1.0], "next_vector": [0.9965457582448796, 0.08304547985373997], "rayleigh_quotient": 3.979310344827586, "residual": [0.02061818810161853, -0.24741825721941837], "residual_norm": 0.24827586206896554}, "absolute_tolerance": 1e-9}]}},
+    {"exercise_id": "EX-003", "order": 3, "section_id": "SEC-05", "exercise_type": "code_diagnostic", "difficulty": "intermediate", "learning_objective": "Diagnose missing validation, breakdown handling, residual stopping, and return semantics.", "contract_item_ids": ["RC-011", "RC-016", "RC-017"], "discipline_context": "Review an engineering eigensolver routine.", "solution_required": true, "verification": {"method": "code_execution", "python_expression": null, "expected_value": null, "absolute_tolerance": 0.0, "consistency_checks": []}}
+  ]
+}

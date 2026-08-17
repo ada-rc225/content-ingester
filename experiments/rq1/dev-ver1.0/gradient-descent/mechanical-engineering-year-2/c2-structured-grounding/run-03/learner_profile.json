@@ -1,0 +1,13 @@
+{
+  "profile_id": "mechanical-engineering-year-2",
+  "discipline": "mechanical engineering",
+  "education_level": "second-year undergraduate",
+  "prior_knowledge": ["single-variable and multivariable calculus", "vectors", "partial derivatives"],
+  "computational_background": ["basic Python", "basic NumPy"],
+  "learning_goals": ["formulate unconstrained optimisation problems", "select and apply gradient-based methods", "interpret convergence assumptions", "connect algorithms to mechanical equilibrium and numerical relaxation", "diagnose simple optimisation code"],
+  "preferred_contexts": ["potential energy", "equilibrium", "numerical relaxation", "parameter fitting in a mechanical model"],
+  "target_depth": "undergraduate mathematical formulation with implementation-level algorithms and assumption-aware convergence statements",
+  "proof_depth": "explain theorem hypotheses and intuition; do not require full proofs",
+  "time_budget_minutes": 90,
+  "assumptions_requiring_review": ["a potential-energy analogy is not a universal physical equivalence", "stationarity alone is not sufficient for a minimum", "convergence results apply only under their stated assumptions", "generated exercise scenarios are illustrative rather than empirical claims"]
+}

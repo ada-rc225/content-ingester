@@ -1,0 +1,50 @@
+{
+  "topic": "Gradient Descent and Optimisation",
+  "profile_id": "mechanical-engineering-year-2",
+  "source_ids": ["gradient-descent-and-optimization"],
+  "grounding_contract": {"contract_id": "gradient-descent", "contract_version": "3.0.0", "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"},
+  "entry_point": {
+    "discipline_context": "Use equilibrium and curvature as familiar entry points, then connect them to numerical relaxation without equating optimisation with physical dynamics.",
+    "rationale": "The learner knows potential energy, vectors, matrices, eigenvalues, and Python but not formal convex optimisation.",
+    "analogy_boundary": "Potential energy and equilibrium motivate intuition only: an objective may be an error or cost, and an iteration index is an algorithmic label rather than physical time."
+  },
+  "required_contract_item_ids": ["RC-001", "RC-002", "RC-003", "RC-004", "RC-005", "RC-006", "RC-007", "RC-008", "RC-009", "RC-010", "RC-011", "RC-014", "RC-015"],
+  "conditional_item_decisions": [
+    {"item_id":"RC-012","included":true,"rationale":"Exact line search is explicitly required in the fixed scope."},
+    {"item_id":"RC-013","included":true,"rationale":"Armijo backtracking is explicitly required in the fixed scope."},
+    {"item_id":"RC-016","included":true,"rationale":"Heavy Ball is explicitly required in the fixed scope."},
+    {"item_id":"RC-017","included":true,"rationale":"The quadratic Heavy Ball parameter result is explicitly required."},
+    {"item_id":"RC-018","included":true,"rationale":"The specified NAG recurrence is explicitly required."},
+    {"item_id":"RC-019","included":true,"rationale":"The convex NAG rate is explicitly required."},
+    {"item_id":"RC-020","included":true,"rationale":"The finite-sum stochastic model and variance assumptions are explicitly required."},
+    {"item_id":"RC-021","included":true,"rationale":"The SGD update and constant-step error floor are explicitly required."},
+    {"item_id":"RC-022","included":true,"rationale":"Robbins-Monro conditions are explicitly required."},
+    {"item_id":"RC-023","included":true,"rationale":"AdaGrad is explicitly required."},
+    {"item_id":"RC-024","included":true,"rationale":"RMSProp is explicitly required."},
+    {"item_id":"RC-025","included":true,"rationale":"Adam is explicitly required."},
+    {"item_id":"RC-026","included":true,"rationale":"Newton's second-order model is explicitly required."},
+    {"item_id":"RC-027","included":true,"rationale":"The Newton linear-system step is explicitly required."},
+    {"item_id":"RC-028","included":true,"rationale":"Newton local convergence conditions are explicitly required."},
+    {"item_id":"RC-029","included":true,"rationale":"BFGS vectors and secant equation are explicitly required."},
+    {"item_id":"RC-030","included":true,"rationale":"The BFGS update, curvature condition, direction, and line search are explicitly required."}
+  ],
+  "chapter_sequence": [
+    {"section_id":"SEC-01","order":1,"title":"Equilibrium, stationarity, and curvature","purpose":"Introduce unconstrained objectives and separate necessary from sufficient local conditions.","contract_item_ids":["RC-001","RC-002","RC-003"]},
+    {"section_id":"SEC-02","order":2,"title":"Smoothness, convexity, and conditioning","purpose":"Build the global geometric vocabulary used by convergence theorems.","contract_item_ids":["RC-004","RC-005","RC-006","RC-007","RC-008","RC-009"]},
+    {"section_id":"SEC-03","order":3,"title":"Gradient descent and step selection","purpose":"Derive the basic update and compare constant, exact, and Armijo steps.","contract_item_ids":["RC-010","RC-011","RC-012","RC-013"]},
+    {"section_id":"SEC-04","order":4,"title":"What gradient descent guarantees","purpose":"State convex and strongly convex rates with their matching assumptions and steps.","contract_item_ids":["RC-014","RC-015"]},
+    {"section_id":"SEC-05","order":5,"title":"Momentum and acceleration","purpose":"Distinguish Heavy Ball from NAG and state their bounded results.","contract_item_ids":["RC-016","RC-017","RC-018","RC-019"]},
+    {"section_id":"SEC-06","order":6,"title":"Stochastic gradients and adaptive scaling","purpose":"Move from finite-sum sampling to SGD, diminishing steps, and element-wise adaptive methods.","contract_item_ids":["RC-020","RC-021","RC-022","RC-023","RC-024","RC-025"]},
+    {"section_id":"SEC-07","order":7,"title":"Second-order and quasi-Newton methods","purpose":"Use curvature models for Newton and approximate curvature for BFGS.","contract_item_ids":["RC-026","RC-027","RC-028","RC-029","RC-030"]},
+    {"section_id":"SEC-08","order":8,"title":"From updates to Python operations","purpose":"Make vector updates, objective values, and numerical behaviour explicit in executable Python.","contract_item_ids":[]},
+    {"section_id":"SEC-09","order":9,"title":"Exercises and worked solutions","purpose":"Check theorem scope, perform a hand update, and diagnose an implementation.","contract_item_ids":[]}
+  ],
+  "exercise_section_id": "SEC-09",
+  "implementation_strategy": "Use a pure-Python quadratic example so the gradient evaluation, subtraction, loop, and convergence output are visible without hiding operations in a library optimizer.",
+  "assessment_strategy": "Use exactly three worked exercises: theorem-scope concept check, deterministic hand calculation with objective-gradient consistency, and code diagnostic with separate incorrect and corrected executable blocks.",
+  "exercise_plan": [
+    {"exercise_id":"EX-001","order":1,"section_id":"SEC-09","exercise_type":"concept_check","difficulty":"intermediate","learning_objective":"Identify which hypotheses make stationarity necessary or sufficient and which assumptions support a convergence statement.","contract_item_ids":["RC-002","RC-003","RC-014","RC-015"],"discipline_context":"Classify an equilibrium-like stationary configuration in a numerical design objective without calling it automatically stable.","solution_required":true,"verification":{"method":"contract_binding","python_expression":null,"expected_value":null,"absolute_tolerance":0,"consistency_checks":[]}},
+    {"exercise_id":"EX-002","order":2,"section_id":"SEC-09","exercise_type":"hand_calculation","difficulty":"introductory","learning_objective":"Compute one gradient-descent update and check that the stated gradient matches its quadratic objective.","contract_item_ids":["RC-001","RC-010"],"discipline_context":"Take one numerical relaxation step for a two-variable quadratic surrogate of a mechanical design cost.","solution_required":true,"verification":{"method":"deterministic_calculation","python_expression":"[1 - 0.25*2, -1 - 0.25*(-4)]","expected_value":[0.5,0],"absolute_tolerance":1e-12,"consistency_checks":[{"check_id":"CK-001","kind":"objective_gradient","objective_expression":"0.5*(2*x1**2 + 4*x2**2)","expressions":[],"variables":["x1","x2"],"point":[1,-1],"expected_value":[2,-4],"absolute_tolerance":1e-12}]} } ,
+    {"exercise_id":"EX-003","order":3,"section_id":"SEC-09","exercise_type":"code_diagnostic","difficulty":"intermediate","learning_objective":"Locate a sign or gradient-evaluation error, then connect corrected Python output to descent behaviour.","contract_item_ids":["RC-010","RC-011"],"discipline_context":"Diagnose a relaxation loop intended to reduce a scalar quadratic objective.","solution_required":true,"verification":{"method":"code_execution","python_expression":null,"expected_value":null,"absolute_tolerance":0,"consistency_checks":[]}}
+  ]
+}

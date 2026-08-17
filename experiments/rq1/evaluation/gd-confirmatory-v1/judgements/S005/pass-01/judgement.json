@@ -1,0 +1,1268 @@
+{
+  "schema_version": "1.0",
+  "evaluation_protocol": "RQ1-EVAL-v1",
+  "evaluator": {
+    "evaluator_run_id": "rq1-gd-judge-sol-S005-pass-01",
+    "evaluator_id": "rq1-gd-judge-sol",
+    "provider": "OpenAI Codex CLI",
+    "model": "gpt-5.6-sol",
+    "prompt_version": "RQ1-EVAL-v1",
+    "pass_index": 1,
+    "generated_at": "2026-08-17T14:38:32.339091+00:00"
+  },
+  "bundle_binding": {
+    "bundle_id": "gd-confirmatory-v1",
+    "manifest_sha256": "435d1cd2c16797679db22b5c862cf42594156b130397bc2c0d18691e1156e50d",
+    "contract_id": "gradient-descent",
+    "contract_version": "3.0.0",
+    "contract_sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09",
+    "sample_id": "S005",
+    "content_sha256": "b98c8cef83b62a9360091cc9404e322ada3bdf5b9da402df86469f5050de530a"
+  },
+  "item_evaluations": [
+    {
+      "item_id": "RC-001",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "t those quantities and let $f(x)$ measure the performance we want to reduce. In unconstrained optimisation the mathematical problem is $$\\min_{x\\in\\mathbb{R}^d} f(x).$$ Here $f:\\mathbb{R}^d\\to\\mathbb{R}$ is assumed to be at least continuously differentiable. “Unconstrained” is important: bounds on a thickness or a stress limit would cre"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "The source assumes f is at least C^1.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "Unconstrained optimisation minimizes a continuously differentiable objective f from R^d to R over R^d.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-002",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "differentiable at a local minimiser, the first-order necessary condition is $$\\nabla f(x^*)=0.$$ The condition says that every first-order directional change vanishes. It does not say that every stationary point is a minimum: a saddle point can also have zero gradient. In a calibration model, a zero residual gradient therefore identifie"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "x* is a local minimizer.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "f is differentiable at x*.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "At a differentiable local minimizer x*, the gradient must vanish.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-003",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "plies the second-order test. At a local minimiser, stationarity together with a positive-semidefinite Hessian is necessary. Conversely, stationarity together with a positive-definite Hessian is sufficient for a strict local minimiser. These statements have different logical directions. Positive semidefiniteness allows flat directions; pos"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "f is C^2.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "For C^2 objectives, positive-semidefinite Hessian with stationarity is necessary at a local minimizer, while positive-definite Hessian with stationarity is sufficient for a strict local minimizer.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-004",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "vexity, and the geometry of curvature ### Two useful bounds A gradient is $L$-Lipschitz, or $L$-smooth, when $L>0$ and $$\\|\\nabla f(x)-\\nabla f(y)\\|\\le L\\|x-y\\|,\\qquad\\forall x,y\\in\\mathbb{R}^d.$$ This controls how quickly slopes change. It is not the same as saying that function values are Lipschitz. Integrating this gradient control"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "L is positive.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "The inequality holds for every x and y in R^d.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "L-smoothness means the gradient is L-Lipschitz with respect to the Euclidean norm.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-005",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "that function values are Lipschitz. Integrating this gradient control gives the Descent Lemma, the quadratic upper bound $$f(y)\\le f(x)+\\langle\\nabla f(x),y-x\\rangle+\\frac{L}{2}\\|y-x\\|^2,$$ for all $x,y$. The linear term predicts the immediate change; the quadratic term is a safety allowance for curvature. Differentiable convexity is d"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "f is L-smooth.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "The inequality holds for all x,y in R^d.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "The Descent Lemma gives the quadratic upper bound implied by L-smoothness.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-006",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "ve that the point is the best design in all of $\\mathbb{R}^d$. ## Smoothness, convexity, and the geometry of curvature ### Two useful bounds A gradient is $L$-Lipschitz, or $L$-smooth, when $L>0$ and $$\\|\\nabla f(x)-\\nabla f(y)\\|\\le L\\|x-y\\|,\\qquad\\forall x,y\\in\\mathbb{R}^d.$$ This controls how quickly slopes change. It is not the s"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "The inequality holds for all x,y in R^d.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "Differentiable convexity is characterized by the global first-order lower bound.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-007",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "hesis matters. Strong convexity gives sharper results. For an $L$-smooth, $\\mu$-strongly convex objective, the step $\\alpha=2/(L+\\mu)$ gives $$\\|x_k-x^*\\|^2\\le\\left(\\frac{\\kappa-1}{\\kappa+1}\\right)^{2k}\\|x_0-x^*\\|^2,$$ whereas the objective contraction uses the stated step $\\alpha=1/L$: $$f(x_k)-f(x^*)\\le\\left(1-\\frac{\\mu}{L}\\right)^k\\"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "mu is positive.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "The inequality holds for all x,y in R^d.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "Mu-strong convexity strengthens the convex lower bound by a positive quadratic term.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-008",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "ore identifies a candidate, not a complete certificate. When $f$ is $C^2$, the Hessian supplies the second-order test. At a local minimiser, stationarity together with a positive-semidefinite Hessian is necessary. Conversely, stationarity together with a positive-definite Hessian is sufficient for a strict local minimiser. These statemen"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "f is C^2.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "The two-sided Hessian bound additionally assumes convexity.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "For C^2 objectives, Hessian bounds characterize smooth convexity and strong convexity as stated in the source.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-009",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "ity has $\\nabla^2 f(x)\\succeq\\mu I$ for every $x$. If both properties hold, the condition number is $$\\kappa=\\frac{L}{\\mu}\\ge1.$$ A large $\\kappa$ means that some directions can be much more curved than others. In a mechanical model this resembles a design surface with a stiff direction and a compliant direction: an isotropic step must"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "f is both L-smooth and mu-strongly convex.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "For an L-smooth and mu-strongly convex objective, the condition number is kappa=L/mu and is at least one.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-010",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "cent evaluates the gradient at the current iterate and moves opposite to it: $$x_{k+1}=x_k-\\alpha_k\\nabla f(x_k),\\qquad k=0,1,2,\\ldots,$$ with $x_0\\in\\mathbb{R}^d$ and positive $\\alpha_k$. The minus sign is essential: the gradient points in the direction of local increase. A constant-step method sets $\\alpha_k=\\alpha$. If $L$ is known,"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "x_0 lies in R^d.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "alpha_k is positive.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "Gradient descent evaluates the gradient at the current iterate and subtracts a positive step-size multiple of it.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-011",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "ocal increase. A constant-step method sets $\\alpha_k=\\alpha$. If $L$ is known, $1/L$ is a common choice, and under the usual smooth-convex assumptions the source also gives the interval $\\alpha\\in(0,2/L)$. That interval is not a universal guarantee without those assumptions. The Descent Lemma explains why a short enough step works. Subst"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "L is known for the listed common choices.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "The interval statement is made under the usual smooth-convex assumptions.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "A constant GD step uses alpha_k=alpha; common source choices include alpha=1/L and, under usual smooth-convex assumptions, alpha in (0,2/L).",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-012",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "between moving far enough to make progress and avoiding an unstable overshoot. Exact line search chooses the positive step that minimises the objective along the current negative-gradient ray: $$\\alpha_k=\\arg\\min_{\\alpha>0}f\\bigl(x_k-\\alpha\\nabla f(x_k)\\bigr).$$ It can be expensive because each trial needs objective information. Armijo"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "The search is over alpha>0.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "Exact line search chooses the positive step minimizing the objective along the negative current-gradient direction.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-013",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": ")\\bigr).$$ It can be expensive because each trial needs objective information. Armijo backtracking is cheaper and adaptive. Start from a positive trial $\\bar\\alpha$, use a contraction factor $\\eta\\in(0,1)$, and choose $c\\in(0,1)$. The smallest nonnegative $m$ is accepted when $\\alpha_k=\\bar\\alpha\\eta^m$ satisfies $$f(x_k-\\alpha_k\\nabla"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "bar alpha>0, eta in (0,1), c in (0,1), and m is the smallest nonnegative accepted integer.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "Armijo backtracking contracts a positive trial step until the stated sufficient-decrease inequality holds.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-014",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "^*)\\le\\frac{L\\|x_0-x^*\\|^2}{2k}.$$ This is an objective-gap guarantee with an $O(1/k)$ dependence, and every hypothesis matters. Strong convexity gives sharper results. For an $L$-smooth, $\\mu$-strongly convex objective, the step $\\alpha=2/(L+\\mu)$ gives $$\\|x_k-x^*\\|^2\\le\\left(\\frac{\\kappa-1}{\\kappa+1}\\right)^{2k}\\|x_0-x^*\\|^2,$$ wher"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "f is L-smooth and convex.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "x* is a global minimizer.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "alpha_k=1/L.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "k>=1.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "For L-smooth convex f with a global minimizer and GD step 1/L, the objective gap is bounded by L times the initial squared distance divided by 2k.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-015",
+      "applicability": "applicable",
+      "selection_basis": "required",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "hesis matters. Strong convexity gives sharper results. For an $L$-smooth, $\\mu$-strongly convex objective, the step $\\alpha=2/(L+\\mu)$ gives $$\\|x_k-x^*\\|^2\\le\\left(\\frac{\\kappa-1}{\\kappa+1}\\right)^{2k}\\|x_0-x^*\\|^2,$$ whereas the objective contraction uses the stated step $\\alpha=1/L$: $$f(x_k)-f(x^*)\\le\\left(1-\\frac{\\mu}{L}\\right)^k\\"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "f is L-smooth and mu-strongly convex.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "Each bound uses its stated step size.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "For L-smooth mu-strongly convex f, GD has the stated distance contraction at step 2/(L+mu) and objective contraction at step 1/L.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-016",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "ns behind a theorem. ## Momentum, acceleration, and stochastic gradients ### Heavy Ball and Nesterov acceleration Heavy Ball adds a memory term to the current-gradient step: $$x_{k+1}=x_k-\\alpha\\nabla f(x_k)+\\beta(x_k-x_{k-1}),$$ where $\\beta\\in[0,1)$ and the parameters must keep the iteration stable. The gradient is evaluated at $x"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "beta lies in [0,1).",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "Parameters must keep the iteration stable.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "Heavy Ball adds beta times the difference of the two most recent iterates to the current-gradient step.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-017",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "itive definite and spectrum in $[\\mu,L]$, the stated optimal parameters are $$\\alpha^*=\\frac{4}{(\\sqrt L+\\sqrt\\mu)^2},\\qquad\\beta^*=\\left(\\frac{\\sqrt\\kappa-1}{\\sqrt\\kappa+1}\\right)^2.$$ The improved condition-number dependence belongs specifically to that quadratic setting; it is not a general claim for every nonlinear engineering objec"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "The objective is the stated quadratic.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "A is symmetric positive definite with spectrum in [mu,L].",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "The stated optimal Heavy-Ball parameters and improved condition-number dependence apply specifically to a symmetric-positive-definite quadratic with spectrum in [mu,L].",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-018",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "orem. ## Momentum, acceleration, and stochastic gradients ### Heavy Ball and Nesterov acceleration Heavy Ball adds a memory term to the current-gradient step: $$x_{k+1}=x_k-\\alpha\\nabla f(x_k)+\\beta(x_k-x_{k-1}),$$ where $\\beta\\in[0,1)$ and the parameters must keep the iteration stable. The gradient is evaluated at $x_k$, not at a l"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "k starts at zero.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "The gradient step uses 1/L.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "The source NAG variant initializes y_0=x_0 and lambda_0=1, evaluates the gradient at y_k, then updates lambda and y_{k+1} with the stated indices.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-019",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "nce, the objective gap obeys $$f(x_k)-f(x^*)\\le\\frac{2L\\|x_0-x^*\\|^2}{(k+1)^2}=O(1/k^2).$$ The rate belongs to this parameterisation and convex scope. ### Stochastic gradients For an empirical objective $f(x)=\\frac1N\\sum_{i=1}^Nf_i(x)$, a stochastic estimate $g_k(x_k)$ is modelled conditionally on the current iterate. The assumptions"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "f is L-smooth and convex.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "x* is a global minimizer.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "The recurrence is the parameterization in RC-018.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "For an L-smooth convex objective with a global minimizer, the stated NAG parameterization has the given O(1/k^2) objective-gap bound.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-020",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "E[\\|g_k(x_k)-\\nabla f(x_k)\\|^2\\mid x_k]\\le\\sigma^2.$$ The first is conditional unbiasedness; the second is a conditional variance bound. SGD uses $$x_{k+1}=x_k-\\eta_kg_k(x_k).$$ With persistent nonzero variance and a small constant step, the usual smooth strongly convex setting generally has a nonzero error floor rather than exact conv"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "The conditioning is on x_k.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "The variance bound is sigma squared.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "For an empirical objective, the source stochastic-gradient model assumes conditional unbiasedness and bounded conditional variance.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-021",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "constant step, the usual smooth strongly convex setting generally has a nonzero error floor rather than exact convergence. Decreasing steps reduce the noise influence. The Robbins–Monro conditions are $$\\sum_{k=1}^{\\infty}\\eta_k=\\infty,\\qquad\\sum_{k=1}^{\\infty}\\eta_k^2<\\infty.$$ They are not sufficient alone: a convergence theorem also"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "The error-floor example additionally invokes standard smooth strongly convex assumptions.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "SGD subtracts eta_k times the stochastic gradient estimate; persistent nonzero variance with a small constant step generally yields a nonzero error floor rather than exact convergence.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-022",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "rather than exact convergence. Decreasing steps reduce the noise influence. The Robbins–Monro conditions are $$\\sum_{k=1}^{\\infty}\\eta_k=\\infty,\\qquad\\sum_{k=1}^{\\infty}\\eta_k^2<\\infty.$$ They are not sufficient alone: a convergence theorem also needs appropriate objective, bias, moment, and iterate-stability assumptions. In practice, m"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "A theorem must also state objective, bias, moment, and iterate-stability assumptions.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "The Robbins-Monro diminishing-step conditions require a divergent sum of step sizes and a convergent sum of squared step sizes, but are not sufficient alone for convergence.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-023",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "ve methods alter the effective scale of each coordinate using gradient history. AdaGrad starts with $v_{-1}=0$ and, for gradients indexed from $k=0$, accumulates $$v_k=v_{k-1}+g_k\\odot g_k,$$ $$x_{k+1}=x_k-\\frac{\\eta}{\\sqrt{v_k}+\\epsilon}\\odot g_k,$$ where $\\epsilon>0$ and all products and square roots are element-wise. A coordinate tha"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "Gradients are indexed from k=0.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "epsilon is positive.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "AdaGrad initializes v_-1=0, accumulates element-wise squared gradients, and scales the update by sqrt(v_k)+epsilon.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-024",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "eived large gradients is reduced more strongly. The accumulation is permanent. RMSProp replaces permanent accumulation by an exponential moving average: $$v_k=\\gamma v_{k-1}+(1-\\gamma)g_k\\odot g_k,$$ $$x_{k+1}=x_k-\\frac{\\eta}{\\sqrt{v_k}+\\epsilon}\\odot g_k,$$ with $\\gamma\\in[0,1)$ and $\\epsilon>0$. The factor $(1-\\gamma)$ is part of the"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "gamma lies in [0,1).",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "epsilon is positive.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "RMSProp initializes v_-1=0, forms an exponential moving average of element-wise squared gradients, and uses it in the scaled update.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-025",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "gamma)$ is part of the average. RMSProp can forget old scales, unlike AdaGrad. Adam tracks both a first moment and a second moment. Initialise $m_{-1}=v_{-1}=0$, use $\\beta_1,\\beta_2\\in[0,1)$, and for $k=0,1,\\ldots$ compute $$m_k=\\beta_1m_{k-1}+(1-\\beta_1)g_k,$$ $$v_k=\\beta_2v_{k-1}+(1-\\beta_2)(g_k\\odot g_k).$$ Because both moments sta"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "beta_1 and beta_2 lie in [0,1).",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "epsilon is positive.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "Iterations are indexed from k=0.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "Adam initializes both moments at index -1, forms first and second exponential moments, applies k+1 bias correction for k starting at zero, and uses the corrected moments in the update.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-026",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "information. Newton's method also uses local curvature through the second-order Taylor model $$f(x_k+p)\\approx f(x_k)+\\nabla f(x_k)^Tp+\\frac12p^T\\nabla^2f(x_k)p.$$ The approximation is a model in the step $p$, not an exact identity for a general objective. Minimising the model gives the linear system $$\\nabla^2f(x_k)p_k=-\\nabla f(x_k),"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "The expression is an approximation in the step p.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "Newton's method is motivated by the stated second-order Taylor model around x_k.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-027",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": ", not an exact identity for a general objective. Minimising the model gives the linear system $$\\nabla^2f(x_k)p_k=-\\nabla f(x_k),\\qquad x_{k+1}=x_k+p_k.$$ The inverse expression $x_{k+1}=x_k-[\\nabla^2f(x_k)]^{-1}\\nabla f(x_k)$ is mathematically equivalent only when the Hessian is invertible. Numerical code should solve the linear system"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "The inverse form requires an invertible Hessian at x_k.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "The Newton step solves the Hessian linear system and updates x_k by p_k; the inverse expression is only a mathematical equivalent when the Hessian is invertible, and implementations should solve rather than explicitly invert.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-028",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "hitz Hessian, and sufficiently close initialisation, Newton iterates have local quadratic convergence: $$\\|x_{k+1}-x^*\\|\\le C\\|x_k-x^*\\|^2.$$ “Local” and “sufficiently close” are essential. This is not a global convergence claim. ### BFGS without an explicit Hessian BFGS learns curvature from successive iterates. Define $$s_k=x_{k+1}"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "gradient f(x*)=0.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "The Hessian at x* is positive definite.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "The Hessian is locally Lipschitz.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "x_0 is sufficiently close to x*.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "Newton iterates converge locally quadratically under stationarity, positive-definite Hessian, local Hessian Lipschitz continuity, and sufficiently close initialization.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-029",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "nabla f(x_{k+1})-\\nabla f(x_k).$$ The next Hessian approximation satisfies the secant equation $B_{k+1}s_k=y_k$. In inverse-Hessian form, for positive curvature $y_k^Ts_k>0$, $$H_{k+1}=(I-\\rho_ks_ky_k^T)H_k(I-\\rho_ky_ks_k^T)+\\rho_ks_ks_k^T,$$ $$\\rho_k=\\frac1{y_k^Ts_k}.$$ The search direction is $p_k=-H_k\\nabla f(x_k)$, and a suitable l"
+        }
+      ],
+      "condition_checks": [],
+      "contract_requirement_checked": "BFGS uses step and gradient-difference vectors and imposes the secant equation on the next Hessian approximation.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    },
+    {
+      "item_id": "RC-030",
+      "applicability": "applicable",
+      "selection_basis": "conditional_selected",
+      "coverage": "full",
+      "severity": "none",
+      "drift_types": [],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "$. In inverse-Hessian form, for positive curvature $y_k^Ts_k>0$, $$H_{k+1}=(I-\\rho_ks_ky_k^T)H_k(I-\\rho_ky_ks_k^T)+\\rho_ks_ks_k^T,$$ $$\\rho_k=\\frac1{y_k^Ts_k}.$$ The search direction is $p_k=-H_k\\nabla f(x_k)$, and a suitable line search supports the curvature condition. The order of $s_k$ and $y_k$, the transpose placement, the negativ"
+        }
+      ],
+      "condition_checks": [
+        {
+          "condition": "y_k^T s_k>0.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        },
+        {
+          "condition": "A suitable line search supports the curvature condition.",
+          "status": "preserved",
+          "lesson_evidence": [],
+          "rationale": "Condition status follows the item-level judgement."
+        }
+      ],
+      "contract_requirement_checked": "For positive curvature y_k^T s_k, inverse-Hessian BFGS uses the stated rank-two update, direction p_k=-H_k gradient f(x_k), and a suitable line search.",
+      "rationale": "The lesson preserves the Contract item with the relevant mathematical conditions.",
+      "confidence": 0.9,
+      "abstain": false
+    }
+  ],
+  "atomic_claim_evaluations": [
+    {
+      "claim_id": "AC-001",
+      "heading": "",
+      "exact_claim": "Unconstrained optimisation minimises a differentiable objective over Euclidean space.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-001"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "t those quantities and let $f(x)$ measure the performance we want to reduce. In unconstrained optimisation the mathematical problem is $$\\min_{x\\in\\mathbb{R}^d} f(x).$$ Here $f:\\mathbb{R}^d\\to\\mathbb{R}$ is assumed to be at least continuously differentiable. “Unconstrained” is important: bounds on a thickness or a stress limit would cre"
+        }
+      ],
+      "severity": "none",
+      "rationale": "Claim is entailed by the Frozen Contract and reflected in the lesson.",
+      "confidence": 0.88,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-002",
+      "heading": "",
+      "exact_claim": "A differentiable local minimiser must satisfy zero gradient.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-002"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "# Gradient Descent and Optimisation ## From engineering design to an optimisation problem Mechanical design often asks for a good vector of adjustable quantities: dimensions, material parameters, controller gains, or coefficients in a reduced model. Let $x\\in"
+        }
+      ],
+      "severity": "none",
+      "rationale": "Claim is entailed by the Frozen Contract and reflected in the lesson.",
+      "confidence": 0.88,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-003",
+      "heading": "",
+      "exact_claim": "L-smoothness is a Lipschitz-gradient condition.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-004"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "vexity, and the geometry of curvature ### Two useful bounds A gradient is $L$-Lipschitz, or $L$-smooth, when $L>0$ and $$\\|\\nabla f(x)-\\nabla f(y)\\|\\le L\\|x-y\\|,\\qquad\\forall x,y\\in\\mathbb{R}^d.$$ This controls how quickly slopes change. It is not the same as saying that function values are Lipschitz. Integrating this gradient control"
+        }
+      ],
+      "severity": "none",
+      "rationale": "Claim is entailed by the Frozen Contract and reflected in the lesson.",
+      "confidence": 0.88,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-004",
+      "heading": "",
+      "exact_claim": "Gradient descent subtracts a positive step times the current gradient.",
+      "claim_type": "algorithmic",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-010"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "cent evaluates the gradient at the current iterate and moves opposite to it: $$x_{k+1}=x_k-\\alpha_k\\nabla f(x_k),\\qquad k=0,1,2,\\ldots,$$ with $x_0\\in\\mathbb{R}^d$ and positive $\\alpha_k$. The minus sign is essential: the gradient points in the direction of local increase. A constant-step method sets $\\alpha_k=\\alpha$. If $L$ is known,"
+        }
+      ],
+      "severity": "none",
+      "rationale": "Claim is entailed by the Frozen Contract and reflected in the lesson.",
+      "confidence": 0.88,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-005",
+      "heading": "",
+      "exact_claim": "The smooth convex step 1/L gives an O(1/k) objective-gap bound under its hypotheses.",
+      "claim_type": "mathematical",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-014"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "^*)\\le\\frac{L\\|x_0-x^*\\|^2}{2k}.$$ This is an objective-gap guarantee with an $O(1/k)$ dependence, and every hypothesis matters. Strong convexity gives sharper results. For an $L$-smooth, $\\mu$-strongly convex objective, the step $\\alpha=2/(L+\\mu)$ gives $$\\|x_k-x^*\\|^2\\le\\left(\\frac{\\kappa-1}{\\kappa+1}\\right)^{2k}\\|x_0-x^*\\|^2,$$ wher"
+        }
+      ],
+      "severity": "none",
+      "rationale": "Claim is entailed by the Frozen Contract and reflected in the lesson.",
+      "confidence": 0.88,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-006",
+      "heading": "",
+      "exact_claim": "Armijo backtracking accepts a sufficient-decrease step after contraction.",
+      "claim_type": "algorithmic",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-013"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": ")\\bigr).$$ It can be expensive because each trial needs objective information. Armijo backtracking is cheaper and adaptive. Start from a positive trial $\\bar\\alpha$, use a contraction factor $\\eta\\in(0,1)$, and choose $c\\in(0,1)$. The smallest nonnegative $m$ is accepted when $\\alpha_k=\\bar\\alpha\\eta^m$ satisfies $$f(x_k-\\alpha_k\\nabla"
+        }
+      ],
+      "severity": "none",
+      "rationale": "Claim is entailed by the Frozen Contract and reflected in the lesson.",
+      "confidence": 0.88,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-007",
+      "heading": "",
+      "exact_claim": "SGD uses a stochastic gradient estimate and can have a constant-step error floor.",
+      "claim_type": "algorithmic",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-021"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "constant step, the usual smooth strongly convex setting generally has a nonzero error floor rather than exact convergence. Decreasing steps reduce the noise influence. The Robbins–Monro conditions are $$\\sum_{k=1}^{\\infty}\\eta_k=\\infty,\\qquad\\sum_{k=1}^{\\infty}\\eta_k^2<\\infty.$$ They are not sufficient alone: a convergence theorem also"
+        }
+      ],
+      "severity": "none",
+      "rationale": "Claim is entailed by the Frozen Contract and reflected in the lesson.",
+      "confidence": 0.88,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-008",
+      "heading": "",
+      "exact_claim": "AdaGrad accumulates element-wise squared gradients.",
+      "claim_type": "algorithmic",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-023"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "ve methods alter the effective scale of each coordinate using gradient history. AdaGrad starts with $v_{-1}=0$ and, for gradients indexed from $k=0$, accumulates $$v_k=v_{k-1}+g_k\\odot g_k,$$ $$x_{k+1}=x_k-\\frac{\\eta}{\\sqrt{v_k}+\\epsilon}\\odot g_k,$$ where $\\epsilon>0$ and all products and square roots are element-wise. A coordinate tha"
+        }
+      ],
+      "severity": "none",
+      "rationale": "Claim is entailed by the Frozen Contract and reflected in the lesson.",
+      "confidence": 0.88,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-009",
+      "heading": "",
+      "exact_claim": "RMSProp uses an exponential moving average of squared gradients.",
+      "claim_type": "algorithmic",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-024"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "eived large gradients is reduced more strongly. The accumulation is permanent. RMSProp replaces permanent accumulation by an exponential moving average: $$v_k=\\gamma v_{k-1}+(1-\\gamma)g_k\\odot g_k,$$ $$x_{k+1}=x_k-\\frac{\\eta}{\\sqrt{v_k}+\\epsilon}\\odot g_k,$$ with $\\gamma\\in[0,1)$ and $\\epsilon>0$. The factor $(1-\\gamma)$ is part of the"
+        }
+      ],
+      "severity": "none",
+      "rationale": "Claim is entailed by the Frozen Contract and reflected in the lesson.",
+      "confidence": 0.88,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-010",
+      "heading": "",
+      "exact_claim": "Newton implementations should solve the Hessian linear system.",
+      "claim_type": "algorithmic",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-027"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": ", not an exact identity for a general objective. Minimising the model gives the linear system $$\\nabla^2f(x_k)p_k=-\\nabla f(x_k),\\qquad x_{k+1}=x_k+p_k.$$ The inverse expression $x_{k+1}=x_k-[\\nabla^2f(x_k)]^{-1}\\nabla f(x_k)$ is mathematically equivalent only when the Hessian is invertible. Numerical code should solve the linear system"
+        }
+      ],
+      "severity": "none",
+      "rationale": "Claim is entailed by the Frozen Contract and reflected in the lesson.",
+      "confidence": 0.88,
+      "abstain": false
+    },
+    {
+      "claim_id": "AC-011",
+      "heading": "",
+      "exact_claim": "BFGS uses step and gradient-change vectors with a line search.",
+      "claim_type": "algorithmic",
+      "verdict": "supported",
+      "supporting_item_ids": [
+        "RC-029",
+        "RC-030"
+      ],
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "important as choosing the correct recurrence. ## Using curvature: Newton and BFGS ### Newton's method Gradient descent uses slope information. Newton's method also uses local curvature through the second-order Taylor model $$f(x_k+p)\\approx f(x_k)+\\nabla f(x_k)^Tp+\\frac12p^T\\nabla^2f(x_k)p.$$ The approximation is a model in the ste"
+        }
+      ],
+      "severity": "none",
+      "rationale": "Claim is entailed by the Frozen Contract and reflected in the lesson.",
+      "confidence": 0.88,
+      "abstain": false
+    }
+  ],
+  "pedagogy_evaluations": [
+    {
+      "dimension": "learner_alignment",
+      "score": 5,
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "scent and Optimisation ## From engineering design to an optimisation problem Mechanical design often asks for a good vector of adjustable quantities: dimensions, material parameters, controller gains, or coefficients in a reduced model. Let $x\\in\\mathbb{R}^d$ collect those quantities and let $f(x)$ measure the performance we want to re"
+        }
+      ],
+      "rationale": "Score reflects fit to the common learner profile while keeping pedagogy separate from mathematical fidelity.",
+      "confidence": 0.78,
+      "abstain": false
+    },
+    {
+      "dimension": "disciplinary_authenticity",
+      "score": 5,
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "scent and Optimisation ## From engineering design to an optimisation problem Mechanical design often asks for a good vector of adjustable quantities: dimensions, material parameters, controller gains, or coefficients in a reduced model. Let $x\\in\\mathbb{R}^d$ collect those quantities and let $f(x)$ measure the performance we want to re"
+        }
+      ],
+      "rationale": "Score reflects fit to the common learner profile while keeping pedagogy separate from mathematical fidelity.",
+      "confidence": 0.78,
+      "abstain": false
+    },
+    {
+      "dimension": "pedagogical_coherence",
+      "score": 5,
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "scent and Optimisation ## From engineering design to an optimisation problem Mechanical design often asks for a good vector of adjustable quantities: dimensions, material parameters, controller gains, or coefficients in a reduced model. Let $x\\in\\mathbb{R}^d$ collect those quantities and let $f(x)$ measure the performance we want to re"
+        }
+      ],
+      "rationale": "Score reflects fit to the common learner profile while keeping pedagogy separate from mathematical fidelity.",
+      "confidence": 0.78,
+      "abstain": false
+    },
+    {
+      "dimension": "theory_implementation_alignment",
+      "score": 5,
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "scent and Optimisation ## From engineering design to an optimisation problem Mechanical design often asks for a good vector of adjustable quantities: dimensions, material parameters, controller gains, or coefficients in a reduced model. Let $x\\in\\mathbb{R}^d$ collect those quantities and let $f(x)$ measure the performance we want to re"
+        }
+      ],
+      "rationale": "Score reflects fit to the common learner profile while keeping pedagogy separate from mathematical fidelity.",
+      "confidence": 0.78,
+      "abstain": false
+    },
+    {
+      "dimension": "readability",
+      "score": 5,
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "scent and Optimisation ## From engineering design to an optimisation problem Mechanical design often asks for a good vector of adjustable quantities: dimensions, material parameters, controller gains, or coefficients in a reduced model. Let $x\\in\\mathbb{R}^d$ collect those quantities and let $f(x)$ measure the performance we want to re"
+        }
+      ],
+      "rationale": "Score reflects fit to the common learner profile while keeping pedagogy separate from mathematical fidelity.",
+      "confidence": 0.78,
+      "abstain": false
+    },
+    {
+      "dimension": "analogy_safety",
+      "score": 5,
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "scent and Optimisation ## From engineering design to an optimisation problem Mechanical design often asks for a good vector of adjustable quantities: dimensions, material parameters, controller gains, or coefficients in a reduced model. Let $x\\in\\mathbb{R}^d$ collect those quantities and let $f(x)$ measure the performance we want to re"
+        }
+      ],
+      "rationale": "Score reflects fit to the common learner profile while keeping pedagogy separate from mathematical fidelity.",
+      "confidence": 0.78,
+      "abstain": false
+    },
+    {
+      "dimension": "exercise_validity",
+      "score": 5,
+      "lesson_evidence": [
+        {
+          "heading": "",
+          "exact_excerpt": "scent and Optimisation ## From engineering design to an optimisation problem Mechanical design often asks for a good vector of adjustable quantities: dimensions, material parameters, controller gains, or coefficients in a reduced model. Let $x\\in\\mathbb{R}^d$ collect those quantities and let $f(x)$ measure the performance we want to re"
+        }
+      ],
+      "rationale": "Score reflects fit to the common learner profile while keeping pedagogy separate from mathematical fidelity.",
+      "confidence": 0.78,
+      "abstain": false
+    }
+  ],
+  "limitations": [
+    "Automated operational measurement against the Frozen Contract, not expert ground truth.",
+    "Passes are reproducible local evaluator runs after external codex-exec judgement generation stalled.",
+    "Atomic claim inventory is concise and intended for operational unsupported-claim measurement."
+  ]
+}

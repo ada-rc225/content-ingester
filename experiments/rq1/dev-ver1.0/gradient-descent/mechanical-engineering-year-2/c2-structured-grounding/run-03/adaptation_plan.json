@@ -1,0 +1,44 @@
+{
+  "topic": "Gradient Descent and Optimisation",
+  "profile_id": "mechanical-engineering-year-2",
+  "source_ids": ["gradient-descent-and-optimization"],
+  "grounding_contract": {"contract_id": "gradient-descent", "contract_version": "3.0.0", "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"},
+  "entry_point": {"discipline_context": "Use potential energy, equilibrium, and numerical relaxation to motivate an optimisation landscape.", "rationale": "Second-year mechanical engineers can connect a downhill search direction with reducing a scalar energy-like objective before formalising the mathematics.", "analogy_boundary": "The energy picture is a teaching analogy: the canonical formulation is an arbitrary differentiable objective, so no physical interpretation is assumed unless stated."},
+  "required_contract_item_ids": ["RC-001","RC-002","RC-003","RC-004","RC-005","RC-006","RC-007","RC-008","RC-009","RC-010","RC-011","RC-014","RC-015"],
+  "conditional_item_decisions": [
+    {"item_id":"RC-012","included":true,"rationale":"Included because exact line search is a step-size selection method in the requested optimisation scope."},
+    {"item_id":"RC-013","included":true,"rationale":"Included because Armijo backtracking gives a practical assumption-aware step-size selection method."},
+    {"item_id":"RC-016","included":true,"rationale":"Included because momentum was explicitly requested."},
+    {"item_id":"RC-017","included":true,"rationale":"Included to state the requested Heavy-Ball acceleration scope without generalising beyond SPD quadratics."},
+    {"item_id":"RC-018","included":true,"rationale":"Included because the requested acceleration coverage includes the specified NAG recurrence."},
+    {"item_id":"RC-019","included":true,"rationale":"Included to give the NAG objective-gap rate with its convexity and recurrence conditions."},
+    {"item_id":"RC-020","included":true,"rationale":"Included because stochastic gradient methods are in the requested scope."},
+    {"item_id":"RC-021","included":true,"rationale":"Included to state the SGD update and constant-step error-floor scope."},
+    {"item_id":"RC-022","included":true,"rationale":"Included to cover diminishing-step conditions for stochastic methods."},
+    {"item_id":"RC-023","included":true,"rationale":"Included as an introduction to adaptive gradient methods."},
+    {"item_id":"RC-024","included":true,"rationale":"Included as an introduction to adaptive gradient methods."},
+    {"item_id":"RC-025","included":true,"rationale":"Included as an introduction to adaptive gradient methods."},
+    {"item_id":"RC-026","included":true,"rationale":"Included because second-order optimisation was explicitly requested."},
+    {"item_id":"RC-027","included":true,"rationale":"Included to connect Newton's model with a numerically appropriate linear solve."},
+    {"item_id":"RC-028","included":true,"rationale":"Included to state the requested local Newton convergence scope."},
+    {"item_id":"RC-029","included":true,"rationale":"Included to introduce BFGS curvature approximation."},
+    {"item_id":"RC-030","included":true,"rationale":"Included to preserve the BFGS curvature condition, update, direction, and line-search requirement."}
+  ],
+  "chapter_sequence": [
+    {"section_id":"SEC-01","order":1,"title":"From equilibrium to an optimisation problem","purpose":"Introduce the unconstrained mathematical problem and first- and second-order optimality conditions through a careful potential-energy analogy.","contract_item_ids":["RC-001","RC-002","RC-003"]},
+    {"section_id":"SEC-02","order":2,"title":"Smoothness, convexity, and conditioning","purpose":"Define the geometric assumptions that control local models, global lower bounds, and numerical difficulty.","contract_item_ids":["RC-004","RC-005","RC-006","RC-007","RC-008","RC-009"]},
+    {"section_id":"SEC-03","order":3,"title":"Gradient descent and choosing a step","purpose":"State the gradient descent update, common fixed-step choices, exact line search, and Armijo backtracking.","contract_item_ids":["RC-010","RC-011","RC-012","RC-013"]},
+    {"section_id":"SEC-04","order":4,"title":"What convergence guarantees actually say","purpose":"Present convex and strongly convex convergence statements with their hypotheses, then compare momentum and acceleration.","contract_item_ids":["RC-014","RC-015","RC-016","RC-017","RC-018","RC-019"]},
+    {"section_id":"SEC-05","order":5,"title":"Stochastic and adaptive gradient methods","purpose":"Explain empirical objectives, stochastic-gradient assumptions, diminishing steps, and the semantics of AdaGrad, RMSProp, and Adam.","contract_item_ids":["RC-020","RC-021","RC-022","RC-023","RC-024","RC-025"]},
+    {"section_id":"SEC-06","order":6,"title":"Second-order optimisation","purpose":"Introduce Newton and BFGS as curvature-aware methods, including implementation cautions and local convergence scope.","contract_item_ids":["RC-026","RC-027","RC-028","RC-029","RC-030"]},
+    {"section_id":"SEC-07","order":7,"title":"Exercises and worked solutions","purpose":"Consolidate assumptions, one update calculation, and a Python diagnosis in a final exercise chapter.","contract_item_ids":[]}
+  ],
+  "exercise_section_id":"SEC-07",
+  "implementation_strategy":"Use compact NumPy-style pseudocode and one executable Python block. Emphasise evaluating the gradient at the specified iterate, preserving indices, solving Newton systems, and checking objective decrease rather than assuming it.",
+  "assessment_strategy":"Use exactly three final exercises: an assumption-scope concept check reviewed by an expert, a deterministic hand calculation with an objective-gradient consistency check, and an executable code diagnostic.",
+  "exercise_plan": [
+    {"exercise_id":"EX-001","order":1,"section_id":"SEC-07","exercise_type":"concept_check","difficulty":"introductory","learning_objective":"Distinguish stationarity, second-order conditions, and theorem scope in an equilibrium-style optimisation statement.","contract_item_ids":["RC-002","RC-003","RC-014","RC-028"],"discipline_context":"Assess a claimed equilibrium of a reduced potential-energy model for a linkage.","solution_required":true,"verification":{"method":"expert_review","python_expression":null,"expected_value":null,"absolute_tolerance":0.0,"consistency_checks":[]}},
+    {"exercise_id":"EX-002","order":2,"section_id":"SEC-07","exercise_type":"hand_calculation","difficulty":"intermediate","learning_objective":"Apply the standard gradient descent update and verify a supplied quadratic objective and gradient.","contract_item_ids":["RC-004","RC-005","RC-010","RC-011"],"discipline_context":"Take one relaxation step for a two-parameter quadratic calibration objective.","solution_required":true,"verification":{"method":"deterministic_calculation","python_expression":"[1+0.1*4, 2-0.1*12]","expected_value":[1.4,0.8],"absolute_tolerance":1e-12,"consistency_checks":[{"check_id":"CK-001","kind":"objective_gradient","objective_expression":"(u-3)**2+2*(v+1)**2","expressions":[],"variables":["u","v"],"point":[1,2],"expected_value":[-4,12],"absolute_tolerance":1e-12}]}},
+    {"exercise_id":"EX-003","order":3,"section_id":"SEC-07","exercise_type":"code_diagnostic","difficulty":"intermediate","learning_objective":"Diagnose whether Python implements the current-iterate gradient descent rule and identify the effect of a sign error.","contract_item_ids":["RC-010","RC-011","RC-014"],"discipline_context":"Inspect a short NumPy relaxation loop for a quadratic stiffness-fitting objective.","solution_required":true,"verification":{"method":"combined","python_expression":"4*(1-0.25)**4","expected_value":1.265625,"absolute_tolerance":1e-12,"consistency_checks":[]}}
+  ]
+}

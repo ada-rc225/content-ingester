@@ -1,0 +1,52 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/c2-structured-grounding/run-03/adapted_content.md",
+  "content_sha256": "0059761ebe1568c9b1f729c34107b8ae8a2fd73271b738b523485cf748fd9d1b",
+  "plan_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/c2-structured-grounding/run-03/adaptation_plan.json",
+  "plan_sha256": "8b90ecbe1d5c0eae48bb7e5d01681796085f64918d01baa7509b7b8ce4fdeccf",
+  "code_validation_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/gd/c2-structured-grounding/run-03/code_validation.json",
+  "code_validation_sha256": "a403aad1507f6ad96915114977b1cefecc315000654a9dedce975cb0872e8e95",
+  "overall_status": "passed",
+  "exercise_count": 3,
+  "exercises": [
+    {
+      "exercise_id": "EX-001",
+      "exercise_type": "concept_check",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "contract_binding",
+      "model_consistency_passed": true,
+      "verification_status": "passed",
+      "details": []
+    },
+    {
+      "exercise_id": "EX-002",
+      "exercise_type": "hand_calculation",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "deterministic_calculation",
+      "model_consistency_passed": true,
+      "verification_status": "passed",
+      "details": [
+        "CK-001: objective value=3.0; gradient=[2.0, -4.0]; expected=[2, -4]",
+        "deterministic calculation produced [0.5, 0.0]; expected [0.5, 0]"
+      ]
+    },
+    {
+      "exercise_id": "EX-003",
+      "exercise_type": "code_diagnostic",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "code_execution",
+      "model_consistency_passed": true,
+      "verification_status": "passed",
+      "details": [
+        "2 exercise-linked Python block(s) found"
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,30 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/pi/confirmatory-v1/c2-structured-grounding/run-01/adapted_content.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-04",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "b409c3f4a51633629d36c447e7cad2726985dd43af2034067e345832a4652307",
+      "execution_status": "passed",
+      "stdout": "",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 144
+    },
+    {
+      "block_id": "CODE-002",
+      "anchor": "SEC-06",
+      "exercise_id": "EX-003",
+      "language": "python",
+      "code_sha256": "2d081024efee6f9b9c583a7586dfb568a3e3b021a734ad8c1c302387046a0e14",
+      "execution_status": "passed",
+      "stdout": "max_iterations must be a positive integer\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 35
+    }
+  ]
+}

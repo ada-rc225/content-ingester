@@ -1,0 +1,55 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/final/gradient-descent/mechanical-engineering-year-2/c2-structured-grounding/run-01/adapted_content.md",
+  "content_sha256": "0b9ce843cdbdfdf234e9975287df90cfbef5df5b4ff1f3d3e28e3afb48735d50",
+  "plan_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/final/gradient-descent/mechanical-engineering-year-2/c2-structured-grounding/run-01/adaptation_plan.json",
+  "plan_sha256": "df7c39cc378c949a5b47cb77aa08b2fb7bbea627ae8f64cd4ee0cfe89ae3aad3",
+  "code_validation_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/final/gradient-descent/mechanical-engineering-year-2/c2-structured-grounding/run-01/code_validation.json",
+  "code_validation_sha256": "ec35aef22c14278a37c45db5964dbcfafd58dacaa26ef0be6714230b8b14fd26",
+  "overall_status": "passed",
+  "exercise_count": 3,
+  "manual_review_required": true,
+  "exercises": [
+    {
+      "exercise_id": "EX-001",
+      "exercise_type": "concept_check",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "expert_review",
+      "model_consistency_passed": true,
+      "verification_status": "manual_review_required",
+      "details": []
+    },
+    {
+      "exercise_id": "EX-002",
+      "exercise_type": "hand_calculation",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "deterministic_calculation",
+      "model_consistency_passed": true,
+      "verification_status": "passed",
+      "details": [
+        "CK-001: objective value=0.0; gradient=[1.0, -2.0]; expected=[1.0, -2.0]",
+        "deterministic calculation produced [1.75, -0.5]; expected [1.75, -0.5]"
+      ]
+    },
+    {
+      "exercise_id": "EX-003",
+      "exercise_type": "code_diagnostic",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "code_execution",
+      "model_consistency_passed": true,
+      "verification_status": "passed",
+      "details": [
+        "2 exercise-linked Python block(s) found"
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "EX-001: conceptual or derivational correctness requires independent review"
+  ]
+}

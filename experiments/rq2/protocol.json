@@ -1,0 +1,52 @@
+{
+  "protocol_id": "RQ2-PATHWAY-v0.2-pilot",
+  "status": "draft_for_pilot",
+  "topics": ["power-iteration", "gradient-descent"],
+  "pilot_topic": "power-iteration",
+  "output_form": "one_continuous_student_facing_lesson",
+  "conditions": {
+    "P0": {"name": "generic-fixed-sequence", "profile_visible": false, "pathway_mutable": false, "local_content_adaptation": false},
+    "P1": {"name": "profile-local-content-adaptation", "profile_visible": true, "pathway_mutable": false, "local_content_adaptation": true},
+    "P2": {"name": "profile-pathway-adaptation", "profile_visible": true, "pathway_mutable": true, "local_content_adaptation": true}
+  },
+  "p2_pathway_decisions": [
+    "include_or_exclude_selectable_contract_items",
+    "order_selected_content",
+    "add_released_prerequisite_bridges"
+  ],
+  "runs_per_cell": {"pilot": 1, "confirmatory": 3},
+  "primary_pedagogy_outcomes": [
+    "disciplinary_relevance",
+    "prerequisite_match",
+    "example_authenticity",
+    "sequence_quality"
+  ],
+  "primary_contrasts": ["P2-P1", "P2-P0"],
+  "core_gate": {
+    "universal_core_coverage": 1.0,
+    "selected_item_coverage": 1.0,
+    "critical_errors_allowed": 0,
+    "major_critical_error_noninferiority_margin": 0.02,
+    "formula_accuracy_noninferiority_margin": 0.05,
+    "algorithm_accuracy_noninferiority_margin": 0.05
+  },
+  "material_pathway_difference": {
+    "accepted_change_types": [
+      "change_item_selection",
+      "reorder_learning_units",
+      "add_prerequisite_bridge",
+      "regroup_contract_items",
+      "change_prerequisite_relations"
+    ],
+    "lexical_change_alone_is_sufficient": false,
+    "requires_profile_linked_pedagogical_justification": true
+  },
+  "analysis_unit": "generated_continuous_lesson_with_pathway_plan",
+  "student_study_in_scope": false,
+  "notes": [
+    "Learning units are planning units and must not be rendered as separate Atomic Learning pages.",
+    "Reuse each P0 run across learner-profile comparisons.",
+    "Freeze the common core, canonical sequence, profiles, prompts, rubric, and analysis before confirmatory generation.",
+    "Judge passes are repeat measurements and do not increase the number of independent generated lessons."
+  ]
+}

@@ -202,7 +202,7 @@ python3 .github/skills/discipline-aware-teaching-adaptation/scripts/prepare_froz
   --output <run-dir>/grounding_receipt.json
 ```
 
-This preflight refuses an incomplete release and creates a fingerprinted `grounding_receipt.json` plus a compact `grounding_view.json`. C2 version 3.5 generates only from that approved view, covers every required Contract item, records a decision for every conditional item, enforces the structured `word_count_protocol`, and keeps Contract IDs out of student-facing prose.
+This preflight refuses an incomplete release and creates a fingerprinted `grounding_receipt.json` plus a compact `grounding_view.json`. C2 version 3.6 generates only from that approved view, covers every required Contract item, records a decision for every conditional item, enforces the structured `word_count_protocol`, and keeps Contract IDs out of student-facing prose.
 
 When exercises are enabled, record their common experimental protocol in `run_manifest.json`. Each exercise is generated for the learner rather than copied into the Frozen Contract, but its mathematical meaning and worked solution must map to selected Contract items. Numeric exercises use hidden `derived-answer` and `answer` markers with visible JSON results; code exercises use `expected-stdout` markers with visible JSON strings. Then run:
 
@@ -220,7 +220,7 @@ python3 .github/skills/discipline-aware-teaching-adaptation/scripts/validate_ada
   --run-dir <run-dir>
 ```
 
-The exercise validator checks that all exercises occur in the final planned chapter, then checks reading-order IDs, worked-solution presence, RC bindings, unified objective-gradient-update computation, agreement between visible derivation and Checked answer, and agreement between visible expected output and executed stdout. Conceptual, derivational, and transfer exercises use `contract_binding`, which validates their structure, solution presence, and selected RC-item binding without creating a post-generation human-review task or claiming semantic proof. Historical C2 runs before v3.5 remain pilot artifacts and should not be mixed with v3.5 confirmatory RQ1 runs.
+The exercise validator checks that all exercises occur in the final planned chapter, then checks reading-order IDs, worked-solution presence, RC bindings, topic-matched unified calculations, agreement among computed, visibly derived, and Checked answers, and agreement between visible expected output and executed stdout. Gradient and power-iteration hand calculations have separate structured checkers; unsupported hand-calculation topics stop instead of falling back to self-confirming constants. Conceptual, derivational, and transfer exercises use `contract_binding`, which validates their structure, solution presence, and selected RC-item binding without creating a post-generation human-review task or claiming semantic proof. Historical C2 runs before v3.5 remain pilot artifacts; keep v3.5 artifacts as historical evidence rather than revalidating them as v3.6 runs.
 
 The deterministic validator requires every core formula to map to a contract item, preserves derivation formulas as reference-only, excludes exercise formulas from the denominator, and requires complete inventory source units rather than short evidence fragments. A passing report establishes provenance and coverage, not mathematical approval: an expert must still review the candidate before changing its lifecycle to `frozen`.
 

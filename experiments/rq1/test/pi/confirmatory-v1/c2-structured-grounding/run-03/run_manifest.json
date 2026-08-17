@@ -1,0 +1,22 @@
+{
+  "research_question": "RQ1",
+  "condition": "c2-structured-grounding",
+  "run_id": "confirmatory-v1-pi-c2-run-03",
+  "topic": "Eigenvalues, Eigenvectors, and the Power Iteration",
+  "profile_id": "mechanical-engineering-year-2",
+  "provider": "OpenAI",
+  "model": "GPT-5.6 Luna",
+  "access_route": "VS Code agent",
+  "prompt_version": "RQ1-PI-C2-v3.5-confirmatory-v1",
+  "agent_version": "3.6",
+  "skill_version": "3.6",
+  "run_date": "2026-08-17T12:00:00+00:00",
+  "source_ids": ["eigenvalues-and-power-iteration"],
+  "grounding_receipt_file": "grounding_receipt.json",
+  "grounding_receipt_sha256": "f49d5f76573598d03fa9169c78137bbd4d3a14f1eee486605b0d325a7a50cabb",
+  "code_execution_required": true,
+  "word_count_protocol": {"enabled": true, "minimum": 1500, "maximum": 2000, "counting_method": "english_prose_v1"},
+  "exercise_protocol": {"enabled": true, "expected_count": 3, "required_types": ["concept_check", "hand_calculation", "code_diagnostic"], "worked_solutions_required": true},
+  "generation_parameters": {"grounding_view": "grounding_view.json", "final_chapter_only_exercises": true},
+  "notes": ["Generated from the approved grounding view only."]
+}

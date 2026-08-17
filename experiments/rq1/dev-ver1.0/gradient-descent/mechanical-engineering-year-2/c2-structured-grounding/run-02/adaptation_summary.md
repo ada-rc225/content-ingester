@@ -1,0 +1,5 @@
+# Adaptation summary
+
+This C2 lesson adapts gradient descent and optimisation for second-year mechanical engineering students using potential energy, equilibrium, and numerical relaxation as bounded intuition. It covers unconstrained optimisation, optimality tests, smoothness and convexity, gradient-descent steps and selection, stated convergence scopes, Heavy Ball and accelerated gradient, stochastic gradients, and a local introduction to Newton's method. The three final exercises are generated pedagogical material: one concept check, one deterministic hand calculation, and one executable code diagnostic.
+
+The deterministic Frozen Contract preflight passed before planning. Final automatic checks passed: the released-contract binding, source hashes, complete required-item coverage, one decision for every conditional item, plan/provenance alignment, exercise markers and bindings, deterministic numerical answer, and Python execution. `treatment_valid=true` records frozen-grounding protocol integrity and the configured checks only; it does not establish complete lesson correctness or answer RQ1.

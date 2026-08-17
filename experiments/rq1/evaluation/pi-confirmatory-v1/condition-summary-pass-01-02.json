@@ -1,0 +1,472 @@
+{
+  "schema_version": "1.0",
+  "evaluation_protocol": "RQ1-EVAL-v1",
+  "generated_at": "2026-08-17T14:35:27.417706+00:00",
+  "bundle_id": "pi-confirmatory-v1",
+  "condition_summaries": {
+    "c0-ungrounded": {
+      "lesson_sample_count": 3,
+      "evaluation_pass_count": 6,
+      "sample_ids": [
+        "S003",
+        "S004",
+        "S009"
+      ],
+      "metrics": {
+        "major_critical_error_rate": {
+          "n": 3,
+          "mean": 0.012821,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.038462
+        },
+        "semantic_drift_rate": {
+          "n": 3,
+          "mean": 0.147059,
+          "median": 0.117647,
+          "minimum": 0.088235,
+          "maximum": 0.235294
+        },
+        "required_item_omission_rate": {
+          "n": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0
+        },
+        "unsupported_claim_rate": {
+          "n": 3,
+          "mean": 0.147129,
+          "median": 0.144231,
+          "minimum": 0.1202,
+          "maximum": 0.176957
+        },
+        "formula_item_accuracy": {
+          "n": 3,
+          "mean": 0.87037,
+          "median": 0.833333,
+          "minimum": 0.833333,
+          "maximum": 0.944445
+        },
+        "algorithm_item_accuracy": {
+          "n": 3,
+          "mean": 0.729167,
+          "median": 0.75,
+          "minimum": 0.625,
+          "maximum": 0.8125
+        }
+      }
+    },
+    "c1-source-conditioned": {
+      "lesson_sample_count": 3,
+      "evaluation_pass_count": 6,
+      "sample_ids": [
+        "S001",
+        "S002",
+        "S008"
+      ],
+      "metrics": {
+        "major_critical_error_rate": {
+          "n": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0
+        },
+        "semantic_drift_rate": {
+          "n": 3,
+          "mean": 0.074075,
+          "median": 0.083334,
+          "minimum": 0.055556,
+          "maximum": 0.083334
+        },
+        "required_item_omission_rate": {
+          "n": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0
+        },
+        "unsupported_claim_rate": {
+          "n": 3,
+          "mean": 0.019056,
+          "median": 0.020408,
+          "minimum": 0.011111,
+          "maximum": 0.025649
+        },
+        "formula_item_accuracy": {
+          "n": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0
+        },
+        "algorithm_item_accuracy": {
+          "n": 3,
+          "mean": 0.833333,
+          "median": 0.8125,
+          "minimum": 0.8125,
+          "maximum": 0.875
+        }
+      }
+    },
+    "c2-structured-grounding": {
+      "lesson_sample_count": 3,
+      "evaluation_pass_count": 6,
+      "sample_ids": [
+        "S005",
+        "S006",
+        "S007"
+      ],
+      "metrics": {
+        "major_critical_error_rate": {
+          "n": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0
+        },
+        "semantic_drift_rate": {
+          "n": 3,
+          "mean": 0.055556,
+          "median": 0.055556,
+          "minimum": 0.055556,
+          "maximum": 0.055556
+        },
+        "required_item_omission_rate": {
+          "n": 3,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0
+        },
+        "unsupported_claim_rate": {
+          "n": 3,
+          "mean": 0.025903,
+          "median": 0.021441,
+          "minimum": 0.01738,
+          "maximum": 0.038889
+        },
+        "formula_item_accuracy": {
+          "n": 3,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0
+        },
+        "algorithm_item_accuracy": {
+          "n": 3,
+          "mean": 0.875,
+          "median": 0.875,
+          "minimum": 0.875,
+          "maximum": 0.875
+        }
+      }
+    }
+  },
+  "sample_rows": [
+    {
+      "sample_id": "S001",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_pass_count": 2,
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.083334,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.020408,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.8125
+    },
+    {
+      "sample_id": "S002",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_pass_count": 2,
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.055556,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.025649,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.875
+    },
+    {
+      "sample_id": "S003",
+      "condition_label": "c0-ungrounded",
+      "evaluator_pass_count": 2,
+      "major_critical_error_rate": 0.038462,
+      "semantic_drift_rate": 0.117647,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.176957,
+      "formula_item_accuracy": 0.833333,
+      "algorithm_item_accuracy": 0.75
+    },
+    {
+      "sample_id": "S004",
+      "condition_label": "c0-ungrounded",
+      "evaluator_pass_count": 2,
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.235294,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.1202,
+      "formula_item_accuracy": 0.833333,
+      "algorithm_item_accuracy": 0.625
+    },
+    {
+      "sample_id": "S005",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_pass_count": 2,
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.055556,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.038889,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.875
+    },
+    {
+      "sample_id": "S006",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_pass_count": 2,
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.055556,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.021441,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.875
+    },
+    {
+      "sample_id": "S007",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_pass_count": 2,
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.055556,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.01738,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.875
+    },
+    {
+      "sample_id": "S008",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_pass_count": 2,
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.083334,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.011111,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.8125
+    },
+    {
+      "sample_id": "S009",
+      "condition_label": "c0-ungrounded",
+      "evaluator_pass_count": 2,
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.088235,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.144231,
+      "formula_item_accuracy": 0.944445,
+      "algorithm_item_accuracy": 0.8125
+    }
+  ],
+  "pass_rows": [
+    {
+      "sample_id": "S001",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S001-pass-01",
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.055556,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.0,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.875
+    },
+    {
+      "sample_id": "S001",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S001-pass-02",
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.111111,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.040816,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.75
+    },
+    {
+      "sample_id": "S002",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S002-pass-01",
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.055556,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.028571,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.875
+    },
+    {
+      "sample_id": "S002",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S002-pass-02",
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.055556,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.022727,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.875
+    },
+    {
+      "sample_id": "S003",
+      "condition_label": "c0-ungrounded",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S003-pass-01",
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.117647,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.173913,
+      "formula_item_accuracy": 0.888889,
+      "algorithm_item_accuracy": 0.75
+    },
+    {
+      "sample_id": "S003",
+      "condition_label": "c0-ungrounded",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S003-pass-02",
+      "major_critical_error_rate": 0.076923,
+      "semantic_drift_rate": 0.117647,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.18,
+      "formula_item_accuracy": 0.777778,
+      "algorithm_item_accuracy": 0.75
+    },
+    {
+      "sample_id": "S004",
+      "condition_label": "c0-ungrounded",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S004-pass-01",
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.176471,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.145161,
+      "formula_item_accuracy": 0.888889,
+      "algorithm_item_accuracy": 0.625
+    },
+    {
+      "sample_id": "S004",
+      "condition_label": "c0-ungrounded",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S004-pass-02",
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.294118,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.095238,
+      "formula_item_accuracy": 0.777778,
+      "algorithm_item_accuracy": 0.625
+    },
+    {
+      "sample_id": "S005",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S005-pass-01",
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.055556,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.027778,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.875
+    },
+    {
+      "sample_id": "S005",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S005-pass-02",
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.055556,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.05,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.875
+    },
+    {
+      "sample_id": "S006",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S006-pass-01",
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.055556,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.017241,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.875
+    },
+    {
+      "sample_id": "S006",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S006-pass-02",
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.055556,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.025641,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.875
+    },
+    {
+      "sample_id": "S007",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S007-pass-01",
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.055556,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.019608,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.875
+    },
+    {
+      "sample_id": "S007",
+      "condition_label": "c2-structured-grounding",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S007-pass-02",
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.055556,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.015152,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.875
+    },
+    {
+      "sample_id": "S008",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S008-pass-01",
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.055556,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.0,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.875
+    },
+    {
+      "sample_id": "S008",
+      "condition_label": "c1-source-conditioned",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S008-pass-02",
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.111111,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.022222,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.75
+    },
+    {
+      "sample_id": "S009",
+      "condition_label": "c0-ungrounded",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S009-pass-01",
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.117647,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.153846,
+      "formula_item_accuracy": 0.888889,
+      "algorithm_item_accuracy": 0.75
+    },
+    {
+      "sample_id": "S009",
+      "condition_label": "c0-ungrounded",
+      "evaluator_run_id": "rq1-pi-confirmatory-judge-sol-S009-pass-02",
+      "major_critical_error_rate": 0.0,
+      "semantic_drift_rate": 0.058824,
+      "required_item_omission_rate": 0.0,
+      "unsupported_claim_rate": 0.134615,
+      "formula_item_accuracy": 1.0,
+      "algorithm_item_accuracy": 0.875
+    }
+  ],
+  "warnings": [
+    "Condition summaries first average evaluator passes within each lesson, then summarise independent lesson samples.",
+    "Use topic/run-aware statistical modelling or clustered bootstrap for confirmatory inference."
+  ]
+}

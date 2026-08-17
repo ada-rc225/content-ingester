@@ -1,0 +1,12 @@
+{
+  "profile_id": "mechanical-engineering-year-2",
+  "discipline": "mechanical engineering",
+  "education_level": "second-year undergraduate",
+  "prior_knowledge": ["vectors", "matrices", "basic calculus", "basic Python/NumPy"],
+  "computational_background": ["basic Python", "NumPy array arithmetic", "reading short numerical routines"],
+  "learning_goals": ["Define eigenvalues and eigenvectors", "Explain the dominant eigenpair of a real symmetric matrix", "Derive and implement power iteration", "Use the Rayleigh quotient and residual", "Diagnose convergence limitations"],
+  "preferred_contexts": ["mechanical vibration", "modal reasoning", "matrix-based engineering computation"],
+  "target_depth": "Conceptual definitions, mathematical derivation, convergence assumptions, algorithm behaviour, and implementation.",
+  "proof_depth": "Explain the reasoning and assumptions without requiring a fully formal proof.",
+  "assumptions_requiring_review": ["Learners know vectors, matrices, basic calculus, and basic Python/NumPy but not iterative eigensolvers.", "Disciplinary contexts are bounded pedagogical framing rather than unsupported physical claims."]
+}

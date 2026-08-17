@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.2",
+  "protocol_id": "RQ2-PATHWAY-v0.2-pilot",
+  "status": "pilot_freeze_candidate",
+  "topic": "power-iteration",
+  "pathway_unit": "ordered_learning_sequence_not_pages",
+  "source_contract": {
+    "contract_id": "power-iteration",
+    "contract_version": "1.0.0",
+    "file": "../../../rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+    "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+  },
+  "selection_scope": {
+    "applies_to": "RQ2 pathway planning only",
+    "rq1_generation_requirement_is_reused": false,
+    "explanation": "Contract v1 item semantics and evidence remain authoritative, but its required_for_generation flags were set for the comprehensive RQ1 lesson. RQ2 separately freezes a smaller shared mathematical core so that profile-aware selection can be studied.",
+    "confirmatory_requirement": "The RQ2 classification must receive supervisor or subject-expert review before confirmatory generation. The existing C2 v3.6 adapter cannot implement this selection policy unchanged because it enforces every Contract-v1 required item."
+  },
+  "all_contract_item_ids": [
+    "RC-001", "RC-002", "RC-003", "RC-004", "RC-005", "RC-006",
+    "RC-007", "RC-008", "RC-009", "RC-010", "RC-011", "RC-012",
+    "RC-013", "RC-014", "RC-015", "RC-016", "RC-017", "RC-018"
+  ],
+  "universal_core_item_ids": [
+    "RC-001", "RC-004", "RC-005", "RC-007", "RC-009", "RC-010",
+    "RC-011", "RC-014"
+  ],
+  "selectable_item_ids": [
+    "RC-002", "RC-003", "RC-006", "RC-008", "RC-012", "RC-013",
+    "RC-015", "RC-016", "RC-017", "RC-018"
+  ],
+  "classification_notes": [
+    "Universal core means the minimum semantic intersection preserved in every P0, P1 and P2 lesson, not every item present in the institutional source.",
+    "Selectable items remain mathematically governed by the Frozen Contract whenever chosen; exclusion changes curriculum scope, not mathematical truth.",
+    "Every selectable item requires an explicit include/exclude decision. P2 decisions must cite a learner-profile attribute and a pedagogical rationale.",
+    "Additional prerequisite teaching is not an unsupported expansion when it is selected from a separately reviewed bridge contract."
+  ],
+  "common_learning_outcomes": [
+    {
+      "learning_outcome_id": "LO-PI-01",
+      "statement": "Define an eigenpair and distinguish dominant magnitude from largest algebraic value.",
+      "contract_item_ids": ["RC-001", "RC-004", "RC-014"]
+    },
+    {
+      "learning_outcome_id": "LO-PI-02",
+      "statement": "Apply the normalized power-iteration update.",
+      "contract_item_ids": ["RC-005"]
+    },
+    {
+      "learning_outcome_id": "LO-PI-03",
+      "statement": "State the core symmetric convergence conditions and asymptotic rate.",
+      "contract_item_ids": ["RC-007"]
+    },
+    {
+      "learning_outcome_id": "LO-PI-04",
+      "statement": "Estimate the eigenvalue and diagnose convergence using the Rayleigh quotient and residual.",
+      "contract_item_ids": ["RC-009", "RC-010"]
+    },
+    {
+      "learning_outcome_id": "LO-PI-05",
+      "statement": "Trace the complete residual-based power-iteration algorithm.",
+      "contract_item_ids": ["RC-011"]
+    }
+  ],
+  "common_assessment_targets": [
+    {
+      "assessment_target_id": "AT-PI-01",
+      "type": "concept_check",
+      "learning_outcome_ids": ["LO-PI-01", "LO-PI-03"]
+    },
+    {
+      "assessment_target_id": "AT-PI-02",
+      "type": "hand_calculation",
+      "learning_outcome_ids": ["LO-PI-02", "LO-PI-04"]
+    },
+    {
+      "assessment_target_id": "AT-PI-03",
+      "type": "algorithm_trace_or_diagnostic",
+      "learning_outcome_ids": ["LO-PI-05"]
+    }
+  ],
+  "coverage_policy": {
+    "universal_core_required_coverage": 1.0,
+    "selected_item_required_coverage": 1.0,
+    "every_selectable_item_requires_one_decision": true,
+    "undeclared_omission_is_valid": false,
+    "excluded_items_must_not_be_taught_as_in_scope": true
+  }
+}

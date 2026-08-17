@@ -1,0 +1,26 @@
+Create a long-form teaching resource titled “Gradient Descent and Optimisation” for second-year mechanical engineering undergraduates.
+
+The learners have studied calculus, vectors, matrices, and basic Python, but have not studied formal convex optimisation.
+
+Use mechanical-engineering examples where pedagogically useful, but do not omit or replace any required mathematical topic.
+
+Cover all of the following topics:
+
+- first- and second-order optimality conditions;
+- smoothness, convexity, and strong convexity;
+- gradient descent and step-size selection, including exact line search and Armijo backtracking;
+- convergence results for convex and strongly convex objectives;
+- Heavy Ball and Nesterov acceleration;
+- stochastic-gradient assumptions and step-size conditions;
+- AdaGrad, RMSProp, and Adam;
+- Newton and BFGS methods;
+- the connection between mathematical updates and Python implementation.
+
+1. one conceptual or theoretical-scope exercise;
+2. one hand-calculation exercise involving an objective, its gradient, 
+and one update step;
+3. one Python code-diagnostic exercise containing buggy and corrected code.
+
+Include worked solutions for all three exercises.
+
+Write 2500–3000 English prose words. Aim for approximately 2700 words.
