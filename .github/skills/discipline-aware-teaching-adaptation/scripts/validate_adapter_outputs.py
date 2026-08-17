@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate C2 v3.5 frozen-contract, length, exercise, and code evidence."""
+"""Validate C2 v3.6 frozen-contract, length, exercise, and code evidence."""
 
 from __future__ import annotations
 
@@ -90,6 +90,15 @@ def schema_errors(document, schema: dict, root_schema: dict, path: str = "$") ->
         for part in ref[2:].split("/"):
             target = target[part.replace("~1", "/").replace("~0", "~")]
         return schema_errors(document, target, root_schema, path)
+    if "oneOf" in schema:
+        matches = [
+            candidate
+            for candidate in schema["oneOf"]
+            if not schema_errors(document, candidate, root_schema, path)
+        ]
+        if len(matches) != 1:
+            return [f"{path}: must match exactly one allowed schema"]
+        return []
     if "const" in schema and document != schema["const"]:
         errors.append(f"{path}: must equal {schema['const']!r}")
     if "enum" in schema and document not in schema["enum"]:
@@ -427,14 +436,18 @@ def main() -> int:
                 expression = exercise.get("verification", {}).get("python_expression")
                 expected_value = exercise.get("verification", {}).get("expected_value")
                 consistency_checks = exercise.get("verification", {}).get("consistency_checks", [])
-                unified_checks = [check for check in consistency_checks if check.get("kind") == "objective_gradient_update"]
+                unified_kinds = {"objective_gradient", "objective_gradient_update", "power_iteration_step"}
+                unified_checks = [check for check in consistency_checks if check.get("kind") in unified_kinds]
                 if method in {"deterministic_calculation", "combined"} and expected_value is None:
                     protocol_valid = False
                     errors.append(f"{exercise.get('exercise_id')}: deterministic verification requires expected_value")
                 elif method in {"deterministic_calculation", "combined"} and unified_checks:
-                    if len(unified_checks) != 1 or expression is not None:
+                    if len(unified_checks) != 1 or expression is not None or unified_checks[0].get("expected_value") != expected_value:
                         protocol_valid = False
-                        errors.append(f"{exercise.get('exercise_id')}: objective-gradient-update verification requires exactly one unified check and null python_expression")
+                        errors.append(f"{exercise.get('exercise_id')}: structured deterministic verification requires exactly one unified check, the same expected value, and null python_expression")
+                elif method in {"deterministic_calculation", "combined"} and exercise.get("exercise_type") == "hand_calculation":
+                    protocol_valid = False
+                    errors.append(f"{exercise.get('exercise_id')}: hand_calculation requires a supported unified structured checker")
                 elif method in {"deterministic_calculation", "combined"} and not isinstance(expression, str):
                     protocol_valid = False
                     errors.append(f"{exercise.get('exercise_id')}: non-unified deterministic verification requires python_expression")
@@ -453,7 +466,7 @@ def main() -> int:
                     variables = check.get("variables", [])
                     point = check.get("point", [])
                     check_expected = check.get("expected_value")
-                    if len(variables) != len(point):
+                    if kind in {"objective_gradient", "objective_gradient_update", "expression_values"} and len(variables) != len(point):
                         protocol_valid = False
                         errors.append(f"{exercise.get('exercise_id')}/{check.get('check_id')}: point length must match variables")
                     if kind == "objective_gradient":
@@ -472,6 +485,16 @@ def main() -> int:
                                 or check_expected != expected_value):
                             protocol_valid = False
                             errors.append(f"{exercise.get('exercise_id')}/{check.get('check_id')}: objective_gradient_update must bind one objective, point, positive step, expected gradient, and the same expected update used by the exercise")
+                    elif kind == "power_iteration_step":
+                        matrix = check.get("matrix", [])
+                        initial_vector = check.get("initial_vector", [])
+                        square = bool(matrix) and all(isinstance(row, list) and len(row) == len(matrix) for row in matrix)
+                        if (not square or len(initial_vector) != len(matrix)
+                                or not isinstance(check.get("normalize_initial"), bool)
+                                or not isinstance(check_expected, dict)
+                                or check_expected != expected_value):
+                            protocol_valid = False
+                            errors.append(f"{exercise.get('exercise_id')}/{check.get('check_id')}: power_iteration_step requires a square matrix, a matching initial vector, normalization choice, and the same structured result used by the exercise")
                     elif kind == "expression_values":
                         component_expressions = check.get("expressions", [])
                         expected_length = len(check_expected) if isinstance(check_expected, list) else 1

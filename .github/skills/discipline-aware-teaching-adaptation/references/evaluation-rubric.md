@@ -12,7 +12,7 @@ Score each dimension from 1 to 5 and cite section IDs, Contract item IDs, or val
 - pedagogical coherence: progression and prerequisite bridges are defensible, instructional content is completed before the final exercise chapter, and exercises assess already-taught material;
 - learner readability: headings expose the conceptual structure, paragraphs have one main purpose, transitions are concise, and necessary caveats are not repeatedly restated;
 - analogy safety: mappings have explicit limitations;
-- exercise validity: tasks are solvable from stated data, objective-gradient-update quantities share one computation chain, visible derivation results agree with checked values, expected output agrees with executed stdout, and difficulty suits the learner;
+- exercise validity: tasks are solvable from stated data, each hand calculation uses a topic-matched unified computation chain, visible derivation results agree with computed and checked values, expected output agrees with executed stdout, and difficulty suits the learner;
 
 Do not mark the artifact internally ready when `treatment_valid` is false, the Frozen Contract binding fails, the requested prose interval is missed, a required item is uncovered, a conditional item is unaccounted for, planned headings are missing, an exercise lacks its solution/RC mapping/configured check, a visible numeric/output claim disagrees with deterministic evidence, a substantial analogy has no boundary, or visible audit language and repeated caveats materially interrupt the lesson.
 

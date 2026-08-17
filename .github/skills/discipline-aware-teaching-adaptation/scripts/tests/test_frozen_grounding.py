@@ -73,7 +73,7 @@ class FrozenGroundingTests(unittest.TestCase):
             self.assertNotEqual(rejected.returncode, 0)
             self.assertIn("missing release gate report", rejected.stderr)
 
-    def test_v35_validator_links_length_derivation_calculation_and_stdout(self) -> None:
+    def test_v36_validator_links_length_derivation_calculation_and_stdout(self) -> None:
         with tempfile.TemporaryDirectory() as raw_temp:
             run_dir = Path(raw_temp)
             completed = self.prepare(run_dir)
@@ -104,9 +104,9 @@ class FrozenGroundingTests(unittest.TestCase):
                     "provider": "test-provider",
                     "model": "test-model",
                     "access_route": "unit-test",
-                    "prompt_version": "3.5",
-                    "agent_version": "3.5",
-                    "skill_version": "3.5",
+                    "prompt_version": "3.6",
+                    "agent_version": "3.6",
+                    "skill_version": "3.6",
                     "run_date": datetime.now(timezone.utc).isoformat(),
                     "source_ids": source_ids,
                     "grounding_receipt_file": "grounding_receipt.json",

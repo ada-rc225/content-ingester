@@ -174,45 +174,164 @@ def safe_model_eval(expression: str, variables: list[str], point: list[float]):
     return value, gradient
 
 
-def validate_consistency_check(check: dict) -> tuple[bool, str, object | None]:
-    kind = check.get("kind")
+def validate_objective_gradient(check: dict) -> dict:
     variables = check.get("variables")
     point = check.get("point")
     expected = check.get("expected_value")
     tolerance = check.get("absolute_tolerance", 0.0)
     check_id = check.get("check_id", "unnamed-check")
-    if kind == "objective_gradient":
-        value, actual = safe_model_eval(check.get("objective_expression"), variables, point)
-        passed = values_close(actual, expected, tolerance)
-        return passed, f"{check_id}: objective value={value!r}; gradient={actual!r}; expected={expected!r}", None
-    if kind == "objective_gradient_update":
-        value, gradient = safe_model_eval(check.get("objective_expression"), variables, point)
-        step_size = checked_number(check.get("step_size"))
-        if float(step_size) <= 0:
-            raise ValueError("objective_gradient_update step_size must be positive")
-        numeric_point = [float(checked_number(component)) for component in point]
-        update = [component - float(step_size) * derivative for component, derivative in zip(numeric_point, gradient)]
-        expected_gradient = check.get("expected_gradient")
-        gradient_passed = values_close(gradient, expected_gradient, tolerance)
-        update_passed = values_close(update, expected, tolerance)
-        return (
-            gradient_passed and update_passed,
+    value, actual = safe_model_eval(check.get("objective_expression"), variables, point)
+    return {
+        "passed": values_close(actual, expected, tolerance),
+        "derived_value": actual,
+        "is_unified_chain": True,
+        "details": f"{check_id}: objective value={value!r}; gradient={actual!r}; expected={expected!r}",
+    }
+
+
+def validate_objective_gradient_update(check: dict) -> dict:
+    variables = check.get("variables")
+    point = check.get("point")
+    expected = check.get("expected_value")
+    tolerance = check.get("absolute_tolerance", 0.0)
+    check_id = check.get("check_id", "unnamed-check")
+    value, gradient = safe_model_eval(check.get("objective_expression"), variables, point)
+    step_size = checked_number(check.get("step_size"))
+    if float(step_size) <= 0:
+        raise ValueError("objective_gradient_update step_size must be positive")
+    numeric_point = [float(checked_number(component)) for component in point]
+    update = [component - float(step_size) * derivative for component, derivative in zip(numeric_point, gradient)]
+    expected_gradient = check.get("expected_gradient")
+    return {
+        "passed": values_close(gradient, expected_gradient, tolerance) and values_close(update, expected, tolerance),
+        "derived_value": update,
+        "is_unified_chain": True,
+        "details": (
             f"{check_id}: objective value={value!r}; gradient={gradient!r}; expected gradient={expected_gradient!r}; "
-            f"update={update!r}; expected update={expected!r}",
-            update,
-        )
-    if kind == "expression_values":
-        expressions = check.get("expressions")
-        if not isinstance(expressions, list) or not expressions:
-            raise ValueError("expression_values requires at least one expression")
-        actual_values = [safe_model_eval(expression, variables, point)[0] for expression in expressions]
-        actual = actual_values[0] if not isinstance(expected, list) and len(actual_values) == 1 else actual_values
-        passed = values_close(actual, expected, tolerance)
-        return passed, f"{check_id}: expression values={actual!r}; expected={expected!r}", None
-    raise ValueError(f"unknown consistency-check kind: {kind!r}")
+            f"update={update!r}; expected update={expected!r}"
+        ),
+    }
+
+
+def _numeric_vector(value, label: str) -> list[float]:
+    if not isinstance(value, list) or not value or len(value) > 20:
+        raise ValueError(f"{label} must contain 1-20 numeric components")
+    return [float(checked_number(component)) for component in value]
+
+
+def _matrix_vector_product(matrix: list[list[float]], vector: list[float]) -> list[float]:
+    return [math.fsum(coefficient * component for coefficient, component in zip(row, vector)) for row in matrix]
+
+
+def _euclidean_norm(vector: list[float]) -> float:
+    return math.sqrt(math.fsum(component * component for component in vector))
+
+
+def validate_power_iteration_step(check: dict) -> dict:
+    check_id = check.get("check_id", "unnamed-check")
+    raw_matrix = check.get("matrix")
+    if not isinstance(raw_matrix, list) or not raw_matrix or len(raw_matrix) > 20:
+        raise ValueError("power_iteration_step matrix must contain 1-20 rows")
+    matrix = [_numeric_vector(row, f"matrix row {index}") for index, row in enumerate(raw_matrix, start=1)]
+    dimension = len(matrix)
+    if any(len(row) != dimension for row in matrix):
+        raise ValueError("power_iteration_step matrix must be square")
+    initial = _numeric_vector(check.get("initial_vector"), "initial_vector")
+    if len(initial) != dimension:
+        raise ValueError("power_iteration_step initial_vector dimension must match the matrix")
+
+    initial_norm = _euclidean_norm(initial)
+    if initial_norm == 0.0:
+        raise ValueError("power_iteration_step initial_vector must be nonzero")
+    if check.get("normalize_initial") is True:
+        initial_used = [component / initial_norm for component in initial]
+    elif check.get("normalize_initial") is False:
+        initial_used = initial
+    else:
+        raise ValueError("power_iteration_step normalize_initial must be boolean")
+
+    product = _matrix_vector_product(matrix, initial_used)
+    product_norm = _euclidean_norm(product)
+    if product_norm == 0.0:
+        raise ValueError("power_iteration_step breakdown: A times the initial vector is zero")
+    next_vector = [component / product_norm for component in product]
+    matrix_times_next = _matrix_vector_product(matrix, next_vector)
+    denominator = math.fsum(component * component for component in next_vector)
+    rayleigh_quotient = math.fsum(
+        component * transformed for component, transformed in zip(next_vector, matrix_times_next)
+    ) / denominator
+    residual = [
+        transformed - rayleigh_quotient * component
+        for component, transformed in zip(next_vector, matrix_times_next)
+    ]
+    actual = {
+        "initial_vector_used": initial_used,
+        "product": product,
+        "next_vector": next_vector,
+        "rayleigh_quotient": rayleigh_quotient,
+        "residual": residual,
+        "residual_norm": _euclidean_norm(residual),
+    }
+    expected = check.get("expected_value")
+    tolerance = check.get("absolute_tolerance", 0.0)
+    return {
+        "passed": values_close(actual, expected, tolerance),
+        "derived_value": actual,
+        "is_unified_chain": True,
+        "details": f"{check_id}: power-iteration result={actual!r}; expected={expected!r}",
+    }
+
+
+def validate_expression_values(check: dict) -> dict:
+    variables = check.get("variables")
+    point = check.get("point")
+    expected = check.get("expected_value")
+    tolerance = check.get("absolute_tolerance", 0.0)
+    check_id = check.get("check_id", "unnamed-check")
+    expressions = check.get("expressions")
+    if not isinstance(expressions, list) or not expressions:
+        raise ValueError("expression_values requires at least one expression")
+    declared_variables = set(variables) if isinstance(variables, list) else set()
+    for expression in expressions:
+        tree = ast.parse(expression, mode="eval")
+        referenced_names = {node.id for node in ast.walk(tree) if isinstance(node, ast.Name)}
+        if not referenced_names.intersection(declared_variables):
+            raise ValueError("expression_values expressions must reference at least one declared variable")
+    actual_values = [safe_model_eval(expression, variables, point)[0] for expression in expressions]
+    actual = actual_values[0] if not isinstance(expected, list) and len(actual_values) == 1 else actual_values
+    return {
+        "passed": values_close(actual, expected, tolerance),
+        "derived_value": actual,
+        "is_unified_chain": False,
+        "details": f"{check_id}: expression values={actual!r}; expected={expected!r}",
+    }
+
+
+CHECKERS = {
+    "objective_gradient": validate_objective_gradient,
+    "objective_gradient_update": validate_objective_gradient_update,
+    "power_iteration_step": validate_power_iteration_step,
+    "expression_values": validate_expression_values,
+}
+UNIFIED_CHECK_KINDS = {"objective_gradient", "objective_gradient_update", "power_iteration_step"}
+
+
+def validate_consistency_check(check: dict) -> dict:
+    kind = check.get("kind")
+    checker = CHECKERS.get(kind)
+    if checker is None:
+        raise ValueError(f"unknown consistency-check kind: {kind!r}")
+    return checker(check)
 
 
 def values_close(actual, expected, tolerance: float) -> bool:
+    if isinstance(actual, dict) or isinstance(expected, dict):
+        return (
+            isinstance(actual, dict)
+            and isinstance(expected, dict)
+            and actual.keys() == expected.keys()
+            and all(values_close(actual[key], expected[key], tolerance) for key in actual)
+        )
     if isinstance(actual, list) or isinstance(expected, list):
         return isinstance(actual, list) and isinstance(expected, list) and len(actual) == len(expected) and all(
             values_close(a, b, tolerance) for a, b in zip(actual, expected)
@@ -329,15 +448,16 @@ def main() -> int:
             unified_results = []
             for check in consistency_checks:
                 try:
-                    check_passed, check_detail, derived_value = validate_consistency_check(check)
+                    check_result = validate_consistency_check(check)
+                    check_passed = check_result["passed"]
                     consistency_passed = consistency_passed and check_passed
-                    details.append(check_detail)
-                    if check.get("kind") == "objective_gradient_update":
-                        unified_results.append(derived_value)
+                    details.append(check_result["details"])
+                    if check_result["is_unified_chain"]:
+                        unified_results.append(check_result["derived_value"])
                         unified_calculation_passed = unified_calculation_passed and check_passed
                 except (SyntaxError, TypeError, ValueError, ZeroDivisionError, OverflowError) as exc:
                     consistency_passed = False
-                    if check.get("kind") == "objective_gradient_update":
+                    if check.get("kind") in UNIFIED_CHECK_KINDS:
                         unified_calculation_passed = False
                     details.append(f"{check.get('check_id', 'unnamed-check')}: consistency check failed: {exc}")
             if not consistency_passed:
@@ -351,9 +471,14 @@ def main() -> int:
                     unified_calculation_passed = unified_calculation_passed and len(unified_results) == 1 and expression is None
                     calculated = unified_results[0] if len(unified_results) == 1 else None
                     if not unified_calculation_passed:
-                        details.append("objective-gradient-update verification requires exactly one unified chain and no free python_expression")
+                        details.append("structured deterministic verification requires exactly one unified chain and no free python_expression")
                     calculation_passed = unified_calculation_passed and values_close(calculated, expected, tolerance)
-                    details.append(f"unified objective-gradient-update chain produced {calculated!r}; expected {expected!r}")
+                    details.append(f"unified structured checker produced {calculated!r}; expected {expected!r}")
+                elif item.get("exercise_type") == "hand_calculation":
+                    unified_calculation_passed = False
+                    calculation_passed = False
+                    calculated = None
+                    details.append("hand_calculation requires exactly one supported unified structured checker")
                 else:
                     try:
                         calculated = safe_numeric_eval(expression)

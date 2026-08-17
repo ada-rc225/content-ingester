@@ -84,33 +84,126 @@
             "properties": {
               "method": {"type": "string", "enum": ["contract_binding", "deterministic_calculation", "code_execution", "combined"]},
               "python_expression": {"type": ["string", "null"]},
-              "expected_value": {"type": ["number", "array", "null"], "items": {"type": "number"}},
+              "expected_value": {"$ref": "#/$defs/verificationExpectedValue"},
               "absolute_tolerance": {"type": "number", "minimum": 0},
               "consistency_checks": {
                 "type": "array",
                 "maxItems": 10,
-                "items": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": ["check_id", "kind", "objective_expression", "expressions", "variables", "point", "step_size", "expected_gradient", "expected_value", "absolute_tolerance"],
-                  "properties": {
-                    "check_id": {"type": "string", "pattern": "^CK-[0-9]{3,}$"},
-                    "kind": {"type": "string", "enum": ["objective_gradient", "objective_gradient_update", "expression_values"]},
-                    "objective_expression": {"type": ["string", "null"], "maxLength": 500},
-                    "expressions": {"type": "array", "maxItems": 20, "items": {"type": "string", "minLength": 1, "maxLength": 500}},
-                    "variables": {"type": "array", "minItems": 1, "maxItems": 10, "uniqueItems": true, "items": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}},
-                    "point": {"type": "array", "minItems": 1, "maxItems": 10, "items": {"type": "number"}},
-                    "step_size": {"type": ["number", "null"], "minimum": 0},
-                    "expected_gradient": {"type": ["array", "null"], "items": {"type": "number"}},
-                    "expected_value": {"type": ["number", "array"], "items": {"type": "number"}},
-                    "absolute_tolerance": {"type": "number", "minimum": 0}
-                  }
-                }
+                "items": {"$ref": "#/$defs/consistencyCheck"}
               }
             }
           }
         }
       }
+    }
+  },
+  "$defs": {
+    "numericVector": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": {"type": "number"}
+    },
+    "numericMatrix": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": {"$ref": "#/$defs/numericVector"}
+    },
+    "powerIterationResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["initial_vector_used", "product", "next_vector", "rayleigh_quotient", "residual", "residual_norm"],
+      "properties": {
+        "initial_vector_used": {"$ref": "#/$defs/numericVector"},
+        "product": {"$ref": "#/$defs/numericVector"},
+        "next_vector": {"$ref": "#/$defs/numericVector"},
+        "rayleigh_quotient": {"type": "number"},
+        "residual": {"$ref": "#/$defs/numericVector"},
+        "residual_norm": {"type": "number"}
+      }
+    },
+    "verificationExpectedValue": {
+      "oneOf": [
+        {"type": "number"},
+        {"$ref": "#/$defs/numericVector"},
+        {"$ref": "#/$defs/powerIterationResult"},
+        {"type": "null"}
+      ]
+    },
+    "consistencyCheck": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["check_id", "kind", "objective_expression", "variables", "point", "expected_value", "absolute_tolerance"],
+          "properties": {
+            "check_id": {"type": "string", "pattern": "^CK-[0-9]{3,}$"},
+            "kind": {"const": "objective_gradient"},
+            "objective_expression": {"type": "string", "minLength": 1, "maxLength": 500},
+            "variables": {"type": "array", "minItems": 1, "maxItems": 10, "uniqueItems": true, "items": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}},
+            "point": {"$ref": "#/$defs/numericVector"},
+            "expected_value": {"$ref": "#/$defs/numericVector"},
+            "absolute_tolerance": {"type": "number", "minimum": 0},
+            "expressions": {"type": "array", "maxItems": 0},
+            "step_size": {"type": "null"},
+            "expected_gradient": {"type": "null"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["check_id", "kind", "objective_expression", "variables", "point", "step_size", "expected_gradient", "expected_value", "absolute_tolerance"],
+          "properties": {
+            "check_id": {"type": "string", "pattern": "^CK-[0-9]{3,}$"},
+            "kind": {"const": "objective_gradient_update"},
+            "objective_expression": {"type": "string", "minLength": 1, "maxLength": 500},
+            "variables": {"type": "array", "minItems": 1, "maxItems": 10, "uniqueItems": true, "items": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}},
+            "point": {"$ref": "#/$defs/numericVector"},
+            "step_size": {"type": "number", "minimum": 0},
+            "expected_gradient": {"$ref": "#/$defs/numericVector"},
+            "expected_value": {"$ref": "#/$defs/numericVector"},
+            "absolute_tolerance": {"type": "number", "minimum": 0},
+            "expressions": {"type": "array", "maxItems": 0}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["check_id", "kind", "matrix", "initial_vector", "normalize_initial", "expected_value", "absolute_tolerance"],
+          "properties": {
+            "check_id": {"type": "string", "pattern": "^CK-[0-9]{3,}$"},
+            "kind": {"const": "power_iteration_step"},
+            "matrix": {"$ref": "#/$defs/numericMatrix"},
+            "initial_vector": {"$ref": "#/$defs/numericVector"},
+            "normalize_initial": {"type": "boolean"},
+            "expected_value": {"$ref": "#/$defs/powerIterationResult"},
+            "absolute_tolerance": {"type": "number", "minimum": 0}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["check_id", "kind", "expressions", "variables", "point", "expected_value", "absolute_tolerance"],
+          "properties": {
+            "check_id": {"type": "string", "pattern": "^CK-[0-9]{3,}$"},
+            "kind": {"const": "expression_values"},
+            "expressions": {"type": "array", "minItems": 1, "maxItems": 20, "items": {"type": "string", "minLength": 1, "maxLength": 500}},
+            "variables": {"type": "array", "minItems": 1, "maxItems": 10, "uniqueItems": true, "items": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}},
+            "point": {"$ref": "#/$defs/numericVector"},
+            "expected_value": {
+              "oneOf": [
+                {"type": "number"},
+                {"$ref": "#/$defs/numericVector"}
+              ]
+            },
+            "absolute_tolerance": {"type": "number", "minimum": 0},
+            "objective_expression": {"type": "null"},
+            "step_size": {"type": "null"},
+            "expected_gradient": {"type": "null"}
+          }
+        }
+      ]
     }
   }
 }
