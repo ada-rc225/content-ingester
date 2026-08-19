@@ -1,0 +1,244 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rq2-evaluation-judgement.schema.json",
+  "title": "RQ2 blind evaluation judgement",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "protocol_id",
+    "sample_id",
+    "evaluator",
+    "primary_pedagogy_judgements",
+    "exploratory_judgements",
+    "learning_goal_judgements",
+    "selection_quality",
+    "selected_item_judgements",
+    "formula_judgements",
+    "algorithm_judgements",
+    "unsupported_claims",
+    "dependency_coherence",
+    "overall_recommendation"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "protocol_id": {"const": "RQ2-EVAL-v1"},
+    "sample_id": {"type": "string", "minLength": 1},
+    "evaluator": {"$ref": "#/$defs/evaluator"},
+    "primary_pedagogy_judgements": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {"$ref": "#/$defs/primaryRating"}
+    },
+    "exploratory_judgements": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {"$ref": "#/$defs/exploratoryRating"}
+    },
+    "learning_goal_judgements": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/goalJudgement"}
+    },
+    "selection_quality": {"$ref": "#/$defs/selectionQuality"},
+    "selected_item_judgements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/itemJudgement"}
+    },
+    "formula_judgements": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/formulaJudgement"}
+    },
+    "algorithm_judgements": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/algorithmJudgement"}
+    },
+    "unsupported_claims": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/unsupportedClaim"}
+    },
+    "dependency_coherence": {"$ref": "#/$defs/dependencyJudgement"},
+    "overall_recommendation": {"$ref": "#/$defs/overallRecommendation"}
+  },
+  "$defs": {
+    "confidence": {"enum": ["low", "medium", "high"]},
+    "evidence": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "evaluator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evaluator_id", "provider", "model", "access_route", "prompt_version", "pass_index", "evaluated_at"],
+      "properties": {
+        "evaluator_id": {"type": "string", "minLength": 1},
+        "provider": {"type": "string", "minLength": 1},
+        "model": {"type": "string", "minLength": 1},
+        "access_route": {"type": "string", "minLength": 1},
+        "prompt_version": {"const": "RQ2-EVAL-v1"},
+        "pass_index": {"type": "integer", "minimum": 1},
+        "evaluated_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "ratingBase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dimension", "score", "evidence_excerpts", "rationale", "confidence", "abstain"],
+      "properties": {
+        "dimension": {"type": "string"},
+        "score": {"type": ["integer", "null"], "minimum": 1, "maximum": 5},
+        "evidence_excerpts": {"$ref": "#/$defs/evidence"},
+        "rationale": {"type": "string", "minLength": 1},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "abstain": {"type": "boolean"}
+      }
+    },
+    "primaryRating": {
+      "allOf": [
+        {"$ref": "#/$defs/ratingBase"},
+        {"properties": {"dimension": {"enum": ["disciplinary_framing_appropriateness", "prerequisite_match", "context_boundary_awareness", "sequence_quality"]}}}
+      ]
+    },
+    "exploratoryRating": {
+      "allOf": [
+        {"$ref": "#/$defs/ratingBase"},
+        {"properties": {"dimension": {"const": "example_authenticity"}}}
+      ]
+    },
+    "goalJudgement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["capability_id", "priority", "coverage", "evidence_excerpts", "rationale", "confidence", "abstain"],
+      "properties": {
+        "capability_id": {"type": "string", "minLength": 1},
+        "priority": {"enum": ["required", "optional"]},
+        "coverage": {"enum": ["complete", "partial", "missing", "uncertain"]},
+        "evidence_excerpts": {"$ref": "#/$defs/evidence"},
+        "rationale": {"type": "string", "minLength": 1},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "abstain": {"type": "boolean"}
+      }
+    },
+    "selectionRating": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["score", "not_applicable", "evidence_excerpts", "rationale", "confidence", "abstain"],
+      "properties": {
+        "score": {"type": ["integer", "null"], "minimum": 1, "maximum": 5},
+        "not_applicable": {"type": "boolean"},
+        "evidence_excerpts": {"$ref": "#/$defs/evidence"},
+        "rationale": {"type": "string", "minLength": 1},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "abstain": {"type": "boolean"}
+      }
+    },
+    "loadJudgement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "evidence_excerpts", "rationale", "confidence", "abstain"],
+      "properties": {
+        "level": {"enum": ["none", "low", "moderate", "high", "severe", "uncertain"]},
+        "evidence_excerpts": {"$ref": "#/$defs/evidence"},
+        "rationale": {"type": "string", "minLength": 1},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "abstain": {"type": "boolean"}
+      }
+    },
+    "selectionQuality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["inclusion_appropriateness", "exclusion_appropriateness", "unnecessary_content_load", "profile_rationale_quality"],
+      "properties": {
+        "inclusion_appropriateness": {"$ref": "#/$defs/selectionRating"},
+        "exclusion_appropriateness": {"$ref": "#/$defs/selectionRating"},
+        "unnecessary_content_load": {"$ref": "#/$defs/loadJudgement"},
+        "profile_rationale_quality": {"$ref": "#/$defs/selectionRating"}
+      }
+    },
+    "itemJudgement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_id", "coverage", "semantic_correctness", "provenance", "evidence_excerpts", "contract_requirements", "rationale", "confidence", "abstain"],
+      "properties": {
+        "item_id": {"type": "string", "minLength": 1},
+        "coverage": {"enum": ["full", "partial", "omitted", "contradicted", "uncertain"]},
+        "semantic_correctness": {"enum": ["correct", "minor_error", "major_error", "critical_error", "uncertain"]},
+        "provenance": {"enum": ["supported", "unmapped", "uncertain"]},
+        "evidence_excerpts": {"$ref": "#/$defs/evidence"},
+        "contract_requirements": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "rationale": {"type": "string", "minLength": 1},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "abstain": {"type": "boolean"}
+      }
+    },
+    "formulaJudgement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["formula_ref", "item_ids", "occurrence_status", "provenance", "accuracy", "severity", "evidence_excerpts", "rationale", "confidence", "abstain"],
+      "properties": {
+        "formula_ref": {"type": "string", "minLength": 1},
+        "item_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "occurrence_status": {"enum": ["present", "not_present", "uncertain"]},
+        "provenance": {"enum": ["supported", "unmapped", "uncertain", "not_applicable"]},
+        "accuracy": {"enum": ["correct", "incorrect", "uncertain", "not_applicable"]},
+        "severity": {"enum": ["none", "minor", "major", "critical", "uncertain", "not_applicable"]},
+        "evidence_excerpts": {"$ref": "#/$defs/evidence"},
+        "rationale": {"type": "string", "minLength": 1},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "abstain": {"type": "boolean"}
+      }
+    },
+    "algorithmJudgement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_id", "accuracy", "severity", "evidence_excerpts", "rationale", "confidence", "abstain"],
+      "properties": {
+        "item_id": {"type": "string", "minLength": 1},
+        "accuracy": {"enum": ["correct", "incorrect", "uncertain"]},
+        "severity": {"enum": ["none", "minor", "major", "critical", "uncertain"]},
+        "evidence_excerpts": {"$ref": "#/$defs/evidence"},
+        "rationale": {"type": "string", "minLength": 1},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "abstain": {"type": "boolean"}
+      }
+    },
+    "unsupportedClaim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claim_id", "claim_type", "verdict", "severity", "evidence_excerpt", "rationale", "confidence"],
+      "properties": {
+        "claim_id": {"type": "string", "pattern": "^UC-[0-9]{3}$"},
+        "claim_type": {"enum": ["mathematical", "algorithmic", "disciplinary_application", "other_factual"]},
+        "verdict": {"enum": ["unsupported", "contradicted", "not_verifiable"]},
+        "severity": {"enum": ["minor", "major", "critical", "uncertain"]},
+        "evidence_excerpt": {"type": "string", "minLength": 1},
+        "rationale": {"type": "string", "minLength": 1},
+        "confidence": {"$ref": "#/$defs/confidence"}
+      }
+    },
+    "dependencyJudgement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["verdict", "evidence_excerpts", "rationale", "confidence", "abstain"],
+      "properties": {
+        "verdict": {"enum": ["pass", "fail", "uncertain"]},
+        "evidence_excerpts": {"$ref": "#/$defs/evidence"},
+        "rationale": {"type": "string", "minLength": 1},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "abstain": {"type": "boolean"}
+      }
+    },
+    "overallRecommendation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision", "rationale"],
+      "properties": {
+        "decision": {"enum": ["pass", "requires_adjudication", "fail"]},
+        "rationale": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

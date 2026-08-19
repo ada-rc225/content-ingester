@@ -1,0 +1,1039 @@
+{
+  "schema_version": "1.0",
+  "view_type": "adaptive-curriculum-pathway-planning-view",
+  "bindings": {
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+      "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+    },
+    "curriculum_model": {
+      "file": "curriculum-models/power-iteration-v1/release/frozen-contract-dependencies.json",
+      "sha256": "9952915a368244e7110233a06d9976ba76e6ff4f9a702886ff0db20b33170ee6"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/power-iteration-second-year.json",
+      "sha256": "c4cf0c6a4cf53653abab28123b4649dfd6459d894d3f85a310af0200468fe431"
+    },
+    "profile": {
+      "file": "experiments/rq2/profiles/applied-mathematics-year-2.json",
+      "sha256": "303e94d25f3370e895e2a1a119ef3e193dae6a338d66200f83d2aa4b2eb022e2"
+    },
+    "baseline_pathway": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p0/pathway-plan.json",
+      "sha256": "9cf1f1125924467e0bae738180bfdc2df0663dab56316caf849037dcacbe5480"
+    }
+  },
+  "topic": "power iteration",
+  "contract_topic": "Eigenvalues, Eigenvectors, and the Power Iteration",
+  "learning_request": {
+    "request_id": "power-iteration-second-year-v1",
+    "request_version": "1.0.0",
+    "learning_goal": "Understand and apply power iteration, interpret the quality of an approximate eigenpair, and recognise the principal assumptions and limitations that affect convergence.",
+    "target_capabilities": [
+      {
+        "capability_id": "LG-001",
+        "description": "Explain the purpose of power iteration and carry out or trace its matrix-vector multiplication and normalisation update.",
+        "priority": "required"
+      },
+      {
+        "capability_id": "LG-002",
+        "description": "Use an eigenvalue estimate and residual to interpret the quality of an approximate eigenpair and a stopping decision.",
+        "priority": "required"
+      },
+      {
+        "capability_id": "LG-003",
+        "description": "Recognise and explain the main assumptions, failure conditions, or limitations relevant to a selected power-iteration pathway.",
+        "priority": "required"
+      },
+      {
+        "capability_id": "LG-004",
+        "description": "Read, trace, or construct an executable implementation of power iteration with basic input, breakdown, and stopping safeguards.",
+        "priority": "optional"
+      }
+    ],
+    "delivery_constraints": {
+      "target_duration_minutes": 90,
+      "output_form": "one_continuous_student_facing_lesson",
+      "learning_units_are_pages": false,
+      "target_depth": "intermediate",
+      "proof_depth": "profile_adaptive",
+      "implementation_depth": "profile_adaptive"
+    },
+    "selection_policy": {
+      "profile_specific_contract_item_selection_allowed_for_P2": true,
+      "required_capabilities_may_be_removed": false,
+      "all_contract_items_require_include_or_exclude_decisions": true,
+      "selected_hard_dependencies_must_be_satisfied": true,
+      "unreleased_prerequisite_bridges_make_a_plan_provisional": true
+    }
+  },
+  "learner_profile": {
+    "profile_id": "applied-mathematics-year-2-rq2-pilot",
+    "discipline": "applied mathematics",
+    "education_level": "second-year undergraduate",
+    "prior_knowledge": [
+      "linear algebra",
+      "calculus",
+      "proof techniques",
+      "basic numerical computing"
+    ],
+    "missing_or_fragile_prerequisites": [
+      "implementation diagnostics",
+      "floating-point stopping criteria"
+    ],
+    "preferred_representations": [
+      "spectral decomposition",
+      "derivation",
+      "assumption and counterexample analysis"
+    ],
+    "authentic_context_boundary": "Prioritize mathematical structure and counterexamples; applications should motivate rather than replace the core derivation.",
+    "review_status": "requires_discipline_educator_review"
+  },
+  "baseline": {
+    "pathway_id": "power-iteration-p0-v1",
+    "selected_item_ids": [
+      "RC-001",
+      "RC-002",
+      "RC-003",
+      "RC-004",
+      "RC-005",
+      "RC-006",
+      "RC-007",
+      "RC-008",
+      "RC-009",
+      "RC-010",
+      "RC-011",
+      "RC-012",
+      "RC-013",
+      "RC-014",
+      "RC-015",
+      "RC-016",
+      "RC-017",
+      "RC-018"
+    ],
+    "instruction_sequence": [
+      "PI-U01",
+      "PI-U02",
+      "PI-U03",
+      "PI-U04",
+      "PI-U05",
+      "PI-U06",
+      "PI-U07",
+      "PI-U08"
+    ],
+    "learning_units": [
+      {
+        "unit_id": "PI-U01",
+        "unit_type": "contract_content",
+        "purpose": "Eigenpairs and the motivation for iteration",
+        "contract_item_ids": [
+          "RC-001",
+          "RC-002",
+          "RC-014"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [],
+        "learning_goal_ids": [
+          "LG-001",
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-U02",
+        "unit_type": "contract_content",
+        "purpose": "The symmetric spectral setting",
+        "contract_item_ids": [
+          "RC-003",
+          "RC-004"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "PI-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-001",
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-U03",
+        "unit_type": "contract_content",
+        "purpose": "The normalized power update",
+        "contract_item_ids": [
+          "RC-005"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "PI-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-001"
+        ]
+      },
+      {
+        "unit_id": "PI-U04",
+        "unit_type": "contract_content",
+        "purpose": "Convergence mechanism and asymptotic rate",
+        "contract_item_ids": [
+          "RC-006",
+          "RC-007"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "PI-U02",
+          "PI-U03"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-U05",
+        "unit_type": "contract_content",
+        "purpose": "Failure modes and scope boundaries",
+        "contract_item_ids": [
+          "RC-008",
+          "RC-012",
+          "RC-013",
+          "RC-015"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "PI-U03",
+          "PI-U04"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-U06",
+        "unit_type": "contract_content",
+        "purpose": "Rayleigh estimates and residual stopping",
+        "contract_item_ids": [
+          "RC-009",
+          "RC-010"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "PI-U03"
+        ],
+        "learning_goal_ids": [
+          "LG-002"
+        ]
+      },
+      {
+        "unit_id": "PI-U07",
+        "unit_type": "contract_content",
+        "purpose": "Algorithm and optional implementation detail",
+        "contract_item_ids": [
+          "RC-011",
+          "RC-016",
+          "RC-017"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "PI-U06"
+        ],
+        "learning_goal_ids": [
+          "LG-001",
+          "LG-002",
+          "LG-004"
+        ]
+      },
+      {
+        "unit_id": "PI-U08",
+        "unit_type": "contract_content",
+        "purpose": "Worked consolidation",
+        "contract_item_ids": [
+          "RC-018"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "PI-U04",
+          "PI-U07"
+        ],
+        "learning_goal_ids": [
+          "LG-001",
+          "LG-002",
+          "LG-004"
+        ]
+      }
+    ]
+  },
+  "contract_items": [
+    {
+      "item_id": "RC-001",
+      "item_type": "definition",
+      "criticality": "critical",
+      "canonical_statement": "For A in R^{n x n}, a non-zero vector v is an eigenvector when Av=lambda v; lambda is its associated eigenvalue. The non-zero condition is essential.",
+      "canonical_latex": [
+        "Av=\\lambda v."
+      ],
+      "formula_refs": [
+        "FM-001"
+      ],
+      "conditions": [
+        "A is a real n by n matrix.",
+        "v is non-zero."
+      ],
+      "prohibited_drift": [
+        "Do not allow the zero vector as an eigenvector carrying eigenvalue information.",
+        "Do not interchange the roles of v and lambda."
+      ],
+      "hard_dependencies": [],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-002",
+        "RC-003",
+        "RC-014"
+      ],
+      "external_prerequisite_concept_ids": [
+        "matrix-vector-products"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      }
+    },
+    {
+      "item_id": "RC-002",
+      "item_type": "equation",
+      "criticality": "required",
+      "canonical_statement": "Eigenvalues are roots of det(A-lambda I)=0; for large matrices, iterative matrix-vector products are presented as a preferable numerical strategy to explicitly forming the characteristic polynomial.",
+      "canonical_latex": [
+        "\\det(A-\\lambda I)=0."
+      ],
+      "formula_refs": [
+        "FM-002"
+      ],
+      "conditions": [
+        "I is the identity matrix of compatible dimension."
+      ],
+      "prohibited_drift": [
+        "Do not replace the characteristic equation with a different determinant convention without review.",
+        "Do not present the iterative-strategy statement as an exact algebraic equivalence."
+      ],
+      "hard_dependencies": [
+        "RC-001"
+      ],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-001",
+        "RC-005"
+      ],
+      "external_prerequisite_concept_ids": [
+        "determinants-characteristic-polynomials"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      }
+    },
+    {
+      "item_id": "RC-003",
+      "item_type": "theorem",
+      "criticality": "critical",
+      "canonical_statement": "For a real symmetric matrix A=A^T, the spectral theorem supplies an orthonormal basis of real eigenvectors, giving A=Q Lambda Q^T and representing every x as a sum of eigenvector components with c_i=v_i^T x.",
+      "canonical_latex": [
+        "A=Q\\Lambda Q^T,",
+        "\\Lambda=\\operatorname{diag}(\\lambda_1,\\ldots,\\lambda_n).",
+        "x=\\sum_{i=1}^n c_i v_i,\n\\qquad c_i=v_i^T x."
+      ],
+      "formula_refs": [
+        "FM-003",
+        "FM-004",
+        "FM-005"
+      ],
+      "conditions": [
+        "A is real and symmetric.",
+        "Q has eigenvectors as columns and is orthogonal."
+      ],
+      "prohibited_drift": [
+        "Do not claim this orthogonal real decomposition for arbitrary non-symmetric matrices.",
+        "Preserve the coefficient relation c_i=v_i^T x."
+      ],
+      "hard_dependencies": [
+        "RC-001"
+      ],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-004",
+        "RC-006"
+      ],
+      "external_prerequisite_concept_ids": [
+        "orthogonality-and-projection"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      }
+    },
+    {
+      "item_id": "RC-004",
+      "item_type": "assumption",
+      "criticality": "critical",
+      "canonical_statement": "The eigenvalues are ordered by magnitude as |lambda_1|>|lambda_2|>=...>=|lambda_n|, so lambda_1 is unique in magnitude and is the dominant eigenvalue.",
+      "canonical_latex": [
+        "|\\lambda_1|>|\\lambda_2|\\ge\\cdots\\ge|\\lambda_n|."
+      ],
+      "formula_refs": [
+        "FM-006"
+      ],
+      "conditions": [
+        "The strict first inequality is required for a unique dominant magnitude."
+      ],
+      "prohibited_drift": [
+        "Do not replace largest magnitude with largest algebraic value.",
+        "Do not weaken the strict dominant-gap condition when stating the convergence result."
+      ],
+      "hard_dependencies": [
+        "RC-001"
+      ],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-003",
+        "RC-006",
+        "RC-007",
+        "RC-013",
+        "RC-014"
+      ],
+      "external_prerequisite_concept_ids": [],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      }
+    },
+    {
+      "item_id": "RC-005",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "canonical_statement": "Starting from a non-zero x_0, power iteration computes y_{k+1}=Ax_k and normalises x_{k+1}=y_{k+1}/||y_{k+1}||_2; normalisation controls scale without changing direction.",
+      "canonical_latex": [
+        "y_{k+1}=Ax_k,\n\\qquad\nx_{k+1}=\\frac{y_{k+1}}{\\|y_{k+1}\\|_2}."
+      ],
+      "formula_refs": [
+        "FM-007"
+      ],
+      "conditions": [
+        "x_0 is non-zero.",
+        "The normalising denominator is non-zero."
+      ],
+      "prohibited_drift": [
+        "Do not omit normalisation from the displayed update rule.",
+        "Do not describe normalisation as changing the iterate direction."
+      ],
+      "hard_dependencies": [
+        "RC-001"
+      ],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-002",
+        "RC-006",
+        "RC-008",
+        "RC-011"
+      ],
+      "external_prerequisite_concept_ids": [
+        "matrix-vector-products",
+        "vector-norms-and-normalization"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      }
+    },
+    {
+      "item_id": "RC-006",
+      "item_type": "equation",
+      "criticality": "required",
+      "canonical_statement": "Under the symmetric eigenbasis expansion, A^k x_0 separates the dominant term lambda_1^k c_1 v_1 from terms scaled by (lambda_i/lambda_1)^k; a non-zero c_1 and a strict magnitude gap make the subordinate ratios vanish.",
+      "canonical_latex": [
+        "A^k x_0\n=\\sum_{i=1}^n c_i\\lambda_i^k v_i\n=\\lambda_1^k\\left(c_1v_1+\n\\sum_{i=2}^n c_i\\left(\\frac{\\lambda_i}{\\lambda_1}\\right)^k v_i\\right).",
+        "c_1=v_1^Tx_0\\ne0",
+        "\\left|\\frac{\\lambda_i}{\\lambda_1}\\right|^k"
+      ],
+      "formula_refs": [
+        "FM-008",
+        "FM-009",
+        "FM-010"
+      ],
+      "conditions": [
+        "A is in the real symmetric setting with the stated eigenbasis.",
+        "c_1=v_1^T x_0 is non-zero.",
+        "|lambda_1|>|lambda_2|."
+      ],
+      "prohibited_drift": [
+        "Do not drop the initial projection condition.",
+        "Do not claim all components vanish without the magnitude comparison."
+      ],
+      "hard_dependencies": [
+        "RC-003",
+        "RC-004"
+      ],
+      "explanatory_dependencies": [
+        "RC-005"
+      ],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-007",
+        "RC-012",
+        "RC-013"
+      ],
+      "external_prerequisite_concept_ids": [
+        "orthogonality-and-projection"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "Present the spectral expansion and dominant-component conclusion using the repeated-matrix-product update as application context, without requiring the normalised update as a mathematical prerequisite."
+      }
+    },
+    {
+      "item_id": "RC-007",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "canonical_statement": "For a real symmetric matrix, a unique dominant magnitude, non-zero initial projection onto v_1, and no zero Ax_k iterate imply that direction error generally decreases asymptotically at a rate governed by |lambda_2/lambda_1|^k.",
+      "canonical_latex": [
+        "\\left|\\frac{\\lambda_2}{\\lambda_1}\\right|^k."
+      ],
+      "formula_refs": [
+        "FM-011"
+      ],
+      "conditions": [
+        "A is real and symmetric.",
+        "|lambda_1|>|lambda_2|.",
+        "The initial vector has non-zero projection onto v_1.",
+        "No iterate produces Ax_k=0."
+      ],
+      "prohibited_drift": [
+        "Do not state convergence without all three listed assumptions.",
+        "Do not turn the generally asymptotic rate into an unconditional finite-iteration error bound."
+      ],
+      "hard_dependencies": [
+        "RC-004",
+        "RC-005"
+      ],
+      "explanatory_dependencies": [
+        "RC-003",
+        "RC-006"
+      ],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-006",
+        "RC-012",
+        "RC-013",
+        "RC-015"
+      ],
+      "external_prerequisite_concept_ids": [
+        "orthogonality-and-projection"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "State the real-symmetric hypotheses, non-zero dominant projection, no-breakdown condition, and asymptotic rate without presenting the full eigenbasis derivation."
+      }
+    },
+    {
+      "item_id": "RC-008",
+      "item_type": "failure_condition",
+      "criticality": "required",
+      "canonical_statement": "When lambda_1<0, successive normalised iterates may alternate sign; this is not failure because v_1 and -v_1 describe the same eigendirection.",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "The dominant eigenvalue is negative."
+      ],
+      "prohibited_drift": [
+        "Do not interpret sign alternation alone as failure to converge in direction.",
+        "Do not identify v_1 and -v_1 as different eigendirections."
+      ],
+      "hard_dependencies": [
+        "RC-001",
+        "RC-005"
+      ],
+      "explanatory_dependencies": [
+        "RC-014"
+      ],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-005",
+        "RC-010"
+      ],
+      "external_prerequisite_concept_ids": [],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "Explain sign equivalence of eigenvectors locally without the broader largest-magnitude comparison."
+      }
+    },
+    {
+      "item_id": "RC-009",
+      "item_type": "equation",
+      "criticality": "critical",
+      "canonical_statement": "The Rayleigh quotient rho(x_k)=x_k^T A x_k/(x_k^T x_k), reducing to x_k^T A x_k for a normalised vector, estimates lambda_1 as x_k approaches v_1 for symmetric A.",
+      "canonical_latex": [
+        "\\rho(x_k)=\\frac{x_k^TAx_k}{x_k^Tx_k}.",
+        "\\rho(x_k)=x_k^TAx_k."
+      ],
+      "formula_refs": [
+        "FM-012",
+        "FM-013"
+      ],
+      "conditions": [
+        "x_k is non-zero for the quotient.",
+        "The convergence-to-lambda_1 statement uses a symmetric matrix and x_k approaching v_1."
+      ],
+      "prohibited_drift": [
+        "Do not use the simplified quotient for an unnormalised vector without its denominator.",
+        "Do not claim the quotient targets the dominant eigenvalue under conditions not stated in the source."
+      ],
+      "hard_dependencies": [
+        "RC-001"
+      ],
+      "explanatory_dependencies": [
+        "RC-005"
+      ],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-005",
+        "RC-010"
+      ],
+      "external_prerequisite_concept_ids": [
+        "inner-products-and-quadratic-forms"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "Define the Rayleigh quotient for any non-zero vector before connecting it to power-iteration iterates."
+      }
+    },
+    {
+      "item_id": "RC-010",
+      "item_type": "stopping_condition",
+      "criticality": "critical",
+      "canonical_statement": "The eigenpair residual is r_k=Ax_k-rho(x_k)x_k; an exact eigenpair has zero residual, and ||r_k||_2 is a meaningful computational stopping measure because vector differences can be distorted by sign flips.",
+      "canonical_latex": [
+        "r_k=Ax_k-\\rho(x_k)x_k.",
+        "\\|r_k\\|_2"
+      ],
+      "formula_refs": [
+        "FM-014",
+        "FM-015"
+      ],
+      "conditions": [
+        "rho(x_k) is the Rayleigh quotient used with x_k."
+      ],
+      "prohibited_drift": [
+        "Do not replace the residual test with only successive-vector similarity.",
+        "Do not omit the sign ambiguity when interpreting vector differences."
+      ],
+      "hard_dependencies": [
+        "RC-001",
+        "RC-009"
+      ],
+      "explanatory_dependencies": [
+        "RC-005",
+        "RC-008"
+      ],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-008",
+        "RC-009",
+        "RC-011"
+      ],
+      "external_prerequisite_concept_ids": [
+        "inner-products-and-quadratic-forms",
+        "vector-norms-and-normalization"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "Define the residual and its zero-eigenpair property without comparing residual stopping with sign-sensitive iterate differences."
+      }
+    },
+    {
+      "item_id": "RC-011",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "canonical_statement": "The stated algorithm normalises x_0, applies matrix-vector multiplication and normalisation, checks breakdown, computes the Rayleigh estimate and residual, stops when the residual norm is at most epsilon, and otherwise stops after K iterations.",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "x_0 is non-zero.",
+        "epsilon is positive.",
+        "K is the maximum iteration count."
+      ],
+      "prohibited_drift": [
+        "Do not move the breakdown check after division by ||y||_2.",
+        "Do not remove either the residual tolerance stop or the maximum-iteration fallback."
+      ],
+      "hard_dependencies": [
+        "RC-005",
+        "RC-009",
+        "RC-010"
+      ],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-010",
+        "RC-016",
+        "RC-017"
+      ],
+      "external_prerequisite_concept_ids": [],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      }
+    },
+    {
+      "item_id": "RC-012",
+      "item_type": "failure_condition",
+      "criticality": "required",
+      "canonical_statement": "If v_1^T x_0=0, the initial vector has no dominant eigendirection component, exact arithmetic cannot create it, and power iteration will not converge to v_1.",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "The dominant eigenvector is v_1 and the initial projection is exactly zero."
+      ],
+      "prohibited_drift": [
+        "Do not imply that repeated multiplication creates a missing exact eigencomponent.",
+        "Do not treat this case as ordinary slow convergence to v_1."
+      ],
+      "hard_dependencies": [
+        "RC-003",
+        "RC-004",
+        "RC-005"
+      ],
+      "explanatory_dependencies": [
+        "RC-006"
+      ],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-006",
+        "RC-007",
+        "RC-013"
+      ],
+      "external_prerequisite_concept_ids": [
+        "orthogonality-and-projection"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "Use the eigenbasis coefficient statement to explain the missing projection without reproducing the complete convergence expansion."
+      }
+    },
+    {
+      "item_id": "RC-013",
+      "item_type": "failure_condition",
+      "criticality": "required",
+      "canonical_statement": "If the two largest eigenvalue magnitudes are equal, a unique eigenvector need not be selected; if their ratio is close to one while still separated, convergence can be very slow.",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "The equal-magnitude case has |lambda_1|=|lambda_2|.",
+        "The slow-convergence case has |lambda_2/lambda_1| close to one."
+      ],
+      "prohibited_drift": [
+        "Do not conflate non-unique dominance with merely slow convergence.",
+        "Do not promise a unique eigenvector when the dominant magnitude is repeated."
+      ],
+      "hard_dependencies": [
+        "RC-004",
+        "RC-005"
+      ],
+      "explanatory_dependencies": [
+        "RC-006",
+        "RC-007"
+      ],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-006",
+        "RC-007",
+        "RC-012"
+      ],
+      "external_prerequisite_concept_ids": [],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "Explain tied dominant magnitude and slow convergence using the magnitude ratio without presenting the full component derivation."
+      }
+    },
+    {
+      "item_id": "RC-014",
+      "item_type": "definition",
+      "criticality": "required",
+      "canonical_statement": "Power iteration targets the eigenvalue of largest magnitude, not necessarily the most positive eigenvalue; between 5 and -8, -8 is dominant by magnitude.",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "Eigenvalues are compared by absolute value."
+      ],
+      "prohibited_drift": [
+        "Do not describe the target as the largest algebraic eigenvalue.",
+        "Preserve the negative example's conclusion."
+      ],
+      "hard_dependencies": [
+        "RC-001"
+      ],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-004",
+        "RC-008"
+      ],
+      "external_prerequisite_concept_ids": [],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      }
+    },
+    {
+      "item_id": "RC-015",
+      "item_type": "assumption",
+      "criticality": "supporting",
+      "canonical_statement": "Although power iteration applies to some non-symmetric matrices, the clean orthogonal decomposition is not generally available; defective matrices, complex dominant eigenvalues, and non-normal behaviour require additional care and are outside these notes' scope.",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "The core convergence explanation is restricted to the real symmetric setting."
+      ],
+      "prohibited_drift": [
+        "Do not generalise the symmetric proof or convergence claim to all non-symmetric matrices."
+      ],
+      "hard_dependencies": [
+        "RC-001"
+      ],
+      "explanatory_dependencies": [
+        "RC-003",
+        "RC-007"
+      ],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-003",
+        "RC-007"
+      ],
+      "external_prerequisite_concept_ids": [],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "State that the clean orthogonal real decomposition and bounded convergence explanation are restricted to the symmetric setting, without teaching the full symmetric proof."
+      }
+    },
+    {
+      "item_id": "RC-016",
+      "item_type": "code_semantics",
+      "criticality": "required",
+      "canonical_statement": "The Python implementation converts A and x0 to floating NumPy arrays, requires A to be square and x0 to have compatible one-dimensional shape, rejects a zero initial vector, and normalises x before iteration.",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "NumPy is available.",
+        "A and x0 can be converted to floating arrays."
+      ],
+      "prohibited_drift": [
+        "Do not remove the square-matrix, dimension, or non-zero-initial-vector checks.",
+        "Do not silently change the stated exception behaviour."
+      ],
+      "hard_dependencies": [
+        "RC-005"
+      ],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [
+        "RC-011"
+      ],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-011",
+        "RC-017"
+      ],
+      "external_prerequisite_concept_ids": [
+        "numpy-vector-operations",
+        "vector-norms-and-normalization"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      }
+    },
+    {
+      "item_id": "RC-017",
+      "item_type": "code_semantics",
+      "criticality": "critical",
+      "canonical_statement": "Each Python iteration computes y=A@x, raises RuntimeError when A@x is zero, normalises x, computes the Rayleigh estimate and residual norm, returns early when residual_norm<=tolerance, and otherwise returns the final values at max_iterations.",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "The iteration range is 1 through max_iterations inclusive.",
+        "The returned tuple is (eigenvalue, x, residual_norm, iteration count)."
+      ],
+      "prohibited_drift": [
+        "Do not divide by a zero y norm before raising the breakdown error.",
+        "Do not change the residual-based early return or the four-value return structure."
+      ],
+      "hard_dependencies": [
+        "RC-005",
+        "RC-009",
+        "RC-010"
+      ],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [
+        "RC-011",
+        "RC-016"
+      ],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-011",
+        "RC-016"
+      ],
+      "external_prerequisite_concept_ids": [
+        "numpy-vector-operations",
+        "vector-norms-and-normalization"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      }
+    },
+    {
+      "item_id": "RC-018",
+      "item_type": "worked_result",
+      "criticality": "required",
+      "canonical_statement": "For A=[[4,1],[1,2]] with x0=(1,1), the exact eigenvalues are 3+sqrt(2) and 3-sqrt(2); the implementation should estimate the dominant value 3+sqrt(2) and produce a small residual.",
+      "canonical_latex": [
+        "3+\\sqrt{2}\n\\quad\\text{and}\\quad\n3-\\sqrt{2}."
+      ],
+      "formula_refs": [
+        "FM-016"
+      ],
+      "conditions": [
+        "The implementation is run with the supplied initial vector and default parameters."
+      ],
+      "prohibited_drift": [
+        "Do not identify 3-sqrt(2) as the dominant eigenvalue for this matrix.",
+        "Do not treat a small residual as requiring a particular sign of the eigenvector."
+      ],
+      "hard_dependencies": [
+        "RC-001",
+        "RC-009",
+        "RC-010"
+      ],
+      "explanatory_dependencies": [
+        "RC-002",
+        "RC-004",
+        "RC-014"
+      ],
+      "implementation_dependencies": [
+        "RC-017"
+      ],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-009",
+        "RC-010",
+        "RC-017"
+      ],
+      "external_prerequisite_concept_ids": [
+        "numpy-vector-operations"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "Supply the exact eigenvalues as given, identify the example-specific dominant eigenvalue by a short local magnitude comparison, and check the dominant estimate and residual without deriving the characteristic polynomial or revisiting the general magnitude distinction."
+      }
+    }
+  ],
+  "external_prerequisite_concepts": [
+    {
+      "concept_id": "matrix-vector-products",
+      "name": "Matrix-vector products",
+      "need_type": "required",
+      "supports_item_ids": [
+        "RC-001",
+        "RC-005"
+      ],
+      "bridge_candidate_id": "BR-MATRIX-VECTOR-PRODUCTS-v1",
+      "status": "candidate",
+      "content_boundary": "Interpret and compute A x for a real square matrix and a compatible vector; exclude matrix multiplication theory beyond what the Contract items use.",
+      "rationale": "Eigenpair equations and every power update require matrix-vector multiplication."
+    },
+    {
+      "concept_id": "vector-norms-and-normalization",
+      "name": "Euclidean vector norms and normalization",
+      "need_type": "required",
+      "supports_item_ids": [
+        "RC-005",
+        "RC-010",
+        "RC-016",
+        "RC-017"
+      ],
+      "bridge_candidate_id": "BR-VECTOR-NORMS-NORMALIZATION-v1",
+      "status": "candidate",
+      "content_boundary": "Define the Euclidean norm, normalize a non-zero vector, and recognize zero-vector breakdown; exclude general normed-space theory.",
+      "rationale": "Normalization and residual norms are operational requirements of the selected algorithm and implementation."
+    },
+    {
+      "concept_id": "orthogonality-and-projection",
+      "name": "Orthogonality, orthonormal bases, and projection coefficients",
+      "need_type": "required",
+      "supports_item_ids": [
+        "RC-003",
+        "RC-006",
+        "RC-012",
+        "RC-007"
+      ],
+      "bridge_candidate_id": "BR-ORTHOGONALITY-PROJECTION-v1",
+      "status": "candidate",
+      "content_boundary": "Use inner products to explain orthogonality, orthonormal bases, and scalar projection coefficients v_i^T x; exclude the spectral theorem and eigenbasis expansion because those belong to RC-003 and RC-006.",
+      "rationale": "The convergence condition needs minimal projection knowledge, while the spectral expansion and missing-projection failure depend on the Contract's orthogonal coordinates."
+    },
+    {
+      "concept_id": "determinants-characteristic-polynomials",
+      "name": "Determinants and characteristic polynomials",
+      "need_type": "required",
+      "supports_item_ids": [
+        "RC-002"
+      ],
+      "bridge_candidate_id": "BR-DETERMINANTS-CHARACTERISTIC-POLYNOMIALS-v1",
+      "status": "candidate",
+      "content_boundary": "Interpret det(A-lambda I)=0 for small matrices; exclude symbolic algorithms for large characteristic polynomials.",
+      "rationale": "Within RC-002, determinants and characteristic polynomials are required to understand the characteristic-equation route when that item is selected; pathway-level optionality must not weaken this item-level prerequisite."
+    },
+    {
+      "concept_id": "inner-products-and-quadratic-forms",
+      "name": "Inner products and quadratic forms",
+      "need_type": "required",
+      "supports_item_ids": [
+        "RC-009",
+        "RC-010"
+      ],
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-QUADRATIC-FORMS-v1",
+      "status": "candidate",
+      "content_boundary": "Compute x^T A x, x^T x, and compatible scalar-vector expressions used by the Rayleigh quotient and residual; exclude general quadratic-form classification.",
+      "rationale": "The Rayleigh quotient and its use in the residual require these operations."
+    },
+    {
+      "concept_id": "numpy-vector-operations",
+      "name": "Basic NumPy vector operations",
+      "need_type": "required",
+      "supports_item_ids": [
+        "RC-016",
+        "RC-017",
+        "RC-018"
+      ],
+      "bridge_candidate_id": "BR-NUMPY-VECTOR-OPERATIONS-v1",
+      "status": "candidate",
+      "content_boundary": "Use array conversion, shape inspection, matrix-vector multiplication, norms, comparisons, exceptions, and tuple returns needed by the Contract implementation; exclude unrelated NumPy APIs.",
+      "rationale": "The implementation and worked runtime result require reading or writing the specified NumPy routine."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/curriculum-release-report.schema.json",
+  "title": "Curriculum Model Release Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "release_gate", "status", "released_at", "model_id",
+    "source_contract", "approval", "inputs", "outputs", "bridge_release_status"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "release_gate": {"const": "curriculum-model-release-gate-v1"},
+    "status": {"const": "released"},
+    "released_at": {"type": "string", "format": "date-time"},
+    "model_id": {"type": "string", "minLength": 1},
+    "source_contract": {"type": "object"},
+    "approval": {"type": "object"},
+    "inputs": {"type": "object"},
+    "outputs": {"type": "object"},
+    "bridge_release_status": {"const": "not_released"}
+  }
+}

@@ -1,0 +1,899 @@
+{
+  "schema_version": "1.0",
+  "pathway_id": "power-iteration-p2-mechanical-engineering-bridge-resolved-v1",
+  "condition": "P2",
+  "plan_status": "complete",
+  "topic": "power iteration",
+  "source_authorities": {
+    "reference_contract": {
+      "contract_id": "power-iteration",
+      "contract_version": "1.0.0",
+      "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+      "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+    },
+    "curriculum_model": {
+      "model_id": "power-iteration-dependencies-v2",
+      "file": "curriculum-models/power-iteration-v1/release/frozen-contract-dependencies.json",
+      "sha256": "9952915a368244e7110233a06d9976ba76e6ff4f9a702886ff0db20b33170ee6",
+      "release_report_file": "curriculum-models/power-iteration-v1/release/curriculum-release-report.json",
+      "release_report_sha256": "00cb1d50225b2c7120a3abb0475968f2af63b2099b7630cc1f8b5e9c12f95bf6"
+    }
+  },
+  "profile_binding": {
+    "profile_id": "mechanical-engineering-year-2-rq2-pilot",
+    "file": "experiments/rq2/profiles/mechanical-engineering-year-2.json",
+    "sha256": "12e0e94788e63f0429809c10a0da94113c1ec0b9e9fee0302045220d102e2307"
+  },
+  "profile_concept_assessment_binding": {
+    "artifact_id": "mechanical-engineering-year-2-concept-assessment-v2",
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-02/profile-concept-assessment.json",
+    "sha256": "fbbfbd996be6a2a6d286b723739de4c2ac8d063d3b04e197b15b53b5406fd777"
+  },
+  "learning_request_binding": {
+    "request_id": "power-iteration-second-year-v1",
+    "request_version": "1.0.0",
+    "file": "experiments/rq2/learning-requests/power-iteration-second-year.json",
+    "sha256": "c4cf0c6a4cf53653abab28123b4649dfd6459d894d3f85a310af0200468fe431"
+  },
+  "baseline_pathway_binding": {
+    "pathway_id": "power-iteration-p0-v1",
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p0/pathway-plan.json",
+    "sha256": "9cf1f1125924467e0bae738180bfdc2df0663dab56316caf849037dcacbe5480"
+  },
+  "selection_authority": "dependency_aware_planner",
+  "selection": {
+    "all_contract_item_ids": [
+      "RC-001",
+      "RC-002",
+      "RC-003",
+      "RC-004",
+      "RC-005",
+      "RC-006",
+      "RC-007",
+      "RC-008",
+      "RC-009",
+      "RC-010",
+      "RC-011",
+      "RC-012",
+      "RC-013",
+      "RC-014",
+      "RC-015",
+      "RC-016",
+      "RC-017",
+      "RC-018"
+    ],
+    "selected_item_ids": [
+      "RC-001",
+      "RC-003",
+      "RC-004",
+      "RC-005",
+      "RC-006",
+      "RC-007",
+      "RC-008",
+      "RC-009",
+      "RC-010",
+      "RC-011",
+      "RC-012",
+      "RC-013",
+      "RC-014",
+      "RC-015",
+      "RC-016",
+      "RC-017",
+      "RC-018"
+    ],
+    "excluded_item_ids": [
+      "RC-002"
+    ],
+    "decisions": [
+      {
+        "item_id": "RC-001",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Retain the eigenpair foundation needed to interpret a mode-shape direction and the power update.",
+        "profile_basis": [
+          {
+            "profile_field": "preferred_representations",
+            "evidence": "mode shapes"
+          }
+        ]
+      },
+      {
+        "item_id": "RC-002",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Exclude the characteristic-polynomial route because determinant and characteristic-polynomial mastery is not established and the selected pathway focuses on iterative modal computation using the preferred matrix-vector-update representation; RC-018 uses the Contract-permitted fallback.",
+        "profile_basis": [
+          {
+            "profile_field": "preferred_representations",
+            "evidence": "matrix-vector updates"
+          },
+          {
+            "profile_field": "prior_knowledge",
+            "evidence": "determinant and characteristic-polynomial mastery is not established"
+          }
+        ]
+      },
+      {
+        "item_id": "RC-003",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Retain the symmetric spectral setting as the controlled idealized modal-analysis bridge and convergence context.",
+        "profile_basis": [
+          {
+            "profile_field": "authentic_context_boundary",
+            "evidence": "Use idealized modal analysis as a pedagogical bridge"
+          }
+        ]
+      },
+      {
+        "item_id": "RC-004",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Make the unique dominant-magnitude assumption explicit so engineering users can judge when the method applies.",
+        "profile_basis": [
+          {
+            "profile_field": "authentic_context_boundary",
+            "evidence": "Do not claim that every engineering eigenproblem is symmetric or solved by basic power iteration"
+          }
+        ]
+      },
+      {
+        "item_id": "RC-005",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Prioritise the matrix-vector update and normalization requested by the preferred representation and learning goal.",
+        "profile_basis": [
+          {
+            "profile_field": "preferred_representations",
+            "evidence": "matrix-vector updates"
+          }
+        ]
+      },
+      {
+        "item_id": "RC-006",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Use a bounded convergence explanation to connect repeated updates to the dominant mode without requiring formal convergence analysis.",
+        "profile_basis": [
+          {
+            "profile_field": "missing_or_fragile_prerequisites",
+            "evidence": "formal convergence analysis"
+          }
+        ]
+      },
+      {
+        "item_id": "RC-007",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Retain the convergence result at profile-adaptive depth, emphasizing hypotheses and interpretation rather than a full proof.",
+        "profile_basis": [
+          {
+            "profile_field": "missing_or_fragile_prerequisites",
+            "evidence": "formal convergence analysis"
+          }
+        ]
+      },
+      {
+        "item_id": "RC-008",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Keep sign-equivalence as a practical interpretation safeguard for mode-shape directions.",
+        "profile_basis": [
+          {
+            "profile_field": "preferred_representations",
+            "evidence": "mode shapes"
+          }
+        ]
+      },
+      {
+        "item_id": "RC-009",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Use the Rayleigh estimate to connect the iterate to an engineering eigenvalue estimate.",
+        "profile_basis": [
+          {
+            "profile_field": "preferred_representations",
+            "evidence": "numerical residuals"
+          }
+        ]
+      },
+      {
+        "item_id": "RC-010",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Make residual magnitude the principal numerical quality and stopping signal.",
+        "profile_basis": [
+          {
+            "profile_field": "preferred_representations",
+            "evidence": "numerical residuals"
+          }
+        ]
+      },
+      {
+        "item_id": "RC-011",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Retain the executable algorithm so the learner can trace the update, estimate, residual, and stopping decision.",
+        "profile_basis": [
+          {
+            "profile_field": "prior_knowledge",
+            "evidence": "basic Python/NumPy"
+          }
+        ]
+      },
+      {
+        "item_id": "RC-012",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Include missing dominant projection as a limitation that prevents an apparently plausible modal path from converging as expected.",
+        "profile_basis": [
+          {
+            "profile_field": "missing_or_fragile_prerequisites",
+            "evidence": "formal convergence analysis"
+          }
+        ]
+      },
+      {
+        "item_id": "RC-013",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Include tied or poorly separated dominant magnitudes as an application limitation affecting iteration speed.",
+        "profile_basis": [
+          {
+            "profile_field": "missing_or_fragile_prerequisites",
+            "evidence": "formal convergence analysis"
+          }
+        ]
+      },
+      {
+        "item_id": "RC-014",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Retain the largest-magnitude eigenvalue interpretation needed for selecting and interpreting the dominant mode.",
+        "profile_basis": [
+          {
+            "profile_field": "preferred_representations",
+            "evidence": "mode shapes"
+          }
+        ]
+      },
+      {
+        "item_id": "RC-015",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Preserve the boundary that the clean symmetric explanation is not a claim about every engineering eigenproblem.",
+        "profile_basis": [
+          {
+            "profile_field": "authentic_context_boundary",
+            "evidence": "do not claim that every engineering eigenproblem is symmetric"
+          }
+        ]
+      },
+      {
+        "item_id": "RC-016",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Retain input and shape safeguards while keeping implementation detail subordinate to the modal interpretation.",
+        "profile_basis": [
+          {
+            "profile_field": "prior_knowledge",
+            "evidence": "basic Python/NumPy"
+          }
+        ]
+      },
+      {
+        "item_id": "RC-017",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Retain breakdown handling, residual stopping, and return semantics as basic safeguards for an executable pathway.",
+        "profile_basis": [
+          {
+            "profile_field": "preferred_representations",
+            "evidence": "numerical residuals"
+          }
+        ]
+      },
+      {
+        "item_id": "RC-018",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Use one worked numerical consolidation framed as an idealized modal-analysis example.",
+        "profile_basis": [
+          {
+            "profile_field": "authentic_context_boundary",
+            "evidence": "Use idealized modal analysis as a pedagogical bridge"
+          }
+        ]
+      }
+    ]
+  },
+  "learning_goal_mappings": [
+    {
+      "capability_id": "LG-001",
+      "supporting_item_ids": [
+        "RC-001",
+        "RC-005",
+        "RC-011",
+        "RC-014",
+        "RC-017",
+        "RC-018"
+      ],
+      "coverage": "complete",
+      "rationale": "The modal eigenpair purpose and largest-magnitude interpretation are connected to the normalized update, algorithm trace, executable semantics, and worked consolidation."
+    },
+    {
+      "capability_id": "LG-002",
+      "supporting_item_ids": [
+        "RC-009",
+        "RC-010",
+        "RC-011",
+        "RC-017",
+        "RC-018"
+      ],
+      "coverage": "complete",
+      "rationale": "Executable residual stopping and the worked interpretation of the eigenvalue estimate and residual support numerical estimation and quality assessment."
+    },
+    {
+      "capability_id": "LG-003",
+      "supporting_item_ids": [
+        "RC-003",
+        "RC-004",
+        "RC-006",
+        "RC-007",
+        "RC-008",
+        "RC-012",
+        "RC-013",
+        "RC-014",
+        "RC-015"
+      ],
+      "coverage": "complete",
+      "rationale": "The bounded dominant-component mechanism is presented alongside assumptions, convergence results, sign interpretation, failure conditions, magnitude interpretation, and the engineering scope boundary."
+    },
+    {
+      "capability_id": "LG-004",
+      "supporting_item_ids": [
+        "RC-016",
+        "RC-017",
+        "RC-018",
+        "RC-011"
+      ],
+      "coverage": "complete",
+      "rationale": "The safeguarded algorithm, input handling, executable semantics, and worked result collectively support tracing or constructing the implementation."
+    }
+  ],
+  "learning_units": [
+    {
+      "unit_id": "PI-ME-U01",
+      "unit_type": "contract_content",
+      "purpose": "Modal eigenpairs",
+      "contract_item_ids": [
+        "RC-001"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [],
+      "learning_goal_ids": [
+        "LG-001"
+      ]
+    },
+    {
+      "unit_id": "PI-ME-U02",
+      "unit_type": "contract_content",
+      "purpose": "The dominant mode",
+      "contract_item_ids": [
+        "RC-014"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-ME-U01"
+      ],
+      "learning_goal_ids": [
+        "LG-003",
+        "LG-001"
+      ]
+    },
+    {
+      "unit_id": "BRIDGE-002",
+      "unit_type": "prerequisite_bridge",
+      "purpose": "Prerequisite bridge: Orthogonality, orthonormal bases, and projection coefficients",
+      "contract_item_ids": [],
+      "bridge_contract_id": "BRC-ORTHOGONALITY-PROJECTION-v1",
+      "prerequisite_unit_ids": [
+        "PI-ME-U01"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "PI-ME-U03",
+      "unit_type": "contract_content",
+      "purpose": "The idealized symmetric modal setting",
+      "contract_item_ids": [
+        "RC-003"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-ME-U01",
+        "BRIDGE-002"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "PI-ME-U04",
+      "unit_type": "contract_content",
+      "purpose": "The dominant-magnitude assumption",
+      "contract_item_ids": [
+        "RC-004"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-ME-U01"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "BRIDGE-001",
+      "unit_type": "prerequisite_bridge",
+      "purpose": "Prerequisite bridge: Euclidean vector norms and normalization",
+      "contract_item_ids": [],
+      "bridge_contract_id": "BRC-VECTOR-NORMS-NORMALIZATION-v1",
+      "prerequisite_unit_ids": [
+        "PI-ME-U01"
+      ],
+      "learning_goal_ids": [
+        "LG-001",
+        "LG-002",
+        "LG-004"
+      ]
+    },
+    {
+      "unit_id": "PI-ME-U05",
+      "unit_type": "contract_content",
+      "purpose": "Matrix-vector updating and normalization",
+      "contract_item_ids": [
+        "RC-005"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-ME-U01",
+        "BRIDGE-001"
+      ],
+      "learning_goal_ids": [
+        "LG-001"
+      ]
+    },
+    {
+      "unit_id": "PI-ME-U06",
+      "unit_type": "contract_content",
+      "purpose": "Why the dominant mode emerges",
+      "contract_item_ids": [
+        "RC-006"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-ME-U03",
+        "PI-ME-U04",
+        "PI-ME-U05"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "PI-ME-U07",
+      "unit_type": "contract_content",
+      "purpose": "The profile-adaptive convergence result",
+      "contract_item_ids": [
+        "RC-007"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-ME-U03",
+        "PI-ME-U04",
+        "PI-ME-U05",
+        "PI-ME-U06"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "PI-ME-U08",
+      "unit_type": "contract_content",
+      "purpose": "Sign-equivalent mode shapes",
+      "contract_item_ids": [
+        "RC-008"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-ME-U01",
+        "PI-ME-U05",
+        "PI-ME-U02"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "BRIDGE-003",
+      "unit_type": "prerequisite_bridge",
+      "purpose": "Prerequisite bridge: Inner products and quadratic forms",
+      "contract_item_ids": [],
+      "bridge_contract_id": "BRC-INNER-PRODUCTS-QUADRATIC-FORMS-v1",
+      "prerequisite_unit_ids": [
+        "PI-ME-U01",
+        "PI-ME-U05"
+      ],
+      "learning_goal_ids": [
+        "LG-002"
+      ]
+    },
+    {
+      "unit_id": "PI-ME-U09",
+      "unit_type": "contract_content",
+      "purpose": "Rayleigh eigenvalue estimate",
+      "contract_item_ids": [
+        "RC-009"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-ME-U01",
+        "PI-ME-U05",
+        "BRIDGE-003"
+      ],
+      "learning_goal_ids": [
+        "LG-002"
+      ]
+    },
+    {
+      "unit_id": "PI-ME-U10",
+      "unit_type": "contract_content",
+      "purpose": "Residual-based quality and stopping check",
+      "contract_item_ids": [
+        "RC-010"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-ME-U01",
+        "PI-ME-U05",
+        "PI-ME-U08",
+        "PI-ME-U09"
+      ],
+      "learning_goal_ids": [
+        "LG-002"
+      ]
+    },
+    {
+      "unit_id": "PI-ME-U11",
+      "unit_type": "contract_content",
+      "purpose": "Executable algorithm trace",
+      "contract_item_ids": [
+        "RC-011"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-ME-U05",
+        "PI-ME-U09",
+        "PI-ME-U10"
+      ],
+      "learning_goal_ids": [
+        "LG-001",
+        "LG-002",
+        "LG-004"
+      ]
+    },
+    {
+      "unit_id": "PI-ME-U12",
+      "unit_type": "contract_content",
+      "purpose": "Basic implementation input handling",
+      "contract_item_ids": [
+        "RC-016"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-ME-U05",
+        "PI-ME-U11"
+      ],
+      "learning_goal_ids": [
+        "LG-004"
+      ]
+    },
+    {
+      "unit_id": "PI-ME-U13",
+      "unit_type": "contract_content",
+      "purpose": "Breakdown handling, residual stopping, and return semantics",
+      "contract_item_ids": [
+        "RC-017"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-ME-U05",
+        "PI-ME-U09",
+        "PI-ME-U10",
+        "PI-ME-U11",
+        "PI-ME-U12"
+      ],
+      "learning_goal_ids": [
+        "LG-002",
+        "LG-004",
+        "LG-001"
+      ]
+    },
+    {
+      "unit_id": "PI-ME-U14",
+      "unit_type": "contract_content",
+      "purpose": "Missing dominant projection",
+      "contract_item_ids": [
+        "RC-012"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-ME-U03",
+        "PI-ME-U04",
+        "PI-ME-U05",
+        "PI-ME-U06"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "PI-ME-U15",
+      "unit_type": "contract_content",
+      "purpose": "Tied dominant magnitude and slow convergence",
+      "contract_item_ids": [
+        "RC-013"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-ME-U04",
+        "PI-ME-U05",
+        "PI-ME-U06",
+        "PI-ME-U07"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "PI-ME-U16",
+      "unit_type": "contract_content",
+      "purpose": "Scope boundary for non-symmetric engineering problems",
+      "contract_item_ids": [
+        "RC-015"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-ME-U01",
+        "PI-ME-U03",
+        "PI-ME-U07"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "PI-ME-U17",
+      "unit_type": "contract_content",
+      "purpose": "Idealized modal-analysis worked consolidation: Supply the exact eigenvalues as given, identify the example-specific dominant eigenvalue by a short local magnitude comparison, and check the dominant estimate and residual without deriving the characteristic polynomial or revisiting the general magnitude distinction.",
+      "contract_item_ids": [
+        "RC-018"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-ME-U01",
+        "PI-ME-U09",
+        "PI-ME-U10",
+        "PI-ME-U13",
+        "PI-ME-U04",
+        "PI-ME-U02"
+      ],
+      "learning_goal_ids": [
+        "LG-001",
+        "LG-002",
+        "LG-004"
+      ]
+    }
+  ],
+  "instruction_sequence": [
+    "PI-ME-U01",
+    "PI-ME-U02",
+    "BRIDGE-002",
+    "PI-ME-U03",
+    "PI-ME-U04",
+    "BRIDGE-001",
+    "PI-ME-U05",
+    "PI-ME-U08",
+    "BRIDGE-003",
+    "PI-ME-U09",
+    "PI-ME-U10",
+    "PI-ME-U11",
+    "PI-ME-U12",
+    "PI-ME-U13",
+    "PI-ME-U06",
+    "PI-ME-U07",
+    "PI-ME-U14",
+    "PI-ME-U15",
+    "PI-ME-U16",
+    "PI-ME-U17"
+  ],
+  "bridge_requirements": [
+    {
+      "requirement_id": "BRQ-001",
+      "concept_id": "vector-norms-and-normalization",
+      "bridge_candidate_id": "BR-VECTOR-NORMS-NORMALIZATION-v1",
+      "required_by_item_ids": [
+        "RC-005",
+        "RC-010",
+        "RC-016",
+        "RC-017"
+      ],
+      "learner_mastery": "fragile",
+      "resolution_status": "released",
+      "released_bridge_contract_id": "BRC-VECTOR-NORMS-NORMALIZATION-v1",
+      "rationale": "Normalization and residual operations are central to the selected update and safeguards, while the profile does not explicitly establish mastery. Resolved by released bridge BRC-VECTOR-NORMS-NORMALIZATION-v1 from power-iteration-bridge-library-v1."
+    },
+    {
+      "requirement_id": "BRQ-002",
+      "concept_id": "orthogonality-and-projection",
+      "bridge_candidate_id": "BR-ORTHOGONALITY-PROJECTION-v1",
+      "required_by_item_ids": [
+        "RC-003",
+        "RC-006",
+        "RC-007",
+        "RC-012"
+      ],
+      "learner_mastery": "unknown",
+      "resolution_status": "released",
+      "released_bridge_contract_id": "BRC-ORTHOGONALITY-PROJECTION-v1",
+      "rationale": "The selected symmetric convergence explanation and missing-projection limitation require projection concepts not evidenced in the profile. Resolved by released bridge BRC-ORTHOGONALITY-PROJECTION-v1 from power-iteration-bridge-library-v1."
+    },
+    {
+      "requirement_id": "BRQ-003",
+      "concept_id": "inner-products-and-quadratic-forms",
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-QUADRATIC-FORMS-v1",
+      "required_by_item_ids": [
+        "RC-009",
+        "RC-010"
+      ],
+      "learner_mastery": "fragile",
+      "resolution_status": "released",
+      "released_bridge_contract_id": "BRC-INNER-PRODUCTS-QUADRATIC-FORMS-v1",
+      "rationale": "Rayleigh and residual calculations use inner-product and quadratic-form operations whose mastery is not explicit. Resolved by released bridge BRC-INNER-PRODUCTS-QUADRATIC-FORMS-v1 from power-iteration-bridge-library-v1."
+    }
+  ],
+  "pathway_changes": [
+    {
+      "change_type": "change_item_selection",
+      "affected_ids": [
+        "RC-002"
+      ],
+      "profile_basis": [
+        {
+          "profile_field": "preferred_representations",
+          "evidence": "matrix-vector updates"
+        },
+        {
+          "profile_field": "prior_knowledge",
+          "evidence": "absence of explicit determinant or characteristic-polynomial knowledge"
+        }
+      ],
+      "rationale": "Exclude RC-002 to maintain an iterative modal-computation pathway; the Contract-permitted fallback is recorded for RC-018."
+    },
+    {
+      "change_type": "regroup_contract_items",
+      "affected_ids": [
+        "RC-001",
+        "RC-003",
+        "RC-004",
+        "RC-006",
+        "RC-007",
+        "RC-008",
+        "RC-009",
+        "RC-010",
+        "RC-011",
+        "RC-012",
+        "RC-013",
+        "RC-014",
+        "RC-015",
+        "RC-016",
+        "RC-017"
+      ],
+      "profile_basis": [
+        {
+          "profile_field": "preferred_representations",
+          "evidence": "mode shapes, matrix-vector updates, numerical residuals"
+        }
+      ],
+      "rationale": "Separate the P0 multi-item groups into auditable modal foundation, assumption, update, estimate, residual, algorithm, implementation, and limitation stages; RC-018 remains a standalone worked-consolidation item."
+    },
+    {
+      "change_type": "reorder_learning_units",
+      "affected_ids": [
+        "PI-ME-U06",
+        "PI-ME-U07",
+        "PI-ME-U08",
+        "PI-ME-U09",
+        "PI-ME-U10",
+        "PI-ME-U11",
+        "PI-ME-U12",
+        "PI-ME-U13",
+        "PI-ME-U14",
+        "PI-ME-U15",
+        "PI-ME-U16"
+      ],
+      "profile_basis": [
+        {
+          "profile_field": "missing_or_fragile_prerequisites",
+          "evidence": "formal convergence analysis"
+        }
+      ],
+      "rationale": "Place sign interpretation, Rayleigh estimation, residual checking, algorithm tracing, and basic implementation before the bounded convergence explanation; retain convergence and engineering limitations before the worked consolidation."
+    },
+    {
+      "change_type": "change_theory_implementation_application_depth",
+      "affected_ids": [
+        "RC-003",
+        "RC-006",
+        "RC-007",
+        "RC-016",
+        "RC-017",
+        "RC-018"
+      ],
+      "profile_basis": [
+        {
+          "profile_field": "missing_or_fragile_prerequisites",
+          "evidence": "formal convergence analysis"
+        },
+        {
+          "profile_field": "prior_knowledge",
+          "evidence": "basic Python/NumPy"
+        },
+        {
+          "profile_field": "authentic_context_boundary",
+          "evidence": "use idealized modal analysis as a pedagogical bridge"
+        }
+      ],
+      "rationale": "Distinguish idealized modal framing, bounded convergence interpretation, basic implementation safeguards, and worked modal consolidation; only RC-018 uses the fallback caused by excluding RC-002."
+    },
+    {
+      "change_type": "add_prerequisite_bridge",
+      "affected_ids": [
+        "BRC-VECTOR-NORMS-NORMALIZATION-v1",
+        "BRC-ORTHOGONALITY-PROJECTION-v1",
+        "BRC-INNER-PRODUCTS-QUADRATIC-FORMS-v1"
+      ],
+      "profile_basis": [
+        {
+          "profile_field": "missing_or_fragile_prerequisites",
+          "evidence": "vector-norms-and-normalization: mastery=fragile; orthogonality-and-projection: mastery=unknown; inner-products-and-quadratic-forms: mastery=fragile"
+        }
+      ],
+      "rationale": "Materialize the previously approved prerequisite requirements from the released bridge catalog before each concept's first consuming Contract unit."
+    }
+  ],
+  "scope_summary": {
+    "selected_contract_item_count": 17,
+    "excluded_contract_item_count": 1,
+    "critical_item_count": 9,
+    "formula_count": 15,
+    "algorithm_or_code_item_count": 4,
+    "released_bridge_count": 3,
+    "estimated_duration_minutes": 90
+  },
+  "rendering_policy": {
+    "output_form": "one_continuous_student_facing_lesson",
+    "learning_units_are_pages": false,
+    "target_duration_minutes": 90
+  },
+  "generated_by": {
+    "producer": "released-bridge-pathway-materializer",
+    "producer_version": "1.0",
+    "method": "released_bridge_materialization",
+    "generated_at": "2026-08-18T22:39:17Z"
+  }
+}

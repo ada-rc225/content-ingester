@@ -1,0 +1,4 @@
+interface:
+  display_name: "Compose Pathway-Constrained Teaching"
+  short_description: "Render controlled lessons from frozen RQ2 pathways"
+  default_prompt: "Use $compose-pathway-constrained-teaching to render and validate one lesson from a complete frozen RQ2 pathway."

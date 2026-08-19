@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/rq2-profile-concept-assessment.schema.json",
+  "title": "RQ2 Learner Profile Concept Assessment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "assessment_id",
+    "assessment_status",
+    "profile_binding",
+    "curriculum_model_binding",
+    "concept_assessments",
+    "generated_by"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "assessment_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*-concept-assessment-v[0-9]+$"
+    },
+    "assessment_status": {
+      "type": "string",
+      "enum": ["provisional", "reviewed"]
+    },
+    "profile_binding": {"$ref": "#/$defs/profileBinding"},
+    "curriculum_model_binding": {"$ref": "#/$defs/modelBinding"},
+    "concept_assessments": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/conceptAssessment"}
+    },
+    "generated_by": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["producer", "producer_version", "generated_at"],
+      "properties": {
+        "producer": {"const": "adaptive-curriculum-pathway-planner"},
+        "producer_version": {"type": "string", "enum": ["1.0", "1.1"]},
+        "generated_at": {"type": "string", "format": "date-time"}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "profileBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_id", "file", "sha256"],
+      "properties": {
+        "profile_id": {"type": "string", "minLength": 1},
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "modelBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model_id", "file", "sha256"],
+      "properties": {
+        "model_id": {"type": "string", "minLength": 1},
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "profileEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_field", "value"],
+      "properties": {
+        "profile_field": {"type": "string", "minLength": 1},
+        "value": {"type": "string", "minLength": 1}
+      }
+    },
+    "conceptAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "concept_id",
+        "concept_name",
+        "mastery",
+        "confidence",
+        "profile_evidence",
+        "rationale"
+      ],
+      "properties": {
+        "concept_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "concept_name": {"type": "string", "minLength": 1},
+        "mastery": {
+          "type": "string",
+          "enum": ["mastered", "fragile", "missing", "unknown"]
+        },
+        "confidence": {
+          "type": "string",
+          "enum": ["low", "medium", "high"]
+        },
+        "profile_evidence": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/profileEvidence"}
+        },
+        "rationale": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

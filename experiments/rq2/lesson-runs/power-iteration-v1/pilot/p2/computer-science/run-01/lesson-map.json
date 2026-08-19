@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "run_id": "power-iteration-p2-computer-science-pilot-run-01",
+  "lesson_file": "lesson.md",
+  "sections": [
+    {
+      "section_id": "SEC-01",
+      "heading": "The eigenpair target",
+      "unit_ids": ["CS-PI-U01"],
+      "contract_item_ids": ["RC-001"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-02",
+      "heading": "The spectral assumptions behind the invariant",
+      "unit_ids": ["CS-PI-U02"],
+      "contract_item_ids": ["RC-014"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-03",
+      "heading": "Norms, normalization, and the update invariant",
+      "unit_ids": ["BRIDGE-002", "CS-PI-U03", "BRIDGE-001", "CS-PI-U04"],
+      "contract_item_ids": ["RC-003", "RC-004", "RC-005"],
+      "bridge_contract_ids": ["BRC-ORTHOGONALITY-PROJECTION-v1", "BRC-VECTOR-NORMS-NORMALIZATION-v1"]
+    },
+    {
+      "section_id": "SEC-04",
+      "heading": "Estimates, inner products, and residuals",
+      "unit_ids": ["BRIDGE-003", "CS-PI-U07", "CS-PI-U08"],
+      "contract_item_ids": ["RC-009", "RC-010"],
+      "bridge_contract_ids": ["BRC-INNER-PRODUCTS-QUADRATIC-FORMS-v1"]
+    },
+    {
+      "section_id": "SEC-05",
+      "heading": "Safeguarded pseudocode and stopping policy",
+      "unit_ids": ["CS-PI-U09"],
+      "contract_item_ids": ["RC-011"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-06",
+      "heading": "NumPy input and iteration semantics",
+      "unit_ids": ["CS-PI-U10", "CS-PI-U11"],
+      "contract_item_ids": ["RC-016", "RC-017"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-07",
+      "heading": "Spectral explanation and failure modes",
+      "unit_ids": ["CS-PI-U05", "CS-PI-U06"],
+      "contract_item_ids": ["RC-006", "RC-007", "RC-008", "RC-012", "RC-013", "RC-015"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-08",
+      "heading": "Worked trace and interpretation",
+      "unit_ids": ["CS-PI-U12"],
+      "contract_item_ids": ["RC-018"],
+      "bridge_contract_ids": []
+    }
+  ]
+}

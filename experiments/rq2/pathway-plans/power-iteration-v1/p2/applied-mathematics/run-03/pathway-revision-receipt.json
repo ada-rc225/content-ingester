@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "mode": "revision",
+  "parent_pathway": {
+    "pathway_id": "power-iteration-p2-applied-mathematics-run-01-revision-v1",
+    "next_pathway_id": "power-iteration-p2-applied-mathematics-run-01-revision-v2",
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-02/pathway-plan.json",
+    "sha256": "bfcaf14f691fcd40c16551a3ff63e0a233948a9dd0177b528e251dfb68a0d9db",
+    "validation_report_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-02/pathway-validation-report.json",
+    "validation_report_sha256": "af027c73966faa86612d1cf808e4edef70e1a2d3e13ff7265e822bf2c6d8be1f"
+  },
+  "parent_assessment": {
+    "assessment_id": "applied-mathematics-year-2-concept-assessment-v2",
+    "next_assessment_id": "applied-mathematics-year-2-concept-assessment-v3",
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-02/profile-concept-assessment.json",
+    "sha256": "33f5aa13a7a92578e40433ea45758d07ea9420333f1557c81f5a5d64b6ffa796"
+  },
+  "parent_review": {
+    "review_id": "power-iteration-p2-applied-mathematics-run-01-revision-v1-review-v1",
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-02/pathway-plan-review.json",
+    "sha256": "ec50dfd5e90f58a3e8a291a692ea8ff06669142baf83c64427aa3c9b8724b48b",
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "applied-mathematics-educator",
+    "reviewed_at": "2026-08-18T15:46:35Z"
+  },
+  "revision_scope": {
+    "selection_reviews": [
+      {
+        "item_id": "RC-016",
+        "fields": [
+          "rationale_and_profile_basis"
+        ],
+        "comment": "Retain the include/supporting decision. Rewrite the rationale to state explicitly that RC-016 provides implementation scaffolding for optional LG-004 and addresses fragile implementation diagnostics without becoming a central mathematical target. Keep the pathway provisional while the NumPy vector-operations bridge remains a candidate."
+      },
+      {
+        "item_id": "RC-017",
+        "fields": [
+          "rationale_and_profile_basis"
+        ],
+        "comment": "Retain the include/supporting decision. Rewrite the rationale to state that RC-010 and RC-011 provide the required mathematical stopping and safeguard concepts, while RC-017 provides executable reinforcement for optional LG-004 and scaffolds the profile\u2019s fragile implementation diagnostics and floating-point stopping knowledge."
+      }
+    ],
+    "concept_reviews": [],
+    "learning_goal_reviews": [],
+    "pathway_change_reviews": [],
+    "structure_review": null,
+    "scope_review": null
+  },
+  "overall_comment": "The run-02 revision correctly implements the reviewed item roles, concept-confidence changes, LG-001 mapping, derivation-first sequence, unit learning-goal correction, pathway-change reconstruction, and profile-appropriate scope. A further limited revision is required to rewrite the RC-016 and RC-017 rationales so that they explicitly describe supporting scaffolding for optional LG-004 relative to the required mathematical targets in RC-010 and RC-011. The pathway must remain provisional until the NumPy vector-operations bridge is released.",
+  "constraints": {
+    "preserve_unmarked_fields": true,
+    "require_new_output_directory": true,
+    "require_new_pathway_and_assessment_ids": true,
+    "do_not_inherit_human_approval": true,
+    "do_not_add_time_limits_or_unit_time_fields": true,
+    "word_count_control_deferred_to_composer": true
+  },
+  "generated_by": {
+    "agent": "adaptive-curriculum-pathway-planner",
+    "agent_version": "1.1",
+    "skill": "plan-adaptive-curriculum-pathways",
+    "skill_version": "1.1",
+    "generated_at": "2026-08-18T15:50:26Z"
+  }
+}

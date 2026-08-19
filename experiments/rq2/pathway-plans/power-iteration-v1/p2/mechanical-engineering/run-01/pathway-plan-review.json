@@ -1,0 +1,824 @@
+{
+  "schema_version": "1.0",
+  "review_id": "power-iteration-p2-mechanical-engineering-year-2-v1-review-v1",
+  "review_status": "revision_required",
+  "candidate_binding": {
+    "pathway_id": "power-iteration-p2-mechanical-engineering-year-2-v1",
+    "pathway_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-01/pathway-plan.json",
+    "pathway_sha256": "f81325414396509b0513da280f23998bb394b9192aefa75e1751b975a486134b",
+    "validation_report_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-01/pathway-validation-report.json",
+    "validation_report_sha256": "6ac4e84e6c3ea3a11c1b7af4d6f8e1b800cbb5746c52800f4540fe11b7cd6e01",
+    "assessment_id": "mechanical-engineering-year-2-concept-assessment-v1",
+    "assessment_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-01/profile-concept-assessment.json",
+    "assessment_sha256": "f52ea4c1fa8e978f7543fde5194c18c3a53cf52bd9079e21cf77cc5a647a9f9a",
+    "profile_id": "mechanical-engineering-year-2-rq2-pilot",
+    "profile_file": "experiments/rq2/profiles/mechanical-engineering-year-2.json",
+    "profile_sha256": "12e0e94788e63f0429809c10a0da94113c1ec0b9e9fee0302045220d102e2307"
+  },
+  "template_generator": {
+    "agent": "adaptive-curriculum-pathway-planner",
+    "agent_version": "1.1",
+    "skill": "plan-adaptive-curriculum-pathways",
+    "skill_version": "1.1",
+    "generated_at": "2026-08-18T03:57:06Z"
+  },
+  "revision_binding": null,
+  "reviewer": {
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "mechanical-engineering-educator"
+  },
+  "selection_reviews": [
+    {
+      "item_id": "RC-001",
+      "item_type": "definition",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-002",
+      "item_type": "equation",
+      "criticality": "required",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Retain the exclusion of RC-002, but remove the fixed-duration justification. Revise the profile basis to cite preferred_representations=matrix-vector updates and explain that determinant and characteristic-polynomial mastery is not established. State that the selected pathway focuses on iterative modal computation and that RC-018 uses the Contract-permitted fallback."
+    },
+    {
+      "item_id": "RC-003",
+      "item_type": "theorem",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-004",
+      "item_type": "assumption",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-005",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-006",
+      "item_type": "equation",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-007",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-008",
+      "item_type": "failure_condition",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-009",
+      "item_type": "equation",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-010",
+      "item_type": "stopping_condition",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-011",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-012",
+      "item_type": "failure_condition",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-013",
+      "item_type": "failure_condition",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-014",
+      "item_type": "definition",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-015",
+      "item_type": "assumption",
+      "criticality": "supporting",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-016",
+      "item_type": "code_semantics",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-017",
+      "item_type": "code_semantics",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-018",
+      "item_type": "worked_result",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    }
+  ],
+  "concept_reviews": [
+    {
+      "concept_id": "matrix-vector-products",
+      "planned_mastery": "mastered",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "vector-norms-and-normalization",
+      "planned_mastery": "fragile",
+      "planned_bridge_status": "candidate",
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "revision_required",
+        "bridge_requirement": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "Retain mastery=fragile, confidence=medium, and the candidate bridge requirement. Remove preferred_representations=numerical residuals from mastery evidence. Use prior_knowledge=vectors and prior_knowledge=basic Python/NumPy as indirect evidence of an operational starting point, while noting that Euclidean normalization and zero-vector breakdown are not explicitly established."
+    },
+    {
+      "concept_id": "orthogonality-and-projection",
+      "planned_mastery": "unknown",
+      "planned_bridge_status": "candidate",
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "revision_required",
+        "bridge_requirement": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "Retain mastery=unknown, confidence=low, and the candidate bridge requirement. Remove preferred_representations=mode shapes from mastery evidence. Use prior_knowledge=vectors and introductory vibration concepts as indirect background, while stating that the profile does not establish orthonormal bases or projection coefficients."
+    },
+    {
+      "concept_id": "determinants-characteristic-polynomials",
+      "planned_mastery": "unknown",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "inner-products-and-quadratic-forms",
+      "planned_mastery": "fragile",
+      "planned_bridge_status": "candidate",
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "revision_required",
+        "bridge_requirement": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "Retain mastery=fragile, confidence=medium, and the candidate bridge requirement. Remove preferred_representations=numerical residuals from mastery evidence. Base the assessment on prior_knowledge=vectors and matrices, while explaining that the profile does not explicitly establish x^T x, x^T A x, or Rayleigh-quotient operations."
+    },
+    {
+      "concept_id": "numpy-vector-operations",
+      "planned_mastery": "mastered",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    }
+  ],
+  "learning_goal_reviews": [
+    {
+      "capability_id": "LG-001",
+      "planned_coverage": "complete",
+      "planned_supporting_item_ids": [
+        "RC-001",
+        "RC-005",
+        "RC-011"
+      ],
+      "field_decisions": {
+        "coverage_and_support": "revision_required",
+        "rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Retain coverage=complete and add RC-014, RC-017, and RC-018 to supporting_item_ids. Revise the rationale to connect the modal eigenpair purpose and largest-magnitude interpretation to the normalized update, algorithm trace, executable semantics, and worked consolidation."
+    },
+    {
+      "capability_id": "LG-002",
+      "planned_coverage": "complete",
+      "planned_supporting_item_ids": [
+        "RC-009",
+        "RC-010",
+        "RC-011"
+      ],
+      "field_decisions": {
+        "coverage_and_support": "revision_required",
+        "rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Retain coverage=complete and add RC-017 and RC-018 to supporting_item_ids. Revise the rationale to include executable residual stopping and worked interpretation of the estimate and residual."
+    },
+    {
+      "capability_id": "LG-003",
+      "planned_coverage": "complete",
+      "planned_supporting_item_ids": [
+        "RC-003",
+        "RC-004",
+        "RC-007",
+        "RC-008",
+        "RC-012",
+        "RC-013",
+        "RC-014",
+        "RC-015"
+      ],
+      "field_decisions": {
+        "coverage_and_support": "revision_required",
+        "rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Retain coverage=complete and add RC-006 to supporting_item_ids. Revise the rationale to include the bounded dominant-component mechanism alongside the assumptions, convergence result, failure conditions, magnitude interpretation, and engineering scope boundary."
+    },
+    {
+      "capability_id": "LG-004",
+      "planned_coverage": "complete",
+      "planned_supporting_item_ids": [
+        "RC-016",
+        "RC-017",
+        "RC-018"
+      ],
+      "field_decisions": {
+        "coverage_and_support": "revision_required",
+        "rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Retain coverage=complete and add RC-011 to supporting_item_ids. Revise the rationale to state that the safeguarded algorithm, input handling, executable semantics, and worked result collectively support tracing or constructing the implementation."
+    }
+  ],
+  "structure_review": {
+    "instruction_sequence": [
+      "PI-ME-U01",
+      "PI-ME-U02",
+      "PI-ME-U03",
+      "PI-ME-U04",
+      "PI-ME-U05",
+      "PI-ME-U06",
+      "PI-ME-U07",
+      "PI-ME-U08",
+      "PI-ME-U09",
+      "PI-ME-U10",
+      "PI-ME-U11",
+      "PI-ME-U12",
+      "PI-ME-U13",
+      "PI-ME-U14",
+      "PI-ME-U15",
+      "PI-ME-U16",
+      "PI-ME-U17"
+    ],
+    "unit_summaries": [
+      {
+        "unit_id": "PI-ME-U01",
+        "unit_type": "contract_content",
+        "purpose": "Modal eigenpairs",
+        "contract_item_ids": [
+          "RC-001"
+        ],
+        "prerequisite_unit_ids": [],
+        "learning_goal_ids": [
+          "LG-001"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U02",
+        "unit_type": "contract_content",
+        "purpose": "The dominant mode",
+        "contract_item_ids": [
+          "RC-014"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U03",
+        "unit_type": "contract_content",
+        "purpose": "The idealized symmetric modal setting",
+        "contract_item_ids": [
+          "RC-003"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U04",
+        "unit_type": "contract_content",
+        "purpose": "The dominant-magnitude assumption",
+        "contract_item_ids": [
+          "RC-004"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U05",
+        "unit_type": "contract_content",
+        "purpose": "Matrix-vector updating and normalization",
+        "contract_item_ids": [
+          "RC-005"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-001"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U06",
+        "unit_type": "contract_content",
+        "purpose": "Why the dominant mode emerges",
+        "contract_item_ids": [
+          "RC-006"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U03",
+          "PI-ME-U04",
+          "PI-ME-U05"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U07",
+        "unit_type": "contract_content",
+        "purpose": "The profile-adaptive convergence result",
+        "contract_item_ids": [
+          "RC-007"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U03",
+          "PI-ME-U04",
+          "PI-ME-U05",
+          "PI-ME-U06"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U08",
+        "unit_type": "contract_content",
+        "purpose": "Sign-equivalent mode shapes",
+        "contract_item_ids": [
+          "RC-008"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01",
+          "PI-ME-U05",
+          "PI-ME-U02"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U09",
+        "unit_type": "contract_content",
+        "purpose": "Rayleigh eigenvalue estimate",
+        "contract_item_ids": [
+          "RC-009"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01",
+          "PI-ME-U05"
+        ],
+        "learning_goal_ids": [
+          "LG-002"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U10",
+        "unit_type": "contract_content",
+        "purpose": "Residual-based quality and stopping check",
+        "contract_item_ids": [
+          "RC-010"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01",
+          "PI-ME-U05",
+          "PI-ME-U08",
+          "PI-ME-U09"
+        ],
+        "learning_goal_ids": [
+          "LG-002"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U11",
+        "unit_type": "contract_content",
+        "purpose": "Executable algorithm trace",
+        "contract_item_ids": [
+          "RC-011"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U05",
+          "PI-ME-U09",
+          "PI-ME-U10"
+        ],
+        "learning_goal_ids": [
+          "LG-001",
+          "LG-002"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U12",
+        "unit_type": "contract_content",
+        "purpose": "Basic implementation input handling",
+        "contract_item_ids": [
+          "RC-016"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U05",
+          "PI-ME-U11"
+        ],
+        "learning_goal_ids": [
+          "LG-004"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U13",
+        "unit_type": "contract_content",
+        "purpose": "Breakdown handling, residual stopping, and return semantics",
+        "contract_item_ids": [
+          "RC-017"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U05",
+          "PI-ME-U09",
+          "PI-ME-U10",
+          "PI-ME-U11",
+          "PI-ME-U12"
+        ],
+        "learning_goal_ids": [
+          "LG-002",
+          "LG-004"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U14",
+        "unit_type": "contract_content",
+        "purpose": "Missing dominant projection",
+        "contract_item_ids": [
+          "RC-012"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U03",
+          "PI-ME-U04",
+          "PI-ME-U05",
+          "PI-ME-U06"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U15",
+        "unit_type": "contract_content",
+        "purpose": "Tied dominant magnitude and slow convergence",
+        "contract_item_ids": [
+          "RC-013"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U04",
+          "PI-ME-U05",
+          "PI-ME-U06",
+          "PI-ME-U07"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U16",
+        "unit_type": "contract_content",
+        "purpose": "Scope boundary for non-symmetric engineering problems",
+        "contract_item_ids": [
+          "RC-015"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01",
+          "PI-ME-U03",
+          "PI-ME-U07"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U17",
+        "unit_type": "contract_content",
+        "purpose": "Supply the exact eigenvalues as given, identify the example-specific dominant eigenvalue by a short local magnitude comparison, and check the dominant estimate and residual without deriving the characteristic polynomial or revisiting the general magnitude distinction.",
+        "contract_item_ids": [
+          "RC-018"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01",
+          "PI-ME-U09",
+          "PI-ME-U10",
+          "PI-ME-U13",
+          "PI-ME-U04",
+          "PI-ME-U02"
+        ],
+        "learning_goal_ids": [
+          "LG-001",
+          "LG-002",
+          "LG-004"
+        ]
+      }
+    ],
+    "field_decisions": {
+      "unit_grouping": "approved",
+      "instruction_sequence": "revision_required",
+      "prerequisite_relations": "approved",
+      "unit_purpose_and_learning_goals": "revision_required"
+    },
+    "decision": "revision_required",
+    "comment": "Retain the current unit grouping and prerequisite relations. Revise the instruction sequence to PI-ME-U01, PI-ME-U02, PI-ME-U03, PI-ME-U04, PI-ME-U05, PI-ME-U08, PI-ME-U09, PI-ME-U10, PI-ME-U11, PI-ME-U12, PI-ME-U13, PI-ME-U06, PI-ME-U07, PI-ME-U14, PI-ME-U15, PI-ME-U16, PI-ME-U17. Add LG-001 to PI-ME-U02, add LG-004 to PI-ME-U11, and add LG-001 to PI-ME-U13. Revise PI-ME-U17 purpose to identify it as an idealized modal-analysis worked consolidation while preserving the exact RC-018 fallback instruction."
+  },
+  "pathway_change_reviews": [
+    {
+      "change_index": 0,
+      "change_type": "change_item_selection",
+      "affected_ids": [
+        "RC-002"
+      ],
+      "field_decisions": {
+        "structural_accuracy": "approved",
+        "profile_basis": "revision_required",
+        "rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Retain change_type=change_item_selection and affected_ids=[RC-002]. Replace the current profile basis with preferred_representations=matrix-vector updates and the absence of explicit determinant or characteristic-polynomial knowledge. Remove the fixed-duration rationale and state that RC-002 is excluded to maintain an iterative modal-computation pathway, with the Contract-permitted fallback recorded for RC-018."
+    },
+    {
+      "change_index": 1,
+      "change_type": "regroup_contract_items",
+      "affected_ids": [
+        "RC-001",
+        "RC-014",
+        "RC-009",
+        "RC-010",
+        "RC-011",
+        "RC-016",
+        "RC-017",
+        "RC-018"
+      ],
+      "field_decisions": {
+        "structural_accuracy": "revision_required",
+        "profile_basis": "approved",
+        "rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Correct affected_ids to RC-001, RC-003, RC-004, RC-006, RC-007, RC-008, RC-009, RC-010, RC-011, RC-012, RC-013, RC-014, RC-015, RC-016, and RC-017. Remove RC-018 because it remains a standalone worked-consolidation item. Rewrite the rationale to state that the P0 multi-item groups are separated into auditable modal foundation, assumption, update, estimate, residual, algorithm, implementation, and limitation stages."
+    },
+    {
+      "change_index": 2,
+      "change_type": "reorder_learning_units",
+      "affected_ids": [
+        "PI-ME-U04",
+        "PI-ME-U05",
+        "PI-ME-U06",
+        "PI-ME-U07"
+      ],
+      "field_decisions": {
+        "structural_accuracy": "revision_required",
+        "profile_basis": "approved",
+        "rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Revise affected_ids to PI-ME-U06, PI-ME-U07, PI-ME-U08, PI-ME-U09, PI-ME-U10, PI-ME-U11, PI-ME-U12, PI-ME-U13, PI-ME-U14, PI-ME-U15, and PI-ME-U16. Apply the reviewed sequence in which sign interpretation, Rayleigh estimation, residual checking, algorithm tracing, and basic implementation precede the bounded convergence explanation; retain convergence and engineering limitations before the worked consolidation."
+    },
+    {
+      "change_index": 3,
+      "change_type": "change_theory_implementation_application_depth",
+      "affected_ids": [
+        "RC-006",
+        "RC-007",
+        "RC-016",
+        "RC-017"
+      ],
+      "field_decisions": {
+        "structural_accuracy": "revision_required",
+        "profile_basis": "revision_required",
+        "rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Revise affected_ids to RC-003, RC-006, RC-007, RC-016, RC-017, and RC-018. Add authentic_context_boundary=use idealized modal analysis as a pedagogical bridge to profile_basis. Remove the inaccurate general reference to explanatory fallbacks: only RC-018 uses the fallback caused by excluding RC-002. Rewrite the rationale to distinguish idealized modal framing, bounded convergence interpretation, basic implementation safeguards, and worked modal consolidation."
+    }
+  ],
+  "scope_review": {
+    "selected_item_ids": [
+      "RC-001",
+      "RC-003",
+      "RC-004",
+      "RC-005",
+      "RC-006",
+      "RC-007",
+      "RC-008",
+      "RC-009",
+      "RC-010",
+      "RC-011",
+      "RC-012",
+      "RC-013",
+      "RC-014",
+      "RC-015",
+      "RC-016",
+      "RC-017",
+      "RC-018"
+    ],
+    "excluded_item_ids": [
+      "RC-002"
+    ],
+    "failure_or_convergence_item_ids": [
+      "RC-004",
+      "RC-007",
+      "RC-008",
+      "RC-012",
+      "RC-013",
+      "RC-015"
+    ],
+    "field_decisions": {
+      "selected_content_scope": "approved",
+      "failure_and_convergence_scope": "approved",
+      "profile_appropriateness": "revision_required"
+    },
+    "decision": "revision_required",
+    "comment": "Retain the 17 selected items, the exclusion of RC-002, and the complete failure/convergence subset. Revise profile appropriateness through the reviewed operational-before-formal-convergence sequence, corrected learning-goal mappings, and accurate modal-analysis depth and scope rationales. Preserve the three candidate bridges and keep the pathway provisional until they are released."
+  },
+  "overall_review": {
+    "decision": "revision_required",
+    "reviewed_at": "2026-08-18T16:30:00Z",
+    "comment": "Revision is required before pathway approval. Retain the exclusion of RC-002 and the selected mathematical, modal, diagnostic, and implementation scope, but correct the RC-002 rationale, remove pedagogical preferences from prerequisite-mastery evidence, complete all four learning-goal mappings, move operational updates and residual-based diagnostics before the bounded convergence explanation, correct unit learning-goal assignments, and align all pathway-change records with the actual modal, structural, and depth adaptations. The revised pathway must remain provisional until the vector-normalisation, orthogonality/projection, and inner-product bridges are released."
+  }
+}

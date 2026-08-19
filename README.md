@@ -224,6 +224,103 @@ The exercise validator checks that all exercises occur in the final planned chap
 
 The deterministic validator requires every core formula to map to a contract item, preserves derivation formulas as reference-only, excludes exercise formulas from the denominator, and requires complete inventory source units rather than short evidence fragments. A passing report establishes provenance and coverage, not mathematical approval: an expert must still review the candidate before changing its lifecycle to `frozen`.
 
+### Build a curriculum dependency candidate
+
+After the Grounding Release Gate produces a released
+`frozen_reference_contract.json`, use the `Grounded Curriculum Dependency
+Builder` agent to propose topic-level RC-item dependencies before learner-pathway
+planning. The builder verifies the release, classifies hard, explanatory,
+implementation, co-requisite, neighbour, fallback, and external-prerequisite
+relationships, and then runs:
+
+```bash
+python3 .github/skills/build-curriculum-dependencies/scripts/validate_dependency_model.py \
+  --workspace-root . \
+  --contract <release-dir>/frozen_reference_contract.json \
+  --candidate <curriculum-model-candidate-dir>/contract-dependencies.json \
+  --output <curriculum-model-candidate-dir>/dependency-validation-report.json
+```
+
+The resulting model is a candidate only. Deterministic validation checks the
+Frozen Contract binding, complete RC-item coverage, relationship integrity,
+acyclic directed dependencies, fallback rules, and prerequisite-candidate
+bindings. It does not approve pedagogical dependency judgements or release
+prerequisite bridges. After validation passes, the same agent also generates
+`curriculum-dependency-review.json`. That file is hash-bound to the candidate
+and validation report and starts with every decision `pending`; it is a review
+form, not evidence of approval.
+
+When a completed review has `revision_required`, invoke the same Builder in
+`revision` mode with the released Contract, parent candidate, parent review, and
+a new output directory. It verifies the review binding, creates
+`dependency-revision-receipt.json`, permits changes only to fields explicitly
+marked `revision_required`, requires the next model version, runs both base and
+revision-scope validators, and creates a fresh all-pending review. Parent
+artifacts are never overwritten and prior approvals are never inherited. A
+Curriculum Model Release Gate must reject pending or revision-required reviews;
+it validates and freezes but never rebuilds candidates.
+
+### Release an approved curriculum dependency model
+
+After the dependency review is independently completed and every populated field
+is explicitly approved, select the `Curriculum Model Release Gate` agent or run:
+
+```bash
+python3 .github/skills/release-curriculum-model/scripts/release_curriculum_model.py \
+  --workspace-root . \
+  --contract <release-dir>/frozen_reference_contract.json \
+  --candidate <candidate-dir>/contract-dependencies.json \
+  --validation-report <candidate-dir>/dependency-validation-report.json \
+  --review <candidate-dir>/curriculum-dependency-review.json \
+  --output-dir <new-curriculum-release-dir>
+```
+
+The gate reruns the base validator and, for a revised candidate, the revision-
+scope validator. It rejects stale hashes, missing records, incomplete decisions,
+and existing output directories. Success atomically creates
+`frozen-contract-dependencies.json`, `frozen-curriculum-review.json`,
+`frozen-curriculum-validation-report.json`,
+`frozen-curriculum-model.sha256`, and `curriculum-release-report.json`.
+Dependency content is preserved; external prerequisite bridges remain candidates
+and require a separate review and release process before pathway generation may
+insert their teaching content.
+
+### Release an approved bridge library
+
+After `Grounded Bridge Library Builder` produces a valid candidate and its
+complete review is approved, select `Bridge Library Release Gate` or run:
+
+```bash
+python3 .github/skills/release-bridge-library/scripts/release_bridge_library.py \
+  --workspace-root . \
+  --candidate <candidate-dir>/bridge-library-candidate.json \
+  --validation-report <candidate-dir>/bridge-library-validation-report.json \
+  --review <candidate-dir>/bridge-library-review.json \
+  --output-dir <new-bridge-release-dir>
+```
+
+The simplified library-level gate reruns bridge validation against the recorded
+Curriculum Model and approved P2 pathways, verifies all review decisions and
+SHA-256 bindings, and atomically publishes `released-bridge-catalog.json` plus
+its frozen review, release validation, checksum, and release report. It changes
+only release-state metadata. Supply the released catalog to downstream pathway
+validation with `--bridge-catalog`.
+
+Use `Released Bridge Pathway Materializer` after release to create a new
+bridge-resolved P2 run. The deterministic materializer binds the approved parent
+pathway/review and released catalog/report, inserts each bridge immediately
+before its first consuming Contract unit, and writes
+`bridge-resolution-receipt.json`. It never edits the approved parent run or
+re-enters adaptive Planner revision mode.
+
+### Compose a frozen RQ2 pathway into a lesson
+
+Select `Pathway-Constrained Teaching Composer` after the final P0, P1, or P2
+pathway validates. Its shared workflow prepares a hash-bound, condition-isolated
+input view, renders one continuous lesson, executes Python blocks, and validates
+the lesson map, pathway order, selected-item scope, released bridges, and shared
+word-count protocol. See `experiments/rq2/README.md` for the P0/P1/P2 commands.
+
 ## Minimal Checklist
 
 1. Approve proposed_structure.json and dependency_graph.md.

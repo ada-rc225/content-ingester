@@ -1,0 +1,381 @@
+{
+  "schema_version": "1.0",
+  "review_id": "power-iteration-dependencies-v1-review-v1",
+  "review_status": "revision_required",
+  "candidate_binding": {
+    "model_id": "power-iteration-dependencies-v1",
+    "candidate_file": "curriculum-models/power-iteration-v1/candidate/contract-dependencies.json",
+    "candidate_sha256": "6f0c214be11913e962eecd60fdeddb458d43bfaf12b59b1d05cbb817be99a89a",
+    "validation_report_file": "curriculum-models/power-iteration-v1/candidate/dependency-validation-report.json",
+    "validation_report_sha256": "10ff70f7415cffb3226d694c1f08e879a65bfc1fa736ad66ee35c35cfa1d8f5a",
+    "source_contract_file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+    "source_contract_sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+  },
+  "template_generator": {
+    "agent": "grounded-curriculum-dependency-builder",
+    "agent_version": "1.0",
+    "skill": "build-curriculum-dependencies",
+    "skill_version": "1.0",
+    "generated_at": "2026-08-17T21:14:18Z"
+  },
+  "reviewer": {
+    "reviewer_id": "tester-001",
+    "reviewer_role": "Curriculum Dependency Reviewer"
+  },
+  "item_reviews": [
+    {
+      "item_id": "RC-001",
+      "field_decisions": {
+        "hard_dependencies": "not_applicable",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-002",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-003",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-004",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-005",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-006",
+      "field_decisions": {
+        "hard_dependencies": "revision_required",
+        "explanatory_dependencies": "revision_required",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "revision_required",
+        "rationale_and_confidence": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Move RC-005 from hard_dependencies to explanatory_dependencies. The spectral expansion requires RC-003 and RC-004, but the normalised update is application context rather than a mathematical prerequisite. Add an explicit repeated-matrix-product fallback and revise the rationale."
+    },
+    {
+      "item_id": "RC-007",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "revision_required",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Add orthogonality-and-projection as an external prerequisite. The fallback omits the full spectral derivation but still relies on understanding a non-zero projection onto v_1. Update the rationale to distinguish minimal projection knowledge from the full RC-003 theorem."
+    },
+    {
+      "item_id": "RC-008",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-009",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-010",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-011",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "revision_required",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "Remove iterative-algorithms-and-stopping from external prerequisites. RC-011 itself introduces the iteration, tolerance, residual stopping rule, and maximum-iteration fallback, so the proposed bridge duplicates Contract content."
+    },
+    {
+      "item_id": "RC-012",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-013",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-014",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-015",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-016",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "approved",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-017",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "approved",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "revision_required",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "Remove iterative-algorithms-and-stopping. RC-011 already provides the algorithm and stopping semantics as an implementation dependency. Retain NumPy operations and vector norms as genuine external prerequisites."
+    },
+    {
+      "item_id": "RC-018",
+      "field_decisions": {
+        "hard_dependencies": "revision_required",
+        "explanatory_dependencies": "revision_required",
+        "implementation_dependencies": "approved",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "revision_required",
+        "rationale_and_confidence": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Move RC-004 from hard_dependencies to explanatory_dependencies. The example-specific dominant eigenvalue can be identified by a short local magnitude comparison. Extend the fallback and rationale accordingly."
+    }
+  ],
+  "external_prerequisite_reviews": [
+    {
+      "concept_id": "matrix-vector-products",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "vector-norms-and-normalization",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "orthogonality-and-projection",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "revision_required",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Add RC-007 to supports_item_ids. Narrow the bridge to inner products, orthogonality, and scalar projection coefficients; exclude the spectral theorem and eigenbasis expansion because those belong to RC-003 and RC-006."
+    },
+    {
+      "concept_id": "determinants-characteristic-polynomials",
+      "field_decisions": {
+        "need_type": "revision_required",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Change need_type from recommended to required conditional on RC-002 being selected. Revise the rationale so that pathway-level optionality is not confused with prerequisite strength within RC-002."
+    },
+    {
+      "concept_id": "inner-products-and-quadratic-forms",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "iterative-algorithms-and-stopping",
+      "field_decisions": {
+        "need_type": "revision_required",
+        "supports_item_ids": "revision_required",
+        "bridge_candidate_id": "revision_required",
+        "content_boundary_and_rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Remove this external prerequisite concept. Its content is already represented by RC-011 and reached by RC-017 through an implementation dependency. If a separate programming prerequisite is later needed, define a narrowly scoped basic-python-control-flow concept rather than duplicating algorithmic Contract content."
+    },
+    {
+      "concept_id": "numpy-vector-operations",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    }
+  ],
+  "overall_review": {
+    "decision": "revision_required",
+    "reviewed_at": "2026-08-17T23:14:18Z",
+    "comment": "Revision required for RC-006, RC-007, RC-011, RC-017, and RC-018. Revise the orthogonality/projection and determinant prerequisite concepts, and remove the iterative-algorithms-and-stopping concept because it duplicates RC-011."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "materializer": "released-bridge-pathway-materializer-v1",
+  "materialized_at": "2026-08-18T22:19:53Z",
+  "rule_id": "first-consuming-unit-v1",
+  "parent_pathway": {
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-03/pathway-plan.json",
+    "sha256": "fad9a6bd91aa954cb0b5e8931f03edcab64990d8b330ec328a7ecd803a08a4a6"
+  },
+  "parent_review": {
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-03/pathway-plan-review.json",
+    "sha256": "9833f870cb9b6cbd9012b311a1a562c1102d961e7fa50483e3cce0ebb3f10589"
+  },
+  "bridge_catalog": {
+    "file": "bridge-library/power-iteration-v1/release/released-bridge-catalog.json",
+    "sha256": "59179ad7d12db14704efc703b817b2564bf5082ac479702643eebecd194e030d"
+  },
+  "bridge_release_report": {
+    "file": "bridge-library/power-iteration-v1/release/bridge-library-release-report.json",
+    "sha256": "0a41257d8143d47ba87a08c44446d6e9bc9b7fca5ca8208d63856165878b9a10"
+  },
+  "resolved_bridges": [
+    {
+      "requirement_id": "BRQ-001",
+      "concept_id": "numpy-vector-operations",
+      "bridge_candidate_id": "BR-NUMPY-VECTOR-OPERATIONS-v1",
+      "bridge_contract_id": "BRC-NUMPY-VECTOR-OPERATIONS-v1",
+      "bridge_unit_id": "BRIDGE-001",
+      "first_consumer_unit_id": "P2-AM-U11",
+      "required_by_item_ids": [
+        "RC-016",
+        "RC-017",
+        "RC-018"
+      ]
+    }
+  ],
+  "output_pathway": {
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-04/pathway-plan.json",
+    "sha256": "afd7ad0d3b5335dbc658291c6ea3f2fe8a170aa634a541e09d6429439b7b018d"
+  }
+}

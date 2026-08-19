@@ -1,0 +1,613 @@
+{
+  "schema_version": "1.0",
+  "model_id": "power-iteration-dependencies-v2",
+  "lifecycle_status": "frozen",
+  "source_contract": {
+    "contract_id": "power-iteration",
+    "contract_version": "1.0.0",
+    "topic": "Eigenvalues, Eigenvectors, and the Power Iteration",
+    "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+    "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+  },
+  "builder": {
+    "agent": "grounded-curriculum-dependency-builder",
+    "agent_version": "1.1",
+    "skill": "build-curriculum-dependencies",
+    "skill_version": "1.1",
+    "generated_at": "2026-08-17T23:00:00Z"
+  },
+  "items": [
+    {
+      "item_id": "RC-001",
+      "hard_dependencies": [],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-002",
+        "RC-003",
+        "RC-014"
+      ],
+      "external_prerequisite_concept_ids": [
+        "matrix-vector-products"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      },
+      "rationale": [
+        "This is the foundational eigenpair definition; it introduces the mathematical objects used by all later items."
+      ],
+      "confidence": "high",
+      "review_status": "approved"
+    },
+    {
+      "item_id": "RC-002",
+      "hard_dependencies": [
+        "RC-001"
+      ],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-001",
+        "RC-005"
+      ],
+      "external_prerequisite_concept_ids": [
+        "determinants-characteristic-polynomials"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      },
+      "rationale": [
+        "The characteristic equation is meaningful only after eigenvalues and eigenvectors have been defined."
+      ],
+      "confidence": "high",
+      "review_status": "approved"
+    },
+    {
+      "item_id": "RC-003",
+      "hard_dependencies": [
+        "RC-001"
+      ],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-004",
+        "RC-006"
+      ],
+      "external_prerequisite_concept_ids": [
+        "orthogonality-and-projection"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      },
+      "rationale": [
+        "The spectral decomposition presupposes the eigenpair definition and external knowledge of orthogonality and projection."
+      ],
+      "confidence": "high",
+      "review_status": "approved"
+    },
+    {
+      "item_id": "RC-004",
+      "hard_dependencies": [
+        "RC-001"
+      ],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-003",
+        "RC-006",
+        "RC-007",
+        "RC-013",
+        "RC-014"
+      ],
+      "external_prerequisite_concept_ids": [],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      },
+      "rationale": [
+        "Magnitude ordering and uniqueness of the dominant eigenvalue require the eigenvalue concept but not the full spectral decomposition."
+      ],
+      "confidence": "high",
+      "review_status": "approved"
+    },
+    {
+      "item_id": "RC-005",
+      "hard_dependencies": [
+        "RC-001"
+      ],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-002",
+        "RC-006",
+        "RC-008",
+        "RC-011"
+      ],
+      "external_prerequisite_concept_ids": [
+        "matrix-vector-products",
+        "vector-norms-and-normalization"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      },
+      "rationale": [
+        "The update is motivated by the eigenpair relation and requires matrix-vector multiplication and non-zero-vector normalization."
+      ],
+      "confidence": "high",
+      "review_status": "approved"
+    },
+    {
+      "item_id": "RC-006",
+      "hard_dependencies": [
+        "RC-003",
+        "RC-004"
+      ],
+      "explanatory_dependencies": [
+        "RC-005"
+      ],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-007",
+        "RC-012",
+        "RC-013"
+      ],
+      "external_prerequisite_concept_ids": [
+        "orthogonality-and-projection"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "Present the spectral expansion and dominant-component conclusion using the repeated-matrix-product update as application context, without requiring the normalised update as a mathematical prerequisite."
+      },
+      "rationale": [
+        "The spectral expansion requires the symmetric eigenbasis, magnitude ordering, and the repeated-matrix-product context; the normalised update is application context rather than a mathematical prerequisite."
+      ],
+      "confidence": "high",
+      "review_status": "approved"
+    },
+    {
+      "item_id": "RC-007",
+      "hard_dependencies": [
+        "RC-004",
+        "RC-005"
+      ],
+      "explanatory_dependencies": [
+        "RC-003",
+        "RC-006"
+      ],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-006",
+        "RC-012",
+        "RC-013",
+        "RC-015"
+      ],
+      "external_prerequisite_concept_ids": [
+        "orthogonality-and-projection"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "State the real-symmetric hypotheses, non-zero dominant projection, no-breakdown condition, and asymptotic rate without presenting the full eigenbasis derivation."
+      },
+      "rationale": [
+        "The result requires the magnitude gap and normalized iteration; minimal knowledge of inner products, orthogonality, and scalar projection coefficients supports the non-zero projection condition, while the spectral theorem and component derivation explain rather than define the bounded convergence statement."
+      ],
+      "confidence": "medium",
+      "review_status": "approved"
+    },
+    {
+      "item_id": "RC-008",
+      "hard_dependencies": [
+        "RC-001",
+        "RC-005"
+      ],
+      "explanatory_dependencies": [
+        "RC-014"
+      ],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-005",
+        "RC-010"
+      ],
+      "external_prerequisite_concept_ids": [],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "Explain sign equivalence of eigenvectors locally without the broader largest-magnitude comparison."
+      },
+      "rationale": [
+        "Sign alternation follows from a negative eigenvalue under the normalized update; RC-014 supplies useful but non-essential magnitude context."
+      ],
+      "confidence": "medium",
+      "review_status": "approved"
+    },
+    {
+      "item_id": "RC-009",
+      "hard_dependencies": [
+        "RC-001"
+      ],
+      "explanatory_dependencies": [
+        "RC-005"
+      ],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-005",
+        "RC-010"
+      ],
+      "external_prerequisite_concept_ids": [
+        "inner-products-and-quadratic-forms"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "Define the Rayleigh quotient for any non-zero vector before connecting it to power-iteration iterates."
+      },
+      "rationale": [
+        "The quotient uses the eigenpair concept and inner products; power iteration supplies its main application but is not needed for the definition."
+      ],
+      "confidence": "high",
+      "review_status": "approved"
+    },
+    {
+      "item_id": "RC-010",
+      "hard_dependencies": [
+        "RC-001",
+        "RC-009"
+      ],
+      "explanatory_dependencies": [
+        "RC-005",
+        "RC-008"
+      ],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-008",
+        "RC-009",
+        "RC-011"
+      ],
+      "external_prerequisite_concept_ids": [
+        "inner-products-and-quadratic-forms",
+        "vector-norms-and-normalization"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "Define the residual and its zero-eigenpair property without comparing residual stopping with sign-sensitive iterate differences."
+      },
+      "rationale": [
+        "The residual uses an eigenpair relation and Rayleigh estimate; the normalized iteration and sign ambiguity explain why it is preferable as a stopping measure."
+      ],
+      "confidence": "medium",
+      "review_status": "approved"
+    },
+    {
+      "item_id": "RC-011",
+      "hard_dependencies": [
+        "RC-005",
+        "RC-009",
+        "RC-010"
+      ],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-010",
+        "RC-016",
+        "RC-017"
+      ],
+      "external_prerequisite_concept_ids": [],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      },
+      "rationale": [
+        "The complete algorithm combines the normalized update, Rayleigh estimate, residual, breakdown check, tolerance, and iteration limit."
+      ],
+      "confidence": "high",
+      "review_status": "approved"
+    },
+    {
+      "item_id": "RC-012",
+      "hard_dependencies": [
+        "RC-003",
+        "RC-004",
+        "RC-005"
+      ],
+      "explanatory_dependencies": [
+        "RC-006"
+      ],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-006",
+        "RC-007",
+        "RC-013"
+      ],
+      "external_prerequisite_concept_ids": [
+        "orthogonality-and-projection"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "Use the eigenbasis coefficient statement to explain the missing projection without reproducing the complete convergence expansion."
+      },
+      "rationale": [
+        "The failure condition uses the symmetric eigenbasis, dominant eigenvalue, normalized update, and the dominant projection coefficient."
+      ],
+      "confidence": "high",
+      "review_status": "approved"
+    },
+    {
+      "item_id": "RC-013",
+      "hard_dependencies": [
+        "RC-004",
+        "RC-005"
+      ],
+      "explanatory_dependencies": [
+        "RC-006",
+        "RC-007"
+      ],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-006",
+        "RC-007",
+        "RC-012"
+      ],
+      "external_prerequisite_concept_ids": [],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "Explain tied dominant magnitude and slow convergence using the magnitude ratio without presenting the full component derivation."
+      },
+      "rationale": [
+        "The limitation depends on magnitude ordering and the iteration; the derivation and convergence result provide deeper justification of the ratio effect."
+      ],
+      "confidence": "medium",
+      "review_status": "approved"
+    },
+    {
+      "item_id": "RC-014",
+      "hard_dependencies": [
+        "RC-001"
+      ],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-004",
+        "RC-008"
+      ],
+      "external_prerequisite_concept_ids": [],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      },
+      "rationale": [
+        "The distinction compares eigenvalues and therefore requires only the eigenpair definition."
+      ],
+      "confidence": "high",
+      "review_status": "approved"
+    },
+    {
+      "item_id": "RC-015",
+      "hard_dependencies": [
+        "RC-001"
+      ],
+      "explanatory_dependencies": [
+        "RC-003",
+        "RC-007"
+      ],
+      "implementation_dependencies": [],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-003",
+        "RC-007"
+      ],
+      "external_prerequisite_concept_ids": [],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "State that the clean orthogonal real decomposition and bounded convergence explanation are restricted to the symmetric setting, without teaching the full symmetric proof."
+      },
+      "rationale": [
+        "The non-symmetric boundary contrasts with the symmetric spectral and convergence statements but can be taught as a concise scope limitation."
+      ],
+      "confidence": "medium",
+      "review_status": "approved"
+    },
+    {
+      "item_id": "RC-016",
+      "hard_dependencies": [
+        "RC-005"
+      ],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [
+        "RC-011"
+      ],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-011",
+        "RC-017"
+      ],
+      "external_prerequisite_concept_ids": [
+        "numpy-vector-operations",
+        "vector-norms-and-normalization"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      },
+      "rationale": [
+        "Input conversion, shape validation, non-zero checks, and initialization implement the normalized algorithm specification."
+      ],
+      "confidence": "high",
+      "review_status": "approved"
+    },
+    {
+      "item_id": "RC-017",
+      "hard_dependencies": [
+        "RC-005",
+        "RC-009",
+        "RC-010"
+      ],
+      "explanatory_dependencies": [],
+      "implementation_dependencies": [
+        "RC-011",
+        "RC-016"
+      ],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-011",
+        "RC-016"
+      ],
+      "external_prerequisite_concept_ids": [
+        "numpy-vector-operations",
+        "vector-norms-and-normalization"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": false,
+        "instruction": null
+      },
+      "rationale": [
+        "Runtime semantics implement the update, Rayleigh quotient, residual stopping, overall algorithm, and validated initialization."
+      ],
+      "confidence": "high",
+      "review_status": "approved"
+    },
+    {
+      "item_id": "RC-018",
+      "hard_dependencies": [
+        "RC-001",
+        "RC-009",
+        "RC-010"
+      ],
+      "explanatory_dependencies": [
+        "RC-002",
+        "RC-004",
+        "RC-014"
+      ],
+      "implementation_dependencies": [
+        "RC-017"
+      ],
+      "co_requisite_item_ids": [],
+      "recommended_neighbours": [
+        "RC-009",
+        "RC-010",
+        "RC-017"
+      ],
+      "external_prerequisite_concept_ids": [
+        "numpy-vector-operations"
+      ],
+      "fallback_when_explanatory_dependencies_omitted": {
+        "allowed": true,
+        "instruction": "Supply the exact eigenvalues as given, identify the example-specific dominant eigenvalue by a short local magnitude comparison, and check the dominant estimate and residual without deriving the characteristic polynomial or revisiting the general magnitude distinction."
+      },
+      "rationale": [
+        "The worked result needs eigenpair, Rayleigh, residual, and runtime implementation concepts; the characteristic equation and the example-specific dominant-eigenvalue comparison are explanatory and can be supplied locally rather than treated as hard prerequisites."
+      ],
+      "confidence": "medium",
+      "review_status": "approved"
+    }
+  ],
+  "external_prerequisite_concepts": [
+    {
+      "concept_id": "matrix-vector-products",
+      "name": "Matrix-vector products",
+      "need_type": "required",
+      "supports_item_ids": [
+        "RC-001",
+        "RC-005"
+      ],
+      "bridge_candidate_id": "BR-MATRIX-VECTOR-PRODUCTS-v1",
+      "status": "candidate",
+      "content_boundary": "Interpret and compute A x for a real square matrix and a compatible vector; exclude matrix multiplication theory beyond what the Contract items use.",
+      "rationale": "Eigenpair equations and every power update require matrix-vector multiplication."
+    },
+    {
+      "concept_id": "vector-norms-and-normalization",
+      "name": "Euclidean vector norms and normalization",
+      "need_type": "required",
+      "supports_item_ids": [
+        "RC-005",
+        "RC-010",
+        "RC-016",
+        "RC-017"
+      ],
+      "bridge_candidate_id": "BR-VECTOR-NORMS-NORMALIZATION-v1",
+      "status": "candidate",
+      "content_boundary": "Define the Euclidean norm, normalize a non-zero vector, and recognize zero-vector breakdown; exclude general normed-space theory.",
+      "rationale": "Normalization and residual norms are operational requirements of the selected algorithm and implementation."
+    },
+    {
+      "concept_id": "orthogonality-and-projection",
+      "name": "Orthogonality, orthonormal bases, and projection coefficients",
+      "need_type": "required",
+      "supports_item_ids": [
+        "RC-003",
+        "RC-006",
+        "RC-012",
+        "RC-007"
+      ],
+      "bridge_candidate_id": "BR-ORTHOGONALITY-PROJECTION-v1",
+      "status": "candidate",
+      "content_boundary": "Use inner products to explain orthogonality, orthonormal bases, and scalar projection coefficients v_i^T x; exclude the spectral theorem and eigenbasis expansion because those belong to RC-003 and RC-006.",
+      "rationale": "The convergence condition needs minimal projection knowledge, while the spectral expansion and missing-projection failure depend on the Contract's orthogonal coordinates."
+    },
+    {
+      "concept_id": "determinants-characteristic-polynomials",
+      "name": "Determinants and characteristic polynomials",
+      "need_type": "required",
+      "supports_item_ids": [
+        "RC-002"
+      ],
+      "bridge_candidate_id": "BR-DETERMINANTS-CHARACTERISTIC-POLYNOMIALS-v1",
+      "status": "candidate",
+      "content_boundary": "Interpret det(A-lambda I)=0 for small matrices; exclude symbolic algorithms for large characteristic polynomials.",
+      "rationale": "Within RC-002, determinants and characteristic polynomials are required to understand the characteristic-equation route when that item is selected; pathway-level optionality must not weaken this item-level prerequisite."
+    },
+    {
+      "concept_id": "inner-products-and-quadratic-forms",
+      "name": "Inner products and quadratic forms",
+      "need_type": "required",
+      "supports_item_ids": [
+        "RC-009",
+        "RC-010"
+      ],
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-QUADRATIC-FORMS-v1",
+      "status": "candidate",
+      "content_boundary": "Compute x^T A x, x^T x, and compatible scalar-vector expressions used by the Rayleigh quotient and residual; exclude general quadratic-form classification.",
+      "rationale": "The Rayleigh quotient and its use in the residual require these operations."
+    },
+    {
+      "concept_id": "numpy-vector-operations",
+      "name": "Basic NumPy vector operations",
+      "need_type": "required",
+      "supports_item_ids": [
+        "RC-016",
+        "RC-017",
+        "RC-018"
+      ],
+      "bridge_candidate_id": "BR-NUMPY-VECTOR-OPERATIONS-v1",
+      "status": "candidate",
+      "content_boundary": "Use array conversion, shape inspection, matrix-vector multiplication, norms, comparisons, exceptions, and tuple returns needed by the Contract implementation; exclude unrelated NumPy APIs.",
+      "rationale": "The implementation and worked runtime result require reading or writing the specified NumPy routine."
+    }
+  ],
+  "review_status": "approved",
+  "approval": {
+    "review_id": "power-iteration-dependencies-v2-review-v1",
+    "reviewer_id": "tester-001",
+    "reviewer_role": "Curriculum Dependency Reviewer",
+    "reviewed_at": "2026-08-18T01:00:29Z",
+    "review_sha256": "8e50347cc93c2035bad9a850a056e4e8edccd20ca10f15ae4edff2781ce1d4d8",
+    "release_gate": "curriculum-model-release-gate-v1",
+    "released_at": "2026-08-18T01:08:04Z"
+  }
+}

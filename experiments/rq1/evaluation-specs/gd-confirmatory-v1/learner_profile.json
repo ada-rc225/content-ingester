@@ -2,12 +2,12 @@
   "profile_id": "mechanical-engineering-year-2",
   "discipline": "mechanical engineering",
   "education_level": "second-year undergraduate",
-  "prior_knowledge": ["calculus", "vectors", "matrices", "eigenvalues", "basic Python"],
-  "computational_background": ["basic Python", "basic NumPy"],
-  "learning_goals": ["formulate unconstrained optimisation problems", "select and apply gradient-based methods", "interpret convergence assumptions", "connect algorithms to mechanical equilibrium and numerical relaxation", "diagnose simple optimisation code"],
-  "preferred_contexts": ["potential energy", "equilibrium", "numerical relaxation", "parameter fitting in a mechanical model"],
-  "target_depth": "undergraduate mathematical formulation with implementation-level algorithms and assumption-aware convergence statements",
-  "proof_depth": "explain theorem hypotheses and intuition; do not require full proofs",
-  "time_budget_minutes": 90,
-  "assumptions_requiring_review": ["a potential-energy analogy is not a universal physical equivalence", "stationarity alone is not sufficient for a minimum", "convergence results apply only under their stated assumptions", "generated exercise scenarios are illustrative rather than empirical claims"]
+  "prior_knowledge": ["calculus", "vectors", "matrices", "basic Python"],
+  "computational_background": ["basic Python", "array-style numerical computation"],
+  "learning_goals": ["Explain optimisation conditions and assumptions.", "Implement and diagnose gradient-based updates in Python.", "Compare first- and second-order methods."],
+  "preferred_contexts": ["mechanical design", "engineering simulation", "numerical Python"],
+  "target_depth": "conceptual understanding with implementation-ready formulae",
+  "proof_depth": "theorem statements and short explanations rather than full proofs",
+  "time_budget_minutes": 120,
+  "assumptions_requiring_review": ["unconstrained objective", "known smoothness constants when rates are quoted", "local rather than global Newton convergence"]
 }

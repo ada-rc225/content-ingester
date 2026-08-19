@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/dependency-revision-receipt.schema.json",
+  "title": "Dependency Revision Receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "mode", "source_contract", "parent_candidate",
+    "parent_review", "revision_scope", "constraints", "generated_by"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "mode": {"const": "revision"},
+    "source_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file", "sha256"],
+      "properties": {
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "parent_candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model_id", "next_model_id", "file", "sha256",
+        "validation_report_file", "validation_report_sha256"
+      ],
+      "properties": {
+        "model_id": {"$ref": "#/$defs/modelId"},
+        "next_model_id": {"$ref": "#/$defs/modelId"},
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "validation_report_file": {"type": "string", "minLength": 1},
+        "validation_report_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "parent_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "review_id", "file", "sha256", "decision", "reviewer_id",
+        "reviewer_role", "reviewed_at"
+      ],
+      "properties": {
+        "review_id": {"type": "string", "minLength": 1},
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "decision": {"const": "revision_required"},
+        "reviewer_id": {"type": "string", "minLength": 1},
+        "reviewer_role": {"type": "string", "minLength": 1},
+        "reviewed_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "revision_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_changes", "concept_changes", "overall_comment"],
+      "properties": {
+        "item_changes": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/itemChange"}
+        },
+        "concept_changes": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/conceptChange"}
+        },
+        "overall_comment": {"type": "string", "minLength": 1}
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "preserve_unmarked_fields", "require_next_model_version",
+        "reset_candidate_review_state",
+        "allow_new_external_concepts_only_from_revised_item_fields",
+        "inherit_prior_approvals"
+      ],
+      "properties": {
+        "preserve_unmarked_fields": {"const": true},
+        "require_next_model_version": {"const": true},
+        "reset_candidate_review_state": {"const": true},
+        "allow_new_external_concepts_only_from_revised_item_fields": {"const": true},
+        "inherit_prior_approvals": {"const": false}
+      }
+    },
+    "generated_by": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["agent", "agent_version", "skill", "skill_version", "generated_at"],
+      "properties": {
+        "agent": {"const": "grounded-curriculum-dependency-builder"},
+        "agent_version": {"const": "1.1"},
+        "skill": {"const": "build-curriculum-dependencies"},
+        "skill_version": {"const": "1.1"},
+        "generated_at": {"type": "string", "format": "date-time"}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "modelId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*-dependencies-v[0-9]+$"
+    },
+    "itemChange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_id", "fields", "comment"],
+      "properties": {
+        "item_id": {"type": "string", "pattern": "^RC-[0-9]{3,}$"},
+        "fields": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "hard_dependencies", "explanatory_dependencies",
+              "implementation_dependencies", "co_requisite_item_ids",
+              "recommended_neighbours", "external_prerequisite_concept_ids",
+              "fallback_when_explanatory_dependencies_omitted",
+              "rationale_and_confidence"
+            ]
+          }
+        },
+        "comment": {"type": "string", "minLength": 1}
+      }
+    },
+    "conceptChange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["concept_id", "fields", "record_removal_allowed", "comment"],
+      "properties": {
+        "concept_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "fields": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "need_type", "supports_item_ids", "bridge_candidate_id",
+              "content_boundary_and_rationale"
+            ]
+          }
+        },
+        "record_removal_allowed": {"type": "boolean"},
+        "comment": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

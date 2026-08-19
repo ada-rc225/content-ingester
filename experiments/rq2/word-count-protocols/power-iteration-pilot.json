@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "rq2-power-iteration-english-prose-pilot-v1",
+  "status": "draft_for_pilot",
+  "topic": "power iteration",
+  "language": "English",
+  "enabled": true,
+  "minimum": 1500,
+  "maximum": 2000,
+  "counting_method": "english_prose_v1",
+  "applies_to_conditions": [
+    "P0",
+    "P1",
+    "P2"
+  ]
+}

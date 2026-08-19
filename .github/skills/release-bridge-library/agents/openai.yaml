@@ -1,0 +1,4 @@
+interface:
+  display_name: "Release Bridge Library"
+  short_description: "Validate and freeze an approved bridge library"
+  default_prompt: "Use $release-bridge-library to verify an approved bridge-library candidate and create a fingerprinted frozen release without changing bridge content or review decisions."

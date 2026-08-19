@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "validator": "curriculum-dependency-revision-v1",
+  "valid": true,
+  "error_count": 0,
+  "errors": [],
+  "inputs": {
+    "parent_candidate": "curriculum-models/power-iteration-v1/candidate/contract-dependencies.json",
+    "parent_review": "curriculum-models/power-iteration-v1/candidate/curriculum-dependency-review.json",
+    "revision_receipt": "curriculum-models/power-iteration-v1/candidate-v2/dependency-revision-receipt.json",
+    "candidate": "curriculum-models/power-iteration-v1/candidate-v2/contract-dependencies.json",
+    "dependency_validation_report": "curriculum-models/power-iteration-v1/candidate-v2/dependency-validation-report.json",
+    "parent_candidate_sha256": "6f0c214be11913e962eecd60fdeddb458d43bfaf12b59b1d05cbb817be99a89a",
+    "parent_review_sha256": "cf6dec3703636b1f8b671b080095a3d5e4338844319ea5a2f8843ccf9d27e063",
+    "revision_receipt_sha256": "c1f9c7baceb6f47152e92be962e851fbe7da17d1820933f23977cc94b93517be",
+    "candidate_sha256": "4904b84a0b5adc3ef749fc13f5cef4a0677f51ae4467ee2f39d33a298e23cc09",
+    "dependency_validation_report_sha256": "01e72a2652d65c6c4c295a8ee2e38fc3b64aad127e86bdfaa4552306db0a6306"
+  },
+  "metrics": {
+    "changed_item_ids": [
+      "RC-006",
+      "RC-007",
+      "RC-011",
+      "RC-017",
+      "RC-018"
+    ],
+    "changed_item_fields": {
+      "RC-006": [
+        "explanatory_dependencies",
+        "fallback_when_explanatory_dependencies_omitted",
+        "hard_dependencies",
+        "rationale"
+      ],
+      "RC-007": [
+        "external_prerequisite_concept_ids",
+        "rationale"
+      ],
+      "RC-011": [
+        "external_prerequisite_concept_ids"
+      ],
+      "RC-017": [
+        "external_prerequisite_concept_ids"
+      ],
+      "RC-018": [
+        "explanatory_dependencies",
+        "fallback_when_explanatory_dependencies_omitted",
+        "hard_dependencies",
+        "rationale"
+      ]
+    },
+    "changed_concepts": {
+      "orthogonality-and-projection": [
+        "content_boundary",
+        "rationale",
+        "supports_item_ids"
+      ],
+      "determinants-characteristic-polynomials": [
+        "need_type",
+        "rationale"
+      ]
+    },
+    "added_concept_ids": [],
+    "removed_concept_ids": [
+      "iterative-algorithms-and-stopping"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq2/lesson-runs/power-iteration-v1/pilot/p2/mechanical-engineering/run-01/lesson.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-12",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "6c6b529d367b3fcd6bb2a1611b52bc9bbe2a0702c727ee2653ae9d25cad684b3",
+      "execution_status": "passed",
+      "stdout": "Estimated dominant eigenvalue: 4.414213562373095\nEstimated eigenvector: [0.92387953 0.38268343]\nResidual norm: 6.962575715097014e-11\nIterations: 23\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 70
+    }
+  ]
+}

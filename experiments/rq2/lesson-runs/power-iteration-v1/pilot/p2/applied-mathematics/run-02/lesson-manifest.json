@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "composer": "pathway-constrained-teaching-composer-v1",
+  "run_id": "power-iteration-p2-applied-mathematics-pilot-run-02",
+  "condition": "P2",
+  "topic": "power iteration",
+  "profile_id": "applied-mathematics-year-2-rq2-pilot",
+  "generation": {
+    "provider": "OpenAI",
+    "model": "gpt-5.6-sol",
+    "access_route": "Codex CLI",
+    "prompt_version": "pathway-constrained-teaching-composer-v1",
+    "generated_at": "2026-08-19T14:10:00Z"
+  },
+  "inputs": {
+    "composition_input_receipt": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p2/applied-mathematics/run-02/composition-input-receipt.json",
+      "sha256": "67be057d1395af6ae7dfa3031fc5392ccfd61e714a102172380a35a7c0595e6c"
+    },
+    "composition_input_view": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p2/applied-mathematics/run-02/composition-input-view.json",
+      "sha256": "e11f8422fccbc0afc60c88eef40fa87bf7b0cc6dab19c70a203113d182f3b7d5"
+    },
+    "pathway": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-04/pathway-plan.json",
+      "sha256": "afd7ad0d3b5335dbc658291c6ea3f2fe8a170aa634a541e09d6429439b7b018d"
+    },
+    "pathway_validation_report": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-04/pathway-validation-report.json",
+      "sha256": "4f93d8edece1f49858726eb6560b9835c1ddf5e373d7e9e81574f1d738319e23"
+    },
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+      "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/power-iteration-second-year.json",
+      "sha256": "c4cf0c6a4cf53653abab28123b4649dfd6459d894d3f85a310af0200468fe431"
+    },
+    "word_count_protocol": {
+      "file": "experiments/rq2/word-count-protocols/power-iteration-pilot.json",
+      "sha256": "474f78273ee6eec37f78edbea499b230218d30d94041240fb3d6ec87421d8246"
+    },
+    "profile": {
+      "file": "experiments/rq2/profiles/applied-mathematics-year-2.json",
+      "sha256": "303e94d25f3370e895e2a1a119ef3e193dae6a338d66200f83d2aa4b2eb022e2"
+    },
+    "bridge_catalog": {
+      "file": "bridge-library/power-iteration-v1/release/released-bridge-catalog.json",
+      "sha256": "59179ad7d12db14704efc703b817b2564bf5082ac479702643eebecd194e030d"
+    }
+  },
+  "outputs": {
+    "lesson": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p2/applied-mathematics/run-02/lesson.md",
+      "sha256": "d0d5fd7767ae302edd7afd84558c50a4957777e02fd1bf49e2aa14732705c5fc"
+    },
+    "lesson_map": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p2/applied-mathematics/run-02/lesson-map.json",
+      "sha256": "5d2510f41ddbcc3b2042a6da514c279bbbcf09f945a64d23f787ea4152133030"
+    },
+    "code_validation": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p2/applied-mathematics/run-02/code-validation.json",
+      "sha256": "d50ef7abac86b2f6c94e3ab47fec0aab9ceec320d2700250902b1c96367205cb"
+    }
+  },
+  "word_count_protocol": {
+    "schema_version": "1.0",
+    "protocol_id": "rq2-power-iteration-english-prose-pilot-v1",
+    "status": "draft_for_pilot",
+    "topic": "power iteration",
+    "language": "English",
+    "enabled": true,
+    "minimum": 1500,
+    "maximum": 2000,
+    "counting_method": "english_prose_v1",
+    "applies_to_conditions": [
+      "P0",
+      "P1",
+      "P2"
+    ]
+  },
+  "observed_english_prose_word_count": 1551
+}

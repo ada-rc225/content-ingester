@@ -1,0 +1,857 @@
+{
+  "schema_version": "1.0",
+  "review_id": "power-iteration-p2-mechanical-engineering-year-2-v1-revision-v1-review-v1",
+  "review_status": "approved",
+  "candidate_binding": {
+    "pathway_id": "power-iteration-p2-mechanical-engineering-year-2-v1-revision-v1",
+    "pathway_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-02/pathway-plan.json",
+    "pathway_sha256": "6f2f1c9add7b1a7b595e9e8d3a831100f28dda36649bdaba397db1f6642f4491",
+    "validation_report_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-02/pathway-validation-report.json",
+    "validation_report_sha256": "bdf068edf81fc8ee49ab2cd96f87067cf6a7fd3d020461365d03bac2c531a52e",
+    "assessment_id": "mechanical-engineering-year-2-concept-assessment-v2",
+    "assessment_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-02/profile-concept-assessment.json",
+    "assessment_sha256": "fbbfbd996be6a2a6d286b723739de4c2ac8d063d3b04e197b15b53b5406fd777",
+    "profile_id": "mechanical-engineering-year-2-rq2-pilot",
+    "profile_file": "experiments/rq2/profiles/mechanical-engineering-year-2.json",
+    "profile_sha256": "12e0e94788e63f0429809c10a0da94113c1ec0b9e9fee0302045220d102e2307"
+  },
+  "template_generator": {
+    "agent": "adaptive-curriculum-pathway-planner",
+    "agent_version": "1.1",
+    "skill": "plan-adaptive-curriculum-pathways",
+    "skill_version": "1.1",
+    "generated_at": "2026-08-18T15:34:50Z"
+  },
+  "revision_binding": {
+    "receipt_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-02/pathway-revision-receipt.json",
+    "receipt_sha256": "6f3a8c2795c064f1056653f026d77e750337de7f46c01e5c505b21386d7290e1",
+    "validation_report_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-02/pathway-revision-validation-report.json",
+    "validation_report_sha256": "11596d28929b1d67bc1b23ab8ea6ff9a25bc4b7bbb547d5c483fe938b40e3c07",
+    "parent_pathway_sha256": "f81325414396509b0513da280f23998bb394b9192aefa75e1751b975a486134b",
+    "parent_review_sha256": "4529e9f57a8b9ea5811d29abd45e6ef380ca3257777f2ef1eba136e4492dda61"
+  },
+  "reviewer": {
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "mechanical-engineering-educator"
+  },
+  "selection_reviews": [
+    {
+      "item_id": "RC-001",
+      "item_type": "definition",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-002",
+      "item_type": "equation",
+      "criticality": "required",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-003",
+      "item_type": "theorem",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-004",
+      "item_type": "assumption",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-005",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-006",
+      "item_type": "equation",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-007",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-008",
+      "item_type": "failure_condition",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-009",
+      "item_type": "equation",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-010",
+      "item_type": "stopping_condition",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-011",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-012",
+      "item_type": "failure_condition",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-013",
+      "item_type": "failure_condition",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-014",
+      "item_type": "definition",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-015",
+      "item_type": "assumption",
+      "criticality": "supporting",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-016",
+      "item_type": "code_semantics",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-017",
+      "item_type": "code_semantics",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-018",
+      "item_type": "worked_result",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    }
+  ],
+  "concept_reviews": [
+    {
+      "concept_id": "matrix-vector-products",
+      "planned_mastery": "mastered",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "vector-norms-and-normalization",
+      "planned_mastery": "fragile",
+      "planned_bridge_status": "candidate",
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "orthogonality-and-projection",
+      "planned_mastery": "unknown",
+      "planned_bridge_status": "candidate",
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "determinants-characteristic-polynomials",
+      "planned_mastery": "unknown",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "inner-products-and-quadratic-forms",
+      "planned_mastery": "fragile",
+      "planned_bridge_status": "candidate",
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "numpy-vector-operations",
+      "planned_mastery": "mastered",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    }
+  ],
+  "learning_goal_reviews": [
+    {
+      "capability_id": "LG-001",
+      "planned_coverage": "complete",
+      "planned_supporting_item_ids": [
+        "RC-001",
+        "RC-005",
+        "RC-011",
+        "RC-014",
+        "RC-017",
+        "RC-018"
+      ],
+      "field_decisions": {
+        "coverage_and_support": "approved",
+        "rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "capability_id": "LG-002",
+      "planned_coverage": "complete",
+      "planned_supporting_item_ids": [
+        "RC-009",
+        "RC-010",
+        "RC-011",
+        "RC-017",
+        "RC-018"
+      ],
+      "field_decisions": {
+        "coverage_and_support": "approved",
+        "rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "capability_id": "LG-003",
+      "planned_coverage": "complete",
+      "planned_supporting_item_ids": [
+        "RC-003",
+        "RC-004",
+        "RC-006",
+        "RC-007",
+        "RC-008",
+        "RC-012",
+        "RC-013",
+        "RC-014",
+        "RC-015"
+      ],
+      "field_decisions": {
+        "coverage_and_support": "approved",
+        "rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "capability_id": "LG-004",
+      "planned_coverage": "complete",
+      "planned_supporting_item_ids": [
+        "RC-016",
+        "RC-017",
+        "RC-018",
+        "RC-011"
+      ],
+      "field_decisions": {
+        "coverage_and_support": "approved",
+        "rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    }
+  ],
+  "structure_review": {
+    "instruction_sequence": [
+      "PI-ME-U01",
+      "PI-ME-U02",
+      "PI-ME-U03",
+      "PI-ME-U04",
+      "PI-ME-U05",
+      "PI-ME-U08",
+      "PI-ME-U09",
+      "PI-ME-U10",
+      "PI-ME-U11",
+      "PI-ME-U12",
+      "PI-ME-U13",
+      "PI-ME-U06",
+      "PI-ME-U07",
+      "PI-ME-U14",
+      "PI-ME-U15",
+      "PI-ME-U16",
+      "PI-ME-U17"
+    ],
+    "unit_summaries": [
+      {
+        "unit_id": "PI-ME-U01",
+        "unit_type": "contract_content",
+        "purpose": "Modal eigenpairs",
+        "contract_item_ids": [
+          "RC-001"
+        ],
+        "prerequisite_unit_ids": [],
+        "learning_goal_ids": [
+          "LG-001"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U02",
+        "unit_type": "contract_content",
+        "purpose": "The dominant mode",
+        "contract_item_ids": [
+          "RC-014"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-003",
+          "LG-001"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U03",
+        "unit_type": "contract_content",
+        "purpose": "The idealized symmetric modal setting",
+        "contract_item_ids": [
+          "RC-003"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U04",
+        "unit_type": "contract_content",
+        "purpose": "The dominant-magnitude assumption",
+        "contract_item_ids": [
+          "RC-004"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U05",
+        "unit_type": "contract_content",
+        "purpose": "Matrix-vector updating and normalization",
+        "contract_item_ids": [
+          "RC-005"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-001"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U06",
+        "unit_type": "contract_content",
+        "purpose": "Why the dominant mode emerges",
+        "contract_item_ids": [
+          "RC-006"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U03",
+          "PI-ME-U04",
+          "PI-ME-U05"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U07",
+        "unit_type": "contract_content",
+        "purpose": "The profile-adaptive convergence result",
+        "contract_item_ids": [
+          "RC-007"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U03",
+          "PI-ME-U04",
+          "PI-ME-U05",
+          "PI-ME-U06"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U08",
+        "unit_type": "contract_content",
+        "purpose": "Sign-equivalent mode shapes",
+        "contract_item_ids": [
+          "RC-008"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01",
+          "PI-ME-U05",
+          "PI-ME-U02"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U09",
+        "unit_type": "contract_content",
+        "purpose": "Rayleigh eigenvalue estimate",
+        "contract_item_ids": [
+          "RC-009"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01",
+          "PI-ME-U05"
+        ],
+        "learning_goal_ids": [
+          "LG-002"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U10",
+        "unit_type": "contract_content",
+        "purpose": "Residual-based quality and stopping check",
+        "contract_item_ids": [
+          "RC-010"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01",
+          "PI-ME-U05",
+          "PI-ME-U08",
+          "PI-ME-U09"
+        ],
+        "learning_goal_ids": [
+          "LG-002"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U11",
+        "unit_type": "contract_content",
+        "purpose": "Executable algorithm trace",
+        "contract_item_ids": [
+          "RC-011"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U05",
+          "PI-ME-U09",
+          "PI-ME-U10"
+        ],
+        "learning_goal_ids": [
+          "LG-001",
+          "LG-002",
+          "LG-004"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U12",
+        "unit_type": "contract_content",
+        "purpose": "Basic implementation input handling",
+        "contract_item_ids": [
+          "RC-016"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U05",
+          "PI-ME-U11"
+        ],
+        "learning_goal_ids": [
+          "LG-004"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U13",
+        "unit_type": "contract_content",
+        "purpose": "Breakdown handling, residual stopping, and return semantics",
+        "contract_item_ids": [
+          "RC-017"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U05",
+          "PI-ME-U09",
+          "PI-ME-U10",
+          "PI-ME-U11",
+          "PI-ME-U12"
+        ],
+        "learning_goal_ids": [
+          "LG-002",
+          "LG-004",
+          "LG-001"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U14",
+        "unit_type": "contract_content",
+        "purpose": "Missing dominant projection",
+        "contract_item_ids": [
+          "RC-012"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U03",
+          "PI-ME-U04",
+          "PI-ME-U05",
+          "PI-ME-U06"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U15",
+        "unit_type": "contract_content",
+        "purpose": "Tied dominant magnitude and slow convergence",
+        "contract_item_ids": [
+          "RC-013"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U04",
+          "PI-ME-U05",
+          "PI-ME-U06",
+          "PI-ME-U07"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U16",
+        "unit_type": "contract_content",
+        "purpose": "Scope boundary for non-symmetric engineering problems",
+        "contract_item_ids": [
+          "RC-015"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01",
+          "PI-ME-U03",
+          "PI-ME-U07"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "PI-ME-U17",
+        "unit_type": "contract_content",
+        "purpose": "Idealized modal-analysis worked consolidation: Supply the exact eigenvalues as given, identify the example-specific dominant eigenvalue by a short local magnitude comparison, and check the dominant estimate and residual without deriving the characteristic polynomial or revisiting the general magnitude distinction.",
+        "contract_item_ids": [
+          "RC-018"
+        ],
+        "prerequisite_unit_ids": [
+          "PI-ME-U01",
+          "PI-ME-U09",
+          "PI-ME-U10",
+          "PI-ME-U13",
+          "PI-ME-U04",
+          "PI-ME-U02"
+        ],
+        "learning_goal_ids": [
+          "LG-001",
+          "LG-002",
+          "LG-004"
+        ]
+      }
+    ],
+    "field_decisions": {
+      "unit_grouping": "approved",
+      "instruction_sequence": "approved",
+      "prerequisite_relations": "approved",
+      "unit_purpose_and_learning_goals": "approved"
+    },
+    "decision": "approved",
+    "comment": null
+  },
+  "pathway_change_reviews": [
+    {
+      "change_index": 0,
+      "change_type": "change_item_selection",
+      "affected_ids": [
+        "RC-002"
+      ],
+      "field_decisions": {
+        "structural_accuracy": "approved",
+        "profile_basis": "approved",
+        "rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "change_index": 1,
+      "change_type": "regroup_contract_items",
+      "affected_ids": [
+        "RC-001",
+        "RC-003",
+        "RC-004",
+        "RC-006",
+        "RC-007",
+        "RC-008",
+        "RC-009",
+        "RC-010",
+        "RC-011",
+        "RC-012",
+        "RC-013",
+        "RC-014",
+        "RC-015",
+        "RC-016",
+        "RC-017"
+      ],
+      "field_decisions": {
+        "structural_accuracy": "approved",
+        "profile_basis": "approved",
+        "rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "change_index": 2,
+      "change_type": "reorder_learning_units",
+      "affected_ids": [
+        "PI-ME-U06",
+        "PI-ME-U07",
+        "PI-ME-U08",
+        "PI-ME-U09",
+        "PI-ME-U10",
+        "PI-ME-U11",
+        "PI-ME-U12",
+        "PI-ME-U13",
+        "PI-ME-U14",
+        "PI-ME-U15",
+        "PI-ME-U16"
+      ],
+      "field_decisions": {
+        "structural_accuracy": "approved",
+        "profile_basis": "approved",
+        "rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "change_index": 3,
+      "change_type": "change_theory_implementation_application_depth",
+      "affected_ids": [
+        "RC-003",
+        "RC-006",
+        "RC-007",
+        "RC-016",
+        "RC-017",
+        "RC-018"
+      ],
+      "field_decisions": {
+        "structural_accuracy": "approved",
+        "profile_basis": "approved",
+        "rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    }
+  ],
+  "scope_review": {
+    "selected_item_ids": [
+      "RC-001",
+      "RC-003",
+      "RC-004",
+      "RC-005",
+      "RC-006",
+      "RC-007",
+      "RC-008",
+      "RC-009",
+      "RC-010",
+      "RC-011",
+      "RC-012",
+      "RC-013",
+      "RC-014",
+      "RC-015",
+      "RC-016",
+      "RC-017",
+      "RC-018"
+    ],
+    "excluded_item_ids": [
+      "RC-002"
+    ],
+    "failure_or_convergence_item_ids": [
+      "RC-004",
+      "RC-007",
+      "RC-008",
+      "RC-012",
+      "RC-013",
+      "RC-015"
+    ],
+    "field_decisions": {
+      "selected_content_scope": "approved",
+      "failure_and_convergence_scope": "approved",
+      "profile_appropriateness": "approved"
+    },
+    "decision": "approved",
+    "comment": null
+  },
+  "overall_review": {
+    "decision": "approved",
+    "reviewed_at": "2026-08-18T15:54:42Z",
+    "comment": "The run-02 revision fully implements the reviewed Mechanical Engineering pathway changes. The exclusion of RC-002 and the RC-018 fallback are coherent; prerequisite evidence is appropriately bounded; all four learning-goal mappings are complete; modal assumptions precede the update while sign interpretation, Rayleigh estimation, residual checking, algorithm tracing, and basic implementation precede the bounded convergence explanation; unit goals and the idealized modal worked-consolidation boundary are accurate; and the selection, regrouping, reorder, depth, and scope records match the revised pathway. The pathway design is approved, while delivery remains provisional until the vector-normalisation, orthogonality/projection, and inner-product bridges are released."
+  }
+}

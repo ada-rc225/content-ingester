@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "release_gate": "curriculum-model-release-gate-v1",
+  "status": "released",
+  "released_at": "2026-08-18T01:08:04Z",
+  "model_id": "power-iteration-dependencies-v2",
+  "source_contract": {
+    "contract_id": "power-iteration",
+    "contract_version": "1.0.0",
+    "topic": "Eigenvalues, Eigenvectors, and the Power Iteration",
+    "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+    "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+  },
+  "approval": {
+    "review_id": "power-iteration-dependencies-v2-review-v1",
+    "reviewer_id": "tester-001",
+    "reviewer_role": "Curriculum Dependency Reviewer",
+    "reviewed_at": "2026-08-18T01:00:29Z",
+    "review_sha256": "8e50347cc93c2035bad9a850a056e4e8edccd20ca10f15ae4edff2781ce1d4d8",
+    "release_gate": "curriculum-model-release-gate-v1",
+    "released_at": "2026-08-18T01:08:04Z"
+  },
+  "inputs": {
+    "contract": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+    "contract_sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7",
+    "candidate": "curriculum-models/power-iteration-v1/candidate-v2/contract-dependencies.json",
+    "candidate_sha256": "4904b84a0b5adc3ef749fc13f5cef4a0677f51ae4467ee2f39d33a298e23cc09",
+    "validation_report": "curriculum-models/power-iteration-v1/candidate-v2/dependency-validation-report.json",
+    "validation_report_sha256": "01e72a2652d65c6c4c295a8ee2e38fc3b64aad127e86bdfaa4552306db0a6306",
+    "review": "curriculum-models/power-iteration-v1/candidate-v2/curriculum-dependency-review.json",
+    "review_sha256": "8e50347cc93c2035bad9a850a056e4e8edccd20ca10f15ae4edff2781ce1d4d8",
+    "revision": {
+      "receipt": "curriculum-models/power-iteration-v1/candidate-v2/dependency-revision-receipt.json",
+      "receipt_sha256": "c1f9c7baceb6f47152e92be962e851fbe7da17d1820933f23977cc94b93517be",
+      "validation_report": "curriculum-models/power-iteration-v1/candidate-v2/dependency-revision-validation-report.json",
+      "validation_report_sha256": "0b16c4143dfa9b081db3a82c55d2d205222ef43df46077790394749be308c00a",
+      "parent_candidate": "curriculum-models/power-iteration-v1/candidate/contract-dependencies.json",
+      "parent_candidate_sha256": "6f0c214be11913e962eecd60fdeddb458d43bfaf12b59b1d05cbb817be99a89a",
+      "parent_review": "curriculum-models/power-iteration-v1/candidate/curriculum-dependency-review.json",
+      "parent_review_sha256": "cf6dec3703636b1f8b671b080095a3d5e4338844319ea5a2f8843ccf9d27e063"
+    },
+    "frozen_schema": ".github/skills/release-curriculum-model/references/frozen-curriculum-model.schema.json",
+    "frozen_schema_sha256": "56329e8be10317a19ad046064faf84a7f5fdf4ee61d17a3df58c3fa7253642a2",
+    "release_report_schema": ".github/skills/release-curriculum-model/references/curriculum-release-report.schema.json",
+    "release_report_schema_sha256": "84a122f68069450e31fb6260f273575ed0314a16f71ee82ddda0c4ac98a13d7c"
+  },
+  "outputs": {
+    "frozen_model": "curriculum-models/power-iteration-v1/release/frozen-contract-dependencies.json",
+    "frozen_model_sha256": "9952915a368244e7110233a06d9976ba76e6ff4f9a702886ff0db20b33170ee6",
+    "frozen_review": "curriculum-models/power-iteration-v1/release/frozen-curriculum-review.json",
+    "frozen_review_sha256": "8e50347cc93c2035bad9a850a056e4e8edccd20ca10f15ae4edff2781ce1d4d8",
+    "validation_report": "curriculum-models/power-iteration-v1/release/frozen-curriculum-validation-report.json",
+    "validation_report_sha256": "1cad6eed88d0bfcf4a88368b30b5a7646cb50da109f2b0749366f59145e3cc09",
+    "checksum": "curriculum-models/power-iteration-v1/release/frozen-curriculum-model.sha256"
+  },
+  "bridge_release_status": "not_released"
+}

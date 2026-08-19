@@ -1,0 +1,423 @@
+{
+  "schema_version": "1.0",
+  "pathway_id": "power-iteration-applied-mathematics-p1-v1",
+  "condition": "P1",
+  "plan_status": "complete",
+  "topic": "power iteration",
+  "source_authorities": {
+    "reference_contract": {
+      "contract_id": "power-iteration",
+      "contract_version": "1.0.0",
+      "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+      "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+    },
+    "curriculum_model": null
+  },
+  "profile_binding": {
+    "profile_id": "applied-mathematics-year-2-rq2-pilot",
+    "file": "experiments/rq2/profiles/applied-mathematics-year-2.json",
+    "sha256": "303e94d25f3370e895e2a1a119ef3e193dae6a338d66200f83d2aa4b2eb022e2"
+  },
+  "profile_concept_assessment_binding": null,
+  "learning_request_binding": {
+    "request_id": "power-iteration-second-year-v1",
+    "request_version": "1.0.0",
+    "file": "experiments/rq2/learning-requests/power-iteration-second-year.json",
+    "sha256": "c4cf0c6a4cf53653abab28123b4649dfd6459d894d3f85a310af0200468fe431"
+  },
+  "baseline_pathway_binding": {
+    "pathway_id": "power-iteration-p0-v1",
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p0/pathway-plan.json",
+    "sha256": "9cf1f1125924467e0bae738180bfdc2df0663dab56316caf849037dcacbe5480"
+  },
+  "selection_authority": "fixed_baseline",
+  "selection": {
+    "all_contract_item_ids": [
+      "RC-001",
+      "RC-002",
+      "RC-003",
+      "RC-004",
+      "RC-005",
+      "RC-006",
+      "RC-007",
+      "RC-008",
+      "RC-009",
+      "RC-010",
+      "RC-011",
+      "RC-012",
+      "RC-013",
+      "RC-014",
+      "RC-015",
+      "RC-016",
+      "RC-017",
+      "RC-018"
+    ],
+    "selected_item_ids": [
+      "RC-001",
+      "RC-002",
+      "RC-003",
+      "RC-004",
+      "RC-005",
+      "RC-006",
+      "RC-007",
+      "RC-008",
+      "RC-009",
+      "RC-010",
+      "RC-011",
+      "RC-012",
+      "RC-013",
+      "RC-014",
+      "RC-015",
+      "RC-016",
+      "RC-017",
+      "RC-018"
+    ],
+    "excluded_item_ids": [],
+    "decisions": [
+      {
+        "item_id": "RC-001",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Included by the fixed canonical P0 baseline as a universal-core item.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-002",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Contrast characteristic-polynomial reasoning with iterative matrix-vector computation.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-003",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Provide the symmetric spectral representation used by the comprehensive convergence explanation.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-004",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Included by the fixed canonical P0 baseline as a universal-core item.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-005",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Included by the fixed canonical P0 baseline as a universal-core item.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-006",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Show why the dominant component survives rather than only stating the rate.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-007",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Included by the fixed canonical P0 baseline as a universal-core item.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-008",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Prevent sign alternation from being misclassified as algorithm failure.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-009",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Included by the fixed canonical P0 baseline as a universal-core item.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-010",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Included by the fixed canonical P0 baseline as a universal-core item.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-011",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Included by the fixed canonical P0 baseline as a universal-core item.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-012",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Cover failure caused by a missing dominant component.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-013",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Cover tied dominant magnitude and slow convergence from a small spectral gap.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-014",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Included by the fixed canonical P0 baseline as a universal-core item.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-015",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "State why the symmetric explanation must not be generalized to arbitrary non-symmetric matrices.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-016",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Include robust input conversion, shape checks and initialization.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-017",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Include breakdown handling, residual stopping and return semantics.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-018",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Connect the mathematical sequence to one contract-supported numerical result.",
+        "profile_basis": []
+      }
+    ]
+  },
+  "learning_goal_mappings": [
+    {
+      "capability_id": "LG-001",
+      "supporting_item_ids": [
+        "RC-001",
+        "RC-005",
+        "RC-011"
+      ],
+      "coverage": "complete",
+      "rationale": "Deterministically migrated from the reviewed P0 normalization map."
+    },
+    {
+      "capability_id": "LG-002",
+      "supporting_item_ids": [
+        "RC-009",
+        "RC-010",
+        "RC-011"
+      ],
+      "coverage": "complete",
+      "rationale": "Deterministically migrated from the reviewed P0 normalization map."
+    },
+    {
+      "capability_id": "LG-003",
+      "supporting_item_ids": [
+        "RC-003",
+        "RC-004",
+        "RC-007",
+        "RC-008",
+        "RC-012",
+        "RC-013",
+        "RC-014",
+        "RC-015"
+      ],
+      "coverage": "complete",
+      "rationale": "Deterministically migrated from the reviewed P0 normalization map."
+    },
+    {
+      "capability_id": "LG-004",
+      "supporting_item_ids": [
+        "RC-016",
+        "RC-017",
+        "RC-018"
+      ],
+      "coverage": "complete",
+      "rationale": "Deterministically migrated from the reviewed P0 normalization map."
+    }
+  ],
+  "learning_units": [
+    {
+      "unit_id": "PI-U01",
+      "unit_type": "contract_content",
+      "purpose": "Eigenpairs and the motivation for iteration",
+      "contract_item_ids": [
+        "RC-001",
+        "RC-002",
+        "RC-014"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [],
+      "learning_goal_ids": [
+        "LG-001",
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "PI-U02",
+      "unit_type": "contract_content",
+      "purpose": "The symmetric spectral setting",
+      "contract_item_ids": [
+        "RC-003",
+        "RC-004"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-U01"
+      ],
+      "learning_goal_ids": [
+        "LG-001",
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "PI-U03",
+      "unit_type": "contract_content",
+      "purpose": "The normalized power update",
+      "contract_item_ids": [
+        "RC-005"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-U01"
+      ],
+      "learning_goal_ids": [
+        "LG-001"
+      ]
+    },
+    {
+      "unit_id": "PI-U04",
+      "unit_type": "contract_content",
+      "purpose": "Convergence mechanism and asymptotic rate",
+      "contract_item_ids": [
+        "RC-006",
+        "RC-007"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-U02",
+        "PI-U03"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "PI-U05",
+      "unit_type": "contract_content",
+      "purpose": "Failure modes and scope boundaries",
+      "contract_item_ids": [
+        "RC-008",
+        "RC-012",
+        "RC-013",
+        "RC-015"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-U03",
+        "PI-U04"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "PI-U06",
+      "unit_type": "contract_content",
+      "purpose": "Rayleigh estimates and residual stopping",
+      "contract_item_ids": [
+        "RC-009",
+        "RC-010"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-U03"
+      ],
+      "learning_goal_ids": [
+        "LG-002"
+      ]
+    },
+    {
+      "unit_id": "PI-U07",
+      "unit_type": "contract_content",
+      "purpose": "Algorithm and optional implementation detail",
+      "contract_item_ids": [
+        "RC-011",
+        "RC-016",
+        "RC-017"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-U06"
+      ],
+      "learning_goal_ids": [
+        "LG-001",
+        "LG-002",
+        "LG-004"
+      ]
+    },
+    {
+      "unit_id": "PI-U08",
+      "unit_type": "contract_content",
+      "purpose": "Worked consolidation",
+      "contract_item_ids": [
+        "RC-018"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "PI-U04",
+        "PI-U07"
+      ],
+      "learning_goal_ids": [
+        "LG-001",
+        "LG-002",
+        "LG-004"
+      ]
+    }
+  ],
+  "instruction_sequence": [
+    "PI-U01",
+    "PI-U02",
+    "PI-U03",
+    "PI-U04",
+    "PI-U05",
+    "PI-U06",
+    "PI-U07",
+    "PI-U08"
+  ],
+  "bridge_requirements": [],
+  "pathway_changes": [],
+  "scope_summary": {
+    "selected_contract_item_count": 18,
+    "excluded_contract_item_count": 0,
+    "critical_item_count": 9,
+    "formula_count": 16,
+    "algorithm_or_code_item_count": 4,
+    "released_bridge_count": 0,
+    "estimated_duration_minutes": 90
+  },
+  "rendering_policy": {
+    "output_form": "one_continuous_student_facing_lesson",
+    "learning_units_are_pages": false,
+    "target_duration_minutes": 90
+  },
+  "generated_by": {
+    "producer": "copy-p1-pathway",
+    "producer_version": "1.0",
+    "method": "deterministic_P0_copy",
+    "generated_at": "2026-08-18T14:05:00Z"
+  }
+}

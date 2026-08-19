@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "validator": "validate-pathway-revision-v1",
+  "valid": true,
+  "error_count": 0,
+  "errors": [],
+  "inputs": {
+    "revision_receipt": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-02/pathway-revision-receipt.json",
+    "revision_receipt_sha256": "3d8850a090b8a827ea5641a0296b873b6a3b25e524e699ff71d9ece0594ae628",
+    "candidate_pathway": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-02/pathway-plan.json",
+    "candidate_pathway_sha256": "d7bdb6766a58b279e82904aab170c5965291d262771869a1bd45c2fbb4db4bd6",
+    "candidate_assessment": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-02/profile-concept-assessment.json",
+    "candidate_assessment_sha256": "268c42845243fc6a86e1a78e9c5b619b3eb3e1f6c5710ad868d7474b2ab24375",
+    "candidate_validation_report": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-02/pathway-validation-report.json",
+    "candidate_validation_report_sha256": "8a44af70c527a7aa6813ea7dfc85c563f2b3ed9534e23ecaef30a6949f5c4e56"
+  },
+  "validated_at": "2026-08-18T14:55:16Z"
+}

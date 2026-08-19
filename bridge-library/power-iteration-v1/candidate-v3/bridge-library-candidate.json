@@ -1,0 +1,488 @@
+{
+  "schema_version": "1.0",
+  "library_id": "power-iteration-bridge-library-v1",
+  "topic_id": "power-iteration",
+  "status": "candidate",
+  "generated_by": {
+    "agent": "grounded-bridge-library-builder",
+    "agent_version": "1.0",
+    "skill": "build-grounded-bridge-library",
+    "skill_version": "1.0",
+    "generated_at": "2026-08-18T17:33:25Z"
+  },
+  "curriculum_model_binding": {
+    "model_id": "power-iteration-dependencies-v2",
+    "file": "curriculum-models/power-iteration-v1/release/frozen-contract-dependencies.json",
+    "sha256": "9952915a368244e7110233a06d9976ba76e6ff4f9a702886ff0db20b33170ee6"
+  },
+  "pathway_bindings": [
+    {
+      "pathway_id": "power-iteration-p2-applied-mathematics-run-01-revision-v2",
+      "pathway_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-03/pathway-plan.json",
+      "pathway_sha256": "fad9a6bd91aa954cb0b5e8931f03edcab64990d8b330ec328a7ecd803a08a4a6",
+      "review_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-03/pathway-plan-review.json",
+      "review_sha256": "9833f870cb9b6cbd9012b311a1a562c1102d961e7fa50483e3cce0ebb3f10589",
+      "profile_id": "applied-mathematics-year-2-rq2-pilot"
+    },
+    {
+      "pathway_id": "power-iteration-p2-computer-science-v1-revision-v1",
+      "pathway_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-02/pathway-plan.json",
+      "pathway_sha256": "d7bdb6766a58b279e82904aab170c5965291d262771869a1bd45c2fbb4db4bd6",
+      "review_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-02/pathway-plan-review.json",
+      "review_sha256": "5acb05380fbeb1c1c202b955c2b5ea4c3a1b9b9db458ab0e2c14366ecf11d7f5",
+      "profile_id": "computer-science-year-2-rq2-pilot"
+    },
+    {
+      "pathway_id": "power-iteration-p2-mechanical-engineering-year-2-v1-revision-v1",
+      "pathway_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-02/pathway-plan.json",
+      "pathway_sha256": "6f2f1c9add7b1a7b595e9e8d3a831100f28dda36649bdaba397db1f6642f4491",
+      "review_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-02/pathway-plan-review.json",
+      "review_sha256": "ce1255a412b7b03de0cabf76782458cc40af77e8602c5563afd0445b78036174",
+      "profile_id": "mechanical-engineering-year-2-rq2-pilot"
+    }
+  ],
+  "bridges": [
+    {
+      "bridge_contract_id": "BRC-VECTOR-NORMS-NORMALIZATION-v1",
+      "bridge_candidate_id": "BR-VECTOR-NORMS-NORMALIZATION-v1",
+      "concept_id": "vector-norms-and-normalization",
+      "name": "Euclidean vector norms and normalization",
+      "status": "candidate",
+      "requested_by_profile_ids": [
+        "computer-science-year-2-rq2-pilot",
+        "mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-005",
+        "RC-010",
+        "RC-016",
+        "RC-017"
+      ],
+      "content_boundary": "Define the Euclidean norm, normalize a non-zero vector, and recognize zero-vector breakdown; exclude general normed-space theory.",
+      "learning_outcomes": [
+        {
+          "outcome_id": "BO-01",
+          "text": "Compute the Euclidean norm of a real vector."
+        },
+        {
+          "outcome_id": "BO-02",
+          "text": "Normalize a non-zero vector and verify that the result has unit Euclidean norm."
+        },
+        {
+          "outcome_id": "BO-03",
+          "text": "Recognize that the zero vector cannot be normalized by division by its norm."
+        }
+      ],
+      "teaching_content": [
+        {
+          "content_id": "BC-01",
+          "kind": "definition",
+          "text": "For x = (x_1, ..., x_n)^T in R^n, the Euclidean norm is ||x||_2 = sqrt(x_1^2 + ... + x_n^2) = sqrt(x^T x).",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-02",
+          "kind": "procedure",
+          "text": "For x != 0, compute r = ||x||_2 and set u = x/r. Then ||u||_2 = 1.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-03",
+          "kind": "safeguard",
+          "text": "If ||x||_2 = 0, then x is the zero vector and x/||x||_2 is undefined; stop before dividing.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-04",
+          "kind": "worked_example",
+          "text": "For x = (3, 4)^T, ||x||_2 = 5 and the normalized vector is (3/5, 4/5)^T.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        }
+      ],
+      "excluded_content": [
+        "General p-norm and normed-space theory",
+        "Matrix norms",
+        "Power-iteration update or convergence claims"
+      ],
+      "sources": [
+        {
+          "source_id": "SRC-01",
+          "title": "Dot Products and Orthogonality",
+          "provider": "University of California, Irvine / Mathematics LibreTexts",
+          "url": "https://math.libretexts.org/Courses/University_of_California_Irvine/Linear_Algebra_%28Math_3A_UCI%29/03%3A_Vector_Geometry/3.04%3A_Dot_Products_and_Orthogonal_Complements/3.4.01%3A_Dot_Products_and_Orthogonality",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-18",
+          "evidence_locator": "Fact 1 (vector length), Definition: Unit Vector, Fact 3, and Example 3: gives ||x|| = sqrt(x dot x), states x dot x = 0 iff x = 0, restricts division by ||x|| to nonzero x, proves the normalized vector has length 1, and works x = (3,4)^T to (3/5,4/5)^T.",
+          "supports_content_ids": [
+            "BC-01",
+            "BC-02",
+            "BC-03",
+            "BC-04"
+          ]
+        }
+      ]
+    },
+    {
+      "bridge_contract_id": "BRC-ORTHOGONALITY-PROJECTION-v1",
+      "bridge_candidate_id": "BR-ORTHOGONALITY-PROJECTION-v1",
+      "concept_id": "orthogonality-and-projection",
+      "name": "Orthogonality, orthonormal bases, and projection coefficients",
+      "status": "candidate",
+      "requested_by_profile_ids": [
+        "computer-science-year-2-rq2-pilot",
+        "mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-003",
+        "RC-006",
+        "RC-007",
+        "RC-012"
+      ],
+      "content_boundary": "Use inner products to explain orthogonality, orthonormal bases, and scalar projection coefficients v_i^T x; exclude the spectral theorem and eigenbasis expansion because those belong to RC-003 and RC-006.",
+      "learning_outcomes": [
+        {
+          "outcome_id": "BO-01",
+          "text": "Test whether two real vectors are orthogonal using their inner product."
+        },
+        {
+          "outcome_id": "BO-02",
+          "text": "Recognize an orthonormal family from zero cross-products and unit norms."
+        },
+        {
+          "outcome_id": "BO-03",
+          "text": "Compute the scalar coefficient v^T x when v is a unit vector."
+        }
+      ],
+      "teaching_content": [
+        {
+          "content_id": "BC-01",
+          "kind": "definition",
+          "text": "Real vectors u and v are orthogonal when u^T v = 0.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-02",
+          "kind": "definition",
+          "text": "Vectors v_1, ..., v_k are orthonormal when v_i^T v_j = 0 for i != j and ||v_i||_2 = 1.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-03",
+          "kind": "procedure",
+          "text": "For a unit vector v, calculate v^T x to obtain the scalar coefficient of x in the v direction.",
+          "source_ids": [
+            "SRC-02"
+          ]
+        },
+        {
+          "content_id": "BC-04",
+          "kind": "worked_example",
+          "text": "For v = (1, 0)^T and x = (3, 4)^T, v^T x = 3.",
+          "source_ids": [
+            "SRC-02"
+          ]
+        }
+      ],
+      "excluded_content": [
+        "The spectral theorem",
+        "Eigenbasis expansion of an iterate",
+        "Power-iteration convergence or failure results"
+      ],
+      "sources": [
+        {
+          "source_id": "SRC-01",
+          "title": "ZoomNotes for Linear Algebra",
+          "provider": "MIT OpenCourseWare",
+          "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/c501620f128ab205bc267770934d707a_MIT18_06SCF11_ZoomNotes.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-18",
+          "evidence_locator": "Section 4.1, p. 30 defines orthogonality by x^T y = 0; Section 4.4, p. 33 characterizes orthogonal columns q_i by q_i^T q_i = 1 and q_i^T q_j = 0.",
+          "supports_content_ids": [
+            "BC-01",
+            "BC-02"
+          ]
+        },
+        {
+          "source_id": "SRC-02",
+          "title": "Projections onto Subspaces: Lecture Summary",
+          "provider": "MIT OpenCourseWare",
+          "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/00e9c8f0eafedeab21a3d079a17ed3d8_MIT18_06SCF11_Ses2.2sum.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-18",
+          "evidence_locator": "Projections section, p. 1: derives the scalar coefficient as a^T b/(a^T a); when a is a unit vector, a^T a = 1 and the coefficient reduces to a^T b. BC-04 is direct substitution into this unit-vector case.",
+          "supports_content_ids": [
+            "BC-03",
+            "BC-04"
+          ]
+        }
+      ]
+    },
+    {
+      "bridge_contract_id": "BRC-INNER-PRODUCTS-QUADRATIC-FORMS-v1",
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-QUADRATIC-FORMS-v1",
+      "concept_id": "inner-products-and-quadratic-forms",
+      "name": "Inner products and quadratic forms",
+      "status": "candidate",
+      "requested_by_profile_ids": [
+        "computer-science-year-2-rq2-pilot",
+        "mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-009",
+        "RC-010"
+      ],
+      "content_boundary": "Compute x^T A x, x^T x, and compatible scalar-vector expressions used by the Rayleigh quotient and residual; exclude general quadratic-form classification.",
+      "learning_outcomes": [
+        {
+          "outcome_id": "BO-01",
+          "text": "Compute x^T y and identify the scalar result."
+        },
+        {
+          "outcome_id": "BO-02",
+          "text": "Compute x^T A x by forming Ax and then taking the inner product with x."
+        },
+        {
+          "outcome_id": "BO-03",
+          "text": "Relate x^T x to the squared Euclidean norm without classifying general quadratic forms."
+        }
+      ],
+      "teaching_content": [
+        {
+          "content_id": "BC-01",
+          "kind": "definition",
+          "text": "For real vectors x and y of the same length, x^T y is the dot product and is the scalar sum of componentwise products.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-02",
+          "kind": "procedure",
+          "text": "To compute x^T A x, first compute y = Ax and then compute the scalar x^T y. Check that A is square and compatible with x.",
+          "source_ids": [
+            "SRC-02"
+          ]
+        },
+        {
+          "content_id": "BC-03",
+          "kind": "explanation",
+          "text": "The special case x^T x equals ||x||_2^2 and is non-negative.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-04",
+          "kind": "worked_example",
+          "text": "For A = [[2, 0], [0, 1]] and x = (1, 2)^T, Ax = (2, 2)^T and x^T A x = 1*2 + 2*2 = 6.",
+          "source_ids": [
+            "SRC-02"
+          ]
+        }
+      ],
+      "excluded_content": [
+        "Classification of quadratic forms",
+        "Positive-definiteness tests",
+        "Derivation or interpretation of the Rayleigh quotient",
+        "Residual-based stopping rules"
+      ],
+      "sources": [
+        {
+          "source_id": "SRC-01",
+          "title": "Dot Products and Orthogonality",
+          "provider": "University of California, Irvine / Mathematics LibreTexts",
+          "url": "https://math.libretexts.org/Courses/University_of_California_Irvine/Linear_Algebra_%28Math_3A_UCI%29/03%3A_Vector_Geometry/3.04%3A_Dot_Products_and_Orthogonal_Complements/3.4.01%3A_Dot_Products_and_Orthogonality",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-18",
+          "evidence_locator": "Definition: Dot Product and Fact 1: defines x^T y as the scalar sum of componentwise products, states x dot x is non-negative, and gives ||x|| = sqrt(x dot x), hence x^T x = ||x||_2^2.",
+          "supports_content_ids": [
+            "BC-01",
+            "BC-03"
+          ]
+        },
+        {
+          "source_id": "SRC-02",
+          "title": "Positive Definite Matrices and Minima: Problem 27.2 Solution",
+          "provider": "MIT OpenCourseWare",
+          "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/a034549dadd99fe2c7278d6412ddc39f_MIT18_06SCF11_Ses3.3sol.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-18",
+          "evidence_locator": "Problem 27.2 solution demonstrates forming Ax and computing the scalar x^T A x, including the compatible matrix-vector dimensions.",
+          "supports_content_ids": [
+            "BC-02",
+            "BC-04"
+          ]
+        }
+      ]
+    },
+    {
+      "bridge_contract_id": "BRC-NUMPY-VECTOR-OPERATIONS-v1",
+      "bridge_candidate_id": "BR-NUMPY-VECTOR-OPERATIONS-v1",
+      "concept_id": "numpy-vector-operations",
+      "name": "Basic NumPy vector operations",
+      "status": "candidate",
+      "requested_by_profile_ids": [
+        "applied-mathematics-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-016",
+        "RC-017",
+        "RC-018"
+      ],
+      "content_boundary": "Use array conversion, shape inspection, matrix-vector multiplication, norms, comparisons, exceptions, and tuple returns needed by the Contract implementation; exclude unrelated NumPy APIs.",
+      "learning_outcomes": [
+        {
+          "outcome_id": "BO-01",
+          "text": "Convert compatible inputs to floating-point NumPy arrays and inspect their shapes."
+        },
+        {
+          "outcome_id": "BO-02",
+          "text": "Use @ for matrix-vector multiplication and numpy.linalg.norm for vector norms."
+        },
+        {
+          "outcome_id": "BO-03",
+          "text": "Read simple comparison, exception, and tuple-return patterns used by the Contract implementation."
+        }
+      ],
+      "teaching_content": [
+        {
+          "content_id": "BC-01",
+          "kind": "code_pattern",
+          "text": "Convert inputs with A = np.asarray(A, dtype=float) and x = np.asarray(x0, dtype=float), then inspect A.shape and x.shape before arithmetic.",
+          "source_ids": [
+            "SRC-01",
+            "SRC-02"
+          ]
+        },
+        {
+          "content_id": "BC-02",
+          "kind": "code_pattern",
+          "text": "For a two-dimensional array A and one-dimensional array x with compatible dimensions, y = A @ x computes the matrix-vector product.",
+          "source_ids": [
+            "SRC-03"
+          ]
+        },
+        {
+          "content_id": "BC-03",
+          "kind": "code_pattern",
+          "text": "Use n = np.linalg.norm(x) for the default Euclidean norm of a one-dimensional vector and test n == 0.0 before dividing by n.",
+          "source_ids": [
+            "SRC-04",
+            "SRC-02"
+          ]
+        },
+        {
+          "content_id": "BC-04",
+          "kind": "safeguard",
+          "text": "Use explicit shape or value checks and raise a specific exception for invalid input; comparisons on arrays are elementwise, so reduce or compare scalar diagnostics when a single truth value is required.",
+          "source_ids": [
+            "SRC-02",
+            "SRC-05"
+          ]
+        },
+        {
+          "content_id": "BC-05",
+          "kind": "code_pattern",
+          "text": "A function may return several diagnostics as one tuple, for example return value, vector, iterations, residual; callers can unpack the tuple into four names.",
+          "source_ids": [
+            "SRC-06"
+          ]
+        }
+      ],
+      "excluded_content": [
+        "Unrelated NumPy APIs",
+        "Vectorization or broadcasting beyond the required operations",
+        "Alternative eigensolvers",
+        "Changes to the Contract algorithm"
+      ],
+      "sources": [
+        {
+          "source_id": "SRC-01",
+          "title": "numpy.asarray",
+          "provider": "NumPy Developers",
+          "url": "https://numpy.org/doc/stable/reference/generated/numpy.asarray.html",
+          "source_type": "official_documentation",
+          "accessed_at": "2026-08-18",
+          "evidence_locator": "Function description, dtype parameter, return value, and list-to-array example",
+          "supports_content_ids": [
+            "BC-01"
+          ]
+        },
+        {
+          "source_id": "SRC-02",
+          "title": "The N-dimensional array (ndarray)",
+          "provider": "NumPy Developers",
+          "url": "https://numpy.org/doc/stable/reference/arrays.ndarray.html",
+          "source_type": "official_documentation",
+          "accessed_at": "2026-08-18",
+          "evidence_locator": "Array shape attribute and arithmetic/comparison operations",
+          "supports_content_ids": [
+            "BC-01",
+            "BC-03",
+            "BC-04"
+          ]
+        },
+        {
+          "source_id": "SRC-03",
+          "title": "numpy.matmul",
+          "provider": "NumPy Developers",
+          "url": "https://numpy.org/doc/stable/reference/generated/numpy.matmul.html",
+          "source_type": "official_documentation",
+          "accessed_at": "2026-08-18",
+          "evidence_locator": "Matrix-product definition, 2-D by 1-D behavior, and @ operator",
+          "supports_content_ids": [
+            "BC-02"
+          ]
+        },
+        {
+          "source_id": "SRC-04",
+          "title": "numpy.linalg.norm",
+          "provider": "NumPy Developers",
+          "url": "https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html",
+          "source_type": "official_documentation",
+          "accessed_at": "2026-08-18",
+          "evidence_locator": "Default one-dimensional vector 2-norm behavior",
+          "supports_content_ids": [
+            "BC-03"
+          ]
+        },
+        {
+          "source_id": "SRC-05",
+          "title": "Errors and Exceptions",
+          "provider": "Python Software Foundation",
+          "url": "https://docs.python.org/3/tutorial/errors.html",
+          "source_type": "official_documentation",
+          "accessed_at": "2026-08-18",
+          "evidence_locator": "Sections 8.2 and 8.4 on exceptions and raising exceptions",
+          "supports_content_ids": [
+            "BC-04"
+          ]
+        },
+        {
+          "source_id": "SRC-06",
+          "title": "Data Structures: Tuples and Sequences",
+          "provider": "Python Software Foundation",
+          "url": "https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences",
+          "source_type": "official_documentation",
+          "accessed_at": "2026-08-18",
+          "evidence_locator": "Tuples, sequence packing, and sequence unpacking",
+          "supports_content_ids": [
+            "BC-05"
+          ]
+        }
+      ]
+    }
+  ]
+}

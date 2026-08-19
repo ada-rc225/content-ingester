@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "operation": "deterministic-p1-copy-v1",
+  "inputs": {
+    "P0_pathway": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p0/pathway-plan.json",
+      "sha256": "9cf1f1125924467e0bae738180bfdc2df0663dab56316caf849037dcacbe5480"
+    },
+    "learner_profile": {
+      "file": "experiments/rq2/profiles/applied-mathematics-year-2.json",
+      "sha256": "303e94d25f3370e895e2a1a119ef3e193dae6a338d66200f83d2aa4b2eb022e2"
+    }
+  },
+  "P0_pathway_id": "power-iteration-p0-v1",
+  "P1_pathway_id": "power-iteration-applied-mathematics-p1-v1",
+  "profile_id": "applied-mathematics-year-2-rq2-pilot",
+  "controlled_copy_policy": {
+    "exact_P0_fields": [
+      "topic",
+      "source_authorities",
+      "profile_concept_assessment_binding",
+      "learning_request_binding",
+      "selection_authority",
+      "selection",
+      "learning_goal_mappings",
+      "learning_units",
+      "instruction_sequence",
+      "bridge_requirements",
+      "pathway_changes",
+      "scope_summary",
+      "rendering_policy",
+      "plan_status"
+    ],
+    "changed_fields": [
+      "pathway_id",
+      "condition",
+      "profile_binding",
+      "baseline_pathway_binding",
+      "generated_by"
+    ]
+  },
+  "generated_at": "2026-08-18T14:05:00Z",
+  "output": {
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p1/applied-mathematics/pathway-plan.json",
+    "sha256": "bc3bd0fc622626479c780a82dacf13b4dd17e4b74d5c7dec3753a36d7dd6f4a7"
+  }
+}

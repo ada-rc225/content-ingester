@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/rq2-lesson-map.schema.json",
+  "title": "RQ2 Pathway-Constrained Lesson Map",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "lesson_file", "sections"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "run_id": {"type": "string", "minLength": 1},
+    "lesson_file": {"const": "lesson.md"},
+    "sections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "section_id",
+          "heading",
+          "unit_ids",
+          "contract_item_ids",
+          "bridge_contract_ids"
+        ],
+        "properties": {
+          "section_id": {"type": "string", "pattern": "^SEC-[0-9]{2,}$"},
+          "heading": {"type": "string", "minLength": 1},
+          "unit_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {"type": "string", "minLength": 1}
+          },
+          "contract_item_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {"type": "string", "pattern": "^RC-[0-9]{3,}$"}
+          },
+          "bridge_contract_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    }
+  }
+}

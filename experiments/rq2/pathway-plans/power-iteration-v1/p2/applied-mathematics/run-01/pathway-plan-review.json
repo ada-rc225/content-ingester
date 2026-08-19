@@ -1,0 +1,755 @@
+{
+  "schema_version": "1.0",
+  "review_id": "power-iteration-p2-applied-mathematics-run-01-review-v1",
+  "review_status": "revision_required",
+  "candidate_binding": {
+    "pathway_id": "power-iteration-p2-applied-mathematics-run-01",
+    "pathway_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-01/pathway-plan.json",
+    "pathway_sha256": "2046cb70d082c9036d41247c6f34169cca00c5000f259149765f5249a69cb343",
+    "validation_report_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-01/pathway-validation-report.json",
+    "validation_report_sha256": "b7d4acc091f85799be9c1a5f2e4c0ebdb3924af3950fb1884ca1b683a7eb56bd",
+    "assessment_id": "applied-mathematics-year-2-concept-assessment-v1",
+    "assessment_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-01/profile-concept-assessment.json",
+    "assessment_sha256": "2e77df8cda0ee7da919b50a67836cdf1f6365d8704ff4b134a8ba89e7d2accba",
+    "profile_id": "applied-mathematics-year-2-rq2-pilot",
+    "profile_file": "experiments/rq2/profiles/applied-mathematics-year-2.json",
+    "profile_sha256": "303e94d25f3370e895e2a1a119ef3e193dae6a338d66200f83d2aa4b2eb022e2"
+  },
+  "template_generator": {
+    "agent": "adaptive-curriculum-pathway-planner",
+    "agent_version": "1.1",
+    "skill": "plan-adaptive-curriculum-pathways",
+    "skill_version": "1.1",
+    "generated_at": "2026-08-18T03:57:05Z"
+  },
+  "revision_binding": null,
+  "reviewer": {
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "applied-mathematics-educator"
+  },
+  "selection_reviews": [
+    {
+      "item_id": "RC-001",
+      "item_type": "definition",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-002",
+      "item_type": "equation",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-003",
+      "item_type": "theorem",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-004",
+      "item_type": "assumption",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "revision_required",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "Retain RC-004 but change its role from supporting to target. The unique dominant-magnitude assumption is a direct learning target for LG-003 and is central to the profile's preference for explicit assumption analysis."
+    },
+    {
+      "item_id": "RC-005",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Retain the include/target decision, but revise the profile basis to cite prior_knowledge=linear algebra and preferred_representations=derivation. Basic numerical computing may be retained only as secondary support for tracing the update."
+    },
+    {
+      "item_id": "RC-006",
+      "item_type": "equation",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-007",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-008",
+      "item_type": "failure_condition",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-009",
+      "item_type": "equation",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-010",
+      "item_type": "stopping_condition",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-011",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-012",
+      "item_type": "failure_condition",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-013",
+      "item_type": "failure_condition",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-014",
+      "item_type": "definition",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-015",
+      "item_type": "assumption",
+      "criticality": "supporting",
+      "planned_decision": "include",
+      "planned_role": "extension",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Retain the include/extension decision, but replace the current profile basis with preferred_representations=assumption and counterexample analysis. Explain that the non-symmetric scope boundary prevents the learner from overgeneralising the symmetric spectral derivation."
+    },
+    {
+      "item_id": "RC-016",
+      "item_type": "code_semantics",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "revision_required",
+        "rationale_and_profile_basis": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Retain RC-016 but change its role from target to supporting. Rewrite the rationale to state that it scaffolds the optional implementation capability LG-004 and addresses a fragile prerequisite; it is not a central mathematical target for this profile. Keep the plan provisional until the NumPy vector-operations bridge is released."
+    },
+    {
+      "item_id": "RC-017",
+      "item_type": "code_semantics",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "revision_required",
+        "rationale_and_profile_basis": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Retain RC-017 but change its role from target to supporting. RC-010 and RC-011 provide the required mathematical stopping and safeguard concepts, while RC-017 should serve as executable reinforcement for optional LG-004 and the profile's fragile implementation diagnostics."
+    },
+    {
+      "item_id": "RC-018",
+      "item_type": "worked_result",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "revision_required",
+        "rationale_and_profile_basis": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Retain RC-018 but change its role from target to supporting. Treat the worked result as consolidation of the derivation, eigenvalue estimate, residual interpretation, and implementation trace rather than as an independent learning target. Expand the profile basis to include prior_knowledge=basic numerical computing and missing_or_fragile_prerequisites=implementation diagnostics."
+    }
+  ],
+  "concept_reviews": [
+    {
+      "concept_id": "matrix-vector-products",
+      "planned_mastery": "mastered",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "vector-norms-and-normalization",
+      "planned_mastery": "mastered",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "orthogonality-and-projection",
+      "planned_mastery": "mastered",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "revision_required",
+        "evidence_and_rationale": "revision_required",
+        "bridge_requirement": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "Retain mastery=mastered but reduce confidence from high to medium. Revise the rationale so that prior_knowledge=linear algebra is the evidence for likely mastery, while preferred_representations=spectral decomposition is treated only as a pedagogical preference and not as evidence of prior mastery. No bridge is required unless mastery is changed to fragile, missing, or unknown."
+    },
+    {
+      "concept_id": "determinants-characteristic-polynomials",
+      "planned_mastery": "mastered",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "revision_required",
+        "evidence_and_rationale": "revision_required",
+        "bridge_requirement": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "Retain mastery=mastered but reduce confidence from high to medium. Base the mastery inference on prior_knowledge=linear algebra. Treat preferred_representations=derivation as a presentation preference rather than evidence that determinants and characteristic polynomials have already been mastered. No bridge is required while mastery remains mastered."
+    },
+    {
+      "concept_id": "inner-products-and-quadratic-forms",
+      "planned_mastery": "mastered",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "revision_required",
+        "evidence_and_rationale": "revision_required",
+        "bridge_requirement": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "Retain mastery=mastered but reduce confidence from high to medium. Revise the rationale to distinguish likely familiarity with inner products from the less explicit evidence for quadratic-form notation. Limit the assumed knowledge to computing x^T x and x^T A x as required by the Rayleigh quotient and residual. No bridge is required while mastery remains mastered."
+    },
+    {
+      "concept_id": "numpy-vector-operations",
+      "planned_mastery": "fragile",
+      "planned_bridge_status": "candidate",
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "revision_required",
+        "bridge_requirement": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "Retain mastery=fragile, confidence=medium, and the candidate bridge requirement. Revise the rationale to make clear that basic numerical computing provides indirect evidence of partial familiarity, while the profile does not explicitly confirm NumPy proficiency. Treat fragile implementation diagnostics and floating-point stopping criteria as reasons for additional implementation scaffolding, not as direct evidence about all NumPy vector operations."
+    }
+  ],
+  "learning_goal_reviews": [
+    {
+      "capability_id": "LG-001",
+      "planned_coverage": "complete",
+      "planned_supporting_item_ids": [
+        "RC-001",
+        "RC-005",
+        "RC-011",
+        "RC-017",
+        "RC-018"
+      ],
+      "field_decisions": {
+        "coverage_and_support": "revision_required",
+        "rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Retain coverage=complete and add RC-002 to supporting_item_ids. Revise the rationale to explain that the characteristic-equation route provides small-matrix grounding and helps contrast direct eigenvalue calculation with iterative matrix-vector updates. RC-017 and RC-018 may remain supporting evidence even after their pathway roles are changed from target to supporting."
+    },
+    {
+      "capability_id": "LG-002",
+      "planned_coverage": "complete",
+      "planned_supporting_item_ids": [
+        "RC-009",
+        "RC-010",
+        "RC-011",
+        "RC-017",
+        "RC-018"
+      ],
+      "field_decisions": {
+        "coverage_and_support": "approved",
+        "rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "capability_id": "LG-003",
+      "planned_coverage": "complete",
+      "planned_supporting_item_ids": [
+        "RC-003",
+        "RC-004",
+        "RC-006",
+        "RC-007",
+        "RC-008",
+        "RC-012",
+        "RC-013",
+        "RC-014",
+        "RC-015"
+      ],
+      "field_decisions": {
+        "coverage_and_support": "approved",
+        "rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "capability_id": "LG-004",
+      "planned_coverage": "complete",
+      "planned_supporting_item_ids": [
+        "RC-011",
+        "RC-016",
+        "RC-017",
+        "RC-018"
+      ],
+      "field_decisions": {
+        "coverage_and_support": "approved",
+        "rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    }
+  ],
+  "structure_review": {
+    "instruction_sequence": [
+      "P2-AM-U01",
+      "P2-AM-U02",
+      "P2-AM-U03",
+      "P2-AM-U04",
+      "P2-AM-U05",
+      "P2-AM-U06",
+      "P2-AM-U07",
+      "P2-AM-U08",
+      "P2-AM-U09",
+      "P2-AM-U10",
+      "P2-AM-U11",
+      "P2-AM-U12",
+      "P2-AM-U13"
+    ],
+    "unit_summaries": [
+      {
+        "unit_id": "P2-AM-U01",
+        "unit_type": "contract_content",
+        "purpose": "Eigenpair foundation",
+        "contract_item_ids": [
+          "RC-001"
+        ],
+        "prerequisite_unit_ids": [],
+        "learning_goal_ids": [
+          "LG-001",
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "P2-AM-U02",
+        "unit_type": "contract_content",
+        "purpose": "Magnitude targeting, spectral decomposition, and dominant-magnitude assumption",
+        "contract_item_ids": [
+          "RC-003",
+          "RC-004",
+          "RC-014"
+        ],
+        "prerequisite_unit_ids": [
+          "P2-AM-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-001",
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "P2-AM-U03",
+        "unit_type": "contract_content",
+        "purpose": "Normalized power update",
+        "contract_item_ids": [
+          "RC-005"
+        ],
+        "prerequisite_unit_ids": [
+          "P2-AM-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-001"
+        ]
+      },
+      {
+        "unit_id": "P2-AM-U04",
+        "unit_type": "contract_content",
+        "purpose": "Rayleigh estimate",
+        "contract_item_ids": [
+          "RC-009"
+        ],
+        "prerequisite_unit_ids": [
+          "P2-AM-U01",
+          "P2-AM-U03"
+        ],
+        "learning_goal_ids": [
+          "LG-002"
+        ]
+      },
+      {
+        "unit_id": "P2-AM-U05",
+        "unit_type": "contract_content",
+        "purpose": "Residual quality and sign-aware stopping measure",
+        "contract_item_ids": [
+          "RC-010"
+        ],
+        "prerequisite_unit_ids": [
+          "P2-AM-U03",
+          "P2-AM-U04"
+        ],
+        "learning_goal_ids": [
+          "LG-002"
+        ]
+      },
+      {
+        "unit_id": "P2-AM-U06",
+        "unit_type": "contract_content",
+        "purpose": "Characteristic equation as a supporting derivation route",
+        "contract_item_ids": [
+          "RC-002"
+        ],
+        "prerequisite_unit_ids": [
+          "P2-AM-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "P2-AM-U07",
+        "unit_type": "contract_content",
+        "purpose": "Spectral expansion and convergence mechanism",
+        "contract_item_ids": [
+          "RC-006"
+        ],
+        "prerequisite_unit_ids": [
+          "P2-AM-U02",
+          "P2-AM-U03"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "P2-AM-U08",
+        "unit_type": "contract_content",
+        "purpose": "Asymptotic rate and convergence assumptions",
+        "contract_item_ids": [
+          "RC-007"
+        ],
+        "prerequisite_unit_ids": [
+          "P2-AM-U02",
+          "P2-AM-U03",
+          "P2-AM-U07"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "P2-AM-U09",
+        "unit_type": "contract_content",
+        "purpose": "Counterexamples and scope boundaries",
+        "contract_item_ids": [
+          "RC-008",
+          "RC-012",
+          "RC-013",
+          "RC-015"
+        ],
+        "prerequisite_unit_ids": [
+          "P2-AM-U02",
+          "P2-AM-U03",
+          "P2-AM-U07",
+          "P2-AM-U08"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "P2-AM-U10",
+        "unit_type": "contract_content",
+        "purpose": "Safeguarded algorithm",
+        "contract_item_ids": [
+          "RC-011"
+        ],
+        "prerequisite_unit_ids": [
+          "P2-AM-U03",
+          "P2-AM-U04",
+          "P2-AM-U05"
+        ],
+        "learning_goal_ids": [
+          "LG-001",
+          "LG-002",
+          "LG-004"
+        ]
+      },
+      {
+        "unit_id": "P2-AM-U11",
+        "unit_type": "contract_content",
+        "purpose": "Validated NumPy initialization",
+        "contract_item_ids": [
+          "RC-016"
+        ],
+        "prerequisite_unit_ids": [
+          "P2-AM-U03",
+          "P2-AM-U10"
+        ],
+        "learning_goal_ids": [
+          "LG-004"
+        ]
+      },
+      {
+        "unit_id": "P2-AM-U12",
+        "unit_type": "contract_content",
+        "purpose": "Executable iteration semantics and diagnostics",
+        "contract_item_ids": [
+          "RC-017"
+        ],
+        "prerequisite_unit_ids": [
+          "P2-AM-U03",
+          "P2-AM-U04",
+          "P2-AM-U05",
+          "P2-AM-U10",
+          "P2-AM-U11"
+        ],
+        "learning_goal_ids": [
+          "LG-001",
+          "LG-002",
+          "LG-004"
+        ]
+      },
+      {
+        "unit_id": "P2-AM-U13",
+        "unit_type": "contract_content",
+        "purpose": "Worked mathematical and computational consolidation",
+        "contract_item_ids": [
+          "RC-018"
+        ],
+        "prerequisite_unit_ids": [
+          "P2-AM-U01",
+          "P2-AM-U04",
+          "P2-AM-U05",
+          "P2-AM-U12"
+        ],
+        "learning_goal_ids": [
+          "LG-001",
+          "LG-002",
+          "LG-004"
+        ]
+      }
+    ],
+    "field_decisions": {
+      "unit_grouping": "approved",
+      "instruction_sequence": "revision_required",
+      "prerequisite_relations": "approved",
+      "unit_purpose_and_learning_goals": "revision_required"
+    },
+    "decision": "revision_required",
+    "comment": "Retain the current unit grouping and prerequisite relations, but revise the instruction sequence to P2-AM-U01, P2-AM-U06, P2-AM-U02, P2-AM-U03, P2-AM-U07, P2-AM-U08, P2-AM-U09, P2-AM-U04, P2-AM-U05, P2-AM-U10, P2-AM-U11, P2-AM-U12, P2-AM-U13. This places characteristic-equation context and the spectral convergence derivation before diagnostic and implementation material. Change P2-AM-U06 learning_goal_ids from LG-003 to LG-001 because RC-002 supports small-matrix eigenvalue context and the motivation for an iterative method rather than assumptions or failure conditions."
+  },
+  "pathway_change_reviews": [
+    {
+      "change_index": 0,
+      "change_type": "regroup_contract_items",
+      "affected_ids": [
+        "RC-001",
+        "RC-002",
+        "RC-003",
+        "RC-004",
+        "RC-009",
+        "RC-010",
+        "RC-012",
+        "RC-013",
+        "RC-015"
+      ],
+      "field_decisions": {
+        "structural_accuracy": "revision_required",
+        "profile_basis": "approved",
+        "rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Correct affected_ids to RC-001, RC-002, RC-003, RC-004, RC-006, RC-007, RC-009, RC-010, RC-011, RC-014, RC-016, and RC-017. Remove RC-012, RC-013, and RC-015 because their failure-and-scope grouping with RC-008 is preserved. Revise the rationale to describe the separation of characteristic-equation context, spectral derivation stages, Rayleigh/residual diagnostics, and scaffolded implementation stages."
+    },
+    {
+      "change_index": 1,
+      "change_type": "reorder_learning_units",
+      "affected_ids": [
+        "RC-002",
+        "RC-009",
+        "RC-010",
+        "RC-006",
+        "RC-007"
+      ],
+      "field_decisions": {
+        "structural_accuracy": "revision_required",
+        "profile_basis": "revision_required",
+        "rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "After applying the revised derivation-first instruction sequence, remove this reorder_learning_units change record. The revised pathway no longer places Rayleigh/residual diagnostics ahead of the convergence derivation and therefore does not support the current affected_ids, profile-basis claim, or rationale. The remaining adaptation should be represented by regroup_contract_items and change_theory_implementation_application_depth."
+    },
+    {
+      "change_index": 2,
+      "change_type": "change_theory_implementation_application_depth",
+      "affected_ids": [
+        "RC-003",
+        "RC-006",
+        "RC-007",
+        "RC-011",
+        "RC-016",
+        "RC-017"
+      ],
+      "field_decisions": {
+        "structural_accuracy": "revision_required",
+        "profile_basis": "revision_required",
+        "rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Revise affected_ids to RC-003, RC-006, RC-012, RC-013, RC-014, and RC-015. Remove RC-011, RC-016, and RC-017 from this depth-change claim because the implementation block remains supporting after revision. Revise profile_basis to emphasize spectral decomposition, derivation, and assumption/counterexample analysis. Rewrite the rationale to describe the promotion of spectral derivation and selected failure conditions to targets, the supporting role of the largest-magnitude distinction, and the extension role of the non-symmetric scope boundary."
+    }
+  ],
+  "scope_review": {
+    "selected_item_ids": [
+      "RC-001",
+      "RC-002",
+      "RC-003",
+      "RC-004",
+      "RC-005",
+      "RC-006",
+      "RC-007",
+      "RC-008",
+      "RC-009",
+      "RC-010",
+      "RC-011",
+      "RC-012",
+      "RC-013",
+      "RC-014",
+      "RC-015",
+      "RC-016",
+      "RC-017",
+      "RC-018"
+    ],
+    "excluded_item_ids": [],
+    "failure_or_convergence_item_ids": [
+      "RC-004",
+      "RC-007",
+      "RC-008",
+      "RC-012",
+      "RC-013",
+      "RC-015"
+    ],
+    "field_decisions": {
+      "selected_content_scope": "approved",
+      "failure_and_convergence_scope": "approved",
+      "profile_appropriateness": "revision_required"
+    },
+    "decision": "revision_required",
+    "comment": "Retain all 18 selected Contract items and retain the complete failure/convergence subset because characteristic-equation derivation, spectral analysis, and counterexamples are appropriate for this profile. Revise profile appropriateness by making RC-004 a target, treating RC-016, RC-017, and RC-018 as supporting, and applying the derivation-first instruction sequence requested in the structure review. The implementation block must remain scaffolded and subordinate to the mathematical pathway."
+  },
+  "overall_review": {
+    "decision": "revision_required",
+    "reviewed_at": "2026-08-18T14:30:00Z",
+    "comment": "Revision is required before pathway approval. Retain the selected mathematical scope, but correct item roles, reduce unsupported high-confidence prerequisite judgements, revise the NumPy evidence rationale, add RC-002 to LG-001 support, restore a derivation-first sequence, correct the learning-goal assignment of P2-AM-U06, and align all pathway-change records with the actual structural and emphasis changes. The revised plan must remain provisional until the required NumPy bridge is released."
+  }
+}

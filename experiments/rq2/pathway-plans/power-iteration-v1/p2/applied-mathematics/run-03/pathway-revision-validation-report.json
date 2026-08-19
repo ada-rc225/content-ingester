@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "validator": "validate-pathway-revision-v1",
+  "valid": true,
+  "error_count": 0,
+  "errors": [],
+  "inputs": {
+    "revision_receipt": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-03/pathway-revision-receipt.json",
+    "revision_receipt_sha256": "e0ca011a7e38cb23286b5637e00fc0223f99671fcd3fa8fbd73e181e2eafd4b5",
+    "candidate_pathway": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-03/pathway-plan.json",
+    "candidate_pathway_sha256": "fad9a6bd91aa954cb0b5e8931f03edcab64990d8b330ec328a7ecd803a08a4a6",
+    "candidate_assessment": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-03/profile-concept-assessment.json",
+    "candidate_assessment_sha256": "e99070c8284b2110d31b726b488957741afd04ec68e503587d7e695b2daa4b4e",
+    "candidate_validation_report": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-03/pathway-validation-report.json",
+    "candidate_validation_report_sha256": "3670e96374818833ca5b35e5fc2bd65ea7bb9314593e2bd326700f7381b5744c"
+  },
+  "validated_at": "2026-08-18T15:52:22Z"
+}

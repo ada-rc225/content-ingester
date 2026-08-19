@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "preparer": "prepare-composition-inputs-v1",
+  "prepared_at": "2026-08-19T14:00:00Z",
+  "run_id": "power-iteration-p1-applied-mathematics-pilot-run-02",
+  "condition": "P1",
+  "topic": "power iteration",
+  "inputs": {
+    "pathway": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p1/applied-mathematics/pathway-plan.json",
+      "sha256": "bc3bd0fc622626479c780a82dacf13b4dd17e4b74d5c7dec3753a36d7dd6f4a7"
+    },
+    "pathway_validation_report": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p1/applied-mathematics/pathway-validation-report.json",
+      "sha256": "5e251ec980f26377d6e82230ef536a6673abf3cbda31380e261cbae7e6da3c33"
+    },
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+      "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/power-iteration-second-year.json",
+      "sha256": "c4cf0c6a4cf53653abab28123b4649dfd6459d894d3f85a310af0200468fe431"
+    },
+    "word_count_protocol": {
+      "file": "experiments/rq2/word-count-protocols/power-iteration-pilot.json",
+      "sha256": "474f78273ee6eec37f78edbea499b230218d30d94041240fb3d6ec87421d8246"
+    },
+    "profile": {
+      "file": "experiments/rq2/profiles/applied-mathematics-year-2.json",
+      "sha256": "303e94d25f3370e895e2a1a119ef3e193dae6a338d66200f83d2aa4b2eb022e2"
+    },
+    "bridge_catalog": null
+  },
+  "treatment_isolation": {
+    "external_retrieval_allowed": false,
+    "other_profiles_allowed": false,
+    "other_condition_outputs_allowed": false,
+    "evaluation_results_allowed": false,
+    "profile_visible": true,
+    "profile_adaptation_allowed": true,
+    "pathway_replanning_allowed": false,
+    "selected_contract_scope_exact": true,
+    "instruction_sequence_exact": true,
+    "discipline_neutral_required": false
+  },
+  "output_view": {
+    "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/applied-mathematics/run-02/composition-input-view.json",
+    "sha256": "03ce2960907342971a65f7c8e691de07df42d2cb5b1429781f3938af5b54d7fc"
+  }
+}

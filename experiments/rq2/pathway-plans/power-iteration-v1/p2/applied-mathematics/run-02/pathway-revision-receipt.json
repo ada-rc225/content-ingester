@@ -1,0 +1,175 @@
+{
+  "schema_version": "1.0",
+  "mode": "revision",
+  "parent_pathway": {
+    "pathway_id": "power-iteration-p2-applied-mathematics-run-01",
+    "next_pathway_id": "power-iteration-p2-applied-mathematics-run-01-revision-v1",
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-01/pathway-plan.json",
+    "sha256": "2046cb70d082c9036d41247c6f34169cca00c5000f259149765f5249a69cb343",
+    "validation_report_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-01/pathway-validation-report.json",
+    "validation_report_sha256": "b7d4acc091f85799be9c1a5f2e4c0ebdb3924af3950fb1884ca1b683a7eb56bd"
+  },
+  "parent_assessment": {
+    "assessment_id": "applied-mathematics-year-2-concept-assessment-v1",
+    "next_assessment_id": "applied-mathematics-year-2-concept-assessment-v2",
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-01/profile-concept-assessment.json",
+    "sha256": "2e77df8cda0ee7da919b50a67836cdf1f6365d8704ff4b134a8ba89e7d2accba"
+  },
+  "parent_review": {
+    "review_id": "power-iteration-p2-applied-mathematics-run-01-review-v1",
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-01/pathway-plan-review.json",
+    "sha256": "95f58f977a5437c0ee2e2bdc7092022ac25ee2c3af70bfbaee88c3202208e83e",
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "applied-mathematics-educator",
+    "reviewed_at": "2026-08-18T14:30:00Z"
+  },
+  "revision_scope": {
+    "selection_reviews": [
+      {
+        "item_id": "RC-004",
+        "fields": [
+          "decision_and_role"
+        ],
+        "comment": "Retain RC-004 but change its role from supporting to target. The unique dominant-magnitude assumption is a direct learning target for LG-003 and is central to the profile's preference for explicit assumption analysis."
+      },
+      {
+        "item_id": "RC-005",
+        "fields": [
+          "rationale_and_profile_basis"
+        ],
+        "comment": "Retain the include/target decision, but revise the profile basis to cite prior_knowledge=linear algebra and preferred_representations=derivation. Basic numerical computing may be retained only as secondary support for tracing the update."
+      },
+      {
+        "item_id": "RC-015",
+        "fields": [
+          "rationale_and_profile_basis"
+        ],
+        "comment": "Retain the include/extension decision, but replace the current profile basis with preferred_representations=assumption and counterexample analysis. Explain that the non-symmetric scope boundary prevents the learner from overgeneralising the symmetric spectral derivation."
+      },
+      {
+        "item_id": "RC-016",
+        "fields": [
+          "decision_and_role",
+          "rationale_and_profile_basis"
+        ],
+        "comment": "Retain RC-016 but change its role from target to supporting. Rewrite the rationale to state that it scaffolds the optional implementation capability LG-004 and addresses a fragile prerequisite; it is not a central mathematical target for this profile. Keep the plan provisional until the NumPy vector-operations bridge is released."
+      },
+      {
+        "item_id": "RC-017",
+        "fields": [
+          "decision_and_role",
+          "rationale_and_profile_basis"
+        ],
+        "comment": "Retain RC-017 but change its role from target to supporting. RC-010 and RC-011 provide the required mathematical stopping and safeguard concepts, while RC-017 should serve as executable reinforcement for optional LG-004 and the profile's fragile implementation diagnostics."
+      },
+      {
+        "item_id": "RC-018",
+        "fields": [
+          "decision_and_role",
+          "rationale_and_profile_basis"
+        ],
+        "comment": "Retain RC-018 but change its role from target to supporting. Treat the worked result as consolidation of the derivation, eigenvalue estimate, residual interpretation, and implementation trace rather than as an independent learning target. Expand the profile basis to include prior_knowledge=basic numerical computing and missing_or_fragile_prerequisites=implementation diagnostics."
+      }
+    ],
+    "concept_reviews": [
+      {
+        "concept_id": "orthogonality-and-projection",
+        "fields": [
+          "mastery_and_confidence",
+          "evidence_and_rationale"
+        ],
+        "comment": "Retain mastery=mastered but reduce confidence from high to medium. Revise the rationale so that prior_knowledge=linear algebra is the evidence for likely mastery, while preferred_representations=spectral decomposition is treated only as a pedagogical preference and not as evidence of prior mastery. No bridge is required unless mastery is changed to fragile, missing, or unknown."
+      },
+      {
+        "concept_id": "determinants-characteristic-polynomials",
+        "fields": [
+          "mastery_and_confidence",
+          "evidence_and_rationale"
+        ],
+        "comment": "Retain mastery=mastered but reduce confidence from high to medium. Base the mastery inference on prior_knowledge=linear algebra. Treat preferred_representations=derivation as a presentation preference rather than evidence that determinants and characteristic polynomials have already been mastered. No bridge is required while mastery remains mastered."
+      },
+      {
+        "concept_id": "inner-products-and-quadratic-forms",
+        "fields": [
+          "mastery_and_confidence",
+          "evidence_and_rationale"
+        ],
+        "comment": "Retain mastery=mastered but reduce confidence from high to medium. Revise the rationale to distinguish likely familiarity with inner products from the less explicit evidence for quadratic-form notation. Limit the assumed knowledge to computing x^T x and x^T A x as required by the Rayleigh quotient and residual. No bridge is required while mastery remains mastered."
+      },
+      {
+        "concept_id": "numpy-vector-operations",
+        "fields": [
+          "evidence_and_rationale"
+        ],
+        "comment": "Retain mastery=fragile, confidence=medium, and the candidate bridge requirement. Revise the rationale to make clear that basic numerical computing provides indirect evidence of partial familiarity, while the profile does not explicitly confirm NumPy proficiency. Treat fragile implementation diagnostics and floating-point stopping criteria as reasons for additional implementation scaffolding, not as direct evidence about all NumPy vector operations."
+      }
+    ],
+    "learning_goal_reviews": [
+      {
+        "capability_id": "LG-001",
+        "fields": [
+          "coverage_and_support",
+          "rationale"
+        ],
+        "comment": "Retain coverage=complete and add RC-002 to supporting_item_ids. Revise the rationale to explain that the characteristic-equation route provides small-matrix grounding and helps contrast direct eigenvalue calculation with iterative matrix-vector updates. RC-017 and RC-018 may remain supporting evidence even after their pathway roles are changed from target to supporting."
+      }
+    ],
+    "pathway_change_reviews": [
+      {
+        "change_index": 0,
+        "fields": [
+          "structural_accuracy",
+          "rationale"
+        ],
+        "comment": "Correct affected_ids to RC-001, RC-002, RC-003, RC-004, RC-006, RC-007, RC-009, RC-010, RC-011, RC-014, RC-016, and RC-017. Remove RC-012, RC-013, and RC-015 because their failure-and-scope grouping with RC-008 is preserved. Revise the rationale to describe the separation of characteristic-equation context, spectral derivation stages, Rayleigh/residual diagnostics, and scaffolded implementation stages."
+      },
+      {
+        "change_index": 1,
+        "fields": [
+          "structural_accuracy",
+          "profile_basis",
+          "rationale"
+        ],
+        "comment": "After applying the revised derivation-first instruction sequence, remove this reorder_learning_units change record. The revised pathway no longer places Rayleigh/residual diagnostics ahead of the convergence derivation and therefore does not support the current affected_ids, profile-basis claim, or rationale. The remaining adaptation should be represented by regroup_contract_items and change_theory_implementation_application_depth."
+      },
+      {
+        "change_index": 2,
+        "fields": [
+          "structural_accuracy",
+          "profile_basis",
+          "rationale"
+        ],
+        "comment": "Revise affected_ids to RC-003, RC-006, RC-012, RC-013, RC-014, and RC-015. Remove RC-011, RC-016, and RC-017 from this depth-change claim because the implementation block remains supporting after revision. Revise profile_basis to emphasize spectral decomposition, derivation, and assumption/counterexample analysis. Rewrite the rationale to describe the promotion of spectral derivation and selected failure conditions to targets, the supporting role of the largest-magnitude distinction, and the extension role of the non-symmetric scope boundary."
+      }
+    ],
+    "structure_review": {
+      "fields": [
+        "instruction_sequence",
+        "unit_purpose_and_learning_goals"
+      ],
+      "comment": "Retain the current unit grouping and prerequisite relations, but revise the instruction sequence to P2-AM-U01, P2-AM-U06, P2-AM-U02, P2-AM-U03, P2-AM-U07, P2-AM-U08, P2-AM-U09, P2-AM-U04, P2-AM-U05, P2-AM-U10, P2-AM-U11, P2-AM-U12, P2-AM-U13. This places characteristic-equation context and the spectral convergence derivation before diagnostic and implementation material. Change P2-AM-U06 learning_goal_ids from LG-003 to LG-001 because RC-002 supports small-matrix eigenvalue context and the motivation for an iterative method rather than assumptions or failure conditions."
+    },
+    "scope_review": {
+      "fields": [
+        "profile_appropriateness"
+      ],
+      "comment": "Retain all 18 selected Contract items and retain the complete failure/convergence subset because characteristic-equation derivation, spectral analysis, and counterexamples are appropriate for this profile. Revise profile appropriateness by making RC-004 a target, treating RC-016, RC-017, and RC-018 as supporting, and applying the derivation-first instruction sequence requested in the structure review. The implementation block must remain scaffolded and subordinate to the mathematical pathway."
+    }
+  },
+  "overall_comment": "Revision is required before pathway approval. Retain the selected mathematical scope, but correct item roles, reduce unsupported high-confidence prerequisite judgements, revise the NumPy evidence rationale, add RC-002 to LG-001 support, restore a derivation-first sequence, correct the learning-goal assignment of P2-AM-U06, and align all pathway-change records with the actual structural and emphasis changes. The revised plan must remain provisional until the required NumPy bridge is released.",
+  "constraints": {
+    "preserve_unmarked_fields": true,
+    "require_new_output_directory": true,
+    "require_new_pathway_and_assessment_ids": true,
+    "do_not_inherit_human_approval": true,
+    "do_not_add_time_limits_or_unit_time_fields": true,
+    "word_count_control_deferred_to_composer": true
+  },
+  "generated_by": {
+    "agent": "adaptive-curriculum-pathway-planner",
+    "agent_version": "1.1",
+    "skill": "plan-adaptive-curriculum-pathways",
+    "skill_version": "1.1",
+    "generated_at": "2026-08-18T14:47:03Z"
+  }
+}

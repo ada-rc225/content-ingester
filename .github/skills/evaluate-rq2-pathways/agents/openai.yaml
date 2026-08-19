@@ -1,0 +1,4 @@
+interface:
+  display_name: "Evaluate RQ2 Pathways"
+  short_description: "Blindly score RQ2 lessons and pathway evidence"
+  default_prompt: "Use $evaluate-rq2-pathways to evaluate one anonymized RQ2 lesson and its pathway evidence."

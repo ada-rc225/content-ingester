@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "mapping_id": "power-iteration-p0-normalization-v1",
+  "status": "pilot_candidate",
+  "topic": "power-iteration",
+  "bindings": {
+    "canonical_pathway": {
+      "file": "experiments/rq2/specs/power-iteration/canonical-pathway.json",
+      "sha256": "d3e47d2cb1559390b83daf7d132c8b1a2157b8aa32e2f52ea8987ac2647fdaf8"
+    },
+    "common_core": {
+      "file": "experiments/rq2/specs/power-iteration/common-core.json",
+      "sha256": "94dd8229fb590c7834e4fc85720d44552128cb0c60c0c0b3d051615a84ed5f41"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/power-iteration-second-year.json",
+      "sha256": "c4cf0c6a4cf53653abab28123b4649dfd6459d894d3f85a310af0200468fe431"
+    }
+  },
+  "selected_role_policy": {
+    "universal_core_item_ids": "target",
+    "selectable_item_ids": "supporting"
+  },
+  "learning_objective_to_capability_ids": {
+    "LO-PI-01": ["LG-001", "LG-003"],
+    "LO-PI-02": ["LG-001"],
+    "LO-PI-03": ["LG-003"],
+    "LO-PI-04": ["LG-002"],
+    "LO-PI-05": ["LG-001", "LG-002", "LG-004"]
+  },
+  "capability_supporting_item_ids": {
+    "LG-001": ["RC-001", "RC-005", "RC-011"],
+    "LG-002": ["RC-009", "RC-010", "RC-011"],
+    "LG-003": ["RC-003", "RC-004", "RC-007", "RC-008", "RC-012", "RC-013", "RC-014", "RC-015"],
+    "LG-004": ["RC-016", "RC-017", "RC-018"]
+  },
+  "review": {
+    "review_status": "requires_supervisor_or_curriculum_review",
+    "reviewer_id": null,
+    "reviewed_at": null,
+    "comment": "This mapping migrates the frozen v0.2 P0 learning objectives into the v0.3 shared learning-request capabilities without changing canonical content selection, grouping, prerequisites, or order. Review before confirmatory generation."
+  }
+}
