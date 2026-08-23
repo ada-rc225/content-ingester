@@ -50,15 +50,15 @@
   "outputs": {
     "lesson": {
       "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/computer-science/run-01/lesson.md",
-      "sha256": "09491706bcf9bdc460a60baa6064982d7c3e9fa17448bb3b9fbe0783941309ff"
+      "sha256": "69691a658d9870ff6a35fae3801154c90dfd0a66c98e0f9e2eac7122e30db8f1"
     },
     "lesson_map": {
       "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/computer-science/run-01/lesson-map.json",
-      "sha256": "a19c0e5c7e91632e572e6e4afd161c3b79d7342af830e2dab6104c27bf6de876"
+      "sha256": "63c13ea7cfebf61ec71f9db06cef37c9759f2d4557cd7dbda74c5b9e1bafd7bc"
     },
     "code_validation": {
       "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/computer-science/run-01/code-validation.json",
-      "sha256": "42a14b1901f2edbb8ddfdd259fbf23b0683e98e5cef9e41a4c6f5eff88bd4777"
+      "sha256": "8f74be1b61bbef2055e7673c95c45e4c243cfa81f0c5c4689792a4d2a081c4e5"
     }
   },
   "word_count_protocol": {
@@ -77,5 +77,5 @@
       "P2"
     ]
   },
-  "observed_english_prose_word_count": 1978
+  "observed_english_prose_word_count": 1516
 }

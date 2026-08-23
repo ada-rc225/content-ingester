@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "RQ2-EVAL-v1",
+  "sample_id": "S-B42M",
+  "condition": "P0",
+  "topic": "power iteration",
+  "profile_id": "mechanical-engineering-year-2-rq2-pilot",
+  "run_id": "power-iteration-p0-pilot-run-01",
+  "source_lesson_run": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p0/run-01",
+  "source_pathway": "experiments/rq2/pathway-plans/power-iteration-v1/p0/pathway-plan.json",
+  "blind_bundle": "experiments/rq2/evaluation/power-iteration-v1/pilot/blind-samples/S-B42M",
+  "blind_manifest_sha256": "1b07dbd8f61b67470997a5615717a8d0c904d9b37e0b489b3acf2c393225b7da",
+  "created_at": "2026-08-19T12:00:00Z"
+}

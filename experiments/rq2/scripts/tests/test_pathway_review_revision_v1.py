@@ -186,6 +186,26 @@ class PathwayReviewRevisionTests(unittest.TestCase):
         self.assertEqual(checked.returncode, 0, checked.stdout + checked.stderr)
         self.assertTrue(report["valid"])
 
+    def test_legacy_parent_assessment_status_resets_to_provisional(self) -> None:
+        result, receipt_path = self.prepare_receipt(self.finalized_review())
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+        legacy_parent = copy.deepcopy(load(PARENT_ASSESSMENT))
+        legacy_parent["assessment_status"] = "pilot_candidate"
+        legacy_parent_path = self.directory / "legacy-parent-assessment.json"
+        write(legacy_parent_path, legacy_parent)
+
+        receipt = load(receipt_path)
+        receipt["parent_assessment"]["file"] = display(legacy_parent_path)
+        receipt["parent_assessment"]["sha256"] = digest(legacy_parent_path)
+        write(receipt_path, receipt)
+
+        plan, assessment, validation = self.make_candidate(receipt_path)
+        self.assertEqual(load(assessment)["assessment_status"], "provisional")
+        checked, report = self.run_revision_validator(receipt_path, plan, assessment, validation)
+        self.assertEqual(checked.returncode, 0, checked.stdout + checked.stderr)
+        self.assertTrue(report["valid"])
+
     def test_unreviewed_selection_change_fails(self) -> None:
         result, receipt = self.prepare_receipt(self.finalized_review())
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)

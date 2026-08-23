@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "request_id": "gradient-descent-second-year-v1",
+  "request_version": "1.0.0",
+  "topic": "gradient descent",
+  "audience_scope": {
+    "education_level": "second-year undergraduate",
+    "discipline_neutral": true,
+    "shared_across_profiles": true
+  },
+  "learning_goal": "Understand gradient descent as a first-order optimisation method, relate its update and step-size choices to the assumptions that support descent and convergence, and interpret its principal limitations for a selected learner-appropriate pathway.",
+  "target_capabilities": [
+    {
+      "capability_id": "LG-001",
+      "description": "Formulate an unconstrained differentiable optimisation problem, explain first-order stationarity, and carry out or trace the gradient-descent update.",
+      "priority": "required"
+    },
+    {
+      "capability_id": "LG-002",
+      "description": "Explain how smoothness and step-size selection affect descent, including a constant-step rule and, when selected, a bounded line-search alternative.",
+      "priority": "required"
+    },
+    {
+      "capability_id": "LG-003",
+      "description": "State and interpret convergence behaviour under selected convex or strongly convex assumptions, including the role of conditioning and the limits of the guarantee.",
+      "priority": "required"
+    },
+    {
+      "capability_id": "LG-004",
+      "description": "Translate the selected gradient-descent and step-selection rules into a traceable algorithm, pseudocode, or executable implementation without adding unsupported guarantees.",
+      "priority": "optional"
+    }
+  ],
+  "delivery_constraints": {
+    "target_duration_minutes": 90,
+    "output_form": "one_continuous_student_facing_lesson",
+    "learning_units_are_pages": false,
+    "target_depth": "intermediate",
+    "proof_depth": "profile_adaptive",
+    "implementation_depth": "profile_adaptive"
+  }
+}

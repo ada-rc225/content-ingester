@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "validator": "curriculum-dependency-model-v1",
+  "valid": true,
+  "error_count": 0,
+  "errors": [],
+  "inputs": {
+    "contract": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+    "contract_sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09",
+    "candidate": "curriculum-models/gradient-descent-v1/candidate-v4/contract-dependencies.json",
+    "candidate_sha256": "4ec388ca45f59b3594549b7615affc306ddd0d74e4f2f8b7bbade11b65c23c65",
+    "schema": ".github/skills/build-curriculum-dependencies/references/dependency-model.schema.json",
+    "schema_sha256": "e3d4be5ed99c6b9eaa4319c7bea7c4d5c3104c200ad7dbdd86cfd4a6afb55b73"
+  },
+  "metrics": {
+    "contract_item_count": 30,
+    "candidate_item_count": 30,
+    "directed_dependency_count": 48,
+    "external_prerequisite_concept_count": 17,
+    "directed_graph_acyclic": true
+  }
+}

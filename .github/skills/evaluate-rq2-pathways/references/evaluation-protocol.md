@@ -44,6 +44,17 @@ Do not use application authenticity as a proxy for this score.
 
 The four scores remain separate. Never average them into a single confirmatory outcome.
 
+### Code and implementation neutrality
+
+The presence, quantity, or executability of code is not itself evidence of
+pedagogical quality and must not increase any primary score. Judge whether the
+selected scope fits the shared learning request and learner profile. A
+profile-appropriate omission of optional code content must not lower a primary
+score, while omitting a required learning capability remains a coverage
+failure. Algorithm explanations without source code may therefore be fully
+appropriate for one profile even when another profile receives an executable
+implementation.
+
 ## 3. Exploratory outcome
 
 Score `example_authenticity` from 1 to 5, or abstain when domain evidence is inadequate:
@@ -90,6 +101,11 @@ Provenance:
 
 Judge each unique formula reference selected by the pathway. `not_present` is excluded from formula-accuracy denominators but remains visible through item coverage. For a present formula, judge source mapping and mathematical accuracy. Judge every selected `algorithm_rule` or `code_semantics` item separately for algorithmic accuracy.
 
+Create algorithm/code judgements only for selected `algorithm_rule` and
+`code_semantics` items. When no such item is selected, keep the judgement list
+empty and report algorithm accuracy as JSON `null` (interpreted as
+`not_applicable`); do not manufacture a failure or reward the absence of code.
+
 Atomise unsupported mathematical, algorithmic, and disciplinary-application claims. A clearly bounded analogy outside Contract scope may be `not_verifiable`; an unbounded mathematical or algorithmic extension is `unsupported`; an incompatible claim is `contradicted`.
 
 ## 6. H2c safety gate
@@ -121,7 +137,7 @@ For first-introduction sequences `Q_a` and `Q_b`:
 
 `order_distance = Levenshtein(Q_a, Q_b) / max(|Q_a|, |Q_b|)`.
 
-A profile pair is materially different only when both pathways validate, at least one accepted structural feature changes, and the relevant profile-linked rationale has passed independent review. Lexical or example change alone is insufficient.
+A profile pair is materially different only when both pathways validate, at least one accepted structural feature changes, and the relevant profile-linked rationale has passed independent review. Review authority may be established either by an approved review directly hash-bound to the pathway or, for a deterministic released-bridge materialization, by a verified receipt that binds the final output to its approved parent review, released bridge catalog, release report, and exact hashes. This is inherited review authority over preserved planning decisions, not a claim that the reviewer directly reviewed the materialized file. Lexical or example change alone is insufficient.
 
 ## 8. Reliability and adjudication
 
@@ -148,4 +164,3 @@ Preserve raw judgements. Use adjudication to resolve reported outcomes, not to o
 - Herrington and Oliver (2000), DOI `10.1007/BF02319856`, for authentic learning environments.
 - McCullagh (1980), DOI `10.1111/j.2517-6161.1980.tb01109.x`, for ordinal-response modelling.
 - Krippendorff (2013), *Computing Krippendorff's Alpha-Reliability*, for ordinal inter-rater reliability.
-

@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "run_id": "gradient-descent-p0-pilot-run-01",
+  "lesson_file": "lesson.md",
+  "sections": [
+    {"section_id": "SEC-01", "heading": "1. The optimisation objective and stationarity", "unit_ids": ["GD-U01"], "contract_item_ids": ["RC-001", "RC-002"], "bridge_contract_ids": []},
+    {"section_id": "SEC-02", "heading": "2. The gradient-descent update", "unit_ids": ["GD-U02"], "contract_item_ids": ["RC-010"], "bridge_contract_ids": []},
+    {"section_id": "SEC-03", "heading": "3. Smoothness, descent, and a constant step", "unit_ids": ["GD-U03"], "contract_item_ids": ["RC-004", "RC-005", "RC-011"], "bridge_contract_ids": []},
+    {"section_id": "SEC-04", "heading": "4. Convexity, strong convexity, and conditioning", "unit_ids": ["GD-U04"], "contract_item_ids": ["RC-006", "RC-007", "RC-009"], "bridge_contract_ids": []},
+    {"section_id": "SEC-05", "heading": "5. Convergence guarantees and their boundaries", "unit_ids": ["GD-U05"], "contract_item_ids": ["RC-014", "RC-015"], "bridge_contract_ids": []},
+    {"section_id": "SEC-06", "heading": "6. Armijo backtracking and a complete trace", "unit_ids": ["GD-U06"], "contract_item_ids": ["RC-013"], "bridge_contract_ids": []}
+  ]
+}

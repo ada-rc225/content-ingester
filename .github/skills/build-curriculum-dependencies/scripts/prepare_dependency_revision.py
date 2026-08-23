@@ -176,6 +176,12 @@ def collect_revision_scope(
         for field, decision in record["field_decisions"].items():
             if decision != "not_applicable":
                 continue
+            if field == "fallback_when_explanatory_dependencies_omitted":
+                require(
+                    source_item.get("explanatory_dependencies") == [],
+                    f"item_reviews[{index}].{field} may be not_applicable only when explanatory_dependencies is empty",
+                )
+                continue
             require(
                 field in {
                     "hard_dependencies", "explanatory_dependencies",

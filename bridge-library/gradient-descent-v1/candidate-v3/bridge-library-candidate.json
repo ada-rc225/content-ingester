@@ -1,0 +1,414 @@
+{
+  "schema_version": "1.0",
+  "library_id": "gradient-descent-bridge-library-v1",
+  "topic_id": "gradient-descent",
+  "status": "candidate",
+  "generated_by": {
+    "agent": "grounded-bridge-library-builder",
+    "agent_version": "1.0",
+    "skill": "build-grounded-bridge-library",
+    "skill_version": "1.0",
+    "generated_at": "2026-08-20T00:00:00Z"
+  },
+  "curriculum_model_binding": {
+    "model_id": "gradient-descent-dependencies-v4",
+    "file": "curriculum-models/gradient-descent-v1/release/frozen-contract-dependencies.json",
+    "sha256": "fa97dab605d2cf1df6ac5fdeabc2c767bdf34e82829f5c2e496a44c5e41e4522"
+  },
+  "pathway_bindings": [
+    {
+      "pathway_id": "gradient-descent-p2-applied-mathematics-run-01-revision-v1",
+      "pathway_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-02/pathway-plan.json",
+      "pathway_sha256": "7fcb83b4bd0a4d137859d18844c15c867d89b6a71a41e06a1b9430180b8e1c77",
+      "review_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-02/pathway-plan-review.json",
+      "review_sha256": "d05de962e70226fec66e84a598b600770c917d6707efd3962ea8616b5acccf7d",
+      "profile_id": "gradient-descent-applied-mathematics-year-2-rq2-pilot"
+    },
+    {
+      "pathway_id": "gradient-descent-p2-computer-science-run-01-revision-v1",
+      "pathway_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-02/pathway-plan.json",
+      "pathway_sha256": "9f8f9980f042467a96361dbdb7578fdff7f9f845d0863ad4d81f7395da2121dc",
+      "review_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-02/pathway-plan-review.json",
+      "review_sha256": "792fbcf50844d8423223be066593cc5fdc08176831c8fac01388e02b4ba09e0d",
+      "profile_id": "gradient-descent-computer-science-year-2-rq2-pilot"
+    },
+    {
+      "pathway_id": "gradient-descent-p2-mechanical-engineering-run-01-revision-v1",
+      "pathway_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-02/pathway-plan.json",
+      "pathway_sha256": "f0f97113e94e589ca065719bf0ba015d32bc66074c7f6c45e31b211376b6bf64",
+      "review_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-02/pathway-plan-review.json",
+      "review_sha256": "77e4b57e7cc5bb8795b20d4e46656f8515c4d5833e2189a2275657d5b0ecef2d",
+      "profile_id": "gradient-descent-mechanical-engineering-year-2-rq2-pilot"
+    }
+  ],
+  "bridges": [
+    {
+      "bridge_contract_id": "BRC-MULTIVARIABLE-CALCULUS-AND-LOCAL-EXTREMA-v1",
+      "bridge_candidate_id": "BR-MULTIVARIABLE-CALCULUS-AND-LOCAL-EXTREMA-v1",
+      "concept_id": "multivariable-calculus-and-local-extrema",
+      "name": "Multivariable calculus and local extrema",
+      "status": "candidate",
+      "requested_by_profile_ids": [
+        "gradient-descent-computer-science-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-002"
+      ],
+      "content_boundary": "Recognize local minima, gradients, and Hessians in several variables; exclude proofs not represented in the Contract.",
+      "learning_outcomes": [
+        {
+          "outcome_id": "BO-01",
+          "text": "Recognize the neighbourhood-comparison meaning of a local minimum for a multivariable scalar function."
+        },
+        {
+          "outcome_id": "BO-02",
+          "text": "Assemble a gradient vector from first partial derivatives."
+        }
+      ],
+      "teaching_content": [
+        {
+          "content_id": "BC-01",
+          "kind": "definition",
+          "text": "A point a is a local minimum of f when there is a neighbourhood of a in which f(a) <= f(x) for every nearby x.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-02",
+          "kind": "procedure",
+          "text": "For f(x_1, ..., x_d), compute each first partial derivative and assemble them as the gradient vector (partial f/partial x_1, ..., partial f/partial x_d)^T.",
+          "source_ids": [
+            "SRC-02"
+          ]
+        },
+        {
+          "content_id": "BC-04",
+          "kind": "worked_example",
+          "text": "For f(x,y) = x^2 + xy, the gradient is (2x+y, x)^T. At (1,2), the gradient is (4,1)^T. This calculation makes no minimum or definiteness claim.",
+          "source_ids": [
+            "SRC-01",
+            "SRC-02"
+          ]
+        }
+      ],
+      "excluded_content": [
+        "Proof that differentiable local minima are stationary",
+        "Hessian definiteness tests or second-order optimality conditions",
+        "Gradient-descent updates, step sizes, or convergence claims"
+      ],
+      "sources": [
+        {
+          "source_id": "SRC-01",
+          "title": "Calculus of Several Variables, Lecture 20",
+          "provider": "MIT OpenCourseWare",
+          "url": "https://ocw.mit.edu/courses/18-022-calculus-of-several-variables-fall-2010/2f5db6e3161e65fe2e20f337f3c0beb3_MIT18_022F10_l_20.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "The local-minimum definition in the lecture's local-extrema discussion on pp. 1-2; BC-04 is a direct differentiation exercise using the stated scalar-function notation.",
+          "supports_content_ids": [
+            "BC-01",
+            "BC-04"
+          ]
+        },
+        {
+          "source_id": "SRC-02",
+          "title": "18.02 Multivariable Calculus, Fall 2007, Transcript - Lecture 12",
+          "provider": "MIT OpenCourseWare",
+          "url": "https://ocw.mit.edu/courses/18-02-multivariable-calculus-fall-2007/5628908f9b3f6cfe621f9ee38a65d199_18_022007L12.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "Transcript p. 1 defines the gradient as the vector formed from all first partial derivatives; BC-04 evaluates that gradient at (1,2).",
+          "supports_content_ids": [
+            "BC-02",
+            "BC-04"
+          ]
+        }
+      ]
+    },
+    {
+      "bridge_contract_id": "BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "bridge_candidate_id": "BR-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "concept_id": "euclidean-norms-and-lipschitz-continuity",
+      "name": "Euclidean norms and Lipschitz continuity",
+      "status": "candidate",
+      "requested_by_profile_ids": [
+        "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+        "gradient-descent-computer-science-year-2-rq2-pilot",
+        "gradient-descent-mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-004"
+      ],
+      "content_boundary": "Interpret Euclidean norms and a Lipschitz bound for a vector-valued gradient; exclude function-value Lipschitzness.",
+      "learning_outcomes": [
+        {
+          "outcome_id": "BO-01",
+          "text": "Compute the Euclidean norm of a vector and use it to measure the distance between two vectors."
+        },
+        {
+          "outcome_id": "BO-02",
+          "text": "Read a vector-valued Lipschitz inequality as a bound on output change relative to input change."
+        },
+        {
+          "outcome_id": "BO-03",
+          "text": "Apply that interpretation when the vector-valued map is a gradient, without confusing it with function-value Lipschitzness."
+        }
+      ],
+      "teaching_content": [
+        {
+          "content_id": "BC-01",
+          "kind": "definition",
+          "text": "For z in R^d, the Euclidean norm is ||z||_2 = sqrt(z^T z), and ||x-y||_2 measures Euclidean distance between x and y.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-02",
+          "kind": "definition",
+          "text": "For L>0 and all x,y in the domain, a vector-valued map G is L-Lipschitz when ||G(x)-G(y)||_2 <= L||x-y||_2. The inequality bounds output-vector change by input-vector change.",
+          "source_ids": [
+            "SRC-03"
+          ]
+        },
+        {
+          "content_id": "BC-03",
+          "kind": "explanation",
+          "text": "When G is the gradient map, compare the norm of the gradient difference with the norm of the point difference. This concerns changes in gradient vectors, not a bound on |f(x)-f(y)|.",
+          "source_ids": [
+            "SRC-03",
+            "SRC-02"
+          ]
+        },
+        {
+          "content_id": "BC-04",
+          "kind": "worked_example",
+          "text": "For G(x)=2x, ||G(x)-G(y)||_2 = 2||x-y||_2, so the Lipschitz inequality holds with L=2. The example concerns a vector map only and introduces no gradient-descent claim.",
+          "source_ids": [
+            "SRC-03",
+            "SRC-01"
+          ]
+        }
+      ],
+      "excluded_content": [
+        "Function-value Lipschitz continuity",
+        "The Descent Lemma or its proof",
+        "Gradient-descent step-size and convergence results"
+      ],
+      "sources": [
+        {
+          "source_id": "SRC-01",
+          "title": "Convex Optimization",
+          "provider": "Stanford University",
+          "url": "https://stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "Appendix A.1.1, p. 633 defines the standard inner product and Euclidean norm; BC-04 uses norm homogeneity.",
+          "supports_content_ids": [
+            "BC-01",
+            "BC-04"
+          ]
+        },
+        {
+          "source_id": "SRC-02",
+          "title": "Lecture 5: Scaling to complex models by learning with optimization algorithms",
+          "provider": "Cornell University",
+          "url": "https://www.cs.cornell.edu/courses/cs4787/2025fa/lectures/lecture5.html",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "Section 'Lipschitz continuous gradient assumption' states the gradient-specific all-x,y norm inequality with L>0; this directly supports BC-03's specialization to the gradient map.",
+          "supports_content_ids": [
+            "BC-03"
+          ]
+        },
+        {
+          "source_id": "SRC-03",
+          "title": "Econ 204 2022, Lecture 4",
+          "provider": "University of California, Berkeley",
+          "url": "https://eml.berkeley.edu/~cshannon/e204_22/lec4sl-marked.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "Definition 5 on printed p. 23 (PDF p. 44) defines a Lipschitz function between normed vector spaces by a norm inequality holding for all input pairs. BC-03 specializes that generic map to a gradient, and BC-04 is a direct vector-map example.",
+          "supports_content_ids": [
+            "BC-02",
+            "BC-03",
+            "BC-04"
+          ]
+        }
+      ]
+    },
+    {
+      "bridge_contract_id": "BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "concept_id": "inner-products-and-convex-sets",
+      "name": "Inner products and convex sets",
+      "status": "candidate",
+      "requested_by_profile_ids": [
+        "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+        "gradient-descent-computer-science-year-2-rq2-pilot",
+        "gradient-descent-mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-006"
+      ],
+      "content_boundary": "Interpret convex combinations and first-order inner-product inequalities; exclude advanced convex analysis.",
+      "learning_outcomes": [
+        {
+          "outcome_id": "BO-01",
+          "text": "Compute an inner product and recognize that its result is a scalar."
+        },
+        {
+          "outcome_id": "BO-02",
+          "text": "Form a convex combination and use it to recognize the defining closure property of a convex set."
+        },
+        {
+          "outcome_id": "BO-03",
+          "text": "Parse an expression of the form g^T(y-x) as an inner product with a displacement vector, without asserting an optimisation theorem."
+        }
+      ],
+      "teaching_content": [
+        {
+          "content_id": "BC-01",
+          "kind": "definition",
+          "text": "For real vectors u and v of the same dimension, u^T v is the scalar sum of their componentwise products.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-02",
+          "kind": "definition",
+          "text": "For x and y and a scalar theta in [0,1], theta x + (1-theta)y is a convex combination. A set is convex when it contains this combination for every pair of its points and every such theta.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-03",
+          "kind": "procedure",
+          "text": "To read g^T(y-x), first form the displacement d=y-x and then compute the scalar inner product g^T d. The sign describes alignment of g and the displacement; no convexity conclusion follows from this computation alone.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-04",
+          "kind": "worked_example",
+          "text": "For x=(0,0)^T, y=(2,4)^T, and theta=1/4, theta x+(1-theta)y=(3/2,3)^T. If g=(1,-1)^T, then g^T(y-x)=-2. These are arithmetic interpretations, not a first-order convexity theorem.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        }
+      ],
+      "excluded_content": [
+        "The first-order characterization theorem for differentiable convex functions",
+        "Proofs of convexity or global optimality",
+        "Subgradients, separation theorems, and other advanced convex analysis"
+      ],
+      "sources": [
+        {
+          "source_id": "SRC-01",
+          "title": "Convex Optimization",
+          "provider": "Stanford University",
+          "url": "https://stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "Section 2.1, pp. 21-23 defines line segments, convex combinations, and convex sets; Appendix A.1.1, p. 633 defines the inner product.",
+          "supports_content_ids": [
+            "BC-01",
+            "BC-02",
+            "BC-03",
+            "BC-04"
+          ]
+        }
+      ]
+    },
+    {
+      "bridge_contract_id": "BRC-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "bridge_candidate_id": "BR-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "concept_id": "ratios-and-condition-numbers",
+      "name": "Ratios and condition numbers",
+      "status": "candidate",
+      "requested_by_profile_ids": [
+        "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+        "gradient-descent-computer-science-year-2-rq2-pilot",
+        "gradient-descent-mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-009"
+      ],
+      "content_boundary": "Compute and interpret L/mu and the lower bound kappa>=1; exclude other condition measures.",
+      "learning_outcomes": [
+        {
+          "outcome_id": "BO-01",
+          "text": "Compute kappa=L/mu for positive constants with L>=mu."
+        },
+        {
+          "outcome_id": "BO-02",
+          "text": "Explain why L>=mu>0 implies kappa>=1."
+        },
+        {
+          "outcome_id": "BO-03",
+          "text": "Interpret kappa as the multiplicative separation between L and mu without importing another condition-number definition."
+        }
+      ],
+      "teaching_content": [
+        {
+          "content_id": "BC-01",
+          "kind": "definition",
+          "text": "For constants 0<mu<=L, define the condition ratio kappa=L/mu.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-02",
+          "kind": "explanation",
+          "text": "Because mu is positive, dividing 0<mu<=L by mu gives kappa=L/mu>=1. A value near 1 means the two constants are close; a larger value means they are more widely separated multiplicatively.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-03",
+          "kind": "worked_example",
+          "text": "If L=12 and mu=3, then kappa=4, so L is four times mu. If L=mu, then kappa=1.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-04",
+          "kind": "safeguard",
+          "text": "The ratio requires mu>0. Do not treat L/mu as a finite condition ratio when mu=0.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        }
+      ],
+      "excluded_content": [
+        "Matrix, spectral, or numerical linear-algebra condition numbers",
+        "Derivation of gradient-descent convergence rates",
+        "Step-size selection, acceleration, or stochastic optimisation claims"
+      ],
+      "sources": [
+        {
+          "source_id": "SRC-01",
+          "title": "Optimization Methods in Machine Learning",
+          "provider": "Purdue University",
+          "url": "https://www.math.purdue.edu/~zhan1966/teaching/598/Opt_notes.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "Section 2.4 on printed p. 30 (PDF p. 36) derives mu<=L from strong-convexity and Lipschitz-gradient inequalities and identifies L/mu as the condition number. BC-02 through BC-04 are bounded consequences and arithmetic examples; no convergence-rate or matrix-condition-number material is imported.",
+          "supports_content_ids": [
+            "BC-01",
+            "BC-02",
+            "BC-03",
+            "BC-04"
+          ]
+        }
+      ]
+    }
+  ]
+}

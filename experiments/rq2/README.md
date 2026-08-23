@@ -214,6 +214,24 @@ expert ground truth. No student questionnaire is required for this artifact-leve
 RQ2, and the resulting evidence cannot support claims about measured learning or
 learner-reported comprehensibility.
 
+For the final cross-profile P2 structural comparison, bind each
+bridge-materialized pathway through its receipt rather than creating a duplicate
+review:
+
+```bash
+python3 .github/skills/evaluate-rq2-pathways/scripts/compute_pathway_differences.py \
+  --workspace-root . \
+  --pathway <profile>=<final-pathway-plan.json> \
+  --validation <profile>=<final-pathway-validation-report.json> \
+  --materialization-receipt <profile>=<bridge-resolution-receipt.json> \
+  --output <pathway-difference-report.json>
+```
+
+Repeat the three labelled options once per profile. The evaluator accepts one
+review authority per profile: `--review` for a directly reviewed pathway, or
+`--materialization-receipt` for a final pathway that inherits its approved
+planning review through verified bridge materialization.
+
 ## Initial artifacts
 
 - `protocol.json`: machine-readable frozen-design candidate.
@@ -534,6 +552,15 @@ validation report records the exact catalog path and SHA-256. A valid resolved
 plan is `complete` and contains one prerequisite-bridge unit for every released
 requirement. Its `bridge-resolution-receipt.json` replaces another full pathway
 review for this deterministic state transition.
+
+Historical, already approved Planner outputs may use legacy bridge-requirement
+aliases or omit canonical identifiers. For an exact parent/review pair already
+bound by the released catalog, the materializer normalizes only the new child:
+it generates ordered `BRQ-*` IDs, maps `reason` to `rationale`, or copies a
+missing rationale from the same concept in the hash-bound concept assessment.
+It removes only documented legacy aliases and records every action in the
+receipt. New Planner outputs must use the canonical schema directly; ordinary
+pathway validation rejects missing or legacy bridge-requirement fields.
 
 ## Pathway-Constrained Teaching Composer
 

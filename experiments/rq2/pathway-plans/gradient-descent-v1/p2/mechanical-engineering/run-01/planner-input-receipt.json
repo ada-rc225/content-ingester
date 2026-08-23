@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "preflight": "adaptive-curriculum-pathway-planning-v1",
+  "valid": true,
+  "inputs": {
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+      "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"
+    },
+    "curriculum_model": {
+      "file": "curriculum-models/gradient-descent-v1/release/frozen-contract-dependencies.json",
+      "sha256": "fa97dab605d2cf1df6ac5fdeabc2c767bdf34e82829f5c2e496a44c5e41e4522"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/gradient-descent-second-year.json",
+      "sha256": "bdd734fd2f2c56b38960e9938281952a55841d57b0a83047647d38ca4f90348d"
+    },
+    "profile": {
+      "file": "experiments/rq2/profiles/gradient-descent/mechanical-engineering-year-2.json",
+      "sha256": "3e107dcaa9f10ef339daa9136644d171f4849b0d3d5b7be9989524a2c51965a2"
+    },
+    "baseline_pathway": {
+      "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p0/pathway-plan.json",
+      "sha256": "1f565b07726733580ad974e9109439efa8817f1e6bc1b8fca4f1f788f70d4b1c"
+    }
+  },
+  "identities": {
+    "contract_id": "gradient-descent",
+    "contract_version": "3.0.0",
+    "curriculum_model_id": "gradient-descent-dependencies-v4",
+    "learning_request_id": "gradient-descent-second-year-v1",
+    "profile_id": "gradient-descent-mechanical-engineering-year-2-rq2-pilot",
+    "baseline_pathway_id": "gradient-descent-p0-v1"
+  },
+  "review_state": {
+    "learning_request": "requires_supervisor_or_curriculum_review",
+    "learner_profile": "requires_discipline_educator_review",
+    "curriculum_model": "approved"
+  },
+  "bridge_release_status": "not_released",
+  "generated_at": "2026-08-19T21:08:39Z"
+}

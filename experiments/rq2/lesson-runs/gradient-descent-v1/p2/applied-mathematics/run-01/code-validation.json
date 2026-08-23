@@ -1,0 +1,30 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq2/lesson-runs/gradient-descent-v1/p2/applied-mathematics/run-01/lesson.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-05",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "e11b55608b010636a0ef9d1b5a7d76c10f0a1f82b76efe85afda3045357efd8b",
+      "execution_status": "passed",
+      "stdout": "[ 1.  -0.5]\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 90
+    },
+    {
+      "block_id": "CODE-002",
+      "anchor": "SEC-15",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "8717c78fd6d4af6b1e191dc1a0133a4035fd19314baf5e741c9f727b7170da9c",
+      "execution_status": "passed",
+      "stdout": "0.5 [0. 0.]\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 91
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "validator": "curriculum-dependency-revision-v1",
+  "valid": true,
+  "error_count": 0,
+  "errors": [],
+  "inputs": {
+    "parent_candidate": "curriculum-models/gradient-descent-v1/candidate/contract-dependencies.json",
+    "parent_review": "curriculum-models/gradient-descent-v1/candidate/curriculum-dependency-review.json",
+    "revision_receipt": "curriculum-models/gradient-descent-v1/candidate-v2/dependency-revision-receipt.json",
+    "candidate": "curriculum-models/gradient-descent-v1/candidate-v2/contract-dependencies.json",
+    "dependency_validation_report": "curriculum-models/gradient-descent-v1/candidate-v2/dependency-validation-report.json",
+    "parent_candidate_sha256": "69b0a52cd895dae2af879e9535e7df9c87bdff73a8bebebe8fea50d8a47667d3",
+    "parent_review_sha256": "3fcf2f1a56661aa6e56810a9d299137518f6b6fcdb4e89dbcb1b93378f131df4",
+    "revision_receipt_sha256": "25d8de8511dd29eeebd41477fadabd77fc90eb2f4d3ff9aa063c9e076e2a0c0d",
+    "candidate_sha256": "db5f23f22daace33fb9217018a379a294124902ec1a350b2e6ad136572529be1",
+    "dependency_validation_report_sha256": "7f5b2b5b48a125a4c90e4138fa94be1c43266af7eba0ac3fab51da25f5005eb7"
+  },
+  "metrics": {
+    "changed_item_ids": [
+      "RC-012",
+      "RC-013",
+      "RC-023",
+      "RC-024",
+      "RC-025",
+      "RC-026",
+      "RC-028",
+      "RC-030"
+    ],
+    "changed_item_fields": {
+      "RC-012": [
+        "co_requisite_item_ids",
+        "confidence",
+        "rationale"
+      ],
+      "RC-013": [
+        "co_requisite_item_ids",
+        "confidence",
+        "rationale"
+      ],
+      "RC-023": [
+        "co_requisite_item_ids",
+        "rationale"
+      ],
+      "RC-024": [
+        "co_requisite_item_ids",
+        "rationale"
+      ],
+      "RC-025": [
+        "co_requisite_item_ids",
+        "rationale"
+      ],
+      "RC-026": [
+        "hard_dependencies",
+        "rationale"
+      ],
+      "RC-028": [
+        "external_prerequisite_concept_ids",
+        "rationale"
+      ],
+      "RC-030": [
+        "external_prerequisite_concept_ids",
+        "implementation_dependencies",
+        "rationale"
+      ]
+    },
+    "changed_concepts": {
+      "symmetric-matrices-and-definiteness": [
+        "supports_item_ids"
+      ],
+      "inverse-hessian-approximations-and-line-search": [
+        "bridge_candidate_id",
+        "content_boundary",
+        "need_type",
+        "rationale"
+      ]
+    },
+    "added_concept_ids": [
+      "inverse-hessian-approximation-matrices"
+    ],
+    "removed_concept_ids": []
+  }
+}

@@ -18,8 +18,8 @@
     "released_bridge_count": 0,
     "mapped_bridge_count": 0,
     "section_count": 8,
-    "python_code_block_count": 2,
-    "english_prose_word_count": 1978,
+    "python_code_block_count": 1,
+    "english_prose_word_count": 1516,
     "word_count_compliant": true
   },
   "validation_scope": {
@@ -35,7 +35,7 @@
   },
   "manifest": {
     "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/computer-science/run-01/lesson-manifest.json",
-    "sha256": "4919d43a7b225fef9cdc4fb88a963dfc30a84269cb82cfa5a6cd89f8a17833fe"
+    "sha256": "59f652e8c55fcef421fa337db7c0deb5cbf0a0b7a8efaedd9aadc6ac252ef8e6"
   },
   "validated_at": "2026-08-19T12:00:00Z"
 }

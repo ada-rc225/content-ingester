@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "validator": "validate-pathway-plan-v1",
+  "phase": "pilot",
+  "pathway": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-01/pathway-plan.json",
+  "pathway_sha256": "590bdcf13f00de86aa099d5909dc57f8677e6dcf5236f73890716ca1c1091ec9",
+  "bridge_catalog": null,
+  "schemas": {
+    "pathway_plan": {
+      "file": "experiments/rq2/schemas/pathway-plan.schema.json",
+      "sha256": "5f37fc3246e61c9946d6327622dc67396ea713251f7770d82a1d57d26b3dcc44"
+    },
+    "profile_concept_assessment": {
+      "file": "experiments/rq2/schemas/profile-concept-assessment.schema.json",
+      "sha256": "944d3abe4f784d91f13c2a966b75f6e54668f5e0f912becd969d6955c184fb93"
+    }
+  },
+  "condition": "P2",
+  "valid": true,
+  "error_count": 0,
+  "warning_count": 0,
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "curriculum_release_status": "released",
+    "contract_item_count": 30,
+    "selected_item_count": 12,
+    "excluded_item_count": 18,
+    "learning_unit_count": 12,
+    "bridge_unit_count": 0,
+    "unresolved_bridge_count": 4,
+    "detected_change_types": [
+      "regroup_contract_items",
+      "reorder_learning_units"
+    ]
+  },
+  "validated_at": "2026-08-19T21:10:18Z"
+}

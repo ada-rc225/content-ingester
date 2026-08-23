@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "validator": "curriculum-model-release-v1",
+  "valid": true,
+  "error_count": 0,
+  "errors": [],
+  "checks": {
+    "frozen_contract_release_valid": true,
+    "candidate_base_validation_rerun": true,
+    "candidate_review_binding_valid": true,
+    "review_complete_and_approved": true,
+    "review_coverage_exact": true,
+    "revision_scope_validation_rerun": true,
+    "release_transition_content_preserved": true,
+    "external_prerequisite_bridges_not_released": true
+  },
+  "inputs": {
+    "contract": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+    "contract_sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09",
+    "candidate": "curriculum-models/gradient-descent-v1/candidate-v4/contract-dependencies.json",
+    "candidate_sha256": "4ec388ca45f59b3594549b7615affc306ddd0d74e4f2f8b7bbade11b65c23c65",
+    "validation_report": "curriculum-models/gradient-descent-v1/candidate-v4/dependency-validation-report.json",
+    "validation_report_sha256": "dabe5cc57a051da74570e9412b88a9b85861f4fc2c1abec73490a1090a9a0c2c",
+    "review": "curriculum-models/gradient-descent-v1/candidate-v4/curriculum-dependency-review.json",
+    "review_sha256": "bfc8b346bcd82e67ae2d241ab2b890b524a0ee0d292adfdcf029f9d6ec1b9bfc",
+    "revision": {
+      "receipt": "curriculum-models/gradient-descent-v1/candidate-v4/dependency-revision-receipt.json",
+      "receipt_sha256": "4d54a3a2af543e1e21784397c7374035d4de885b1b3e1b374ead8d171067c604",
+      "validation_report": "curriculum-models/gradient-descent-v1/candidate-v4/dependency-revision-validation-report.json",
+      "validation_report_sha256": "ab270d5ccb2e2a79f154ce39322b8349321b4d4d4e0659395bebe6d8fb378310",
+      "parent_candidate": "curriculum-models/gradient-descent-v1/candidate-v3/contract-dependencies.json",
+      "parent_candidate_sha256": "3539291363083f65da28c12a61c9f785fb1a2837194e073e293172b59af6e7a0",
+      "parent_review": "curriculum-models/gradient-descent-v1/candidate-v3/curriculum-dependency-review.json",
+      "parent_review_sha256": "f97dddaa39480cfc0bc3a4eeae9c73bf37af927574455487008b1839eddc35ce"
+    },
+    "frozen_schema": ".github/skills/release-curriculum-model/references/frozen-curriculum-model.schema.json",
+    "frozen_schema_sha256": "56329e8be10317a19ad046064faf84a7f5fdf4ee61d17a3df58c3fa7253642a2",
+    "release_report_schema": ".github/skills/release-curriculum-model/references/curriculum-release-report.schema.json",
+    "release_report_schema_sha256": "84a122f68069450e31fb6260f273575ed0314a16f71ee82ddda0c4ac98a13d7c"
+  },
+  "metrics": {
+    "item_count": 30,
+    "external_prerequisite_concept_count": 17,
+    "approved_item_review_count": 30,
+    "approved_concept_review_count": 17
+  }
+}

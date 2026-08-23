@@ -52,6 +52,8 @@ Refuse candidate Contracts, stale hashes, invalid structural evidence, condition
 - Preserve independent passes; do not silently reconcile them.
 - Do not infer a condition from style, breadth, bridges, or sequence.
 - Do not reward verbosity or a larger selected scope.
+- Do not reward the presence or quantity of code; audit algorithm/code safety
+  only for selected Contract opportunities.
 - Do not claim learner comprehension, learning gain, or student preference.
 - Treat automated ratings as operational measurements requiring reliability analysis and human calibration/adjudication.
 
@@ -61,5 +63,14 @@ Assess reliability before opening condition mappings:
 
 `python3 .github/skills/evaluate-rq2-pathways/scripts/assess_judge_reliability.py --judgement <judgement.json> [--judgement ...] --output <reliability-report.json>`
 
-Only an experiment-controller context may use `aggregate_rq2_scores.py` with separately stored mappings. The pointwise Evaluator must never open mappings or produce condition rankings.
+Only an experiment-controller context may use `aggregate_rq2_scores.py` with separately stored mappings. Its report keeps per-topic summaries separate and adds an explicitly labelled cross-topic synthesis. The pointwise Evaluator must never open mappings or produce condition rankings.
 
+For controller-side structural comparison, use `compute_pathway_differences.py`.
+Supply one deterministic validation report for every pathway. For an unchanged
+reviewed pathway, use `--review PROFILE=pathway-plan-review.json`. For a final
+P2 pathway produced by released-bridge materialization, use
+`--materialization-receipt PROFILE=bridge-resolution-receipt.json` instead. The
+script validates the receipt's output hash, approved parent review, released
+bridge catalog, release report, and catalog bindings before inheriting review
+authority; never copy the parent review or claim that it directly reviewed the
+materialized file.

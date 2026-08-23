@@ -106,10 +106,15 @@ class RevisionValidator:
         self.check(child.get("generated_by", {}).get("method") == "adaptive_pathway_planning", "candidate.method", "revised pathway method is invalid")
 
         immutable_assessment_fields = (
-            "schema_version", "assessment_status", "profile_binding",
+            "schema_version", "profile_binding",
             "curriculum_model_binding",
         )
         self.compare_fields(parent_assessment, child_assessment, immutable_assessment_fields, "scope.assessment_immutable")
+        # A revision creates a new, unreviewed assessment artifact. Its lifecycle
+        # status must therefore reset to ``provisional`` even when the parent uses
+        # a legacy status such as ``pending`` or ``pilot_candidate``. Treating the
+        # status as immutable would make those legacy parents impossible to
+        # revise: preserving the status and resetting it could not both pass.
         self.check(child_assessment.get("assessment_status") == "provisional", "candidate.assessment_status", "revision must not claim reviewed assessment status")
         self.check(child_assessment.get("generated_by", {}).get("producer_version") == "1.1", "candidate.assessment_version", "revised assessment producer_version must be 1.1")
 

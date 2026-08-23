@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "validator": "validate-composer-outputs-v1",
+  "run_id": "gradient-descent-p2-computer-science-run-01",
+  "condition": "P2",
+  "topic": "gradient descent",
+  "valid": true,
+  "error_count": 0,
+  "warning_count": 0,
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "selected_contract_item_count": 12,
+    "mapped_contract_item_count": 12,
+    "excluded_contract_item_count": 18,
+    "learning_unit_count": 16,
+    "mapped_learning_unit_count": 16,
+    "released_bridge_count": 4,
+    "mapped_bridge_count": 4,
+    "section_count": 7,
+    "python_code_block_count": 2,
+    "english_prose_word_count": 2207,
+    "word_count_compliant": true
+  },
+  "validation_scope": {
+    "input_bindings": true,
+    "condition_context_isolation": true,
+    "declared_selected_content_mapping": true,
+    "pathway_order": true,
+    "released_bridge_mapping": true,
+    "python_execution": true,
+    "word_count": true,
+    "semantic_mathematical_correctness_assessed": false,
+    "pedagogical_quality_assessed": false
+  },
+  "manifest": {
+    "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p2/computer-science/run-01/lesson-manifest.json",
+    "sha256": "60277f5f80966d050b50cf02fe751c12a4eb16ca34b4817930db8f363017a42b"
+  },
+  "validated_at": "2026-08-20T00:00:00Z"
+}

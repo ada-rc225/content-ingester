@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "pathway_valid": true,
+  "lesson_output_valid": true,
+  "pathway_metrics": {
+    "contract_item_count": 18,
+    "selected_item_count": 18,
+    "excluded_item_count": 0,
+    "learning_unit_count": 8,
+    "bridge_unit_count": 0
+  },
+  "lesson_metrics": {
+    "selected_contract_item_count": 18,
+    "mapped_contract_item_count": 18,
+    "excluded_contract_item_count": 0,
+    "learning_unit_count": 8,
+    "mapped_learning_unit_count": 8,
+    "released_bridge_count": 0,
+    "mapped_bridge_count": 0,
+    "section_count": 8,
+    "python_code_block_count": 2,
+    "english_prose_word_count": 1500,
+    "word_count_compliant": true
+  },
+  "validation_scope": {
+    "input_bindings": true,
+    "condition_context_isolation": true,
+    "declared_selected_content_mapping": true,
+    "pathway_order": true,
+    "released_bridge_mapping": true,
+    "python_execution": true,
+    "word_count": true,
+    "semantic_mathematical_correctness_assessed": false,
+    "pedagogical_quality_assessed": false
+  }
+}

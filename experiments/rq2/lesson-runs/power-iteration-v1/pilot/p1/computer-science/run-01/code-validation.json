@@ -7,24 +7,12 @@
       "anchor": "SEC-07",
       "exercise_id": null,
       "language": "python",
-      "code_sha256": "01471dbcbfeb3bc9d98d19b7cb66621031d9737362b73190e7479cf61f762012",
+      "code_sha256": "7a658f30d3330b869a2df836dd074cdab07666898f6faef095bafe83be226a0c",
       "execution_status": "passed",
-      "stdout": "",
+      "stdout": "estimate = 4.414213562373095\nresidual = 6.962575715097014e-11\niterations = 23\n",
       "stderr": "",
       "return_code": 0,
-      "duration_ms": 217
-    },
-    {
-      "block_id": "CODE-002",
-      "anchor": "SEC-08",
-      "exercise_id": null,
-      "language": "python",
-      "code_sha256": "7bf8ffd64ae05ba6064f375069f47028aebc05e144f185330164c0b0451cf474",
-      "execution_status": "passed",
-      "stdout": "Estimated dominant eigenvalue: 4.414213562373095\nEstimated eigenvector: [0.92387953 0.38268343]\nResidual norm: 6.962575715097014e-11\nIterations: 23\n",
-      "stderr": "",
-      "return_code": 0,
-      "duration_ms": 47
+      "duration_ms": 91
     }
   ]
 }

@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "run_id": "gradient-descent-p2-computer-science-run-01",
+  "lesson_file": "lesson.md",
+  "sections": [
+    {
+      "section_id": "SEC-01",
+      "heading": "The optimisation problem and local calculus",
+      "unit_ids": ["GD-U01", "BRIDGE-001", "GD-U02"],
+      "contract_item_ids": ["RC-001", "RC-002"],
+      "bridge_contract_ids": ["BRC-MULTIVARIABLE-CALCULUS-AND-LOCAL-EXTREMA-v1"]
+    },
+    {
+      "section_id": "SEC-02",
+      "heading": "The update and an executable state trace",
+      "unit_ids": ["GD-U08"],
+      "contract_item_ids": ["RC-010"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-03",
+      "heading": "Norms, Lipschitz continuity, and smoothness",
+      "unit_ids": ["BRIDGE-002", "GD-U03"],
+      "contract_item_ids": ["RC-004"],
+      "bridge_contract_ids": ["BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1"]
+    },
+    {
+      "section_id": "SEC-04",
+      "heading": "The descent bound and step-size choices",
+      "unit_ids": ["GD-U04", "GD-U09"],
+      "contract_item_ids": ["RC-005", "RC-011"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-05",
+      "heading": "Armijo backtracking as a bounded alternative",
+      "unit_ids": ["GD-U10"],
+      "contract_item_ids": ["RC-013"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-06",
+      "heading": "Inner products, convex combinations, and convexity",
+      "unit_ids": ["BRIDGE-003", "GD-U05", "GD-U06"],
+      "contract_item_ids": ["RC-006", "RC-007"],
+      "bridge_contract_ids": ["BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1"]
+    },
+    {
+      "section_id": "SEC-07",
+      "heading": "Strong convexity, conditioning, and the two guarantees",
+      "unit_ids": ["BRIDGE-004", "GD-U07", "GD-U11", "GD-U12"],
+      "contract_item_ids": ["RC-009", "RC-014", "RC-015"],
+      "bridge_contract_ids": ["BRC-RATIOS-AND-CONDITION-NUMBERS-v1"]
+    }
+  ]
+}

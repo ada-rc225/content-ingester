@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "mode": "revision",
+  "parent_pathway": {
+    "pathway_id": "gradient-descent-p2-computer-science-run-01",
+    "next_pathway_id": "gradient-descent-p2-computer-science-run-01-revision-v1",
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-01/pathway-plan.json",
+    "sha256": "590bdcf13f00de86aa099d5909dc57f8677e6dcf5236f73890716ca1c1091ec9",
+    "validation_report_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-01/pathway-validation-report.json",
+    "validation_report_sha256": "1ed46113c7d8d591a44a341fe04e21e4e8099b072c4768a2c2dbc64d0a10bb83"
+  },
+  "parent_assessment": {
+    "assessment_id": "gradient-descent-computer-science-year-2-concept-assessment-v1",
+    "next_assessment_id": "gradient-descent-computer-science-year-2-concept-assessment-v2",
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-01/profile-concept-assessment.json",
+    "sha256": "0c52d79feba31930bc796990947e6781c91c157b3603bed2025e2d92a34e14ec"
+  },
+  "parent_review": {
+    "review_id": "gradient-descent-p2-computer-science-run-01-review-v1",
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-01/pathway-plan-review.json",
+    "sha256": "797a2c5365d29dad10de1d70ed5dac878fe5835866acffcd41ed0cfa9023943a",
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "computer science educator",
+    "reviewed_at": "2026-08-19T22:31:00Z"
+  },
+  "revision_scope": {
+    "selection_reviews": [
+      {
+        "item_id": "RC-014",
+        "fields": [
+          "rationale_and_profile_basis"
+        ],
+        "comment": "Keep RC-014 included as a target, but revise its rationale. The current rationale says that an exact fallback is recorded even though RC-005 remains selected; an omission fallback is only warranted when its explanatory dependency is omitted. State instead that RC-005 supplies the descent mechanism and RC-014 uses the selected smoothness, convexity, update, and step-size items to interpret the O(1/k) guarantee at concise proof depth suitable for this profile."
+      }
+    ],
+    "concept_reviews": [],
+    "learning_goal_reviews": [],
+    "pathway_change_reviews": [
+      {
+        "change_index": 1,
+        "fields": [
+          "structural_accuracy",
+          "profile_basis",
+          "rationale"
+        ],
+        "comment": "Preserve the revised reorder_learning_units record and add one new change_theory_implementation_application_depth record. The new record must affect RC-004, RC-005, RC-010, RC-011, RC-013, RC-014, and RC-015; its profile basis must cite pseudocode/executable iteration, state traces/diagnostic checks, and explicit assumptions beside algorithm behaviour; its rationale must state that implementation-first depth is increased while formal proof remains concise and mathematically correct."
+      }
+    ],
+    "structure_review": {
+      "fields": [
+        "instruction_sequence",
+        "unit_purpose_and_learning_goals"
+      ],
+      "comment": "The current theory-first order delays the executable GD update until U08, after smoothness, the Descent Lemma, convexity, strong convexity, and conditioning. That conflicts with the computer-science profile's preference for pseudocode, state traces, and assumptions beside algorithm behaviour. Reorder to GD-U01, GD-U02, GD-U08, GD-U03, GD-U04, GD-U09, GD-U10, GD-U05, GD-U06, GD-U07, GD-U11, GD-U12. This keeps every declared prerequisite earlier while introducing and tracing the update before the formal guarantee stack. Revise U08-U10 purposes to explicitly require a state trace/pseudocode view and place each assumption beside the behaviour it controls; keep RC-014/RC-015 as concise guarantee interpretation rather than extended proof. Add a change_theory_implementation_application_depth pathway-change record describing this implementation-first depth allocation."
+    },
+    "scope_review": {
+      "fields": [
+        "profile_appropriateness"
+      ],
+      "comment": "The selected mathematical scope is appropriate, but the current delivery emphasis is not yet demonstrably computer-science-specific. Preserve the 12 selected items and both convergence regimes, while revising the structure and declared depth change so pseudocode, iteration state, and diagnostic step behaviour are foregrounded and formal proof remains concise but correct."
+    }
+  },
+  "overall_comment": "The item selection, prerequisite bridge set, mathematical dependency graph, and learning-goal coverage are defensible for the computer-science profile. Revision is required because the current sequence is still theory-first and therefore does not realize the profile's strongest pedagogical evidence. Move the GD update and state trace immediately after objective/stationarity, place smoothness and step-size controls next to the algorithm, then teach convexity and convergence guarantees. Also remove the erroneous RC-014 fallback claim and explicitly declare the implementation-versus-proof depth adaptation. All review fields not marked revision_required are approved.",
+  "constraints": {
+    "preserve_unmarked_fields": true,
+    "require_new_output_directory": true,
+    "require_new_pathway_and_assessment_ids": true,
+    "do_not_inherit_human_approval": true,
+    "do_not_add_time_limits_or_unit_time_fields": true,
+    "word_count_control_deferred_to_composer": true
+  },
+  "generated_by": {
+    "agent": "adaptive-curriculum-pathway-planner",
+    "agent_version": "1.1",
+    "skill": "plan-adaptive-curriculum-pathways",
+    "skill_version": "1.1",
+    "generated_at": "2026-08-19T23:04:41Z"
+  }
+}

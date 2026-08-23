@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "operation": "deterministic-p0-normalization-v1",
+  "inputs": {
+    "canonical_pathway": {
+      "file": "experiments/rq2/specs/gradient-descent/canonical-pathway.json",
+      "sha256": "e30c817941168fc1e6171e9c278c06883695e329d3ffeb57fa11e217f0966ace"
+    },
+    "common_core": {
+      "file": "experiments/rq2/specs/gradient-descent/common-core.json",
+      "sha256": "7e7666bb1af3f8052a56ebbf08a29173921154fc0109ae207227d10de15fa46e"
+    },
+    "normalization_map": {
+      "file": "experiments/rq2/specs/gradient-descent/p0-normalization-map.json",
+      "sha256": "0615da48ebb5c03a702ec110f7b7611ba0ebe25a65fb875da118cbbc7f6c0874"
+    },
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+      "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/gradient-descent-second-year.json",
+      "sha256": "bdd734fd2f2c56b38960e9938281952a55841d57b0a83047647d38ca4f90348d"
+    }
+  },
+  "mapping_id": "gradient-descent-p0-normalization-v1",
+  "mapping_review_status": "requires_supervisor_or_curriculum_review",
+  "pathway_id": "gradient-descent-p0-v1",
+  "generated_at": "2026-08-19T12:00:00Z",
+  "output": {
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p0/pathway-plan.json",
+    "sha256": "1f565b07726733580ad974e9109439efa8817f1e6bc1b8fca4f1f788f70d4b1c"
+  }
+}

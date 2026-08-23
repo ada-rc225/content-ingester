@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.1",
+  "metric_set": "RQ2-STRUCTURAL-DIFFERENCE-v1",
+  "profile_count": 3,
+  "pair_count": 3,
+  "pairs": [
+    {
+      "left_profile": "applied-mathematics",
+      "right_profile": "computer-science",
+      "selection_jaccard_distance": 0.0,
+      "normalized_item_sequence_edit_distance": 0.5,
+      "raw_item_sequence_edit_distance": 6,
+      "grouping_pair_jaccard_distance": 0.0,
+      "released_bridge_jaccard_distance": 0.25,
+      "change_flags": {
+        "item_selection_changed": false,
+        "first_introduction_sequence_changed": true,
+        "grouping_changed": false,
+        "released_bridges_changed": true,
+        "declared_depth_signature_changed": true
+      },
+      "both_pathways_valid": true,
+      "both_pathway_reviews_approved": true,
+      "review_authority": {
+        "left": {
+          "authority_type": "approved_parent_review_via_materialization_receipt",
+          "receipt_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-04/bridge-resolution-receipt.json",
+          "receipt_sha256": "0f69ad4f1fe6bed5bd51ec64350910831bb69c19070bd1dcc9c0bedb98ab50cf",
+          "parent_pathway_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-02/pathway-plan.json",
+          "parent_pathway_sha256": "7fcb83b4bd0a4d137859d18844c15c867d89b6a71a41e06a1b9430180b8e1c77",
+          "parent_review_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-02/pathway-plan-review.json",
+          "parent_review_sha256": "d05de962e70226fec66e84a598b600770c917d6707efd3962ea8616b5acccf7d",
+          "bridge_catalog_file": "bridge-library/gradient-descent-v1/release/released-bridge-catalog.json",
+          "bridge_catalog_sha256": "54c433b923891dac7805c2531cb14be1f703ab745637db443c3cb93aa7a6b1cb",
+          "bridge_release_report_file": "bridge-library/gradient-descent-v1/release/bridge-library-release-report.json",
+          "bridge_release_report_sha256": "a3918e9bc004be9de329d25225e0327c1036b1f180afd4ad75624cafa0a575db"
+        },
+        "right": {
+          "authority_type": "approved_parent_review_via_materialization_receipt",
+          "receipt_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-03/bridge-resolution-receipt.json",
+          "receipt_sha256": "d177c77570538df36a0a5f4802f409ff3bcced3c0bbb619f346d45531b5b761b",
+          "parent_pathway_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-02/pathway-plan.json",
+          "parent_pathway_sha256": "9f8f9980f042467a96361dbdb7578fdff7f9f845d0863ad4d81f7395da2121dc",
+          "parent_review_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-02/pathway-plan-review.json",
+          "parent_review_sha256": "792fbcf50844d8423223be066593cc5fdc08176831c8fac01388e02b4ba09e0d",
+          "bridge_catalog_file": "bridge-library/gradient-descent-v1/release/released-bridge-catalog.json",
+          "bridge_catalog_sha256": "54c433b923891dac7805c2531cb14be1f703ab745637db443c3cb93aa7a6b1cb",
+          "bridge_release_report_file": "bridge-library/gradient-descent-v1/release/bridge-library-release-report.json",
+          "bridge_release_report_sha256": "a3918e9bc004be9de329d25225e0327c1036b1f180afd4ad75624cafa0a575db"
+        }
+      },
+      "profile_rationales_present": true,
+      "material_difference_candidate": true,
+      "material_difference_confirmed": true
+    },
+    {
+      "left_profile": "applied-mathematics",
+      "right_profile": "mechanical-engineering",
+      "selection_jaccard_distance": 0.0,
+      "normalized_item_sequence_edit_distance": 0.5,
+      "raw_item_sequence_edit_distance": 6,
+      "grouping_pair_jaccard_distance": 0.0,
+      "released_bridge_jaccard_distance": 0.0,
+      "change_flags": {
+        "item_selection_changed": false,
+        "first_introduction_sequence_changed": true,
+        "grouping_changed": false,
+        "released_bridges_changed": false,
+        "declared_depth_signature_changed": true
+      },
+      "both_pathways_valid": true,
+      "both_pathway_reviews_approved": true,
+      "review_authority": {
+        "left": {
+          "authority_type": "approved_parent_review_via_materialization_receipt",
+          "receipt_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-04/bridge-resolution-receipt.json",
+          "receipt_sha256": "0f69ad4f1fe6bed5bd51ec64350910831bb69c19070bd1dcc9c0bedb98ab50cf",
+          "parent_pathway_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-02/pathway-plan.json",
+          "parent_pathway_sha256": "7fcb83b4bd0a4d137859d18844c15c867d89b6a71a41e06a1b9430180b8e1c77",
+          "parent_review_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-02/pathway-plan-review.json",
+          "parent_review_sha256": "d05de962e70226fec66e84a598b600770c917d6707efd3962ea8616b5acccf7d",
+          "bridge_catalog_file": "bridge-library/gradient-descent-v1/release/released-bridge-catalog.json",
+          "bridge_catalog_sha256": "54c433b923891dac7805c2531cb14be1f703ab745637db443c3cb93aa7a6b1cb",
+          "bridge_release_report_file": "bridge-library/gradient-descent-v1/release/bridge-library-release-report.json",
+          "bridge_release_report_sha256": "a3918e9bc004be9de329d25225e0327c1036b1f180afd4ad75624cafa0a575db"
+        },
+        "right": {
+          "authority_type": "approved_parent_review_via_materialization_receipt",
+          "receipt_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-03/bridge-resolution-receipt.json",
+          "receipt_sha256": "a166dcb56c3df98c7e1630232cfa0869f01c430fb8436b55b2bbc636bc782648",
+          "parent_pathway_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-02/pathway-plan.json",
+          "parent_pathway_sha256": "f0f97113e94e589ca065719bf0ba015d32bc66074c7f6c45e31b211376b6bf64",
+          "parent_review_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-02/pathway-plan-review.json",
+          "parent_review_sha256": "77e4b57e7cc5bb8795b20d4e46656f8515c4d5833e2189a2275657d5b0ecef2d",
+          "bridge_catalog_file": "bridge-library/gradient-descent-v1/release/released-bridge-catalog.json",
+          "bridge_catalog_sha256": "54c433b923891dac7805c2531cb14be1f703ab745637db443c3cb93aa7a6b1cb",
+          "bridge_release_report_file": "bridge-library/gradient-descent-v1/release/bridge-library-release-report.json",
+          "bridge_release_report_sha256": "a3918e9bc004be9de329d25225e0327c1036b1f180afd4ad75624cafa0a575db"
+        }
+      },
+      "profile_rationales_present": true,
+      "material_difference_candidate": true,
+      "material_difference_confirmed": true
+    },
+    {
+      "left_profile": "computer-science",
+      "right_profile": "mechanical-engineering",
+      "selection_jaccard_distance": 0.0,
+      "normalized_item_sequence_edit_distance": 0.0,
+      "raw_item_sequence_edit_distance": 0,
+      "grouping_pair_jaccard_distance": 0.0,
+      "released_bridge_jaccard_distance": 0.25,
+      "change_flags": {
+        "item_selection_changed": false,
+        "first_introduction_sequence_changed": false,
+        "grouping_changed": false,
+        "released_bridges_changed": true,
+        "declared_depth_signature_changed": true
+      },
+      "both_pathways_valid": true,
+      "both_pathway_reviews_approved": true,
+      "review_authority": {
+        "left": {
+          "authority_type": "approved_parent_review_via_materialization_receipt",
+          "receipt_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-03/bridge-resolution-receipt.json",
+          "receipt_sha256": "d177c77570538df36a0a5f4802f409ff3bcced3c0bbb619f346d45531b5b761b",
+          "parent_pathway_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-02/pathway-plan.json",
+          "parent_pathway_sha256": "9f8f9980f042467a96361dbdb7578fdff7f9f845d0863ad4d81f7395da2121dc",
+          "parent_review_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-02/pathway-plan-review.json",
+          "parent_review_sha256": "792fbcf50844d8423223be066593cc5fdc08176831c8fac01388e02b4ba09e0d",
+          "bridge_catalog_file": "bridge-library/gradient-descent-v1/release/released-bridge-catalog.json",
+          "bridge_catalog_sha256": "54c433b923891dac7805c2531cb14be1f703ab745637db443c3cb93aa7a6b1cb",
+          "bridge_release_report_file": "bridge-library/gradient-descent-v1/release/bridge-library-release-report.json",
+          "bridge_release_report_sha256": "a3918e9bc004be9de329d25225e0327c1036b1f180afd4ad75624cafa0a575db"
+        },
+        "right": {
+          "authority_type": "approved_parent_review_via_materialization_receipt",
+          "receipt_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-03/bridge-resolution-receipt.json",
+          "receipt_sha256": "a166dcb56c3df98c7e1630232cfa0869f01c430fb8436b55b2bbc636bc782648",
+          "parent_pathway_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-02/pathway-plan.json",
+          "parent_pathway_sha256": "f0f97113e94e589ca065719bf0ba015d32bc66074c7f6c45e31b211376b6bf64",
+          "parent_review_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-02/pathway-plan-review.json",
+          "parent_review_sha256": "77e4b57e7cc5bb8795b20d4e46656f8515c4d5833e2189a2275657d5b0ecef2d",
+          "bridge_catalog_file": "bridge-library/gradient-descent-v1/release/released-bridge-catalog.json",
+          "bridge_catalog_sha256": "54c433b923891dac7805c2531cb14be1f703ab745637db443c3cb93aa7a6b1cb",
+          "bridge_release_report_file": "bridge-library/gradient-descent-v1/release/bridge-library-release-report.json",
+          "bridge_release_report_sha256": "a3918e9bc004be9de329d25225e0327c1036b1f180afd4ad75624cafa0a575db"
+        }
+      },
+      "profile_rationales_present": true,
+      "material_difference_candidate": true,
+      "material_difference_confirmed": true
+    }
+  ],
+  "interpretation": {
+    "zero_distance": "No difference for that structural representation.",
+    "material_difference": "Requires a detected structural change, profile-linked rationale, deterministic validity, and review authority established by either a directly bound approved review or a verified bridge-materialization receipt inheriting an approved parent review.",
+    "lexical_changes": "Not measured and never sufficient."
+  }
+}

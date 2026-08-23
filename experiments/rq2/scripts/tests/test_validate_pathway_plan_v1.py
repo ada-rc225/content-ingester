@@ -262,6 +262,34 @@ class PathwayPlanValidatorTests(unittest.TestCase):
         )
         return result, load(report_path)
 
+    def plan_with_unresolved_bridge(self) -> dict:
+        assessed = load(self.assessment_path)
+        concept = next(
+            item
+            for item in assessed["concept_assessments"]
+            if item["concept_id"] == "vector-norms-and-normalization"
+        )
+        concept["mastery"] = "missing"
+        self.assessment_path.write_text(
+            json.dumps(assessed, indent=2) + "\n", encoding="utf-8"
+        )
+        plan = load(self.plan_path)
+        plan["profile_concept_assessment_binding"]["sha256"] = digest(
+            self.assessment_path
+        )
+        plan["plan_status"] = "provisional"
+        plan["bridge_requirements"] = [{
+            "requirement_id": "BRQ-001",
+            "concept_id": "vector-norms-and-normalization",
+            "bridge_candidate_id": "BR-VECTOR-NORMS-NORMALIZATION-v1",
+            "required_by_item_ids": ["RC-005", "RC-010"],
+            "learner_mastery": "missing",
+            "resolution_status": "candidate",
+            "released_bridge_contract_id": None,
+            "rationale": concept["rationale"],
+        }]
+        return plan
+
     def test_valid_p2_plan_passes(self) -> None:
         result, report = self.run_validator()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
@@ -295,6 +323,33 @@ class PathwayPlanValidatorTests(unittest.TestCase):
         plan["profile_concept_assessment_binding"]["sha256"] = digest(self.assessment_path)
         _, report = self.run_validator(plan)
         self.assertIn("bridges.coverage", {error["code"] for error in report["errors"]})
+
+    def test_canonical_unresolved_bridge_requirement_passes(self) -> None:
+        result, report = self.run_validator(self.plan_with_unresolved_bridge())
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertTrue(report["valid"])
+
+    def test_missing_bridge_rationale_is_rejected(self) -> None:
+        plan = self.plan_with_unresolved_bridge()
+        del plan["bridge_requirements"][0]["rationale"]
+        result, report = self.run_validator(plan)
+        self.assertNotEqual(result.returncode, 0)
+        codes = {error["code"] for error in report["errors"]}
+        self.assertIn("bridges.requirement_fields", codes)
+        self.assertIn("bridges.rationale", codes)
+
+    def test_legacy_bridge_requirement_fields_are_rejected(self) -> None:
+        plan = self.plan_with_unresolved_bridge()
+        requirement = plan["bridge_requirements"][0]
+        requirement["bridge_requirement_id"] = requirement.pop("requirement_id")
+        requirement["reason"] = requirement.pop("rationale")
+        result, report = self.run_validator(plan)
+        self.assertNotEqual(result.returncode, 0)
+        codes = {error["code"] for error in report["errors"]}
+        self.assertIn("bridges.requirement_fields", codes)
+        self.assertIn("bridges.requirement_extra_fields", codes)
+        self.assertIn("bridges.requirement_id", codes)
+        self.assertIn("bridges.rationale", codes)
 
     def test_p1_cannot_bind_curriculum_model(self) -> None:
         baseline = load(self.baseline_path)

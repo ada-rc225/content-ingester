@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "operation": "deterministic-p1-copy-v1",
+  "inputs": {
+    "P0_pathway": {
+      "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p0/pathway-plan.json",
+      "sha256": "1f565b07726733580ad974e9109439efa8817f1e6bc1b8fca4f1f788f70d4b1c"
+    },
+    "learner_profile": {
+      "file": "experiments/rq2/profiles/gradient-descent/computer-science-year-2.json",
+      "sha256": "99474bea6b136bbe548c33273246c7525cd4fc8e28d01f47e02f17d2d54596c2"
+    }
+  },
+  "P0_pathway_id": "gradient-descent-p0-v1",
+  "P1_pathway_id": "gradient-descent-p1-computer-science-v1",
+  "profile_id": "gradient-descent-computer-science-year-2-rq2-pilot",
+  "controlled_copy_policy": {
+    "exact_P0_fields": [
+      "topic",
+      "source_authorities",
+      "profile_concept_assessment_binding",
+      "learning_request_binding",
+      "selection_authority",
+      "selection",
+      "learning_goal_mappings",
+      "learning_units",
+      "instruction_sequence",
+      "bridge_requirements",
+      "pathway_changes",
+      "scope_summary",
+      "rendering_policy",
+      "plan_status"
+    ],
+    "changed_fields": [
+      "pathway_id",
+      "condition",
+      "profile_binding",
+      "baseline_pathway_binding",
+      "generated_by"
+    ]
+  },
+  "generated_at": "2026-08-19T12:05:00Z",
+  "output": {
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p1/computer-science/pathway-plan.json",
+    "sha256": "6e9c22e6a485e436b68a1250e48c36210b55a68831d73f943d3ceb78f751164e"
+  }
+}

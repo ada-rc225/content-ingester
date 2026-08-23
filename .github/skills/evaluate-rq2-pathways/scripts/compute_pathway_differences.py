@@ -6,10 +6,14 @@ import itertools
 from pathlib import Path
 from typing import Any
 
-from rq2_eval_common import EvaluationError, load_json, write_json
+from rq2_eval_common import EvaluationError, load_json, relative, resolve, sha256, verify_binding, write_json
 
 
-def labelled(values: list[str], label: str) -> dict[str, Path]:
+MATERIALIZER = "released-bridge-pathway-materializer-v1"
+MATERIALIZATION_RULE = "first-consuming-unit-v1"
+
+
+def labelled(values: list[str], label: str, root: Path) -> dict[str, Path]:
     result: dict[str, Path] = {}
     for value in values:
         if "=" not in value:
@@ -17,11 +21,176 @@ def labelled(values: list[str], label: str) -> dict[str, Path]:
         name, raw_path = value.split("=", 1)
         if not name or name in result:
             raise EvaluationError(f"invalid or duplicate {label} name: {name}")
-        path = Path(raw_path).resolve()
+        path = resolve(root, raw_path)
         if not path.is_file():
             raise EvaluationError(f"missing {label} file: {path}")
         result[name] = path
     return result
+
+
+def require(condition: bool, message: str) -> None:
+    if not condition:
+        raise EvaluationError(message)
+
+
+def verified_record(root: Path, value: Any, label: str) -> Path:
+    require(isinstance(value, dict), f"{label} binding is missing")
+    return verify_binding(root, value, label)
+
+
+def validate_approved_review(
+    root: Path,
+    pathway_path: Path,
+    pathway: dict[str, Any],
+    review_path: Path,
+    review: dict[str, Any],
+    label: str,
+) -> dict[str, Any]:
+    require(review.get("review_status") == "approved", f"{label} review_status is not approved")
+    overall_review = review.get("overall_review")
+    require(isinstance(overall_review, dict), f"{label} overall_review is missing")
+    require(
+        overall_review.get("decision") == "approved",
+        f"{label} overall review decision is not approved",
+    )
+    binding = review.get("candidate_binding")
+    require(isinstance(binding, dict), f"{label} candidate_binding is missing")
+    require(
+        binding.get("pathway_id") == pathway.get("pathway_id"),
+        f"{label} review identifies another pathway ID",
+    )
+    require(
+        resolve(root, binding.get("pathway_file")) == pathway_path,
+        f"{label} review identifies another pathway file",
+    )
+    require(
+        binding.get("pathway_sha256") == sha256(pathway_path),
+        f"{label} pathway changed after review",
+    )
+    return {
+        "authority_type": "direct_approved_review",
+        "review_file": relative(root, review_path),
+        "review_sha256": sha256(review_path),
+    }
+
+
+def validate_materialization_receipt(
+    root: Path,
+    pathway_path: Path,
+    pathway: dict[str, Any],
+    receipt_path: Path,
+    receipt: dict[str, Any],
+    label: str,
+) -> dict[str, Any]:
+    require(receipt.get("materializer") == MATERIALIZER, f"{label} receipt has an unsupported materializer")
+    require(receipt.get("rule_id") == MATERIALIZATION_RULE, f"{label} receipt has an unsupported insertion rule")
+
+    output_path = verified_record(root, receipt.get("output_pathway"), f"{label} output pathway")
+    require(output_path == pathway_path, f"{label} receipt identifies another output pathway")
+    require(pathway.get("condition") == "P2", f"{label} materialized pathway is not P2")
+    require(pathway.get("plan_status") == "complete", f"{label} materialized pathway is not complete")
+
+    parent_path = verified_record(root, receipt.get("parent_pathway"), f"{label} parent pathway")
+    parent_review_path = verified_record(root, receipt.get("parent_review"), f"{label} parent review")
+    catalog_path = verified_record(root, receipt.get("bridge_catalog"), f"{label} bridge catalog")
+    release_report_path = verified_record(
+        root,
+        receipt.get("bridge_release_report"),
+        f"{label} bridge release report",
+    )
+    parent = load_json(parent_path)
+    parent_review = load_json(parent_review_path)
+    catalog = load_json(catalog_path)
+    release_report = load_json(release_report_path)
+
+    validate_approved_review(
+        root,
+        parent_path,
+        parent,
+        parent_review_path,
+        parent_review,
+        f"{label} parent",
+    )
+    require(parent.get("condition") == "P2", f"{label} parent pathway is not P2")
+    require(parent.get("plan_status") == "provisional", f"{label} parent pathway is not provisional")
+    require(parent.get("pathway_id") != pathway.get("pathway_id"), f"{label} output pathway ID was not renewed")
+
+    require(catalog.get("status") == "released", f"{label} bridge catalog is not released")
+    bridges = catalog.get("bridges")
+    require(isinstance(bridges, list) and bool(bridges), f"{label} released bridge catalog is empty")
+    require(
+        all(isinstance(item, dict) and item.get("status") == "released" for item in bridges),
+        f"{label} bridge catalog contains an unreleased bridge",
+    )
+    require(release_report.get("status") == "released", f"{label} bridge release report is not released")
+    require(
+        release_report.get("library_id") == catalog.get("library_id"),
+        f"{label} release report identifies another bridge library",
+    )
+    outputs = release_report.get("outputs")
+    require(isinstance(outputs, dict), f"{label} bridge release outputs are missing")
+    require(
+        resolve(root, outputs.get("released_bridge_catalog")) == catalog_path,
+        f"{label} release report identifies another bridge catalog",
+    )
+    require(
+        outputs.get("released_bridge_catalog_sha256") == sha256(catalog_path),
+        f"{label} release report bridge catalog hash is stale",
+    )
+
+    bindings = catalog.get("pathway_bindings")
+    require(isinstance(bindings, list), f"{label} bridge catalog pathway bindings are missing")
+    matches = [
+        item for item in bindings
+        if isinstance(item, dict) and item.get("pathway_id") == parent.get("pathway_id")
+    ]
+    require(len(matches) == 1, f"{label} bridge catalog must bind the parent pathway exactly once")
+    binding = matches[0]
+    require(
+        resolve(root, binding.get("pathway_file")) == parent_path,
+        f"{label} bridge catalog identifies another parent pathway",
+    )
+    require(
+        binding.get("pathway_sha256") == sha256(parent_path),
+        f"{label} bridge catalog parent pathway hash is stale",
+    )
+    require(
+        resolve(root, binding.get("review_file")) == parent_review_path,
+        f"{label} bridge catalog identifies another parent review",
+    )
+    require(
+        binding.get("review_sha256") == sha256(parent_review_path),
+        f"{label} bridge catalog parent review hash is stale",
+    )
+
+    resolved_bridges = receipt.get("resolved_bridges")
+    require(
+        isinstance(resolved_bridges, list) and bool(resolved_bridges),
+        f"{label} receipt contains no resolved bridge",
+    )
+    require(
+        all(
+            isinstance(item, dict)
+            and isinstance(item.get("bridge_contract_id"), str)
+            and isinstance(item.get("bridge_unit_id"), str)
+            and isinstance(item.get("first_consumer_unit_id"), str)
+            for item in resolved_bridges
+        ),
+        f"{label} receipt has an invalid resolved bridge record",
+    )
+    return {
+        "authority_type": "approved_parent_review_via_materialization_receipt",
+        "receipt_file": relative(root, receipt_path),
+        "receipt_sha256": sha256(receipt_path),
+        "parent_pathway_file": relative(root, parent_path),
+        "parent_pathway_sha256": sha256(parent_path),
+        "parent_review_file": relative(root, parent_review_path),
+        "parent_review_sha256": sha256(parent_review_path),
+        "bridge_catalog_file": relative(root, catalog_path),
+        "bridge_catalog_sha256": sha256(catalog_path),
+        "bridge_release_report_file": relative(root, release_report_path),
+        "bridge_release_report_sha256": sha256(release_report_path),
+    }
 
 
 def jaccard_distance(left: set[Any], right: set[Any]) -> float:
@@ -88,30 +257,71 @@ def pathway_features(pathway: dict[str, Any]) -> dict[str, Any]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Compute deterministic pairwise RQ2 pathway differences.")
+    parser.add_argument("--workspace-root", default=".")
     parser.add_argument("--pathway", action="append", required=True, help="PROFILE=pathway-plan.json")
     parser.add_argument("--validation", action="append", default=[], help="PROFILE=pathway-validation-report.json")
     parser.add_argument("--review", action="append", default=[], help="PROFILE=pathway-plan-review.json")
+    parser.add_argument(
+        "--materialization-receipt",
+        action="append",
+        default=[],
+        help="PROFILE=bridge-resolution-receipt.json",
+    )
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
+    root = Path(args.workspace_root).resolve()
     output = Path(args.output).resolve()
     try:
         if output.exists():
             raise EvaluationError(f"refusing to overwrite pathway difference report: {output}")
-        pathways = labelled(args.pathway, "pathway")
-        validations = labelled(args.validation, "validation") if args.validation else {}
-        reviews = labelled(args.review, "review") if args.review else {}
+        pathways = labelled(args.pathway, "pathway", root)
+        validations = labelled(args.validation, "validation", root) if args.validation else {}
+        reviews = labelled(args.review, "review", root) if args.review else {}
+        receipts = (
+            labelled(args.materialization_receipt, "materialization receipt", root)
+            if args.materialization_receipt else {}
+        )
         if validations and set(validations) != set(pathways):
             raise EvaluationError("validation labels must exactly match pathway labels")
-        if reviews and set(reviews) != set(pathways):
-            raise EvaluationError("review labels must exactly match pathway labels")
+        overlapping_authority = set(reviews) & set(receipts)
+        if overlapping_authority:
+            raise EvaluationError(
+                "each profile must use either --review or --materialization-receipt, not both: "
+                + ", ".join(sorted(overlapping_authority))
+            )
+        authority_labels = set(reviews) | set(receipts)
+        if authority_labels and authority_labels != set(pathways):
+            raise EvaluationError(
+                "review and materialization-receipt labels together must exactly match pathway labels"
+            )
 
-        features = {name: pathway_features(load_json(path)) for name, path in pathways.items()}
+        pathway_documents = {name: load_json(path) for name, path in pathways.items()}
+        features = {name: pathway_features(pathway_documents[name]) for name in pathways}
         validation_status = {
             name: load_json(validations[name]).get("valid") is True if name in validations else None
             for name in pathways
         }
+        review_authority: dict[str, dict[str, Any]] = {}
+        for name, review_path in reviews.items():
+            review_authority[name] = validate_approved_review(
+                root,
+                pathways[name],
+                pathway_documents[name],
+                review_path,
+                load_json(review_path),
+                name,
+            )
+        for name, receipt_path in receipts.items():
+            review_authority[name] = validate_materialization_receipt(
+                root,
+                pathways[name],
+                pathway_documents[name],
+                receipt_path,
+                load_json(receipt_path),
+                name,
+            )
         review_status = {
-            name: load_json(reviews[name]).get("overall_review", {}).get("decision") == "approved" if name in reviews else None
+            name: True if name in review_authority else None
             for name in pathways
         }
         pairs = []
@@ -145,21 +355,28 @@ def main() -> int:
                 "released_bridge_jaccard_distance": bridge_distance,
                 "change_flags": change_flags,
                 "both_pathways_valid": both_valid if validations else None,
-                "both_pathway_reviews_approved": both_reviewed if reviews else None,
+                "both_pathway_reviews_approved": both_reviewed if review_authority else None,
+                "review_authority": {
+                    "left": review_authority.get(left_name),
+                    "right": review_authority.get(right_name),
+                } if review_authority else None,
                 "profile_rationales_present": rationale_present,
                 "material_difference_candidate": structural_change and rationale_present,
-                "material_difference_confirmed": structural_change and rationale_present and both_valid and both_reviewed if validations and reviews else None,
+                "material_difference_confirmed": (
+                    structural_change and rationale_present and both_valid and both_reviewed
+                    if validations and review_authority else None
+                ),
             })
 
         report = {
-            "schema_version": "1.0",
+            "schema_version": "1.1",
             "metric_set": "RQ2-STRUCTURAL-DIFFERENCE-v1",
             "profile_count": len(pathways),
             "pair_count": len(pairs),
             "pairs": pairs,
             "interpretation": {
                 "zero_distance": "No difference for that structural representation.",
-                "material_difference": "Requires a detected structural change, profile-linked rationale, deterministic validity, and approved pathway reviews.",
+                "material_difference": "Requires a detected structural change, profile-linked rationale, deterministic validity, and review authority established by either a directly bound approved review or a verified bridge-materialization receipt inheriting an approved parent review.",
                 "lexical_changes": "Not measured and never sufficient.",
             },
         }

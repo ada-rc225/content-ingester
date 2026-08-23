@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "operation": "deterministic-p1-copy-v1",
+  "inputs": {
+    "P0_pathway": {
+      "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p0/pathway-plan.json",
+      "sha256": "1f565b07726733580ad974e9109439efa8817f1e6bc1b8fca4f1f788f70d4b1c"
+    },
+    "learner_profile": {
+      "file": "experiments/rq2/profiles/gradient-descent/applied-mathematics-year-2.json",
+      "sha256": "778a5424fa87c15985ce64414200e34414ad9580d7db6620adeef098a0252fce"
+    }
+  },
+  "P0_pathway_id": "gradient-descent-p0-v1",
+  "P1_pathway_id": "gradient-descent-p1-applied-mathematics-v1",
+  "profile_id": "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+  "controlled_copy_policy": {
+    "exact_P0_fields": [
+      "topic",
+      "source_authorities",
+      "profile_concept_assessment_binding",
+      "learning_request_binding",
+      "selection_authority",
+      "selection",
+      "learning_goal_mappings",
+      "learning_units",
+      "instruction_sequence",
+      "bridge_requirements",
+      "pathway_changes",
+      "scope_summary",
+      "rendering_policy",
+      "plan_status"
+    ],
+    "changed_fields": [
+      "pathway_id",
+      "condition",
+      "profile_binding",
+      "baseline_pathway_binding",
+      "generated_by"
+    ]
+  },
+  "generated_at": "2026-08-19T12:05:00Z",
+  "output": {
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p1/applied-mathematics/pathway-plan.json",
+    "sha256": "ed4c0c995f45b82162acce122a2a124826bfc164090ebf11ef8dbfaccac5fd74"
+  }
+}

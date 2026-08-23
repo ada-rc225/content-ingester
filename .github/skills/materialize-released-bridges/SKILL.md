@@ -51,6 +51,11 @@ Read `references/materialization-policy.md` before execution.
    receipt binds the new pathway hash, `plan_status=complete`, and every
    requirement and prerequisite-bridge unit is released.
 
+For an exactly catalog-bound historical parent whose bridge requirements use
+the documented legacy aliases, the materializer deterministically normalizes
+only the child copy according to `references/materialization-policy.md`. It
+records each compatibility action in the receipt and never changes the parent.
+
 ## Outputs
 
 The materializer creates only:
@@ -72,4 +77,7 @@ and the separately approved released bridge library.
   catalog's exact parent pathway/review bindings.
 - Never call Adaptive Curriculum Pathway Planner revision mode for this state
   transition.
+- Never infer a legacy rationale from free text: use only the canonical
+  rationale, the `reason` alias, or the same concept's rationale in the
+  hash-bound profile-concept assessment, in that order.
 - Stop if ordinary pathway validation fails.

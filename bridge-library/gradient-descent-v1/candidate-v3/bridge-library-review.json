@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0",
+  "review_id": "gradient-descent-bridge-library-v1-review-v1",
+  "review_status": "approved",
+  "candidate_binding": {
+    "library_id": "gradient-descent-bridge-library-v1",
+    "candidate_file": "bridge-library/gradient-descent-v1/candidate-v3/bridge-library-candidate.json",
+    "candidate_sha256": "ff52b32097fd1dfd4c3a62db20bc838e0adf1662ca9a0a6d898f2268fdc61218",
+    "validation_report_file": "bridge-library/gradient-descent-v1/candidate-v3/bridge-library-validation-report.json",
+    "validation_report_sha256": "ffd4862fbf7ee27942e5d3c59a8bcd12af550fc559efca96dae0420a277d240e"
+  },
+  "template_generator": {
+    "agent": "grounded-bridge-library-builder",
+    "agent_version": "1.0",
+    "skill": "build-grounded-bridge-library",
+    "skill_version": "1.0",
+    "generated_at": "2026-08-20T00:03:44Z"
+  },
+  "reviewer": {
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "mathematics-and-computing-bridge-reviewer"
+  },
+  "bridge_reviews": [
+    {
+      "bridge_contract_id": "BRC-MULTIVARIABLE-CALCULUS-AND-LOCAL-EXTREMA-v1",
+      "bridge_candidate_id": "BR-MULTIVARIABLE-CALCULUS-AND-LOCAL-EXTREMA-v1",
+      "concept_id": "multivariable-calculus-and-local-extrema",
+      "requested_by_profile_ids": [
+        "gradient-descent-computer-science-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-002"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-04"
+      ],
+      "source_ids": [
+        "SRC-01",
+        "SRC-02"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "approved",
+        "content_boundary": "approved",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. The bridge remains correctly limited to the CS pathway's RC-002 prerequisite demand: it defines a multivariable local minimum, explains how to assemble a gradient from first partial derivatives, and gives a correct gradient-only calculation, grad f(x,y)=(2x+y,x)^T and grad f(1,2)=(4,1)^T. The two reachable MIT OpenCourseWare sources directly support the local-minimum definition and gradient construction. The bridge excludes stationarity proofs, Hessian tests, and gradient-descent claims, so its content boundary and dependency role are appropriate and prerequisite-sized."
+    },
+    {
+      "bridge_contract_id": "BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "bridge_candidate_id": "BR-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "concept_id": "euclidean-norms-and-lipschitz-continuity",
+      "requested_by_profile_ids": [
+        "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+        "gradient-descent-computer-science-year-2-rq2-pilot",
+        "gradient-descent-mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-004"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04"
+      ],
+      "source_ids": [
+        "SRC-01",
+        "SRC-02",
+        "SRC-03"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "approved",
+        "content_boundary": "approved",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. Candidate-v3 resolves the source defect identified in candidate-v2. UC Berkeley Econ 204 Lecture 4, Definition 5, explicitly defines a Lipschitz function between normed vector spaces using an all-input-pairs norm inequality; Cornell states the gradient-specific inequality; and Stanford supports the Euclidean norm used in the definition and example. The source-to-content bindings now distinguish the generic vector-map definition from its gradient specialization. The statements require L>0, correctly separate gradient Lipschitzness from function-value Lipschitzness, and keep the bridge free of the Descent Lemma, step-size rules, and convergence claims while adequately preparing all three profiles to read RC-004."
+    },
+    {
+      "bridge_contract_id": "BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "concept_id": "inner-products-and-convex-sets",
+      "requested_by_profile_ids": [
+        "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+        "gradient-descent-computer-science-year-2-rq2-pilot",
+        "gradient-descent-mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-006"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04"
+      ],
+      "source_ids": [
+        "SRC-01"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "approved",
+        "content_boundary": "approved",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. Stanford's Convex Optimization text directly supports the real-vector inner product, convex combinations, and the defining closure property of convex sets. The procedure for reading g^T(y-x) and both worked calculations are correct direct applications: the stated convex combination is (3/2,3)^T and g^T(y-x)=-2. The bridge supplies the exact prerequisite vocabulary needed for RC-006 across all three profiles while explicitly withholding the first-order convexity theorem, optimality claims, proofs, and advanced convex analysis owned by the Contract."
+    },
+    {
+      "bridge_contract_id": "BRC-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "bridge_candidate_id": "BR-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "concept_id": "ratios-and-condition-numbers",
+      "requested_by_profile_ids": [
+        "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+        "gradient-descent-computer-science-year-2-rq2-pilot",
+        "gradient-descent-mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-009"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04"
+      ],
+      "source_ids": [
+        "SRC-01"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "approved",
+        "content_boundary": "approved",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. Candidate-v3 replaces the insufficient source used in candidate-v2 with Purdue University's Optimization Methods in Machine Learning notes. Section 2.4 explicitly derives mu<=L in the shared strongly-convex, Lipschitz-gradient setting and identifies L/mu as the condition number. This directly supports kappa=L/mu, kappa>=1, the positive-denominator safeguard, and the bounded arithmetic examples. The bridge prepares all three profiles for RC-009 without importing matrix condition numbers, convergence-rate derivations, step-size selection, acceleration, or stochastic-optimisation claims."
+    }
+  ],
+  "overall_review": {
+    "decision": "approved",
+    "reviewed_at": "2026-08-20T00:19:01Z",
+    "comment": "Approved for release-gate processing. Candidate-v3 contains exactly the four bridges required by the three approved gradient-descent P2 pathways, preserves the released Curriculum Model and pathway bindings, and passes deterministic validation with valid=true, zero errors, and zero warnings. Direct inspection confirms that the two source-provenance defects from candidate-v2 are resolved: the Berkeley source supports the generic vector-valued Lipschitz definition, and the Purdue source establishes mu<=L and L/mu in the required setting. The two previously approved bridges remain correct and bounded. All teaching blocks are source-bound, prerequisite-sized, and avoid importing gradient-descent theory owned by the Frozen Contract. This review approves the candidate only; freezing and publication remain the responsibility of the separate Bridge Library Release Gate."
+  }
+}

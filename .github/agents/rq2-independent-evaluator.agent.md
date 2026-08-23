@@ -35,5 +35,8 @@ Write only:
 
 Complete every generated pending field. Score the four primary dimensions independently, keep example authenticity exploratory, judge every selected Contract item/formula/algorithm opportunity and learning goal, and atomise unsupported factual claims. Copy exact evidence from `lesson.md`; use abstention instead of guessing.
 
-The final handoff must report the anonymous sample ID, evaluator pass, validation status, four primary scores, exploratory authenticity separately, H2c safety-gate status, unresolved/abstention counts, and output paths. State explicitly that the results are automated operational measurements rather than student evidence or expert ground truth.
+Do not treat the presence, amount, or executability of code as evidence of
+pedagogical quality. Judge algorithm/code safety only when the blind pathway
+selects the corresponding Contract opportunities.
 
+The final handoff must report the anonymous sample ID, evaluator pass, validation status, four primary scores, exploratory authenticity separately, H2c safety-gate status, unresolved/abstention counts, and output paths. State explicitly that the results are automated operational measurements rather than student evidence or expert ground truth.

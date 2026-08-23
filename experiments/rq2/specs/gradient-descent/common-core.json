@@ -1,0 +1,88 @@
+{
+  "schema_version": "0.2",
+  "protocol_id": "RQ2-PATHWAY-v0.3-gd-pilot",
+  "status": "pilot_freeze_candidate",
+  "topic": "gradient-descent",
+  "pathway_unit": "ordered_learning_sequence_not_pages",
+  "source_contract": {
+    "contract_id": "gradient-descent",
+    "contract_version": "3.0.0",
+    "file": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+    "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"
+  },
+  "selection_scope": {
+    "applies_to": "RQ2 Gradient Descent fixed P0/P1 baseline classification only",
+    "rq1_generation_requirement_is_reused": false,
+    "explanation": "Frozen Contract semantics remain authoritative, but RQ1 generation requirements do not define the RQ2 lesson scope. This file classifies the fixed P0/P1 target backbone; P2 performs learner-specific selection from the Frozen Curriculum Model and does not use this file as selection authority.",
+    "confirmatory_requirement": "Receive supervisor or curriculum review together with the learning request, canonical pathway, and normalization map before confirmatory generation."
+  },
+  "all_contract_item_ids": [
+    "RC-001", "RC-002", "RC-003", "RC-004", "RC-005", "RC-006",
+    "RC-007", "RC-008", "RC-009", "RC-010", "RC-011", "RC-012",
+    "RC-013", "RC-014", "RC-015", "RC-016", "RC-017", "RC-018",
+    "RC-019", "RC-020", "RC-021", "RC-022", "RC-023", "RC-024",
+    "RC-025", "RC-026", "RC-027", "RC-028", "RC-029", "RC-030"
+  ],
+  "universal_core_item_ids": [
+    "RC-001", "RC-004", "RC-006", "RC-007", "RC-009",
+    "RC-010", "RC-011", "RC-014", "RC-015"
+  ],
+  "selectable_item_ids": [
+    "RC-002", "RC-003", "RC-005", "RC-008", "RC-012", "RC-013",
+    "RC-016", "RC-017", "RC-018", "RC-019", "RC-020", "RC-021",
+    "RC-022", "RC-023", "RC-024", "RC-025", "RC-026", "RC-027",
+    "RC-028", "RC-029", "RC-030"
+  ],
+  "classification_notes": [
+    "Universal core denotes the target backbone of the fixed P0/P1 baseline, not a universal content requirement imposed on P2.",
+    "Every selected item remains governed by the released Frozen Reference Contract.",
+    "P2 must decide all thirty Contract items from the shared learning request, learner profile, and Frozen Curriculum Model.",
+    "Released prerequisite bridges may supply missing external prerequisites but may not duplicate or expand selected Contract target content."
+  ],
+  "common_learning_outcomes": [
+    {
+      "learning_outcome_id": "LO-GD-01",
+      "statement": "Formulate a differentiable unconstrained optimisation problem, identify first-order stationarity, and apply the gradient-descent update.",
+      "contract_item_ids": ["RC-001", "RC-002", "RC-010"]
+    },
+    {
+      "learning_outcome_id": "LO-GD-02",
+      "statement": "Relate smoothness and descent bounds to constant and backtracking step-size choices.",
+      "contract_item_ids": ["RC-004", "RC-005", "RC-011", "RC-013"]
+    },
+    {
+      "learning_outcome_id": "LO-GD-03",
+      "statement": "Interpret convex and strongly convex convergence results and the effect of conditioning.",
+      "contract_item_ids": ["RC-006", "RC-007", "RC-009", "RC-014", "RC-015"]
+    },
+    {
+      "learning_outcome_id": "LO-GD-04",
+      "statement": "Trace or express the selected update and step-selection rules as an algorithm without extending their guarantees.",
+      "contract_item_ids": ["RC-010", "RC-011", "RC-013"]
+    }
+  ],
+  "common_assessment_targets": [
+    {
+      "assessment_target_id": "AT-GD-01",
+      "type": "concept_check",
+      "learning_outcome_ids": ["LO-GD-01", "LO-GD-03"]
+    },
+    {
+      "assessment_target_id": "AT-GD-02",
+      "type": "hand_calculation",
+      "learning_outcome_ids": ["LO-GD-01", "LO-GD-02"]
+    },
+    {
+      "assessment_target_id": "AT-GD-03",
+      "type": "algorithm_trace_or_diagnostic",
+      "learning_outcome_ids": ["LO-GD-02", "LO-GD-04"]
+    }
+  ],
+  "coverage_policy": {
+    "universal_core_required_coverage": 1.0,
+    "selected_item_required_coverage": 1.0,
+    "every_selectable_item_requires_one_decision": true,
+    "undeclared_omission_is_valid": false,
+    "excluded_items_must_not_be_taught_as_in_scope": true
+  }
+}

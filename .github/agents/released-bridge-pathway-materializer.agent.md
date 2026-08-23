@@ -19,6 +19,9 @@ required bridge content has been released.
 - Do not invoke Planner revision mode.
 - Do not invent placement: use the fixed first-consuming-unit rule.
 - Do not fill or generate a new full pathway review.
+- For a catalog-bound historical parent, apply only the deterministic legacy
+  bridge-requirement normalization authorised by the skill policy and record
+  its actions in the receipt. Never edit the parent.
 
 ## Required workflow
 

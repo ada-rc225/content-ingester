@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "operation": "deterministic-p1-copy-v1",
+  "inputs": {
+    "P0_pathway": {
+      "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p0/pathway-plan.json",
+      "sha256": "1f565b07726733580ad974e9109439efa8817f1e6bc1b8fca4f1f788f70d4b1c"
+    },
+    "learner_profile": {
+      "file": "experiments/rq2/profiles/gradient-descent/mechanical-engineering-year-2.json",
+      "sha256": "3e107dcaa9f10ef339daa9136644d171f4849b0d3d5b7be9989524a2c51965a2"
+    }
+  },
+  "P0_pathway_id": "gradient-descent-p0-v1",
+  "P1_pathway_id": "gradient-descent-p1-mechanical-engineering-v1",
+  "profile_id": "gradient-descent-mechanical-engineering-year-2-rq2-pilot",
+  "controlled_copy_policy": {
+    "exact_P0_fields": [
+      "topic",
+      "source_authorities",
+      "profile_concept_assessment_binding",
+      "learning_request_binding",
+      "selection_authority",
+      "selection",
+      "learning_goal_mappings",
+      "learning_units",
+      "instruction_sequence",
+      "bridge_requirements",
+      "pathway_changes",
+      "scope_summary",
+      "rendering_policy",
+      "plan_status"
+    ],
+    "changed_fields": [
+      "pathway_id",
+      "condition",
+      "profile_binding",
+      "baseline_pathway_binding",
+      "generated_by"
+    ]
+  },
+  "generated_at": "2026-08-19T12:05:00Z",
+  "output": {
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p1/mechanical-engineering/pathway-plan.json",
+    "sha256": "ce6aaa83a62e2bf259f8309f6a6926b9b02a514aa0273b28379fcd8663735bf5"
+  }
+}

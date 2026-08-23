@@ -7,6 +7,7 @@ import argparse
 from datetime import datetime, timezone
 import json
 from pathlib import Path
+import re
 import sys
 from typing import Any
 
@@ -48,6 +49,17 @@ CHANGE_TYPES = {
     "add_prerequisite_bridge", "regroup_contract_items",
     "change_theory_implementation_application_depth",
 }
+BRIDGE_REQUIREMENT_FIELDS = {
+    "requirement_id",
+    "concept_id",
+    "bridge_candidate_id",
+    "required_by_item_ids",
+    "learner_mastery",
+    "resolution_status",
+    "released_bridge_contract_id",
+    "rationale",
+}
+BRIDGE_REQUIREMENT_ID_PATTERN = re.compile(r"^BRQ-[0-9]{3,}$")
 
 
 class Validator:
@@ -674,10 +686,41 @@ class Validator:
             self.error("bridges.type", "bridge_requirements must be an array")
             raw_requirements = []
         requirements: dict[str, dict[str, Any]] = {}
-        for requirement in raw_requirements:
+        for position, requirement in enumerate(raw_requirements, start=1):
             if not isinstance(requirement, dict):
                 self.error("bridges.requirement_type", "each bridge requirement must be an object")
                 continue
+            missing_fields = BRIDGE_REQUIREMENT_FIELDS - set(requirement)
+            extra_fields = set(requirement) - BRIDGE_REQUIREMENT_FIELDS
+            if missing_fields:
+                self.error(
+                    "bridges.requirement_fields",
+                    "bridge requirement is missing canonical fields: "
+                    + ", ".join(sorted(missing_fields)),
+                )
+            if extra_fields:
+                self.error(
+                    "bridges.requirement_extra_fields",
+                    "bridge requirement contains non-canonical fields: "
+                    + ", ".join(sorted(extra_fields)),
+                )
+            requirement_id = requirement.get("requirement_id")
+            expected_requirement_id = f"BRQ-{position:03d}"
+            if (
+                not isinstance(requirement_id, str)
+                or BRIDGE_REQUIREMENT_ID_PATTERN.fullmatch(requirement_id) is None
+                or requirement_id != expected_requirement_id
+            ):
+                self.error(
+                    "bridges.requirement_id",
+                    f"bridge requirement at position {position} must use {expected_requirement_id}",
+                )
+            rationale = requirement.get("rationale")
+            if not isinstance(rationale, str) or not rationale.strip():
+                self.error(
+                    "bridges.rationale",
+                    f"{expected_requirement_id} must have a non-empty rationale",
+                )
             concept_id = requirement.get("concept_id")
             if concept_id in requirements:
                 self.error("bridges.duplicate", f"duplicate bridge requirement for {concept_id}")

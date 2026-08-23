@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "validator": "validate-pathway-revision-v1",
+  "valid": true,
+  "error_count": 0,
+  "errors": [],
+  "inputs": {
+    "revision_receipt": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-02/pathway-revision-receipt.json",
+    "revision_receipt_sha256": "65697ee58950dbbb737b93023c04932dc7298e1d11d8529f9b3bc45278cc4463",
+    "candidate_pathway": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-02/pathway-plan.json",
+    "candidate_pathway_sha256": "7fcb83b4bd0a4d137859d18844c15c867d89b6a71a41e06a1b9430180b8e1c77",
+    "candidate_assessment": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-02/profile-concept-assessment.json",
+    "candidate_assessment_sha256": "c7ffa91798807fbe1d741d259a972c6e2ca286ac27b32c6308ff1a45ea61503c",
+    "candidate_validation_report": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-02/pathway-validation-report.json",
+    "candidate_validation_report_sha256": "8a404ddde1e97df41713f5cf92a516ec517519554de6cef91d9fccd4b8ee0bea"
+  },
+  "validated_at": "2026-08-19T22:58:39Z"
+}

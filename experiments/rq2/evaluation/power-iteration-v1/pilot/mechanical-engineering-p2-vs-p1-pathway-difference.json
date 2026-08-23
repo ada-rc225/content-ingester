@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "metric_set": "RQ2-STRUCTURAL-DIFFERENCE-v1",
+  "profile_count": 2,
+  "pair_count": 1,
+  "pairs": [
+    {
+      "left_profile": "P1",
+      "right_profile": "P2",
+      "selection_jaccard_distance": 0.055556,
+      "normalized_item_sequence_edit_distance": 0.611111,
+      "raw_item_sequence_edit_distance": 11,
+      "grouping_pair_jaccard_distance": 1.0,
+      "released_bridge_jaccard_distance": 1.0,
+      "change_flags": {
+        "item_selection_changed": true,
+        "first_introduction_sequence_changed": true,
+        "grouping_changed": true,
+        "released_bridges_changed": true,
+        "declared_depth_signature_changed": true
+      },
+      "both_pathways_valid": true,
+      "both_pathway_reviews_approved": null,
+      "profile_rationales_present": true,
+      "material_difference_candidate": true,
+      "material_difference_confirmed": null
+    }
+  ],
+  "interpretation": {
+    "zero_distance": "No difference for that structural representation.",
+    "material_difference": "Requires a detected structural change, profile-linked rationale, deterministic validity, and approved pathway reviews.",
+    "lexical_changes": "Not measured and never sufficient."
+  }
+}

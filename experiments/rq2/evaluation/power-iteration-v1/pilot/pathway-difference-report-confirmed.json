@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.1",
+  "metric_set": "RQ2-STRUCTURAL-DIFFERENCE-v1",
+  "profile_count": 3,
+  "pair_count": 3,
+  "pairs": [
+    {
+      "left_profile": "applied-mathematics",
+      "right_profile": "computer-science",
+      "selection_jaccard_distance": 0.055556,
+      "normalized_item_sequence_edit_distance": 0.666667,
+      "raw_item_sequence_edit_distance": 12,
+      "grouping_pair_jaccard_distance": 0.3,
+      "released_bridge_jaccard_distance": 1.0,
+      "change_flags": {
+        "item_selection_changed": true,
+        "first_introduction_sequence_changed": true,
+        "grouping_changed": true,
+        "released_bridges_changed": true,
+        "declared_depth_signature_changed": true
+      },
+      "both_pathways_valid": true,
+      "both_pathway_reviews_approved": true,
+      "review_authority": {
+        "left": {
+          "authority_type": "approved_parent_review_via_materialization_receipt",
+          "receipt_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-04/bridge-resolution-receipt.json",
+          "receipt_sha256": "9b26abd92b801b9511b15563f28f6e6adba6c1bfac6a9457b889289b67ae0534",
+          "parent_pathway_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-03/pathway-plan.json",
+          "parent_pathway_sha256": "fad9a6bd91aa954cb0b5e8931f03edcab64990d8b330ec328a7ecd803a08a4a6",
+          "parent_review_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-03/pathway-plan-review.json",
+          "parent_review_sha256": "9833f870cb9b6cbd9012b311a1a562c1102d961e7fa50483e3cce0ebb3f10589",
+          "bridge_catalog_file": "bridge-library/power-iteration-v1/release/released-bridge-catalog.json",
+          "bridge_catalog_sha256": "59179ad7d12db14704efc703b817b2564bf5082ac479702643eebecd194e030d",
+          "bridge_release_report_file": "bridge-library/power-iteration-v1/release/bridge-library-release-report.json",
+          "bridge_release_report_sha256": "0a41257d8143d47ba87a08c44446d6e9bc9b7fca5ca8208d63856165878b9a10"
+        },
+        "right": {
+          "authority_type": "approved_parent_review_via_materialization_receipt",
+          "receipt_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-03/bridge-resolution-receipt.json",
+          "receipt_sha256": "f7a70d3a7b9354715cc95c4638491b6e4e8432f2560619283b52f545ed30b6a4",
+          "parent_pathway_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-02/pathway-plan.json",
+          "parent_pathway_sha256": "d7bdb6766a58b279e82904aab170c5965291d262771869a1bd45c2fbb4db4bd6",
+          "parent_review_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-02/pathway-plan-review.json",
+          "parent_review_sha256": "5acb05380fbeb1c1c202b955c2b5ea4c3a1b9b9db458ab0e2c14366ecf11d7f5",
+          "bridge_catalog_file": "bridge-library/power-iteration-v1/release/released-bridge-catalog.json",
+          "bridge_catalog_sha256": "59179ad7d12db14704efc703b817b2564bf5082ac479702643eebecd194e030d",
+          "bridge_release_report_file": "bridge-library/power-iteration-v1/release/bridge-library-release-report.json",
+          "bridge_release_report_sha256": "0a41257d8143d47ba87a08c44446d6e9bc9b7fca5ca8208d63856165878b9a10"
+        }
+      },
+      "profile_rationales_present": true,
+      "material_difference_candidate": true,
+      "material_difference_confirmed": true
+    },
+    {
+      "left_profile": "applied-mathematics",
+      "right_profile": "mechanical-engineering",
+      "selection_jaccard_distance": 0.055556,
+      "normalized_item_sequence_edit_distance": 0.666667,
+      "raw_item_sequence_edit_distance": 12,
+      "grouping_pair_jaccard_distance": 1.0,
+      "released_bridge_jaccard_distance": 1.0,
+      "change_flags": {
+        "item_selection_changed": true,
+        "first_introduction_sequence_changed": true,
+        "grouping_changed": true,
+        "released_bridges_changed": true,
+        "declared_depth_signature_changed": true
+      },
+      "both_pathways_valid": true,
+      "both_pathway_reviews_approved": true,
+      "review_authority": {
+        "left": {
+          "authority_type": "approved_parent_review_via_materialization_receipt",
+          "receipt_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-04/bridge-resolution-receipt.json",
+          "receipt_sha256": "9b26abd92b801b9511b15563f28f6e6adba6c1bfac6a9457b889289b67ae0534",
+          "parent_pathway_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-03/pathway-plan.json",
+          "parent_pathway_sha256": "fad9a6bd91aa954cb0b5e8931f03edcab64990d8b330ec328a7ecd803a08a4a6",
+          "parent_review_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/applied-mathematics/run-03/pathway-plan-review.json",
+          "parent_review_sha256": "9833f870cb9b6cbd9012b311a1a562c1102d961e7fa50483e3cce0ebb3f10589",
+          "bridge_catalog_file": "bridge-library/power-iteration-v1/release/released-bridge-catalog.json",
+          "bridge_catalog_sha256": "59179ad7d12db14704efc703b817b2564bf5082ac479702643eebecd194e030d",
+          "bridge_release_report_file": "bridge-library/power-iteration-v1/release/bridge-library-release-report.json",
+          "bridge_release_report_sha256": "0a41257d8143d47ba87a08c44446d6e9bc9b7fca5ca8208d63856165878b9a10"
+        },
+        "right": {
+          "authority_type": "approved_parent_review_via_materialization_receipt",
+          "receipt_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-03/bridge-resolution-receipt.json",
+          "receipt_sha256": "b1ce062ce655e98fac7fbf7d62ca58ceac5246a006dfb6a813a8c416e1e72dee",
+          "parent_pathway_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-02/pathway-plan.json",
+          "parent_pathway_sha256": "6f2f1c9add7b1a7b595e9e8d3a831100f28dda36649bdaba397db1f6642f4491",
+          "parent_review_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-02/pathway-plan-review.json",
+          "parent_review_sha256": "ce1255a412b7b03de0cabf76782458cc40af77e8602c5563afd0445b78036174",
+          "bridge_catalog_file": "bridge-library/power-iteration-v1/release/released-bridge-catalog.json",
+          "bridge_catalog_sha256": "59179ad7d12db14704efc703b817b2564bf5082ac479702643eebecd194e030d",
+          "bridge_release_report_file": "bridge-library/power-iteration-v1/release/bridge-library-release-report.json",
+          "bridge_release_report_sha256": "0a41257d8143d47ba87a08c44446d6e9bc9b7fca5ca8208d63856165878b9a10"
+        }
+      },
+      "profile_rationales_present": true,
+      "material_difference_candidate": true,
+      "material_difference_confirmed": true
+    },
+    {
+      "left_profile": "computer-science",
+      "right_profile": "mechanical-engineering",
+      "selection_jaccard_distance": 0.0,
+      "normalized_item_sequence_edit_distance": 0.117647,
+      "raw_item_sequence_edit_distance": 2,
+      "grouping_pair_jaccard_distance": 1.0,
+      "released_bridge_jaccard_distance": 0.0,
+      "change_flags": {
+        "item_selection_changed": false,
+        "first_introduction_sequence_changed": true,
+        "grouping_changed": true,
+        "released_bridges_changed": false,
+        "declared_depth_signature_changed": true
+      },
+      "both_pathways_valid": true,
+      "both_pathway_reviews_approved": true,
+      "review_authority": {
+        "left": {
+          "authority_type": "approved_parent_review_via_materialization_receipt",
+          "receipt_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-03/bridge-resolution-receipt.json",
+          "receipt_sha256": "f7a70d3a7b9354715cc95c4638491b6e4e8432f2560619283b52f545ed30b6a4",
+          "parent_pathway_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-02/pathway-plan.json",
+          "parent_pathway_sha256": "d7bdb6766a58b279e82904aab170c5965291d262771869a1bd45c2fbb4db4bd6",
+          "parent_review_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-02/pathway-plan-review.json",
+          "parent_review_sha256": "5acb05380fbeb1c1c202b955c2b5ea4c3a1b9b9db458ab0e2c14366ecf11d7f5",
+          "bridge_catalog_file": "bridge-library/power-iteration-v1/release/released-bridge-catalog.json",
+          "bridge_catalog_sha256": "59179ad7d12db14704efc703b817b2564bf5082ac479702643eebecd194e030d",
+          "bridge_release_report_file": "bridge-library/power-iteration-v1/release/bridge-library-release-report.json",
+          "bridge_release_report_sha256": "0a41257d8143d47ba87a08c44446d6e9bc9b7fca5ca8208d63856165878b9a10"
+        },
+        "right": {
+          "authority_type": "approved_parent_review_via_materialization_receipt",
+          "receipt_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-03/bridge-resolution-receipt.json",
+          "receipt_sha256": "b1ce062ce655e98fac7fbf7d62ca58ceac5246a006dfb6a813a8c416e1e72dee",
+          "parent_pathway_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-02/pathway-plan.json",
+          "parent_pathway_sha256": "6f2f1c9add7b1a7b595e9e8d3a831100f28dda36649bdaba397db1f6642f4491",
+          "parent_review_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-02/pathway-plan-review.json",
+          "parent_review_sha256": "ce1255a412b7b03de0cabf76782458cc40af77e8602c5563afd0445b78036174",
+          "bridge_catalog_file": "bridge-library/power-iteration-v1/release/released-bridge-catalog.json",
+          "bridge_catalog_sha256": "59179ad7d12db14704efc703b817b2564bf5082ac479702643eebecd194e030d",
+          "bridge_release_report_file": "bridge-library/power-iteration-v1/release/bridge-library-release-report.json",
+          "bridge_release_report_sha256": "0a41257d8143d47ba87a08c44446d6e9bc9b7fca5ca8208d63856165878b9a10"
+        }
+      },
+      "profile_rationales_present": true,
+      "material_difference_candidate": true,
+      "material_difference_confirmed": true
+    }
+  ],
+  "interpretation": {
+    "zero_distance": "No difference for that structural representation.",
+    "material_difference": "Requires a detected structural change, profile-linked rationale, deterministic validity, and review authority established by either a directly bound approved review or a verified bridge-materialization receipt inheriting an approved parent review.",
+    "lexical_changes": "Not measured and never sufficient."
+  }
+}

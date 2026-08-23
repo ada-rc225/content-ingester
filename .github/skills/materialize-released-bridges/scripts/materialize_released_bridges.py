@@ -19,6 +19,23 @@ from typing import Any
 MATERIALIZER = "released-bridge-pathway-materializer-v1"
 RULE_ID = "first-consuming-unit-v1"
 ID_PATTERN = re.compile(r"^[A-Za-z0-9]+(?:[-_.][A-Za-z0-9]+)*$")
+BRIDGE_REQUIREMENT_ID_PATTERN = re.compile(r"^BRQ-[0-9]{3,}$")
+BRIDGE_REQUIREMENT_FIELDS = {
+    "requirement_id",
+    "concept_id",
+    "bridge_candidate_id",
+    "required_by_item_ids",
+    "learner_mastery",
+    "resolution_status",
+    "released_bridge_contract_id",
+    "rationale",
+}
+LEGACY_BRIDGE_REQUIREMENT_FIELDS = {
+    "bridge_requirement_id",
+    "triggering_item_ids",
+    "status",
+    "reason",
+}
 
 
 class MaterializationError(ValueError):
@@ -139,9 +156,219 @@ def ordered_goal_union(
     return result
 
 
+def load_bound_concept_assessments(
+    root: Path,
+    parent: dict[str, Any],
+) -> dict[str, dict[str, Any]]:
+    binding = parent.get("profile_concept_assessment_binding")
+    require(
+        isinstance(binding, dict),
+        "assessment.binding",
+        "parent profile-concept-assessment binding is missing",
+    )
+    assessment_path = resolve_path(root, binding.get("file"))
+    require(
+        assessment_path is not None and assessment_path.is_file(),
+        "assessment.file",
+        "bound profile-concept assessment is missing",
+    )
+    require(
+        binding.get("sha256") == sha256(assessment_path),
+        "assessment.hash",
+        "bound profile-concept assessment hash is stale",
+    )
+    assessment = load_object(assessment_path)
+    require(
+        binding.get("artifact_id") == assessment.get("assessment_id"),
+        "assessment.id",
+        "bound profile-concept assessment ID differs from the file",
+    )
+    entries = assessment.get("concept_assessments")
+    require(
+        isinstance(entries, list),
+        "assessment.concepts",
+        "bound profile-concept assessment has no concept assessments",
+    )
+    result: dict[str, dict[str, Any]] = {}
+    for entry in entries:
+        require(
+            isinstance(entry, dict) and isinstance(entry.get("concept_id"), str),
+            "assessment.concept",
+            "bound profile-concept assessment contains an invalid concept",
+        )
+        concept_id = entry["concept_id"]
+        require(
+            concept_id not in result,
+            "assessment.concept",
+            f"bound profile-concept assessment repeats {concept_id}",
+        )
+        result[concept_id] = entry
+    return result
+
+
+def normalize_bridge_requirements(
+    requirements: list[Any],
+    assessments: dict[str, dict[str, Any]],
+) -> tuple[list[dict[str, Any]], dict[str, list[str]]]:
+    """Normalize known Planner legacy aliases into the canonical child shape."""
+
+    normalized: list[dict[str, Any]] = []
+    actions_by_requirement: dict[str, list[str]] = {}
+    seen_concepts: set[str] = set()
+
+    for index, raw in enumerate(requirements, start=1):
+        require(
+            isinstance(raw, dict),
+            "parent.requirement_type",
+            "every parent bridge requirement must be an object",
+        )
+        unknown_fields = set(raw) - BRIDGE_REQUIREMENT_FIELDS - LEGACY_BRIDGE_REQUIREMENT_FIELDS
+        require(
+            not unknown_fields,
+            "parent.requirement_fields",
+            "unsupported bridge-requirement fields: " + ", ".join(sorted(unknown_fields)),
+        )
+
+        actions: list[str] = []
+        expected_id = f"BRQ-{index:03d}"
+        standard_id = raw.get("requirement_id")
+        if standard_id is None:
+            requirement_id = expected_id
+            actions.append("generated_requirement_id_from_requirement_order")
+        else:
+            require(
+                isinstance(standard_id, str)
+                and BRIDGE_REQUIREMENT_ID_PATTERN.fullmatch(standard_id) is not None,
+                "parent.requirement_id",
+                f"invalid bridge requirement ID at position {index}",
+            )
+            require(
+                standard_id == expected_id,
+                "parent.requirement_id",
+                f"bridge requirement at position {index} must use {expected_id}",
+            )
+            requirement_id = standard_id
+
+        concept_id = raw.get("concept_id")
+        candidate_id = raw.get("bridge_candidate_id")
+        required_items = raw.get("required_by_item_ids")
+        mastery = raw.get("learner_mastery")
+        resolution_status = raw.get("resolution_status")
+        require(
+            isinstance(concept_id, str) and concept_id,
+            "parent.requirement_concept",
+            f"{requirement_id} has no concept_id",
+        )
+        require(
+            concept_id not in seen_concepts,
+            "parent.requirement_concept",
+            f"duplicate bridge requirement for {concept_id}",
+        )
+        seen_concepts.add(concept_id)
+        require(
+            isinstance(candidate_id, str) and candidate_id,
+            "parent.requirement_candidate",
+            f"{requirement_id} has no bridge_candidate_id",
+        )
+        require(
+            isinstance(required_items, list)
+            and bool(required_items)
+            and all(isinstance(item, str) and item for item in required_items)
+            and len(required_items) == len(set(required_items)),
+            "parent.requirement_items",
+            f"{requirement_id} has invalid required_by_item_ids",
+        )
+        require(
+            mastery in {"fragile", "missing", "unknown"},
+            "parent.requirement_mastery",
+            f"{requirement_id} has invalid learner_mastery",
+        )
+        require(
+            resolution_status == "candidate",
+            "parent.requirement_status",
+            f"{requirement_id} is not an unresolved candidate",
+        )
+
+        if "triggering_item_ids" in raw:
+            require(
+                raw["triggering_item_ids"] == required_items,
+                "parent.requirement_legacy_items",
+                f"{requirement_id} triggering_item_ids conflict with required_by_item_ids",
+            )
+        if "status" in raw:
+            require(
+                raw["status"] == resolution_status,
+                "parent.requirement_legacy_status",
+                f"{requirement_id} legacy status conflicts with resolution_status",
+            )
+
+        rationale = raw.get("rationale")
+        legacy_reason = raw.get("reason")
+        if isinstance(rationale, str) and rationale.strip():
+            rationale = rationale.strip()
+            if legacy_reason is not None:
+                require(
+                    isinstance(legacy_reason, str) and legacy_reason.strip() == rationale,
+                    "parent.requirement_legacy_rationale",
+                    f"{requirement_id} reason conflicts with rationale",
+                )
+        elif isinstance(legacy_reason, str) and legacy_reason.strip():
+            rationale = legacy_reason.strip()
+            actions.append("renamed_legacy_reason_to_rationale")
+        else:
+            assessment = assessments.get(concept_id)
+            require(
+                isinstance(assessment, dict),
+                "assessment.concept",
+                f"no bound concept assessment found for {concept_id}",
+            )
+            require(
+                assessment.get("mastery") == mastery
+                or assessment.get("assessment") == mastery,
+                "assessment.mastery",
+                f"bound concept assessment mastery differs for {concept_id}",
+            )
+            assessment_rationale = assessment.get("rationale")
+            require(
+                isinstance(assessment_rationale, str) and assessment_rationale.strip(),
+                "assessment.rationale",
+                f"bound concept assessment has no rationale for {concept_id}",
+            )
+            rationale = assessment_rationale.strip()
+            actions.append("copied_rationale_from_bound_concept_assessment")
+
+        released_id = raw.get("released_bridge_contract_id")
+        require(
+            released_id is None,
+            "parent.requirement_status",
+            f"{requirement_id} already records a released bridge contract",
+        )
+        if "released_bridge_contract_id" not in raw:
+            actions.append("added_null_released_bridge_contract_id")
+
+        removed_legacy = sorted(set(raw) & LEGACY_BRIDGE_REQUIREMENT_FIELDS)
+        if removed_legacy:
+            actions.append("removed_legacy_fields:" + ",".join(removed_legacy))
+
+        normalized.append({
+            "requirement_id": requirement_id,
+            "concept_id": concept_id,
+            "bridge_candidate_id": candidate_id,
+            "required_by_item_ids": list(required_items),
+            "learner_mastery": mastery,
+            "resolution_status": resolution_status,
+            "released_bridge_contract_id": released_id,
+            "rationale": rationale,
+        })
+        actions_by_requirement[requirement_id] = actions
+
+    return normalized, actions_by_requirement
+
+
 def materialize(
     parent: dict[str, Any],
     catalog: dict[str, Any],
+    assessments: dict[str, dict[str, Any]],
     pathway_id: str,
     generated_at: str,
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
@@ -167,6 +394,10 @@ def materialize(
         if isinstance(item, dict)
     }
     plan = deepcopy(parent)
+    normalized_requirements, normalization_actions = normalize_bridge_requirements(
+        requirements, assessments
+    )
+    plan["bridge_requirements"] = normalized_requirements
     plan["pathway_id"] = pathway_id
     plan["plan_status"] = "complete"
     plan_units = plan["learning_units"]
@@ -213,7 +444,7 @@ def materialize(
         requirement["resolution_status"] = "released"
         requirement["released_bridge_contract_id"] = contract_id
         requirement["rationale"] = requirement["rationale"].rstrip() + f" Resolved by released bridge {contract_id} from {catalog['library_id']}."
-        resolved.append({
+        resolved_record = {
             "requirement_id": requirement.get("requirement_id"),
             "concept_id": concept_id,
             "bridge_candidate_id": candidate_id,
@@ -221,7 +452,11 @@ def materialize(
             "bridge_unit_id": bridge_unit_id,
             "first_consumer_unit_id": first_consumer_id,
             "required_by_item_ids": requirement.get("required_by_item_ids"),
-        })
+        }
+        actions = normalization_actions.get(requirement["requirement_id"], [])
+        if actions:
+            resolved_record["legacy_normalization_actions"] = actions
+        resolved.append(resolved_record)
 
     changes = plan.get("pathway_changes")
     require(isinstance(changes, list), "parent.changes", "parent pathway_changes must be an array")
@@ -292,7 +527,10 @@ def main() -> int:
         release_report = load_object(release_report_path)
         validate_parent_review(root, parent_path, review_path, parent, review)
         validate_release(root, parent_path, review_path, parent, catalog_path, release_report_path, catalog, release_report)
-        plan, resolved = materialize(parent, catalog, args.pathway_id, generated_at)
+        assessments = load_bound_concept_assessments(root, parent)
+        plan, resolved = materialize(
+            parent, catalog, assessments, args.pathway_id, generated_at
+        )
 
         output_dir.parent.mkdir(parents=True, exist_ok=True)
         stage = Path(tempfile.mkdtemp(prefix=".bridge-materialization-stage-", dir=output_dir.parent))

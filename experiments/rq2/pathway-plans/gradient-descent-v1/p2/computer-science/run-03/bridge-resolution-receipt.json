@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "materializer": "released-bridge-pathway-materializer-v1",
+  "materialized_at": "2026-08-20T00:45:00Z",
+  "rule_id": "first-consuming-unit-v1",
+  "parent_pathway": {
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-02/pathway-plan.json",
+    "sha256": "9f8f9980f042467a96361dbdb7578fdff7f9f845d0863ad4d81f7395da2121dc"
+  },
+  "parent_review": {
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-02/pathway-plan-review.json",
+    "sha256": "792fbcf50844d8423223be066593cc5fdc08176831c8fac01388e02b4ba09e0d"
+  },
+  "bridge_catalog": {
+    "file": "bridge-library/gradient-descent-v1/release/released-bridge-catalog.json",
+    "sha256": "54c433b923891dac7805c2531cb14be1f703ab745637db443c3cb93aa7a6b1cb"
+  },
+  "bridge_release_report": {
+    "file": "bridge-library/gradient-descent-v1/release/bridge-library-release-report.json",
+    "sha256": "a3918e9bc004be9de329d25225e0327c1036b1f180afd4ad75624cafa0a575db"
+  },
+  "resolved_bridges": [
+    {
+      "requirement_id": "BRQ-001",
+      "concept_id": "multivariable-calculus-and-local-extrema",
+      "bridge_candidate_id": "BR-MULTIVARIABLE-CALCULUS-AND-LOCAL-EXTREMA-v1",
+      "bridge_contract_id": "BRC-MULTIVARIABLE-CALCULUS-AND-LOCAL-EXTREMA-v1",
+      "bridge_unit_id": "BRIDGE-001",
+      "first_consumer_unit_id": "GD-U02",
+      "required_by_item_ids": [
+        "RC-002"
+      ],
+      "legacy_normalization_actions": [
+        "generated_requirement_id_from_requirement_order",
+        "copied_rationale_from_bound_concept_assessment"
+      ]
+    },
+    {
+      "requirement_id": "BRQ-002",
+      "concept_id": "euclidean-norms-and-lipschitz-continuity",
+      "bridge_candidate_id": "BR-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "bridge_contract_id": "BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "bridge_unit_id": "BRIDGE-002",
+      "first_consumer_unit_id": "GD-U03",
+      "required_by_item_ids": [
+        "RC-004"
+      ],
+      "legacy_normalization_actions": [
+        "generated_requirement_id_from_requirement_order",
+        "copied_rationale_from_bound_concept_assessment"
+      ]
+    },
+    {
+      "requirement_id": "BRQ-003",
+      "concept_id": "inner-products-and-convex-sets",
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "bridge_contract_id": "BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "bridge_unit_id": "BRIDGE-003",
+      "first_consumer_unit_id": "GD-U05",
+      "required_by_item_ids": [
+        "RC-006"
+      ],
+      "legacy_normalization_actions": [
+        "generated_requirement_id_from_requirement_order",
+        "copied_rationale_from_bound_concept_assessment"
+      ]
+    },
+    {
+      "requirement_id": "BRQ-004",
+      "concept_id": "ratios-and-condition-numbers",
+      "bridge_candidate_id": "BR-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "bridge_contract_id": "BRC-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "bridge_unit_id": "BRIDGE-004",
+      "first_consumer_unit_id": "GD-U07",
+      "required_by_item_ids": [
+        "RC-009"
+      ],
+      "legacy_normalization_actions": [
+        "generated_requirement_id_from_requirement_order",
+        "copied_rationale_from_bound_concept_assessment"
+      ]
+    }
+  ],
+  "output_pathway": {
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-03/pathway-plan.json",
+    "sha256": "da777402446ed03ddb0c656510cce1434cadc4869ce479414e64bf81b6f08f5d"
+  }
+}
