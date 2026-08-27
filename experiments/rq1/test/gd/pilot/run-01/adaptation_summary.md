@@ -1,7 +1,0 @@
-# C2 adaptation summary
-
-This run produced one self-contained lesson for second-year mechanical engineering undergraduates. It begins with unconstrained optimisation, stationarity, and curvature, then follows the requested order through smoothness and convexity, step selection, convergence and acceleration, stochastic/adaptive methods, and second-order methods. Potential energy, equilibrium, curvature, and numerical relaxation are used as bounded bridges; the lesson explicitly separates abstract objectives from physical energy and algorithmic iteration from physical time.
-
-All required generation items RC-001 through RC-030 were included, including exact line search, Armijo backtracking, Heavy Ball, NAG, stochastic assumptions, adaptive methods, Newton, and BFGS. The final chapter contains exactly three worked exercises: a theorem-scope check, a deterministic two-variable update with an objective-gradient consistency check, and a Python sign-error diagnostic. The code diagnostic includes separate executable incorrect and corrected programs.
-
-Configured automatic checks passed: Frozen Contract preflight, artifact structure and binding validation, exercise marker and solution checks, model consistency, deterministic numeric recomputation, and execution of both Python blocks. These checks establish grounding and configured protocol integrity only; they do not establish complete mathematical correctness of the lesson or answer the RQ1 outcome question. Later common blinded evaluation remains separate from this generation workflow.
