@@ -1,9 +1,0 @@
-# C2 adaptation summary
-
-This run produced a 3,008-word self-contained lesson for second-year mechanical engineering students. The teaching sequence starts with potential energy, equilibrium, and numerical relaxation, then develops unconstrained optimisation, local optimality, smoothness, convexity, strong convexity, conditioning, step selection, convergence, momentum, acceleration, stochastic and adaptive methods, Newton, quasi-Newton methods, and Python implementation.
-
-The lesson uses the released Frozen Reference Contract as its sole mathematical and algorithmic grounding authority. All required items are covered, all conditional items are explicitly included with scope rationales, and section provenance matches the adaptation plan. The energy analogy is bounded once at first use: objectives are not assumed to be physical energies and iterates are not treated as physical time states.
-
-Internal formative review: source fidelity 5/5; traceability 5/5; learner-profile alignment 5/5; disciplinary authenticity 4/5; theory-to-implementation alignment 5/5; pedagogical coherence 4/5; learner readability 4/5; analogy safety 5/5; exercise validity 5/5. These are internal quality-control judgements, not blinded RQ1 results.
-
-The deterministic preflight and final validation passed: Frozen Contract validity, contract binding, source hashes, required coverage, conditional accounting, provenance, exercise structure, model consistency, numeric answer checks, and executable Python checks all passed. The report correctly leaves complete content correctness unverified. EX-001, the theorem-scope exercise, requires independent semantic review; conceptual explanations and the full worked solutions also require expert review beyond automated checks. EX-002's gradient and update were numerically recomputed, and EX-003's Python blocks executed successfully.
