@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "preparer": "prepare-composition-inputs-v1",
+  "prepared_at": "2026-08-26T20:15:00Z",
+  "run_id": "power-iteration-p2-mechanical-engineering-pilot-run-03",
+  "condition": "P2",
+  "topic": "power iteration",
+  "inputs": {
+    "pathway": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-03/pathway-plan.json",
+      "sha256": "600f2811c865f9c79d407f567174b9a3e6d3e77bd4bdef751cbae7907ff20bfe"
+    },
+    "pathway_validation_report": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-03/pathway-validation-report.json",
+      "sha256": "dcefb3d0d83a078d97f8e1cdb8baaddab9c500522f2d7eec422242f67593dbf4"
+    },
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+      "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/power-iteration-second-year.json",
+      "sha256": "c4cf0c6a4cf53653abab28123b4649dfd6459d894d3f85a310af0200468fe431"
+    },
+    "word_count_protocol": {
+      "file": "experiments/rq2/word-count-protocols/power-iteration-pilot.json",
+      "sha256": "474f78273ee6eec37f78edbea499b230218d30d94041240fb3d6ec87421d8246"
+    },
+    "profile": {
+      "file": "experiments/rq2/profiles/mechanical-engineering-year-2.json",
+      "sha256": "12e0e94788e63f0429809c10a0da94113c1ec0b9e9fee0302045220d102e2307"
+    },
+    "bridge_catalog": {
+      "file": "bridge-library/power-iteration-v1/release/released-bridge-catalog.json",
+      "sha256": "59179ad7d12db14704efc703b817b2564bf5082ac479702643eebecd194e030d"
+    }
+  },
+  "treatment_isolation": {
+    "external_retrieval_allowed": false,
+    "other_profiles_allowed": false,
+    "other_condition_outputs_allowed": false,
+    "evaluation_results_allowed": false,
+    "profile_visible": true,
+    "profile_adaptation_allowed": true,
+    "pathway_replanning_allowed": false,
+    "selected_contract_scope_exact": true,
+    "instruction_sequence_exact": true,
+    "discipline_neutral_required": false
+  },
+  "output_view": {
+    "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p2/mechanical-engineering/run-03/composition-input-view.json",
+    "sha256": "2bd386b4a206d1ba64f240c118d8994e61a93c8add260fbd305484bd7da99ca7"
+  }
+}

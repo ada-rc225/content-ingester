@@ -1,0 +1,378 @@
+{
+  "schema_version": "1.0",
+  "review_id": "power-iteration-dependencies-v2-review-v1",
+  "review_status": "approved",
+  "candidate_binding": {
+    "model_id": "power-iteration-dependencies-v2",
+    "candidate_file": "curriculum-models/power-iteration-v1/candidate-v2/contract-dependencies.json",
+    "candidate_sha256": "4904b84a0b5adc3ef749fc13f5cef4a0677f51ae4467ee2f39d33a298e23cc09",
+    "validation_report_file": "curriculum-models/power-iteration-v1/candidate-v2/dependency-validation-report.json",
+    "validation_report_sha256": "01e72a2652d65c6c4c295a8ee2e38fc3b64aad127e86bdfaa4552306db0a6306",
+    "source_contract_file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+    "source_contract_sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+  },
+  "template_generator": {
+    "agent": "grounded-curriculum-dependency-builder",
+    "agent_version": "1.1",
+    "skill": "build-curriculum-dependencies",
+    "skill_version": "1.1",
+    "generated_at": "2026-08-17T23:00:29Z"
+  },
+  "revision_binding": {
+    "receipt_file": "curriculum-models/power-iteration-v1/candidate-v2/dependency-revision-receipt.json",
+    "receipt_sha256": "c1f9c7baceb6f47152e92be962e851fbe7da17d1820933f23977cc94b93517be",
+    "validation_report_file": "curriculum-models/power-iteration-v1/candidate-v2/dependency-revision-validation-report.json",
+    "validation_report_sha256": "0b16c4143dfa9b081db3a82c55d2d205222ef43df46077790394749be308c00a",
+    "parent_candidate_sha256": "6f0c214be11913e962eecd60fdeddb458d43bfaf12b59b1d05cbb817be99a89a",
+    "parent_review_sha256": "cf6dec3703636b1f8b671b080095a3d5e4338844319ea5a2f8843ccf9d27e063"
+  },
+  "reviewer": {
+    "reviewer_id": "tester-001",
+    "reviewer_role": "Curriculum Dependency Reviewer"
+  },
+  "item_reviews": [
+    {
+      "item_id": "RC-001",
+      "field_decisions": {
+        "hard_dependencies": "not_applicable",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-002",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-003",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-004",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-005",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-006",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. RC-003 and RC-004 remain the mathematical prerequisites for the spectral expansion, while RC-005 is correctly treated as explanatory application context. The fallback permits a repeated-matrix-product explanation without requiring the normalised update."
+    },
+    {
+      "item_id": "RC-007",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. The added orthogonality-and-projection prerequisite supplies the minimal knowledge needed to interpret the non-zero projection condition without requiring the full RC-003 spectral theorem or RC-006 derivation."
+    },
+    {
+      "item_id": "RC-008",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-009",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-010",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-011",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. No external iterative-algorithm bridge is required because RC-011 itself introduces the update loop, tolerance, residual stopping condition, breakdown handling, and maximum-iteration fallback."
+    },
+    {
+      "item_id": "RC-012",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-013",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-014",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-015",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-016",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "approved",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-017",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "approved",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. Algorithm and stopping semantics are supplied through RC-011, while NumPy operations and vector norms remain genuine external prerequisites for the runtime implementation."
+    },
+    {
+      "item_id": "RC-018",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "approved",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. General dominant-magnitude theory is explanatory rather than mandatory for this concrete example, because the two exact eigenvalues can be compared locally. RC-018 is approved as a code-backed runtime worked result through RC-017."
+    }
+  ],
+  "external_prerequisite_reviews": [
+    {
+      "concept_id": "matrix-vector-products",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "vector-norms-and-normalization",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "orthogonality-and-projection",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. RC-007 is now covered, and the bridge boundary is correctly limited to prerequisite vector geometry and projection coefficients while excluding the spectral theorem and eigenbasis expansion."
+    },
+    {
+      "concept_id": "determinants-characteristic-polynomials",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. The prerequisite is required only when RC-002 is selected and the learner lacks determinant knowledge; pathway-level optionality does not weaken the prerequisite within RC-002."
+    },
+    {
+      "concept_id": "inner-products-and-quadratic-forms",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "numpy-vector-operations",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved for the code-backed pathway. This prerequisite is activated only when a supporting implementation item is selected and the learner profile lacks the required NumPy operations."
+    }
+  ],
+  "overall_review": {
+    "decision": "approved",
+    "reviewed_at": "2026-08-18T01:00:29Z",
+    "comment": "All 18 RC-item dependency records and six external prerequisite concepts were reviewed. The five requested item revisions, two concept revisions, and removal of the duplicated iterative-algorithms prerequisite were correctly applied. Base and revision-scope validation passed. RC-018 is approved as a code-backed runtime worked result. This approval does not release any prerequisite bridge teaching content."
+  }
+}

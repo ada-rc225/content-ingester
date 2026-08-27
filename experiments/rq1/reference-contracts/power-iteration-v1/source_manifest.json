@@ -1,0 +1,13 @@
+{
+  "hash_algorithm": "sha256",
+  "sources": [
+    {
+      "source_id": "eigenvalues-and-power-iteration",
+      "path": "inputs/content-to-ingest/eigenvalues_and_power_iteration.md",
+      "format": "markdown",
+      "sha256": "6d79ba90ed3f922332304ec48668dd47f2b9542fbc5ab87dbb978691cc6f5bd5",
+      "size_bytes": 8288,
+      "role": "authoritative"
+    }
+  ]
+}

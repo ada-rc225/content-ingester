@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/human-review.schema.json",
+  "title": "Independent Human Review Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "contract_binding",
+    "review_status",
+    "reviewer",
+    "semantic_check_reviews",
+    "item_reviews",
+    "source_issue_reviews",
+    "final_approval"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "contract_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contract_id", "contract_version", "review_basis_sha256"],
+      "properties": {
+        "contract_id": { "type": "string", "minLength": 1 },
+        "contract_version": { "type": "string", "minLength": 1 },
+        "review_basis_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "review_status": {
+      "type": "string",
+      "enum": ["in_progress", "approved"]
+    },
+    "reviewer": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["reviewer_id", "reviewer_role", "reviewed_at"],
+          "properties": {
+            "reviewer_id": { "type": "string", "minLength": 1 },
+            "reviewer_role": { "type": "string", "minLength": 1 },
+            "reviewed_at": { "type": "string", "format": "date-time" }
+          }
+        }
+      ]
+    },
+    "semantic_check_reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["check_id", "review_status"],
+        "properties": {
+          "check_id": { "type": "string", "pattern": "^CHK-[0-9]{3,}$" },
+          "review_status": { "type": "string", "enum": ["proposed", "approved"] }
+        }
+      }
+    },
+    "item_reviews": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/itemReview" }
+    },
+    "source_issue_reviews": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/sourceIssueReview" }
+    },
+    "final_approval": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "#/$defs/approval" }
+      ]
+    }
+  },
+  "$defs": {
+    "itemReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "item_id",
+        "source_fidelity",
+        "mathematical_status",
+        "algorithmic_status",
+        "decision",
+        "reviewer_notes"
+      ],
+      "properties": {
+        "item_id": { "type": "string", "pattern": "^RC-[0-9]{3,}$" },
+        "source_fidelity": {
+          "type": "string",
+          "enum": ["unreviewed", "verified", "mismatch"]
+        },
+        "mathematical_status": {
+          "type": "string",
+          "enum": ["unreviewed", "verified_correct", "source_issue", "not_applicable"]
+        },
+        "algorithmic_status": {
+          "type": "string",
+          "enum": ["unreviewed", "verified_correct", "source_issue", "not_applicable"]
+        },
+        "decision": {
+          "type": "string",
+          "enum": ["pending", "approved_as_written", "approved_with_correction", "excluded"]
+        },
+        "reviewer_notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "sourceIssueReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["issue_id", "resolution", "approved_generation_content"],
+      "properties": {
+        "issue_id": { "type": "string", "pattern": "^ISSUE-[0-9]{3,}$" },
+        "resolution": {
+          "type": "string",
+          "enum": ["pending_review", "preserve_source", "approved_correction", "exclude_from_generation"]
+        },
+        "approved_generation_content": {}
+      }
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reviewer_id",
+        "reviewer_role",
+        "reviewed_at",
+        "approval_statement",
+        "freeze_note"
+      ],
+      "properties": {
+        "reviewer_id": { "type": "string", "minLength": 1 },
+        "reviewer_role": { "type": "string", "minLength": 1 },
+        "reviewed_at": { "type": "string", "format": "date-time" },
+        "approval_statement": {
+          "const": "I approve this contract as the frozen generation reference for the identified source version."
+        },
+        "freeze_note": {
+          "const": "Record the SHA-256 of this complete frozen contract outside this file before generation."
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "review_status": { "const": "approved" } },
+        "required": ["review_status"]
+      },
+      "then": {
+        "properties": {
+          "reviewer": { "type": "object" },
+          "final_approval": { "$ref": "#/$defs/approval" },
+          "semantic_check_reviews": {
+            "items": {
+              "properties": { "review_status": { "const": "approved" } }
+            }
+          },
+          "item_reviews": {
+            "items": {
+              "properties": {
+                "source_fidelity": { "enum": ["verified", "mismatch"] },
+                "mathematical_status": { "enum": ["verified_correct", "source_issue", "not_applicable"] },
+                "algorithmic_status": { "enum": ["verified_correct", "source_issue", "not_applicable"] },
+                "decision": { "enum": ["approved_as_written", "approved_with_correction", "excluded"] }
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": { "final_approval": { "type": "null" } }
+      }
+    }
+  ]
+}

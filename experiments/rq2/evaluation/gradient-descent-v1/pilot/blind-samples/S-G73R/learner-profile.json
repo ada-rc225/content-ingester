@@ -1,0 +1,24 @@
+{
+  "profile_id": "gradient-descent-mechanical-engineering-year-2-rq2-pilot",
+  "discipline": "mechanical engineering",
+  "education_level": "second-year undergraduate",
+  "prior_knowledge": [
+    "vectors and matrices",
+    "multivariable calculus and gradients",
+    "basic numerical methods",
+    "introductory mechanics and energy models",
+    "basic Python and NumPy"
+  ],
+  "missing_or_fragile_prerequisites": [
+    "formal convexity and smoothness terminology",
+    "condition-number-based convergence analysis",
+    "stochastic optimisation assumptions"
+  ],
+  "preferred_representations": [
+    "energy minimisation and parameter calibration",
+    "iteration tables and convergence histories",
+    "engineering assumptions linked to mathematical conditions"
+  ],
+  "authentic_context_boundary": "Use idealized energy minimisation or parameter calibration as pedagogical framing. Do not claim that every engineering objective is convex, that every stationary point is a physical optimum, or that gradient descent is universally appropriate for engineering design.",
+  "review_status": "requires_discipline_educator_review"
+}

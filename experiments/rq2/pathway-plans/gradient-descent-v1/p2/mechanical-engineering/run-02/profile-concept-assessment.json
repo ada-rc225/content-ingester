@@ -1,0 +1,251 @@
+{
+  "schema_version": "1.0",
+  "assessment_id": "gradient-descent-mechanical-engineering-year-2-concept-assessment-v2",
+  "profile_id": "gradient-descent-mechanical-engineering-year-2-rq2-pilot",
+  "profile_file": "experiments/rq2/profiles/gradient-descent/mechanical-engineering-year-2.json",
+  "profile_sha256": "3e107dcaa9f10ef339daa9136644d171f4849b0d3d5b7be9989524a2c51965a2",
+  "artifact_id": "gradient-descent-mechanical-engineering-year-2-concept-assessment-v2",
+  "assessment_status": "provisional",
+  "profile_binding": {
+    "profile_id": "gradient-descent-mechanical-engineering-year-2-rq2-pilot",
+    "file": "experiments/rq2/profiles/gradient-descent/mechanical-engineering-year-2.json",
+    "sha256": "3e107dcaa9f10ef339daa9136644d171f4849b0d3d5b7be9989524a2c51965a2"
+  },
+  "curriculum_model_binding": {
+    "model_id": "gradient-descent-dependencies-v4",
+    "file": "curriculum-models/gradient-descent-v1/release/frozen-contract-dependencies.json",
+    "sha256": "fa97dab605d2cf1df6ac5fdeabc2c767bdf34e82829f5c2e496a44c5e41e4522"
+  },
+  "concept_assessments": [
+    {
+      "concept_id": "real-vector-spaces-and-functions",
+      "concept_name": "Real vector spaces and multivariable functions",
+      "mastery": "mastered",
+      "profile_evidence": [
+        "vectors and matrices; multivariable calculus and gradients"
+      ],
+      "assessment": "mastered",
+      "evidence": [
+        "vectors and matrices; multivariable calculus and gradients"
+      ],
+      "rationale": "The profile explicitly lists vectors, matrices, and multivariable calculus."
+    },
+    {
+      "concept_id": "multivariable-calculus-and-local-extrema",
+      "concept_name": "Multivariable calculus and local extrema",
+      "mastery": "mastered",
+      "profile_evidence": [
+        "multivariable calculus and gradients"
+      ],
+      "assessment": "mastered",
+      "evidence": [
+        "multivariable calculus and gradients"
+      ],
+      "rationale": "The profile explicitly lists multivariable calculus and gradients."
+    },
+    {
+      "concept_id": "euclidean-norms-and-lipschitz-continuity",
+      "concept_name": "Euclidean norms and Lipschitz continuity",
+      "mastery": "fragile",
+      "profile_evidence": [
+        "formal convexity and smoothness terminology is listed as fragile"
+      ],
+      "assessment": "fragile",
+      "evidence": [
+        "formal convexity and smoothness terminology is listed as fragile"
+      ],
+      "rationale": "Basic vectors and matrices support norms, but formal smoothness/Lipschitz terminology is explicitly fragile."
+    },
+    {
+      "concept_id": "inner-products-and-quadratic-terms",
+      "concept_name": "Inner products and quadratic terms",
+      "mastery": "mastered",
+      "profile_evidence": [
+        "vectors and matrices; introductory mechanics and energy models"
+      ],
+      "assessment": "mastered",
+      "evidence": [
+        "vectors and matrices; introductory mechanics and energy models"
+      ],
+      "rationale": "The listed vector/matrix and energy-model background supports inner products and squared quadratic terms."
+    },
+    {
+      "concept_id": "inner-products-and-convex-sets",
+      "concept_name": "Inner products and convex sets",
+      "mastery": "fragile",
+      "profile_evidence": [
+        "formal convexity and smoothness terminology is listed as fragile"
+      ],
+      "assessment": "fragile",
+      "evidence": [
+        "formal convexity and smoothness terminology is listed as fragile"
+      ],
+      "rationale": "The profile identifies formal convexity as fragile, so the convex-set and first-order inequality vocabulary is not treated as mastered."
+    },
+    {
+      "concept_id": "symmetric-matrices-and-definiteness",
+      "concept_name": "Symmetric matrices and definiteness",
+      "mastery": "fragile",
+      "profile_evidence": [
+        "vectors and matrices do not establish positive-semidefinite or positive-definite terminology"
+      ],
+      "assessment": "fragile",
+      "evidence": [
+        "vectors and matrices do not establish positive-semidefinite or positive-definite terminology"
+      ],
+      "rationale": "General matrix knowledge does not establish definiteness terminology. The directly supported second-order items are excluded, so no bridge is added.",
+      "confidence": "medium"
+    },
+    {
+      "concept_id": "hessian-matrix-ordering",
+      "concept_name": "Hessian matrix ordering",
+      "mastery": "unknown",
+      "profile_evidence": [
+        "No profile evidence for positive-semidefinite matrix ordering."
+      ],
+      "assessment": "unknown",
+      "evidence": [],
+      "rationale": "The profile does not provide evidence for positive-semidefinite matrix ordering."
+    },
+    {
+      "concept_id": "ratios-and-condition-numbers",
+      "concept_name": "Ratios and condition numbers",
+      "mastery": "fragile",
+      "profile_evidence": [
+        "condition-number-based convergence analysis is listed as fragile"
+      ],
+      "assessment": "fragile",
+      "evidence": [
+        "condition-number-based convergence analysis is listed as fragile"
+      ],
+      "rationale": "Condition-number interpretation is explicitly identified as fragile."
+    },
+    {
+      "concept_id": "vectors-gradients-and-scalar-multiplication",
+      "concept_name": "Vectors, gradients, and scalar multiplication",
+      "mastery": "mastered",
+      "profile_evidence": [
+        "vectors and matrices; multivariable calculus and gradients; basic Python and NumPy"
+      ],
+      "assessment": "mastered",
+      "evidence": [
+        "vectors and matrices; multivariable calculus and gradients; basic Python and NumPy"
+      ],
+      "rationale": "The profile explicitly supplies vector, gradient, and computational background."
+    },
+    {
+      "concept_id": "symmetric-positive-definite-quadratics-and-spectra",
+      "concept_name": "Symmetric-positive-definite quadratics and spectra",
+      "mastery": "unknown",
+      "profile_evidence": [
+        "No profile evidence for the restricted SPD quadratic and spectral concepts."
+      ],
+      "assessment": "unknown",
+      "evidence": [],
+      "rationale": "The profile does not provide evidence for the restricted SPD quadratic and spectral concepts."
+    },
+    {
+      "concept_id": "conditional-expectation-and-variance",
+      "concept_name": "Conditional expectation and variance",
+      "mastery": "missing",
+      "profile_evidence": [
+        "stochastic optimisation assumptions is listed as missing or fragile"
+      ],
+      "assessment": "missing",
+      "evidence": [
+        "stochastic optimisation assumptions is listed as missing or fragile"
+      ],
+      "rationale": "The profile does not report probability or stochastic-optimisation preparation."
+    },
+    {
+      "concept_id": "series-and-stochastic-convergence",
+      "concept_name": "Infinite series and stochastic convergence",
+      "mastery": "unknown",
+      "profile_evidence": [
+        "No profile evidence about infinite-series or stochastic-convergence concepts."
+      ],
+      "assessment": "unknown",
+      "evidence": [],
+      "rationale": "The profile provides no evidence about infinite-series or stochastic-convergence concepts."
+    },
+    {
+      "concept_id": "element-wise-array-operations",
+      "concept_name": "Element-wise array operations",
+      "mastery": "mastered",
+      "profile_evidence": [
+        "basic Python and NumPy"
+      ],
+      "assessment": "mastered",
+      "evidence": [
+        "basic Python and NumPy"
+      ],
+      "rationale": "Basic NumPy knowledge is direct evidence for element-wise array operations."
+    },
+    {
+      "concept_id": "second-order-taylor-expansions",
+      "concept_name": "Second-order Taylor expansions",
+      "mastery": "unknown",
+      "profile_evidence": [
+        "No profile evidence for second-order Taylor expansions."
+      ],
+      "assessment": "unknown",
+      "evidence": [],
+      "rationale": "The profile provides no evidence for second-order Taylor expansions."
+    },
+    {
+      "concept_id": "linear-systems-and-hessian-solves",
+      "concept_name": "Linear systems and Hessian solves",
+      "mastery": "unknown",
+      "profile_evidence": [
+        "No profile evidence for Hessian linear-system solves."
+      ],
+      "assessment": "unknown",
+      "evidence": [],
+      "rationale": "The profile provides no evidence for Hessian linear-system solves."
+    },
+    {
+      "concept_id": "local-lipschitz-regularity",
+      "concept_name": "Local Lipschitz regularity",
+      "mastery": "unknown",
+      "profile_evidence": [
+        "No profile evidence for local Lipschitz regularity."
+      ],
+      "assessment": "unknown",
+      "evidence": [],
+      "rationale": "The profile provides no evidence for local Lipschitz regularity."
+    },
+    {
+      "concept_id": "inverse-hessian-approximation-matrices",
+      "concept_name": "Inverse-Hessian approximation matrices",
+      "mastery": "unknown",
+      "profile_evidence": [
+        "No profile evidence for inverse-Hessian approximation matrices."
+      ],
+      "assessment": "unknown",
+      "evidence": [],
+      "rationale": "The profile provides no evidence for inverse-Hessian approximation matrices."
+    }
+  ],
+  "bridge_requirements": [
+    {
+      "concept_id": "euclidean-norms-and-lipschitz-continuity",
+      "bridge_candidate_id": "BR-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "reason": "fragile prerequisite for selected RC-004"
+    },
+    {
+      "concept_id": "inner-products-and-convex-sets",
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "reason": "fragile prerequisite for selected RC-006"
+    },
+    {
+      "concept_id": "ratios-and-condition-numbers",
+      "bridge_candidate_id": "BR-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "reason": "fragile prerequisite for selected RC-009"
+    }
+  ],
+  "generated_by": {
+    "producer": "adaptive-curriculum-pathway-planner",
+    "producer_version": "1.1",
+    "generated_at": "2026-08-19T23:00:00Z"
+  }
+}

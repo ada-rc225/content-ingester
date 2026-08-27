@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/curriculum-dependency-review.schema.json",
+  "title": "Curriculum Dependency Review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "review_id", "review_status", "candidate_binding",
+    "template_generator", "reviewer", "item_reviews",
+    "external_prerequisite_reviews", "overall_review"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "review_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*-review-v[0-9]+$"
+    },
+    "review_status": {
+      "type": "string",
+      "enum": ["pending", "in_review", "approved", "revision_required"]
+    },
+    "candidate_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model_id", "candidate_file", "candidate_sha256",
+        "validation_report_file", "validation_report_sha256",
+        "source_contract_file", "source_contract_sha256"
+      ],
+      "properties": {
+        "model_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*-dependencies-v[0-9]+$"
+        },
+        "candidate_file": {"type": "string", "minLength": 1},
+        "candidate_sha256": {"$ref": "#/$defs/sha256"},
+        "validation_report_file": {"type": "string", "minLength": 1},
+        "validation_report_sha256": {"$ref": "#/$defs/sha256"},
+        "source_contract_file": {"type": "string", "minLength": 1},
+        "source_contract_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "template_generator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["agent", "agent_version", "skill", "skill_version", "generated_at"],
+      "properties": {
+        "agent": {"const": "grounded-curriculum-dependency-builder"},
+        "agent_version": {"type": "string", "enum": ["1.0", "1.1"]},
+        "skill": {"const": "build-curriculum-dependencies"},
+        "skill_version": {"type": "string", "enum": ["1.0", "1.1"]},
+        "generated_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "revision_binding": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "receipt_file", "receipt_sha256", "validation_report_file",
+            "validation_report_sha256", "parent_candidate_sha256",
+            "parent_review_sha256"
+          ],
+          "properties": {
+            "receipt_file": {"type": "string", "minLength": 1},
+            "receipt_sha256": {"$ref": "#/$defs/sha256"},
+            "validation_report_file": {"type": "string", "minLength": 1},
+            "validation_report_sha256": {"$ref": "#/$defs/sha256"},
+            "parent_candidate_sha256": {"$ref": "#/$defs/sha256"},
+            "parent_review_sha256": {"$ref": "#/$defs/sha256"}
+          }
+        }
+      ]
+    },
+    "reviewer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reviewer_id", "reviewer_role"],
+      "properties": {
+        "reviewer_id": {"type": ["string", "null"]},
+        "reviewer_role": {"type": ["string", "null"]}
+      }
+    },
+    "item_reviews": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/itemReview"}
+    },
+    "external_prerequisite_reviews": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/conceptReview"}
+    },
+    "overall_review": {"$ref": "#/$defs/overallReview"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "fieldDecision": {
+      "type": "string",
+      "enum": ["pending", "approved", "revision_required", "not_applicable"]
+    },
+    "recordDecision": {
+      "type": "string",
+      "enum": ["pending", "approved", "revision_required"]
+    },
+    "itemReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_id", "field_decisions", "decision", "comment"],
+      "properties": {
+        "item_id": {"type": "string", "pattern": "^RC-[0-9]{3,}$"},
+        "field_decisions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "hard_dependencies", "explanatory_dependencies",
+            "implementation_dependencies", "co_requisite_item_ids",
+            "recommended_neighbours", "external_prerequisite_concept_ids",
+            "fallback_when_explanatory_dependencies_omitted",
+            "rationale_and_confidence"
+          ],
+          "properties": {
+            "hard_dependencies": {"$ref": "#/$defs/fieldDecision"},
+            "explanatory_dependencies": {"$ref": "#/$defs/fieldDecision"},
+            "implementation_dependencies": {"$ref": "#/$defs/fieldDecision"},
+            "co_requisite_item_ids": {"$ref": "#/$defs/fieldDecision"},
+            "recommended_neighbours": {"$ref": "#/$defs/fieldDecision"},
+            "external_prerequisite_concept_ids": {"$ref": "#/$defs/fieldDecision"},
+            "fallback_when_explanatory_dependencies_omitted": {"$ref": "#/$defs/fieldDecision"},
+            "rationale_and_confidence": {"$ref": "#/$defs/fieldDecision"}
+          }
+        },
+        "decision": {"$ref": "#/$defs/recordDecision"},
+        "comment": {"type": ["string", "null"]}
+      }
+    },
+    "conceptReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["concept_id", "field_decisions", "decision", "comment"],
+      "properties": {
+        "concept_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "field_decisions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "need_type", "supports_item_ids", "bridge_candidate_id",
+            "content_boundary_and_rationale"
+          ],
+          "properties": {
+            "need_type": {"$ref": "#/$defs/fieldDecision"},
+            "supports_item_ids": {"$ref": "#/$defs/fieldDecision"},
+            "bridge_candidate_id": {"$ref": "#/$defs/fieldDecision"},
+            "content_boundary_and_rationale": {"$ref": "#/$defs/fieldDecision"}
+          }
+        },
+        "decision": {"$ref": "#/$defs/recordDecision"},
+        "comment": {"type": ["string", "null"]}
+      }
+    },
+    "overallReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision", "reviewed_at", "comment"],
+      "properties": {
+        "decision": {"$ref": "#/$defs/recordDecision"},
+        "reviewed_at": {"type": ["string", "null"], "format": "date-time"},
+        "comment": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

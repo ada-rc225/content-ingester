@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Frozen-contract Teaching Adaptation Plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["topic", "profile_id", "source_ids", "grounding_contract", "entry_point", "required_contract_item_ids", "conditional_item_decisions", "chapter_sequence", "exercise_section_id", "implementation_strategy", "assessment_strategy", "exercise_plan"],
+  "properties": {
+    "topic": {"type": "string", "minLength": 1},
+    "profile_id": {"type": "string", "minLength": 1},
+    "source_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "grounding_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contract_id", "contract_version", "sha256"],
+      "properties": {
+        "contract_id": {"type": "string", "minLength": 1},
+        "contract_version": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "entry_point": {
+      "type": "object", "additionalProperties": false,
+      "required": ["discipline_context", "rationale", "analogy_boundary"],
+      "properties": {
+        "discipline_context": {"type": "string", "minLength": 1, "maxLength": 500},
+        "rationale": {"type": "string", "minLength": 1, "maxLength": 500},
+        "analogy_boundary": {"type": "string", "minLength": 1, "maxLength": 500}
+      }
+    },
+    "required_contract_item_ids": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^RC-[0-9]{3,}$"}
+    },
+    "conditional_item_decisions": {
+      "type": "array", "uniqueItems": true,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["item_id", "included", "rationale"],
+        "properties": {
+          "item_id": {"type": "string", "pattern": "^RC-[0-9]{3,}$"},
+          "included": {"type": "boolean"},
+          "rationale": {"type": "string", "minLength": 1, "maxLength": 300}
+        }
+      }
+    },
+    "chapter_sequence": {
+      "type": "array", "minItems": 3, "maxItems": 12,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["section_id", "order", "title", "purpose", "contract_item_ids"],
+        "properties": {
+          "section_id": {"type": "string", "pattern": "^SEC-[0-9]{2}$"},
+          "order": {"type": "integer", "minimum": 1},
+          "title": {"type": "string", "minLength": 1, "maxLength": 120},
+          "purpose": {"type": "string", "minLength": 1, "maxLength": 300},
+          "contract_item_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^RC-[0-9]{3,}$"}}
+        }
+      }
+    },
+    "exercise_section_id": {"type": ["string", "null"], "pattern": "^SEC-[0-9]{2}$"},
+    "implementation_strategy": {"type": "string", "minLength": 1, "maxLength": 500},
+    "assessment_strategy": {"type": "string", "minLength": 1, "maxLength": 500},
+    "exercise_plan": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["exercise_id", "order", "section_id", "exercise_type", "difficulty", "learning_objective", "contract_item_ids", "discipline_context", "solution_required", "verification"],
+        "properties": {
+          "exercise_id": {"type": "string", "pattern": "^EX-[0-9]{3,}$"},
+          "order": {"type": "integer", "minimum": 1},
+          "section_id": {"type": "string", "pattern": "^SEC-[0-9]{2}$"},
+          "exercise_type": {"type": "string", "enum": ["concept_check", "hand_calculation", "code_diagnostic", "derivation", "transfer", "other"]},
+          "difficulty": {"type": "string", "enum": ["introductory", "intermediate", "advanced"]},
+          "learning_objective": {"type": "string", "minLength": 1, "maxLength": 300},
+          "contract_item_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^RC-[0-9]{3,}$"}},
+          "discipline_context": {"type": "string", "minLength": 1, "maxLength": 300},
+          "solution_required": {"type": "boolean"},
+          "verification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["method", "python_expression", "expected_value", "absolute_tolerance", "consistency_checks"],
+            "properties": {
+              "method": {"type": "string", "enum": ["contract_binding", "deterministic_calculation", "code_execution", "combined"]},
+              "python_expression": {"type": ["string", "null"]},
+              "expected_value": {"$ref": "#/$defs/verificationExpectedValue"},
+              "absolute_tolerance": {"type": "number", "minimum": 0},
+              "consistency_checks": {
+                "type": "array",
+                "maxItems": 10,
+                "items": {"$ref": "#/$defs/consistencyCheck"}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "numericVector": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": {"type": "number"}
+    },
+    "numericMatrix": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": {"$ref": "#/$defs/numericVector"}
+    },
+    "powerIterationResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["initial_vector_used", "product", "next_vector", "rayleigh_quotient", "residual", "residual_norm"],
+      "properties": {
+        "initial_vector_used": {"$ref": "#/$defs/numericVector"},
+        "product": {"$ref": "#/$defs/numericVector"},
+        "next_vector": {"$ref": "#/$defs/numericVector"},
+        "rayleigh_quotient": {"type": "number"},
+        "residual": {"$ref": "#/$defs/numericVector"},
+        "residual_norm": {"type": "number"}
+      }
+    },
+    "verificationExpectedValue": {
+      "oneOf": [
+        {"type": "number"},
+        {"$ref": "#/$defs/numericVector"},
+        {"$ref": "#/$defs/powerIterationResult"},
+        {"type": "null"}
+      ]
+    },
+    "consistencyCheck": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["check_id", "kind", "objective_expression", "variables", "point", "expected_value", "absolute_tolerance"],
+          "properties": {
+            "check_id": {"type": "string", "pattern": "^CK-[0-9]{3,}$"},
+            "kind": {"const": "objective_gradient"},
+            "objective_expression": {"type": "string", "minLength": 1, "maxLength": 500},
+            "variables": {"type": "array", "minItems": 1, "maxItems": 10, "uniqueItems": true, "items": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}},
+            "point": {"$ref": "#/$defs/numericVector"},
+            "expected_value": {"$ref": "#/$defs/numericVector"},
+            "absolute_tolerance": {"type": "number", "minimum": 0},
+            "expressions": {"type": "array", "maxItems": 0},
+            "step_size": {"type": "null"},
+            "expected_gradient": {"type": "null"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["check_id", "kind", "objective_expression", "variables", "point", "step_size", "expected_gradient", "expected_value", "absolute_tolerance"],
+          "properties": {
+            "check_id": {"type": "string", "pattern": "^CK-[0-9]{3,}$"},
+            "kind": {"const": "objective_gradient_update"},
+            "objective_expression": {"type": "string", "minLength": 1, "maxLength": 500},
+            "variables": {"type": "array", "minItems": 1, "maxItems": 10, "uniqueItems": true, "items": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}},
+            "point": {"$ref": "#/$defs/numericVector"},
+            "step_size": {"type": "number", "minimum": 0},
+            "expected_gradient": {"$ref": "#/$defs/numericVector"},
+            "expected_value": {"$ref": "#/$defs/numericVector"},
+            "absolute_tolerance": {"type": "number", "minimum": 0},
+            "expressions": {"type": "array", "maxItems": 0}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["check_id", "kind", "matrix", "initial_vector", "normalize_initial", "expected_value", "absolute_tolerance"],
+          "properties": {
+            "check_id": {"type": "string", "pattern": "^CK-[0-9]{3,}$"},
+            "kind": {"const": "power_iteration_step"},
+            "matrix": {"$ref": "#/$defs/numericMatrix"},
+            "initial_vector": {"$ref": "#/$defs/numericVector"},
+            "normalize_initial": {"type": "boolean"},
+            "expected_value": {"$ref": "#/$defs/powerIterationResult"},
+            "absolute_tolerance": {"type": "number", "minimum": 0}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["check_id", "kind", "expressions", "variables", "point", "expected_value", "absolute_tolerance"],
+          "properties": {
+            "check_id": {"type": "string", "pattern": "^CK-[0-9]{3,}$"},
+            "kind": {"const": "expression_values"},
+            "expressions": {"type": "array", "minItems": 1, "maxItems": 20, "items": {"type": "string", "minLength": 1, "maxLength": 500}},
+            "variables": {"type": "array", "minItems": 1, "maxItems": 10, "uniqueItems": true, "items": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}},
+            "point": {"$ref": "#/$defs/numericVector"},
+            "expected_value": {
+              "oneOf": [
+                {"type": "number"},
+                {"$ref": "#/$defs/numericVector"}
+              ]
+            },
+            "absolute_tolerance": {"type": "number", "minimum": 0},
+            "objective_expression": {"type": "null"},
+            "step_size": {"type": "null"},
+            "expected_gradient": {"type": "null"}
+          }
+        }
+      ]
+    }
+  }
+}

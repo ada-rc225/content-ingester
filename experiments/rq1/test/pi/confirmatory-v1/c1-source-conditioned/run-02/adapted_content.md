@@ -1,0 +1,231 @@
+# Eigenvalues, Eigenvectors, and the Power Iteration
+
+## 1. Why eigenpairs matter
+
+An eigenpair describes a special direction for a matrix transformation. Let $A\in\mathbb{R}^{n\times n}$. A non-zero vector $v$ is an eigenvector if there is a scalar $\lambda$ such that
+
+$$
+Av=\lambda v.
+$$
+
+The scalar $\lambda$ is the corresponding eigenvalue. The vector must be non-zero: the zero vector satisfies this equation for every scalar and therefore gives no useful information about the action of $A$.
+
+The equation says that applying $A$ to $v$ does not turn $v$ toward a new direction. It only scales it, possibly reversing its sign when $\lambda$ is negative. In a mechanical-engineering setting, this is a useful bridge to familiar mode shapes: a special displacement pattern can be associated with a scalar response factor. That analogy is only a bridge, however. The power iteration discussed here is a general matrix algorithm, not a complete vibration or structural-dynamics model.
+
+Eigenvalues can be found as roots of the characteristic equation
+
+$$
+\det(A-\lambda I)=0,
+$$
+
+but explicitly forming a characteristic polynomial is usually a poor numerical strategy for large matrices. Iterative methods instead use repeated matrix-vector products. The power iteration is one of the simplest such methods and is designed to identify the eigenvalue with largest magnitude and its eigendirection.
+
+## 2. The special structure of real symmetric matrices
+
+This lesson focuses on a real symmetric matrix, meaning $A=A^T$. The spectral theorem gives an orthonormal basis of real eigenvectors. Consequently, we can write
+
+$$
+A=Q\Lambda Q^T,
+$$
+
+where the columns of the orthogonal matrix $Q$ are eigenvectors $v_1,\ldots,v_n$, and
+
+$$
+\Lambda=\operatorname{diag}(\lambda_1,\ldots,\lambda_n).
+$$
+
+Because the eigenvectors form a basis, every vector $x$ can be decomposed as
+
+$$
+x=\sum_{i=1}^n c_i v_i,\qquad c_i=v_i^Tx.
+$$
+
+This decomposition is the key to understanding the iteration. Order the eigenvalues by magnitude:
+
+$$
+|\lambda_1|>|\lambda_2|\ge\cdots\ge|\lambda_n|.
+$$
+
+The strict first inequality means that the dominant eigenvalue is unique in magnitude. Notice that “dominant” here means largest absolute value, not largest algebraic value. For eigenvalues $5$ and $-8$, the dominant eigenvalue for power iteration is $-8$, since $|-8|>5$.
+
+## 3. Deriving the power iteration
+
+Start with a non-zero vector $x_0$. Repeatedly multiply by $A$, while normalising after each multiplication:
+
+$$
+y_{k+1}=Ax_k,\qquad x_{k+1}=\frac{y_{k+1}}{\|y_{k+1}\|_2}.
+$$
+
+Normalisation prevents the vector from becoming extremely large or extremely small. It does not change the direction of the vector, which is the part of the information we need.
+
+To see why this works, first ignore normalisation. Using the eigenvector expansion of $x_0$, write
+
+$$
+x_0=\sum_{i=1}^n c_i v_i.
+$$
+
+After $k$ multiplications,
+
+$$
+A^kx_0=\sum_{i=1}^n c_i\lambda_i^k v_i.
+$$
+
+Factor out the term associated with the largest magnitude:
+
+$$
+A^kx_0=\lambda_1^k\left(c_1v_1+\sum_{i=2}^n c_i\left(\frac{\lambda_i}{\lambda_1}\right)^k v_i\right).
+$$
+
+Suppose the initial vector has a non-zero dominant component, $c_1=v_1^Tx_0\ne0$. Since $|\lambda_i/\lambda_1|<1$ for $i\ge2$, the unwanted terms shrink as $k$ increases. After normalisation, the vector therefore approaches the direction of $v_1$, possibly with either sign.
+
+The sign qualification is important. Eigenvectors are not unique: if $v$ is an eigenvector, then $-v$ is also an eigenvector for the same eigenvalue. If the dominant eigenvalue is negative, the multiplication may reverse the direction on alternating steps. Such sign alternation does not mean that the eigendirection has been lost.
+
+## 4. Convergence assumptions and rate
+
+For a real symmetric matrix, the usual convergence statement requires three conditions. First, the dominant magnitude must be unique: $|\lambda_1|>|\lambda_2|$. Second, the initial vector must have non-zero projection onto $v_1$, so $v_1^Tx_0\ne0$. Third, no iteration may produce $Ax_k=0$, because then normalisation is impossible.
+
+Under these conditions, the direction error generally decreases asymptotically at a rate governed by
+
+$$
+\left|\frac{\lambda_2}{\lambda_1}\right|^k.
+$$
+
+This is linear, or geometric, convergence in the iteration count. A ratio close to zero gives rapid reduction, while a ratio close to one gives slow progress. Thus a small spectral gap in magnitude—meaning $|\lambda_1|$ and $|\lambda_2|$ are close—can make a correct algorithm appear ineffective when the real issue is that many iterations are required.
+
+If $|\lambda_1|=|\lambda_2|$, the method need not select a unique eigenvector. The iterates may remain in, or oscillate within, the invariant subspace corresponding to the dominant magnitudes. If $v_1^Tx_0=0$, exact arithmetic cannot create the missing dominant component, so the iteration cannot converge to $v_1$ from that starting vector.
+
+## 5. Measuring the approximate eigenpair
+
+After obtaining an approximate unit vector $x_k$, estimate its eigenvalue with the Rayleigh quotient:
+
+$$
+\rho(x_k)=\frac{x_k^TAx_k}{x_k^Tx_k}.
+$$
+
+When $x_k$ is normalised, $x_k^Tx_k=1$, so this becomes $\rho(x_k)=x_k^TAx_k$. For a symmetric matrix, the quotient approaches the eigenvalue associated with the limiting eigendirection.
+
+The residual is
+
+$$
+r_k=Ax_k-\rho(x_k)x_k.
+$$
+
+An exact eigenpair has $r_k=0$. In numerical work, the norm $\|r_k\|_2$ is a meaningful measure of how well the computed vector and eigenvalue satisfy the defining equation. It is generally preferable to stopping only when successive vectors look similar. In particular, a sign flip can make $\|x_{k+1}-x_k\|_2$ large even though the two vectors describe the same eigendirection.
+
+## 6. A NumPy implementation
+
+The following implementation validates the dimensions and starting vector, normalises the initial vector, checks for breakdown, and stops using the residual norm.
+
+```python
+import numpy as np
+
+
+def power_iteration(A, x0, tolerance=1e-10, max_iterations=1000):
+    A = np.asarray(A, dtype=float)
+    x = np.asarray(x0, dtype=float)
+
+    if A.ndim != 2 or A.shape[0] != A.shape[1]:
+        raise ValueError("A must be square")
+    if x.shape != (A.shape[0],):
+        raise ValueError("x0 has incompatible dimensions")
+
+    x_norm = np.linalg.norm(x)
+    if x_norm == 0:
+        raise ValueError("x0 must be non-zero")
+    x = x / x_norm
+
+    for iteration in range(1, max_iterations + 1):
+        y = A @ x
+        y_norm = np.linalg.norm(y)
+        if y_norm == 0:
+            raise RuntimeError("power iteration broke down because A @ x is zero")
+
+        x = y / y_norm
+        eigenvalue = float(x @ (A @ x))
+        residual = A @ x - eigenvalue * x
+        residual_norm = float(np.linalg.norm(residual))
+
+        if residual_norm <= tolerance:
+            return eigenvalue, x, residual_norm, iteration
+
+    return eigenvalue, x, residual_norm, max_iterations
+
+
+A = np.array([[4.0, 1.0],
+              [1.0, 2.0]])
+
+eigenvalue, eigenvector, residual, iterations = power_iteration(
+    A, np.array([1.0, 1.0])
+)
+
+print("Estimated dominant eigenvalue:", eigenvalue)
+print("Estimated eigenvector:", eigenvector)
+print("Residual norm:", residual)
+print("Iterations:", iterations)
+```
+
+For this symmetric matrix, the exact eigenvalues are $3+\sqrt{2}$ and $3-\sqrt{2}$. The first has the larger magnitude, so the program should estimate $3+\sqrt{2}$ and return an eigenvector in its direction, up to sign. The residual should be small when the requested tolerance is reached.
+
+## 7. Practical limitations
+
+Power iteration is attractive because each step requires a matrix-vector product and a normalisation, but it only targets one eigenpair and its speed depends strongly on the spectrum. It targets largest magnitude, which may differ from the largest algebraic eigenvalue. It also relies on the clean orthogonal eigenvector decomposition available for symmetric matrices. For non-symmetric matrices, that decomposition is not generally available; defective matrices, complex dominant eigenvalues, and non-normal behaviour require additional care and are outside this treatment.
+
+A zero product $Ax_k$ causes algorithmic breakdown because there is no vector to normalise. A missing initial dominant projection, equal dominant magnitudes, and a small spectral gap are different issues: the first prevents the desired component from appearing, the second removes uniqueness, and the third preserves convergence but can make it slow.
+
+## 8. Final chapter: exercises and worked solutions
+
+### Exercise 1 — concept_check
+
+A symmetric matrix has eigenvalues $5$ and $-8$. Which eigenvalue does power iteration target, and why might successive normalised vectors alternate sign?
+
+**Worked solution.** Power iteration targets $-8$, because it has the largest magnitude: $|-8|=8>5$. Multiplication by a negative dominant eigenvalue reverses the dominant component at each multiplication. Therefore successive normalised vectors may alternate between directions close to $v_1$ and $-v_1$. This is not a failure: both vectors represent the same eigendirection, and the Rayleigh quotient still approaches the associated eigenvalue $-8$.
+
+### Exercise 2 — hand_calculation
+
+Let $A=\operatorname{diag}(5,2)$ and $x_0=(1,1)^T$. Write the first three unnormalised iterates, identify the limiting direction, and perform a consistency check using the eigenpair equation.
+
+**Worked solution.** The unnormalised starting vector is
+
+$$
+x_0=(1,1)^T.
+$$
+
+Applying $A$ repeatedly gives
+
+$$
+Ax_0=(5,2)^T,
+$$
+
+$$
+A^2x_0=(25,4)^T,
+$$
+
+and
+
+$$
+A^3x_0=(125,8)^T.
+$$
+
+The first coordinate grows by a factor of $5$ each time, while the second grows by a factor of $2$. The ratio of the second coordinate to the first is $2/5$ after one multiplication, $4/25$ after two, and $8/125$ after three. It tends to zero, so the direction approaches $(1,0)^T$, up to scaling. This is the eigenvector associated with the dominant eigenvalue $5$.
+
+For the consistency check, use $v=(1,0)^T$ and $\lambda=5$:
+
+$$
+Av=\begin{pmatrix}5&0\\0&2\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix}
+=\begin{pmatrix}5\\0\end{pmatrix}
+=5\begin{pmatrix}1\\0\end{pmatrix}=\lambda v.
+$$
+
+The residual is therefore $Av-\lambda v=(0,0)^T$, confirming that the limiting direction and eigenvalue form an exact eigenpair.
+
+### Exercise 3 — code_diagnostic
+
+A student changes the implementation so that it stops when $\|x_{k+1}-x_k\|_2\le10^{-10}$ instead of using the residual. Explain the diagnostic weakness and state the better stopping quantity.
+
+**Worked solution.** The difference between successive vectors is sensitive to sign. If the dominant eigenvalue is negative, the iterates may alternate sign even after they have converged to the correct eigendirection, so the difference can remain large. Conversely, a small change between successive vectors does not by itself establish that the defining eigenpair equation is accurately satisfied. The better quantity is the residual norm
+
+$$
+\|Ax_k-\rho(x_k)x_k\|_2,
+$$
+
+where $\rho(x_k)=x_k^TAx_k$ for a unit vector. Stopping when this norm is below the tolerance directly tests the approximate eigenpair relation.

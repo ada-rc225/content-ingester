@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/rq2-pathway-plan-review.schema.json",
+  "title": "RQ2 Adaptive Pathway Plan Review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "review_id", "review_status", "candidate_binding",
+    "template_generator", "revision_binding", "reviewer",
+    "selection_reviews", "concept_reviews", "learning_goal_reviews",
+    "structure_review", "pathway_change_reviews", "scope_review",
+    "overall_review"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "review_id": {"type": "string", "pattern": "^[A-Za-z0-9]+(?:[-_.][A-Za-z0-9]+)*-review-v[0-9]+$"},
+    "review_status": {"type": "string", "enum": ["pending", "in_review", "approved", "revision_required"]},
+    "candidate_binding": {"$ref": "#/$defs/candidateBinding"},
+    "template_generator": {"$ref": "#/$defs/templateGenerator"},
+    "revision_binding": {
+      "oneOf": [
+        {"type": "null"},
+        {"$ref": "#/$defs/revisionBinding"}
+      ]
+    },
+    "reviewer": {"$ref": "#/$defs/reviewer"},
+    "selection_reviews": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/selectionReview"}},
+    "concept_reviews": {"type": "array", "items": {"$ref": "#/$defs/conceptReview"}},
+    "learning_goal_reviews": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/goalReview"}},
+    "structure_review": {"$ref": "#/$defs/structureReview"},
+    "pathway_change_reviews": {"type": "array", "items": {"$ref": "#/$defs/changeReview"}},
+    "scope_review": {"$ref": "#/$defs/scopeReview"},
+    "overall_review": {"$ref": "#/$defs/overallReview"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "fieldDecision": {"type": "string", "enum": ["pending", "approved", "revision_required", "not_applicable"]},
+    "recordDecision": {"type": "string", "enum": ["pending", "approved", "revision_required"]},
+    "candidateBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pathway_id", "pathway_file", "pathway_sha256",
+        "validation_report_file", "validation_report_sha256",
+        "assessment_id", "assessment_file", "assessment_sha256",
+        "profile_id", "profile_file", "profile_sha256"
+      ],
+      "properties": {
+        "pathway_id": {"type": "string", "minLength": 1},
+        "pathway_file": {"type": "string", "minLength": 1},
+        "pathway_sha256": {"$ref": "#/$defs/sha256"},
+        "validation_report_file": {"type": "string", "minLength": 1},
+        "validation_report_sha256": {"$ref": "#/$defs/sha256"},
+        "assessment_id": {"type": "string", "minLength": 1},
+        "assessment_file": {"type": "string", "minLength": 1},
+        "assessment_sha256": {"$ref": "#/$defs/sha256"},
+        "profile_id": {"type": "string", "minLength": 1},
+        "profile_file": {"type": "string", "minLength": 1},
+        "profile_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "templateGenerator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["agent", "agent_version", "skill", "skill_version", "generated_at"],
+      "properties": {
+        "agent": {"const": "adaptive-curriculum-pathway-planner"},
+        "agent_version": {"const": "1.1"},
+        "skill": {"const": "plan-adaptive-curriculum-pathways"},
+        "skill_version": {"const": "1.1"},
+        "generated_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "revisionBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["receipt_file", "receipt_sha256", "validation_report_file", "validation_report_sha256", "parent_pathway_sha256", "parent_review_sha256"],
+      "properties": {
+        "receipt_file": {"type": "string", "minLength": 1},
+        "receipt_sha256": {"$ref": "#/$defs/sha256"},
+        "validation_report_file": {"type": "string", "minLength": 1},
+        "validation_report_sha256": {"$ref": "#/$defs/sha256"},
+        "parent_pathway_sha256": {"$ref": "#/$defs/sha256"},
+        "parent_review_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "reviewer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reviewer_id", "reviewer_role"],
+      "properties": {
+        "reviewer_id": {"type": ["string", "null"]},
+        "reviewer_role": {"type": ["string", "null"]}
+      }
+    },
+    "selectionReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_id", "item_type", "criticality", "planned_decision", "planned_role", "field_decisions", "decision", "comment"],
+      "properties": {
+        "item_id": {"type": "string", "pattern": "^RC-[0-9]{3,}$"},
+        "item_type": {"type": "string", "minLength": 1},
+        "criticality": {"type": "string", "minLength": 1},
+        "planned_decision": {"type": "string", "enum": ["include", "exclude"]},
+        "planned_role": {"type": ["string", "null"]},
+        "field_decisions": {
+          "type": "object", "additionalProperties": false,
+          "required": ["decision_and_role", "rationale_and_profile_basis"],
+          "properties": {
+            "decision_and_role": {"$ref": "#/$defs/fieldDecision"},
+            "rationale_and_profile_basis": {"$ref": "#/$defs/fieldDecision"}
+          }
+        },
+        "decision": {"$ref": "#/$defs/recordDecision"},
+        "comment": {"type": ["string", "null"]}
+      }
+    },
+    "conceptReview": {
+      "type": "object", "additionalProperties": false,
+      "required": ["concept_id", "planned_mastery", "planned_bridge_status", "field_decisions", "decision", "comment"],
+      "properties": {
+        "concept_id": {"type": "string", "minLength": 1},
+        "planned_mastery": {"type": "string", "enum": ["mastered", "fragile", "missing", "unknown"]},
+        "planned_bridge_status": {"type": ["string", "null"]},
+        "field_decisions": {
+          "type": "object", "additionalProperties": false,
+          "required": ["mastery_and_confidence", "evidence_and_rationale", "bridge_requirement"],
+          "properties": {
+            "mastery_and_confidence": {"$ref": "#/$defs/fieldDecision"},
+            "evidence_and_rationale": {"$ref": "#/$defs/fieldDecision"},
+            "bridge_requirement": {"$ref": "#/$defs/fieldDecision"}
+          }
+        },
+        "decision": {"$ref": "#/$defs/recordDecision"},
+        "comment": {"type": ["string", "null"]}
+      }
+    },
+    "goalReview": {
+      "type": "object", "additionalProperties": false,
+      "required": ["capability_id", "planned_coverage", "planned_supporting_item_ids", "field_decisions", "decision", "comment"],
+      "properties": {
+        "capability_id": {"type": "string", "minLength": 1},
+        "planned_coverage": {"type": "string", "minLength": 1},
+        "planned_supporting_item_ids": {"type": "array", "items": {"type": "string"}},
+        "field_decisions": {
+          "type": "object", "additionalProperties": false,
+          "required": ["coverage_and_support", "rationale"],
+          "properties": {
+            "coverage_and_support": {"$ref": "#/$defs/fieldDecision"},
+            "rationale": {"$ref": "#/$defs/fieldDecision"}
+          }
+        },
+        "decision": {"$ref": "#/$defs/recordDecision"},
+        "comment": {"type": ["string", "null"]}
+      }
+    },
+    "structureReview": {
+      "type": "object", "additionalProperties": false,
+      "required": ["instruction_sequence", "unit_summaries", "field_decisions", "decision", "comment"],
+      "properties": {
+        "instruction_sequence": {"type": "array", "items": {"type": "string"}},
+        "unit_summaries": {"type": "array", "items": {"type": "object"}},
+        "field_decisions": {
+          "type": "object", "additionalProperties": false,
+          "required": ["unit_grouping", "instruction_sequence", "prerequisite_relations", "unit_purpose_and_learning_goals"],
+          "properties": {
+            "unit_grouping": {"$ref": "#/$defs/fieldDecision"},
+            "instruction_sequence": {"$ref": "#/$defs/fieldDecision"},
+            "prerequisite_relations": {"$ref": "#/$defs/fieldDecision"},
+            "unit_purpose_and_learning_goals": {"$ref": "#/$defs/fieldDecision"}
+          }
+        },
+        "decision": {"$ref": "#/$defs/recordDecision"},
+        "comment": {"type": ["string", "null"]}
+      }
+    },
+    "changeReview": {
+      "type": "object", "additionalProperties": false,
+      "required": ["change_index", "change_type", "affected_ids", "field_decisions", "decision", "comment"],
+      "properties": {
+        "change_index": {"type": "integer", "minimum": 0},
+        "change_type": {"type": "string", "minLength": 1},
+        "affected_ids": {"type": "array", "items": {"type": "string"}},
+        "field_decisions": {
+          "type": "object", "additionalProperties": false,
+          "required": ["structural_accuracy", "profile_basis", "rationale"],
+          "properties": {
+            "structural_accuracy": {"$ref": "#/$defs/fieldDecision"},
+            "profile_basis": {"$ref": "#/$defs/fieldDecision"},
+            "rationale": {"$ref": "#/$defs/fieldDecision"}
+          }
+        },
+        "decision": {"$ref": "#/$defs/recordDecision"},
+        "comment": {"type": ["string", "null"]}
+      }
+    },
+    "scopeReview": {
+      "type": "object", "additionalProperties": false,
+      "required": ["selected_item_ids", "excluded_item_ids", "failure_or_convergence_item_ids", "field_decisions", "decision", "comment"],
+      "properties": {
+        "selected_item_ids": {"type": "array", "items": {"type": "string"}},
+        "excluded_item_ids": {"type": "array", "items": {"type": "string"}},
+        "failure_or_convergence_item_ids": {"type": "array", "items": {"type": "string"}},
+        "field_decisions": {
+          "type": "object", "additionalProperties": false,
+          "required": ["selected_content_scope", "failure_and_convergence_scope", "profile_appropriateness"],
+          "properties": {
+            "selected_content_scope": {"$ref": "#/$defs/fieldDecision"},
+            "failure_and_convergence_scope": {"$ref": "#/$defs/fieldDecision"},
+            "profile_appropriateness": {"$ref": "#/$defs/fieldDecision"}
+          }
+        },
+        "decision": {"$ref": "#/$defs/recordDecision"},
+        "comment": {"type": ["string", "null"]}
+      }
+    },
+    "overallReview": {
+      "type": "object", "additionalProperties": false,
+      "required": ["decision", "reviewed_at", "comment"],
+      "properties": {
+        "decision": {"$ref": "#/$defs/recordDecision"},
+        "reviewed_at": {"type": ["string", "null"], "format": "date-time"},
+        "comment": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

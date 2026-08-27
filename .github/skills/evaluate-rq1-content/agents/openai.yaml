@@ -1,0 +1,4 @@
+interface:
+  display_name: "RQ1 Independent Content Evaluation"
+  short_description: "Blindly score grounded lesson fidelity and pedagogy"
+  default_prompt: "Use $evaluate-rq1-content to evaluate anonymised RQ1 lesson samples against the named released Frozen Reference Contract and write validated item-level judgements and metrics."

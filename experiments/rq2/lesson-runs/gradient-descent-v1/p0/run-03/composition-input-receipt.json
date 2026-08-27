@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "preparer": "prepare-composition-inputs-v1",
+  "prepared_at": "2026-08-26T21:17:00Z",
+  "run_id": "gradient-descent-p0-pilot-run-03",
+  "condition": "P0",
+  "topic": "gradient descent",
+  "inputs": {
+    "pathway": {
+      "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p0/pathway-plan.json",
+      "sha256": "1f565b07726733580ad974e9109439efa8817f1e6bc1b8fca4f1f788f70d4b1c"
+    },
+    "pathway_validation_report": {
+      "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p0/pathway-validation-report.json",
+      "sha256": "43be17103254ef8a2a01006aa2113bfe7ce77bcc8bf970f918018ac4f36ab10c"
+    },
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+      "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/gradient-descent-second-year.json",
+      "sha256": "bdd734fd2f2c56b38960e9938281952a55841d57b0a83047647d38ca4f90348d"
+    },
+    "word_count_protocol": {
+      "file": "experiments/rq2/word-count-protocols/gradient-descent-pilot.json",
+      "sha256": "3031936fe3f42d325e01e92490e0cafebb6a58ae11a009df22a9f339cab7ab43"
+    },
+    "profile": null,
+    "bridge_catalog": null
+  },
+  "treatment_isolation": {
+    "external_retrieval_allowed": false,
+    "other_profiles_allowed": false,
+    "other_condition_outputs_allowed": false,
+    "evaluation_results_allowed": false,
+    "profile_visible": false,
+    "profile_adaptation_allowed": false,
+    "pathway_replanning_allowed": false,
+    "selected_contract_scope_exact": true,
+    "instruction_sequence_exact": true,
+    "discipline_neutral_required": true
+  },
+  "output_view": {
+    "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p0/run-03/composition-input-view.json",
+    "sha256": "c079e1e4468272dd0c95bec31f496cd7c5ba2869f0185cad81d36eedfa2b9baf"
+  }
+}

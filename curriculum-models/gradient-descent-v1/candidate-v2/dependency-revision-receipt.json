@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.0",
+  "mode": "revision",
+  "source_contract": {
+    "file": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+    "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"
+  },
+  "parent_candidate": {
+    "model_id": "gradient-descent-dependencies-v1",
+    "next_model_id": "gradient-descent-dependencies-v2",
+    "file": "curriculum-models/gradient-descent-v1/candidate/contract-dependencies.json",
+    "sha256": "69b0a52cd895dae2af879e9535e7df9c87bdff73a8bebebe8fea50d8a47667d3",
+    "validation_report_file": "curriculum-models/gradient-descent-v1/candidate/dependency-validation-report.json",
+    "validation_report_sha256": "ac6a2f004a8530682b5de1ee9b8b87a4adf276f6c7096f0a88d2f958f049c25e"
+  },
+  "parent_review": {
+    "review_id": "gradient-descent-dependencies-v1-review-v1",
+    "file": "curriculum-models/gradient-descent-v1/candidate/curriculum-dependency-review.json",
+    "sha256": "3fcf2f1a56661aa6e56810a9d299137518f6b6fcdb4e89dbcb1b93378f131df4",
+    "decision": "revision_required",
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "Curriculum Dependency Reviewer",
+    "reviewed_at": "2026-08-19T19:55:54Z"
+  },
+  "revision_scope": {
+    "item_changes": [
+      {
+        "item_id": "RC-012",
+        "fields": [
+          "co_requisite_item_ids",
+          "rationale_and_confidence"
+        ],
+        "comment": "Revision required. Exact line search and Armijo backtracking are alternative step-selection rules, not mutually necessary concepts. Remove RC-013 from co_requisite_item_ids; retain it as a recommended neighbour and revise the rationale/confidence accordingly."
+      },
+      {
+        "item_id": "RC-013",
+        "fields": [
+          "co_requisite_item_ids",
+          "rationale_and_confidence"
+        ],
+        "comment": "Revision required. Armijo backtracking is independently teachable after RC-010 and does not require exact line search to be introduced alongside it. Remove RC-012 from co_requisite_item_ids; retain it as a recommended neighbour and revise the rationale/confidence accordingly."
+      },
+      {
+        "item_id": "RC-023",
+        "fields": [
+          "co_requisite_item_ids",
+          "rationale_and_confidence"
+        ],
+        "comment": "Revision required. AdaGrad does not require RMSProp and Adam to be introduced in the same instructional unit. Remove RC-024 and RC-025 from co_requisite_item_ids; recommended_neighbours already captures the useful comparison."
+      },
+      {
+        "item_id": "RC-024",
+        "fields": [
+          "co_requisite_item_ids",
+          "rationale_and_confidence"
+        ],
+        "comment": "Revision required. RMSProp does not require AdaGrad and Adam to be introduced in the same instructional unit. Remove RC-023 and RC-025 from co_requisite_item_ids; recommended_neighbours already captures the useful comparison."
+      },
+      {
+        "item_id": "RC-025",
+        "fields": [
+          "co_requisite_item_ids",
+          "rationale_and_confidence"
+        ],
+        "comment": "Revision required. Adam does not require AdaGrad and RMSProp to be introduced in the same instructional unit. Remove RC-023 and RC-024 from co_requisite_item_ids; recommended_neighbours already captures the useful comparison."
+      },
+      {
+        "item_id": "RC-026",
+        "fields": [
+          "hard_dependencies",
+          "rationale_and_confidence"
+        ],
+        "comment": "Revision required. RC-002 is useful motivation for solving the Newton model but is not necessary to state or interpret the second-order Taylor model. Remove RC-002 from hard_dependencies; if the stationarity motivation is retained, classify RC-002 as explanatory and provide an explicit fallback, or keep it only as a recommended neighbour."
+      },
+      {
+        "item_id": "RC-028",
+        "fields": [
+          "external_prerequisite_concept_ids",
+          "rationale_and_confidence"
+        ],
+        "comment": "Revision required. The theorem explicitly assumes a positive-definite Hessian, but the listed external prerequisite covers only local Lipschitz regularity. Add RC-003 as a hard or explanatory dependency, or extend the symmetric-matrices-and-definiteness external prerequisite to support RC-028; then revise the rationale."
+      },
+      {
+        "item_id": "RC-030",
+        "fields": [
+          "implementation_dependencies",
+          "external_prerequisite_concept_ids",
+          "rationale_and_confidence"
+        ],
+        "comment": "Revision required. The external concept combines inverse-Hessian approximations with line search even though line-search knowledge is represented by RC-012 and RC-013. Narrow/rename the external concept to inverse-Hessian approximations and add an appropriate explanatory or implementation dependency on a Contract line-search item (normally RC-013), with a fallback if explanatory."
+      }
+    ],
+    "concept_changes": [
+      {
+        "concept_id": "symmetric-matrices-and-definiteness",
+        "fields": [
+          "supports_item_ids"
+        ],
+        "record_removal_allowed": false,
+        "comment": "Revision required. Extend supports_item_ids to RC-028 unless RC-003 is made a sufficient dependency there; RC-028 also requires the learner to interpret a positive-definite Hessian."
+      },
+      {
+        "concept_id": "inverse-hessian-approximations-and-line-search",
+        "fields": [
+          "need_type",
+          "bridge_candidate_id",
+          "content_boundary_and_rationale"
+        ],
+        "record_removal_allowed": false,
+        "comment": "Revision required. Line search is already represented inside the Contract by RC-012 and RC-013, so it must not be bundled into an external prerequisite. Replace this record with a narrowly scoped inverse-Hessian-approximation concept and represent line-search knowledge through an internal dependency."
+      }
+    ],
+    "overall_comment": "Revision required for RC-012, RC-013, RC-023, RC-024, RC-025, RC-026, RC-028, and RC-030. Remove artificial co-requisites among alternative methods, weaken the unnecessary stationarity prerequisite for the Newton Taylor model, and repair the definiteness and line-search prerequisite boundaries. All remaining item fields and external prerequisite records are approved or not applicable."
+  },
+  "constraints": {
+    "preserve_unmarked_fields": true,
+    "require_next_model_version": true,
+    "reset_candidate_review_state": true,
+    "allow_new_external_concepts_only_from_revised_item_fields": true,
+    "inherit_prior_approvals": false
+  },
+  "generated_by": {
+    "agent": "grounded-curriculum-dependency-builder",
+    "agent_version": "1.1",
+    "skill": "build-curriculum-dependencies",
+    "skill_version": "1.1",
+    "generated_at": "2026-08-19T20:05:45Z"
+  }
+}

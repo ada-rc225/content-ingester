@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "release_gate": "bridge-library-release-gate-v1",
+  "status": "released",
+  "released_at": "2026-08-18T21:19:49Z",
+  "library_id": "power-iteration-bridge-library-v1",
+  "approval": {
+    "review_id": "power-iteration-bridge-library-v1-review-v1",
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "mathematics-and-computing-bridge-reviewer",
+    "reviewed_at": "2026-08-18T17:41:39Z",
+    "review_sha256": "96f00ed70a858837f1c2384ffc489a18b2ece923d6688205e28e66300f0ac820",
+    "release_gate": "bridge-library-release-gate-v1",
+    "released_at": "2026-08-18T21:19:49Z"
+  },
+  "inputs": {
+    "candidate": "bridge-library/power-iteration-v1/candidate-v3/bridge-library-candidate.json",
+    "candidate_sha256": "0cf91aafc1cabccdfaf369ad7d98eabd0114762c9cfaf8e85578e2b254b0c0be",
+    "validation_report": "bridge-library/power-iteration-v1/candidate-v3/bridge-library-validation-report.json",
+    "validation_report_sha256": "1cb6fdf8758a89fc2e89773c64e22e800aa4e25941ab2f4b0fd5f0d09a88319c",
+    "review": "bridge-library/power-iteration-v1/candidate-v3/bridge-library-review.json",
+    "review_sha256": "96f00ed70a858837f1c2384ffc489a18b2ece923d6688205e28e66300f0ac820",
+    "catalog_schema": ".github/skills/release-bridge-library/references/released-bridge-catalog.schema.json",
+    "catalog_schema_sha256": "95ed734c5c80da3402b4f6f81dd5a5e40e6c4d7ed0d40e627a5331a169deac3a",
+    "release_report_schema": ".github/skills/release-bridge-library/references/bridge-library-release-report.schema.json",
+    "release_report_schema_sha256": "7a692b0b58e0dce346b016f81a5bfa1c962e622bae6bdfc66f635178feabe44d"
+  },
+  "outputs": {
+    "released_bridge_catalog": "bridge-library/power-iteration-v1/release/released-bridge-catalog.json",
+    "released_bridge_catalog_sha256": "59179ad7d12db14704efc703b817b2564bf5082ac479702643eebecd194e030d",
+    "frozen_review": "bridge-library/power-iteration-v1/release/frozen-bridge-library-review.json",
+    "frozen_review_sha256": "96f00ed70a858837f1c2384ffc489a18b2ece923d6688205e28e66300f0ac820",
+    "release_validation_report": "bridge-library/power-iteration-v1/release/frozen-bridge-library-validation-report.json",
+    "release_validation_report_sha256": "d9487a6ba09585f5d9b22018b0a7fda7427bdb64c9db47ee4a0bac8f32a940f9",
+    "checksum": "bridge-library/power-iteration-v1/release/released-bridge-catalog.sha256"
+  }
+}

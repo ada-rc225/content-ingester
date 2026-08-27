@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "request_id": "power-iteration-second-year-v1",
+  "request_version": "1.0.0",
+  "status": "pilot_candidate",
+  "topic": "power iteration",
+  "source_contract": {
+    "contract_id": "power-iteration",
+    "contract_version": "1.0.0",
+    "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+    "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+  },
+  "audience_scope": {
+    "education_level": "second-year undergraduate",
+    "discipline_neutral": true,
+    "shared_across_profiles": true
+  },
+  "learning_goal": "Understand and apply power iteration, interpret the quality of an approximate eigenpair, and recognise the principal assumptions and limitations that affect convergence.",
+  "target_capabilities": [
+    {
+      "capability_id": "LG-001",
+      "description": "Explain the purpose of power iteration and carry out or trace its matrix-vector multiplication and normalisation update.",
+      "priority": "required"
+    },
+    {
+      "capability_id": "LG-002",
+      "description": "Use an eigenvalue estimate and residual to interpret the quality of an approximate eigenpair and a stopping decision.",
+      "priority": "required"
+    },
+    {
+      "capability_id": "LG-003",
+      "description": "Recognise and explain the main assumptions, failure conditions, or limitations relevant to a selected power-iteration pathway.",
+      "priority": "required"
+    },
+    {
+      "capability_id": "LG-004",
+      "description": "Read, trace, or construct an executable implementation of power iteration with basic input, breakdown, and stopping safeguards.",
+      "priority": "optional"
+    }
+  ],
+  "delivery_constraints": {
+    "target_duration_minutes": 90,
+    "output_form": "one_continuous_student_facing_lesson",
+    "learning_units_are_pages": false,
+    "target_depth": "intermediate",
+    "proof_depth": "profile_adaptive",
+    "implementation_depth": "profile_adaptive"
+  },
+  "selection_policy": {
+    "profile_specific_contract_item_selection_allowed_for_P2": true,
+    "required_capabilities_may_be_removed": false,
+    "all_contract_items_require_include_or_exclude_decisions": true,
+    "selected_hard_dependencies_must_be_satisfied": true,
+    "unreleased_prerequisite_bridges_make_a_plan_provisional": true
+  },
+  "review": {
+    "review_status": "requires_supervisor_or_curriculum_review",
+    "reviewer_id": null,
+    "reviewed_at": null,
+    "comment": "Freeze this request before confirmatory generation. Pilot use is permitted only as an explicitly labelled candidate."
+  }
+}

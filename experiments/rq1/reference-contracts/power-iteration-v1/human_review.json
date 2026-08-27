@@ -1,0 +1,320 @@
+{
+  "schema_version": "1.0",
+  "contract_binding": {
+    "contract_id": "power-iteration",
+    "contract_version": "1.0.0",
+    "review_basis_sha256": "0ad58280591d2d5f9ec1131a382959f6b94f3f3682e966be3cc155b0f67b1ce6"
+  },
+  "review_status": "approved",
+  "reviewer": {
+    "reviewer_id": "tester-001",
+    "reviewer_role": "Mathematics/Numerical Linear Algebra Reviewer",
+    "reviewed_at": "2026-08-12T04:30:00+01:00"
+  },
+  "semantic_check_reviews": [
+    {
+      "check_id": "CHK-001",
+      "review_status": "approved"
+    },
+    {
+      "check_id": "CHK-002",
+      "review_status": "approved"
+    },
+    {
+      "check_id": "CHK-003",
+      "review_status": "approved"
+    },
+    {
+      "check_id": "CHK-004",
+      "review_status": "approved"
+    },
+    {
+      "check_id": "CHK-005",
+      "review_status": "approved"
+    },
+    {
+      "check_id": "CHK-006",
+      "review_status": "approved"
+    },
+    {
+      "check_id": "CHK-007",
+      "review_status": "approved"
+    },
+    {
+      "check_id": "CHK-008",
+      "review_status": "approved"
+    },
+    {
+      "check_id": "CHK-009",
+      "review_status": "approved"
+    },
+    {
+      "check_id": "CHK-010",
+      "review_status": "approved"
+    },
+    {
+      "check_id": "CHK-011",
+      "review_status": "approved"
+    },
+    {
+      "check_id": "CHK-012",
+      "review_status": "approved"
+    },
+    {
+      "check_id": "CHK-013",
+      "review_status": "approved"
+    },
+    {
+      "check_id": "CHK-014",
+      "review_status": "approved"
+    },
+    {
+      "check_id": "CHK-015",
+      "review_status": "approved"
+    },
+    {
+      "check_id": "CHK-016",
+      "review_status": "approved"
+    },
+    {
+      "check_id": "CHK-017",
+      "review_status": "approved"
+    },
+    {
+      "check_id": "CHK-018",
+      "review_status": "approved"
+    }
+  ],
+  "item_reviews": [
+    {
+      "item_id": "RC-001",
+      "source_fidelity": "verified",
+      "mathematical_status": "verified_correct",
+      "algorithmic_status": "not_applicable",
+      "decision": "approved_as_written",
+      "reviewer_notes": [
+    "Verified against the source definition. The equation Av=lambda v, the association of lambda with v, and the requirement v!=0 are preserved.",
+    "The item correctly explains that the zero vector must be excluded because it satisfies the equation for every scalar lambda."
+  ]
+    },
+    {
+      "item_id": "RC-002",
+      "source_fidelity": "verified",
+      "mathematical_status": "verified_correct",
+      "algorithmic_status": "verified_correct",
+      "decision": "approved_as_written",
+      "reviewer_notes": [
+    "Verified that eigenvalues are characterized as roots of det(A-lambda I)=0.",
+    "The numerical guidance is appropriately qualitative: explicitly forming the characteristic polynomial is discouraged for large matrices, while matrix-vector iterative methods are presented as an alternative rather than an algebraic equivalence."
+  ]
+    },
+    {
+      "item_id": "RC-003",
+      "source_fidelity": "verified",
+      "mathematical_status": "verified_correct",
+      "algorithmic_status": "not_applicable",
+      "decision": "approved_as_written",
+      "reviewer_notes": [
+    "Verified the real-symmetric hypothesis, orthonormal eigenbasis, decomposition A=Q Lambda Q^T, and diagonal form of Lambda.",
+    "The coefficient identity c_i=v_i^T x is correct because the eigenvectors form an orthonormal basis.",
+    "The item does not extend the orthogonal decomposition to arbitrary non-symmetric matrices."
+  ]
+    },
+    {
+      "item_id": "RC-004",
+      "source_fidelity": "verified",
+      "mathematical_status": "verified_correct",
+      "algorithmic_status": "not_applicable",
+      "decision": "approved_as_written",
+      "reviewer_notes": [
+    "Verified the magnitude ordering |lambda_1|>|lambda_2|>=...>=|lambda_n|.",
+    "The strict first inequality correctly establishes uniqueness of the dominant eigenvalue in magnitude.",
+    "Dominance is consistently defined by magnitude rather than algebraic value."
+  ]
+    },
+    {
+      "item_id": "RC-005",
+      "source_fidelity": "verified",
+      "mathematical_status": "verified_correct",
+      "algorithmic_status": "verified_correct",
+      "decision": "approved_as_written",
+      "reviewer_notes": [
+    "Verified the update y_{k+1}=Ax_k followed by x_{k+1}=y_{k+1}/||y_{k+1}||_2.",
+    "The non-zero initial vector and non-zero normalization denominator conditions are retained.",
+    "Normalization preserves direction while controlling the scale of the iterate."
+  ]
+    },
+    {
+      "item_id": "RC-006",
+      "source_fidelity": "verified",
+      "mathematical_status": "verified_correct",
+      "algorithmic_status": "not_applicable",
+      "decision": "approved_as_written",
+      "reviewer_notes": [
+    "Verified the eigenbasis expansion of A^k x_0 and the factorization by lambda_1^k.",
+    "The non-zero dominant coefficient c_1=v_1^T x_0 and strict spectral-magnitude gap are both retained.",
+    "Under these assumptions, all subordinate ratios have magnitude below one and decay to zero."
+  ]
+    },
+    {
+      "item_id": "RC-007",
+      "source_fidelity": "verified",
+      "mathematical_status": "verified_correct",
+      "algorithmic_status": "verified_correct",
+      "decision": "approved_as_written",
+      "reviewer_notes": [
+    "Verified all stated assumptions: A is real symmetric, the dominant magnitude is unique, the initial dominant projection is non-zero, and no iterate has Ax_k=0.",
+    "The rate is correctly described as an asymptotic direction-error rate governed by |lambda_2/lambda_1|^k.",
+    "The item does not turn the qualitative asymptotic statement into an unconditional finite-iteration error bound."
+  ]
+    },
+    {
+      "item_id": "RC-008",
+      "source_fidelity": "verified",
+      "mathematical_status": "verified_correct",
+      "algorithmic_status": "verified_correct",
+      "decision": "approved_as_written",
+      "reviewer_notes": [
+    "Verified that a negative dominant eigenvalue may cause successive normalized iterates to alternate sign.",
+    "The item correctly treats v_1 and -v_1 as the same eigendirection and does not classify sign alternation alone as convergence failure."
+  ]
+    },
+    {
+      "item_id": "RC-009",
+      "source_fidelity": "verified",
+      "mathematical_status": "verified_correct",
+      "algorithmic_status": "verified_correct",
+      "decision": "approved_as_written",
+      "reviewer_notes": [
+    "Verified the Rayleigh quotient rho(x_k)=x_k^T A x_k/(x_k^T x_k) for non-zero x_k.",
+    "The simplification rho(x_k)=x_k^T A x_k is correctly restricted to unit-norm vectors.",
+    "For symmetric A, convergence of x_k to the eigendirection of v_1 correctly implies convergence of the quotient to lambda_1."
+  ]
+    },
+    {
+      "item_id": "RC-010",
+      "source_fidelity": "verified",
+      "mathematical_status": "verified_correct",
+      "algorithmic_status": "verified_correct",
+      "decision": "approved_as_written",
+      "reviewer_notes": [
+    "Verified the residual definition r_k=Ax_k-rho(x_k)x_k and the zero-residual property of an exact eigenpair.",
+    "The residual norm is correctly presented as a meaningful stopping measure.",
+    "The warning about successive-vector differences correctly accounts for eigenvector sign ambiguity."
+  ]
+    },
+    {
+      "item_id": "RC-011",
+      "source_fidelity": "verified",
+      "mathematical_status": "verified_correct",
+      "algorithmic_status": "verified_correct",
+      "decision": "approved_as_written",
+      "reviewer_notes": [
+    "Verified the initialization, matrix-vector product, breakdown check, normalization, Rayleigh estimate, residual computation, tolerance stop, and iteration cap.",
+    "The breakdown check occurs before division by ||y||_2.",
+    "The residual stopping condition and maximum-iteration fallback are both preserved."
+  ]
+    },
+    {
+      "item_id": "RC-012",
+      "source_fidelity": "verified",
+      "mathematical_status": "verified_correct",
+      "algorithmic_status": "verified_correct",
+      "decision": "approved_as_written",
+      "reviewer_notes": [
+    "Verified that v_1^T x_0=0 means the initial vector has no component in the dominant eigendirection.",
+    "For the stated symmetric eigenbasis setting, exact arithmetic preserves the invariant non-dominant subspace and cannot create the missing component.",
+    "The case is correctly distinguished from merely slow convergence to v_1."
+  ]
+    },
+    {
+      "item_id": "RC-013",
+      "source_fidelity": "verified",
+      "mathematical_status": "verified_correct",
+      "algorithmic_status": "verified_correct",
+      "decision": "approved_as_written",
+      "reviewer_notes": [
+    "Verified that equal dominant magnitudes need not produce convergence to a unique eigenvector.",
+    "The repeated-dominant-magnitude case is correctly distinguished from the separated but small-gap case.",
+    "When |lambda_2/lambda_1| is close to one but below one, the qualitative conclusion of slow convergence is correct."
+  ]
+    },
+    {
+      "item_id": "RC-014",
+      "source_fidelity": "verified",
+      "mathematical_status": "verified_correct",
+      "algorithmic_status": "verified_correct",
+      "decision": "approved_as_written",
+      "reviewer_notes": [
+    "Verified that standard power iteration targets an eigenvalue of largest magnitude rather than the largest algebraic eigenvalue.",
+    "For eigenvalues 5 and -8, the item correctly identifies -8 as dominant because |-8|>|5|."
+  ]
+    },
+    {
+      "item_id": "RC-015",
+      "source_fidelity": "verified",
+      "mathematical_status": "verified_correct",
+      "algorithmic_status": "verified_correct",
+      "decision": "approved_as_written",
+      "reviewer_notes": [
+    "Verified that the source allows possible application to some non-symmetric matrices without extending the symmetric proof to all such matrices.",
+    "The absence of a general orthogonal eigenbasis and the additional complications from defective, complex-dominant, and non-normal cases are correctly stated as outside scope."
+  ]
+    },
+    {
+      "item_id": "RC-016",
+      "source_fidelity": "verified",
+      "mathematical_status": "not_applicable",
+      "algorithmic_status": "verified_correct",
+      "decision": "approved_as_written",
+      "reviewer_notes": [
+    "Verified that the implementation converts A and x0 to floating NumPy arrays, checks that A is square, and checks that x0 is a compatible one-dimensional vector.",
+    "The zero-vector check occurs before normalization and raises the stated ValueError.",
+    "This item accurately records the input checks that are actually present in the source implementation; iteration-parameter validation is reviewed under RC-017."
+  ]
+    },
+    {
+      "item_id": "RC-017",
+      "source_fidelity": "verified",
+      "mathematical_status": "not_applicable",
+      "algorithmic_status": "source_issue",
+      "decision": "approved_with_correction",
+      "reviewer_notes": [
+    "Verified that the contract faithfully records the source code's iteration, breakdown, normalization, Rayleigh estimate, residual test, early return, and four-value return structure.",
+    "The source implementation is unsafe when max_iterations is zero or negative: the loop does not execute and eigenvalue, residual, and residual_norm remain unbound at the final return.",
+    "Generation must require max_iterations to be a positive integer before entering the loop and must reject invalid values with a clear ValueError.",
+    "Generation should also enforce the abstract algorithm's tolerance>0 precondition, because the source code currently does not validate it."
+  ]
+    },
+    {
+      "item_id": "RC-018",
+      "source_fidelity": "verified",
+      "mathematical_status": "verified_correct",
+      "algorithmic_status": "verified_correct",
+      "decision": "approved_as_written",
+      "reviewer_notes": [
+    "Verified that the characteristic polynomial of [[4,1],[1,2]] gives the exact eigenvalues 3+sqrt(2) and 3-sqrt(2).",
+    "The dominant eigenvalue is correctly identified as 3+sqrt(2).",
+    "With x0=(1,1) and the supplied defaults, the implementation should converge to the dominant eigendirection and report a small residual; the eigenvector sign is not prescribed."
+  ]
+    }
+  ],
+  "source_issue_reviews": [
+    {
+      "issue_id": "ISSUE-001",
+      "resolution": "approved_correction",
+      "approved_generation_content": {
+        "statement": "Generated implementations must validate that max_iterations is a positive integer before entering the iteration loop. Invalid values must raise a clear ValueError. For valid values, preserve the source iteration, breakdown check, normalization, residual stopping test, maximum-iteration fallback, and four-value return structure.",
+        "latex": [],
+        "rationale": "The source implementation leaves eigenvalue, residual, and residual_norm unbound when max_iterations is zero or negative because the loop does not execute. Requiring a positive iteration count prevents this undefined return path while preserving the intended algorithm."
+      }
+    }
+  ],
+  "final_approval": {
+    "reviewer_id": "tester-001",
+    "reviewer_role": "Mathematics/Numerical Linear Algebra Reviewer",
+    "reviewed_at": "2026-08-12T04:30:00+01:00",
+    "approval_statement": "I approve this contract as the frozen generation reference for the identified source version.",
+    "freeze_note": "Record the SHA-256 of this complete frozen contract outside this file before generation."
+  }
+}

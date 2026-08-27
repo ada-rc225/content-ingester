@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "review_id": "power-iteration-bridge-library-v1-review-v1",
+  "review_status": "approved",
+  "candidate_binding": {
+    "library_id": "power-iteration-bridge-library-v1",
+    "candidate_file": "bridge-library/power-iteration-v1/candidate-v3/bridge-library-candidate.json",
+    "candidate_sha256": "0cf91aafc1cabccdfaf369ad7d98eabd0114762c9cfaf8e85578e2b254b0c0be",
+    "validation_report_file": "bridge-library/power-iteration-v1/candidate-v3/bridge-library-validation-report.json",
+    "validation_report_sha256": "1cb6fdf8758a89fc2e89773c64e22e800aa4e25941ab2f4b0fd5f0d09a88319c"
+  },
+  "template_generator": {
+    "agent": "grounded-bridge-library-builder",
+    "agent_version": "1.0",
+    "skill": "build-grounded-bridge-library",
+    "skill_version": "1.0",
+    "generated_at": "2026-08-18T17:34:32Z"
+  },
+  "reviewer": {
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "mathematics-and-computing-bridge-reviewer"
+  },
+  "bridge_reviews": [
+    {
+      "bridge_contract_id": "BRC-VECTOR-NORMS-NORMALIZATION-v1",
+      "bridge_candidate_id": "BR-VECTOR-NORMS-NORMALIZATION-v1",
+      "concept_id": "vector-norms-and-normalization",
+      "requested_by_profile_ids": [
+        "computer-science-year-2-rq2-pilot",
+        "mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-005",
+        "RC-010",
+        "RC-016",
+        "RC-017"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04"
+      ],
+      "source_ids": [
+        "SRC-01"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "approved",
+        "content_boundary": "approved",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. The UCI/Mathematics LibreTexts course page directly defines the Euclidean norm as sqrt(x dot x), states that x dot x is zero exactly for the zero vector, restricts normalization to a nonzero vector, proves that x/||x|| has unit norm, and gives the exact (3,4)^T to (3/5,4/5)^T example. The URL was verified as reachable. The bridge remains limited to the norm, normalization procedure, and zero-vector safeguard required by RC-005, RC-010, RC-016, and RC-017; it does not introduce general normed-space theory, matrix norms, or power-iteration claims."
+    },
+    {
+      "bridge_contract_id": "BRC-ORTHOGONALITY-PROJECTION-v1",
+      "bridge_candidate_id": "BR-ORTHOGONALITY-PROJECTION-v1",
+      "concept_id": "orthogonality-and-projection",
+      "requested_by_profile_ids": [
+        "computer-science-year-2-rq2-pilot",
+        "mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-003",
+        "RC-006",
+        "RC-007",
+        "RC-012"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04"
+      ],
+      "source_ids": [
+        "SRC-01",
+        "SRC-02"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "approved",
+        "content_boundary": "approved",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. MIT OCW ZoomNotes explicitly gives x^T y = 0 for orthogonal vectors and the unit/cross-product conditions q_i^T q_i = 1 and q_i^T q_j = 0 for orthogonal columns. The MIT projection lecture summary derives the scalar coefficient a^T b/(a^T a); for a unit direction this correctly reduces to a^T b, and the worked example is a direct substitution. Both PDFs were verified as reachable. The revised bridge teaches only orthogonality, orthonormality, and the scalar coefficient v^T x, while excluding the spectral theorem, eigenbasis expansion, and power-iteration convergence content owned by the cited RC items."
+    },
+    {
+      "bridge_contract_id": "BRC-INNER-PRODUCTS-QUADRATIC-FORMS-v1",
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-QUADRATIC-FORMS-v1",
+      "concept_id": "inner-products-and-quadratic-forms",
+      "requested_by_profile_ids": [
+        "computer-science-year-2-rq2-pilot",
+        "mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-009",
+        "RC-010"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04"
+      ],
+      "source_ids": [
+        "SRC-01",
+        "SRC-02"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "approved",
+        "content_boundary": "approved",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. The UCI/Mathematics LibreTexts material directly defines x^T y as a scalar dot product, states non-negativity of x^T x, and establishes x^T x = ||x||_2^2. The existing MIT OCW problem solution supports forming Ax before computing x^T A x and remains reachable. Together the sources cover all four content blocks. The bridge supplies only the inner-product and quadratic-form operations needed by RC-009 and RC-010 and continues to exclude quadratic-form classification, positive-definiteness tests, Rayleigh-quotient interpretation, and stopping-rule content."
+    },
+    {
+      "bridge_contract_id": "BRC-NUMPY-VECTOR-OPERATIONS-v1",
+      "bridge_candidate_id": "BR-NUMPY-VECTOR-OPERATIONS-v1",
+      "concept_id": "numpy-vector-operations",
+      "requested_by_profile_ids": [
+        "applied-mathematics-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-016",
+        "RC-017",
+        "RC-018"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04",
+        "BC-05"
+      ],
+      "source_ids": [
+        "SRC-01",
+        "SRC-02",
+        "SRC-03",
+        "SRC-04",
+        "SRC-05",
+        "SRC-06"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "approved",
+        "content_boundary": "approved",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved and unchanged from the previously approved bridge. The official NumPy and Python documentation supports array conversion and shape inspection, matrix-vector multiplication, the default one-dimensional Euclidean norm, scalar-safe checks and explicit exceptions, and tuple packing/unpacking. The content remains restricted to the implementation prerequisites for RC-016, RC-017, and RC-018 and does not alter the Contract algorithm or introduce unrelated APIs."
+    }
+  ],
+  "overall_review": {
+    "decision": "approved",
+    "reviewed_at": "2026-08-18T17:41:39Z",
+    "comment": "Approved for the next workflow stage. Candidate-v3 resolves every source-quality issue identified in candidate-v2: all replacement mathematical sources are directly reachable and their inspected passages support the bound content blocks. The previously approved mathematical content, learner-profile demand, RC bindings, content boundaries, pathway/model hashes, and complete NumPy bridge are unchanged. Deterministic validation reports valid=true with zero errors and zero warnings. This approval freezes the human review decision for this candidate; promotion or release remains a separate workflow action."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "validator": "validate-bridge-library-v1",
+  "validated_at": "2026-08-20T00:03:38Z",
+  "valid": true,
+  "error_count": 0,
+  "warning_count": 0,
+  "inputs": {
+    "model": "curriculum-models/gradient-descent-v1/release/frozen-contract-dependencies.json",
+    "model_sha256": "fa97dab605d2cf1df6ac5fdeabc2c767bdf34e82829f5c2e496a44c5e41e4522",
+    "candidate": "bridge-library/gradient-descent-v1/candidate-v3/bridge-library-candidate.json",
+    "candidate_sha256": "ff52b32097fd1dfd4c3a62db20bc838e0adf1662ca9a0a6d898f2268fdc61218",
+    "pathway_review_pairs": [
+      {
+        "pathway": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-02/pathway-plan.json",
+        "review": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-02/pathway-plan-review.json"
+      },
+      {
+        "pathway": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-02/pathway-plan.json",
+        "review": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-02/pathway-plan-review.json"
+      },
+      {
+        "pathway": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-02/pathway-plan.json",
+        "review": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-02/pathway-plan-review.json"
+      }
+    ]
+  },
+  "metrics": {
+    "approved_pathway_count": 3,
+    "required_bridge_count": 4,
+    "candidate_bridge_count": 4,
+    "source_count": 7,
+    "content_block_count": 15
+  },
+  "errors": [],
+  "warnings": []
+}

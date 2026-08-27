@@ -1,0 +1,3453 @@
+{
+  "schema_version": "1.0",
+  "inventory_id": "gradient-descent-and-optimization-grounding-inventory",
+  "source": {
+    "source_id": "gradient-descent-and-optimization",
+    "path": "inputs/content-to-ingest/gradient_descent_and_optimization.md",
+    "format": "markdown",
+    "sha256": "2b0408679c70816ecf042a178ae0e79e60242f0c0c4450b56cfb35d6e91a6374"
+  },
+  "scope_policy": {
+    "included_roles": [
+      "core_material",
+      "derivation"
+    ],
+    "excluded_roles": [
+      "exercise"
+    ],
+    "exercise_detection": "markdown heading contains exercise or plural problems"
+  },
+  "source_units": [
+    {
+      "source_unit_id": "SU-001",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization"
+      ],
+      "locator": {
+        "line_start": 1,
+        "line_end": 1
+      },
+      "exact_text": "# Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization"
+    },
+    {
+      "source_unit_id": "SU-002",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization"
+      ],
+      "locator": {
+        "line_start": 3,
+        "line_end": 5
+      },
+      "exact_text": "**Course:** Advanced Numerical Optimization / Applied Mathematics  \n**Target Audience:** Advanced Undergraduate & Graduate Students in Mathematics  \n**Topic:** Unconstrained Optimization, Gradient Descent, Convergence Analysis, Acceleration, and Adaptive Algorithms  "
+    },
+    {
+      "source_unit_id": "SU-003",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization"
+      ],
+      "locator": {
+        "line_start": 7,
+        "line_end": 7
+      },
+      "exact_text": "---"
+    },
+    {
+      "source_unit_id": "SU-004",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "Table of Contents"
+      ],
+      "locator": {
+        "line_start": 9,
+        "line_end": 9
+      },
+      "exact_text": "## Table of Contents"
+    },
+    {
+      "source_unit_id": "SU-005",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "Table of Contents"
+      ],
+      "locator": {
+        "line_start": 10,
+        "line_end": 28
+      },
+      "exact_text": "1. [Introduction & Problem Formulation](#1-introduction--problem-formulation)\n2. [Smoothness and Convexity Foundations](#2-smoothness-and-convexity-foundations)\n   - 2.1 $L$-Smoothness (Lipschitz Continuous Gradient)\n   - 2.2 Convexity and $\\mu$-Strong Convexity\n3. [Standard Gradient Descent (GD)](#3-standard-gradient-descent-gd)\n   - 3.1 Algorithm Definition\n   - 3.2 Step-Size Selection Rules\n   - 3.3 Convergence Analysis for $L$-Smooth Convex Functions\n   - 3.4 Convergence Analysis for $\\mu$-Strongly Convex Functions\n4. [Momentum and Acceleration Methods](#4-momentum-and-acceleration-methods)\n   - 4.1 Polyak's Heavy-Ball Method\n   - 4.2 Nesterov's Accelerated Gradient (NAG)\n5. [Stochastic Gradient Optimization](#5-stochastic-gradient-optimization)\n   - 5.1 Formulation and Variance Properties\n   - 5.2 Adaptive Methods: AdaGrad, RMSProp, and Adam\n6. [Second-Order Methods (Brief Overview)](#6-second-order-methods-brief-overview)\n   - 6.1 Newton's Method and Local Quadratic Convergence\n   - 6.2 Quasi-Newton Methods (BFGS)\n7. [Exercises & Mathematical Proof Problems](#7-exercises--mathematical-proof-problems)"
+    },
+    {
+      "source_unit_id": "SU-006",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "Table of Contents"
+      ],
+      "locator": {
+        "line_start": 30,
+        "line_end": 30
+      },
+      "exact_text": "---"
+    },
+    {
+      "source_unit_id": "SU-007",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "1. Introduction & Problem Formulation"
+      ],
+      "locator": {
+        "line_start": 32,
+        "line_end": 32
+      },
+      "exact_text": "## 1. Introduction & Problem Formulation"
+    },
+    {
+      "source_unit_id": "SU-008",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "1. Introduction & Problem Formulation"
+      ],
+      "locator": {
+        "line_start": 34,
+        "line_end": 34
+      },
+      "exact_text": "In unconstrained mathematical optimization, we consider the canonical problem:"
+    },
+    {
+      "source_unit_id": "SU-009",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "1. Introduction & Problem Formulation"
+      ],
+      "locator": {
+        "line_start": 36,
+        "line_end": 38
+      },
+      "exact_text": "$$\n\\min_{x \\in \\mathbb{R}^d} f(x).\n$$"
+    },
+    {
+      "source_unit_id": "SU-010",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "1. Introduction & Problem Formulation"
+      ],
+      "locator": {
+        "line_start": 40,
+        "line_end": 40
+      },
+      "exact_text": "The objective $f: \\mathbb{R}^d \\to \\mathbb{R}$ is assumed to be at least continuously differentiable ($f \\in C^1$)."
+    },
+    {
+      "source_unit_id": "SU-011",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "1. Introduction & Problem Formulation",
+        "First-Order Necessary Condition (FONC)"
+      ],
+      "locator": {
+        "line_start": 42,
+        "line_end": 42
+      },
+      "exact_text": "### First-Order Necessary Condition (FONC)"
+    },
+    {
+      "source_unit_id": "SU-012",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "1. Introduction & Problem Formulation",
+        "First-Order Necessary Condition (FONC)"
+      ],
+      "locator": {
+        "line_start": 44,
+        "line_end": 44
+      },
+      "exact_text": "If $x^*$ is a local minimizer of $f$ and $f$ is differentiable at $x^*$, then:"
+    },
+    {
+      "source_unit_id": "SU-013",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "1. Introduction & Problem Formulation",
+        "First-Order Necessary Condition (FONC)"
+      ],
+      "locator": {
+        "line_start": 46,
+        "line_end": 48
+      },
+      "exact_text": "$$\n\\nabla f(x^*) = 0.\n$$"
+    },
+    {
+      "source_unit_id": "SU-014",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "1. Introduction & Problem Formulation",
+        "Second-Order Necessary and Sufficient Conditions"
+      ],
+      "locator": {
+        "line_start": 50,
+        "line_end": 50
+      },
+      "exact_text": "### Second-Order Necessary and Sufficient Conditions"
+    },
+    {
+      "source_unit_id": "SU-015",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "1. Introduction & Problem Formulation",
+        "Second-Order Necessary and Sufficient Conditions"
+      ],
+      "locator": {
+        "line_start": 52,
+        "line_end": 52
+      },
+      "exact_text": "If $f \\in C^2$:"
+    },
+    {
+      "source_unit_id": "SU-016",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "1. Introduction & Problem Formulation",
+        "Second-Order Necessary and Sufficient Conditions"
+      ],
+      "locator": {
+        "line_start": 54,
+        "line_end": 55
+      },
+      "exact_text": "- **Necessary:** If $x^*$ is a local minimizer, then $\\nabla f(x^*) = 0$ and $\\nabla^2 f(x^*) \\succeq 0$.\n- **Sufficient:** If $\\nabla f(x^*) = 0$ and $\\nabla^2 f(x^*) \\succ 0$, then $x^*$ is a strict local minimizer."
+    },
+    {
+      "source_unit_id": "SU-017",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "1. Introduction & Problem Formulation",
+        "Second-Order Necessary and Sufficient Conditions"
+      ],
+      "locator": {
+        "line_start": 57,
+        "line_end": 57
+      },
+      "exact_text": "First-order methods use function evaluations $f(x)$ and gradient evaluations $\\nabla f(x)$ to construct a sequence $\\{x_k\\}_{k=0}^{\\infty}$. Whether this sequence converges to a stationary point or to a global minimizer depends on the assumptions on $f$, the step-size rule, and the algorithm."
+    },
+    {
+      "source_unit_id": "SU-018",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "1. Introduction & Problem Formulation",
+        "Second-Order Necessary and Sufficient Conditions"
+      ],
+      "locator": {
+        "line_start": 59,
+        "line_end": 59
+      },
+      "exact_text": "---"
+    },
+    {
+      "source_unit_id": "SU-019",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations"
+      ],
+      "locator": {
+        "line_start": 61,
+        "line_end": 61
+      },
+      "exact_text": "## 2. Smoothness and Convexity Foundations"
+    },
+    {
+      "source_unit_id": "SU-020",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations"
+      ],
+      "locator": {
+        "line_start": 63,
+        "line_end": 63
+      },
+      "exact_text": "To establish quantitative convergence guarantees, we impose structural assumptions on $f$."
+    },
+    {
+      "source_unit_id": "SU-021",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.1 $L$-Smoothness"
+      ],
+      "locator": {
+        "line_start": 65,
+        "line_end": 65
+      },
+      "exact_text": "### 2.1 $L$-Smoothness"
+    },
+    {
+      "source_unit_id": "SU-022",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.1 $L$-Smoothness"
+      ],
+      "locator": {
+        "line_start": 67,
+        "line_end": 68
+      },
+      "exact_text": "**Definition 2.1 ($L$-Lipschitz Continuous Gradient):**  \nA continuously differentiable function $f: \\mathbb{R}^d \\to \\mathbb{R}$ is $L$-smooth ($L>0$) if"
+    },
+    {
+      "source_unit_id": "SU-023",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.1 $L$-Smoothness"
+      ],
+      "locator": {
+        "line_start": 70,
+        "line_end": 73
+      },
+      "exact_text": "$$\n\\|\\nabla f(x)-\\nabla f(y)\\| \\leq L\\|x-y\\|,\n\\qquad \\forall x,y\\in\\mathbb{R}^d.\n$$"
+    },
+    {
+      "source_unit_id": "SU-024",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.1 $L$-Smoothness"
+      ],
+      "locator": {
+        "line_start": 75,
+        "line_end": 75
+      },
+      "exact_text": "Here $\\|\\cdot\\|$ denotes the Euclidean norm."
+    },
+    {
+      "source_unit_id": "SU-025",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.1 $L$-Smoothness"
+      ],
+      "locator": {
+        "line_start": 77,
+        "line_end": 78
+      },
+      "exact_text": "**Lemma 2.1 (Descent Lemma / Quadratic Upper Bound):**  \nIf $f$ is $L$-smooth, then for all $x,y\\in\\mathbb{R}^d$,"
+    },
+    {
+      "source_unit_id": "SU-026",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.1 $L$-Smoothness"
+      ],
+      "locator": {
+        "line_start": 80,
+        "line_end": 83
+      },
+      "exact_text": "$$\nf(y)\\leq f(x)+\\langle\\nabla f(x),y-x\\rangle\n+\\frac{L}{2}\\|y-x\\|^2.\n$$"
+    },
+    {
+      "source_unit_id": "SU-027",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.1 $L$-Smoothness"
+      ],
+      "locator": {
+        "line_start": 85,
+        "line_end": 85
+      },
+      "exact_text": "*Proof outline:* By the fundamental theorem of calculus,"
+    },
+    {
+      "source_unit_id": "SU-028",
+      "unit_type": "display_math",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.1 $L$-Smoothness"
+      ],
+      "locator": {
+        "line_start": 87,
+        "line_end": 93
+      },
+      "exact_text": "$$\nf(y)-f(x)\n=\\int_0^1\n\\left\\langle\n\\nabla f\\bigl(x+t(y-x)\\bigr),y-x\n\\right\\rangle\\,dt.\n$$"
+    },
+    {
+      "source_unit_id": "SU-029",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.1 $L$-Smoothness"
+      ],
+      "locator": {
+        "line_start": 95,
+        "line_end": 95
+      },
+      "exact_text": "Subtract and add $\\langle\\nabla f(x),y-x\\rangle$, then apply the Cauchy--Schwarz inequality and the $L$-Lipschitz continuity of $\\nabla f$. $\\blacksquare$"
+    },
+    {
+      "source_unit_id": "SU-030",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity"
+      ],
+      "locator": {
+        "line_start": 97,
+        "line_end": 97
+      },
+      "exact_text": "### 2.2 Convexity and $\\mu$-Strong Convexity"
+    },
+    {
+      "source_unit_id": "SU-031",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity"
+      ],
+      "locator": {
+        "line_start": 99,
+        "line_end": 100
+      },
+      "exact_text": "**Definition 2.2 (Convexity):**  \nA differentiable function $f:\\mathbb{R}^d\\to\\mathbb{R}$ is convex if, for all $x,y\\in\\mathbb{R}^d$,"
+    },
+    {
+      "source_unit_id": "SU-032",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity"
+      ],
+      "locator": {
+        "line_start": 102,
+        "line_end": 104
+      },
+      "exact_text": "$$\nf(y)\\geq f(x)+\\langle\\nabla f(x),y-x\\rangle.\n$$"
+    },
+    {
+      "source_unit_id": "SU-033",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity"
+      ],
+      "locator": {
+        "line_start": 106,
+        "line_end": 107
+      },
+      "exact_text": "**Definition 2.3 ($\\mu$-Strong Convexity):**  \nA differentiable function $f$ is $\\mu$-strongly convex ($\\mu>0$) if, for all $x,y\\in\\mathbb{R}^d$,"
+    },
+    {
+      "source_unit_id": "SU-034",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity"
+      ],
+      "locator": {
+        "line_start": 109,
+        "line_end": 112
+      },
+      "exact_text": "$$\nf(y)\\geq f(x)+\\langle\\nabla f(x),y-x\\rangle\n+\\frac{\\mu}{2}\\|y-x\\|^2.\n$$"
+    },
+    {
+      "source_unit_id": "SU-035",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity",
+        "Characterization via Second Derivatives"
+      ],
+      "locator": {
+        "line_start": 114,
+        "line_end": 114
+      },
+      "exact_text": "#### Characterization via Second Derivatives"
+    },
+    {
+      "source_unit_id": "SU-036",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity",
+        "Characterization via Second Derivatives"
+      ],
+      "locator": {
+        "line_start": 116,
+        "line_end": 116
+      },
+      "exact_text": "If $f\\in C^2$:"
+    },
+    {
+      "source_unit_id": "SU-037",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity",
+        "Characterization via Second Derivatives"
+      ],
+      "locator": {
+        "line_start": 118,
+        "line_end": 118
+      },
+      "exact_text": "- $f$ is $L$-smooth if and only if $\\|\\nabla^2 f(x)\\|_2\\leq L$ for all $x$. If $f$ is also convex, this is equivalent to"
+    },
+    {
+      "source_unit_id": "SU-038",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity",
+        "Characterization via Second Derivatives"
+      ],
+      "locator": {
+        "line_start": 119,
+        "line_end": 122
+      },
+      "exact_text": "  $$\n  0\\preceq\\nabla^2 f(x)\\preceq LI,\n  \\qquad \\forall x.\n  $$"
+    },
+    {
+      "source_unit_id": "SU-039",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity",
+        "Characterization via Second Derivatives"
+      ],
+      "locator": {
+        "line_start": 123,
+        "line_end": 123
+      },
+      "exact_text": "- $f$ is $\\mu$-strongly convex if and only if"
+    },
+    {
+      "source_unit_id": "SU-040",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity",
+        "Characterization via Second Derivatives"
+      ],
+      "locator": {
+        "line_start": 124,
+        "line_end": 127
+      },
+      "exact_text": "  $$\n  \\nabla^2 f(x)\\succeq\\mu I,\n  \\qquad \\forall x.\n  $$"
+    },
+    {
+      "source_unit_id": "SU-041",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity",
+        "Characterization via Second Derivatives"
+      ],
+      "locator": {
+        "line_start": 128,
+        "line_end": 128
+      },
+      "exact_text": "- If $f$ is both $L$-smooth and $\\mu$-strongly convex, its condition number is"
+    },
+    {
+      "source_unit_id": "SU-042",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity",
+        "Characterization via Second Derivatives"
+      ],
+      "locator": {
+        "line_start": 129,
+        "line_end": 131
+      },
+      "exact_text": "  $$\n  \\kappa=\\frac{L}{\\mu}\\geq 1.\n  $$"
+    },
+    {
+      "source_unit_id": "SU-043",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity",
+        "Characterization via Second Derivatives"
+      ],
+      "locator": {
+        "line_start": 133,
+        "line_end": 133
+      },
+      "exact_text": "---"
+    },
+    {
+      "source_unit_id": "SU-044",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)"
+      ],
+      "locator": {
+        "line_start": 135,
+        "line_end": 135
+      },
+      "exact_text": "## 3. Standard Gradient Descent (GD)"
+    },
+    {
+      "source_unit_id": "SU-045",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.1 Algorithm Definition"
+      ],
+      "locator": {
+        "line_start": 137,
+        "line_end": 137
+      },
+      "exact_text": "### 3.1 Algorithm Definition"
+    },
+    {
+      "source_unit_id": "SU-046",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.1 Algorithm Definition"
+      ],
+      "locator": {
+        "line_start": 139,
+        "line_end": 139
+      },
+      "exact_text": "Given an initial point $x_0\\in\\mathbb{R}^d$ and positive step sizes $\\alpha_k$, gradient descent uses"
+    },
+    {
+      "source_unit_id": "SU-047",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.1 Algorithm Definition"
+      ],
+      "locator": {
+        "line_start": 141,
+        "line_end": 144
+      },
+      "exact_text": "$$\nx_{k+1}=x_k-\\alpha_k\\nabla f(x_k),\n\\qquad k=0,1,2,\\ldots.\n$$"
+    },
+    {
+      "source_unit_id": "SU-048",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.2 Step-Size Selection Rules"
+      ],
+      "locator": {
+        "line_start": 146,
+        "line_end": 146
+      },
+      "exact_text": "### 3.2 Step-Size Selection Rules"
+    },
+    {
+      "source_unit_id": "SU-049",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.2 Step-Size Selection Rules"
+      ],
+      "locator": {
+        "line_start": 148,
+        "line_end": 149
+      },
+      "exact_text": "1. **Constant step size:** $\\alpha_k=\\alpha$. When $L$ is known, common choices include $\\alpha=1/L$ and, under the usual smooth convex assumptions, $\\alpha\\in(0,2/L)$.\n2. **Exact line search:**"
+    },
+    {
+      "source_unit_id": "SU-050",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.2 Step-Size Selection Rules"
+      ],
+      "locator": {
+        "line_start": 150,
+        "line_end": 152
+      },
+      "exact_text": "   $$\n   \\alpha_k=\\arg\\min_{\\alpha>0}f\\bigl(x_k-\\alpha\\nabla f(x_k)\\bigr).\n   $$"
+    },
+    {
+      "source_unit_id": "SU-051",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.2 Step-Size Selection Rules"
+      ],
+      "locator": {
+        "line_start": 153,
+        "line_end": 153
+      },
+      "exact_text": "3. **Backtracking line search (Armijo condition):** Choose an initial trial step $\\bar{\\alpha}>0$, a contraction factor $\\eta\\in(0,1)$, and $c\\in(0,1)$. Find the smallest integer $m\\geq0$ for which $\\alpha_k=\\eta^m\\bar{\\alpha}$ satisfies"
+    },
+    {
+      "source_unit_id": "SU-052",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.2 Step-Size Selection Rules"
+      ],
+      "locator": {
+        "line_start": 154,
+        "line_end": 157
+      },
+      "exact_text": "   $$\n   f\\bigl(x_k-\\alpha_k\\nabla f(x_k)\\bigr)\n   \\leq f(x_k)-c\\alpha_k\\|\\nabla f(x_k)\\|^2.\n   $$"
+    },
+    {
+      "source_unit_id": "SU-053",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.2 Step-Size Selection Rules"
+      ],
+      "locator": {
+        "line_start": 159,
+        "line_end": 159
+      },
+      "exact_text": "---"
+    },
+    {
+      "source_unit_id": "SU-054",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions"
+      ],
+      "locator": {
+        "line_start": 161,
+        "line_end": 161
+      },
+      "exact_text": "### 3.3 Convergence Analysis for $L$-Smooth Convex Functions"
+    },
+    {
+      "source_unit_id": "SU-055",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions"
+      ],
+      "locator": {
+        "line_start": 163,
+        "line_end": 164
+      },
+      "exact_text": "**Theorem 3.1 ($O(1/k)$ Convergence Rate):**  \nLet $f:\\mathbb{R}^d\\to\\mathbb{R}$ be $L$-smooth and convex, let $x^*$ be a global minimizer, and use $\\alpha_k=1/L$. Then, for $k\\geq1$,"
+    },
+    {
+      "source_unit_id": "SU-056",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions"
+      ],
+      "locator": {
+        "line_start": 166,
+        "line_end": 170
+      },
+      "exact_text": "$$\nf(x_k)-f(x^*)\n\\leq\n\\frac{L\\|x_0-x^*\\|^2}{2k}.\n$$"
+    },
+    {
+      "source_unit_id": "SU-057",
+      "unit_type": "heading",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 172,
+        "line_end": 172
+      },
+      "exact_text": "#### Proof"
+    },
+    {
+      "source_unit_id": "SU-058",
+      "unit_type": "paragraph",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 174,
+        "line_end": 174
+      },
+      "exact_text": "1. Apply the Descent Lemma with"
+    },
+    {
+      "source_unit_id": "SU-059",
+      "unit_type": "display_math",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 175,
+        "line_end": 177
+      },
+      "exact_text": "   $$\n   x_{k+1}=x_k-\\frac{1}{L}\\nabla f(x_k)\n   $$"
+    },
+    {
+      "source_unit_id": "SU-060",
+      "unit_type": "paragraph",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 178,
+        "line_end": 178
+      },
+      "exact_text": "   to obtain"
+    },
+    {
+      "source_unit_id": "SU-061",
+      "unit_type": "display_math",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 179,
+        "line_end": 183
+      },
+      "exact_text": "   $$\n   f(x_{k+1})\n   \\leq\n   f(x_k)-\\frac{1}{2L}\\|\\nabla f(x_k)\\|^2.\n   $$"
+    },
+    {
+      "source_unit_id": "SU-062",
+      "unit_type": "paragraph",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 185,
+        "line_end": 185
+      },
+      "exact_text": "2. Convexity, applied with $x=x_k$ and $y=x^*$, gives"
+    },
+    {
+      "source_unit_id": "SU-063",
+      "unit_type": "display_math",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 186,
+        "line_end": 190
+      },
+      "exact_text": "   $$\n   f(x_k)-f(x^*)\n   \\leq\n   \\langle\\nabla f(x_k),x_k-x^*\\rangle.\n   $$"
+    },
+    {
+      "source_unit_id": "SU-064",
+      "unit_type": "paragraph",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 192,
+        "line_end": 192
+      },
+      "exact_text": "3. Combining the two inequalities yields"
+    },
+    {
+      "source_unit_id": "SU-065",
+      "unit_type": "display_math",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 193,
+        "line_end": 198
+      },
+      "exact_text": "   $$\n   f(x_{k+1})-f(x^*)\n   \\leq\n   \\langle\\nabla f(x_k),x_k-x^*\\rangle\n   -\\frac{1}{2L}\\|\\nabla f(x_k)\\|^2.\n   $$"
+    },
+    {
+      "source_unit_id": "SU-066",
+      "unit_type": "paragraph",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 200,
+        "line_end": 200
+      },
+      "exact_text": "4. Since $x_{k+1}=x_k-\\nabla f(x_k)/L$,"
+    },
+    {
+      "source_unit_id": "SU-067",
+      "unit_type": "display_math",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 201,
+        "line_end": 208
+      },
+      "exact_text": "   $$\n   f(x_{k+1})-f(x^*)\n   \\leq\n   \\frac{L}{2}\n   \\left(\n   \\|x_k-x^*\\|^2-\\|x_{k+1}-x^*\\|^2\n   \\right).\n   $$"
+    },
+    {
+      "source_unit_id": "SU-068",
+      "unit_type": "paragraph",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 210,
+        "line_end": 210
+      },
+      "exact_text": "5. Summing from $i=0$ to $k-1$ gives"
+    },
+    {
+      "source_unit_id": "SU-069",
+      "unit_type": "display_math",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 211,
+        "line_end": 221
+      },
+      "exact_text": "   $$\n   \\sum_{i=0}^{k-1}\n   \\bigl(f(x_{i+1})-f(x^*)\\bigr)\n   \\leq\n   \\frac{L}{2}\n   \\left(\n   \\|x_0-x^*\\|^2-\\|x_k-x^*\\|^2\n   \\right)\n   \\leq\n   \\frac{L}{2}\\|x_0-x^*\\|^2.\n   $$"
+    },
+    {
+      "source_unit_id": "SU-070",
+      "unit_type": "paragraph",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 223,
+        "line_end": 223
+      },
+      "exact_text": "6. The descent inequality shows that $f(x_i)$ is non-increasing. Therefore,"
+    },
+    {
+      "source_unit_id": "SU-071",
+      "unit_type": "display_math",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 224,
+        "line_end": 229
+      },
+      "exact_text": "   $$\n   k\\bigl(f(x_k)-f(x^*)\\bigr)\n   \\leq\n   \\sum_{i=0}^{k-1}\n   \\bigl(f(x_{i+1})-f(x^*)\\bigr),\n   $$"
+    },
+    {
+      "source_unit_id": "SU-072",
+      "unit_type": "paragraph",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 230,
+        "line_end": 230
+      },
+      "exact_text": "   which proves the result. $\\blacksquare$"
+    },
+    {
+      "source_unit_id": "SU-073",
+      "unit_type": "paragraph",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 232,
+        "line_end": 232
+      },
+      "exact_text": "---"
+    },
+    {
+      "source_unit_id": "SU-074",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.4 Convergence Analysis for $\\mu$-Strongly Convex Functions"
+      ],
+      "locator": {
+        "line_start": 234,
+        "line_end": 234
+      },
+      "exact_text": "### 3.4 Convergence Analysis for $\\mu$-Strongly Convex Functions"
+    },
+    {
+      "source_unit_id": "SU-075",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.4 Convergence Analysis for $\\mu$-Strongly Convex Functions"
+      ],
+      "locator": {
+        "line_start": 236,
+        "line_end": 237
+      },
+      "exact_text": "**Theorem 3.2 (Linear Convergence Rate):**  \nIf $f$ is $L$-smooth and $\\mu$-strongly convex, then gradient descent with"
+    },
+    {
+      "source_unit_id": "SU-076",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.4 Convergence Analysis for $\\mu$-Strongly Convex Functions"
+      ],
+      "locator": {
+        "line_start": 239,
+        "line_end": 241
+      },
+      "exact_text": "$$\n\\alpha=\\frac{2}{L+\\mu}\n$$"
+    },
+    {
+      "source_unit_id": "SU-077",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.4 Convergence Analysis for $\\mu$-Strongly Convex Functions"
+      ],
+      "locator": {
+        "line_start": 243,
+        "line_end": 243
+      },
+      "exact_text": "satisfies"
+    },
+    {
+      "source_unit_id": "SU-078",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.4 Convergence Analysis for $\\mu$-Strongly Convex Functions"
+      ],
+      "locator": {
+        "line_start": 245,
+        "line_end": 250
+      },
+      "exact_text": "$$\n\\|x_k-x^*\\|^2\n\\leq\n\\left(\\frac{\\kappa-1}{\\kappa+1}\\right)^{2k}\n\\|x_0-x^*\\|^2,\n$$"
+    },
+    {
+      "source_unit_id": "SU-079",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.4 Convergence Analysis for $\\mu$-Strongly Convex Functions"
+      ],
+      "locator": {
+        "line_start": 252,
+        "line_end": 252
+      },
+      "exact_text": "where $\\kappa=L/\\mu$. With $\\alpha=1/L$,"
+    },
+    {
+      "source_unit_id": "SU-080",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.4 Convergence Analysis for $\\mu$-Strongly Convex Functions"
+      ],
+      "locator": {
+        "line_start": 254,
+        "line_end": 259
+      },
+      "exact_text": "$$\nf(x_k)-f(x^*)\n\\leq\n\\left(1-\\frac{\\mu}{L}\\right)^k\n\\bigl(f(x_0)-f(x^*)\\bigr).\n$$"
+    },
+    {
+      "source_unit_id": "SU-081",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.4 Convergence Analysis for $\\mu$-Strongly Convex Functions"
+      ],
+      "locator": {
+        "line_start": 261,
+        "line_end": 261
+      },
+      "exact_text": "---"
+    },
+    {
+      "source_unit_id": "SU-082",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods"
+      ],
+      "locator": {
+        "line_start": 263,
+        "line_end": 263
+      },
+      "exact_text": "## 4. Momentum and Acceleration Methods"
+    },
+    {
+      "source_unit_id": "SU-083",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.1 Polyak's Heavy-Ball Method"
+      ],
+      "locator": {
+        "line_start": 265,
+        "line_end": 265
+      },
+      "exact_text": "### 4.1 Polyak's Heavy-Ball Method"
+    },
+    {
+      "source_unit_id": "SU-084",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.1 Polyak's Heavy-Ball Method"
+      ],
+      "locator": {
+        "line_start": 267,
+        "line_end": 267
+      },
+      "exact_text": "The heavy-ball method adds a momentum term:"
+    },
+    {
+      "source_unit_id": "SU-085",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.1 Polyak's Heavy-Ball Method"
+      ],
+      "locator": {
+        "line_start": 269,
+        "line_end": 272
+      },
+      "exact_text": "$$\nx_{k+1}\n=x_k-\\alpha\\nabla f(x_k)+\\beta(x_k-x_{k-1}),\n$$"
+    },
+    {
+      "source_unit_id": "SU-086",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.1 Polyak's Heavy-Ball Method"
+      ],
+      "locator": {
+        "line_start": 274,
+        "line_end": 274
+      },
+      "exact_text": "where $\\beta\\in[0,1)$. The parameters must be chosen to keep the iteration stable."
+    },
+    {
+      "source_unit_id": "SU-087",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.1 Polyak's Heavy-Ball Method"
+      ],
+      "locator": {
+        "line_start": 276,
+        "line_end": 276
+      },
+      "exact_text": "For a strongly convex quadratic"
+    },
+    {
+      "source_unit_id": "SU-088",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.1 Polyak's Heavy-Ball Method"
+      ],
+      "locator": {
+        "line_start": 278,
+        "line_end": 280
+      },
+      "exact_text": "$$\nf(x)=\\frac{1}{2}x^TAx,\n$$"
+    },
+    {
+      "source_unit_id": "SU-089",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.1 Polyak's Heavy-Ball Method"
+      ],
+      "locator": {
+        "line_start": 282,
+        "line_end": 282
+      },
+      "exact_text": "where $A$ is symmetric positive definite with spectrum contained in $[\\mu,L]$, the choices"
+    },
+    {
+      "source_unit_id": "SU-090",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.1 Polyak's Heavy-Ball Method"
+      ],
+      "locator": {
+        "line_start": 284,
+        "line_end": 291
+      },
+      "exact_text": "$$\n\\alpha^*=\\frac{4}{(\\sqrt{L}+\\sqrt{\\mu})^2},\n\\qquad\n\\beta^*=\n\\left(\n\\frac{\\sqrt{\\kappa}-1}{\\sqrt{\\kappa}+1}\n\\right)^2\n$$"
+    },
+    {
+      "source_unit_id": "SU-091",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.1 Polyak's Heavy-Ball Method"
+      ],
+      "locator": {
+        "line_start": 293,
+        "line_end": 293
+      },
+      "exact_text": "improve the dependence of the contraction factor on the condition number from $1-O(1/\\kappa)$ to $1-O(1/\\sqrt{\\kappa})$. These parameter claims are specific to the stated quadratic setting."
+    },
+    {
+      "source_unit_id": "SU-092",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.1 Polyak's Heavy-Ball Method"
+      ],
+      "locator": {
+        "line_start": 295,
+        "line_end": 295
+      },
+      "exact_text": "---"
+    },
+    {
+      "source_unit_id": "SU-093",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.2 Nesterov's Accelerated Gradient (NAG)"
+      ],
+      "locator": {
+        "line_start": 297,
+        "line_end": 297
+      },
+      "exact_text": "### 4.2 Nesterov's Accelerated Gradient (NAG)"
+    },
+    {
+      "source_unit_id": "SU-094",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.2 Nesterov's Accelerated Gradient (NAG)"
+      ],
+      "locator": {
+        "line_start": 299,
+        "line_end": 299
+      },
+      "exact_text": "For the following smooth-convex variant, initialize $y_0=x_0$ and $\\lambda_0=1$. For $k\\geq0$, first take the gradient step"
+    },
+    {
+      "source_unit_id": "SU-095",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.2 Nesterov's Accelerated Gradient (NAG)"
+      ],
+      "locator": {
+        "line_start": 301,
+        "line_end": 303
+      },
+      "exact_text": "$$\nx_{k+1}=y_k-\\frac{1}{L}\\nabla f(y_k),\n$$"
+    },
+    {
+      "source_unit_id": "SU-096",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.2 Nesterov's Accelerated Gradient (NAG)"
+      ],
+      "locator": {
+        "line_start": 305,
+        "line_end": 305
+      },
+      "exact_text": "then update the acceleration parameter and the next look-ahead point:"
+    },
+    {
+      "source_unit_id": "SU-097",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.2 Nesterov's Accelerated Gradient (NAG)"
+      ],
+      "locator": {
+        "line_start": 307,
+        "line_end": 311
+      },
+      "exact_text": "$$\n\\lambda_{k+1}\n=\n\\frac{1+\\sqrt{1+4\\lambda_k^2}}{2},\n$$"
+    },
+    {
+      "source_unit_id": "SU-098",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.2 Nesterov's Accelerated Gradient (NAG)"
+      ],
+      "locator": {
+        "line_start": 313,
+        "line_end": 319
+      },
+      "exact_text": "$$\ny_{k+1}\n=\nx_{k+1}\n+\\frac{\\lambda_k-1}{\\lambda_{k+1}}\n(x_{k+1}-x_k).\n$$"
+    },
+    {
+      "source_unit_id": "SU-099",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.2 Nesterov's Accelerated Gradient (NAG)"
+      ],
+      "locator": {
+        "line_start": 321,
+        "line_end": 321
+      },
+      "exact_text": "The gradient is evaluated at the current look-ahead point $y_k$, and the momentum coefficient $(\\lambda_k-1)/\\lambda_{k+1}$ is used to construct $y_{k+1}$."
+    },
+    {
+      "source_unit_id": "SU-100",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.2 Nesterov's Accelerated Gradient (NAG)"
+      ],
+      "locator": {
+        "line_start": 323,
+        "line_end": 324
+      },
+      "exact_text": "**Theorem 4.1 (Accelerated Rate):**  \nFor an $L$-smooth convex function with a global minimizer $x^*$, this parameterization satisfies"
+    },
+    {
+      "source_unit_id": "SU-101",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.2 Nesterov's Accelerated Gradient (NAG)"
+      ],
+      "locator": {
+        "line_start": 326,
+        "line_end": 331
+      },
+      "exact_text": "$$\nf(x_k)-f(x^*)\n\\leq\n\\frac{2L\\|x_0-x^*\\|^2}{(k+1)^2}\n=O\\left(\\frac{1}{k^2}\\right).\n$$"
+    },
+    {
+      "source_unit_id": "SU-102",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.2 Nesterov's Accelerated Gradient (NAG)"
+      ],
+      "locator": {
+        "line_start": 333,
+        "line_end": 333
+      },
+      "exact_text": "---"
+    },
+    {
+      "source_unit_id": "SU-103",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization"
+      ],
+      "locator": {
+        "line_start": 335,
+        "line_end": 335
+      },
+      "exact_text": "## 5. Stochastic Gradient Optimization"
+    },
+    {
+      "source_unit_id": "SU-104",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 337,
+        "line_end": 337
+      },
+      "exact_text": "### 5.1 Stochastic Gradient Descent (SGD)"
+    },
+    {
+      "source_unit_id": "SU-105",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 339,
+        "line_end": 339
+      },
+      "exact_text": "For an empirical objective"
+    },
+    {
+      "source_unit_id": "SU-106",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 341,
+        "line_end": 343
+      },
+      "exact_text": "$$\nf(x)=\\frac{1}{N}\\sum_{i=1}^N f_i(x),\n$$"
+    },
+    {
+      "source_unit_id": "SU-107",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 345,
+        "line_end": 345
+      },
+      "exact_text": "computing the full gradient is $O(N)$. SGD replaces it with a stochastic estimate $g_k(x_k)$. A common model assumes conditional unbiasedness and bounded conditional variance:"
+    },
+    {
+      "source_unit_id": "SU-108",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 347,
+        "line_end": 349
+      },
+      "exact_text": "$$\n\\mathbb{E}[g_k(x_k)\\mid x_k]=\\nabla f(x_k),\n$$"
+    },
+    {
+      "source_unit_id": "SU-109",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 351,
+        "line_end": 358
+      },
+      "exact_text": "$$\n\\mathbb{E}\n\\left[\n\\|g_k(x_k)-\\nabla f(x_k)\\|^2\n\\mid x_k\n\\right]\n\\leq\\sigma^2.\n$$"
+    },
+    {
+      "source_unit_id": "SU-110",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 360,
+        "line_end": 360
+      },
+      "exact_text": "The update is"
+    },
+    {
+      "source_unit_id": "SU-111",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 362,
+        "line_end": 364
+      },
+      "exact_text": "$$\nx_{k+1}=x_k-\\eta_k g_k(x_k).\n$$"
+    },
+    {
+      "source_unit_id": "SU-112",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 366,
+        "line_end": 366
+      },
+      "exact_text": "With persistent nonzero variance, a sufficiently small constant step size generally produces a nonzero error floor rather than exact convergence. For example, under standard smooth strongly convex assumptions, the expected error approaches a neighborhood whose size depends on the step size and noise variance."
+    },
+    {
+      "source_unit_id": "SU-113",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 368,
+        "line_end": 368
+      },
+      "exact_text": "For diminishing-step convergence results, the Robbins--Monro conditions are"
+    },
+    {
+      "source_unit_id": "SU-114",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 370,
+        "line_end": 374
+      },
+      "exact_text": "$$\n\\sum_{k=1}^{\\infty}\\eta_k=\\infty,\n\\qquad\n\\sum_{k=1}^{\\infty}\\eta_k^2<\\infty.\n$$"
+    },
+    {
+      "source_unit_id": "SU-115",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 376,
+        "line_end": 376
+      },
+      "exact_text": "These step-size conditions are not sufficient by themselves: a convergence theorem must also state appropriate assumptions on the objective, stochastic-gradient bias and moments, and stability of the iterates."
+    },
+    {
+      "source_unit_id": "SU-116",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 378,
+        "line_end": 378
+      },
+      "exact_text": "---"
+    },
+    {
+      "source_unit_id": "SU-117",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods"
+      ],
+      "locator": {
+        "line_start": 380,
+        "line_end": 380
+      },
+      "exact_text": "### 5.2 Adaptive Learning Rate Methods"
+    },
+    {
+      "source_unit_id": "SU-118",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods"
+      ],
+      "locator": {
+        "line_start": 382,
+        "line_end": 382
+      },
+      "exact_text": "In the following element-wise formulas, $\\epsilon>0$ prevents division by zero."
+    },
+    {
+      "source_unit_id": "SU-119",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "AdaGrad"
+      ],
+      "locator": {
+        "line_start": 384,
+        "line_end": 384
+      },
+      "exact_text": "#### AdaGrad"
+    },
+    {
+      "source_unit_id": "SU-120",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "AdaGrad"
+      ],
+      "locator": {
+        "line_start": 386,
+        "line_end": 386
+      },
+      "exact_text": "Starting with $v_{-1}=0$, and indexing gradients from $k=0$, accumulate squared gradients element-wise:"
+    },
+    {
+      "source_unit_id": "SU-121",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "AdaGrad"
+      ],
+      "locator": {
+        "line_start": 388,
+        "line_end": 390
+      },
+      "exact_text": "$$\nv_k=v_{k-1}+g_k\\odot g_k,\n$$"
+    },
+    {
+      "source_unit_id": "SU-122",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "AdaGrad"
+      ],
+      "locator": {
+        "line_start": 392,
+        "line_end": 396
+      },
+      "exact_text": "$$\nx_{k+1}\n=\nx_k-\\frac{\\eta}{\\sqrt{v_k}+\\epsilon}\\odot g_k.\n$$"
+    },
+    {
+      "source_unit_id": "SU-123",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "RMSProp"
+      ],
+      "locator": {
+        "line_start": 398,
+        "line_end": 398
+      },
+      "exact_text": "#### RMSProp"
+    },
+    {
+      "source_unit_id": "SU-124",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "RMSProp"
+      ],
+      "locator": {
+        "line_start": 400,
+        "line_end": 400
+      },
+      "exact_text": "Starting with $v_{-1}=0$ and using $\\gamma\\in[0,1)$, form an exponential moving average:"
+    },
+    {
+      "source_unit_id": "SU-125",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "RMSProp"
+      ],
+      "locator": {
+        "line_start": 402,
+        "line_end": 404
+      },
+      "exact_text": "$$\nv_k=\\gamma v_{k-1}+(1-\\gamma)g_k\\odot g_k,\n$$"
+    },
+    {
+      "source_unit_id": "SU-126",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "RMSProp"
+      ],
+      "locator": {
+        "line_start": 406,
+        "line_end": 410
+      },
+      "exact_text": "$$\nx_{k+1}\n=\nx_k-\\frac{\\eta}{\\sqrt{v_k}+\\epsilon}\\odot g_k.\n$$"
+    },
+    {
+      "source_unit_id": "SU-127",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "Adam"
+      ],
+      "locator": {
+        "line_start": 412,
+        "line_end": 412
+      },
+      "exact_text": "#### Adam"
+    },
+    {
+      "source_unit_id": "SU-128",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "Adam"
+      ],
+      "locator": {
+        "line_start": 414,
+        "line_end": 414
+      },
+      "exact_text": "Starting with $m_{-1}=v_{-1}=0$ and using $\\beta_1,\\beta_2\\in[0,1)$, form first- and second-moment estimates:"
+    },
+    {
+      "source_unit_id": "SU-129",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "Adam"
+      ],
+      "locator": {
+        "line_start": 416,
+        "line_end": 418
+      },
+      "exact_text": "$$\nm_k=\\beta_1m_{k-1}+(1-\\beta_1)g_k,\n$$"
+    },
+    {
+      "source_unit_id": "SU-130",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "Adam"
+      ],
+      "locator": {
+        "line_start": 420,
+        "line_end": 422
+      },
+      "exact_text": "$$\nv_k=\\beta_2v_{k-1}+(1-\\beta_2)(g_k\\odot g_k).\n$$"
+    },
+    {
+      "source_unit_id": "SU-131",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "Adam"
+      ],
+      "locator": {
+        "line_start": 424,
+        "line_end": 424
+      },
+      "exact_text": "For iterations indexed from $k=0$, apply bias correction:"
+    },
+    {
+      "source_unit_id": "SU-132",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "Adam"
+      ],
+      "locator": {
+        "line_start": 426,
+        "line_end": 430
+      },
+      "exact_text": "$$\n\\hat{m}_k=\\frac{m_k}{1-\\beta_1^{k+1}},\n\\qquad\n\\hat{v}_k=\\frac{v_k}{1-\\beta_2^{k+1}},\n$$"
+    },
+    {
+      "source_unit_id": "SU-133",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "Adam"
+      ],
+      "locator": {
+        "line_start": 432,
+        "line_end": 432
+      },
+      "exact_text": "and update"
+    },
+    {
+      "source_unit_id": "SU-134",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "Adam"
+      ],
+      "locator": {
+        "line_start": 434,
+        "line_end": 438
+      },
+      "exact_text": "$$\nx_{k+1}\n=\nx_k-\\frac{\\eta}{\\sqrt{\\hat{v}_k}+\\epsilon}\\odot\\hat{m}_k.\n$$"
+    },
+    {
+      "source_unit_id": "SU-135",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "Adam"
+      ],
+      "locator": {
+        "line_start": 440,
+        "line_end": 440
+      },
+      "exact_text": "---"
+    },
+    {
+      "source_unit_id": "SU-136",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)"
+      ],
+      "locator": {
+        "line_start": 442,
+        "line_end": 442
+      },
+      "exact_text": "## 6. Second-Order Methods (Brief Overview)"
+    },
+    {
+      "source_unit_id": "SU-137",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 444,
+        "line_end": 444
+      },
+      "exact_text": "### 6.1 Newton's Method"
+    },
+    {
+      "source_unit_id": "SU-138",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 446,
+        "line_end": 446
+      },
+      "exact_text": "Newton's method uses the second-order Taylor model"
+    },
+    {
+      "source_unit_id": "SU-139",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 448,
+        "line_end": 453
+      },
+      "exact_text": "$$\nf(x_k+p)\n\\approx\nf(x_k)+\\nabla f(x_k)^Tp\n+\\frac{1}{2}p^T\\nabla^2f(x_k)p.\n$$"
+    },
+    {
+      "source_unit_id": "SU-140",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 455,
+        "line_end": 455
+      },
+      "exact_text": "The Newton step $p_k$ solves"
+    },
+    {
+      "source_unit_id": "SU-141",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 457,
+        "line_end": 459
+      },
+      "exact_text": "$$\n\\nabla^2f(x_k)p_k=-\\nabla f(x_k),\n$$"
+    },
+    {
+      "source_unit_id": "SU-142",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 461,
+        "line_end": 461
+      },
+      "exact_text": "and the iterate is updated by"
+    },
+    {
+      "source_unit_id": "SU-143",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 463,
+        "line_end": 465
+      },
+      "exact_text": "$$\nx_{k+1}=x_k+p_k.\n$$"
+    },
+    {
+      "source_unit_id": "SU-144",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 467,
+        "line_end": 467
+      },
+      "exact_text": "When $\\nabla^2f(x_k)$ is invertible, this is mathematically equivalent to"
+    },
+    {
+      "source_unit_id": "SU-145",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 469,
+        "line_end": 473
+      },
+      "exact_text": "$$\nx_{k+1}\n=\nx_k-[\\nabla^2f(x_k)]^{-1}\\nabla f(x_k).\n$$"
+    },
+    {
+      "source_unit_id": "SU-146",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 475,
+        "line_end": 475
+      },
+      "exact_text": "In numerical implementations, solve the linear system for $p_k$ rather than explicitly forming the Hessian inverse."
+    },
+    {
+      "source_unit_id": "SU-147",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 477,
+        "line_end": 478
+      },
+      "exact_text": "**Theorem 6.1 (Local Quadratic Convergence):**  \nSuppose $\\nabla f(x^*)=0$, $\\nabla^2f(x^*)$ is positive definite, and $\\nabla^2f$ is Lipschitz continuous in a neighborhood of $x^*$. If $x_0$ is sufficiently close to $x^*$, then the Newton iterates are well defined locally and"
+    },
+    {
+      "source_unit_id": "SU-148",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 480,
+        "line_end": 484
+      },
+      "exact_text": "$$\n\\|x_{k+1}-x^*\\|\n\\leq\nC\\|x_k-x^*\\|^2\n$$"
+    },
+    {
+      "source_unit_id": "SU-149",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 486,
+        "line_end": 486
+      },
+      "exact_text": "for some constant $C>0$."
+    },
+    {
+      "source_unit_id": "SU-150",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 488,
+        "line_end": 488
+      },
+      "exact_text": "---"
+    },
+    {
+      "source_unit_id": "SU-151",
+      "unit_type": "heading",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.2 Quasi-Newton Methods (BFGS)"
+      ],
+      "locator": {
+        "line_start": 490,
+        "line_end": 490
+      },
+      "exact_text": "### 6.2 Quasi-Newton Methods (BFGS)"
+    },
+    {
+      "source_unit_id": "SU-152",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.2 Quasi-Newton Methods (BFGS)"
+      ],
+      "locator": {
+        "line_start": 492,
+        "line_end": 492
+      },
+      "exact_text": "Quasi-Newton methods construct Hessian approximations $B_k\\approx\\nabla^2f(x_k)$ or inverse-Hessian approximations $H_k\\approx[\\nabla^2f(x_k)]^{-1}$ from"
+    },
+    {
+      "source_unit_id": "SU-153",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.2 Quasi-Newton Methods (BFGS)"
+      ],
+      "locator": {
+        "line_start": 494,
+        "line_end": 498
+      },
+      "exact_text": "$$\ns_k=x_{k+1}-x_k,\n\\qquad\ny_k=\\nabla f(x_{k+1})-\\nabla f(x_k).\n$$"
+    },
+    {
+      "source_unit_id": "SU-154",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.2 Quasi-Newton Methods (BFGS)"
+      ],
+      "locator": {
+        "line_start": 500,
+        "line_end": 500
+      },
+      "exact_text": "The Hessian approximation satisfies the secant equation"
+    },
+    {
+      "source_unit_id": "SU-155",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.2 Quasi-Newton Methods (BFGS)"
+      ],
+      "locator": {
+        "line_start": 502,
+        "line_end": 504
+      },
+      "exact_text": "$$\nB_{k+1}s_k=y_k.\n$$"
+    },
+    {
+      "source_unit_id": "SU-156",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.2 Quasi-Newton Methods (BFGS)"
+      ],
+      "locator": {
+        "line_start": 506,
+        "line_end": 506
+      },
+      "exact_text": "For $y_k^Ts_k>0$, the inverse-Hessian BFGS update is"
+    },
+    {
+      "source_unit_id": "SU-157",
+      "unit_type": "display_math",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.2 Quasi-Newton Methods (BFGS)"
+      ],
+      "locator": {
+        "line_start": 508,
+        "line_end": 515
+      },
+      "exact_text": "$$\nH_{k+1}\n=\n(I-\\rho_k s_ky_k^T)H_k(I-\\rho_k y_ks_k^T)\n+\\rho_k s_ks_k^T,\n\\qquad\n\\rho_k=\\frac{1}{y_k^Ts_k}.\n$$"
+    },
+    {
+      "source_unit_id": "SU-158",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.2 Quasi-Newton Methods (BFGS)"
+      ],
+      "locator": {
+        "line_start": 517,
+        "line_end": 517
+      },
+      "exact_text": "The search direction is then $p_k=-H_k\\nabla f(x_k)$. In practice, a suitable line search is used to obtain $x_{k+1}=x_k+\\alpha_kp_k$ and to support the curvature condition $y_k^Ts_k>0$."
+    },
+    {
+      "source_unit_id": "SU-159",
+      "unit_type": "paragraph",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.2 Quasi-Newton Methods (BFGS)"
+      ],
+      "locator": {
+        "line_start": 519,
+        "line_end": 519
+      },
+      "exact_text": "---"
+    },
+    {
+      "source_unit_id": "SU-160",
+      "unit_type": "heading",
+      "scope_role": "exercise",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "7. Exercises & Mathematical Proof Problems"
+      ],
+      "locator": {
+        "line_start": 521,
+        "line_end": 521
+      },
+      "exact_text": "## 7. Exercises & Mathematical Proof Problems"
+    },
+    {
+      "source_unit_id": "SU-161",
+      "unit_type": "paragraph",
+      "scope_role": "exercise",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "7. Exercises & Mathematical Proof Problems"
+      ],
+      "locator": {
+        "line_start": 523,
+        "line_end": 524
+      },
+      "exact_text": "1. **Descent Lemma application:** Prove Lemma 2.1 directly using the integral form of Taylor's theorem.\n2. **Polyak momentum spectrum analysis:** Let $f(x)=\\frac{1}{2}x^TAx$, where $A\\in\\mathbb{R}^{d\\times d}$ is symmetric positive definite with eigenvalues $0<\\mu=\\lambda_1\\leq\\cdots\\leq\\lambda_d=L$. Express the heavy-ball iteration as a linear dynamical system"
+    },
+    {
+      "source_unit_id": "SU-162",
+      "unit_type": "display_math",
+      "scope_role": "exercise",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "7. Exercises & Mathematical Proof Problems"
+      ],
+      "locator": {
+        "line_start": 525,
+        "line_end": 536
+      },
+      "exact_text": "   $$\n   \\begin{bmatrix}\n   x_{k+1}\\\\\n   x_k\n   \\end{bmatrix}\n   =\n   T\n   \\begin{bmatrix}\n   x_k\\\\\n   x_{k-1}\n   \\end{bmatrix},\n   $$"
+    },
+    {
+      "source_unit_id": "SU-163",
+      "unit_type": "paragraph",
+      "scope_role": "exercise",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "7. Exercises & Mathematical Proof Problems"
+      ],
+      "locator": {
+        "line_start": 537,
+        "line_end": 538
+      },
+      "exact_text": "   and compute the spectral radius $\\rho(T)$.\n3. **Polyak--\u0141ojasiewicz condition:** Suppose $f$ is $L$-smooth, attains its global minimum value $f^*$, and satisfies the PL condition with $\\mu>0$:"
+    },
+    {
+      "source_unit_id": "SU-164",
+      "unit_type": "display_math",
+      "scope_role": "exercise",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "7. Exercises & Mathematical Proof Problems"
+      ],
+      "locator": {
+        "line_start": 539,
+        "line_end": 544
+      },
+      "exact_text": "   $$\n   \\frac{1}{2}\\|\\nabla f(x)\\|^2\n   \\geq\n   \\mu\\bigl(f(x)-f^*\\bigr),\n   \\qquad \\forall x.\n   $$"
+    },
+    {
+      "source_unit_id": "SU-165",
+      "unit_type": "paragraph",
+      "scope_role": "exercise",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "7. Exercises & Mathematical Proof Problems"
+      ],
+      "locator": {
+        "line_start": 545,
+        "line_end": 546
+      },
+      "exact_text": "   Prove that gradient descent with $\\alpha=1/L$ converges linearly in objective value, even though $f$ need not be convex.\n4. **Co-coercivity of the gradient:** Show that if $f:\\mathbb{R}^d\\to\\mathbb{R}$ is convex and $L$-smooth, then"
+    },
+    {
+      "source_unit_id": "SU-166",
+      "unit_type": "display_math",
+      "scope_role": "exercise",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "7. Exercises & Mathematical Proof Problems"
+      ],
+      "locator": {
+        "line_start": 547,
+        "line_end": 555
+      },
+      "exact_text": "   $$\n   \\left\\langle\n   \\nabla f(x)-\\nabla f(y),x-y\n   \\right\\rangle\n   \\geq\n   \\frac{1}{L}\n   \\|\\nabla f(x)-\\nabla f(y)\\|^2,\n   \\qquad \\forall x,y\\in\\mathbb{R}^d.\n   $$"
+    },
+    {
+      "source_unit_id": "SU-167",
+      "unit_type": "paragraph",
+      "scope_role": "exercise",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "7. Exercises & Mathematical Proof Problems"
+      ],
+      "locator": {
+        "line_start": 557,
+        "line_end": 557
+      },
+      "exact_text": "---"
+    },
+    {
+      "source_unit_id": "SU-168",
+      "unit_type": "paragraph",
+      "scope_role": "exercise",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "7. Exercises & Mathematical Proof Problems"
+      ],
+      "locator": {
+        "line_start": 559,
+        "line_end": 559
+      },
+      "exact_text": "*End of Lecture Notes.*"
+    }
+  ],
+  "formulas": [
+    {
+      "formula_id": "FM-001",
+      "source_unit_id": "SU-009",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "1. Introduction & Problem Formulation"
+      ],
+      "locator": {
+        "line_start": 36,
+        "line_end": 38
+      },
+      "exact_latex": "\\min_{x \\in \\mathbb{R}^d} f(x).",
+      "exact_block": "$$\n\\min_{x \\in \\mathbb{R}^d} f(x).\n$$"
+    },
+    {
+      "formula_id": "FM-002",
+      "source_unit_id": "SU-013",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "1. Introduction & Problem Formulation",
+        "First-Order Necessary Condition (FONC)"
+      ],
+      "locator": {
+        "line_start": 46,
+        "line_end": 48
+      },
+      "exact_latex": "\\nabla f(x^*) = 0.",
+      "exact_block": "$$\n\\nabla f(x^*) = 0.\n$$"
+    },
+    {
+      "formula_id": "FM-003",
+      "source_unit_id": "SU-023",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.1 $L$-Smoothness"
+      ],
+      "locator": {
+        "line_start": 70,
+        "line_end": 73
+      },
+      "exact_latex": "\\|\\nabla f(x)-\\nabla f(y)\\| \\leq L\\|x-y\\|,\n\\qquad \\forall x,y\\in\\mathbb{R}^d.",
+      "exact_block": "$$\n\\|\\nabla f(x)-\\nabla f(y)\\| \\leq L\\|x-y\\|,\n\\qquad \\forall x,y\\in\\mathbb{R}^d.\n$$"
+    },
+    {
+      "formula_id": "FM-004",
+      "source_unit_id": "SU-026",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.1 $L$-Smoothness"
+      ],
+      "locator": {
+        "line_start": 80,
+        "line_end": 83
+      },
+      "exact_latex": "f(y)\\leq f(x)+\\langle\\nabla f(x),y-x\\rangle\n+\\frac{L}{2}\\|y-x\\|^2.",
+      "exact_block": "$$\nf(y)\\leq f(x)+\\langle\\nabla f(x),y-x\\rangle\n+\\frac{L}{2}\\|y-x\\|^2.\n$$"
+    },
+    {
+      "formula_id": "FM-005",
+      "source_unit_id": "SU-028",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.1 $L$-Smoothness"
+      ],
+      "locator": {
+        "line_start": 87,
+        "line_end": 93
+      },
+      "exact_latex": "f(y)-f(x)\n=\\int_0^1\n\\left\\langle\n\\nabla f\\bigl(x+t(y-x)\\bigr),y-x\n\\right\\rangle\\,dt.",
+      "exact_block": "$$\nf(y)-f(x)\n=\\int_0^1\n\\left\\langle\n\\nabla f\\bigl(x+t(y-x)\\bigr),y-x\n\\right\\rangle\\,dt.\n$$"
+    },
+    {
+      "formula_id": "FM-006",
+      "source_unit_id": "SU-032",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity"
+      ],
+      "locator": {
+        "line_start": 102,
+        "line_end": 104
+      },
+      "exact_latex": "f(y)\\geq f(x)+\\langle\\nabla f(x),y-x\\rangle.",
+      "exact_block": "$$\nf(y)\\geq f(x)+\\langle\\nabla f(x),y-x\\rangle.\n$$"
+    },
+    {
+      "formula_id": "FM-007",
+      "source_unit_id": "SU-034",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity"
+      ],
+      "locator": {
+        "line_start": 109,
+        "line_end": 112
+      },
+      "exact_latex": "f(y)\\geq f(x)+\\langle\\nabla f(x),y-x\\rangle\n+\\frac{\\mu}{2}\\|y-x\\|^2.",
+      "exact_block": "$$\nf(y)\\geq f(x)+\\langle\\nabla f(x),y-x\\rangle\n+\\frac{\\mu}{2}\\|y-x\\|^2.\n$$"
+    },
+    {
+      "formula_id": "FM-008",
+      "source_unit_id": "SU-038",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity",
+        "Characterization via Second Derivatives"
+      ],
+      "locator": {
+        "line_start": 119,
+        "line_end": 122
+      },
+      "exact_latex": "  0\\preceq\\nabla^2 f(x)\\preceq LI,\n  \\qquad \\forall x.",
+      "exact_block": "  $$\n  0\\preceq\\nabla^2 f(x)\\preceq LI,\n  \\qquad \\forall x.\n  $$"
+    },
+    {
+      "formula_id": "FM-009",
+      "source_unit_id": "SU-040",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity",
+        "Characterization via Second Derivatives"
+      ],
+      "locator": {
+        "line_start": 124,
+        "line_end": 127
+      },
+      "exact_latex": "  \\nabla^2 f(x)\\succeq\\mu I,\n  \\qquad \\forall x.",
+      "exact_block": "  $$\n  \\nabla^2 f(x)\\succeq\\mu I,\n  \\qquad \\forall x.\n  $$"
+    },
+    {
+      "formula_id": "FM-010",
+      "source_unit_id": "SU-042",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "2. Smoothness and Convexity Foundations",
+        "2.2 Convexity and $\\mu$-Strong Convexity",
+        "Characterization via Second Derivatives"
+      ],
+      "locator": {
+        "line_start": 129,
+        "line_end": 131
+      },
+      "exact_latex": "  \\kappa=\\frac{L}{\\mu}\\geq 1.",
+      "exact_block": "  $$\n  \\kappa=\\frac{L}{\\mu}\\geq 1.\n  $$"
+    },
+    {
+      "formula_id": "FM-011",
+      "source_unit_id": "SU-047",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.1 Algorithm Definition"
+      ],
+      "locator": {
+        "line_start": 141,
+        "line_end": 144
+      },
+      "exact_latex": "x_{k+1}=x_k-\\alpha_k\\nabla f(x_k),\n\\qquad k=0,1,2,\\ldots.",
+      "exact_block": "$$\nx_{k+1}=x_k-\\alpha_k\\nabla f(x_k),\n\\qquad k=0,1,2,\\ldots.\n$$"
+    },
+    {
+      "formula_id": "FM-012",
+      "source_unit_id": "SU-050",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.2 Step-Size Selection Rules"
+      ],
+      "locator": {
+        "line_start": 150,
+        "line_end": 152
+      },
+      "exact_latex": "   \\alpha_k=\\arg\\min_{\\alpha>0}f\\bigl(x_k-\\alpha\\nabla f(x_k)\\bigr).",
+      "exact_block": "   $$\n   \\alpha_k=\\arg\\min_{\\alpha>0}f\\bigl(x_k-\\alpha\\nabla f(x_k)\\bigr).\n   $$"
+    },
+    {
+      "formula_id": "FM-013",
+      "source_unit_id": "SU-052",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.2 Step-Size Selection Rules"
+      ],
+      "locator": {
+        "line_start": 154,
+        "line_end": 157
+      },
+      "exact_latex": "   f\\bigl(x_k-\\alpha_k\\nabla f(x_k)\\bigr)\n   \\leq f(x_k)-c\\alpha_k\\|\\nabla f(x_k)\\|^2.",
+      "exact_block": "   $$\n   f\\bigl(x_k-\\alpha_k\\nabla f(x_k)\\bigr)\n   \\leq f(x_k)-c\\alpha_k\\|\\nabla f(x_k)\\|^2.\n   $$"
+    },
+    {
+      "formula_id": "FM-014",
+      "source_unit_id": "SU-056",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions"
+      ],
+      "locator": {
+        "line_start": 166,
+        "line_end": 170
+      },
+      "exact_latex": "f(x_k)-f(x^*)\n\\leq\n\\frac{L\\|x_0-x^*\\|^2}{2k}.",
+      "exact_block": "$$\nf(x_k)-f(x^*)\n\\leq\n\\frac{L\\|x_0-x^*\\|^2}{2k}.\n$$"
+    },
+    {
+      "formula_id": "FM-015",
+      "source_unit_id": "SU-059",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 175,
+        "line_end": 177
+      },
+      "exact_latex": "   x_{k+1}=x_k-\\frac{1}{L}\\nabla f(x_k)",
+      "exact_block": "   $$\n   x_{k+1}=x_k-\\frac{1}{L}\\nabla f(x_k)\n   $$"
+    },
+    {
+      "formula_id": "FM-016",
+      "source_unit_id": "SU-061",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 179,
+        "line_end": 183
+      },
+      "exact_latex": "   f(x_{k+1})\n   \\leq\n   f(x_k)-\\frac{1}{2L}\\|\\nabla f(x_k)\\|^2.",
+      "exact_block": "   $$\n   f(x_{k+1})\n   \\leq\n   f(x_k)-\\frac{1}{2L}\\|\\nabla f(x_k)\\|^2.\n   $$"
+    },
+    {
+      "formula_id": "FM-017",
+      "source_unit_id": "SU-063",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 186,
+        "line_end": 190
+      },
+      "exact_latex": "   f(x_k)-f(x^*)\n   \\leq\n   \\langle\\nabla f(x_k),x_k-x^*\\rangle.",
+      "exact_block": "   $$\n   f(x_k)-f(x^*)\n   \\leq\n   \\langle\\nabla f(x_k),x_k-x^*\\rangle.\n   $$"
+    },
+    {
+      "formula_id": "FM-018",
+      "source_unit_id": "SU-065",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 193,
+        "line_end": 198
+      },
+      "exact_latex": "   f(x_{k+1})-f(x^*)\n   \\leq\n   \\langle\\nabla f(x_k),x_k-x^*\\rangle\n   -\\frac{1}{2L}\\|\\nabla f(x_k)\\|^2.",
+      "exact_block": "   $$\n   f(x_{k+1})-f(x^*)\n   \\leq\n   \\langle\\nabla f(x_k),x_k-x^*\\rangle\n   -\\frac{1}{2L}\\|\\nabla f(x_k)\\|^2.\n   $$"
+    },
+    {
+      "formula_id": "FM-019",
+      "source_unit_id": "SU-067",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 201,
+        "line_end": 208
+      },
+      "exact_latex": "   f(x_{k+1})-f(x^*)\n   \\leq\n   \\frac{L}{2}\n   \\left(\n   \\|x_k-x^*\\|^2-\\|x_{k+1}-x^*\\|^2\n   \\right).",
+      "exact_block": "   $$\n   f(x_{k+1})-f(x^*)\n   \\leq\n   \\frac{L}{2}\n   \\left(\n   \\|x_k-x^*\\|^2-\\|x_{k+1}-x^*\\|^2\n   \\right).\n   $$"
+    },
+    {
+      "formula_id": "FM-020",
+      "source_unit_id": "SU-069",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 211,
+        "line_end": 221
+      },
+      "exact_latex": "   \\sum_{i=0}^{k-1}\n   \\bigl(f(x_{i+1})-f(x^*)\\bigr)\n   \\leq\n   \\frac{L}{2}\n   \\left(\n   \\|x_0-x^*\\|^2-\\|x_k-x^*\\|^2\n   \\right)\n   \\leq\n   \\frac{L}{2}\\|x_0-x^*\\|^2.",
+      "exact_block": "   $$\n   \\sum_{i=0}^{k-1}\n   \\bigl(f(x_{i+1})-f(x^*)\\bigr)\n   \\leq\n   \\frac{L}{2}\n   \\left(\n   \\|x_0-x^*\\|^2-\\|x_k-x^*\\|^2\n   \\right)\n   \\leq\n   \\frac{L}{2}\\|x_0-x^*\\|^2.\n   $$"
+    },
+    {
+      "formula_id": "FM-021",
+      "source_unit_id": "SU-071",
+      "scope_role": "derivation",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.3 Convergence Analysis for $L$-Smooth Convex Functions",
+        "Proof"
+      ],
+      "locator": {
+        "line_start": 224,
+        "line_end": 229
+      },
+      "exact_latex": "   k\\bigl(f(x_k)-f(x^*)\\bigr)\n   \\leq\n   \\sum_{i=0}^{k-1}\n   \\bigl(f(x_{i+1})-f(x^*)\\bigr),",
+      "exact_block": "   $$\n   k\\bigl(f(x_k)-f(x^*)\\bigr)\n   \\leq\n   \\sum_{i=0}^{k-1}\n   \\bigl(f(x_{i+1})-f(x^*)\\bigr),\n   $$"
+    },
+    {
+      "formula_id": "FM-022",
+      "source_unit_id": "SU-076",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.4 Convergence Analysis for $\\mu$-Strongly Convex Functions"
+      ],
+      "locator": {
+        "line_start": 239,
+        "line_end": 241
+      },
+      "exact_latex": "\\alpha=\\frac{2}{L+\\mu}",
+      "exact_block": "$$\n\\alpha=\\frac{2}{L+\\mu}\n$$"
+    },
+    {
+      "formula_id": "FM-023",
+      "source_unit_id": "SU-078",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.4 Convergence Analysis for $\\mu$-Strongly Convex Functions"
+      ],
+      "locator": {
+        "line_start": 245,
+        "line_end": 250
+      },
+      "exact_latex": "\\|x_k-x^*\\|^2\n\\leq\n\\left(\\frac{\\kappa-1}{\\kappa+1}\\right)^{2k}\n\\|x_0-x^*\\|^2,",
+      "exact_block": "$$\n\\|x_k-x^*\\|^2\n\\leq\n\\left(\\frac{\\kappa-1}{\\kappa+1}\\right)^{2k}\n\\|x_0-x^*\\|^2,\n$$"
+    },
+    {
+      "formula_id": "FM-024",
+      "source_unit_id": "SU-080",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "3. Standard Gradient Descent (GD)",
+        "3.4 Convergence Analysis for $\\mu$-Strongly Convex Functions"
+      ],
+      "locator": {
+        "line_start": 254,
+        "line_end": 259
+      },
+      "exact_latex": "f(x_k)-f(x^*)\n\\leq\n\\left(1-\\frac{\\mu}{L}\\right)^k\n\\bigl(f(x_0)-f(x^*)\\bigr).",
+      "exact_block": "$$\nf(x_k)-f(x^*)\n\\leq\n\\left(1-\\frac{\\mu}{L}\\right)^k\n\\bigl(f(x_0)-f(x^*)\\bigr).\n$$"
+    },
+    {
+      "formula_id": "FM-025",
+      "source_unit_id": "SU-085",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.1 Polyak's Heavy-Ball Method"
+      ],
+      "locator": {
+        "line_start": 269,
+        "line_end": 272
+      },
+      "exact_latex": "x_{k+1}\n=x_k-\\alpha\\nabla f(x_k)+\\beta(x_k-x_{k-1}),",
+      "exact_block": "$$\nx_{k+1}\n=x_k-\\alpha\\nabla f(x_k)+\\beta(x_k-x_{k-1}),\n$$"
+    },
+    {
+      "formula_id": "FM-026",
+      "source_unit_id": "SU-088",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.1 Polyak's Heavy-Ball Method"
+      ],
+      "locator": {
+        "line_start": 278,
+        "line_end": 280
+      },
+      "exact_latex": "f(x)=\\frac{1}{2}x^TAx,",
+      "exact_block": "$$\nf(x)=\\frac{1}{2}x^TAx,\n$$"
+    },
+    {
+      "formula_id": "FM-027",
+      "source_unit_id": "SU-090",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.1 Polyak's Heavy-Ball Method"
+      ],
+      "locator": {
+        "line_start": 284,
+        "line_end": 291
+      },
+      "exact_latex": "\\alpha^*=\\frac{4}{(\\sqrt{L}+\\sqrt{\\mu})^2},\n\\qquad\n\\beta^*=\n\\left(\n\\frac{\\sqrt{\\kappa}-1}{\\sqrt{\\kappa}+1}\n\\right)^2",
+      "exact_block": "$$\n\\alpha^*=\\frac{4}{(\\sqrt{L}+\\sqrt{\\mu})^2},\n\\qquad\n\\beta^*=\n\\left(\n\\frac{\\sqrt{\\kappa}-1}{\\sqrt{\\kappa}+1}\n\\right)^2\n$$"
+    },
+    {
+      "formula_id": "FM-028",
+      "source_unit_id": "SU-095",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.2 Nesterov's Accelerated Gradient (NAG)"
+      ],
+      "locator": {
+        "line_start": 301,
+        "line_end": 303
+      },
+      "exact_latex": "x_{k+1}=y_k-\\frac{1}{L}\\nabla f(y_k),",
+      "exact_block": "$$\nx_{k+1}=y_k-\\frac{1}{L}\\nabla f(y_k),\n$$"
+    },
+    {
+      "formula_id": "FM-029",
+      "source_unit_id": "SU-097",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.2 Nesterov's Accelerated Gradient (NAG)"
+      ],
+      "locator": {
+        "line_start": 307,
+        "line_end": 311
+      },
+      "exact_latex": "\\lambda_{k+1}\n=\n\\frac{1+\\sqrt{1+4\\lambda_k^2}}{2},",
+      "exact_block": "$$\n\\lambda_{k+1}\n=\n\\frac{1+\\sqrt{1+4\\lambda_k^2}}{2},\n$$"
+    },
+    {
+      "formula_id": "FM-030",
+      "source_unit_id": "SU-098",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.2 Nesterov's Accelerated Gradient (NAG)"
+      ],
+      "locator": {
+        "line_start": 313,
+        "line_end": 319
+      },
+      "exact_latex": "y_{k+1}\n=\nx_{k+1}\n+\\frac{\\lambda_k-1}{\\lambda_{k+1}}\n(x_{k+1}-x_k).",
+      "exact_block": "$$\ny_{k+1}\n=\nx_{k+1}\n+\\frac{\\lambda_k-1}{\\lambda_{k+1}}\n(x_{k+1}-x_k).\n$$"
+    },
+    {
+      "formula_id": "FM-031",
+      "source_unit_id": "SU-101",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "4. Momentum and Acceleration Methods",
+        "4.2 Nesterov's Accelerated Gradient (NAG)"
+      ],
+      "locator": {
+        "line_start": 326,
+        "line_end": 331
+      },
+      "exact_latex": "f(x_k)-f(x^*)\n\\leq\n\\frac{2L\\|x_0-x^*\\|^2}{(k+1)^2}\n=O\\left(\\frac{1}{k^2}\\right).",
+      "exact_block": "$$\nf(x_k)-f(x^*)\n\\leq\n\\frac{2L\\|x_0-x^*\\|^2}{(k+1)^2}\n=O\\left(\\frac{1}{k^2}\\right).\n$$"
+    },
+    {
+      "formula_id": "FM-032",
+      "source_unit_id": "SU-106",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 341,
+        "line_end": 343
+      },
+      "exact_latex": "f(x)=\\frac{1}{N}\\sum_{i=1}^N f_i(x),",
+      "exact_block": "$$\nf(x)=\\frac{1}{N}\\sum_{i=1}^N f_i(x),\n$$"
+    },
+    {
+      "formula_id": "FM-033",
+      "source_unit_id": "SU-108",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 347,
+        "line_end": 349
+      },
+      "exact_latex": "\\mathbb{E}[g_k(x_k)\\mid x_k]=\\nabla f(x_k),",
+      "exact_block": "$$\n\\mathbb{E}[g_k(x_k)\\mid x_k]=\\nabla f(x_k),\n$$"
+    },
+    {
+      "formula_id": "FM-034",
+      "source_unit_id": "SU-109",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 351,
+        "line_end": 358
+      },
+      "exact_latex": "\\mathbb{E}\n\\left[\n\\|g_k(x_k)-\\nabla f(x_k)\\|^2\n\\mid x_k\n\\right]\n\\leq\\sigma^2.",
+      "exact_block": "$$\n\\mathbb{E}\n\\left[\n\\|g_k(x_k)-\\nabla f(x_k)\\|^2\n\\mid x_k\n\\right]\n\\leq\\sigma^2.\n$$"
+    },
+    {
+      "formula_id": "FM-035",
+      "source_unit_id": "SU-111",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 362,
+        "line_end": 364
+      },
+      "exact_latex": "x_{k+1}=x_k-\\eta_k g_k(x_k).",
+      "exact_block": "$$\nx_{k+1}=x_k-\\eta_k g_k(x_k).\n$$"
+    },
+    {
+      "formula_id": "FM-036",
+      "source_unit_id": "SU-114",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.1 Stochastic Gradient Descent (SGD)"
+      ],
+      "locator": {
+        "line_start": 370,
+        "line_end": 374
+      },
+      "exact_latex": "\\sum_{k=1}^{\\infty}\\eta_k=\\infty,\n\\qquad\n\\sum_{k=1}^{\\infty}\\eta_k^2<\\infty.",
+      "exact_block": "$$\n\\sum_{k=1}^{\\infty}\\eta_k=\\infty,\n\\qquad\n\\sum_{k=1}^{\\infty}\\eta_k^2<\\infty.\n$$"
+    },
+    {
+      "formula_id": "FM-037",
+      "source_unit_id": "SU-121",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "AdaGrad"
+      ],
+      "locator": {
+        "line_start": 388,
+        "line_end": 390
+      },
+      "exact_latex": "v_k=v_{k-1}+g_k\\odot g_k,",
+      "exact_block": "$$\nv_k=v_{k-1}+g_k\\odot g_k,\n$$"
+    },
+    {
+      "formula_id": "FM-038",
+      "source_unit_id": "SU-122",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "AdaGrad"
+      ],
+      "locator": {
+        "line_start": 392,
+        "line_end": 396
+      },
+      "exact_latex": "x_{k+1}\n=\nx_k-\\frac{\\eta}{\\sqrt{v_k}+\\epsilon}\\odot g_k.",
+      "exact_block": "$$\nx_{k+1}\n=\nx_k-\\frac{\\eta}{\\sqrt{v_k}+\\epsilon}\\odot g_k.\n$$"
+    },
+    {
+      "formula_id": "FM-039",
+      "source_unit_id": "SU-125",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "RMSProp"
+      ],
+      "locator": {
+        "line_start": 402,
+        "line_end": 404
+      },
+      "exact_latex": "v_k=\\gamma v_{k-1}+(1-\\gamma)g_k\\odot g_k,",
+      "exact_block": "$$\nv_k=\\gamma v_{k-1}+(1-\\gamma)g_k\\odot g_k,\n$$"
+    },
+    {
+      "formula_id": "FM-040",
+      "source_unit_id": "SU-126",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "RMSProp"
+      ],
+      "locator": {
+        "line_start": 406,
+        "line_end": 410
+      },
+      "exact_latex": "x_{k+1}\n=\nx_k-\\frac{\\eta}{\\sqrt{v_k}+\\epsilon}\\odot g_k.",
+      "exact_block": "$$\nx_{k+1}\n=\nx_k-\\frac{\\eta}{\\sqrt{v_k}+\\epsilon}\\odot g_k.\n$$"
+    },
+    {
+      "formula_id": "FM-041",
+      "source_unit_id": "SU-129",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "Adam"
+      ],
+      "locator": {
+        "line_start": 416,
+        "line_end": 418
+      },
+      "exact_latex": "m_k=\\beta_1m_{k-1}+(1-\\beta_1)g_k,",
+      "exact_block": "$$\nm_k=\\beta_1m_{k-1}+(1-\\beta_1)g_k,\n$$"
+    },
+    {
+      "formula_id": "FM-042",
+      "source_unit_id": "SU-130",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "Adam"
+      ],
+      "locator": {
+        "line_start": 420,
+        "line_end": 422
+      },
+      "exact_latex": "v_k=\\beta_2v_{k-1}+(1-\\beta_2)(g_k\\odot g_k).",
+      "exact_block": "$$\nv_k=\\beta_2v_{k-1}+(1-\\beta_2)(g_k\\odot g_k).\n$$"
+    },
+    {
+      "formula_id": "FM-043",
+      "source_unit_id": "SU-132",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "Adam"
+      ],
+      "locator": {
+        "line_start": 426,
+        "line_end": 430
+      },
+      "exact_latex": "\\hat{m}_k=\\frac{m_k}{1-\\beta_1^{k+1}},\n\\qquad\n\\hat{v}_k=\\frac{v_k}{1-\\beta_2^{k+1}},",
+      "exact_block": "$$\n\\hat{m}_k=\\frac{m_k}{1-\\beta_1^{k+1}},\n\\qquad\n\\hat{v}_k=\\frac{v_k}{1-\\beta_2^{k+1}},\n$$"
+    },
+    {
+      "formula_id": "FM-044",
+      "source_unit_id": "SU-134",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "5. Stochastic Gradient Optimization",
+        "5.2 Adaptive Learning Rate Methods",
+        "Adam"
+      ],
+      "locator": {
+        "line_start": 434,
+        "line_end": 438
+      },
+      "exact_latex": "x_{k+1}\n=\nx_k-\\frac{\\eta}{\\sqrt{\\hat{v}_k}+\\epsilon}\\odot\\hat{m}_k.",
+      "exact_block": "$$\nx_{k+1}\n=\nx_k-\\frac{\\eta}{\\sqrt{\\hat{v}_k}+\\epsilon}\\odot\\hat{m}_k.\n$$"
+    },
+    {
+      "formula_id": "FM-045",
+      "source_unit_id": "SU-139",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 448,
+        "line_end": 453
+      },
+      "exact_latex": "f(x_k+p)\n\\approx\nf(x_k)+\\nabla f(x_k)^Tp\n+\\frac{1}{2}p^T\\nabla^2f(x_k)p.",
+      "exact_block": "$$\nf(x_k+p)\n\\approx\nf(x_k)+\\nabla f(x_k)^Tp\n+\\frac{1}{2}p^T\\nabla^2f(x_k)p.\n$$"
+    },
+    {
+      "formula_id": "FM-046",
+      "source_unit_id": "SU-141",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 457,
+        "line_end": 459
+      },
+      "exact_latex": "\\nabla^2f(x_k)p_k=-\\nabla f(x_k),",
+      "exact_block": "$$\n\\nabla^2f(x_k)p_k=-\\nabla f(x_k),\n$$"
+    },
+    {
+      "formula_id": "FM-047",
+      "source_unit_id": "SU-143",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 463,
+        "line_end": 465
+      },
+      "exact_latex": "x_{k+1}=x_k+p_k.",
+      "exact_block": "$$\nx_{k+1}=x_k+p_k.\n$$"
+    },
+    {
+      "formula_id": "FM-048",
+      "source_unit_id": "SU-145",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 469,
+        "line_end": 473
+      },
+      "exact_latex": "x_{k+1}\n=\nx_k-[\\nabla^2f(x_k)]^{-1}\\nabla f(x_k).",
+      "exact_block": "$$\nx_{k+1}\n=\nx_k-[\\nabla^2f(x_k)]^{-1}\\nabla f(x_k).\n$$"
+    },
+    {
+      "formula_id": "FM-049",
+      "source_unit_id": "SU-148",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.1 Newton's Method"
+      ],
+      "locator": {
+        "line_start": 480,
+        "line_end": 484
+      },
+      "exact_latex": "\\|x_{k+1}-x^*\\|\n\\leq\nC\\|x_k-x^*\\|^2",
+      "exact_block": "$$\n\\|x_{k+1}-x^*\\|\n\\leq\nC\\|x_k-x^*\\|^2\n$$"
+    },
+    {
+      "formula_id": "FM-050",
+      "source_unit_id": "SU-153",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.2 Quasi-Newton Methods (BFGS)"
+      ],
+      "locator": {
+        "line_start": 494,
+        "line_end": 498
+      },
+      "exact_latex": "s_k=x_{k+1}-x_k,\n\\qquad\ny_k=\\nabla f(x_{k+1})-\\nabla f(x_k).",
+      "exact_block": "$$\ns_k=x_{k+1}-x_k,\n\\qquad\ny_k=\\nabla f(x_{k+1})-\\nabla f(x_k).\n$$"
+    },
+    {
+      "formula_id": "FM-051",
+      "source_unit_id": "SU-155",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.2 Quasi-Newton Methods (BFGS)"
+      ],
+      "locator": {
+        "line_start": 502,
+        "line_end": 504
+      },
+      "exact_latex": "B_{k+1}s_k=y_k.",
+      "exact_block": "$$\nB_{k+1}s_k=y_k.\n$$"
+    },
+    {
+      "formula_id": "FM-052",
+      "source_unit_id": "SU-157",
+      "scope_role": "core_material",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "6. Second-Order Methods (Brief Overview)",
+        "6.2 Quasi-Newton Methods (BFGS)"
+      ],
+      "locator": {
+        "line_start": 508,
+        "line_end": 515
+      },
+      "exact_latex": "H_{k+1}\n=\n(I-\\rho_k s_ky_k^T)H_k(I-\\rho_k y_ks_k^T)\n+\\rho_k s_ks_k^T,\n\\qquad\n\\rho_k=\\frac{1}{y_k^Ts_k}.",
+      "exact_block": "$$\nH_{k+1}\n=\n(I-\\rho_k s_ky_k^T)H_k(I-\\rho_k y_ks_k^T)\n+\\rho_k s_ks_k^T,\n\\qquad\n\\rho_k=\\frac{1}{y_k^Ts_k}.\n$$"
+    },
+    {
+      "formula_id": "FM-053",
+      "source_unit_id": "SU-162",
+      "scope_role": "exercise",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "7. Exercises & Mathematical Proof Problems"
+      ],
+      "locator": {
+        "line_start": 525,
+        "line_end": 536
+      },
+      "exact_latex": "   \\begin{bmatrix}\n   x_{k+1}\\\\\n   x_k\n   \\end{bmatrix}\n   =\n   T\n   \\begin{bmatrix}\n   x_k\\\\\n   x_{k-1}\n   \\end{bmatrix},",
+      "exact_block": "   $$\n   \\begin{bmatrix}\n   x_{k+1}\\\\\n   x_k\n   \\end{bmatrix}\n   =\n   T\n   \\begin{bmatrix}\n   x_k\\\\\n   x_{k-1}\n   \\end{bmatrix},\n   $$"
+    },
+    {
+      "formula_id": "FM-054",
+      "source_unit_id": "SU-164",
+      "scope_role": "exercise",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "7. Exercises & Mathematical Proof Problems"
+      ],
+      "locator": {
+        "line_start": 539,
+        "line_end": 544
+      },
+      "exact_latex": "   \\frac{1}{2}\\|\\nabla f(x)\\|^2\n   \\geq\n   \\mu\\bigl(f(x)-f^*\\bigr),\n   \\qquad \\forall x.",
+      "exact_block": "   $$\n   \\frac{1}{2}\\|\\nabla f(x)\\|^2\n   \\geq\n   \\mu\\bigl(f(x)-f^*\\bigr),\n   \\qquad \\forall x.\n   $$"
+    },
+    {
+      "formula_id": "FM-055",
+      "source_unit_id": "SU-166",
+      "scope_role": "exercise",
+      "heading_path": [
+        "Lecture Notes: Mathematical Foundations of Gradient Descent and First-Order Optimization",
+        "7. Exercises & Mathematical Proof Problems"
+      ],
+      "locator": {
+        "line_start": 547,
+        "line_end": 555
+      },
+      "exact_latex": "   \\left\\langle\n   \\nabla f(x)-\\nabla f(y),x-y\n   \\right\\rangle\n   \\geq\n   \\frac{1}{L}\n   \\|\\nabla f(x)-\\nabla f(y)\\|^2,\n   \\qquad \\forall x,y\\in\\mathbb{R}^d.",
+      "exact_block": "   $$\n   \\left\\langle\n   \\nabla f(x)-\\nabla f(y),x-y\n   \\right\\rangle\n   \\geq\n   \\frac{1}{L}\n   \\|\\nabla f(x)-\\nabla f(y)\\|^2,\n   \\qquad \\forall x,y\\in\\mathbb{R}^d.\n   $$"
+    }
+  ]
+}

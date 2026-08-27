@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "run_id": "power-iteration-p2-mechanical-engineering-pilot-run-02",
+  "lesson_file": "lesson.md",
+  "sections": [
+    {
+      "section_id": "SEC-01",
+      "heading": "Eigenpairs and the dominant direction",
+      "unit_ids": ["PI-ME-U01", "PI-ME-U02"],
+      "contract_item_ids": ["RC-001", "RC-014"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-02",
+      "heading": "Projection coordinates in the symmetric setting",
+      "unit_ids": ["BRIDGE-002", "PI-ME-U03", "PI-ME-U04"],
+      "contract_item_ids": ["RC-003", "RC-004"],
+      "bridge_contract_ids": ["BRC-ORTHOGONALITY-PROJECTION-v1"]
+    },
+    {
+      "section_id": "SEC-03",
+      "heading": "Normalize each matrix-vector update",
+      "unit_ids": ["BRIDGE-001", "PI-ME-U05", "PI-ME-U08"],
+      "contract_item_ids": ["RC-005", "RC-008"],
+      "bridge_contract_ids": ["BRC-VECTOR-NORMS-NORMALIZATION-v1"]
+    },
+    {
+      "section_id": "SEC-04",
+      "heading": "Estimate an eigenvalue and measure the residual",
+      "unit_ids": ["BRIDGE-003", "PI-ME-U09", "PI-ME-U10"],
+      "contract_item_ids": ["RC-009", "RC-010"],
+      "bridge_contract_ids": ["BRC-INNER-PRODUCTS-QUADRATIC-FORMS-v1"]
+    },
+    {
+      "section_id": "SEC-05",
+      "heading": "A safeguarded NumPy implementation",
+      "unit_ids": ["PI-ME-U11", "PI-ME-U12", "PI-ME-U13"],
+      "contract_item_ids": ["RC-011", "RC-016", "RC-017"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-06",
+      "heading": "Why a dominant component emerges",
+      "unit_ids": ["PI-ME-U06", "PI-ME-U07"],
+      "contract_item_ids": ["RC-006", "RC-007"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-07",
+      "heading": "Diagnose limitations before trusting the result",
+      "unit_ids": ["PI-ME-U14", "PI-ME-U15", "PI-ME-U16"],
+      "contract_item_ids": ["RC-012", "RC-013", "RC-015"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-08",
+      "heading": "Consolidation with an idealized two-coordinate model",
+      "unit_ids": ["PI-ME-U17"],
+      "contract_item_ids": ["RC-018"],
+      "bridge_contract_ids": []
+    }
+  ]
+}

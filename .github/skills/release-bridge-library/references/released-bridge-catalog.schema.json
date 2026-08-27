@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/released-bridge-catalog.schema.json",
+  "title": "Released RQ2 Bridge Catalog",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "library_id",
+    "topic_id",
+    "status",
+    "generated_by",
+    "curriculum_model_binding",
+    "pathway_bindings",
+    "bridges",
+    "approval"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "library_id": {"type": "string", "minLength": 1},
+    "topic_id": {"type": "string", "minLength": 1},
+    "status": {"const": "released"},
+    "generated_by": {"type": "object"},
+    "curriculum_model_binding": {"type": "object"},
+    "pathway_bindings": {"type": "array", "minItems": 1},
+    "bridges": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "bridge_contract_id",
+          "bridge_candidate_id",
+          "concept_id",
+          "status",
+          "teaching_content",
+          "sources"
+        ],
+        "properties": {
+          "bridge_contract_id": {"type": "string", "minLength": 1},
+          "bridge_candidate_id": {"type": "string", "minLength": 1},
+          "concept_id": {"type": "string", "minLength": 1},
+          "status": {"const": "released"},
+          "teaching_content": {"type": "array", "minItems": 1},
+          "sources": {"type": "array", "minItems": 1}
+        }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "required": [
+        "review_id",
+        "reviewer_id",
+        "reviewer_role",
+        "reviewed_at",
+        "review_sha256",
+        "release_gate",
+        "released_at"
+      ],
+      "properties": {
+        "release_gate": {"const": "bridge-library-release-gate-v1"}
+      }
+    }
+  }
+}

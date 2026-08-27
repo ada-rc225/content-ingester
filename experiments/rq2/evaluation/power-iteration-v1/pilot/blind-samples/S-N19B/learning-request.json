@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "request_id": "power-iteration-second-year-v1",
+  "request_version": "1.0.0",
+  "topic": "power iteration",
+  "audience_scope": {
+    "education_level": "second-year undergraduate",
+    "discipline_neutral": true,
+    "shared_across_profiles": true
+  },
+  "learning_goal": "Understand and apply power iteration, interpret the quality of an approximate eigenpair, and recognise the principal assumptions and limitations that affect convergence.",
+  "target_capabilities": [
+    {
+      "capability_id": "LG-001",
+      "description": "Explain the purpose of power iteration and carry out or trace its matrix-vector multiplication and normalisation update.",
+      "priority": "required"
+    },
+    {
+      "capability_id": "LG-002",
+      "description": "Use an eigenvalue estimate and residual to interpret the quality of an approximate eigenpair and a stopping decision.",
+      "priority": "required"
+    },
+    {
+      "capability_id": "LG-003",
+      "description": "Recognise and explain the main assumptions, failure conditions, or limitations relevant to a selected power-iteration pathway.",
+      "priority": "required"
+    },
+    {
+      "capability_id": "LG-004",
+      "description": "Read, trace, or construct an executable implementation of power iteration with basic input, breakdown, and stopping safeguards.",
+      "priority": "optional"
+    }
+  ],
+  "delivery_constraints": {
+    "target_duration_minutes": 90,
+    "output_form": "one_continuous_student_facing_lesson",
+    "learning_units_are_pages": false,
+    "target_depth": "intermediate",
+    "proof_depth": "profile_adaptive",
+    "implementation_depth": "profile_adaptive"
+  }
+}

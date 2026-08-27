@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "materializer": "released-bridge-pathway-materializer-v1",
+  "materialized_at": "2026-08-18T22:37:05Z",
+  "rule_id": "first-consuming-unit-v1",
+  "parent_pathway": {
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-02/pathway-plan.json",
+    "sha256": "d7bdb6766a58b279e82904aab170c5965291d262771869a1bd45c2fbb4db4bd6"
+  },
+  "parent_review": {
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-02/pathway-plan-review.json",
+    "sha256": "5acb05380fbeb1c1c202b955c2b5ea4c3a1b9b9db458ab0e2c14366ecf11d7f5"
+  },
+  "bridge_catalog": {
+    "file": "bridge-library/power-iteration-v1/release/released-bridge-catalog.json",
+    "sha256": "59179ad7d12db14704efc703b817b2564bf5082ac479702643eebecd194e030d"
+  },
+  "bridge_release_report": {
+    "file": "bridge-library/power-iteration-v1/release/bridge-library-release-report.json",
+    "sha256": "0a41257d8143d47ba87a08c44446d6e9bc9b7fca5ca8208d63856165878b9a10"
+  },
+  "resolved_bridges": [
+    {
+      "requirement_id": "BRQ-001",
+      "concept_id": "vector-norms-and-normalization",
+      "bridge_candidate_id": "BR-VECTOR-NORMS-NORMALIZATION-v1",
+      "bridge_contract_id": "BRC-VECTOR-NORMS-NORMALIZATION-v1",
+      "bridge_unit_id": "BRIDGE-001",
+      "first_consumer_unit_id": "CS-PI-U04",
+      "required_by_item_ids": [
+        "RC-005",
+        "RC-010",
+        "RC-016",
+        "RC-017"
+      ]
+    },
+    {
+      "requirement_id": "BRQ-002",
+      "concept_id": "orthogonality-and-projection",
+      "bridge_candidate_id": "BR-ORTHOGONALITY-PROJECTION-v1",
+      "bridge_contract_id": "BRC-ORTHOGONALITY-PROJECTION-v1",
+      "bridge_unit_id": "BRIDGE-002",
+      "first_consumer_unit_id": "CS-PI-U03",
+      "required_by_item_ids": [
+        "RC-003",
+        "RC-006",
+        "RC-007",
+        "RC-012"
+      ]
+    },
+    {
+      "requirement_id": "BRQ-003",
+      "concept_id": "inner-products-and-quadratic-forms",
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-QUADRATIC-FORMS-v1",
+      "bridge_contract_id": "BRC-INNER-PRODUCTS-QUADRATIC-FORMS-v1",
+      "bridge_unit_id": "BRIDGE-003",
+      "first_consumer_unit_id": "CS-PI-U07",
+      "required_by_item_ids": [
+        "RC-009",
+        "RC-010"
+      ]
+    }
+  ],
+  "output_pathway": {
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-03/pathway-plan.json",
+    "sha256": "2af2c195b99334e466a52c70a1b4fe7fc7cb971b6fd930e603ed3aee8cd16517"
+  }
+}

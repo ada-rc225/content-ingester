@@ -1,0 +1,492 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/rq2-unified-pathway-plan.schema.json",
+  "title": "RQ2 Unified P0/P1/P2 Pathway Plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "pathway_id",
+    "condition",
+    "plan_status",
+    "topic",
+    "source_authorities",
+    "profile_binding",
+    "profile_concept_assessment_binding",
+    "learning_request_binding",
+    "baseline_pathway_binding",
+    "selection_authority",
+    "selection",
+    "learning_goal_mappings",
+    "learning_units",
+    "instruction_sequence",
+    "bridge_requirements",
+    "pathway_changes",
+    "scope_summary",
+    "rendering_policy",
+    "generated_by"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "pathway_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9]+(?:[-_.][A-Za-z0-9]+)*$"
+    },
+    "condition": {
+      "type": "string",
+      "enum": ["P0", "P1", "P2"]
+    },
+    "plan_status": {
+      "type": "string",
+      "enum": ["provisional", "complete"]
+    },
+    "topic": {"type": "string", "minLength": 1},
+    "source_authorities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reference_contract", "curriculum_model"],
+      "properties": {
+        "reference_contract": {"$ref": "#/$defs/referenceContractBinding"},
+        "curriculum_model": {
+          "oneOf": [
+            {"type": "null"},
+            {"$ref": "#/$defs/curriculumModelBinding"}
+          ]
+        }
+      }
+    },
+    "profile_binding": {
+      "oneOf": [
+        {"type": "null"},
+        {"$ref": "#/$defs/profileBinding"}
+      ]
+    },
+    "profile_concept_assessment_binding": {
+      "oneOf": [
+        {"type": "null"},
+        {"$ref": "#/$defs/artifactBinding"}
+      ]
+    },
+    "learning_request_binding": {"$ref": "#/$defs/learningRequestBinding"},
+    "baseline_pathway_binding": {
+      "oneOf": [
+        {"type": "null"},
+        {"$ref": "#/$defs/baselinePathwayBinding"}
+      ]
+    },
+    "selection_authority": {
+      "type": "string",
+      "enum": ["fixed_baseline", "dependency_aware_planner"]
+    },
+    "selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "all_contract_item_ids",
+        "selected_item_ids",
+        "excluded_item_ids",
+        "decisions"
+      ],
+      "properties": {
+        "all_contract_item_ids": {"$ref": "#/$defs/itemIdArray"},
+        "selected_item_ids": {"$ref": "#/$defs/itemIdArray"},
+        "excluded_item_ids": {"$ref": "#/$defs/itemIdArray"},
+        "decisions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/selectionDecision"}
+        }
+      }
+    },
+    "learning_goal_mappings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/learningGoalMapping"}
+    },
+    "learning_units": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/learningUnit"}
+    },
+    "instruction_sequence": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9]+(?:[-_.][A-Za-z0-9]+)*$"
+      }
+    },
+    "bridge_requirements": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/bridgeRequirement"}
+    },
+    "pathway_changes": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/pathwayChange"}
+    },
+    "scope_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "selected_contract_item_count",
+        "excluded_contract_item_count",
+        "critical_item_count",
+        "formula_count",
+        "algorithm_or_code_item_count",
+        "released_bridge_count",
+        "estimated_duration_minutes"
+      ],
+      "properties": {
+        "selected_contract_item_count": {"type": "integer", "minimum": 1},
+        "excluded_contract_item_count": {"type": "integer", "minimum": 0},
+        "critical_item_count": {"type": "integer", "minimum": 0},
+        "formula_count": {"type": "integer", "minimum": 0},
+        "algorithm_or_code_item_count": {"type": "integer", "minimum": 0},
+        "released_bridge_count": {"type": "integer", "minimum": 0},
+        "estimated_duration_minutes": {"type": "integer", "minimum": 1}
+      }
+    },
+    "rendering_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["output_form", "learning_units_are_pages", "target_duration_minutes"],
+      "properties": {
+        "output_form": {"const": "one_continuous_student_facing_lesson"},
+        "learning_units_are_pages": {"const": false},
+        "target_duration_minutes": {"type": "integer", "minimum": 1}
+      }
+    },
+    "generated_by": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["producer", "producer_version", "method", "generated_at"],
+      "properties": {
+        "producer": {"type": "string", "minLength": 1},
+        "producer_version": {"type": "string", "minLength": 1},
+        "method": {
+          "type": "string",
+          "enum": [
+            "deterministic_baseline_normalization",
+            "deterministic_P0_copy",
+            "adaptive_pathway_planning"
+          ]
+        },
+        "generated_at": {"type": "string", "format": "date-time"}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"condition": {"const": "P0"}},
+        "required": ["condition"]
+      },
+      "then": {
+        "properties": {
+          "plan_status": {"const": "complete"},
+          "source_authorities": {
+            "properties": {"curriculum_model": {"type": "null"}}
+          },
+          "profile_binding": {"type": "null"},
+          "profile_concept_assessment_binding": {"type": "null"},
+          "baseline_pathway_binding": {"type": "null"},
+          "selection_authority": {"const": "fixed_baseline"},
+          "bridge_requirements": {"maxItems": 0},
+          "pathway_changes": {"maxItems": 0},
+          "generated_by": {
+            "properties": {"method": {"const": "deterministic_baseline_normalization"}}
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"condition": {"const": "P1"}},
+        "required": ["condition"]
+      },
+      "then": {
+        "properties": {
+          "plan_status": {"const": "complete"},
+          "source_authorities": {
+            "properties": {"curriculum_model": {"type": "null"}}
+          },
+          "profile_binding": {"$ref": "#/$defs/profileBinding"},
+          "profile_concept_assessment_binding": {"type": "null"},
+          "baseline_pathway_binding": {"$ref": "#/$defs/baselinePathwayBinding"},
+          "selection_authority": {"const": "fixed_baseline"},
+          "bridge_requirements": {"maxItems": 0},
+          "pathway_changes": {"maxItems": 0},
+          "generated_by": {
+            "properties": {"method": {"const": "deterministic_P0_copy"}}
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"condition": {"const": "P2"}},
+        "required": ["condition"]
+      },
+      "then": {
+        "properties": {
+          "source_authorities": {
+            "properties": {
+              "curriculum_model": {"$ref": "#/$defs/curriculumModelBinding"}
+            }
+          },
+          "profile_binding": {"$ref": "#/$defs/profileBinding"},
+          "profile_concept_assessment_binding": {"$ref": "#/$defs/artifactBinding"},
+          "baseline_pathway_binding": {"$ref": "#/$defs/baselinePathwayBinding"},
+          "selection_authority": {"const": "dependency_aware_planner"},
+          "generated_by": {
+            "properties": {"method": {"const": "adaptive_pathway_planning"}}
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "itemId": {"type": "string", "pattern": "^RC-[0-9]{3,}$"},
+    "itemIdArray": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/itemId"}
+    },
+    "referenceContractBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contract_id", "contract_version", "file", "sha256"],
+      "properties": {
+        "contract_id": {"type": "string", "minLength": 1},
+        "contract_version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "curriculumModelBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model_id", "file", "sha256", "release_report_file", "release_report_sha256"],
+      "properties": {
+        "model_id": {"type": "string", "minLength": 1},
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "release_report_file": {"type": "string", "minLength": 1},
+        "release_report_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "profileBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_id", "file", "sha256"],
+      "properties": {
+        "profile_id": {"type": "string", "minLength": 1},
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "artifactBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifact_id", "file", "sha256"],
+      "properties": {
+        "artifact_id": {"type": "string", "minLength": 1},
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "learningRequestBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["request_id", "request_version", "file", "sha256"],
+      "properties": {
+        "request_id": {"type": "string", "minLength": 1},
+        "request_version": {"type": "string", "minLength": 1},
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "baselinePathwayBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pathway_id", "file", "sha256"],
+      "properties": {
+        "pathway_id": {"type": "string", "minLength": 1},
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "profileBasis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_field", "evidence"],
+      "properties": {
+        "profile_field": {"type": "string", "minLength": 1},
+        "evidence": {"type": "string", "minLength": 1}
+      }
+    },
+    "selectionDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_id", "decision", "selected_role", "rationale", "profile_basis"],
+      "properties": {
+        "item_id": {"$ref": "#/$defs/itemId"},
+        "decision": {"type": "string", "enum": ["include", "exclude"]},
+        "selected_role": {
+          "type": ["string", "null"],
+          "enum": ["target", "supporting", "extension", null]
+        },
+        "rationale": {"type": "string", "minLength": 1},
+        "profile_basis": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/profileBasis"}
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"decision": {"const": "include"}}},
+          "then": {
+            "properties": {
+              "selected_role": {"enum": ["target", "supporting", "extension"]}
+            }
+          },
+          "else": {"properties": {"selected_role": {"type": "null"}}}
+        }
+      ]
+    },
+    "learningGoalMapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["capability_id", "supporting_item_ids", "coverage", "rationale"],
+      "properties": {
+        "capability_id": {"type": "string", "pattern": "^LG-[0-9]{3,}$"},
+        "supporting_item_ids": {"$ref": "#/$defs/itemIdArray"},
+        "coverage": {"type": "string", "enum": ["complete", "partial", "unmet"]},
+        "rationale": {"type": "string", "minLength": 1}
+      }
+    },
+    "learningUnit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unit_id",
+        "unit_type",
+        "purpose",
+        "contract_item_ids",
+        "bridge_contract_id",
+        "prerequisite_unit_ids",
+        "learning_goal_ids"
+      ],
+      "properties": {
+        "unit_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9]+(?:[-_.][A-Za-z0-9]+)*$"
+        },
+        "unit_type": {
+          "type": "string",
+          "enum": ["contract_content", "prerequisite_bridge"]
+        },
+        "purpose": {"type": "string", "minLength": 1},
+        "contract_item_ids": {"$ref": "#/$defs/itemIdArray"},
+        "bridge_contract_id": {"type": ["string", "null"]},
+        "prerequisite_unit_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "learning_goal_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^LG-[0-9]{3,}$"}
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"unit_type": {"const": "contract_content"}}},
+          "then": {
+            "properties": {
+              "contract_item_ids": {"minItems": 1},
+              "bridge_contract_id": {"type": "null"}
+            }
+          },
+          "else": {
+            "properties": {
+              "contract_item_ids": {"maxItems": 0},
+              "bridge_contract_id": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      ]
+    },
+    "bridgeRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requirement_id",
+        "concept_id",
+        "bridge_candidate_id",
+        "required_by_item_ids",
+        "learner_mastery",
+        "resolution_status",
+        "released_bridge_contract_id",
+        "rationale"
+      ],
+      "properties": {
+        "requirement_id": {"type": "string", "pattern": "^BRQ-[0-9]{3,}$"},
+        "concept_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "bridge_candidate_id": {
+          "type": "string",
+          "pattern": "^BR-[A-Z0-9]+(?:-[A-Z0-9]+)*-v[0-9]+$"
+        },
+        "required_by_item_ids": {"$ref": "#/$defs/itemIdArray"},
+        "learner_mastery": {
+          "type": "string",
+          "enum": ["fragile", "missing", "unknown"]
+        },
+        "resolution_status": {
+          "type": "string",
+          "enum": ["missing", "candidate", "released"]
+        },
+        "released_bridge_contract_id": {"type": ["string", "null"]},
+        "rationale": {"type": "string", "minLength": 1}
+      }
+    },
+    "pathwayChange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["change_type", "affected_ids", "profile_basis", "rationale"],
+      "properties": {
+        "change_type": {
+          "type": "string",
+          "enum": [
+            "change_item_selection",
+            "reorder_learning_units",
+            "add_prerequisite_bridge",
+            "regroup_contract_items",
+            "change_theory_implementation_application_depth"
+          ]
+        },
+        "affected_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "profile_basis": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/profileBasis"}
+        },
+        "rationale": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "mode": "revision",
+  "source_contract": {
+    "file": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+    "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"
+  },
+  "parent_candidate": {
+    "model_id": "gradient-descent-dependencies-v3",
+    "next_model_id": "gradient-descent-dependencies-v4",
+    "file": "curriculum-models/gradient-descent-v1/candidate-v3/contract-dependencies.json",
+    "sha256": "3539291363083f65da28c12a61c9f785fb1a2837194e073e293172b59af6e7a0",
+    "validation_report_file": "curriculum-models/gradient-descent-v1/candidate-v3/dependency-validation-report.json",
+    "validation_report_sha256": "a981fea075c03d48a9e9f1de5b02377087e9b8a9730410f3b3c5b343cb7e9784"
+  },
+  "parent_review": {
+    "review_id": "gradient-descent-dependencies-v3-review-v1",
+    "file": "curriculum-models/gradient-descent-v1/candidate-v3/curriculum-dependency-review.json",
+    "sha256": "f97dddaa39480cfc0bc3a4eeae9c73bf37af927574455487008b1839eddc35ce",
+    "decision": "revision_required",
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "Curriculum Dependency Reviewer",
+    "reviewed_at": "2026-08-19T20:34:53Z"
+  },
+  "revision_scope": {
+    "item_changes": [
+      {
+        "item_id": "RC-030",
+        "fields": [
+          "external_prerequisite_concept_ids"
+        ],
+        "comment": "Revision required only for external concept identity. The hard, implementation, neighbour, fallback, and rationale fields are correct, but the referenced concept ID/name still includes line search while its approved content boundary explicitly excludes line-search teaching. Replace the legacy reference with one narrowly named inverse-hessian-approximation-matrices concept; keep RC-013 as the implementation dependency and preserve the current rationale."
+      }
+    ],
+    "concept_changes": [
+      {
+        "concept_id": "inverse-hessian-approximations-and-line-search",
+        "fields": [
+          "need_type",
+          "supports_item_ids",
+          "bridge_candidate_id",
+          "content_boundary_and_rationale"
+        ],
+        "record_removal_allowed": true,
+        "comment": "Revision required. The record is internally inconsistent at the concept-identity level: its ID/name includes line search, while its boundary correctly excludes line-search teaching because RC-013 supplies that knowledge. Authorize full-record replacement: remove this legacy record and introduce a single required concept named inverse-hessian-approximation-matrices, supporting RC-030, with the existing narrow boundary/rationale and a correspondingly named bridge candidate."
+      }
+    ],
+    "overall_comment": "Revision required only for RC-030 external concept identity. Candidate-v3 resolves the previous reverse-binding and scope failures, correctly repairs RC-028, removes the duplicate concept, and passes both validation layers. Replace the remaining legacy inverse-hessian-approximations-and-line-search record with one consistently named inverse-hessian-approximation-matrices concept; preserve RC-013 as the internal implementation dependency. All other item and concept fields are approved or not applicable."
+  },
+  "constraints": {
+    "preserve_unmarked_fields": true,
+    "require_next_model_version": true,
+    "reset_candidate_review_state": true,
+    "allow_new_external_concepts_only_from_revised_item_fields": true,
+    "inherit_prior_approvals": false
+  },
+  "generated_by": {
+    "agent": "grounded-curriculum-dependency-builder",
+    "agent_version": "1.1",
+    "skill": "build-curriculum-dependencies",
+    "skill_version": "1.1",
+    "generated_at": "2026-08-19T20:40:04Z"
+  }
+}

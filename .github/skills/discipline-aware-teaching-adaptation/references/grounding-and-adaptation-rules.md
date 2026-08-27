@@ -1,0 +1,15 @@
+# Frozen grounding and adaptation rules
+
+Treat the released Frozen Reference Contract as the only authority for mathematical and algorithmic generation. The raw institutional material remains the source of truth behind the Contract, but the Teaching Adapter must not reinterpret it, silently repair it, or construct a competing set of invariants.
+
+For `approved_as_written`, preserve the generation view's canonical statement, LaTeX, conditions, and prohibited-drift rules. For `approved_correction`, use only the projected approved correction. Never generate an item whose decision is `excluded`.
+
+Include every required item. Include a conditional item only when the requested scope needs it, and record that decision before writing. Reordering, prerequisite refreshers, proof-depth adjustment, examples, implementation bridges, and assessment changes are permitted; changing definitions, assumptions, theorem scope, convergence conditions, update rules, initialization, or code semantics is not.
+
+Generated analogies and exercises are pedagogical material, not source evidence. State each substantial analogy boundary once at first use; do not turn the lesson into repeated provenance warnings. Bind each exercise and solution to selected Contract items that constrain its mathematical meaning, while freely adapting context, numbers, difficulty, and task form to the learner. Do not treat an exercise's generated scenario as an institutional claim.
+
+Complete the teaching sequence before assessment. Put every exercise and worked solution in one final exercise chapter; do not interrupt concept development with exercise blocks. Give every exercise sufficient assumptions and data. Use `contract_binding` for conceptual, derivational, and transfer exercises; this verifies structure, solution presence, and declared RC-item binding without claiming semantic proof. Give every deterministic hand calculation exactly one structured checker whose inputs and outputs represent the requested mathematical operation. Do not substitute a free expression, answer constants, or an unrelated checker. If no checker supports that operation, stop C2 generation. End the visible derivation with the machine-readable visible result required by the output contract and make it equal both the independently computed result and the Checked answer. For each code exercise, make the visible expected stdout exactly equal executed stdout. Do not introduce new mathematical results, guarantees, algorithm variants, numerical claims, or domain facts as authoritative content merely because they are plausible.
+
+Treat a requested length as an experimental constraint. Record it structurally and fail validation when the deterministic prose count is outside the interval; do not rely on a descriptive `target_word_count` note.
+
+Report Frozen Contract consistency as protocol integrity rather than complete mathematical correctness. The generation workflow ends after configured binding, numeric, and code checks; it does not wait for post-generation human semantic approval. Use the later common RQ1 evaluation—not the adapter report—to measure errors across conditions.

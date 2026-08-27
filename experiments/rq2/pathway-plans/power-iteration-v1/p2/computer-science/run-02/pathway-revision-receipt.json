@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0",
+  "mode": "revision",
+  "parent_pathway": {
+    "pathway_id": "power-iteration-p2-computer-science-v1",
+    "next_pathway_id": "power-iteration-p2-computer-science-v1-revision-v1",
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-01/pathway-plan.json",
+    "sha256": "59f847d1f8b86b3a58d60def9f9a88b8e7111ea64adfd0be3c7d99e07eb46d4e",
+    "validation_report_file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-01/pathway-validation-report.json",
+    "validation_report_sha256": "d6e7b5f9d66f43275363cd02fc727fb22a795992103c1239e7e010d9f5718dce"
+  },
+  "parent_assessment": {
+    "assessment_id": "computer-science-year-2-concept-assessment-v1",
+    "next_assessment_id": "computer-science-year-2-concept-assessment-v2",
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-01/profile-concept-assessment.json",
+    "sha256": "b6c21946797dafd663890c3feeab0b170a4b8de3ca98e92f8ff71adb1f96daf5"
+  },
+  "parent_review": {
+    "review_id": "power-iteration-p2-computer-science-v1-review-v1",
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-01/pathway-plan-review.json",
+    "sha256": "e47e7bc22859befecef5a0dbc38250b3f5dd7b45426acdbe8751078b2e81213b",
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "computer-science-educator",
+    "reviewed_at": "2026-08-18T15:30:00Z"
+  },
+  "revision_scope": {
+    "selection_reviews": [
+      {
+        "item_id": "RC-004",
+        "fields": [
+          "rationale_and_profile_basis"
+        ],
+        "comment": "Retain the include/supporting decision, but revise the profile basis to cite authentic_context_boundary: ranking or spectral-computation examples require their assumptions to be stated. Explain that RC-004 keeps convergence claims conditional and prevents the computational pathway from presenting power iteration as universally convergent."
+      },
+      {
+        "item_id": "RC-006",
+        "fields": [
+          "rationale_and_profile_basis"
+        ],
+        "comment": "Retain the include/supporting decision. Add missing_or_fragile_prerequisites=calculus-based convergence arguments to the profile basis and state that the dominant-component explanation should use a discrete coefficient-ratio or iteration-invariant account rather than an assumed calculus-based convergence proof."
+      }
+    ],
+    "concept_reviews": [
+      {
+        "concept_id": "orthogonality-and-projection",
+        "fields": [
+          "evidence_and_rationale"
+        ],
+        "comment": "Retain mastery=unknown, confidence=low, and the candidate bridge requirement. Remove preferred_representations=pseudocode and iteration invariants from profile_evidence because it is a presentation preference rather than evidence of prior mastery. Base the assessment only on the broad vectors-and-matrices background and the absence of explicit orthogonality or projection evidence."
+      },
+      {
+        "concept_id": "determinants-characteristic-polynomials",
+        "fields": [
+          "evidence_and_rationale"
+        ],
+        "comment": "Retain mastery=unknown, confidence=low, and no bridge requirement. Remove the fragile calculus and mechanical-vibration prerequisites from profile_evidence because they do not establish determinant or characteristic-polynomial mastery. State explicitly that no bridge is needed because RC-002 is excluded and no selected item requires this concept."
+      },
+      {
+        "concept_id": "inner-products-and-quadratic-forms",
+        "fields": [
+          "evidence_and_rationale"
+        ],
+        "comment": "Retain mastery=unknown, confidence=low, and the candidate bridge requirement. Remove preferred_representations=complexity and stopping criteria from profile_evidence because it does not demonstrate prior inner-product or quadratic-form knowledge. Base the assessment on the broad vectors-and-matrices background and the absence of explicit evidence for x^T x and x^T A x computations."
+      },
+      {
+        "concept_id": "numpy-vector-operations",
+        "fields": [
+          "evidence_and_rationale"
+        ],
+        "comment": "Retain mastery=mastered, confidence=high, and no bridge requirement. Use prior_knowledge=Python/NumPy as the direct mastery evidence. Remove preferred_representations=pseudocode from profile_evidence because it supports pathway presentation but does not independently demonstrate NumPy proficiency."
+      }
+    ],
+    "learning_goal_reviews": [
+      {
+        "capability_id": "LG-001",
+        "fields": [
+          "coverage_and_support",
+          "rationale"
+        ],
+        "comment": "Retain coverage=complete and add RC-001 and RC-014 to supporting_item_ids. Revise the rationale to state that RC-001 establishes the eigenpair objective and RC-014 clarifies the largest-magnitude target, while RC-005, RC-011, RC-017, and RC-018 provide the normalized update, algorithm, executable trace, and worked consolidation."
+      }
+    ],
+    "pathway_change_reviews": [
+      {
+        "change_index": 0,
+        "fields": [
+          "rationale"
+        ],
+        "comment": "Retain change_type=change_item_selection and affected_ids=[RC-002]. Remove the 90-minute justification. Rewrite the rationale to state that RC-002 is excluded because the profile prioritises executable matrix-vector iteration, pseudocode, and stopping behaviour, and record that RC-018 uses the Contract-permitted fallback."
+      },
+      {
+        "change_index": 1,
+        "fields": [
+          "structural_accuracy",
+          "rationale"
+        ],
+        "comment": "Correct affected_ids to RC-001, RC-009, RC-010, RC-011, RC-014, RC-016, and RC-017. Remove RC-018 because it remains a standalone worked-consolidation unit as in P0. Revise the rationale to describe the separation of target definition, magnitude interpretation, estimate, residual, algorithm policy, input validation, and executable semantics into explicit computational stages."
+      },
+      {
+        "change_index": 2,
+        "fields": [
+          "structural_accuracy",
+          "rationale"
+        ],
+        "comment": "Revise affected_ids to RC-001, RC-004, RC-013, RC-014, RC-016, RC-017, and RC-018. Rewrite the rationale to state that definition and assumption items remain concise supporting foundations, tied-dominance and slow-convergence behaviour becomes a target because it affects complexity and stopping, and NumPy safeguards, executable semantics, and worked tracing receive target-level emphasis for this computer-science profile."
+      }
+    ],
+    "structure_review": {
+      "fields": [
+        "instruction_sequence"
+      ],
+      "comment": "Retain the current unit grouping, prerequisite relations, purposes, and learning-goal assignments. Revise the instruction sequence to CS-PI-U01, CS-PI-U02, CS-PI-U03, CS-PI-U04, CS-PI-U07, CS-PI-U08, CS-PI-U09, CS-PI-U10, CS-PI-U11, CS-PI-U05, CS-PI-U06, CS-PI-U12. This states the required assumptions first, moves the update, quality measures, pseudocode, and executable semantics earlier, and then uses convergence and failure analysis to interpret the algorithm before worked consolidation."
+    },
+    "scope_review": {
+      "fields": [
+        "profile_appropriateness"
+      ],
+      "comment": "Retain the 17 selected items, the exclusion of RC-002, and the complete failure/convergence subset. Revise profile appropriateness through the requested computationally oriented instruction sequence and corrected pathway-change records. Preserve the three candidate bridges and keep the plan provisional until they are released."
+    }
+  },
+  "overall_comment": "Revision is required before pathway approval. Retain the exclusion of RC-002 and the selected mathematical and implementation scope, but correct the profile evidence for RC-004 and RC-006, remove presentation preferences and unrelated fragile prerequisites from concept-mastery evidence, add RC-001 and RC-014 to LG-001 support, move the computational pipeline earlier in the instruction sequence, and correct the selection, regrouping, depth, and reorder change records. The revised pathway must remain provisional until the vector-normalisation, orthogonality/projection, and inner-product bridges are released.",
+  "constraints": {
+    "preserve_unmarked_fields": true,
+    "require_new_output_directory": true,
+    "require_new_pathway_and_assessment_ids": true,
+    "do_not_inherit_human_approval": true,
+    "do_not_add_time_limits_or_unit_time_fields": true,
+    "word_count_control_deferred_to_composer": true
+  },
+  "generated_by": {
+    "agent": "adaptive-curriculum-pathway-planner",
+    "agent_version": "1.1",
+    "skill": "plan-adaptive-curriculum-pathways",
+    "skill_version": "1.1",
+    "generated_at": "2026-08-18T14:55:12Z"
+  }
+}

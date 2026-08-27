@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/rq2-learning-request.schema.json",
+  "title": "RQ2 Shared Learning Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "request_version",
+    "status",
+    "topic",
+    "source_contract",
+    "audience_scope",
+    "learning_goal",
+    "target_capabilities",
+    "delivery_constraints",
+    "selection_policy",
+    "review"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "request_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*-v[0-9]+$"
+    },
+    "request_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pilot_candidate", "frozen"]
+    },
+    "topic": {"type": "string", "minLength": 1},
+    "source_contract": {"$ref": "#/$defs/referenceContractBinding"},
+    "audience_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["education_level", "discipline_neutral", "shared_across_profiles"],
+      "properties": {
+        "education_level": {"type": "string", "minLength": 1},
+        "discipline_neutral": {"const": true},
+        "shared_across_profiles": {"const": true}
+      }
+    },
+    "learning_goal": {"type": "string", "minLength": 1},
+    "target_capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/targetCapability"}
+    },
+    "delivery_constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_duration_minutes",
+        "output_form",
+        "learning_units_are_pages",
+        "target_depth",
+        "proof_depth",
+        "implementation_depth"
+      ],
+      "properties": {
+        "target_duration_minutes": {"type": "integer", "minimum": 1},
+        "output_form": {"const": "one_continuous_student_facing_lesson"},
+        "learning_units_are_pages": {"const": false},
+        "target_depth": {"type": "string", "minLength": 1},
+        "proof_depth": {
+          "type": "string",
+          "enum": ["minimal", "conceptual", "conceptual_derivation", "full_derivation", "profile_adaptive"]
+        },
+        "implementation_depth": {
+          "type": "string",
+          "enum": ["none", "read", "trace", "construct", "profile_adaptive"]
+        }
+      }
+    },
+    "selection_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile_specific_contract_item_selection_allowed_for_P2",
+        "required_capabilities_may_be_removed",
+        "all_contract_items_require_include_or_exclude_decisions",
+        "selected_hard_dependencies_must_be_satisfied",
+        "unreleased_prerequisite_bridges_make_a_plan_provisional"
+      ],
+      "properties": {
+        "profile_specific_contract_item_selection_allowed_for_P2": {"const": true},
+        "required_capabilities_may_be_removed": {"const": false},
+        "all_contract_items_require_include_or_exclude_decisions": {"const": true},
+        "selected_hard_dependencies_must_be_satisfied": {"const": true},
+        "unreleased_prerequisite_bridges_make_a_plan_provisional": {"const": true}
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["review_status", "reviewer_id", "reviewed_at", "comment"],
+      "properties": {
+        "review_status": {
+          "type": "string",
+          "enum": ["requires_supervisor_or_curriculum_review", "approved"]
+        },
+        "reviewer_id": {"type": ["string", "null"]},
+        "reviewed_at": {"type": ["string", "null"], "format": "date-time"},
+        "comment": {"type": ["string", "null"]}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "referenceContractBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contract_id", "contract_version", "file", "sha256"],
+      "properties": {
+        "contract_id": {"type": "string", "minLength": 1},
+        "contract_version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "targetCapability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["capability_id", "description", "priority"],
+      "properties": {
+        "capability_id": {
+          "type": "string",
+          "pattern": "^LG-[0-9]{3,}$"
+        },
+        "description": {"type": "string", "minLength": 1},
+        "priority": {
+          "type": "string",
+          "enum": ["required", "optional"]
+        }
+      }
+    }
+  }
+}

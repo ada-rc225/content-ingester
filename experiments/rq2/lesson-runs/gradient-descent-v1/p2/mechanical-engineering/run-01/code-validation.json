@@ -1,0 +1,42 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq2/lesson-runs/gradient-descent-v1/p2/mechanical-engineering/run-01/lesson.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-03",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "a5a6e8034e7803bdd2489ce39c28ca3dd73623fca31398b8705bc0532dfac96c",
+      "execution_status": "passed",
+      "stdout": "0 0.0 4.5 -3.0\n1 1.5 1.125 -1.5\n2 2.25 0.2812 -0.75\n3 2.625 0.0703 -0.375\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 91
+    },
+    {
+      "block_id": "CODE-002",
+      "anchor": "SEC-08",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "732ed3d599fdab5429e41229b3788abab880a5f060f28b86a8ad86bff0344b52",
+      "execution_status": "passed",
+      "stdout": "0 36.5 0.5\n1 33.125 0.5\n2 32.28125 0.5\n3 32.070312 0.5\n4 32.017578 0.5\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 92
+    },
+    {
+      "block_id": "CODE-003",
+      "anchor": "SEC-15",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "ba8e53e0abc26504b93faf7799c18989bb36c133e92472c30d7e5f391c06bac6",
+      "execution_status": "passed",
+      "stdout": "kappa 4.0\ndistance-step 0.13333333333333333\nobjective-step 0.08333333333333333\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 32
+    }
+  ]
+}

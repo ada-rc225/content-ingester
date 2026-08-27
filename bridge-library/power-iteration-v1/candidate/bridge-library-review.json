@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "review_id": "power-iteration-bridge-library-v1-review-v1",
+  "review_status": "revision_required",
+  "candidate_binding": {
+    "library_id": "power-iteration-bridge-library-v1",
+    "candidate_file": "bridge-library/power-iteration-v1/candidate/bridge-library-candidate.json",
+    "candidate_sha256": "a0ec4dbf55109afe80206cdcfc697e98bee02e24f64aabfced046f507a51b2b7",
+    "validation_report_file": "bridge-library/power-iteration-v1/candidate/bridge-library-validation-report.json",
+    "validation_report_sha256": "4047f5a5f7515882731126dc403e039e7a1bee4b0c20c9dcdcb589b678376319"
+  },
+  "template_generator": {
+    "agent": "grounded-bridge-library-builder",
+    "agent_version": "1.0",
+    "skill": "build-grounded-bridge-library",
+    "skill_version": "1.0",
+    "generated_at": "2026-08-18T16:14:10Z"
+  },
+  "reviewer": {
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "mathematics-and-computing-bridge-reviewer"
+  },
+  "bridge_reviews": [
+    {
+      "bridge_contract_id": "BRC-VECTOR-NORMS-NORMALIZATION-v1",
+      "bridge_candidate_id": "BR-VECTOR-NORMS-NORMALIZATION-v1",
+      "concept_id": "vector-norms-and-normalization",
+      "requested_by_profile_ids": [
+        "computer-science-year-2-rq2-pilot",
+        "mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-005",
+        "RC-010",
+        "RC-016",
+        "RC-017"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04"
+      ],
+      "source_ids": [
+        "SRC-01"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "revision_required",
+        "content_boundary": "approved",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "The norm definition, non-zero normalization rule, zero-vector safeguard, worked example, RC-item bindings, and scope are correct and pedagogically sufficient. Replace or supplement SRC-01 with a direct institutional source location that explicitly states the Euclidean-norm formula and supports normalization of a non-zero vector. The current MIT URL and locator identify only table-of-contents headings, so they do not provide auditable evidence for BC-01 through BC-04."
+    },
+    {
+      "bridge_contract_id": "BRC-ORTHOGONALITY-PROJECTION-v1",
+      "bridge_candidate_id": "BR-ORTHOGONALITY-PROJECTION-v1",
+      "concept_id": "orthogonality-and-projection",
+      "requested_by_profile_ids": [
+        "computer-science-year-2-rq2-pilot",
+        "mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-003",
+        "RC-006",
+        "RC-007",
+        "RC-012"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04"
+      ],
+      "source_ids": [
+        "SRC-01",
+        "SRC-02"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "revision_required",
+        "content_boundary": "revision_required",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "The orthogonality and orthonormality statements and scalar coefficient v^T x are correct and support RC-003, RC-006, RC-007, and RC-012. Revise SRC-01 and SRC-02 to bind BC-01 through BC-04 to direct lecture-summary or transcript locations containing the relevant definitions and coefficient formula rather than to overview pages. Also narrow BC-03 and BC-04 to the scalar coefficient v^T x: remove the additional vector-projection formula (v^T x)v and projected vector (3, 0)^T, because the Frozen Curriculum Model boundary authorizes the scalar projection coefficient needed by the Contract and explicitly reserves the later spectral/eigenbasis content."
+    },
+    {
+      "bridge_contract_id": "BRC-INNER-PRODUCTS-QUADRATIC-FORMS-v1",
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-QUADRATIC-FORMS-v1",
+      "concept_id": "inner-products-and-quadratic-forms",
+      "requested_by_profile_ids": [
+        "computer-science-year-2-rq2-pilot",
+        "mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-009",
+        "RC-010"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04"
+      ],
+      "source_ids": [
+        "SRC-01",
+        "SRC-02"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "revision_required",
+        "content_boundary": "approved",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "The inner-product definition, x^T x identity, x^T A x procedure, numerical example, exclusions, and RC-009/RC-010 support are correct and remain within the prerequisite boundary. SRC-02 directly supports computing x^T A x, but SRC-01 is only a table-of-contents page. Replace or supplement SRC-01 with a direct institutional passage that explicitly supports x^T y as a dot product and x^T x = ||x||_2^2, then update the evidence locator and content bindings."
+    },
+    {
+      "bridge_contract_id": "BRC-NUMPY-VECTOR-OPERATIONS-v1",
+      "bridge_candidate_id": "BR-NUMPY-VECTOR-OPERATIONS-v1",
+      "concept_id": "numpy-vector-operations",
+      "requested_by_profile_ids": [
+        "applied-mathematics-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-016",
+        "RC-017",
+        "RC-018"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04",
+        "BC-05"
+      ],
+      "source_ids": [
+        "SRC-01",
+        "SRC-02",
+        "SRC-03",
+        "SRC-04",
+        "SRC-05",
+        "SRC-06"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "approved",
+        "content_boundary": "approved",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. The array conversion, shape inspection, matrix-vector multiplication, default one-dimensional Euclidean norm, scalar zero check, explicit exception pattern, elementwise-comparison warning, and tuple return/unpacking pattern are correct. The official NumPy and Python documentation directly supports the five content blocks, the content remains limited to operations required by RC-016, RC-017, and RC-018, and no alternative solver or Contract-algorithm change is introduced."
+    }
+  ],
+  "overall_review": {
+    "decision": "revision_required",
+    "reviewed_at": "2026-08-18T16:50:25Z",
+    "comment": "The four-bridge demand set and all RC/profile bindings are correct. The NumPy bridge is approved. The three mathematical bridges are mathematically correct and pedagogically sufficient, but their source evidence must be made directly auditable; the orthogonality/projection bridge must additionally be narrowed to scalar projection coefficients. Rebuild the candidate in a new directory with only these source-binding and boundary changes, rerun the same bridge validator, and generate a fresh fully pending review."
+  }
+}

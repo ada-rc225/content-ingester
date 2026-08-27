@@ -1,0 +1,694 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "RQ2-EVAL-v1",
+  "sample_id": "S-T15K",
+  "evaluator": {
+    "evaluator_id": "codex-rq2-a",
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "access_route": "codex-exec-ephemeral",
+    "prompt_version": "RQ2-EVAL-v1",
+    "pass_index": 1,
+    "evaluated_at": "2026-08-26T21:56:00Z"
+  },
+  "primary_pedagogy_judgements": [
+    {
+      "dimension": "disciplinary_framing_appropriateness",
+      "score": 5,
+      "evidence_excerpts": [
+        "Read the update as a state transition.",
+        "The output exposes the state used for each gradient call rather than hiding the iteration inside an optimiser.",
+        "A state trace should therefore record the objective, gradient norm, and chosen step"
+      ],
+      "rationale": "The lesson consistently frames gradient descent in computer-science terms that serve understanding: explicit state transitions, array-oriented implementation, auditable traces, and the separation of algorithm, diagnostic, and theorem. These representations match the second-year computer-science profile without using application authenticity as a proxy.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "dimension": "prerequisite_match",
+      "score": 5,
+      "evidence_excerpts": [
+        "Two multivariable-calculus ideas prepare us to reason about this objective.",
+        "For a vector $z\\in\\mathbb{R}^d$, its Euclidean norm is",
+        "Before stating global structure, recall two pieces of vector geometry.",
+        "Suppose $0<\\mu\\leq L$."
+      ],
+      "rationale": "The lesson uses the profile's existing vectors, partial derivatives, Python, and iteration knowledge, while supplying the released bridges for local extrema and gradients, Euclidean norms and Lipschitz maps, inner products and convex combinations, and the condition ratio before first use. It avoids the explicitly fragile Hessian-ordering route and does not impose unnecessary second-order remediation.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "dimension": "context_boundary_awareness",
+      "score": 5,
+      "evidence_excerpts": [
+        "the mathematics here concerns a basic full-gradient method; it does not imply that a production training objective is convex or that this iteration is a complete training system.",
+        "This finite trace demonstrates the update mechanically. Observed decreases in a particular run are diagnostics, not a general convergence guarantee",
+        "When an objective does not satisfy those assumptions—as may happen for a machine-learning loss—the corresponding guarantee cannot simply be carried over."
+      ],
+      "rationale": "Every substantial contextual mapping is bounded at first use: the machine-learning motivation is separated from production practice, executable traces are distinguished from theorems, and convergence claims retain their mathematical scope. These are proportionate boundaries rather than repetitive generic warnings.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "dimension": "sequence_quality",
+      "score": 5,
+      "evidence_excerpts": [
+        "Two multivariable-calculus ideas prepare us to reason about this objective.",
+        "Apply that language to the gradient map.",
+        "Before stating global structure, recall two pieces of vector geometry.",
+        "The lesson’s hierarchy is now complete."
+      ],
+      "rationale": "The sequence is dependency-valid and coherent: objective and gradient foundations precede stationarity and the update; norms and Lipschitz continuity precede smoothness and descent; vector-geometry bridges precede convexity; and conditioning precedes the paired convergence results. The grouping also follows the profile's preferred progression from executable state traces to assumptions and guarantees.",
+      "confidence": "high",
+      "abstain": false
+    }
+  ],
+  "exploratory_judgements": [
+    {
+      "dimension": "example_authenticity",
+      "score": 3,
+      "evidence_excerpts": [
+        "Here is a self-contained trace for the illustrative objective $f(x)=\\tfrac12(x_1^2+4x_2^2)$.",
+        "This block is an acceptance diagnostic for one objective and state.",
+        "the mathematics here concerns a basic full-gradient method"
+      ],
+      "rationale": "The executable tracing and acceptance-check task is a plausible educational approximation of algorithm implementation, and its full-gradient and single-objective simplifications are explicit. It is not presented as an authentic production machine-learning workflow, so it does not reach the credible-practice anchor of 5.",
+      "confidence": "medium",
+      "abstain": false
+    }
+  ],
+  "learning_goal_judgements": [
+    {
+      "capability_id": "LG-001",
+      "priority": "required",
+      "coverage": "complete",
+      "evidence_excerpts": [
+        "We begin with the unconstrained problem",
+        "a differentiable local minimum must be stationary, but stationarity by itself is not sufficient",
+        "At iteration $k$, evaluate the gradient at the current state $x_k$, scale it by a positive number, subtract it, and store the result as $x_{k+1}$."
+      ],
+      "rationale": "The lesson formulates the unconstrained differentiable problem, states the one-way stationarity condition with its limitation, and both explains and traces the current-gradient update.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "capability_id": "LG-002",
+      "priority": "required",
+      "coverage": "complete",
+      "evidence_excerpts": [
+        "The substitution shows why step size cannot be discussed independently of smoothness.",
+        "When $L$ is known, a common choice is $\\alpha=1/L$.",
+        "Armijo backtracking instead tests a decreasing sequence of trial steps against a sufficient-decrease condition."
+      ],
+      "rationale": "Smoothness is connected to the Descent Lemma and substituted update, while both the qualified constant-step rule and the selected bounded Armijo alternative are stated, interpreted, and diagnosed.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "capability_id": "LG-003",
+      "priority": "required",
+      "coverage": "complete",
+      "evidence_excerpts": [
+        "This is an $O(1/k)$ objective-gap guarantee.",
+        "Do not swap these pairings: $2/(L+\\mu)$ belongs with the squared-distance contraction, while $1/L$ belongs with the displayed objective-gap contraction.",
+        "as the multiplicative separation grows, that factor approaches one."
+      ],
+      "rationale": "The lesson states and interprets the selected convex and strongly convex convergence behaviours, keeps each step-size/rate pairing intact, explains the role of conditioning, distinguishes distance from objective measures, and states the limits of applying the guarantees.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "capability_id": "LG-004",
+      "priority": "optional",
+      "coverage": "complete",
+      "evidence_excerpts": [
+        "In pseudocode, the data flow is:",
+        "The next block independently traces the illustrative quadratic with its constant $L=4$ and checks both the update equation and observed objective values.",
+        "Logging both sides of the inequality makes the Boolean decision reproducible"
+      ],
+      "rationale": "Pseudocode and executable NumPy blocks implement the selected current-gradient, constant-step, and Armijo rules with state and acceptance diagnostics, while the prose explicitly prevents those runs from becoming unsupported guarantees.",
+      "confidence": "high",
+      "abstain": false
+    }
+  ],
+  "selection_quality": {
+    "inclusion_appropriateness": {
+      "score": 5,
+      "not_applicable": false,
+      "evidence_excerpts": [
+        "The central reading habit is to separate three layers.",
+        "Smoothness controls gradient change and supplies a quadratic upper bound; constant and Armijo choices specify how a step is selected.",
+        "Convexity supports the sublinear objective guarantee, while strong convexity and smoothness support the stated geometric contractions"
+      ],
+      "rationale": "The included scope directly supports all required capabilities and the selected optional implementation capability. Foundational definitions, two step strategies, and the two requested convergence regimes are mutually supporting and appropriate to the 90-minute intermediate profile.",
+      "confidence": "high",
+      "abstain": false
+    },
+    "exclusion_appropriateness": {
+      "score": 5,
+      "not_applicable": false,
+      "evidence_excerpts": [
+        "the mathematics here concerns a basic full-gradient method",
+        "We will use the definition directly, without a Hessian-based derivation.",
+        "This is the only condition measure needed here."
+      ],
+      "rationale": "The exclusions keep the lesson on basic deterministic full-gradient descent: second-order/Hessian branches, exact line search, acceleration, stochastic and adaptive methods, Newton methods, and quasi-Newton methods are not needed for the shared request. The lesson still covers every required capability with the selected first-order scope.",
+      "confidence": "high",
+      "abstain": false
+    },
+    "unnecessary_content_load": {
+      "level": "none",
+      "evidence_excerpts": [],
+      "rationale": "The lesson's definitions, released prerequisite bridges, worked traces, diagnostics, and assumption-boundary explanations each support a selected item or learning capability; no pedagogically unjustified topic branch was identified.",
+      "confidence": "high",
+      "abstain": false
+    },
+    "profile_rationale_quality": {
+      "score": 5,
+      "not_applicable": false,
+      "evidence_excerpts": [
+        "In a computer program, you might represent $x$ as a length-$d$ array and implement $f$ as a function returning one number.",
+        "This explicit state transition is especially useful when reviewing array code",
+        "Keeping those layers distinct prevents a successful numerical example from being promoted into an unsupported general claim"
+      ],
+      "rationale": "The rationale embodied in the lesson is specific to the profile: it leverages Python, NumPy, arrays, algorithms, and trace diagnostics while explicitly scaffolding fragile formal smoothness, convexity, and conditioning concepts and retaining assumptions beside observed behaviour.",
+      "confidence": "high",
+      "abstain": false
+    }
+  },
+  "selected_item_judgements": [
+    {
+      "item_id": "RC-001",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "We begin with the unconstrained problem",
+        "where $f:\\mathbb{R}^d\\to\\mathbb{R}$ is at least continuously differentiable, written $f\\in C^1$.",
+        "every vector in $\\mathbb{R}^d$ is in the stated search domain."
+      ],
+      "contract_requirements": [
+        "Unconstrained optimisation minimizes a continuously differentiable objective f from R^d to R over R^d.",
+        "The source assumes f is at least C^1."
+      ],
+      "rationale": "The lesson states the unconstrained minimisation over R^d, the scalar codomain, and the C^1 assumption, and explicitly preserves the absence of constraints.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-002",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "If $x^*$ is a local minimiser and $f$ is differentiable at $x^*$, then the necessary first-order condition is",
+        "a differentiable local minimum must be stationary, but stationarity by itself is not sufficient"
+      ],
+      "contract_requirements": [
+        "At a differentiable local minimizer x*, the gradient must vanish.",
+        "x* is a local minimizer.",
+        "f is differentiable at x*."
+      ],
+      "rationale": "Both hypotheses and the vanishing-gradient conclusion are present, and the lesson explicitly prevents reversal of the necessary condition into a sufficiency claim.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-004",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "A continuously differentiable objective is $L$-smooth when $L>0$",
+        "The left side measures a change in gradient vectors.",
+        "It is not a function-value Lipschitz condition involving $|f(x)-f(y)|$."
+      ],
+      "contract_requirements": [
+        "L-smoothness means the gradient is L-Lipschitz with respect to the Euclidean norm.",
+        "L is positive.",
+        "The inequality holds for every x and y in R^d."
+      ],
+      "rationale": "The lesson gives the Euclidean gradient-Lipschitz inequality with positive L and universal scope, and expressly distinguishes it from function-value Lipschitz continuity.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-005",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "If $f$ is $L$-smooth, then for every $x,y\\in\\mathbb{R}^d$",
+        "This is a quadratic upper bound: a linear prediction from the gradient is supplemented by a nonnegative quadratic allowance."
+      ],
+      "contract_requirements": [
+        "The Descent Lemma gives the quadratic upper bound implied by L-smoothness.",
+        "f is L-smooth.",
+        "The inequality holds for all x,y in R^d."
+      ],
+      "rationale": "The Descent Lemma is stated as the correct upper bound for all x,y under L-smoothness, with the current-gradient inner product and L/2 squared-norm term intact.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-006",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "It is convex when, for all $x,y\\in\\mathbb{R}^d$",
+        "Unlike the smoothness upper bound, this is a global first-order lower bound."
+      ],
+      "contract_requirements": [
+        "Differentiable convexity is characterized by the global first-order lower bound.",
+        "The inequality holds for all x,y in R^d."
+      ],
+      "rationale": "The lesson presents differentiable convexity as the universally quantified first-order lower bound with the correct direction and interpretation.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-007",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "For $\\mu>0$, the function is $\\mu$-strongly convex when, for all $x,y\\in\\mathbb{R}^d$",
+        "Strong convexity adds a positive quadratic term to the convex lower bound."
+      ],
+      "contract_requirements": [
+        "Mu-strong convexity strengthens the convex lower bound by a positive quadratic term.",
+        "mu is positive.",
+        "The inequality holds for all x,y in R^d."
+      ],
+      "rationale": "The lesson includes positive mu, universal scope, the lower-bound direction, and the positive mu/2 squared-norm term, correctly distinguishing strong from ordinary convexity.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-009",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "For an objective that is both $L$-smooth and $\\mu$-strongly convex, this is its condition number: $\\kappa=L/\\mu\\geq1$.",
+        "The ratio requires $\\mu>0$"
+      ],
+      "contract_requirements": [
+        "For an L-smooth and mu-strongly convex objective, the condition number is kappa=L/mu and is at least one.",
+        "f is both L-smooth and mu-strongly convex."
+      ],
+      "rationale": "The condition number is defined as L/mu, not inverted, with the simultaneous smoothness/strong-convexity qualification and lower bound of one.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-010",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "Choose an initial state $x_0\\in\\mathbb{R}^d$ and positive step sizes $\\alpha_k$.",
+        "At iteration $k$, evaluate the gradient at the current state $x_k$, scale it by a positive number, subtract it, and store the result as $x_{k+1}$."
+      ],
+      "contract_requirements": [
+        "Gradient descent evaluates the gradient at the current iterate and subtracts a positive step-size multiple of it.",
+        "x_0 lies in R^d.",
+        "alpha_k is positive."
+      ],
+      "rationale": "The standard update begins at x_0 in R^d, uses positive steps, evaluates the gradient at x_k, and subtracts it to form x_{k+1}; the pseudocode and executable trace preserve those semantics.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-011",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "A constant-step implementation sets $\\alpha_k=\\alpha$ at every iteration.",
+        "When $L$ is known, a common choice is $\\alpha=1/L$.",
+        "Under the usual smooth-convex assumptions, the stated constant-step interval is"
+      ],
+      "contract_requirements": [
+        "A constant GD step uses alpha_k=alpha; common source choices include alpha=1/L and, under usual smooth-convex assumptions, alpha in (0,2/L).",
+        "L is known for the listed common choices.",
+        "The interval statement is made under the usual smooth-convex assumptions."
+      ],
+      "rationale": "The lesson gives the constant-step identity, the known-L choice 1/L, and the open interval (0,2/L) with its smooth-convex qualifier attached.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-013",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "Choose an initial trial step $\\bar\\alpha>0$, a contraction factor $\\eta\\in(0,1)$, and $c\\in(0,1)$.",
+        "accept the smallest nonnegative $m$",
+        "stopping at the first accepted candidate implements the smallest-$m$ rule."
+      ],
+      "contract_requirements": [
+        "Armijo backtracking contracts a positive trial step until the stated sufficient-decrease inequality holds.",
+        "bar alpha>0, eta in (0,1), c in (0,1), and m is the smallest nonnegative accepted integer."
+      ],
+      "rationale": "All parameter ranges, the eta^m trial construction, the smallest-nonnegative-m rule, and the sufficient-decrease inequality with squared gradient norm are present and correctly implemented.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-014",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "Assume that $f$ is $L$-smooth and convex, that a global minimiser $x^*$ exists, and that gradient descent uses $\\alpha_k=1/L$.",
+        "Then for every $k\\geq1$",
+        "This is an $O(1/k)$ objective-gap guarantee."
+      ],
+      "contract_requirements": [
+        "For L-smooth convex f with a global minimizer and GD step 1/L, the objective gap is bounded by L times the initial squared distance divided by 2k.",
+        "f is L-smooth and convex.",
+        "x* is a global minimizer.",
+        "alpha_k=1/L.",
+        "k>=1."
+      ],
+      "rationale": "The lesson preserves every hypothesis, k>=1, and the exact L times initial squared distance over 2k objective-gap bound, and distinguishes it from a distance bound.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-015",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "If $f$ is both $L$-smooth and $\\mu$-strongly convex, gradient descent has the following distance contraction",
+        "With the different constant step $\\alpha=1/L$, the corresponding objective-gap contraction is",
+        "Do not swap these pairings"
+      ],
+      "contract_requirements": [
+        "For L-smooth mu-strongly convex f, GD has the stated distance contraction at step 2/(L+mu) and objective contraction at step 1/L.",
+        "f is L-smooth and mu-strongly convex.",
+        "Each bound uses its stated step size."
+      ],
+      "rationale": "The simultaneous smoothness and strong-convexity assumptions are explicit; alpha=2/(L+mu) is paired with the squared-distance contraction and alpha=1/L with the objective-gap contraction, with factors and exponents intact.",
+      "confidence": "high",
+      "abstain": false
+    }
+  ],
+  "formula_judgements": [
+    {
+      "formula_ref": "FM-001",
+      "item_ids": [
+        "RC-001"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "\\min_{x\\in\\mathbb{R}^d} f(x),"
+      ],
+      "rationale": "The displayed optimisation problem matches FM-001 over R^d.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-002",
+      "item_ids": [
+        "RC-002"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "\\nabla f(x^*)=0."
+      ],
+      "rationale": "The vanishing-gradient formula is present at x* with the correct equality.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-003",
+      "item_ids": [
+        "RC-004"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "\\|\\nabla f(x)-\\nabla f(y)\\|_2"
+      ],
+      "rationale": "The gradient-difference norm is bounded by L times the point-difference norm with universal scope; the explicit Euclidean subscript is semantically consistent with FM-003.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-004",
+      "item_ids": [
+        "RC-005"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "+\\frac{L}{2}\\|y-x\\|_2^2."
+      ],
+      "rationale": "The Descent Lemma upper bound has the correct direction, gradient inner product, and L/2 squared Euclidean norm term.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-006",
+      "item_ids": [
+        "RC-006"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "f(y)\\geq f(x)+\\langle\\nabla f(x),y-x\\rangle."
+      ],
+      "rationale": "The differentiable convexity lower bound matches FM-006 exactly.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-007",
+      "item_ids": [
+        "RC-007"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "+\\frac{\\mu}{2}\\|y-x\\|_2^2."
+      ],
+      "rationale": "The strong-convexity lower bound includes the correct positive mu/2 squared Euclidean norm term.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-010",
+      "item_ids": [
+        "RC-009"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "\\kappa=\\frac{L}{\\mu}"
+      ],
+      "rationale": "The condition number is L divided by mu and is displayed with the lower bound one.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-011",
+      "item_ids": [
+        "RC-010"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "x_{k+1}=x_k-\\alpha_k\\nabla f(x_k),"
+      ],
+      "rationale": "The update uses the current iterate, current gradient, positive step symbol, and descent sign exactly as FM-011.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-013",
+      "item_ids": [
+        "RC-013"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "f\\bigl(x_k-\\alpha_k\\nabla f(x_k)\\bigr)"
+      ],
+      "rationale": "The Armijo formula has the correct candidate, less-than-or-equal direction, c alpha_k coefficient, and squared current-gradient norm.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-014",
+      "item_ids": [
+        "RC-014"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "\\frac{L\\|x_0-x^*\\|_2^2}{2k}."
+      ],
+      "rationale": "The O(1/k) objective-gap bound preserves the L-scaled initial squared distance and denominator 2k.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-022",
+      "item_ids": [
+        "RC-015"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "\\alpha=\\frac{2}{L+\\mu}:"
+      ],
+      "rationale": "The constant step is 2/(L+mu); the trailing colon is punctuation introducing its paired bound and does not alter the formula.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-023",
+      "item_ids": [
+        "RC-015"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "\\left(\\frac{\\kappa-1}{\\kappa+1}\\right)^{2k}"
+      ],
+      "rationale": "The squared-distance contraction uses the correct kappa factor, exponent 2k, and initial squared-distance multiplier.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-024",
+      "item_ids": [
+        "RC-015"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "\\left(1-\\frac{\\mu}{L}\\right)^k"
+      ],
+      "rationale": "The objective-gap contraction uses the correct 1-mu/L factor to power k and the initial objective gap.",
+      "confidence": "high",
+      "abstain": false
+    }
+  ],
+  "algorithm_judgements": [
+    {
+      "item_id": "RC-010",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "At iteration $k$, evaluate the gradient at the current state $x_k$, scale it by a positive number, subtract it, and store the result as $x_{k+1}$.",
+        "g = gradient(x)\n    x_next = x - alpha * g"
+      ],
+      "rationale": "The explanation, pseudocode, and NumPy traces consistently evaluate the gradient before mutation at the current state and subtract a positive-step multiple to obtain the next state.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-011",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "A constant-step implementation sets $\\alpha_k=\\alpha$ at every iteration.",
+        "L = 4.0\nalpha = 1.0 / L"
+      ],
+      "rationale": "The algorithm reuses one positive scalar across iterations, implements 1/L for the illustrative L=4 case, and keeps the broader interval qualified by its assumptions.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-013",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "During backtracking, $x_k$ and its gradient remain fixed while the exponent increases and the trial step contracts.",
+        "if left <= right:\n        accepted = (m, alpha, candidate)\n        break"
+      ],
+      "rationale": "The code fixes the current state and gradient, tests eta^m times the positive initial trial in increasing m order, evaluates the exact Armijo inequality, and breaks on the first accepted candidate.",
+      "confidence": "high",
+      "abstain": false
+    }
+  ],
+  "unsupported_claims": [
+    {
+      "claim_id": "UC-001",
+      "claim_type": "disciplinary_application",
+      "verdict": "not_verifiable",
+      "severity": "minor",
+      "evidence_excerpt": "A machine-learning loss can motivate the objective",
+      "rationale": "This is a clearly bounded disciplinary motivation, but neither the selected Frozen Contract nor a released bridge supplies disciplinary authority for machine-learning practice. It is therefore not treated as expert-ground-truth evidence.",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "UC-002",
+      "claim_type": "disciplinary_application",
+      "verdict": "not_verifiable",
+      "severity": "minor",
+      "evidence_excerpt": "it does not imply that a production training objective is convex",
+      "rationale": "The boundary is prudent and aligns with the learner-profile constraint, but the evaluation authority does not independently establish facts about production training objectives. The claim remains bounded and is not used as mathematical provenance.",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "UC-003",
+      "claim_type": "disciplinary_application",
+      "verdict": "not_verifiable",
+      "severity": "minor",
+      "evidence_excerpt": "or that this iteration is a complete training system.",
+      "rationale": "Whether basic full-gradient descent constitutes a complete production training system is a disciplinary-practice claim outside the selected Contract and bridge authority. The lesson bounds rather than generalises it, so not_verifiable is appropriate.",
+      "confidence": "high"
+    }
+  ],
+  "dependency_coherence": {
+    "verdict": "pass",
+    "evidence_excerpts": [
+      "We begin with the unconstrained problem",
+      "Apply that language to the gradient map.",
+      "Before stating global structure, recall two pieces of vector geometry.",
+      "The lesson’s hierarchy is now complete."
+    ],
+    "rationale": "Every hard dependency and released bridge appears before its consuming content: foundational calculus before stationarity, update semantics before step rules, norm/Lipschitz material before smoothness, inner products and convex combinations before convexity, and the condition ratio before contraction-rate interpretation.",
+    "confidence": "high",
+    "abstain": false
+  },
+  "overall_recommendation": {
+    "decision": "requires_adjudication",
+    "rationale": "All selected mathematical, formula, algorithm, learning-goal, and dependency decisions are resolved without an identified mathematical or algorithmic failure. The three bounded machine-learning application claims are outside the available disciplinary authority and are recorded as not_verifiable, so discipline-educator adjudication is required rather than treating this automated result as expert ground truth."
+  }
+}

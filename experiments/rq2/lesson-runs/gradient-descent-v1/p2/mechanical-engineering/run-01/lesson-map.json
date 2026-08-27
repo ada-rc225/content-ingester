@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "run_id": "gradient-descent-p2-mechanical-engineering-run-01",
+  "lesson_file": "lesson.md",
+  "sections": [
+    {"section_id":"SEC-01","heading":"1. The optimisation problem","unit_ids":["GD-ME-U01"],"contract_item_ids":["RC-001"],"bridge_contract_ids":[]},
+    {"section_id":"SEC-02","heading":"2. What stationarity tells us","unit_ids":["GD-ME-U02"],"contract_item_ids":["RC-002"],"bridge_contract_ids":[]},
+    {"section_id":"SEC-03","heading":"3. The gradient-descent update","unit_ids":["GD-ME-U03"],"contract_item_ids":["RC-010"],"bridge_contract_ids":[]},
+    {"section_id":"SEC-04","heading":"4. Bridge: measuring vector size and gradient change","unit_ids":["BRIDGE-001"],"contract_item_ids":[],"bridge_contract_ids":["BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1"]},
+    {"section_id":"SEC-05","heading":"5. Smoothness as a controlled-gradient assumption","unit_ids":["GD-ME-U04"],"contract_item_ids":["RC-004"],"bridge_contract_ids":[]},
+    {"section_id":"SEC-06","heading":"6. Why a smooth objective can decrease","unit_ids":["GD-ME-U05"],"contract_item_ids":["RC-005"],"bridge_contract_ids":[]},
+    {"section_id":"SEC-07","heading":"7. Constant step sizes","unit_ids":["GD-ME-U06"],"contract_item_ids":["RC-011"],"bridge_contract_ids":[]},
+    {"section_id":"SEC-08","heading":"8. Armijo backtracking","unit_ids":["GD-ME-U12"],"contract_item_ids":["RC-013"],"bridge_contract_ids":[]},
+    {"section_id":"SEC-09","heading":"9. Bridge: inner products and convex combinations","unit_ids":["BRIDGE-002"],"contract_item_ids":[],"bridge_contract_ids":["BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1"]},
+    {"section_id":"SEC-10","heading":"10. Differentiable convexity","unit_ids":["GD-ME-U07"],"contract_item_ids":["RC-006"],"bridge_contract_ids":[]},
+    {"section_id":"SEC-11","heading":"11. Strong convexity","unit_ids":["GD-ME-U08"],"contract_item_ids":["RC-007"],"bridge_contract_ids":[]},
+    {"section_id":"SEC-12","heading":"12. Bridge: ratios and conditioning","unit_ids":["BRIDGE-003"],"contract_item_ids":[],"bridge_contract_ids":["BRC-RATIOS-AND-CONDITION-NUMBERS-v1"]},
+    {"section_id":"SEC-13","heading":"13. Reading convergence histories","unit_ids":["GD-ME-U09"],"contract_item_ids":["RC-009"],"bridge_contract_ids":[]},
+    {"section_id":"SEC-14","heading":"14. The convex objective-gap guarantee","unit_ids":["GD-ME-U10"],"contract_item_ids":["RC-014"],"bridge_contract_ids":[]},
+    {"section_id":"SEC-15","heading":"15. Strongly convex contractions and responsible use","unit_ids":["GD-ME-U11"],"contract_item_ids":["RC-015"],"bridge_contract_ids":[]}
+  ]
+}

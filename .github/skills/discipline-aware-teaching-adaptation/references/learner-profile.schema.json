@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Learner Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile_id",
+    "discipline",
+    "education_level",
+    "prior_knowledge",
+    "computational_background",
+    "learning_goals",
+    "preferred_contexts",
+    "target_depth",
+    "proof_depth",
+    "assumptions_requiring_review"
+  ],
+  "properties": {
+    "profile_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "discipline": {
+      "type": "string",
+      "minLength": 1
+    },
+    "education_level": {
+      "type": "string",
+      "minLength": 1
+    },
+    "prior_knowledge": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "computational_background": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "learning_goals": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "preferred_contexts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "target_depth": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proof_depth": {
+      "type": "string",
+      "minLength": 1
+    },
+    "time_budget_minutes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "assumptions_requiring_review": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

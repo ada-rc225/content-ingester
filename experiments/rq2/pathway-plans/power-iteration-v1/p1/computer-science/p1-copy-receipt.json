@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "operation": "deterministic-p1-copy-v1",
+  "inputs": {
+    "P0_pathway": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p0/pathway-plan.json",
+      "sha256": "9cf1f1125924467e0bae738180bfdc2df0663dab56316caf849037dcacbe5480"
+    },
+    "learner_profile": {
+      "file": "experiments/rq2/profiles/computer-science-year-2.json",
+      "sha256": "8a2dba4d066785775f1c70169a8c18d84049c7eb65612dff8008a7a63c78dd50"
+    }
+  },
+  "P0_pathway_id": "power-iteration-p0-v1",
+  "P1_pathway_id": "power-iteration-computer-science-p1-v1",
+  "profile_id": "computer-science-year-2-rq2-pilot",
+  "controlled_copy_policy": {
+    "exact_P0_fields": [
+      "topic",
+      "source_authorities",
+      "profile_concept_assessment_binding",
+      "learning_request_binding",
+      "selection_authority",
+      "selection",
+      "learning_goal_mappings",
+      "learning_units",
+      "instruction_sequence",
+      "bridge_requirements",
+      "pathway_changes",
+      "scope_summary",
+      "rendering_policy",
+      "plan_status"
+    ],
+    "changed_fields": [
+      "pathway_id",
+      "condition",
+      "profile_binding",
+      "baseline_pathway_binding",
+      "generated_by"
+    ]
+  },
+  "generated_at": "2026-08-18T14:05:00Z",
+  "output": {
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p1/computer-science/pathway-plan.json",
+    "sha256": "9acae3dc754096d1c1ccb0442b214afdd6491d3cc688613fed50fc6dabed98d4"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "mode": "revision",
+  "parent_pathway": {
+    "pathway_id": "gradient-descent-p2-applied-mathematics-run-01",
+    "next_pathway_id": "gradient-descent-p2-applied-mathematics-run-01-revision-v1",
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-01/pathway-plan.json",
+    "sha256": "b5a35bd2011e959122e6377eebcb43f30286f345a0700959dfe845b6d063c026",
+    "validation_report_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-01/pathway-validation-report.json",
+    "validation_report_sha256": "dc4bdac030fe733a98cd841606b49f700ad0f8f2982f032bac477075846520a6"
+  },
+  "parent_assessment": {
+    "assessment_id": "gradient-descent-applied-mathematics-year-2-concept-assessment-v1",
+    "next_assessment_id": "gradient-descent-applied-mathematics-year-2-concept-assessment-v2",
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-01/profile-concept-assessment.json",
+    "sha256": "7e1e575503f140fc8ae0e91c09280899e9f138f78b2b14dfe9d4204a1bdf490f"
+  },
+  "parent_review": {
+    "review_id": "gradient-descent-p2-applied-mathematics-run-01-review-v1",
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-01/pathway-plan-review.json",
+    "sha256": "8a5a45ec58bd9fb4589d72a16dd4c22657917fcf49b5ed7f977812bd5b8d1533",
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "applied mathematics educator",
+    "reviewed_at": "2026-08-19T22:30:00Z"
+  },
+  "revision_scope": {
+    "selection_reviews": [],
+    "concept_reviews": [
+      {
+        "concept_id": "inner-products-and-quadratic-terms",
+        "fields": [
+          "mastery_and_confidence",
+          "evidence_and_rationale",
+          "bridge_requirement"
+        ],
+        "comment": "Revise mastery from fragile to mastered (with medium confidence) and remove BR-INNER-PRODUCTS-AND-QUADRATIC-TERMS-v1 from the pathway. A second-year applied-mathematics learner who already reports real vector spaces, Euclidean norms, basic linear algebra, and positive definiteness has sufficient evidence for the bounded inner-product and squared-norm manipulations used in RC-005. Lack of an explicit statement that the exact displayed notation has been seen is not, by itself, evidence of fragile mastery. Retain a brief notation reminder inside RC-005 rather than a separate prerequisite bridge."
+      }
+    ],
+    "learning_goal_reviews": [],
+    "pathway_change_reviews": [],
+    "structure_review": {
+      "fields": [
+        "unit_purpose_and_learning_goals"
+      ],
+      "comment": "Revise GD-P2-AM-U10. RC-005 is selected and appears earlier, and this profile explicitly prefers analytic derivation and assumption-to-conclusion reasoning; therefore U10 should connect the Descent Lemma to the smooth-convex objective-gap bound rather than say that the full Descent Lemma derivation is omitted. Suggested purpose: 'Derive and interpret the smooth-convex objective-gap bound from the selected smoothness, Descent Lemma, convexity, and step-size assumptions, including its O(1/k) meaning.' Keep the Hessian-omission fallback in U11 because RC-008 is genuinely excluded."
+    },
+    "scope_review": null
+  },
+  "overall_comment": "The selected mathematical scope, dependency order, convergence coverage, and applied-mathematics orientation are sound. Revision is required in two bounded places: remove the unnecessary inner-product/quadratic bridge by treating that prerequisite as mastered, and make U10 use the already selected Descent Lemma in the derivation instead of applying an omission fallback that conflicts with both the plan and the learner's stated preference. All other item selections, concept decisions, learning-goal mappings, structural relations, declared changes, and scope decisions are approved.",
+  "constraints": {
+    "preserve_unmarked_fields": true,
+    "require_new_output_directory": true,
+    "require_new_pathway_and_assessment_ids": true,
+    "do_not_inherit_human_approval": true,
+    "do_not_add_time_limits_or_unit_time_fields": true,
+    "word_count_control_deferred_to_composer": true
+  },
+  "generated_by": {
+    "agent": "adaptive-curriculum-pathway-planner",
+    "agent_version": "1.1",
+    "skill": "plan-adaptive-curriculum-pathways",
+    "skill_version": "1.1",
+    "generated_at": "2026-08-19T22:57:31Z"
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plan Adaptive Curriculum Pathways"
+  short_description: "Plan, review, and revise bounded P2 pathways"
+  default_prompt: "Use $plan-adaptive-curriculum-pathways in initial or revision mode to create a validated P2 pathway and a fully pending hash-bound human-review template."

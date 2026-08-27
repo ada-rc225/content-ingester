@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "run_id": "power-iteration-p2-applied-mathematics-pilot-run-01",
+  "lesson_file": "lesson.md",
+  "sections": [
+    {
+      "section_id": "SEC-01",
+      "heading": "Eigenpairs and the small-matrix viewpoint",
+      "unit_ids": ["P2-AM-U01", "P2-AM-U06"],
+      "contract_item_ids": ["RC-001", "RC-002"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-02",
+      "heading": "Spectral structure and the target of the iteration",
+      "unit_ids": ["P2-AM-U02"],
+      "contract_item_ids": ["RC-003", "RC-004", "RC-014"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-03",
+      "heading": "The normalized update and why it converges",
+      "unit_ids": ["P2-AM-U03", "P2-AM-U07", "P2-AM-U08"],
+      "contract_item_ids": ["RC-005", "RC-006", "RC-007"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-04",
+      "heading": "Failure conditions and scope boundaries",
+      "unit_ids": ["P2-AM-U09"],
+      "contract_item_ids": ["RC-008", "RC-012", "RC-013", "RC-015"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-05",
+      "heading": "Eigenvalue estimates and residual-based stopping",
+      "unit_ids": ["P2-AM-U04", "P2-AM-U05", "P2-AM-U10"],
+      "contract_item_ids": ["RC-009", "RC-010", "RC-011"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-06",
+      "heading": "NumPy operations as executable mathematics",
+      "unit_ids": ["BRIDGE-001", "P2-AM-U11", "P2-AM-U12"],
+      "contract_item_ids": ["RC-016", "RC-017"],
+      "bridge_contract_ids": ["BRC-NUMPY-VECTOR-OPERATIONS-v1"]
+    },
+    {
+      "section_id": "SEC-07",
+      "heading": "Worked consolidation",
+      "unit_ids": ["P2-AM-U13"],
+      "contract_item_ids": ["RC-018"],
+      "bridge_contract_ids": []
+    }
+  ]
+}

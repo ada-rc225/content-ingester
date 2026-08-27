@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0",
+  "review_id": "gradient-descent-bridge-library-v1-review-v1",
+  "review_status": "revision_required",
+  "candidate_binding": {
+    "library_id": "gradient-descent-bridge-library-v1",
+    "candidate_file": "bridge-library/gradient-descent-v1/candidate/bridge-library-candidate.json",
+    "candidate_sha256": "850555e77c714ae660b68208caf2155cdec0b6f27dfcbc54caba05d47806f646",
+    "validation_report_file": "bridge-library/gradient-descent-v1/candidate/bridge-library-validation-report.json",
+    "validation_report_sha256": "33c9030576551e17832ded76ec6593cb9c5bbb33e5a299ebc4423417ba10ce70"
+  },
+  "template_generator": {
+    "agent": "grounded-bridge-library-builder",
+    "agent_version": "1.0",
+    "skill": "build-grounded-bridge-library",
+    "skill_version": "1.0",
+    "generated_at": "2026-08-19T23:23:40Z"
+  },
+  "reviewer": {
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "mathematics-and-computing-bridge-reviewer"
+  },
+  "bridge_reviews": [
+    {
+      "bridge_contract_id": "BRC-MULTIVARIABLE-CALCULUS-AND-LOCAL-EXTREMA-v1",
+      "bridge_candidate_id": "BR-MULTIVARIABLE-CALCULUS-AND-LOCAL-EXTREMA-v1",
+      "concept_id": "multivariable-calculus-and-local-extrema",
+      "requested_by_profile_ids": [
+        "gradient-descent-computer-science-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-002"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04"
+      ],
+      "source_ids": [
+        "SRC-01",
+        "SRC-02"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "revision_required",
+        "content_boundary": "revision_required",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "The local-minimum definition, gradient construction, and differentiation example are mathematically correct, and both MIT OCW sources are directly accessible and relevant. Revision is required for two bounded reasons. First, this pathway bridge supports only RC-002, whereas BO-03, BC-03, and the Hessian part of BC-04 prepare RC-003, which is not requested by the bound CS pathway. Second, SRC-01's locator incorrectly names Definition 20.1 as Hessian evidence; Definition 20.1 concerns bounded sets, while the Hessian appears later in the second-order Taylor discussion. For candidate-v2, preserve the model-supplied content_boundary string but make the instructional insert RC-002-specific: remove BO-03 and BC-03; remove the Hessian calculation from BC-04 and retain a gradient-only worked calculation, including evaluation at a concrete point; update SRC-01/SRC-02 supports_content_ids and replace the inaccurate locator with the exact local-minimum and remaining gradient/example locations. Do not add RC-003 to supports_item_ids and do not introduce the stationarity theorem, its proof, or a Hessian optimality test."
+    },
+    {
+      "bridge_contract_id": "BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "bridge_candidate_id": "BR-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "concept_id": "euclidean-norms-and-lipschitz-continuity",
+      "requested_by_profile_ids": [
+        "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+        "gradient-descent-computer-science-year-2-rq2-pilot",
+        "gradient-descent-mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-004"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04"
+      ],
+      "source_ids": [
+        "SRC-01",
+        "SRC-02"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "revision_required",
+        "content_boundary": "approved",
+        "dependency_support": "revision_required",
+        "pedagogical_sufficiency": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "The norm formula, distance interpretation, Lipschitz inequality, gradient/function-value distinction, and G(x)=2x calculation are mathematically correct and remain inside the model boundary. Revision is required because Cornell SRC-02 directly states the gradient-specific inequality, but the candidate uses it to support a generic vector-map definition and generic G(x)=2x example without a source that explicitly defines a Lipschitz map between Euclidean spaces. BC-02 also needs to state L>0 and that the inequality holds for all x,y, since these are required conditions of RC-004. For candidate-v2, add a verified institutional source that explicitly defines an L-Lipschitz vector-valued map; revise BC-02 to read, in substance, 'for L>0 and all x,y'; keep BC-03 as the specialization G=grad f and retain the explicit warning that this is not function-value Lipschitzness. Bind BC-04 only to sources that actually support the generic definition and Euclidean-norm calculation. Do not add the Descent Lemma, a GD update, a step-size rule, or convergence content."
+    },
+    {
+      "bridge_contract_id": "BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "concept_id": "inner-products-and-convex-sets",
+      "requested_by_profile_ids": [
+        "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+        "gradient-descent-computer-science-year-2-rq2-pilot",
+        "gradient-descent-mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-006"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04"
+      ],
+      "source_ids": [
+        "SRC-01"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "approved",
+        "content_boundary": "approved",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. Stanford's Convex Optimization text directly defines the real-vector inner product, convex combinations, and convex sets, and the URL and cited passages were verified. BC-03 and BC-04 correctly apply those definitions: y-x is formed before the scalar product, the convex-combination arithmetic is correct, and g^T(y-x)=-2 for the stated vectors. The bridge supplies the exact prerequisite vocabulary needed to read RC-006 while explicitly withholding the first-order characterization theorem, global-optimality claims, and advanced convex analysis owned by the Contract."
+    },
+    {
+      "bridge_contract_id": "BRC-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "bridge_candidate_id": "BR-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "concept_id": "ratios-and-condition-numbers",
+      "requested_by_profile_ids": [
+        "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+        "gradient-descent-computer-science-year-2-rq2-pilot",
+        "gradient-descent-mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-009"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04"
+      ],
+      "source_ids": [
+        "SRC-01"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "revision_required",
+        "content_boundary": "approved",
+        "dependency_support": "revision_required",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "The ratio orientation kappa=L/mu, arithmetic examples, positive-denominator safeguard, and deduction from L>=mu>0 to kappa>=1 are mathematically correct and stay within the approved boundary. Cornell SRC-01 directly defines kappa=L/mu for the strongly convex setting and requires mu>0, but the inspected passage does not explicitly establish L>=mu or support the additional sentence that the ratio is dimensionless when L and mu have the same units. For candidate-v2, remove the dimensionless sentence because it is not needed for RC-009, and add a directly accessible institutional source/passage that explicitly supports 0<mu<=L and hence kappa>=1 in the shared L-smooth, mu-strongly-convex setting. Update the evidence locator and source-to-content bindings. Preserve the existing ratio examples and exclusions; do not add matrix condition numbers, convergence-rate derivations, step-size rules, or acceleration content."
+    }
+  ],
+  "overall_review": {
+    "decision": "revision_required",
+    "reviewed_at": "2026-08-19T23:45:20Z",
+    "comment": "The candidate has the correct four-concept demand union, current approved pathway/model hash bindings, valid mathematics, and a deterministic validation report with zero errors and warnings. The inner-products-and-convex-sets bridge is approved. Release is not yet appropriate because three bounded revisions remain: narrow the CS calculus bridge to its actual RC-002 demand, provide direct source coverage and full quantification for the generic Lipschitz-map prerequisite, and directly source the condition-number lower-bound assumptions while removing the unnecessary dimensionless claim. Generate candidate-v2 by changing only the fields identified in the three bridge comments, retain all IDs and approved bindings, rerun deterministic validation, and create a new pending review."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "preparer": "prepare-composition-inputs-v1",
+  "prepared_at": "2026-08-26T19:20:00Z",
+  "run_id": "power-iteration-p2-computer-science-pilot-run-02",
+  "condition": "P2",
+  "topic": "power iteration",
+  "inputs": {
+    "pathway": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-03/pathway-plan.json",
+      "sha256": "2af2c195b99334e466a52c70a1b4fe7fc7cb971b6fd930e603ed3aee8cd16517"
+    },
+    "pathway_validation_report": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-03/pathway-validation-report.json",
+      "sha256": "3fd5160e4ef5b8b43e872b7c2852a9b6fd82bb63cd2bf863cc5d058a1d24cc56"
+    },
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+      "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/power-iteration-second-year.json",
+      "sha256": "c4cf0c6a4cf53653abab28123b4649dfd6459d894d3f85a310af0200468fe431"
+    },
+    "word_count_protocol": {
+      "file": "experiments/rq2/word-count-protocols/power-iteration-pilot.json",
+      "sha256": "474f78273ee6eec37f78edbea499b230218d30d94041240fb3d6ec87421d8246"
+    },
+    "profile": {
+      "file": "experiments/rq2/profiles/computer-science-year-2.json",
+      "sha256": "8a2dba4d066785775f1c70169a8c18d84049c7eb65612dff8008a7a63c78dd50"
+    },
+    "bridge_catalog": {
+      "file": "bridge-library/power-iteration-v1/release/released-bridge-catalog.json",
+      "sha256": "59179ad7d12db14704efc703b817b2564bf5082ac479702643eebecd194e030d"
+    }
+  },
+  "treatment_isolation": {
+    "external_retrieval_allowed": false,
+    "other_profiles_allowed": false,
+    "other_condition_outputs_allowed": false,
+    "evaluation_results_allowed": false,
+    "profile_visible": true,
+    "profile_adaptation_allowed": true,
+    "pathway_replanning_allowed": false,
+    "selected_contract_scope_exact": true,
+    "instruction_sequence_exact": true,
+    "discipline_neutral_required": false
+  },
+  "output_view": {
+    "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p2/computer-science/run-02/composition-input-view.json",
+    "sha256": "e0ff385faf599664d9e41732d192c628ed0efbf509901e0926a95d01cf791b22"
+  }
+}

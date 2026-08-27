@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "validator": "curriculum-dependency-model-v1",
+  "valid": true,
+  "error_count": 0,
+  "errors": [],
+  "inputs": {
+    "contract": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+    "contract_sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7",
+    "candidate": "curriculum-models/power-iteration-v1/candidate-v2/contract-dependencies.json",
+    "candidate_sha256": "4904b84a0b5adc3ef749fc13f5cef4a0677f51ae4467ee2f39d33a298e23cc09",
+    "schema": ".github/skills/build-curriculum-dependencies/references/dependency-model.schema.json",
+    "schema_sha256": "e3d4be5ed99c6b9eaa4319c7bea7c4d5c3104c200ad7dbdd86cfd4a6afb55b73"
+  },
+  "metrics": {
+    "contract_item_count": 18,
+    "candidate_item_count": 18,
+    "directed_dependency_count": 49,
+    "external_prerequisite_concept_count": 6,
+    "directed_graph_acyclic": true
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "profile_id": "me-y2",
+  "discipline": "mechanical engineering",
+  "education_level": "second-year undergraduate",
+  "prior_knowledge": ["calculus", "vectors", "matrices"],
+  "computational_background": ["basic Python", "array-based numerical calculation"],
+  "learning_goals": ["Understand, analyse, and implement gradient-based optimisation methods used in mechanical-engineering computation.", "Connect convergence assumptions to algorithm choice and implementation diagnostics."],
+  "preferred_contexts": ["mechanical design variables", "simulation objectives", "stiffness-like quadratic models"],
+  "target_depth": "A rigorous second-year introduction with formulas, theorem scope, algorithm comparisons, and implementation bridges.",
+  "proof_depth": "Explain the meaning and hypotheses of results without full proofs; show enough reasoning to connect models to updates.",
+  "time_budget_minutes": 120,
+  "assumptions_requiring_review": ["No formal convex optimisation assumed", "Unconstrained objective notation is used unless stated otherwise", "Examples are pedagogical surrogates rather than engineering guarantees"]
+}

@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "pathway_id": "power-iteration-p2-computer-science-v1",
+  "condition": "P2",
+  "plan_status": "provisional",
+  "topic": "power iteration",
+  "source_authorities": {
+    "reference_contract": {
+      "contract_id": "power-iteration",
+      "contract_version": "1.0.0",
+      "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+      "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+    },
+    "curriculum_model": {
+      "model_id": "power-iteration-dependencies-v2",
+      "file": "curriculum-models/power-iteration-v1/release/frozen-contract-dependencies.json",
+      "sha256": "9952915a368244e7110233a06d9976ba76e6ff4f9a702886ff0db20b33170ee6",
+      "release_report_file": "curriculum-models/power-iteration-v1/release/curriculum-release-report.json",
+      "release_report_sha256": "00cb1d50225b2c7120a3abb0475968f2af63b2099b7630cc1f8b5e9c12f95bf6"
+    }
+  },
+  "profile_binding": {
+    "profile_id": "computer-science-year-2-rq2-pilot",
+    "file": "experiments/rq2/profiles/computer-science-year-2.json",
+    "sha256": "8a2dba4d066785775f1c70169a8c18d84049c7eb65612dff8008a7a63c78dd50"
+  },
+  "profile_concept_assessment_binding": {
+    "artifact_id": "computer-science-year-2-concept-assessment-v1",
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p2/computer-science/run-01/profile-concept-assessment.json",
+    "sha256": "b6c21946797dafd663890c3feeab0b170a4b8de3ca98e92f8ff71adb1f96daf5"
+  },
+  "learning_request_binding": {
+    "request_id": "power-iteration-second-year-v1",
+    "request_version": "1.0.0",
+    "file": "experiments/rq2/learning-requests/power-iteration-second-year.json",
+    "sha256": "c4cf0c6a4cf53653abab28123b4649dfd6459d894d3f85a310af0200468fe431"
+  },
+  "baseline_pathway_binding": {
+    "pathway_id": "power-iteration-p0-v1",
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p0/pathway-plan.json",
+    "sha256": "9cf1f1125924467e0bae738180bfdc2df0663dab56316caf849037dcacbe5480"
+  },
+  "selection_authority": "dependency_aware_planner",
+  "selection": {
+    "all_contract_item_ids": ["RC-001","RC-002","RC-003","RC-004","RC-005","RC-006","RC-007","RC-008","RC-009","RC-010","RC-011","RC-012","RC-013","RC-014","RC-015","RC-016","RC-017","RC-018"],
+    "selected_item_ids": ["RC-001","RC-003","RC-004","RC-005","RC-006","RC-007","RC-008","RC-009","RC-010","RC-011","RC-012","RC-013","RC-014","RC-015","RC-016","RC-017","RC-018"],
+    "excluded_item_ids": ["RC-002"],
+    "decisions": [
+      {"item_id":"RC-001","decision":"include","selected_role":"supporting","rationale":"Retain the eigenpair definition as the invariant foundation for the algorithm and its implementation.","profile_basis":[{"profile_field":"prior_knowledge","evidence":"matrices and vectors support a concise definition-first treatment"}]},
+      {"item_id":"RC-002","decision":"exclude","selected_role":null,"rationale":"Exclude the characteristic-polynomial route to prioritise executable matrix-vector computation; RC-018 uses its allowed local fallback.","profile_basis":[{"profile_field":"prior_knowledge","evidence":"Python/NumPy and basic algorithm analysis"},{"profile_field":"preferred_representations","evidence":"pseudocode, iteration invariants, and complexity"}]},
+      {"item_id":"RC-003","decision":"include","selected_role":"supporting","rationale":"Keep the symmetric spectral setting because it supplies the Contract's valid convergence explanation and projection coordinates.","profile_basis":[{"profile_field":"prior_knowledge","evidence":"vectors and matrices"}]},
+      {"item_id":"RC-004","decision":"include","selected_role":"supporting","rationale":"Retain the strict dominant-magnitude assumption so algorithmic convergence claims remain conditional and auditable.","profile_basis":[{"profile_field":"preferred_representations","evidence":"iteration invariants and stopping criteria"}]},
+      {"item_id":"RC-005","decision":"include","selected_role":"target","rationale":"Make the normalized matrix-vector update the central computational target for this computer-science pathway.","profile_basis":[{"profile_field":"prior_knowledge","evidence":"Python/NumPy"},{"profile_field":"preferred_representations","evidence":"pseudocode"}]},
+      {"item_id":"RC-006","decision":"include","selected_role":"supporting","rationale":"Retain the dominant-component explanation, but present it through the preferred iteration-invariant framing.","profile_basis":[{"profile_field":"preferred_representations","evidence":"iteration invariants"}]},
+      {"item_id":"RC-007","decision":"include","selected_role":"target","rationale":"Required convergence limitations should be interpreted using the spectral-gap ratio rather than asserted unconditionally.","profile_basis":[{"profile_field":"preferred_representations","evidence":"complexity and stopping criteria"}]},
+      {"item_id":"RC-008","decision":"include","selected_role":"supporting","rationale":"Keep sign alternation as an implementation-relevant interpretation of iterates and residual-based stopping.","profile_basis":[{"profile_field":"preferred_representations","evidence":"iteration invariants and stopping criteria"}]},
+      {"item_id":"RC-009","decision":"include","selected_role":"target","rationale":"The Rayleigh estimate is needed to connect matrix computation to an approximate eigenvalue.","profile_basis":[{"profile_field":"preferred_representations","evidence":"stopping criteria"}]},
+      {"item_id":"RC-010","decision":"include","selected_role":"target","rationale":"The residual norm is the preferred operational quality and stopping measure for the implementation.","profile_basis":[{"profile_field":"preferred_representations","evidence":"complexity and stopping criteria"}]},
+      {"item_id":"RC-011","decision":"include","selected_role":"target","rationale":"Retain the complete safeguarded algorithm, including breakdown, tolerance, and iteration-limit paths.","profile_basis":[{"profile_field":"prior_knowledge","evidence":"basic algorithm analysis"},{"profile_field":"preferred_representations","evidence":"pseudocode"}]},
+      {"item_id":"RC-012","decision":"include","selected_role":"supporting","rationale":"Include the missing-projection failure condition as a precise limitation of the algorithm.","profile_basis":[{"profile_field":"preferred_representations","evidence":"iteration invariants"}]},
+      {"item_id":"RC-013","decision":"include","selected_role":"target","rationale":"Include tied dominance and slow convergence because they directly affect complexity and stopping decisions.","profile_basis":[{"profile_field":"preferred_representations","evidence":"complexity and stopping criteria"}]},
+      {"item_id":"RC-014","decision":"include","selected_role":"supporting","rationale":"Preserve the largest-magnitude target distinction to prevent a common implementation interpretation error.","profile_basis":[{"profile_field":"preferred_representations","evidence":"pseudocode and iteration invariants"}]},
+      {"item_id":"RC-015","decision":"include","selected_role":"supporting","rationale":"State the symmetric-scope boundary before using the convergence explanation in computational examples.","profile_basis":[{"profile_field":"authentic_context_boundary","evidence":"ranking or spectral-computation examples require assumptions to be stated"}]},
+      {"item_id":"RC-016","decision":"include","selected_role":"target","rationale":"Use the profile's NumPy background to emphasise input-shape and initial-vector safeguards.","profile_basis":[{"profile_field":"prior_knowledge","evidence":"Python/NumPy"}]},
+      {"item_id":"RC-017","decision":"include","selected_role":"target","rationale":"Retain executable iteration semantics, exception ordering, residual stopping, and the four-value return contract.","profile_basis":[{"profile_field":"prior_knowledge","evidence":"Python/NumPy and basic algorithm analysis"},{"profile_field":"preferred_representations","evidence":"pseudocode and complexity"}]},
+      {"item_id":"RC-018","decision":"include","selected_role":"target","rationale":"Use the worked result to consolidate tracing, estimate quality, and executable verification. Supply the exact eigenvalues as given, identify the example-specific dominant eigenvalue by a short local magnitude comparison, and check the dominant estimate and residual without deriving the characteristic polynomial or revisiting the general magnitude distinction.","profile_basis":[{"profile_field":"prior_knowledge","evidence":"Python/NumPy"},{"profile_field":"preferred_representations","evidence":"pseudocode and stopping criteria"}]}
+    ]
+  },
+  "learning_goal_mappings": [
+    {"capability_id":"LG-001","supporting_item_ids":["RC-005","RC-011","RC-017","RC-018"],"coverage":"complete","rationale":"The normalized update, safeguarded algorithm, executable semantics, and worked trace cover purpose and matrix-vector iteration."},
+    {"capability_id":"LG-002","supporting_item_ids":["RC-009","RC-010","RC-011","RC-017","RC-018"],"coverage":"complete","rationale":"Rayleigh estimation, residual quality, stopping logic, implementation, and the worked result provide complete approximate-eigenpair interpretation."},
+    {"capability_id":"LG-003","supporting_item_ids":["RC-003","RC-004","RC-006","RC-007","RC-008","RC-012","RC-013","RC-014","RC-015"],"coverage":"complete","rationale":"The symmetric assumptions, convergence mechanism, sign behavior, projection failure, spectral-gap limitations, target distinction, and scope boundary cover the required limitations."},
+    {"capability_id":"LG-004","supporting_item_ids":["RC-011","RC-016","RC-017","RC-018"],"coverage":"complete","rationale":"The algorithm rules, input safeguards, iteration semantics, and worked runtime example support constructing and tracing an implementation."}
+  ],
+  "learning_units": [
+    {"unit_id":"CS-PI-U01","unit_type":"contract_content","purpose":"Eigenpair definition and non-zero vector foundation","contract_item_ids":["RC-001"],"bridge_contract_id":null,"prerequisite_unit_ids":[],"learning_goal_ids":["LG-001","LG-003"]},
+    {"unit_id":"CS-PI-U02","unit_type":"contract_content","purpose":"Target-by-magnitude distinction and computational motivation","contract_item_ids":["RC-014"],"bridge_contract_id":null,"prerequisite_unit_ids":["CS-PI-U01"],"learning_goal_ids":["LG-001","LG-003"]},
+    {"unit_id":"CS-PI-U03","unit_type":"contract_content","purpose":"Symmetric spectral assumptions and dominant-magnitude invariant","contract_item_ids":["RC-003","RC-004"],"bridge_contract_id":null,"prerequisite_unit_ids":["CS-PI-U01"],"learning_goal_ids":["LG-001","LG-003"]},
+    {"unit_id":"CS-PI-U04","unit_type":"contract_content","purpose":"Normalized matrix-vector update and direction-preserving scale control","contract_item_ids":["RC-005"],"bridge_contract_id":null,"prerequisite_unit_ids":["CS-PI-U01"],"learning_goal_ids":["LG-001"]},
+    {"unit_id":"CS-PI-U05","unit_type":"contract_content","purpose":"Dominant-component mechanism and conditional asymptotic convergence","contract_item_ids":["RC-006","RC-007"],"bridge_contract_id":null,"prerequisite_unit_ids":["CS-PI-U03","CS-PI-U04"],"learning_goal_ids":["LG-003"]},
+    {"unit_id":"CS-PI-U06","unit_type":"contract_content","purpose":"Sign behavior, missing projection, tied dominance, slow convergence, and symmetric scope boundary","contract_item_ids":["RC-008","RC-012","RC-013","RC-015"],"bridge_contract_id":null,"prerequisite_unit_ids":["CS-PI-U04","CS-PI-U05"],"learning_goal_ids":["LG-003"]},
+    {"unit_id":"CS-PI-U07","unit_type":"contract_content","purpose":"Rayleigh estimate for an approximate eigenvalue","contract_item_ids":["RC-009"],"bridge_contract_id":null,"prerequisite_unit_ids":["CS-PI-U04"],"learning_goal_ids":["LG-002"]},
+    {"unit_id":"CS-PI-U08","unit_type":"contract_content","purpose":"Residual-based approximate-eigenpair quality and sign-robust stopping measure","contract_item_ids":["RC-010"],"bridge_contract_id":null,"prerequisite_unit_ids":["CS-PI-U07"],"learning_goal_ids":["LG-002"]},
+    {"unit_id":"CS-PI-U09","unit_type":"contract_content","purpose":"Safeguarded algorithm and pseudocode stopping policy","contract_item_ids":["RC-011"],"bridge_contract_id":null,"prerequisite_unit_ids":["CS-PI-U08"],"learning_goal_ids":["LG-001","LG-002","LG-004"]},
+    {"unit_id":"CS-PI-U10","unit_type":"contract_content","purpose":"NumPy input validation and initial-vector safeguards","contract_item_ids":["RC-016"],"bridge_contract_id":null,"prerequisite_unit_ids":["CS-PI-U04","CS-PI-U09"],"learning_goal_ids":["LG-001","LG-004"]},
+    {"unit_id":"CS-PI-U11","unit_type":"contract_content","purpose":"Executable iteration semantics, breakdown ordering, and return contract","contract_item_ids":["RC-017"],"bridge_contract_id":null,"prerequisite_unit_ids":["CS-PI-U08","CS-PI-U10"],"learning_goal_ids":["LG-001","LG-002","LG-004"]},
+    {"unit_id":"CS-PI-U12","unit_type":"contract_content","purpose":"Worked consolidation: Supply the exact eigenvalues as given, identify the example-specific dominant eigenvalue by a short local magnitude comparison, and check the dominant estimate and residual without deriving the characteristic polynomial or revisiting the general magnitude distinction.","contract_item_ids":["RC-018"],"bridge_contract_id":null,"prerequisite_unit_ids":["CS-PI-U08","CS-PI-U11"],"learning_goal_ids":["LG-001","LG-002","LG-004"]}
+  ],
+  "instruction_sequence": ["CS-PI-U01","CS-PI-U02","CS-PI-U03","CS-PI-U04","CS-PI-U05","CS-PI-U06","CS-PI-U07","CS-PI-U08","CS-PI-U09","CS-PI-U10","CS-PI-U11","CS-PI-U12"],
+  "bridge_requirements": [
+    {"requirement_id":"BRQ-001","concept_id":"vector-norms-and-normalization","bridge_candidate_id":"BR-VECTOR-NORMS-NORMALIZATION-v1","required_by_item_ids":["RC-005","RC-010","RC-016","RC-017"],"learner_mastery":"fragile","resolution_status":"candidate","released_bridge_contract_id":null,"rationale":"The profile lists vectors and NumPy but does not explicitly establish Euclidean norm and normalization fluency; no released bridge catalog is supplied."},
+    {"requirement_id":"BRQ-002","concept_id":"orthogonality-and-projection","bridge_candidate_id":"BR-ORTHOGONALITY-PROJECTION-v1","required_by_item_ids":["RC-003","RC-006","RC-007","RC-012"],"learner_mastery":"unknown","resolution_status":"candidate","released_bridge_contract_id":null,"rationale":"The profile gives vector and matrix knowledge without explicit projection evidence; no released bridge catalog is supplied."},
+    {"requirement_id":"BRQ-003","concept_id":"inner-products-and-quadratic-forms","bridge_candidate_id":"BR-INNER-PRODUCTS-QUADRATIC-FORMS-v1","required_by_item_ids":["RC-009","RC-010"],"learner_mastery":"unknown","resolution_status":"candidate","released_bridge_contract_id":null,"rationale":"The profile does not explicitly establish the scalar products used by the Rayleigh quotient and residual; no released bridge catalog is supplied."}
+  ],
+  "pathway_changes": [
+    {"change_type":"change_item_selection","affected_ids":["RC-002"],"profile_basis":[{"profile_field":"preferred_representations","evidence":"pseudocode, iteration invariants, and complexity/stopping criteria"},{"profile_field":"prior_knowledge","evidence":"Python/NumPy and basic algorithm analysis"}],"rationale":"Exclude the characteristic-polynomial route and focus the 90-minute lesson on executable matrix-vector iteration; the Contract-permitted fallback is recorded for RC-018."},
+    {"change_type":"regroup_contract_items","affected_ids":["RC-011","RC-016","RC-017","RC-018"],"profile_basis":[{"profile_field":"preferred_representations","evidence":"pseudocode, iteration invariants, and complexity"}],"rationale":"Separate algorithm policy from NumPy implementation semantics and place the worked result after both, matching the profile's implementation-first preference."},
+    {"change_type":"change_theory_implementation_application_depth","affected_ids":["RC-005","RC-009","RC-010","RC-011","RC-016","RC-017","RC-018"],"profile_basis":[{"profile_field":"prior_knowledge","evidence":"Python/NumPy and basic algorithm analysis"},{"profile_field":"preferred_representations","evidence":"pseudocode, iteration invariants, complexity and stopping criteria"}],"rationale":"Use concise theory support and greater pseudocode, safeguard, complexity, stopping, and executable-trace emphasis while preserving all selected Contract statements and assumptions."}
+  ],
+  "scope_summary": {"selected_contract_item_count":17,"excluded_contract_item_count":1,"critical_item_count":9,"formula_count":15,"algorithm_or_code_item_count":4,"released_bridge_count":0,"estimated_duration_minutes":90},
+  "rendering_policy": {"output_form":"one_continuous_student_facing_lesson","learning_units_are_pages":false,"target_duration_minutes":90},
+  "generated_by": {"producer":"adaptive-curriculum-pathway-planner","producer_version":"1.0","method":"adaptive_pathway_planning","generated_at":"2026-08-18T03:25:00Z"}
+}

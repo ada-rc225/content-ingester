@@ -1,0 +1,485 @@
+{
+  "schema_version": "1.0",
+  "pathway_id": "gradient-descent-p0-v1",
+  "condition": "P0",
+  "plan_status": "complete",
+  "topic": "gradient descent",
+  "source_authorities": {
+    "reference_contract": {
+      "contract_id": "gradient-descent",
+      "contract_version": "3.0.0",
+      "file": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+      "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"
+    },
+    "curriculum_model": null
+  },
+  "profile_binding": null,
+  "profile_concept_assessment_binding": null,
+  "learning_request_binding": {
+    "request_id": "gradient-descent-second-year-v1",
+    "request_version": "1.0.0",
+    "file": "experiments/rq2/learning-requests/gradient-descent-second-year.json",
+    "sha256": "bdd734fd2f2c56b38960e9938281952a55841d57b0a83047647d38ca4f90348d"
+  },
+  "baseline_pathway_binding": null,
+  "selection_authority": "fixed_baseline",
+  "selection": {
+    "all_contract_item_ids": [
+      "RC-001",
+      "RC-002",
+      "RC-003",
+      "RC-004",
+      "RC-005",
+      "RC-006",
+      "RC-007",
+      "RC-008",
+      "RC-009",
+      "RC-010",
+      "RC-011",
+      "RC-012",
+      "RC-013",
+      "RC-014",
+      "RC-015",
+      "RC-016",
+      "RC-017",
+      "RC-018",
+      "RC-019",
+      "RC-020",
+      "RC-021",
+      "RC-022",
+      "RC-023",
+      "RC-024",
+      "RC-025",
+      "RC-026",
+      "RC-027",
+      "RC-028",
+      "RC-029",
+      "RC-030"
+    ],
+    "selected_item_ids": [
+      "RC-001",
+      "RC-002",
+      "RC-004",
+      "RC-005",
+      "RC-006",
+      "RC-007",
+      "RC-009",
+      "RC-010",
+      "RC-011",
+      "RC-013",
+      "RC-014",
+      "RC-015"
+    ],
+    "excluded_item_ids": [
+      "RC-003",
+      "RC-008",
+      "RC-012",
+      "RC-016",
+      "RC-017",
+      "RC-018",
+      "RC-019",
+      "RC-020",
+      "RC-021",
+      "RC-022",
+      "RC-023",
+      "RC-024",
+      "RC-025",
+      "RC-026",
+      "RC-027",
+      "RC-028",
+      "RC-029",
+      "RC-030"
+    ],
+    "decisions": [
+      {
+        "item_id": "RC-001",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Define the optimisation problem that the shared learning request asks students to solve.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-002",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Connect minimisation to the stationary-point motivation for following the negative gradient.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-003",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Second-order local optimality conditions are not required for the shared first-order Gradient Descent task.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-004",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Smoothness controls how gradient changes support step-size and convergence explanations.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-005",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "The Descent Lemma explains why a suitably bounded Gradient Descent step can decrease the objective.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-006",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Convexity supplies the global structure used by the selected sublinear convergence result.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-007",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Strong convexity is required to distinguish the selected linear-rate result from the convex case.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-008",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "The Hessian characterization is explanatory rather than required; RC-015 can be stated with its hypotheses without this derivation.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-009",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "The condition number explains how smoothness and strong convexity jointly affect the selected rate.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-010",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "The Gradient Descent update is the central algorithmic capability of the shared task.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-011",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "The constant-step choices bind the selected update to the stated smooth-convex convergence results.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-012",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Exact line search is not needed when constant steps and one bounded practical alternative already cover the shared step-size capability.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-013",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Armijo backtracking provides one bounded practical alternative to a known-L constant step without expanding to a separate optimisation method.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-014",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Provide the selected convex objective-gap result with its smoothness, minimizer, and step-size conditions.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-015",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Contrast the strongly convex contraction with the general convex rate and expose the role of conditioning.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-016",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Heavy Ball is an acceleration extension outside the shared basic Gradient Descent task.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-017",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "The quadratic Heavy-Ball rate is outside scope when Heavy Ball is excluded.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-018",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Nesterov acceleration is outside the shared basic Gradient Descent task.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-019",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "The NAG convergence result is outside scope when NAG is excluded.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-020",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Stochastic-gradient assumptions define a different method family from the full-gradient shared task.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-021",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "SGD and its error-floor behaviour are outside the shared full-gradient task.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-022",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Robbins-Monro conditions are outside scope when stochastic optimisation is excluded.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-023",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "AdaGrad is an optional adaptive stochastic method rather than basic Gradient Descent content.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-024",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "RMSProp is an optional adaptive stochastic method rather than basic Gradient Descent content.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-025",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Adam is an optional adaptive stochastic method rather than basic Gradient Descent content.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-026",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "The second-order Taylor model belongs to the Newton-method branch outside the shared first-order task.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-027",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Newton's Hessian solve is outside the shared first-order Gradient Descent task.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-028",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Newton's local quadratic convergence result is outside scope when Newton's method is excluded.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-029",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "The BFGS secant model is outside the shared basic Gradient Descent task.",
+        "profile_basis": []
+      },
+      {
+        "item_id": "RC-030",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "The inverse-Hessian BFGS update is outside the shared basic Gradient Descent task.",
+        "profile_basis": []
+      }
+    ]
+  },
+  "learning_goal_mappings": [
+    {
+      "capability_id": "LG-001",
+      "supporting_item_ids": [
+        "RC-001",
+        "RC-002",
+        "RC-010"
+      ],
+      "coverage": "complete",
+      "rationale": "Deterministically migrated from the reviewed P0 normalization map."
+    },
+    {
+      "capability_id": "LG-002",
+      "supporting_item_ids": [
+        "RC-004",
+        "RC-005",
+        "RC-011",
+        "RC-013"
+      ],
+      "coverage": "complete",
+      "rationale": "Deterministically migrated from the reviewed P0 normalization map."
+    },
+    {
+      "capability_id": "LG-003",
+      "supporting_item_ids": [
+        "RC-006",
+        "RC-007",
+        "RC-009",
+        "RC-014",
+        "RC-015"
+      ],
+      "coverage": "complete",
+      "rationale": "Deterministically migrated from the reviewed P0 normalization map."
+    },
+    {
+      "capability_id": "LG-004",
+      "supporting_item_ids": [
+        "RC-010",
+        "RC-011",
+        "RC-013"
+      ],
+      "coverage": "complete",
+      "rationale": "Deterministically migrated from the reviewed P0 normalization map."
+    }
+  ],
+  "learning_units": [
+    {
+      "unit_id": "GD-U01",
+      "unit_type": "contract_content",
+      "purpose": "Optimisation objective and first-order stationarity",
+      "contract_item_ids": [
+        "RC-001",
+        "RC-002"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [],
+      "learning_goal_ids": [
+        "LG-001"
+      ]
+    },
+    {
+      "unit_id": "GD-U02",
+      "unit_type": "contract_content",
+      "purpose": "The gradient-descent update",
+      "contract_item_ids": [
+        "RC-010"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "GD-U01"
+      ],
+      "learning_goal_ids": [
+        "LG-001",
+        "LG-004"
+      ]
+    },
+    {
+      "unit_id": "GD-U03",
+      "unit_type": "contract_content",
+      "purpose": "Smoothness, descent, and constant step size",
+      "contract_item_ids": [
+        "RC-004",
+        "RC-005",
+        "RC-011"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "GD-U01",
+        "GD-U02"
+      ],
+      "learning_goal_ids": [
+        "LG-002",
+        "LG-004"
+      ]
+    },
+    {
+      "unit_id": "GD-U04",
+      "unit_type": "contract_content",
+      "purpose": "Convexity, strong convexity, and conditioning",
+      "contract_item_ids": [
+        "RC-006",
+        "RC-007",
+        "RC-009"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "GD-U01",
+        "GD-U03"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "GD-U05",
+      "unit_type": "contract_content",
+      "purpose": "Convergence guarantees and their boundaries",
+      "contract_item_ids": [
+        "RC-014",
+        "RC-015"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "GD-U02",
+        "GD-U03",
+        "GD-U04"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "GD-U06",
+      "unit_type": "contract_content",
+      "purpose": "Armijo backtracking as a practical step-selection extension",
+      "contract_item_ids": [
+        "RC-013"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "GD-U02",
+        "GD-U03"
+      ],
+      "learning_goal_ids": [
+        "LG-002",
+        "LG-004"
+      ]
+    }
+  ],
+  "instruction_sequence": [
+    "GD-U01",
+    "GD-U02",
+    "GD-U03",
+    "GD-U04",
+    "GD-U05",
+    "GD-U06"
+  ],
+  "bridge_requirements": [],
+  "pathway_changes": [],
+  "scope_summary": {
+    "selected_contract_item_count": 12,
+    "excluded_contract_item_count": 18,
+    "critical_item_count": 9,
+    "formula_count": 13,
+    "algorithm_or_code_item_count": 3,
+    "released_bridge_count": 0,
+    "estimated_duration_minutes": 90
+  },
+  "rendering_policy": {
+    "output_form": "one_continuous_student_facing_lesson",
+    "learning_units_are_pages": false,
+    "target_duration_minutes": 90
+  },
+  "generated_by": {
+    "producer": "normalize-p0-pathway",
+    "producer_version": "1.0",
+    "method": "deterministic_baseline_normalization",
+    "generated_at": "2026-08-19T12:00:00Z"
+  }
+}

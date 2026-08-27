@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/rq2-word-count-protocol.schema.json",
+  "title": "RQ2 Shared Word Count Protocol",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "protocol_id",
+    "status",
+    "topic",
+    "language",
+    "enabled",
+    "minimum",
+    "maximum",
+    "counting_method",
+    "applies_to_conditions"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "protocol_id": {"type": "string", "minLength": 1},
+    "status": {"enum": ["draft_for_pilot", "frozen"]},
+    "topic": {"type": "string", "minLength": 1},
+    "language": {"const": "English"},
+    "enabled": {"const": true},
+    "minimum": {"type": "integer", "minimum": 1},
+    "maximum": {"type": "integer", "minimum": 1},
+    "counting_method": {"const": "english_prose_v1"},
+    "applies_to_conditions": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {"enum": ["P0", "P1", "P2"]}
+    }
+  }
+}

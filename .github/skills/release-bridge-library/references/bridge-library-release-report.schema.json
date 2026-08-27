@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/bridge-library-release-report.schema.json",
+  "title": "Bridge Library Release Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "release_gate",
+    "status",
+    "released_at",
+    "library_id",
+    "approval",
+    "inputs",
+    "outputs"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "release_gate": {"const": "bridge-library-release-gate-v1"},
+    "status": {"const": "released"},
+    "released_at": {"type": "string", "format": "date-time"},
+    "library_id": {"type": "string", "minLength": 1},
+    "approval": {"type": "object"},
+    "inputs": {"type": "object"},
+    "outputs": {"type": "object"}
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "protocol_id": "RQ2-DEPENDENCY-AWARE-PATHWAY-v0.3-pilot",
+  "status": "draft_for_pilot",
+  "research_question": "Can dependency-aware, learner-profile-driven pathway adaptation produce materially different and pedagogically appropriate content selections and learning sequences while preserving the correctness, provenance, and dependency coherence of the mathematical content selected for each learner?",
+  "hypotheses": {
+    "H2a_pedagogical_quality": "Compared with a generic fixed pathway and profile-aware local adaptation on that same fixed pathway, P2 will receive higher ratings for disciplinary framing appropriateness, prerequisite match, context-boundary awareness, and sequence quality.",
+    "H2b_material_difference": "P2 pathways for meaningfully different learner profiles will differ in at least one dependency-valid structural feature: Contract-item selection, learning-unit order or grouping, prerequisite bridges, or theory/implementation/application depth.",
+    "H2c_selected_content_safety": "Every generated pathway will preserve complete coverage, provenance, mathematical and algorithmic correctness, and dependency coherence for the content selected for that pathway."
+  },
+  "topics": [
+    "power-iteration",
+    "gradient-descent"
+  ],
+  "pilot_topic": "power-iteration",
+  "output_form": "one_continuous_student_facing_lesson",
+  "shared_learning_request": "experiments/rq2/learning-requests/power-iteration-second-year.json",
+  "runtime_authorities": {
+    "mathematical_content_all_conditions": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+    "fixed_baseline_scope_and_sequence_P0_P1": "experiments/rq2/specs/power-iteration/canonical-pathway.json",
+    "unified_P0_baseline": "experiments/rq2/pathway-plans/power-iteration-v1/p0/pathway-plan.json",
+    "curriculum_dependency_model_P2_only": "curriculum-models/power-iteration-v1/release/frozen-contract-dependencies.json",
+    "unreleased_bridge_content_is_generation_authority": false
+  },
+  "conditions": {
+    "P0": {
+      "name": "generic-fixed-sequence",
+      "profile_visible_to_pathway_selection": false,
+      "profile_visible_to_composition": false,
+      "uses_frozen_curriculum_dependency_model": false,
+      "pathway_source": "fixed_baseline",
+      "pathway_mutable": false,
+      "local_content_adaptation": false
+    },
+    "P1": {
+      "name": "profile-local-content-adaptation",
+      "profile_visible_to_pathway_selection": false,
+      "profile_visible_to_composition": true,
+      "uses_frozen_curriculum_dependency_model": false,
+      "pathway_source": "P0_exact",
+      "pathway_mutable": false,
+      "local_content_adaptation": true
+    },
+    "P2": {
+      "name": "dependency-aware-profile-pathway-adaptation",
+      "profile_visible_to_pathway_selection": true,
+      "profile_visible_to_composition": true,
+      "uses_frozen_curriculum_dependency_model": true,
+      "pathway_source": "adaptive_planner",
+      "pathway_mutable": true,
+      "local_content_adaptation": true
+    }
+  },
+  "p2_pathway_decisions": [
+    "include_or_exclude_each_contract_item",
+    "assign_selected_items_as_target_supporting_or_extension_content",
+    "order_and_group_selected_content",
+    "request_prerequisite_bridges_for_profile_gaps",
+    "select_theory_implementation_and_application_depth"
+  ],
+  "shared_task_anchor": {
+    "same_learning_request_across_conditions_and_profiles": true,
+    "required_capability_coverage": 1.0,
+    "planner_may_change_required_capabilities": false,
+    "purpose": "Prevent an adaptive pathway from improving apparent comprehensibility merely by deleting the learning task."
+  },
+  "runs_per_cell": {
+    "pilot": 1,
+    "confirmatory": 3
+  },
+  "primary_pedagogy_outcomes": [
+    "disciplinary_framing_appropriateness",
+    "prerequisite_match",
+    "context_boundary_awareness",
+    "sequence_quality"
+  ],
+  "exploratory_pedagogy_outcomes": [
+    "example_authenticity"
+  ],
+  "exploratory_reporting_policy": {
+    "example_authenticity": "Report descriptively and separately from H2a. Do not use this exploratory score to accept or reject the confirmatory pedagogical-quality hypothesis."
+  },
+  "pilot_stage_outcome_amendment": {
+    "amendment_id": "RQ2-OUTCOME-AMENDMENT-001",
+    "decision_date": "2026-08-19",
+    "timing": "after_power_iteration_pilot_before_confirmatory_freeze",
+    "change": "Replace disciplinary relevance and confirmatory example authenticity with disciplinary framing appropriateness and context-boundary awareness as primary outcomes; retain example authenticity as exploratory only.",
+    "rationale": "Align the confirmatory construct with the pathway and bounded-framing intervention actually implemented, while preventing safe disciplinary framing from being treated as evidence that an application example is domain-authentic."
+  },
+  "selection_quality_outcomes": [
+    "learning_goal_coverage",
+    "appropriateness_of_inclusions",
+    "appropriateness_of_exclusions",
+    "unnecessary_content_load",
+    "profile_rationale_quality"
+  ],
+  "primary_contrasts": [
+    "P2-P1",
+    "P2-P0"
+  ],
+  "selected_content_fidelity_gate": {
+    "required_learning_goal_coverage": 1.0,
+    "selected_contract_item_coverage": 1.0,
+    "selected_formula_provenance_coverage": 1.0,
+    "hard_dependency_satisfaction": 1.0,
+    "released_bridge_compliance": 1.0,
+    "critical_mathematical_or_algorithmic_errors_allowed": 0,
+    "unsupported_mathematical_claims_allowed": 0,
+    "formula_accuracy_minimum": 1.0,
+    "algorithm_accuracy_minimum": 1.0
+  },
+  "scope_and_load_reporting": {
+    "required_fields": [
+      "selected_contract_item_count",
+      "excluded_contract_item_count",
+      "critical_item_count",
+      "formula_count",
+      "algorithm_or_code_item_count",
+      "released_bridge_count",
+      "student_facing_word_count"
+    ],
+    "error_rate_denominators": [
+      "selected_contract_items",
+      "formula_opportunities",
+      "algorithmic_claim_opportunities"
+    ],
+    "reason": "P2 may select less content than the fixed baseline, so raw error counts and raw comprehensibility scores must be interpreted with content load."
+  },
+  "material_pathway_difference": {
+    "accepted_change_types": [
+      "change_item_selection",
+      "reorder_learning_units",
+      "add_prerequisite_bridge",
+      "regroup_contract_items",
+      "change_theory_implementation_application_depth"
+    ],
+    "lexical_or_example_change_alone_is_sufficient": false,
+    "requires_profile_linked_pedagogical_justification": true,
+    "fixed_baseline_is_comparison_only_for_P2": true
+  },
+  "pathway_plan_contract": {
+    "schema": "experiments/rq2/schemas/pathway-plan.schema.json",
+    "profile_concept_assessment_schema": "experiments/rq2/schemas/profile-concept-assessment.schema.json",
+    "pathway_plan_review_schema": "experiments/rq2/schemas/pathway-plan-review.schema.json",
+    "planner_agent": ".github/agents/adaptive-curriculum-pathway-planner.agent.md",
+    "planner_version": "1.1",
+    "planner_skill": ".github/skills/plan-adaptive-curriculum-pathways/SKILL.md",
+    "deterministic_validator": "experiments/rq2/scripts/validate_pathway_plan.py",
+    "review_template_generator": ".github/skills/plan-adaptive-curriculum-pathways/scripts/create_pathway_plan_review.py",
+    "revision_preflight": ".github/skills/plan-adaptive-curriculum-pathways/scripts/prepare_pathway_revision.py",
+    "revision_scope_validator": ".github/skills/plan-adaptive-curriculum-pathways/scripts/validate_pathway_revision.py",
+    "P0_normalization_map": "experiments/rq2/specs/power-iteration/p0-normalization-map.json",
+    "P0_normalizer": "experiments/rq2/scripts/normalize_p0_pathway.py",
+    "P1_exact_copier": "experiments/rq2/scripts/copy_p1_pathway.py",
+    "P0_generation": "deterministically_normalized_from_fixed_baseline",
+    "P1_generation": "exact_P0_pathway_copy_with_profile_binding_for_composition_only",
+    "P2_generation": "adaptive_curriculum_pathway_planner",
+    "same_schema_for_all_conditions": true
+  },
+  "bridge_library_contract": {
+    "scope": "simplified_supporting_infrastructure_for_P2_only",
+    "schema": "experiments/rq2/schemas/bridge-library.schema.json",
+    "builder_agent": ".github/agents/grounded-bridge-library-builder.agent.md",
+    "builder_version": "1.0",
+    "builder_skill": ".github/skills/build-grounded-bridge-library/SKILL.md",
+    "deterministic_validator": ".github/skills/build-grounded-bridge-library/scripts/validate_bridge_library.py",
+    "review_template_generator": ".github/skills/build-grounded-bridge-library/scripts/create_bridge_library_review.py",
+    "candidate": "bridge-library/power-iteration-v1/candidate/bridge-library-candidate.json",
+    "validation_report": "bridge-library/power-iteration-v1/candidate/bridge-library-validation-report.json",
+    "human_review": "bridge-library/power-iteration-v1/candidate/bridge-library-review.json",
+    "validation_policy": "one_structural_and_provenance_check_then_one_human_review",
+    "separate_revision_scope_validator": false,
+    "separate_release_gate_agent": false,
+    "unused_curriculum_model_bridge_candidates_are_generated": false
+  },
+  "teaching_composer_contract": {
+    "agent": ".github/agents/pathway-constrained-teaching-composer.agent.md",
+    "agent_version": "1.0",
+    "skill": ".github/skills/compose-pathway-constrained-teaching/SKILL.md",
+    "skill_version": "1.0",
+    "input_preparer": ".github/skills/compose-pathway-constrained-teaching/scripts/prepare_composition_inputs.py",
+    "output_validator": ".github/skills/compose-pathway-constrained-teaching/scripts/validate_composer_outputs.py",
+    "lesson_map_schema": ".github/skills/compose-pathway-constrained-teaching/references/lesson-map.schema.json",
+    "word_count_protocol_schema": ".github/skills/compose-pathway-constrained-teaching/references/word-count-protocol.schema.json",
+    "power_iteration_pilot_word_count_protocol": "experiments/rq2/word-count-protocols/power-iteration-pilot.json",
+    "same_composer_for_all_conditions": true,
+    "pathway_replanning_during_composition": false,
+    "external_retrieval_during_composition": false,
+    "deterministic_validation_claims_semantic_mathematical_correctness": false
+  },
+  "evaluation_contract": {
+    "protocol_id": "RQ2-EVAL-v1",
+    "agent": ".github/agents/rq2-independent-evaluator.agent.md",
+    "skill": ".github/skills/evaluate-rq2-pathways/SKILL.md",
+    "rubric": ".github/skills/evaluate-rq2-pathways/references/evaluation-protocol.md",
+    "judgement_schema": ".github/skills/evaluate-rq2-pathways/references/rq2-evaluation-judgement.schema.json",
+    "blind_sample_preparer": ".github/skills/evaluate-rq2-pathways/scripts/prepare_blind_sample.py",
+    "blind_sample_validator": ".github/skills/evaluate-rq2-pathways/scripts/validate_blind_sample.py",
+    "judgement_template_generator": ".github/skills/evaluate-rq2-pathways/scripts/create_judgement_template.py",
+    "deterministic_judgement_scorer": ".github/skills/evaluate-rq2-pathways/scripts/validate_and_score.py",
+    "judge_reliability_analyser": ".github/skills/evaluate-rq2-pathways/scripts/assess_judge_reliability.py",
+    "pathway_difference_analyser": ".github/skills/evaluate-rq2-pathways/scripts/compute_pathway_differences.py",
+    "condition_level_aggregator": ".github/skills/evaluate-rq2-pathways/scripts/aggregate_rq2_scores.py",
+    "pointwise_condition_blind": true,
+    "profile_visible_to_evaluator": true,
+    "minimum_independent_judge_passes_per_sample": 2,
+    "automated_scores_are_expert_ground_truth": false,
+    "student_questionnaire_required": false,
+    "student_outcomes_claimed": false
+  },
+  "length_control": {
+    "pathway_planner_adds_time_limits": false,
+    "pathway_review_assesses_time_feasibility": false,
+    "legacy_duration_metadata_is_selection_authority": false,
+    "student_facing_length_control_stage": "pathway_constrained_teaching_composer",
+    "control_variable": "word_count_protocol"
+  },
+  "analysis_unit": "generated_continuous_lesson_with_validated_pathway_plan",
+  "student_study_in_scope": false,
+  "preconfirmatory_freeze_requirements": [
+    "learning_request",
+    "learner_profiles",
+    "P0_pathway_plan",
+    "pathway_plan_schema",
+    "planner_and_composer_prompts",
+    "generation_settings",
+    "evaluation_rubric",
+    "analysis_rules",
+    "released_bridge_catalog_if_used"
+  ],
+  "notes": [
+    "The specs/power-iteration artifacts define the fixed P0/P1 pilot baseline; they are not a universal-core constraint on P2.",
+    "All conditions use the same RQ1 Frozen Reference Contract as mathematical authority.",
+    "Only P2 may use the released Frozen Curriculum Dependency Model for selection and sequencing.",
+    "P1 must reuse the exact P0 item selection, unit grouping, prerequisite relations, and instruction sequence.",
+    "P2 may select a profile-specific mathematical scope but may not change the shared learning request.",
+    "Learning units are planning units and must not be rendered as separate Atomic Learning pages.",
+    "Pathway planning and review do not add time limits; student-facing output length is controlled later through the Composer word-count protocol.",
+    "Reuse each P0 run across learner-profile comparisons.",
+    "Judge passes are repeat measurements and do not increase the number of independent generated lessons."
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RQ1 blind item-level evaluation judgement",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "evaluation_protocol", "evaluator", "bundle_binding", "item_evaluations", "atomic_claim_evaluations", "pedagogy_evaluations", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "evaluation_protocol": {"const": "RQ1-EVAL-v1"},
+    "evaluator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evaluator_run_id", "evaluator_id", "provider", "model", "prompt_version", "pass_index", "generated_at"],
+      "properties": {
+        "evaluator_run_id": {"type": "string", "minLength": 1},
+        "evaluator_id": {"type": "string", "minLength": 1},
+        "provider": {"type": "string", "minLength": 1},
+        "model": {"type": "string", "minLength": 1},
+        "prompt_version": {"type": "string", "minLength": 1},
+        "pass_index": {"type": "integer", "minimum": 1},
+        "generated_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "bundle_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bundle_id", "manifest_sha256", "contract_id", "contract_version", "contract_sha256", "sample_id", "content_sha256"],
+      "properties": {
+        "bundle_id": {"type": "string", "minLength": 1},
+        "manifest_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "contract_id": {"type": "string", "minLength": 1},
+        "contract_version": {"type": "string", "minLength": 1},
+        "contract_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "sample_id": {"type": "string", "pattern": "^S[0-9]{3,}$"},
+        "content_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "item_evaluations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/itemEvaluation"}
+    },
+    "atomic_claim_evaluations": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/atomicClaim"}
+    },
+    "pedagogy_evaluations": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {"$ref": "#/$defs/pedagogyEvaluation"}
+    },
+    "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["heading", "exact_excerpt"],
+      "properties": {
+        "heading": {"type": "string"},
+        "exact_excerpt": {"type": "string", "minLength": 1, "maxLength": 1200}
+      }
+    },
+    "conditionCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["condition", "status", "lesson_evidence", "rationale"],
+      "properties": {
+        "condition": {"type": "string", "minLength": 1},
+        "status": {"enum": ["preserved", "omitted", "contradicted", "not_applicable", "uncertain"]},
+        "lesson_evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+        "rationale": {"type": "string", "minLength": 1}
+      }
+    },
+    "itemEvaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_id", "applicability", "selection_basis", "coverage", "severity", "drift_types", "lesson_evidence", "condition_checks", "contract_requirement_checked", "rationale", "confidence", "abstain"],
+      "properties": {
+        "item_id": {"type": "string", "pattern": "^RC-[0-9]{3,}$"},
+        "applicability": {"enum": ["applicable", "not_applicable", "uncertain"]},
+        "selection_basis": {"enum": ["required", "conditional_selected", "conditional_not_selected", "uncertain"]},
+        "coverage": {"enum": ["full", "partial", "omitted", "contradicted", "not_applicable", "uncertain"]},
+        "severity": {"enum": ["none", "minor", "major", "critical", "not_applicable", "uncertain"]},
+        "drift_types": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"enum": ["condition_dropped", "scope_overgeneralised", "formula_changed", "algorithm_changed", "concept_conflated", "analogy_promoted_to_fact", "prohibited_drift_triggered", "unsupported_extension"]}
+        },
+        "lesson_evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+        "condition_checks": {"type": "array", "items": {"$ref": "#/$defs/conditionCheck"}},
+        "contract_requirement_checked": {"type": "string", "minLength": 1, "maxLength": 1600},
+        "rationale": {"type": "string", "minLength": 1, "maxLength": 2000},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "abstain": {"type": "boolean"}
+      }
+    },
+    "atomicClaim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claim_id", "heading", "exact_claim", "claim_type", "verdict", "supporting_item_ids", "lesson_evidence", "severity", "rationale", "confidence", "abstain"],
+      "properties": {
+        "claim_id": {"type": "string", "pattern": "^AC-[0-9]{3,}$"},
+        "heading": {"type": "string"},
+        "exact_claim": {"type": "string", "minLength": 1, "maxLength": 1200},
+        "claim_type": {"enum": ["mathematical", "algorithmic", "implementation", "disciplinary_application"]},
+        "verdict": {"enum": ["supported", "unsupported", "contradicted", "not_verifiable", "uncertain"]},
+        "supporting_item_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^RC-[0-9]{3,}$"}},
+        "lesson_evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}},
+        "severity": {"enum": ["none", "minor", "major", "critical", "uncertain"]},
+        "rationale": {"type": "string", "minLength": 1, "maxLength": 1600},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "abstain": {"type": "boolean"}
+      }
+    },
+    "pedagogyEvaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dimension", "score", "lesson_evidence", "rationale", "confidence", "abstain"],
+      "properties": {
+        "dimension": {"enum": ["learner_alignment", "disciplinary_authenticity", "pedagogical_coherence", "theory_implementation_alignment", "readability", "analogy_safety", "exercise_validity"]},
+        "score": {"oneOf": [{"type": "integer", "minimum": 1, "maximum": 5}, {"const": "not_applicable"}, {"const": "uncertain"}]},
+        "lesson_evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+        "rationale": {"type": "string", "minLength": 1, "maxLength": 1600},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "abstain": {"type": "boolean"}
+      }
+    }
+  }
+}

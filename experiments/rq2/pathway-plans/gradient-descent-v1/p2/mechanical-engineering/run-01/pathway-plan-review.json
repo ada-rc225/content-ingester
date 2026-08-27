@@ -1,0 +1,1011 @@
+{
+  "schema_version": "1.0",
+  "review_id": "gradient-descent-p2-mechanical-engineering-run-01-review-v1",
+  "review_status": "revision_required",
+  "candidate_binding": {
+    "pathway_id": "gradient-descent-p2-mechanical-engineering-run-01",
+    "pathway_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-01/pathway-plan.json",
+    "pathway_sha256": "6f6576e7d2f9fb0ba4e5e6116afcb89d371bdbc48a864dafca4bdb41fca24305",
+    "validation_report_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-01/pathway-validation-report.json",
+    "validation_report_sha256": "da9b028e1e0cd37b8252c95926f1d3e278be543f708fbbe614e5299e11b254b9",
+    "assessment_id": "gradient-descent-mechanical-engineering-year-2-concept-assessment-v1",
+    "assessment_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-01/profile-concept-assessment.json",
+    "assessment_sha256": "4efd9be91baf11693a9c5acc06c18f7fa2bebac2a212c83d32e76ad40f0a96a1",
+    "profile_id": "gradient-descent-mechanical-engineering-year-2-rq2-pilot",
+    "profile_file": "experiments/rq2/profiles/gradient-descent/mechanical-engineering-year-2.json",
+    "profile_sha256": "3e107dcaa9f10ef339daa9136644d171f4849b0d3d5b7be9989524a2c51965a2"
+  },
+  "template_generator": {
+    "agent": "adaptive-curriculum-pathway-planner",
+    "agent_version": "1.1",
+    "skill": "plan-adaptive-curriculum-pathways",
+    "skill_version": "1.1",
+    "generated_at": "2026-08-19T21:12:57Z"
+  },
+  "revision_binding": null,
+  "reviewer": {
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "mechanical engineering educator"
+  },
+  "selection_reviews": [
+    {
+      "item_id": "RC-001",
+      "item_type": "definition",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-002",
+      "item_type": "theorem",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-003",
+      "item_type": "theorem",
+      "criticality": "critical",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-004",
+      "item_type": "definition",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-005",
+      "item_type": "theorem",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-006",
+      "item_type": "definition",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-007",
+      "item_type": "definition",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-008",
+      "item_type": "theorem",
+      "criticality": "required",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-009",
+      "item_type": "definition",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-010",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-011",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-012",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-013",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "planned_decision": "include",
+      "planned_role": "supporting",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-014",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-015",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "planned_decision": "include",
+      "planned_role": "target",
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-016",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-017",
+      "item_type": "convergence_result",
+      "criticality": "required",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-018",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-019",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-020",
+      "item_type": "assumption",
+      "criticality": "critical",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-021",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-022",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-023",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-024",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-025",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-026",
+      "item_type": "definition",
+      "criticality": "required",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-027",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-028",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-029",
+      "item_type": "definition",
+      "criticality": "required",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-030",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "planned_decision": "exclude",
+      "planned_role": null,
+      "field_decisions": {
+        "decision_and_role": "approved",
+        "rationale_and_profile_basis": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    }
+  ],
+  "concept_reviews": [
+    {
+      "concept_id": "real-vector-spaces-and-functions",
+      "planned_mastery": "mastered",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "multivariable-calculus-and-local-extrema",
+      "planned_mastery": "mastered",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "euclidean-norms-and-lipschitz-continuity",
+      "planned_mastery": "fragile",
+      "planned_bridge_status": "candidate",
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "inner-products-and-quadratic-terms",
+      "planned_mastery": "mastered",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "inner-products-and-convex-sets",
+      "planned_mastery": "fragile",
+      "planned_bridge_status": "candidate",
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "symmetric-matrices-and-definiteness",
+      "planned_mastery": "mastered",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "revision_required",
+        "evidence_and_rationale": "revision_required",
+        "bridge_requirement": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "Revise mastery from mastered to fragile with medium confidence. General prior knowledge of vectors and matrices does not establish positive-semidefinite/positive-definite terminology. No bridge needs to be added because the only directly supported second-order item is excluded; this correction is for assessment validity and must not expand the selected pathway."
+    },
+    {
+      "concept_id": "hessian-matrix-ordering",
+      "planned_mastery": "unknown",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "ratios-and-condition-numbers",
+      "planned_mastery": "fragile",
+      "planned_bridge_status": "candidate",
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "vectors-gradients-and-scalar-multiplication",
+      "planned_mastery": "mastered",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "symmetric-positive-definite-quadratics-and-spectra",
+      "planned_mastery": "unknown",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "conditional-expectation-and-variance",
+      "planned_mastery": "missing",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "series-and-stochastic-convergence",
+      "planned_mastery": "unknown",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "element-wise-array-operations",
+      "planned_mastery": "mastered",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "second-order-taylor-expansions",
+      "planned_mastery": "unknown",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "linear-systems-and-hessian-solves",
+      "planned_mastery": "unknown",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "local-lipschitz-regularity",
+      "planned_mastery": "unknown",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "inverse-hessian-approximation-matrices",
+      "planned_mastery": "unknown",
+      "planned_bridge_status": null,
+      "field_decisions": {
+        "mastery_and_confidence": "approved",
+        "evidence_and_rationale": "approved",
+        "bridge_requirement": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    }
+  ],
+  "learning_goal_reviews": [
+    {
+      "capability_id": "LG-001",
+      "planned_coverage": "complete",
+      "planned_supporting_item_ids": [
+        "RC-001",
+        "RC-002",
+        "RC-010"
+      ],
+      "field_decisions": {
+        "coverage_and_support": "approved",
+        "rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "capability_id": "LG-002",
+      "planned_coverage": "complete",
+      "planned_supporting_item_ids": [
+        "RC-004",
+        "RC-005",
+        "RC-011",
+        "RC-013"
+      ],
+      "field_decisions": {
+        "coverage_and_support": "approved",
+        "rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "capability_id": "LG-003",
+      "planned_coverage": "complete",
+      "planned_supporting_item_ids": [
+        "RC-006",
+        "RC-007",
+        "RC-009",
+        "RC-014",
+        "RC-015"
+      ],
+      "field_decisions": {
+        "coverage_and_support": "approved",
+        "rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "capability_id": "LG-004",
+      "planned_coverage": "complete",
+      "planned_supporting_item_ids": [
+        "RC-010",
+        "RC-011",
+        "RC-013"
+      ],
+      "field_decisions": {
+        "coverage_and_support": "approved",
+        "rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    }
+  ],
+  "structure_review": {
+    "instruction_sequence": [
+      "GD-ME-U01",
+      "GD-ME-U02",
+      "GD-ME-U03",
+      "GD-ME-U04",
+      "GD-ME-U05",
+      "GD-ME-U06",
+      "GD-ME-U07",
+      "GD-ME-U08",
+      "GD-ME-U09",
+      "GD-ME-U10",
+      "GD-ME-U11",
+      "GD-ME-U12"
+    ],
+    "unit_summaries": [
+      {
+        "unit_id": "GD-ME-U01",
+        "unit_type": "contract_content",
+        "purpose": "Frame an idealized energy-minimisation or parameter-calibration objective.",
+        "contract_item_ids": [
+          "RC-001"
+        ],
+        "prerequisite_unit_ids": [],
+        "learning_goal_ids": [
+          "LG-001"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U02",
+        "unit_type": "contract_content",
+        "purpose": "Establish first-order stationarity without treating it as sufficient for optimality.",
+        "contract_item_ids": [
+          "RC-002"
+        ],
+        "prerequisite_unit_ids": [
+          "GD-ME-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-001"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U03",
+        "unit_type": "contract_content",
+        "purpose": "Trace the gradient-descent update in an engineering parameter table.",
+        "contract_item_ids": [
+          "RC-010"
+        ],
+        "prerequisite_unit_ids": [
+          "GD-ME-U02"
+        ],
+        "learning_goal_ids": [
+          "LG-001",
+          "LG-004"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U04",
+        "unit_type": "contract_content",
+        "purpose": "Define smoothness and link gradient variation to explicit assumptions.",
+        "contract_item_ids": [
+          "RC-004"
+        ],
+        "prerequisite_unit_ids": [
+          "GD-ME-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-002"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U05",
+        "unit_type": "contract_content",
+        "purpose": "Use the Descent Lemma to explain a safe decrease mechanism.",
+        "contract_item_ids": [
+          "RC-005"
+        ],
+        "prerequisite_unit_ids": [
+          "GD-ME-U04"
+        ],
+        "learning_goal_ids": [
+          "LG-002"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U06",
+        "unit_type": "contract_content",
+        "purpose": "Apply constant-step choices with their stated assumptions.",
+        "contract_item_ids": [
+          "RC-011"
+        ],
+        "prerequisite_unit_ids": [
+          "GD-ME-U03",
+          "GD-ME-U04"
+        ],
+        "learning_goal_ids": [
+          "LG-002",
+          "LG-004"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U07",
+        "unit_type": "contract_content",
+        "purpose": "Introduce differentiable convexity without inferring it from an engineering context.",
+        "contract_item_ids": [
+          "RC-006"
+        ],
+        "prerequisite_unit_ids": [
+          "GD-ME-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U08",
+        "unit_type": "contract_content",
+        "purpose": "Strengthen the convex lower bound and state its assumptions.",
+        "contract_item_ids": [
+          "RC-007"
+        ],
+        "prerequisite_unit_ids": [
+          "GD-ME-U07"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U09",
+        "unit_type": "contract_content",
+        "purpose": "Interpret the condition number through convergence histories.",
+        "contract_item_ids": [
+          "RC-009"
+        ],
+        "prerequisite_unit_ids": [
+          "GD-ME-U04",
+          "GD-ME-U08"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U10",
+        "unit_type": "contract_content",
+        "purpose": "State the convex objective-gap bound and its exact hypotheses.",
+        "contract_item_ids": [
+          "RC-014"
+        ],
+        "prerequisite_unit_ids": [
+          "GD-ME-U05",
+          "GD-ME-U06",
+          "GD-ME-U07",
+          "GD-ME-U03"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U11",
+        "unit_type": "contract_content",
+        "purpose": "State the strong-convexity and smoothness hypotheses, each step-size/rate pairing, and both contractions without giving the Hessian-based derivation.",
+        "contract_item_ids": [
+          "RC-015"
+        ],
+        "prerequisite_unit_ids": [
+          "GD-ME-U09",
+          "GD-ME-U06",
+          "GD-ME-U03"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U12",
+        "unit_type": "contract_content",
+        "purpose": "Trace Armijo backtracking as a practical step-selection extension.",
+        "contract_item_ids": [
+          "RC-013"
+        ],
+        "prerequisite_unit_ids": [
+          "GD-ME-U03"
+        ],
+        "learning_goal_ids": [
+          "LG-002",
+          "LG-004"
+        ]
+      }
+    ],
+    "field_decisions": {
+      "unit_grouping": "approved",
+      "instruction_sequence": "revision_required",
+      "prerequisite_relations": "approved",
+      "unit_purpose_and_learning_goals": "approved"
+    },
+    "decision": "revision_required",
+    "comment": "Move GD-ME-U12 (Armijo backtracking) to immediately after GD-ME-U06 (constant-step choices), giving the sequence GD-ME-U01, U02, U03, U04, U05, U06, U12, U07, U08, U09, U10, U11. For an engineering/numerical-methods learner, the practical alternative should be compared directly with the constant-step rule before the lesson turns to convex and strongly-convex convergence regimes. The declared prerequisites remain satisfied. Add a reorder_learning_units change record for this move."
+  },
+  "pathway_change_reviews": [
+    {
+      "change_index": 0,
+      "change_type": "regroup_contract_items",
+      "affected_ids": [
+        "GD-ME-U01",
+        "GD-ME-U02",
+        "GD-ME-U03"
+      ],
+      "field_decisions": {
+        "structural_accuracy": "revision_required",
+        "profile_basis": "approved",
+        "rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "This record describes disciplinary framing and representation depth, not regrouping. Change its type to change_theory_implementation_application_depth, use affected contract IDs RC-001, RC-002, and RC-010 rather than unit IDs, and state that idealized energy/calibration framing and an iteration table alter explanatory emphasis without changing mathematical claims."
+    },
+    {
+      "change_index": 1,
+      "change_type": "regroup_contract_items",
+      "affected_ids": [
+        "GD-ME-U04",
+        "GD-ME-U05",
+        "GD-ME-U06",
+        "GD-ME-U07",
+        "GD-ME-U08",
+        "GD-ME-U09",
+        "GD-ME-U10",
+        "GD-ME-U11"
+      ],
+      "field_decisions": {
+        "structural_accuracy": "revision_required",
+        "profile_basis": "approved",
+        "rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "This record also describes a depth/framing adaptation rather than regrouping. Change its type to change_theory_implementation_application_depth and use affected contract IDs RC-004, RC-005, RC-006, RC-007, RC-009, RC-011, RC-014, and RC-015. Its revised rationale should distinguish engineering interpretation through convergence histories from any claim that engineering objectives are automatically convex or that GD is universally suitable."
+    },
+    {
+      "change_index": 2,
+      "change_type": "regroup_contract_items",
+      "affected_ids": [
+        "GD-ME-U01",
+        "GD-ME-U02",
+        "GD-ME-U03",
+        "GD-ME-U04",
+        "GD-ME-U05",
+        "GD-ME-U06",
+        "GD-ME-U07",
+        "GD-ME-U08",
+        "GD-ME-U09",
+        "GD-ME-U10",
+        "GD-ME-U11",
+        "GD-ME-U12"
+      ],
+      "field_decisions": {
+        "structural_accuracy": "revision_required",
+        "profile_basis": "approved",
+        "rationale": "revision_required"
+      },
+      "decision": "revision_required",
+      "comment": "Retain this as the single regroup_contract_items record, but replace unit IDs with all 12 selected RC item IDs and make the baseline/adaptation comparison structural: the P0 mixed groups are split into auditable single-item objective, stationarity, update, smoothness, descent, step-selection, convexity, conditioning, and guarantee units. Do not use unit-purpose renaming alone as evidence of regrouping. Add a separate reorder_learning_units record for moving RC-013 directly after RC-011."
+    }
+  ],
+  "scope_review": {
+    "selected_item_ids": [
+      "RC-001",
+      "RC-002",
+      "RC-004",
+      "RC-005",
+      "RC-006",
+      "RC-007",
+      "RC-009",
+      "RC-010",
+      "RC-011",
+      "RC-013",
+      "RC-014",
+      "RC-015"
+    ],
+    "excluded_item_ids": [
+      "RC-003",
+      "RC-008",
+      "RC-012",
+      "RC-016",
+      "RC-017",
+      "RC-018",
+      "RC-019",
+      "RC-020",
+      "RC-021",
+      "RC-022",
+      "RC-023",
+      "RC-024",
+      "RC-025",
+      "RC-026",
+      "RC-027",
+      "RC-028",
+      "RC-029",
+      "RC-030"
+    ],
+    "failure_or_convergence_item_ids": [
+      "RC-014",
+      "RC-015"
+    ],
+    "field_decisions": {
+      "selected_content_scope": "approved",
+      "failure_and_convergence_scope": "approved",
+      "profile_appropriateness": "approved"
+    },
+    "decision": "approved",
+    "comment": null
+  },
+  "overall_review": {
+    "decision": "revision_required",
+    "reviewed_at": "2026-08-19T22:32:00Z",
+    "comment": "The selected GD content, bridge needs for smoothness/convexity/conditioning, early engineering iteration trace, context boundaries, convergence coverage, and learning-goal mappings are pedagogically sound. Revision is required to avoid overstating matrix-definiteness mastery, to place Armijo beside the constant-step rule, and to correct the pathway-change taxonomy and affected IDs. These are bounded revisions; all other item, concept, goal, dependency, unit-purpose, and scope decisions are approved."
+  }
+}

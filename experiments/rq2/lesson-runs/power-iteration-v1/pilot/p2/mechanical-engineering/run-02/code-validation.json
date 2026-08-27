@@ -1,0 +1,30 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq2/lesson-runs/power-iteration-v1/pilot/p2/mechanical-engineering/run-02/lesson.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-05",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "41291346cbd11658b13ead6f64ef2a4570dbe21f6fddb9abc2f6508bfd0cb841",
+      "execution_status": "passed",
+      "stdout": "",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 86
+    },
+    {
+      "block_id": "CODE-002",
+      "anchor": "SEC-08",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "89123c8f892fd7bfc54fc2b30b7479533dac3881d5a128fe41b09e38a0b26bb1",
+      "execution_status": "passed",
+      "stdout": "4.414213562373095 [0.92387953 0.38268343] 6.962575715097014e-11 23\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 44
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Release Curriculum Model"
+  short_description: "Validate and freeze an approved curriculum dependency model"
+  default_prompt: "Use $release-curriculum-model to verify an approved curriculum dependency candidate and create a fingerprinted frozen release without changing dependency content or review decisions."

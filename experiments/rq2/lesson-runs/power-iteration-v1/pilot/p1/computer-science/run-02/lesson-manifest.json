@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "composer": "pathway-constrained-teaching-composer-v1",
+  "run_id": "power-iteration-p1-computer-science-pilot-run-02",
+  "condition": "P1",
+  "topic": "power iteration",
+  "profile_id": "computer-science-year-2-rq2-pilot",
+  "generation": {
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "access_route": "codex-exec-ephemeral",
+    "prompt_version": "pathway-constrained-teaching-composer-v1",
+    "generated_at": "2026-08-26T19:10:00Z"
+  },
+  "inputs": {
+    "composition_input_receipt": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/computer-science/run-02/composition-input-receipt.json",
+      "sha256": "2a9202ca7f57caba9e5befd3ac94743f55561043b2cd868b3b32be97189a0c09"
+    },
+    "composition_input_view": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/computer-science/run-02/composition-input-view.json",
+      "sha256": "46e23f8bbb5706fdbd993ed9ffe08c4c86d2ae429c1f99d9635d055b1b8d1e0b"
+    },
+    "pathway": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p1/computer-science/pathway-plan.json",
+      "sha256": "9acae3dc754096d1c1ccb0442b214afdd6491d3cc688613fed50fc6dabed98d4"
+    },
+    "pathway_validation_report": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p1/computer-science/pathway-validation-report.json",
+      "sha256": "0db6a48941ff134af9ef005098ff78182c01890e454f14f0c873e541a1e0dd83"
+    },
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+      "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/power-iteration-second-year.json",
+      "sha256": "c4cf0c6a4cf53653abab28123b4649dfd6459d894d3f85a310af0200468fe431"
+    },
+    "word_count_protocol": {
+      "file": "experiments/rq2/word-count-protocols/power-iteration-pilot.json",
+      "sha256": "474f78273ee6eec37f78edbea499b230218d30d94041240fb3d6ec87421d8246"
+    },
+    "profile": {
+      "file": "experiments/rq2/profiles/computer-science-year-2.json",
+      "sha256": "8a2dba4d066785775f1c70169a8c18d84049c7eb65612dff8008a7a63c78dd50"
+    },
+    "bridge_catalog": null
+  },
+  "outputs": {
+    "lesson": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/computer-science/run-02/lesson.md",
+      "sha256": "0fb7d1dac0c379a18663de5879c86f1e7fa09dedcadf09ff1af16d13aa32ef79"
+    },
+    "lesson_map": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/computer-science/run-02/lesson-map.json",
+      "sha256": "f4b54f1673ed8875add8ac62e151ed4824d911af891d7af048edd6c9e93a524e"
+    },
+    "code_validation": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/computer-science/run-02/code-validation.json",
+      "sha256": "c139e90320da6f4a66bba8382d95842a23f1275b5e732b054979321e42a24a30"
+    }
+  },
+  "word_count_protocol": {
+    "schema_version": "1.0",
+    "protocol_id": "rq2-power-iteration-english-prose-pilot-v1",
+    "status": "draft_for_pilot",
+    "topic": "power iteration",
+    "language": "English",
+    "enabled": true,
+    "minimum": 1500,
+    "maximum": 2000,
+    "counting_method": "english_prose_v1",
+    "applies_to_conditions": [
+      "P0",
+      "P1",
+      "P2"
+    ]
+  },
+  "observed_english_prose_word_count": 1723
+}

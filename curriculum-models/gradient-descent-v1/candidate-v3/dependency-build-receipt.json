@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "contract": {
+    "path": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+    "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09",
+    "contract_id": "gradient-descent",
+    "contract_version": "3.0.0",
+    "topic": "Gradient Descent and Optimisation",
+    "lifecycle_status": "frozen",
+    "source_of_truth": "curated_institutional_material",
+    "reviewer_id": "tester-001",
+    "reviewer_role": "Mathematics/Optimisation Reviewer",
+    "reviewed_at": "2026-08-10T14:30:00+01:00"
+  },
+  "release": {
+    "report_path": "experiments/rq1/reference-contracts/gradient-descent-v5/release/release_gate_report.json",
+    "report_sha256": "9b7f8c4b184892144a18b6dd01c6aced95ce7cf35b18282e32e6f9820b3136c0",
+    "release_gate": "grounding-release-gate-v1",
+    "status": "released",
+    "released_at": "2026-08-10T22:41:04.693381+00:00"
+  },
+  "validation": {
+    "report_path": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_contract_validation_report.json",
+    "report_sha256": "b42fd2ebfc76082f0cb492eb8075f15c0821e3a922c839c97c69eac2c49cbc66",
+    "validator": "reference-contract-evidence-v4",
+    "valid": true,
+    "error_count": 0
+  },
+  "source_materials": [
+    {
+      "source_id": "gradient-descent-and-optimization",
+      "path": "inputs/content-to-ingest/gradient_descent_and_optimization.md",
+      "format": "markdown",
+      "sha256": "2b0408679c70816ecf042a178ae0e79e60242f0c0c4450b56cfb35d6e91a6374",
+      "role": "authoritative"
+    }
+  ],
+  "grounding_inventory": {
+    "path": "experiments/rq1/reference-contracts/gradient-descent-v5/grounding_inventory.json",
+    "sha256": "99a13eacf8c89c8fea1895fc6e1bcc089e33e0f48141fe09b2f498d0853083ae"
+  },
+  "generation_view": {
+    "path": "dependency-contract-view.json",
+    "sha256": "072138f74eb5570ac5eaf2cff1d3ea9e7df247cdce093e30fa3917928eb2f640"
+  },
+  "generation_items": {
+    "required_item_ids": [
+      "RC-001",
+      "RC-002",
+      "RC-003",
+      "RC-004",
+      "RC-005",
+      "RC-006",
+      "RC-007",
+      "RC-008",
+      "RC-009",
+      "RC-010",
+      "RC-011",
+      "RC-014",
+      "RC-015"
+    ],
+    "conditional_item_ids": [
+      "RC-012",
+      "RC-013",
+      "RC-016",
+      "RC-017",
+      "RC-018",
+      "RC-019",
+      "RC-020",
+      "RC-021",
+      "RC-022",
+      "RC-023",
+      "RC-024",
+      "RC-025",
+      "RC-026",
+      "RC-027",
+      "RC-028",
+      "RC-029",
+      "RC-030"
+    ],
+    "excluded_item_ids": []
+  }
+}

@@ -1,0 +1,836 @@
+{
+  "schema_version": "1.0",
+  "pathway_id": "gradient-descent-p2-mechanical-engineering-run-03-bridge-resolved-v1",
+  "condition": "P2",
+  "plan_status": "complete",
+  "topic": "gradient descent",
+  "source_authorities": {
+    "reference_contract": {
+      "contract_id": "gradient-descent",
+      "contract_version": "3.0.0",
+      "file": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+      "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"
+    },
+    "curriculum_model": {
+      "model_id": "gradient-descent-dependencies-v4",
+      "file": "curriculum-models/gradient-descent-v1/release/frozen-contract-dependencies.json",
+      "sha256": "fa97dab605d2cf1df6ac5fdeabc2c767bdf34e82829f5c2e496a44c5e41e4522",
+      "release_report_file": "curriculum-models/gradient-descent-v1/release/curriculum-release-report.json",
+      "release_report_sha256": "4189eaf0091d163dac1e5c47e315bd35263f1d9c28074129959c8fa9ce1f399f"
+    }
+  },
+  "profile_binding": {
+    "profile_id": "gradient-descent-mechanical-engineering-year-2-rq2-pilot",
+    "file": "experiments/rq2/profiles/gradient-descent/mechanical-engineering-year-2.json",
+    "sha256": "3e107dcaa9f10ef339daa9136644d171f4849b0d3d5b7be9989524a2c51965a2"
+  },
+  "profile_concept_assessment_binding": {
+    "artifact_id": "gradient-descent-mechanical-engineering-year-2-concept-assessment-v2",
+    "assessment_id": "gradient-descent-mechanical-engineering-year-2-concept-assessment-v2",
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-02/profile-concept-assessment.json",
+    "sha256": "97acc6e31d03efc9854e6bc33aac7431580531e0199a96aa09d8065e52266edd"
+  },
+  "learning_request_binding": {
+    "request_id": "gradient-descent-second-year-v1",
+    "request_version": "1.0.0",
+    "file": "experiments/rq2/learning-requests/gradient-descent-second-year.json",
+    "sha256": "bdd734fd2f2c56b38960e9938281952a55841d57b0a83047647d38ca4f90348d"
+  },
+  "baseline_pathway_binding": {
+    "pathway_id": "gradient-descent-p0-v1",
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p0/pathway-plan.json",
+    "sha256": "1f565b07726733580ad974e9109439efa8817f1e6bc1b8fca4f1f788f70d4b1c"
+  },
+  "selection_authority": "dependency_aware_planner",
+  "selection": {
+    "all_contract_item_ids": [
+      "RC-001",
+      "RC-002",
+      "RC-003",
+      "RC-004",
+      "RC-005",
+      "RC-006",
+      "RC-007",
+      "RC-008",
+      "RC-009",
+      "RC-010",
+      "RC-011",
+      "RC-012",
+      "RC-013",
+      "RC-014",
+      "RC-015",
+      "RC-016",
+      "RC-017",
+      "RC-018",
+      "RC-019",
+      "RC-020",
+      "RC-021",
+      "RC-022",
+      "RC-023",
+      "RC-024",
+      "RC-025",
+      "RC-026",
+      "RC-027",
+      "RC-028",
+      "RC-029",
+      "RC-030"
+    ],
+    "selected_item_ids": [
+      "RC-001",
+      "RC-002",
+      "RC-004",
+      "RC-005",
+      "RC-006",
+      "RC-007",
+      "RC-009",
+      "RC-010",
+      "RC-011",
+      "RC-013",
+      "RC-014",
+      "RC-015"
+    ],
+    "excluded_item_ids": [
+      "RC-003",
+      "RC-008",
+      "RC-012",
+      "RC-016",
+      "RC-017",
+      "RC-018",
+      "RC-019",
+      "RC-020",
+      "RC-021",
+      "RC-022",
+      "RC-023",
+      "RC-024",
+      "RC-025",
+      "RC-026",
+      "RC-027",
+      "RC-028",
+      "RC-029",
+      "RC-030"
+    ],
+    "decisions": [
+      {
+        "item_id": "RC-001",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Required formulation of an unconstrained differentiable engineering-framed objective.",
+        "profile_basis": [
+          "energy minimisation and parameter calibration"
+        ]
+      },
+      {
+        "item_id": "RC-002",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Supports first-order stationarity without treating stationarity as sufficient for optimality.",
+        "profile_basis": [
+          "multivariable calculus and gradients"
+        ]
+      },
+      {
+        "item_id": "RC-003",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Second-order local optimality conditions are not required for the first-order learning request.",
+        "profile_basis": [
+          "second-year intermediate target depth and shared first-order learning goal"
+        ]
+      },
+      {
+        "item_id": "RC-004",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Formal smoothness is needed to connect gradient variation to safe steps; it will be framed with explicit assumptions.",
+        "profile_basis": [
+          "formal convexity and smoothness terminology is fragile"
+        ]
+      },
+      {
+        "item_id": "RC-005",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Explains the descent mechanism and supports step-size reasoning.",
+        "profile_basis": [
+          "engineering assumptions linked to mathematical conditions"
+        ]
+      },
+      {
+        "item_id": "RC-006",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Required for the selected global convex convergence guarantee, while avoiding claims that engineering objectives are universally convex.",
+        "profile_basis": [
+          "formal convexity terminology is fragile"
+        ]
+      },
+      {
+        "item_id": "RC-007",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Required to interpret the stronger convergence guarantee and its assumptions.",
+        "profile_basis": [
+          "formal convexity terminology is fragile"
+        ]
+      },
+      {
+        "item_id": "RC-008",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Hessian characterization is explanatory rather than required; RC-015 uses its exact recorded fallback.",
+        "profile_basis": [
+          "profile-adaptive proof depth and fragile formal smoothness terminology"
+        ]
+      },
+      {
+        "item_id": "RC-009",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Required to interpret conditioning and convergence-history differences; terminology is explicitly fragile and needs a bridge.",
+        "profile_basis": [
+          "condition-number-based convergence analysis is fragile",
+          "convergence histories"
+        ]
+      },
+      {
+        "item_id": "RC-010",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Central update rule for tracing and implementation.",
+        "profile_basis": [
+          "basic numerical methods",
+          "basic Python and NumPy"
+        ]
+      },
+      {
+        "item_id": "RC-011",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Required constant-step rule and assumptions for the selected guarantees.",
+        "profile_basis": [
+          "iteration tables and convergence histories"
+        ]
+      },
+      {
+        "item_id": "RC-012",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Exact line search is not needed because constant steps and Armijo provide the requested step-selection coverage.",
+        "profile_basis": [
+          "optional bounded line-search capability is covered by RC-013"
+        ]
+      },
+      {
+        "item_id": "RC-013",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Provides the requested bounded practical line-search alternative with explicit acceptance conditions.",
+        "profile_basis": [
+          "basic numerical methods"
+        ]
+      },
+      {
+        "item_id": "RC-014",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Provides the convex objective-gap rate and its exact hypotheses.",
+        "profile_basis": [
+          "convergence histories"
+        ]
+      },
+      {
+        "item_id": "RC-015",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Provides the strongly convex contractions and conditioning interpretation with the exact scope limits.",
+        "profile_basis": [
+          "condition-number-based convergence analysis is fragile"
+        ],
+        "explanatory_fallback": "State the strong-convexity and smoothness hypotheses, each step-size/rate pairing, and both contractions without giving the Hessian-based derivation."
+      },
+      {
+        "item_id": "RC-016",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Heavy Ball is outside the shared basic Gradient Descent capability set.",
+        "profile_basis": [
+          "shared request excludes acceleration extensions"
+        ]
+      },
+      {
+        "item_id": "RC-017",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Heavy-Ball quadratic rates are outside scope with Heavy Ball excluded.",
+        "profile_basis": [
+          "shared request excludes acceleration extensions"
+        ]
+      },
+      {
+        "item_id": "RC-018",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Nesterov acceleration is outside the shared basic Gradient Descent task.",
+        "profile_basis": [
+          "shared request excludes acceleration extensions"
+        ]
+      },
+      {
+        "item_id": "RC-019",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "The NAG rate is outside scope with NAG excluded.",
+        "profile_basis": [
+          "shared request excludes acceleration extensions"
+        ]
+      },
+      {
+        "item_id": "RC-020",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Stochastic-gradient assumptions are explicitly outside the pilot request and profile scope.",
+        "profile_basis": [
+          "stochastic optimisation assumptions are missing or fragile"
+        ]
+      },
+      {
+        "item_id": "RC-021",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "SGD and error-floor behavior are outside the full-gradient pathway.",
+        "profile_basis": [
+          "shared request excludes stochastic methods"
+        ]
+      },
+      {
+        "item_id": "RC-022",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Robbins-Monro conditions are outside the pilot scope.",
+        "profile_basis": [
+          "shared request excludes stochastic methods"
+        ]
+      },
+      {
+        "item_id": "RC-023",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "AdaGrad is outside the shared basic Gradient Descent task.",
+        "profile_basis": [
+          "shared request excludes adaptive stochastic methods"
+        ]
+      },
+      {
+        "item_id": "RC-024",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "RMSProp is outside the shared basic Gradient Descent task.",
+        "profile_basis": [
+          "shared request excludes adaptive stochastic methods"
+        ]
+      },
+      {
+        "item_id": "RC-025",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Adam is outside the shared basic Gradient Descent task.",
+        "profile_basis": [
+          "shared request excludes adaptive stochastic methods"
+        ]
+      },
+      {
+        "item_id": "RC-026",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Newton's second-order model is outside the first-order pathway.",
+        "profile_basis": [
+          "shared request targets first-order optimisation"
+        ]
+      },
+      {
+        "item_id": "RC-027",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Newton's Hessian solve is outside the first-order pathway.",
+        "profile_basis": [
+          "shared request targets first-order optimisation"
+        ]
+      },
+      {
+        "item_id": "RC-028",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Newton local convergence is outside scope.",
+        "profile_basis": [
+          "shared request targets first-order optimisation"
+        ]
+      },
+      {
+        "item_id": "RC-029",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "BFGS is outside the shared basic Gradient Descent task.",
+        "profile_basis": [
+          "shared request excludes quasi-Newton methods"
+        ]
+      },
+      {
+        "item_id": "RC-030",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "The BFGS inverse-Hessian update is outside scope.",
+        "profile_basis": [
+          "shared request excludes quasi-Newton methods"
+        ]
+      }
+    ]
+  },
+  "learning_goal_mappings": [
+    {
+      "capability_id": "LG-001",
+      "supporting_item_ids": [
+        "RC-001",
+        "RC-002",
+        "RC-010"
+      ],
+      "coverage": "complete",
+      "rationale": "Formulation, stationarity, and update are explicitly sequenced."
+    },
+    {
+      "capability_id": "LG-002",
+      "supporting_item_ids": [
+        "RC-004",
+        "RC-005",
+        "RC-011",
+        "RC-013"
+      ],
+      "coverage": "complete",
+      "rationale": "Smoothness, descent, constant step, and bounded backtracking are included."
+    },
+    {
+      "capability_id": "LG-003",
+      "supporting_item_ids": [
+        "RC-006",
+        "RC-007",
+        "RC-009",
+        "RC-014",
+        "RC-015"
+      ],
+      "coverage": "complete",
+      "rationale": "Convex and strongly convex guarantees, conditioning, and limits are included."
+    },
+    {
+      "capability_id": "LG-004",
+      "supporting_item_ids": [
+        "RC-010",
+        "RC-011",
+        "RC-013"
+      ],
+      "coverage": "complete",
+      "rationale": "The selected update and step rules support traceable algorithmic work."
+    }
+  ],
+  "learning_units": [
+    {
+      "unit_id": "GD-ME-U01",
+      "unit_type": "contract_content",
+      "purpose": "Frame an idealized energy-minimisation or parameter-calibration objective.",
+      "contract_item_ids": [
+        "RC-001"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [],
+      "learning_goal_ids": [
+        "LG-001"
+      ]
+    },
+    {
+      "unit_id": "GD-ME-U02",
+      "unit_type": "contract_content",
+      "purpose": "Establish first-order stationarity without treating it as sufficient for optimality.",
+      "contract_item_ids": [
+        "RC-002"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "GD-ME-U01"
+      ],
+      "learning_goal_ids": [
+        "LG-001"
+      ]
+    },
+    {
+      "unit_id": "GD-ME-U03",
+      "unit_type": "contract_content",
+      "purpose": "Trace the gradient-descent update in an engineering parameter table.",
+      "contract_item_ids": [
+        "RC-010"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "GD-ME-U02"
+      ],
+      "learning_goal_ids": [
+        "LG-001",
+        "LG-004"
+      ]
+    },
+    {
+      "unit_id": "BRIDGE-001",
+      "unit_type": "prerequisite_bridge",
+      "purpose": "Prerequisite bridge: Euclidean norms and Lipschitz continuity",
+      "contract_item_ids": [],
+      "bridge_contract_id": "BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "prerequisite_unit_ids": [
+        "GD-ME-U01"
+      ],
+      "learning_goal_ids": [
+        "LG-002"
+      ]
+    },
+    {
+      "unit_id": "GD-ME-U04",
+      "unit_type": "contract_content",
+      "purpose": "Define smoothness and link gradient variation to explicit assumptions.",
+      "contract_item_ids": [
+        "RC-004"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "GD-ME-U01",
+        "BRIDGE-001"
+      ],
+      "learning_goal_ids": [
+        "LG-002"
+      ]
+    },
+    {
+      "unit_id": "GD-ME-U05",
+      "unit_type": "contract_content",
+      "purpose": "Use the Descent Lemma to explain a safe decrease mechanism.",
+      "contract_item_ids": [
+        "RC-005"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "GD-ME-U04"
+      ],
+      "learning_goal_ids": [
+        "LG-002"
+      ]
+    },
+    {
+      "unit_id": "GD-ME-U06",
+      "unit_type": "contract_content",
+      "purpose": "Apply constant-step choices with their stated assumptions.",
+      "contract_item_ids": [
+        "RC-011"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "GD-ME-U03",
+        "GD-ME-U04"
+      ],
+      "learning_goal_ids": [
+        "LG-002",
+        "LG-004"
+      ]
+    },
+    {
+      "unit_id": "GD-ME-U12",
+      "unit_type": "contract_content",
+      "purpose": "Trace Armijo backtracking as a practical step-selection extension.",
+      "contract_item_ids": [
+        "RC-013"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "GD-ME-U03"
+      ],
+      "learning_goal_ids": [
+        "LG-002",
+        "LG-004"
+      ]
+    },
+    {
+      "unit_id": "BRIDGE-002",
+      "unit_type": "prerequisite_bridge",
+      "purpose": "Prerequisite bridge: Inner products and convex sets",
+      "contract_item_ids": [],
+      "bridge_contract_id": "BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "prerequisite_unit_ids": [
+        "GD-ME-U01"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "GD-ME-U07",
+      "unit_type": "contract_content",
+      "purpose": "Introduce differentiable convexity without inferring it from an engineering context.",
+      "contract_item_ids": [
+        "RC-006"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "GD-ME-U01",
+        "BRIDGE-002"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "GD-ME-U08",
+      "unit_type": "contract_content",
+      "purpose": "Strengthen the convex lower bound and state its assumptions.",
+      "contract_item_ids": [
+        "RC-007"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "GD-ME-U07"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "BRIDGE-003",
+      "unit_type": "prerequisite_bridge",
+      "purpose": "Prerequisite bridge: Ratios and condition numbers",
+      "contract_item_ids": [],
+      "bridge_contract_id": "BRC-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "prerequisite_unit_ids": [
+        "GD-ME-U04",
+        "GD-ME-U08"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "GD-ME-U09",
+      "unit_type": "contract_content",
+      "purpose": "Interpret the condition number through convergence histories.",
+      "contract_item_ids": [
+        "RC-009"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "GD-ME-U04",
+        "GD-ME-U08",
+        "BRIDGE-003"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "GD-ME-U10",
+      "unit_type": "contract_content",
+      "purpose": "State the convex objective-gap bound and its exact hypotheses.",
+      "contract_item_ids": [
+        "RC-014"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "GD-ME-U05",
+        "GD-ME-U06",
+        "GD-ME-U07",
+        "GD-ME-U03"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "GD-ME-U11",
+      "unit_type": "contract_content",
+      "purpose": "State the strong-convexity and smoothness hypotheses, each step-size/rate pairing, and both contractions without giving the Hessian-based derivation.",
+      "contract_item_ids": [
+        "RC-015"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "GD-ME-U09",
+        "GD-ME-U06",
+        "GD-ME-U03"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    }
+  ],
+  "instruction_sequence": [
+    "GD-ME-U01",
+    "GD-ME-U02",
+    "GD-ME-U03",
+    "BRIDGE-001",
+    "GD-ME-U04",
+    "GD-ME-U05",
+    "GD-ME-U06",
+    "GD-ME-U12",
+    "BRIDGE-002",
+    "GD-ME-U07",
+    "GD-ME-U08",
+    "BRIDGE-003",
+    "GD-ME-U09",
+    "GD-ME-U10",
+    "GD-ME-U11"
+  ],
+  "bridge_requirements": [
+    {
+      "requirement_id": "BRQ-001",
+      "concept_id": "euclidean-norms-and-lipschitz-continuity",
+      "bridge_candidate_id": "BR-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "required_by_item_ids": [
+        "RC-004"
+      ],
+      "learner_mastery": "fragile",
+      "resolution_status": "released",
+      "released_bridge_contract_id": "BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "rationale": "Profile marks formal smoothness terminology fragile. Resolved by released bridge BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1 from gradient-descent-bridge-library-v1."
+    },
+    {
+      "requirement_id": "BRQ-002",
+      "concept_id": "inner-products-and-convex-sets",
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "required_by_item_ids": [
+        "RC-006"
+      ],
+      "learner_mastery": "fragile",
+      "resolution_status": "released",
+      "released_bridge_contract_id": "BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "rationale": "Profile marks formal convexity terminology fragile. Resolved by released bridge BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1 from gradient-descent-bridge-library-v1."
+    },
+    {
+      "requirement_id": "BRQ-003",
+      "concept_id": "ratios-and-condition-numbers",
+      "bridge_candidate_id": "BR-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "required_by_item_ids": [
+        "RC-009"
+      ],
+      "learner_mastery": "fragile",
+      "resolution_status": "released",
+      "released_bridge_contract_id": "BRC-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "rationale": "Profile marks condition-number-based convergence analysis fragile. Resolved by released bridge BRC-RATIOS-AND-CONDITION-NUMBERS-v1 from gradient-descent-bridge-library-v1."
+    }
+  ],
+  "pathway_changes": [
+    {
+      "change_id": "P2-CH-01",
+      "change_type": "change_theory_implementation_application_depth",
+      "affected_ids": [
+        "RC-001",
+        "RC-002",
+        "RC-010"
+      ],
+      "baseline": "Discipline-neutral objective framing.",
+      "adaptation": "Use idealized energy minimisation or parameter calibration and iteration tables while preserving the contract hypotheses.",
+      "profile_basis": [
+        "preferred representations",
+        "authentic context boundary"
+      ],
+      "rationale": "Idealized energy/calibration framing and an iteration table alter explanatory emphasis without changing mathematical claims."
+    },
+    {
+      "change_id": "P2-CH-02",
+      "change_type": "change_theory_implementation_application_depth",
+      "affected_ids": [
+        "RC-004",
+        "RC-005",
+        "RC-006",
+        "RC-007",
+        "RC-009",
+        "RC-011",
+        "RC-014",
+        "RC-015"
+      ],
+      "baseline": "Generic convergence presentation.",
+      "adaptation": "Link smoothness, convexity, conditioning, and step-size assumptions to convergence histories, without claiming engineering objectives are universally convex or Gradient Descent is universally appropriate.",
+      "profile_basis": [
+        "formal convexity and smoothness terminology",
+        "condition-number-based convergence analysis",
+        "authentic context boundary"
+      ],
+      "rationale": "Engineering interpretation through convergence histories does not imply engineering objectives are automatically convex or that GD is universally suitable."
+    },
+    {
+      "change_id": "P2-CH-03",
+      "change_type": "regroup_contract_items",
+      "affected_ids": [
+        "RC-001",
+        "RC-002",
+        "RC-004",
+        "RC-005",
+        "RC-006",
+        "RC-007",
+        "RC-009",
+        "RC-010",
+        "RC-011",
+        "RC-013",
+        "RC-014",
+        "RC-015"
+      ],
+      "baseline": "Baseline unit purposes and identifiers.",
+      "adaptation": "Use mechanical-engineering-specific unit purposes and preserve dependency order while keeping learning units non-page planning units.",
+      "profile_basis": [
+        "mechanical engineering",
+        "second-year undergraduate"
+      ],
+      "rationale": "The P0 mixed groups are split into auditable single-item objective, stationarity, update, smoothness, descent, step-selection, convexity, conditioning, and guarantee units."
+    },
+    {
+      "change_id": "P2-CH-04",
+      "change_type": "reorder_learning_units",
+      "affected_ids": [
+        "RC-013",
+        "RC-011"
+      ],
+      "baseline": "P0 places Armijo after the convergence units.",
+      "adaptation": "Move GD-ME-U12 immediately after GD-ME-U06.",
+      "profile_basis": [
+        "basic numerical methods",
+        "preferred representations"
+      ],
+      "rationale": "The practical alternative is compared directly with the constant-step rule before convergence regimes."
+    },
+    {
+      "change_type": "add_prerequisite_bridge",
+      "affected_ids": [
+        "BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+        "BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+        "BRC-RATIOS-AND-CONDITION-NUMBERS-v1"
+      ],
+      "profile_basis": [
+        {
+          "profile_field": "missing_or_fragile_prerequisites",
+          "evidence": "euclidean-norms-and-lipschitz-continuity: mastery=fragile; inner-products-and-convex-sets: mastery=fragile; ratios-and-condition-numbers: mastery=fragile"
+        }
+      ],
+      "rationale": "Materialize the previously approved prerequisite requirements from the released bridge catalog before each concept's first consuming Contract unit."
+    }
+  ],
+  "scope_summary": {
+    "selected_contract_item_count": 12,
+    "excluded_contract_item_count": 18,
+    "critical_item_count": 9,
+    "formula_count": 13,
+    "algorithm_or_code_item_count": 3,
+    "released_bridge_count": 3,
+    "estimated_duration_minutes": 90
+  },
+  "rendering_policy": {
+    "output_form": "one_continuous_student_facing_lesson",
+    "learning_units_are_pages": false,
+    "target_duration_minutes": 90
+  },
+  "generated_by": {
+    "producer": "released-bridge-pathway-materializer",
+    "producer_version": "1.0",
+    "method": "released_bridge_materialization",
+    "generated_at": "2026-08-20T00:45:00Z"
+  }
+}

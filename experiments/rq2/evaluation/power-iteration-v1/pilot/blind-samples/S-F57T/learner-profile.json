@@ -1,0 +1,10 @@
+{
+  "profile_id": "applied-mathematics-year-2-rq2-pilot",
+  "discipline": "applied mathematics",
+  "education_level": "second-year undergraduate",
+  "prior_knowledge": ["linear algebra", "calculus", "proof techniques", "basic numerical computing"],
+  "missing_or_fragile_prerequisites": ["implementation diagnostics", "floating-point stopping criteria"],
+  "preferred_representations": ["spectral decomposition", "derivation", "assumption and counterexample analysis"],
+  "authentic_context_boundary": "Prioritize mathematical structure and counterexamples; applications should motivate rather than replace the core derivation.",
+  "review_status": "requires_discipline_educator_review"
+}

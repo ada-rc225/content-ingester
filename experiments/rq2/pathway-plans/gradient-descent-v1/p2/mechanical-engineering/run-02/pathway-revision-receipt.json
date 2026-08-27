@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "mode": "revision",
+  "parent_pathway": {
+    "pathway_id": "gradient-descent-p2-mechanical-engineering-run-01",
+    "next_pathway_id": "gradient-descent-p2-mechanical-engineering-run-01-revision-v1",
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-01/pathway-plan.json",
+    "sha256": "6f6576e7d2f9fb0ba4e5e6116afcb89d371bdbc48a864dafca4bdb41fca24305",
+    "validation_report_file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-01/pathway-validation-report.json",
+    "validation_report_sha256": "da9b028e1e0cd37b8252c95926f1d3e278be543f708fbbe614e5299e11b254b9"
+  },
+  "parent_assessment": {
+    "assessment_id": "gradient-descent-mechanical-engineering-year-2-concept-assessment-v1",
+    "next_assessment_id": "gradient-descent-mechanical-engineering-year-2-concept-assessment-v2",
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-01/profile-concept-assessment.json",
+    "sha256": "4efd9be91baf11693a9c5acc06c18f7fa2bebac2a212c83d32e76ad40f0a96a1"
+  },
+  "parent_review": {
+    "review_id": "gradient-descent-p2-mechanical-engineering-run-01-review-v1",
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-01/pathway-plan-review.json",
+    "sha256": "c18709f34912be4abfe3d8d285d3286d0c00a3e4aa830375097094b0bdf7903f",
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "mechanical engineering educator",
+    "reviewed_at": "2026-08-19T22:32:00Z"
+  },
+  "revision_scope": {
+    "selection_reviews": [],
+    "concept_reviews": [
+      {
+        "concept_id": "symmetric-matrices-and-definiteness",
+        "fields": [
+          "mastery_and_confidence",
+          "evidence_and_rationale"
+        ],
+        "comment": "Revise mastery from mastered to fragile with medium confidence. General prior knowledge of vectors and matrices does not establish positive-semidefinite/positive-definite terminology. No bridge needs to be added because the only directly supported second-order item is excluded; this correction is for assessment validity and must not expand the selected pathway."
+      }
+    ],
+    "learning_goal_reviews": [],
+    "pathway_change_reviews": [
+      {
+        "change_index": 0,
+        "fields": [
+          "structural_accuracy",
+          "rationale"
+        ],
+        "comment": "This record describes disciplinary framing and representation depth, not regrouping. Change its type to change_theory_implementation_application_depth, use affected contract IDs RC-001, RC-002, and RC-010 rather than unit IDs, and state that idealized energy/calibration framing and an iteration table alter explanatory emphasis without changing mathematical claims."
+      },
+      {
+        "change_index": 1,
+        "fields": [
+          "structural_accuracy",
+          "rationale"
+        ],
+        "comment": "This record also describes a depth/framing adaptation rather than regrouping. Change its type to change_theory_implementation_application_depth and use affected contract IDs RC-004, RC-005, RC-006, RC-007, RC-009, RC-011, RC-014, and RC-015. Its revised rationale should distinguish engineering interpretation through convergence histories from any claim that engineering objectives are automatically convex or that GD is universally suitable."
+      },
+      {
+        "change_index": 2,
+        "fields": [
+          "structural_accuracy",
+          "rationale"
+        ],
+        "comment": "Retain this as the single regroup_contract_items record, but replace unit IDs with all 12 selected RC item IDs and make the baseline/adaptation comparison structural: the P0 mixed groups are split into auditable single-item objective, stationarity, update, smoothness, descent, step-selection, convexity, conditioning, and guarantee units. Do not use unit-purpose renaming alone as evidence of regrouping. Add a separate reorder_learning_units record for moving RC-013 directly after RC-011."
+      }
+    ],
+    "structure_review": {
+      "fields": [
+        "instruction_sequence"
+      ],
+      "comment": "Move GD-ME-U12 (Armijo backtracking) to immediately after GD-ME-U06 (constant-step choices), giving the sequence GD-ME-U01, U02, U03, U04, U05, U06, U12, U07, U08, U09, U10, U11. For an engineering/numerical-methods learner, the practical alternative should be compared directly with the constant-step rule before the lesson turns to convex and strongly-convex convergence regimes. The declared prerequisites remain satisfied. Add a reorder_learning_units change record for this move."
+    },
+    "scope_review": null
+  },
+  "overall_comment": "The selected GD content, bridge needs for smoothness/convexity/conditioning, early engineering iteration trace, context boundaries, convergence coverage, and learning-goal mappings are pedagogically sound. Revision is required to avoid overstating matrix-definiteness mastery, to place Armijo beside the constant-step rule, and to correct the pathway-change taxonomy and affected IDs. These are bounded revisions; all other item, concept, goal, dependency, unit-purpose, and scope decisions are approved.",
+  "constraints": {
+    "preserve_unmarked_fields": true,
+    "require_new_output_directory": true,
+    "require_new_pathway_and_assessment_ids": true,
+    "do_not_inherit_human_approval": true,
+    "do_not_add_time_limits_or_unit_time_fields": true,
+    "word_count_control_deferred_to_composer": true
+  },
+  "generated_by": {
+    "agent": "adaptive-curriculum-pathway-planner",
+    "agent_version": "1.1",
+    "skill": "plan-adaptive-curriculum-pathways",
+    "skill_version": "1.1",
+    "generated_at": "2026-08-19T22:57:13Z"
+  }
+}

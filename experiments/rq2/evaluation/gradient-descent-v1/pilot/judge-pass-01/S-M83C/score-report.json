@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "RQ2-EVAL-v1",
+  "sample_id": "S-M83C",
+  "evaluator": {
+    "evaluator_id": "codex-rq2-a",
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "access_route": "codex-exec-ephemeral",
+    "prompt_version": "RQ2-EVAL-v1",
+    "pass_index": 1,
+    "evaluated_at": "2026-08-26T21:51:00Z"
+  },
+  "inputs": {
+    "blind_manifest_sha256": "424bae77e5314b3709d1d5961cd59caa2b15a8724737f3d611d5e78f465853b4",
+    "judgement_sha256": "f85260319756918a2b791d65e7efe73247c596d1ae9da25e9cd64a85643705f9"
+  },
+  "primary_pedagogy_scores": {
+    "disciplinary_framing_appropriateness": 4,
+    "prerequisite_match": 5,
+    "context_boundary_awareness": 4,
+    "sequence_quality": 5
+  },
+  "exploratory_scores": {
+    "example_authenticity": null
+  },
+  "selection_quality": {
+    "inclusion_appropriateness": 5,
+    "exclusion_appropriateness": 5,
+    "unnecessary_content_load": "low",
+    "profile_rationale_quality": 5
+  },
+  "selected_content_safety": {
+    "required_learning_goal_coverage": 1.0,
+    "selected_contract_item_full_coverage": 1.0,
+    "present_formula_provenance_coverage": 1.0,
+    "hard_dependency_structural_validation": 1.0,
+    "released_bridge_compliance": 1.0,
+    "dependency_coherence_verdict": "pass",
+    "formula_accuracy": 1.0,
+    "algorithm_accuracy": 1.0,
+    "critical_error_count": 0,
+    "unsupported_mathematical_or_algorithmic_claim_count": 0,
+    "safety_abstention_count": 0,
+    "gate_pass": true
+  },
+  "abstentions": {
+    "primary_pedagogy": 0,
+    "exploratory": 1,
+    "selected_content_safety": 0
+  },
+  "scope": {
+    "selected_contract_item_count": 12,
+    "selected_formula_reference_count": 13,
+    "present_formula_count": 13,
+    "selected_algorithm_or_code_item_count": 3,
+    "unsupported_claim_count": 3,
+    "student_facing_word_count": 2332
+  },
+  "overall_recommendation": {
+    "decision": "requires_adjudication",
+    "rationale": "All required goals, selected Contract items, formulas, algorithm rules, and dependencies are resolved as complete and correct, so the selected-content safety gate should pass. Human adjudication remains appropriate because exploratory disciplinary authenticity is abstained and three bounded engineering-application claims are outside available authority."
+  },
+  "interpretation_boundary": "Automated operational measurement; not student evidence or expert ground truth.",
+  "valid": true
+}

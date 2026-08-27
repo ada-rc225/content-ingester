@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/bridge-resolution-receipt.schema.json",
+  "title": "Released Bridge Pathway Materialization Receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "materializer",
+    "materialized_at",
+    "rule_id",
+    "parent_pathway",
+    "parent_review",
+    "bridge_catalog",
+    "bridge_release_report",
+    "resolved_bridges",
+    "output_pathway"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "materializer": {"const": "released-bridge-pathway-materializer-v1"},
+    "materialized_at": {"type": "string", "format": "date-time"},
+    "rule_id": {"const": "first-consuming-unit-v1"},
+    "parent_pathway": {"$ref": "#/$defs/fileBinding"},
+    "parent_review": {"$ref": "#/$defs/fileBinding"},
+    "bridge_catalog": {"$ref": "#/$defs/fileBinding"},
+    "bridge_release_report": {"$ref": "#/$defs/fileBinding"},
+    "resolved_bridges": {"type": "array", "minItems": 1},
+    "output_pathway": {"$ref": "#/$defs/fileBinding"}
+  },
+  "$defs": {
+    "fileBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file", "sha256"],
+      "properties": {
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    }
+  }
+}

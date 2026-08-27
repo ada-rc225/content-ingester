@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "assessment_id": "applied-mathematics-year-2-concept-assessment-v1",
+  "assessment_status": "provisional",
+  "profile_binding": {
+    "profile_id": "applied-mathematics-year-2-rq2-pilot",
+    "file": "experiments/rq2/profiles/applied-mathematics-year-2.json",
+    "sha256": "303e94d25f3370e895e2a1a119ef3e193dae6a338d66200f83d2aa4b2eb022e2"
+  },
+  "curriculum_model_binding": {
+    "model_id": "power-iteration-dependencies-v2",
+    "file": "curriculum-models/power-iteration-v1/release/frozen-contract-dependencies.json",
+    "sha256": "9952915a368244e7110233a06d9976ba76e6ff4f9a702886ff0db20b33170ee6"
+  },
+  "concept_assessments": [
+    {
+      "concept_id": "matrix-vector-products",
+      "concept_name": "Matrix-vector products",
+      "mastery": "mastered",
+      "confidence": "high",
+      "profile_evidence": [
+        {"profile_field": "prior_knowledge", "value": "linear algebra"}
+      ],
+      "rationale": "The declared linear-algebra background supports interpreting and computing compatible matrix-vector products used by eigenpair equations and every power update."
+    },
+    {
+      "concept_id": "vector-norms-and-normalization",
+      "concept_name": "Euclidean vector norms and normalization",
+      "mastery": "mastered",
+      "confidence": "medium",
+      "profile_evidence": [
+        {"profile_field": "prior_knowledge", "value": "linear algebra"}
+      ],
+      "rationale": "Linear algebra prior knowledge supports Euclidean norms and normalization, although the profile's fragile stopping-related implementation knowledge warrants careful operational treatment in the lesson."
+    },
+    {
+      "concept_id": "orthogonality-and-projection",
+      "concept_name": "Orthogonality, orthonormal bases, and projection coefficients",
+      "mastery": "mastered",
+      "confidence": "high",
+      "profile_evidence": [
+        {"profile_field": "prior_knowledge", "value": "linear algebra"},
+        {"profile_field": "preferred_representations", "value": "spectral decomposition"}
+      ],
+      "rationale": "Linear algebra and an explicit preference for spectral decomposition provide strong evidence for orthonormal bases and projection coefficients."
+    },
+    {
+      "concept_id": "determinants-characteristic-polynomials",
+      "concept_name": "Determinants and characteristic polynomials",
+      "mastery": "mastered",
+      "confidence": "high",
+      "profile_evidence": [
+        {"profile_field": "prior_knowledge", "value": "linear algebra"},
+        {"profile_field": "preferred_representations", "value": "derivation"}
+      ],
+      "rationale": "The linear-algebra background and preference for derivation support interpreting the characteristic equation for small matrices."
+    },
+    {
+      "concept_id": "inner-products-and-quadratic-forms",
+      "concept_name": "Inner products and quadratic forms",
+      "mastery": "mastered",
+      "confidence": "high",
+      "profile_evidence": [
+        {"profile_field": "prior_knowledge", "value": "linear algebra"}
+      ],
+      "rationale": "Linear algebra prior knowledge provides evidence for computing inner products and the scalar expressions used by the Rayleigh quotient and residual."
+    },
+    {
+      "concept_id": "numpy-vector-operations",
+      "concept_name": "Basic NumPy vector operations",
+      "mastery": "fragile",
+      "confidence": "medium",
+      "profile_evidence": [
+        {"profile_field": "prior_knowledge", "value": "basic numerical computing"},
+        {"profile_field": "missing_or_fragile_prerequisites", "value": "implementation diagnostics"},
+        {"profile_field": "missing_or_fragile_prerequisites", "value": "floating-point stopping criteria"}
+      ],
+      "rationale": "Basic numerical computing suggests partial familiarity with NumPy operations, but the explicitly fragile implementation diagnostics and floating-point stopping criteria indicate that the specified array checks, breakdown handling, residual comparison, and iteration fallback should be treated as fragile."
+    }
+  ],
+  "generated_by": {
+    "producer": "adaptive-curriculum-pathway-planner",
+    "producer_version": "1.0",
+    "generated_at": "2026-08-18T00:00:00Z"
+  }
+}

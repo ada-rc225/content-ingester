@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "contract": {
+    "path": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+    "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7",
+    "contract_id": "power-iteration",
+    "contract_version": "1.0.0",
+    "topic": "Eigenvalues, Eigenvectors, and the Power Iteration",
+    "lifecycle_status": "frozen",
+    "source_of_truth": "curated_institutional_material",
+    "reviewer_id": "tester-001",
+    "reviewer_role": "Mathematics/Numerical Linear Algebra Reviewer",
+    "reviewed_at": "2026-08-12T04:30:00+01:00"
+  },
+  "release": {
+    "report_path": "experiments/rq1/reference-contracts/power-iteration-v1/release/release_gate_report.json",
+    "report_sha256": "2f75e29aab44937190ffb50e22895f1cfd98b24533d46f2c299191fb4fb9c3af",
+    "release_gate": "grounding-release-gate-v1",
+    "status": "released",
+    "released_at": "2026-08-12T03:13:48.322731+00:00"
+  },
+  "validation": {
+    "report_path": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_contract_validation_report.json",
+    "report_sha256": "99f679a90a0b4fb8277e40518c48a39cba5edf7832e099e37a05a6a5b6e8c918",
+    "validator": "reference-contract-evidence-v4",
+    "valid": true,
+    "error_count": 0
+  },
+  "source_materials": [
+    {
+      "source_id": "eigenvalues-and-power-iteration",
+      "path": "inputs/content-to-ingest/eigenvalues_and_power_iteration.md",
+      "format": "markdown",
+      "sha256": "6d79ba90ed3f922332304ec48668dd47f2b9542fbc5ab87dbb978691cc6f5bd5",
+      "role": "authoritative"
+    }
+  ],
+  "grounding_inventory": {
+    "path": "experiments/rq1/reference-contracts/power-iteration-v1/grounding_inventory.json",
+    "sha256": "38f29e70ed8b7c9b75fa3424ccb5e57207cda343f3b6f90998ff41f2463ff30b"
+  },
+  "generation_view": {
+    "path": "grounding_view.json",
+    "sha256": "40d38390e5c5fb61c8b9e264d5b230b7bb00007eaef042f0aec30df851a32ac7"
+  },
+  "generation_items": {
+    "required_item_ids": [
+      "RC-001",
+      "RC-003",
+      "RC-004",
+      "RC-005",
+      "RC-006",
+      "RC-007",
+      "RC-008",
+      "RC-009",
+      "RC-010",
+      "RC-011",
+      "RC-012",
+      "RC-013",
+      "RC-014"
+    ],
+    "conditional_item_ids": [
+      "RC-002",
+      "RC-015",
+      "RC-016",
+      "RC-017",
+      "RC-018"
+    ],
+    "excluded_item_ids": []
+  }
+}

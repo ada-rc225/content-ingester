@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "composer": "pathway-constrained-teaching-composer-v1",
+  "run_id": "gradient-descent-p0-pilot-run-03",
+  "condition": "P0",
+  "topic": "gradient descent",
+  "profile_id": null,
+  "generation": {
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "access_route": "codex-exec-ephemeral",
+    "prompt_version": "pathway-constrained-teaching-composer-v1",
+    "generated_at": "2026-08-26T21:27:00Z"
+  },
+  "inputs": {
+    "composition_input_receipt": {
+      "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p0/run-03/composition-input-receipt.json",
+      "sha256": "2dd35ef962080f07fcb5523cc5da435d19d6147fe4dcc051ed9c5d138e4b1615"
+    },
+    "composition_input_view": {
+      "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p0/run-03/composition-input-view.json",
+      "sha256": "c079e1e4468272dd0c95bec31f496cd7c5ba2869f0185cad81d36eedfa2b9baf"
+    },
+    "pathway": {
+      "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p0/pathway-plan.json",
+      "sha256": "1f565b07726733580ad974e9109439efa8817f1e6bc1b8fca4f1f788f70d4b1c"
+    },
+    "pathway_validation_report": {
+      "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p0/pathway-validation-report.json",
+      "sha256": "43be17103254ef8a2a01006aa2113bfe7ce77bcc8bf970f918018ac4f36ab10c"
+    },
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+      "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/gradient-descent-second-year.json",
+      "sha256": "bdd734fd2f2c56b38960e9938281952a55841d57b0a83047647d38ca4f90348d"
+    },
+    "word_count_protocol": {
+      "file": "experiments/rq2/word-count-protocols/gradient-descent-pilot.json",
+      "sha256": "3031936fe3f42d325e01e92490e0cafebb6a58ae11a009df22a9f339cab7ab43"
+    },
+    "profile": null,
+    "bridge_catalog": null
+  },
+  "outputs": {
+    "lesson": {
+      "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p0/run-03/lesson.md",
+      "sha256": "409d1faa5a4ed83bae3ca1c295dfcd0849b9a9941b424cf14b15bc32a3591c3e"
+    },
+    "lesson_map": {
+      "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p0/run-03/lesson-map.json",
+      "sha256": "d95ddba5fe0b993516cd3d851064139d25b036cfba48d74b7a9dd228fcd80019"
+    },
+    "code_validation": {
+      "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p0/run-03/code-validation.json",
+      "sha256": "c9bfdd0aa86efc4b1200a2eedd3b9c47f3381ca9864a2307efdda0714fb0a56f"
+    }
+  },
+  "word_count_protocol": {
+    "schema_version": "1.0",
+    "protocol_id": "rq2-gradient-descent-english-prose-pilot-v1",
+    "status": "draft_for_pilot",
+    "topic": "gradient descent",
+    "language": "English",
+    "enabled": true,
+    "minimum": 2200,
+    "maximum": 2500,
+    "counting_method": "english_prose_v1",
+    "applies_to_conditions": [
+      "P0",
+      "P1",
+      "P2"
+    ]
+  },
+  "observed_english_prose_word_count": 2366
+}

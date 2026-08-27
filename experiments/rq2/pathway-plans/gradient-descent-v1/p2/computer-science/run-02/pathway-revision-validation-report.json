@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "validator": "validate-pathway-revision-v1",
+  "valid": true,
+  "error_count": 0,
+  "errors": [],
+  "inputs": {
+    "revision_receipt": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-02/pathway-revision-receipt.json",
+    "revision_receipt_sha256": "487affd284560315ebf5d4ad8413527fb201973add9e7472e9c43e1f311e842c",
+    "candidate_pathway": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-02/pathway-plan.json",
+    "candidate_pathway_sha256": "9f8f9980f042467a96361dbdb7578fdff7f9f845d0863ad4d81f7395da2121dc",
+    "candidate_assessment": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-02/profile-concept-assessment.json",
+    "candidate_assessment_sha256": "f0dea8f574d406493b60b07b937d49cc9b2a18d13fd2781e7f09a61154ae6d2d",
+    "candidate_validation_report": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/computer-science/run-02/pathway-validation-report.json",
+    "candidate_validation_report_sha256": "9b3bce6e26b71d803a9cafebe2b05685174fcd91039bec6e9a2a9bd0c4ae1d02"
+  },
+  "validated_at": "2026-08-19T23:05:59Z"
+}

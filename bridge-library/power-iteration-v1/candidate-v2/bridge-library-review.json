@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "review_id": "power-iteration-bridge-library-v1-review-v1",
+  "review_status": "revision_required",
+  "candidate_binding": {
+    "library_id": "power-iteration-bridge-library-v1",
+    "candidate_file": "bridge-library/power-iteration-v1/candidate-v2/bridge-library-candidate.json",
+    "candidate_sha256": "665fd20479ca2b13630a8676b22a9253d8d56829a707c4323e8f877cb948a56c",
+    "validation_report_file": "bridge-library/power-iteration-v1/candidate-v2/bridge-library-validation-report.json",
+    "validation_report_sha256": "d897dbacb34685b077914ca710032adbb5e35bc1e41d5718457db4be377b67f8"
+  },
+  "template_generator": {
+    "agent": "grounded-bridge-library-builder",
+    "agent_version": "1.0",
+    "skill": "build-grounded-bridge-library",
+    "skill_version": "1.0",
+    "generated_at": "2026-08-18T16:59:52Z"
+  },
+  "reviewer": {
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "mathematics-and-computing-bridge-reviewer"
+  },
+  "bridge_reviews": [
+    {
+      "bridge_contract_id": "BRC-VECTOR-NORMS-NORMALIZATION-v1",
+      "bridge_candidate_id": "BR-VECTOR-NORMS-NORMALIZATION-v1",
+      "concept_id": "vector-norms-and-normalization",
+      "requested_by_profile_ids": [
+        "computer-science-year-2-rq2-pilot",
+        "mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-005",
+        "RC-010",
+        "RC-016",
+        "RC-017"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04"
+      ],
+      "source_ids": [
+        "SRC-01"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "revision_required",
+        "content_boundary": "approved",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "The Euclidean-norm formula, non-zero normalization rule, zero-vector safeguard, worked example, content boundary, learner demand, and RC bindings are approved. Source revision is still required because SRC-01 (https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/mit18_06s10_chap01.pdf) returns HTTP 404 and therefore cannot provide the claimed Chapter 1 evidence. Replace it with a real, directly accessible institutional source whose inspected text explicitly supports BC-01 through BC-04; verify the final URL before regenerating."
+    },
+    {
+      "bridge_contract_id": "BRC-ORTHOGONALITY-PROJECTION-v1",
+      "bridge_candidate_id": "BR-ORTHOGONALITY-PROJECTION-v1",
+      "concept_id": "orthogonality-and-projection",
+      "requested_by_profile_ids": [
+        "computer-science-year-2-rq2-pilot",
+        "mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-003",
+        "RC-006",
+        "RC-007",
+        "RC-012"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04"
+      ],
+      "source_ids": [
+        "SRC-01",
+        "SRC-02"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "revision_required",
+        "content_boundary": "approved",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "The requested boundary correction is complete: BC-03 and BC-04 now teach only the scalar coefficient v^T x, and the vector-projection formula and projected vector have been removed. Orthogonality, orthonormality, the worked scalar calculation, exclusions, profile demand, and RC support are approved. Source revision remains necessary because both new MIT URLs, mit18_06s10_chap05.pdf and mit18_06s10_chap04.pdf, return HTTP 404. Replace them with verified direct institutional documents or transcripts that explicitly contain the definitions and scalar coefficient relation."
+    },
+    {
+      "bridge_contract_id": "BRC-INNER-PRODUCTS-QUADRATIC-FORMS-v1",
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-QUADRATIC-FORMS-v1",
+      "concept_id": "inner-products-and-quadratic-forms",
+      "requested_by_profile_ids": [
+        "computer-science-year-2-rq2-pilot",
+        "mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-009",
+        "RC-010"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04"
+      ],
+      "source_ids": [
+        "SRC-01",
+        "SRC-02"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "revision_required",
+        "content_boundary": "approved",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "revision_required",
+      "comment": "The revised dot-product wording, x^T x identity, x^T A x procedure, worked example, exclusions, boundary, and RC-009/RC-010 support are approved. SRC-02 is a valid direct MIT OCW PDF for x^T A x. However, SRC-01 uses the same mit18_06s10_chap01.pdf URL that returns HTTP 404, so BC-01 and BC-03 still lack accessible evidence. Replace only SRC-01 with a verified direct institutional source and update its locator and bindings."
+    },
+    {
+      "bridge_contract_id": "BRC-NUMPY-VECTOR-OPERATIONS-v1",
+      "bridge_candidate_id": "BR-NUMPY-VECTOR-OPERATIONS-v1",
+      "concept_id": "numpy-vector-operations",
+      "requested_by_profile_ids": [
+        "applied-mathematics-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-016",
+        "RC-017",
+        "RC-018"
+      ],
+      "content_block_ids": [
+        "BC-01",
+        "BC-02",
+        "BC-03",
+        "BC-04",
+        "BC-05"
+      ],
+      "source_ids": [
+        "SRC-01",
+        "SRC-02",
+        "SRC-03",
+        "SRC-04",
+        "SRC-05",
+        "SRC-06"
+      ],
+      "field_decisions": {
+        "correctness": "approved",
+        "source_quality": "approved",
+        "content_boundary": "approved",
+        "dependency_support": "approved",
+        "pedagogical_sufficiency": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved and unchanged from the parent candidate. The official NumPy and Python sources remain directly accessible and support array conversion, shape inspection, matrix-vector multiplication, the default one-dimensional Euclidean norm, comparisons and exceptions, and tuple return/unpacking. The content remains within the RC-016, RC-017, and RC-018 prerequisite boundary."
+    }
+  ],
+  "overall_review": {
+    "decision": "revision_required",
+    "reviewed_at": "2026-08-18T17:07:15Z",
+    "comment": "Candidate-v2 correctly preserves the NumPy bridge, narrows orthogonality/projection to scalar coefficients, and keeps all approved mathematical content, boundaries, profile demands, and RC bindings. Deterministic validation passes, but it checks URL syntax rather than reachability or source-text support. The three newly introduced MIT chapter URLs return HTTP 404, so the mathematical bridges cannot be approved for release. Create candidate-v3 changing only those broken source records and evidence locators, verify every replacement URL and source passage, rerun the same validator, and generate a fresh pending review."
+  }
+}

@@ -1,0 +1,661 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "RQ2-EVAL-v1",
+  "analysis_level": "generated_lesson_with_judge_passes_collapsed_by_sample_median",
+  "topic_summaries": {
+    "gradient descent": {
+      "condition_summary": {
+        "P0": {
+          "sample_count": 3,
+          "safety_gate_pass_count": 3,
+          "dimensions": {
+            "disciplinary_framing_appropriateness": {
+              "n_generated_lessons": 3,
+              "median": 3.0,
+              "mean_descriptive": 3.5,
+              "minimum": 2.5,
+              "maximum": 5.0
+            },
+            "prerequisite_match": {
+              "n_generated_lessons": 3,
+              "median": 5.0,
+              "mean_descriptive": 4.833333,
+              "minimum": 4.5,
+              "maximum": 5.0
+            },
+            "context_boundary_awareness": {
+              "n_generated_lessons": 3,
+              "median": 5.0,
+              "mean_descriptive": 5.0,
+              "minimum": 5.0,
+              "maximum": 5.0
+            },
+            "sequence_quality": {
+              "n_generated_lessons": 3,
+              "median": 4.0,
+              "mean_descriptive": 4.333333,
+              "minimum": 4.0,
+              "maximum": 5.0
+            }
+          }
+        },
+        "P1": {
+          "sample_count": 3,
+          "safety_gate_pass_count": 3,
+          "dimensions": {
+            "disciplinary_framing_appropriateness": {
+              "n_generated_lessons": 3,
+              "median": 5.0,
+              "mean_descriptive": 5.0,
+              "minimum": 5.0,
+              "maximum": 5.0
+            },
+            "prerequisite_match": {
+              "n_generated_lessons": 3,
+              "median": 5.0,
+              "mean_descriptive": 5.0,
+              "minimum": 5.0,
+              "maximum": 5.0
+            },
+            "context_boundary_awareness": {
+              "n_generated_lessons": 3,
+              "median": 5.0,
+              "mean_descriptive": 5.0,
+              "minimum": 5.0,
+              "maximum": 5.0
+            },
+            "sequence_quality": {
+              "n_generated_lessons": 3,
+              "median": 5.0,
+              "mean_descriptive": 5.0,
+              "minimum": 5.0,
+              "maximum": 5.0
+            }
+          }
+        },
+        "P2": {
+          "sample_count": 3,
+          "safety_gate_pass_count": 2,
+          "dimensions": {
+            "disciplinary_framing_appropriateness": {
+              "n_generated_lessons": 3,
+              "median": 5.0,
+              "mean_descriptive": 4.5,
+              "minimum": 3.5,
+              "maximum": 5.0
+            },
+            "prerequisite_match": {
+              "n_generated_lessons": 3,
+              "median": 5.0,
+              "mean_descriptive": 4.666667,
+              "minimum": 4.0,
+              "maximum": 5.0
+            },
+            "context_boundary_awareness": {
+              "n_generated_lessons": 3,
+              "median": 5.0,
+              "mean_descriptive": 5.0,
+              "minimum": 5.0,
+              "maximum": 5.0
+            },
+            "sequence_quality": {
+              "n_generated_lessons": 3,
+              "median": 5.0,
+              "mean_descriptive": 5.0,
+              "minimum": 5.0,
+              "maximum": 5.0
+            }
+          }
+        }
+      },
+      "paired_contrasts": {
+        "P2-P1": {
+          "disciplinary_framing_appropriateness": {
+            "matched_pair_count": 3,
+            "wins": 0,
+            "ties": 2,
+            "losses": 1,
+            "probability_of_superiority": 0.333333,
+            "median_paired_difference": 0.0,
+            "mean_paired_difference_descriptive": -0.5
+          },
+          "prerequisite_match": {
+            "matched_pair_count": 3,
+            "wins": 0,
+            "ties": 2,
+            "losses": 1,
+            "probability_of_superiority": 0.333333,
+            "median_paired_difference": 0.0,
+            "mean_paired_difference_descriptive": -0.333333
+          },
+          "context_boundary_awareness": {
+            "matched_pair_count": 3,
+            "wins": 0,
+            "ties": 3,
+            "losses": 0,
+            "probability_of_superiority": 0.5,
+            "median_paired_difference": 0.0,
+            "mean_paired_difference_descriptive": 0.0
+          },
+          "sequence_quality": {
+            "matched_pair_count": 3,
+            "wins": 0,
+            "ties": 3,
+            "losses": 0,
+            "probability_of_superiority": 0.5,
+            "median_paired_difference": 0.0,
+            "mean_paired_difference_descriptive": 0.0
+          }
+        },
+        "P2-P0": {
+          "disciplinary_framing_appropriateness": {
+            "matched_pair_count": 3,
+            "wins": 2,
+            "ties": 1,
+            "losses": 0,
+            "probability_of_superiority": 0.833333,
+            "median_paired_difference": 1.0,
+            "mean_paired_difference_descriptive": 1.0
+          },
+          "prerequisite_match": {
+            "matched_pair_count": 3,
+            "wins": 0,
+            "ties": 2,
+            "losses": 1,
+            "probability_of_superiority": 0.333333,
+            "median_paired_difference": 0.0,
+            "mean_paired_difference_descriptive": -0.166667
+          },
+          "context_boundary_awareness": {
+            "matched_pair_count": 3,
+            "wins": 0,
+            "ties": 3,
+            "losses": 0,
+            "probability_of_superiority": 0.5,
+            "median_paired_difference": 0.0,
+            "mean_paired_difference_descriptive": 0.0
+          },
+          "sequence_quality": {
+            "matched_pair_count": 3,
+            "wins": 2,
+            "ties": 1,
+            "losses": 0,
+            "probability_of_superiority": 0.833333,
+            "median_paired_difference": 1.0,
+            "mean_paired_difference_descriptive": 0.666667
+          }
+        }
+      }
+    }
+  },
+  "cross_topic_summary": {
+    "topic_count": 1,
+    "topics": [
+      "gradient descent"
+    ],
+    "condition_summary": {
+      "P0": {
+        "sample_count": 3,
+        "safety_gate_pass_count": 3,
+        "dimensions": {
+          "disciplinary_framing_appropriateness": {
+            "n_generated_lessons": 3,
+            "median": 3.0,
+            "mean_descriptive": 3.5,
+            "minimum": 2.5,
+            "maximum": 5.0
+          },
+          "prerequisite_match": {
+            "n_generated_lessons": 3,
+            "median": 5.0,
+            "mean_descriptive": 4.833333,
+            "minimum": 4.5,
+            "maximum": 5.0
+          },
+          "context_boundary_awareness": {
+            "n_generated_lessons": 3,
+            "median": 5.0,
+            "mean_descriptive": 5.0,
+            "minimum": 5.0,
+            "maximum": 5.0
+          },
+          "sequence_quality": {
+            "n_generated_lessons": 3,
+            "median": 4.0,
+            "mean_descriptive": 4.333333,
+            "minimum": 4.0,
+            "maximum": 5.0
+          }
+        }
+      },
+      "P1": {
+        "sample_count": 3,
+        "safety_gate_pass_count": 3,
+        "dimensions": {
+          "disciplinary_framing_appropriateness": {
+            "n_generated_lessons": 3,
+            "median": 5.0,
+            "mean_descriptive": 5.0,
+            "minimum": 5.0,
+            "maximum": 5.0
+          },
+          "prerequisite_match": {
+            "n_generated_lessons": 3,
+            "median": 5.0,
+            "mean_descriptive": 5.0,
+            "minimum": 5.0,
+            "maximum": 5.0
+          },
+          "context_boundary_awareness": {
+            "n_generated_lessons": 3,
+            "median": 5.0,
+            "mean_descriptive": 5.0,
+            "minimum": 5.0,
+            "maximum": 5.0
+          },
+          "sequence_quality": {
+            "n_generated_lessons": 3,
+            "median": 5.0,
+            "mean_descriptive": 5.0,
+            "minimum": 5.0,
+            "maximum": 5.0
+          }
+        }
+      },
+      "P2": {
+        "sample_count": 3,
+        "safety_gate_pass_count": 2,
+        "dimensions": {
+          "disciplinary_framing_appropriateness": {
+            "n_generated_lessons": 3,
+            "median": 5.0,
+            "mean_descriptive": 4.5,
+            "minimum": 3.5,
+            "maximum": 5.0
+          },
+          "prerequisite_match": {
+            "n_generated_lessons": 3,
+            "median": 5.0,
+            "mean_descriptive": 4.666667,
+            "minimum": 4.0,
+            "maximum": 5.0
+          },
+          "context_boundary_awareness": {
+            "n_generated_lessons": 3,
+            "median": 5.0,
+            "mean_descriptive": 5.0,
+            "minimum": 5.0,
+            "maximum": 5.0
+          },
+          "sequence_quality": {
+            "n_generated_lessons": 3,
+            "median": 5.0,
+            "mean_descriptive": 5.0,
+            "minimum": 5.0,
+            "maximum": 5.0
+          }
+        }
+      }
+    },
+    "paired_contrasts": {
+      "P2-P1": {
+        "disciplinary_framing_appropriateness": {
+          "matched_pair_count": 3,
+          "wins": 0,
+          "ties": 2,
+          "losses": 1,
+          "probability_of_superiority": 0.333333,
+          "median_paired_difference": 0.0,
+          "mean_paired_difference_descriptive": -0.5
+        },
+        "prerequisite_match": {
+          "matched_pair_count": 3,
+          "wins": 0,
+          "ties": 2,
+          "losses": 1,
+          "probability_of_superiority": 0.333333,
+          "median_paired_difference": 0.0,
+          "mean_paired_difference_descriptive": -0.333333
+        },
+        "context_boundary_awareness": {
+          "matched_pair_count": 3,
+          "wins": 0,
+          "ties": 3,
+          "losses": 0,
+          "probability_of_superiority": 0.5,
+          "median_paired_difference": 0.0,
+          "mean_paired_difference_descriptive": 0.0
+        },
+        "sequence_quality": {
+          "matched_pair_count": 3,
+          "wins": 0,
+          "ties": 3,
+          "losses": 0,
+          "probability_of_superiority": 0.5,
+          "median_paired_difference": 0.0,
+          "mean_paired_difference_descriptive": 0.0
+        }
+      },
+      "P2-P0": {
+        "disciplinary_framing_appropriateness": {
+          "matched_pair_count": 3,
+          "wins": 2,
+          "ties": 1,
+          "losses": 0,
+          "probability_of_superiority": 0.833333,
+          "median_paired_difference": 1.0,
+          "mean_paired_difference_descriptive": 1.0
+        },
+        "prerequisite_match": {
+          "matched_pair_count": 3,
+          "wins": 0,
+          "ties": 2,
+          "losses": 1,
+          "probability_of_superiority": 0.333333,
+          "median_paired_difference": 0.0,
+          "mean_paired_difference_descriptive": -0.166667
+        },
+        "context_boundary_awareness": {
+          "matched_pair_count": 3,
+          "wins": 0,
+          "ties": 3,
+          "losses": 0,
+          "probability_of_superiority": 0.5,
+          "median_paired_difference": 0.0,
+          "mean_paired_difference_descriptive": 0.0
+        },
+        "sequence_quality": {
+          "matched_pair_count": 3,
+          "wins": 2,
+          "ties": 1,
+          "losses": 0,
+          "probability_of_superiority": 0.833333,
+          "median_paired_difference": 1.0,
+          "mean_paired_difference_descriptive": 0.666667
+        }
+      }
+    },
+    "topic_direction_consistency": {
+      "P2-P1": {
+        "disciplinary_framing_appropriateness": {
+          "evaluable_topic_count": 1,
+          "topics_with_positive_median": 0,
+          "topics_with_zero_median": 1,
+          "topics_with_negative_median": 0,
+          "all_evaluable_topics_same_direction": true,
+          "direction": "zero",
+          "per_topic_median_paired_difference": {
+            "gradient descent": 0.0
+          }
+        },
+        "prerequisite_match": {
+          "evaluable_topic_count": 1,
+          "topics_with_positive_median": 0,
+          "topics_with_zero_median": 1,
+          "topics_with_negative_median": 0,
+          "all_evaluable_topics_same_direction": true,
+          "direction": "zero",
+          "per_topic_median_paired_difference": {
+            "gradient descent": 0.0
+          }
+        },
+        "context_boundary_awareness": {
+          "evaluable_topic_count": 1,
+          "topics_with_positive_median": 0,
+          "topics_with_zero_median": 1,
+          "topics_with_negative_median": 0,
+          "all_evaluable_topics_same_direction": true,
+          "direction": "zero",
+          "per_topic_median_paired_difference": {
+            "gradient descent": 0.0
+          }
+        },
+        "sequence_quality": {
+          "evaluable_topic_count": 1,
+          "topics_with_positive_median": 0,
+          "topics_with_zero_median": 1,
+          "topics_with_negative_median": 0,
+          "all_evaluable_topics_same_direction": true,
+          "direction": "zero",
+          "per_topic_median_paired_difference": {
+            "gradient descent": 0.0
+          }
+        }
+      },
+      "P2-P0": {
+        "disciplinary_framing_appropriateness": {
+          "evaluable_topic_count": 1,
+          "topics_with_positive_median": 1,
+          "topics_with_zero_median": 0,
+          "topics_with_negative_median": 0,
+          "all_evaluable_topics_same_direction": true,
+          "direction": "positive",
+          "per_topic_median_paired_difference": {
+            "gradient descent": 1.0
+          }
+        },
+        "prerequisite_match": {
+          "evaluable_topic_count": 1,
+          "topics_with_positive_median": 0,
+          "topics_with_zero_median": 1,
+          "topics_with_negative_median": 0,
+          "all_evaluable_topics_same_direction": true,
+          "direction": "zero",
+          "per_topic_median_paired_difference": {
+            "gradient descent": 0.0
+          }
+        },
+        "context_boundary_awareness": {
+          "evaluable_topic_count": 1,
+          "topics_with_positive_median": 0,
+          "topics_with_zero_median": 1,
+          "topics_with_negative_median": 0,
+          "all_evaluable_topics_same_direction": true,
+          "direction": "zero",
+          "per_topic_median_paired_difference": {
+            "gradient descent": 0.0
+          }
+        },
+        "sequence_quality": {
+          "evaluable_topic_count": 1,
+          "topics_with_positive_median": 1,
+          "topics_with_zero_median": 0,
+          "topics_with_negative_median": 0,
+          "all_evaluable_topics_same_direction": true,
+          "direction": "positive",
+          "per_topic_median_paired_difference": {
+            "gradient descent": 1.0
+          }
+        }
+      }
+    }
+  },
+  "condition_summary": {
+    "P0": {
+      "sample_count": 3,
+      "safety_gate_pass_count": 3,
+      "dimensions": {
+        "disciplinary_framing_appropriateness": {
+          "n_generated_lessons": 3,
+          "median": 3.0,
+          "mean_descriptive": 3.5,
+          "minimum": 2.5,
+          "maximum": 5.0
+        },
+        "prerequisite_match": {
+          "n_generated_lessons": 3,
+          "median": 5.0,
+          "mean_descriptive": 4.833333,
+          "minimum": 4.5,
+          "maximum": 5.0
+        },
+        "context_boundary_awareness": {
+          "n_generated_lessons": 3,
+          "median": 5.0,
+          "mean_descriptive": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        },
+        "sequence_quality": {
+          "n_generated_lessons": 3,
+          "median": 4.0,
+          "mean_descriptive": 4.333333,
+          "minimum": 4.0,
+          "maximum": 5.0
+        }
+      }
+    },
+    "P1": {
+      "sample_count": 3,
+      "safety_gate_pass_count": 3,
+      "dimensions": {
+        "disciplinary_framing_appropriateness": {
+          "n_generated_lessons": 3,
+          "median": 5.0,
+          "mean_descriptive": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        },
+        "prerequisite_match": {
+          "n_generated_lessons": 3,
+          "median": 5.0,
+          "mean_descriptive": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        },
+        "context_boundary_awareness": {
+          "n_generated_lessons": 3,
+          "median": 5.0,
+          "mean_descriptive": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        },
+        "sequence_quality": {
+          "n_generated_lessons": 3,
+          "median": 5.0,
+          "mean_descriptive": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        }
+      }
+    },
+    "P2": {
+      "sample_count": 3,
+      "safety_gate_pass_count": 2,
+      "dimensions": {
+        "disciplinary_framing_appropriateness": {
+          "n_generated_lessons": 3,
+          "median": 5.0,
+          "mean_descriptive": 4.5,
+          "minimum": 3.5,
+          "maximum": 5.0
+        },
+        "prerequisite_match": {
+          "n_generated_lessons": 3,
+          "median": 5.0,
+          "mean_descriptive": 4.666667,
+          "minimum": 4.0,
+          "maximum": 5.0
+        },
+        "context_boundary_awareness": {
+          "n_generated_lessons": 3,
+          "median": 5.0,
+          "mean_descriptive": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        },
+        "sequence_quality": {
+          "n_generated_lessons": 3,
+          "median": 5.0,
+          "mean_descriptive": 5.0,
+          "minimum": 5.0,
+          "maximum": 5.0
+        }
+      }
+    }
+  },
+  "paired_contrasts": {
+    "P2-P1": {
+      "disciplinary_framing_appropriateness": {
+        "matched_pair_count": 3,
+        "wins": 0,
+        "ties": 2,
+        "losses": 1,
+        "probability_of_superiority": 0.333333,
+        "median_paired_difference": 0.0,
+        "mean_paired_difference_descriptive": -0.5
+      },
+      "prerequisite_match": {
+        "matched_pair_count": 3,
+        "wins": 0,
+        "ties": 2,
+        "losses": 1,
+        "probability_of_superiority": 0.333333,
+        "median_paired_difference": 0.0,
+        "mean_paired_difference_descriptive": -0.333333
+      },
+      "context_boundary_awareness": {
+        "matched_pair_count": 3,
+        "wins": 0,
+        "ties": 3,
+        "losses": 0,
+        "probability_of_superiority": 0.5,
+        "median_paired_difference": 0.0,
+        "mean_paired_difference_descriptive": 0.0
+      },
+      "sequence_quality": {
+        "matched_pair_count": 3,
+        "wins": 0,
+        "ties": 3,
+        "losses": 0,
+        "probability_of_superiority": 0.5,
+        "median_paired_difference": 0.0,
+        "mean_paired_difference_descriptive": 0.0
+      }
+    },
+    "P2-P0": {
+      "disciplinary_framing_appropriateness": {
+        "matched_pair_count": 3,
+        "wins": 2,
+        "ties": 1,
+        "losses": 0,
+        "probability_of_superiority": 0.833333,
+        "median_paired_difference": 1.0,
+        "mean_paired_difference_descriptive": 1.0
+      },
+      "prerequisite_match": {
+        "matched_pair_count": 3,
+        "wins": 0,
+        "ties": 2,
+        "losses": 1,
+        "probability_of_superiority": 0.333333,
+        "median_paired_difference": 0.0,
+        "mean_paired_difference_descriptive": -0.166667
+      },
+      "context_boundary_awareness": {
+        "matched_pair_count": 3,
+        "wins": 0,
+        "ties": 3,
+        "losses": 0,
+        "probability_of_superiority": 0.5,
+        "median_paired_difference": 0.0,
+        "mean_paired_difference_descriptive": 0.0
+      },
+      "sequence_quality": {
+        "matched_pair_count": 3,
+        "wins": 2,
+        "ties": 1,
+        "losses": 0,
+        "probability_of_superiority": 0.833333,
+        "median_paired_difference": 1.0,
+        "mean_paired_difference_descriptive": 0.666667
+      }
+    }
+  },
+  "warnings": [
+    "The four primary dimensions are not combined into a composite score.",
+    "Cross-topic pooled results are descriptive; inspect every topic-level result before making a portability claim.",
+    "P0 reuse across profiles must be retained in any later uncertainty model; duplicated profile-relative P0 ratings are not independent generated lessons.",
+    "No student outcome or learner-reported comprehensibility is estimated."
+  ]
+}

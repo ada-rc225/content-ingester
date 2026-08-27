@@ -1,0 +1,24 @@
+{
+  "profile_id": "gradient-descent-computer-science-year-2-rq2-pilot",
+  "discipline": "computer science",
+  "education_level": "second-year undergraduate",
+  "prior_knowledge": [
+    "vectors and matrices",
+    "single-variable calculus and basic partial derivatives",
+    "Python and NumPy",
+    "basic algorithms and iteration",
+    "basic complexity analysis"
+  ],
+  "missing_or_fragile_prerequisites": [
+    "formal smoothness and convexity arguments",
+    "strong-convexity convergence proofs",
+    "Hessian matrix ordering"
+  ],
+  "preferred_representations": [
+    "pseudocode and executable iteration",
+    "state traces and diagnostic checks",
+    "explicit assumptions beside algorithm behaviour"
+  ],
+  "authentic_context_boundary": "Machine-learning loss functions may be used as bounded educational motivation, but the lesson must not imply that production training objectives are necessarily convex or that basic full-batch gradient descent represents a complete training system.",
+  "review_status": "requires_discipline_educator_review"
+}

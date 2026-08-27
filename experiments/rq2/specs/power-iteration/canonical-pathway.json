@@ -1,0 +1,105 @@
+{
+  "schema_version": "0.2",
+  "protocol_id": "RQ2-PATHWAY-v0.2-pilot",
+  "status": "pilot_freeze_candidate",
+  "pathway_id": "PI-CANONICAL-v0.2",
+  "topic": "power-iteration",
+  "rendering_policy": {
+    "output_form": "one_continuous_student_facing_lesson",
+    "learning_units_are_pages": false,
+    "instruction": "Learning units express content selection and pedagogical order only. They may render as sections or transitions inside one continuous lesson and must not create Atomic Learning page artifacts."
+  },
+  "source_contract": {
+    "contract_id": "power-iteration",
+    "contract_version": "1.0.0",
+    "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+  },
+  "target_duration_minutes": 90,
+  "selected_contract_item_ids": [
+    "RC-001", "RC-002", "RC-003", "RC-004", "RC-005", "RC-006",
+    "RC-007", "RC-008", "RC-009", "RC-010", "RC-011", "RC-012",
+    "RC-013", "RC-014", "RC-015", "RC-016", "RC-017", "RC-018"
+  ],
+  "excluded_contract_item_ids": [],
+  "selection_decisions": [
+    {"item_id": "RC-002", "decision": "include", "decision_basis": "generic conceptual bridge", "rationale": "Contrast characteristic-polynomial reasoning with iterative matrix-vector computation."},
+    {"item_id": "RC-003", "decision": "include", "decision_basis": "generic derivation route", "rationale": "Provide the symmetric spectral representation used by the comprehensive convergence explanation."},
+    {"item_id": "RC-006", "decision": "include", "decision_basis": "generic derivation route", "rationale": "Show why the dominant component survives rather than only stating the rate."},
+    {"item_id": "RC-008", "decision": "include", "decision_basis": "generic diagnostic coverage", "rationale": "Prevent sign alternation from being misclassified as algorithm failure."},
+    {"item_id": "RC-012", "decision": "include", "decision_basis": "generic diagnostic coverage", "rationale": "Cover failure caused by a missing dominant component."},
+    {"item_id": "RC-013", "decision": "include", "decision_basis": "generic diagnostic coverage", "rationale": "Cover tied dominant magnitude and slow convergence from a small spectral gap."},
+    {"item_id": "RC-015", "decision": "include", "decision_basis": "scope boundary", "rationale": "State why the symmetric explanation must not be generalized to arbitrary non-symmetric matrices."},
+    {"item_id": "RC-016", "decision": "include", "decision_basis": "generic implementation route", "rationale": "Include robust input conversion, shape checks and initialization."},
+    {"item_id": "RC-017", "decision": "include", "decision_basis": "generic implementation route", "rationale": "Include breakdown handling, residual stopping and return semantics."},
+    {"item_id": "RC-018", "decision": "include", "decision_basis": "generic worked consolidation", "rationale": "Connect the mathematical sequence to one contract-supported numerical result."}
+  ],
+  "instruction_sequence": [
+    "PI-U01", "PI-U02", "PI-U03", "PI-U04", "PI-U05", "PI-U06", "PI-U07", "PI-U08"
+  ],
+  "learning_units": [
+    {
+      "unit_id": "PI-U01",
+      "title": "Eigenpairs and the motivation for iteration",
+      "unit_type": "contract_content",
+      "prerequisite_unit_ids": [],
+      "learning_objective_ids": ["LO-PI-01"],
+      "contract_item_ids": ["RC-001", "RC-002", "RC-014"]
+    },
+    {
+      "unit_id": "PI-U02",
+      "title": "The symmetric spectral setting",
+      "unit_type": "contract_content",
+      "prerequisite_unit_ids": ["PI-U01"],
+      "learning_objective_ids": ["LO-PI-01", "LO-PI-03"],
+      "contract_item_ids": ["RC-003", "RC-004"]
+    },
+    {
+      "unit_id": "PI-U03",
+      "title": "The normalized power update",
+      "unit_type": "contract_content",
+      "prerequisite_unit_ids": ["PI-U01"],
+      "learning_objective_ids": ["LO-PI-02"],
+      "contract_item_ids": ["RC-005"]
+    },
+    {
+      "unit_id": "PI-U04",
+      "title": "Convergence mechanism and asymptotic rate",
+      "unit_type": "contract_content",
+      "prerequisite_unit_ids": ["PI-U02", "PI-U03"],
+      "learning_objective_ids": ["LO-PI-03"],
+      "contract_item_ids": ["RC-006", "RC-007"]
+    },
+    {
+      "unit_id": "PI-U05",
+      "title": "Failure modes and scope boundaries",
+      "unit_type": "contract_content",
+      "prerequisite_unit_ids": ["PI-U03", "PI-U04"],
+      "learning_objective_ids": ["LO-PI-03"],
+      "contract_item_ids": ["RC-008", "RC-012", "RC-013", "RC-015"]
+    },
+    {
+      "unit_id": "PI-U06",
+      "title": "Rayleigh estimates and residual stopping",
+      "unit_type": "contract_content",
+      "prerequisite_unit_ids": ["PI-U03"],
+      "learning_objective_ids": ["LO-PI-04"],
+      "contract_item_ids": ["RC-009", "RC-010"]
+    },
+    {
+      "unit_id": "PI-U07",
+      "title": "Algorithm and optional implementation detail",
+      "unit_type": "contract_content",
+      "prerequisite_unit_ids": ["PI-U06"],
+      "learning_objective_ids": ["LO-PI-05"],
+      "contract_item_ids": ["RC-011", "RC-016", "RC-017"]
+    },
+    {
+      "unit_id": "PI-U08",
+      "title": "Worked consolidation",
+      "unit_type": "contract_content",
+      "prerequisite_unit_ids": ["PI-U04", "PI-U07"],
+      "learning_objective_ids": ["LO-PI-02", "LO-PI-04", "LO-PI-05"],
+      "contract_item_ids": ["RC-018"]
+    }
+  ]
+}

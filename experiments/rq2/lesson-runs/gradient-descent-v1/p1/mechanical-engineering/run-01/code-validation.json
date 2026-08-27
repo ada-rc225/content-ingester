@@ -1,0 +1,30 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq2/lesson-runs/gradient-descent-v1/pilot/p1/mechanical-engineering/run-01/lesson.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-02",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "0e99601dc7876e49ffaef9e09291056b8f419e175c55f1d94b4ce2635c78f254",
+      "execution_status": "passed",
+      "stdout": "k=0, x=[ 2. -1.], f=3.125000, grad=[ 1.5 -2. ]\nk=1, x=[ 1.625 -0.5  ], f=1.757812, grad=[ 1.125 -1.5  ]\nk=2, x=[ 1.34375 -0.125  ], f=0.988770, grad=[ 0.84375 -1.125  ]\nk=3, x=[1.1328125 0.15625  ], f=0.556183, grad=[ 0.6328125 -0.84375  ]\nk=4, x=[0.97460938 0.3671875 ], f=0.312853, grad=[ 0.47460938 -0.6328125 ]\nk=5, x=[0.85595703 0.52539062], f=0.175980, grad=[ 0.35595703 -0.47460938]\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 93
+    },
+    {
+      "block_id": "CODE-002",
+      "anchor": "SEC-06",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "33a34ae97723e25a9c1136513f6d68e3c116ba4b5bc7aa4167c5dd95e93e204d",
+      "execution_status": "passed",
+      "stdout": "k=0, f=7.625000, alpha=1.000000, m=2\nk=1, f=0.000000, alpha=4.000000, m=0\nk=2, f=0.000000, alpha=4.000000, m=0\nk=3, f=0.000000, alpha=4.000000, m=0\nk=4, f=0.000000, alpha=4.000000, m=0\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 91
+    }
+  ]
+}

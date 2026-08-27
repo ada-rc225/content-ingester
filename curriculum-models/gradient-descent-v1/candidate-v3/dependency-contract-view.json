@@ -1,0 +1,635 @@
+{
+  "schema_version": "1.0",
+  "contract": {
+    "contract_id": "gradient-descent",
+    "contract_version": "3.0.0",
+    "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09",
+    "topic": "Gradient Descent and Optimisation"
+  },
+  "required_items": [
+    {
+      "item_id": "RC-001",
+      "item_type": "definition",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "Unconstrained optimisation minimizes a continuously differentiable objective f from R^d to R over R^d.",
+      "canonical_latex": [
+        "\\min_{x \\in \\mathbb{R}^d} f(x)."
+      ],
+      "formula_refs": [
+        "FM-001"
+      ],
+      "conditions": [
+        "The source assumes f is at least C^1."
+      ],
+      "prohibited_drift": [
+        "Do not add constraints or change the domain without identifying a new problem setting."
+      ]
+    },
+    {
+      "item_id": "RC-002",
+      "item_type": "theorem",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "At a differentiable local minimizer x*, the gradient must vanish.",
+      "canonical_latex": [
+        "\\nabla f(x^*) = 0."
+      ],
+      "formula_refs": [
+        "FM-002"
+      ],
+      "conditions": [
+        "x* is a local minimizer.",
+        "f is differentiable at x*."
+      ],
+      "prohibited_drift": [
+        "Do not present stationarity as sufficient for a minimum without additional assumptions."
+      ]
+    },
+    {
+      "item_id": "RC-003",
+      "item_type": "theorem",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "For C^2 objectives, positive-semidefinite Hessian with stationarity is necessary at a local minimizer, while positive-definite Hessian with stationarity is sufficient for a strict local minimizer.",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "f is C^2."
+      ],
+      "prohibited_drift": [
+        "Do not interchange positive semidefinite and positive definite conditions.",
+        "Do not merge necessity and sufficiency."
+      ]
+    },
+    {
+      "item_id": "RC-004",
+      "item_type": "definition",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "L-smoothness means the gradient is L-Lipschitz with respect to the Euclidean norm.",
+      "canonical_latex": [
+        "\\|\\nabla f(x)-\\nabla f(y)\\| \\leq L\\|x-y\\|,\n\\qquad \\forall x,y\\in\\mathbb{R}^d."
+      ],
+      "formula_refs": [
+        "FM-003"
+      ],
+      "conditions": [
+        "L is positive.",
+        "The inequality holds for every x and y in R^d."
+      ],
+      "prohibited_drift": [
+        "Do not replace gradient Lipschitz continuity with function-value Lipschitz continuity."
+      ]
+    },
+    {
+      "item_id": "RC-005",
+      "item_type": "theorem",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "The Descent Lemma gives the quadratic upper bound implied by L-smoothness.",
+      "canonical_latex": [
+        "f(y)\\leq f(x)+\\langle\\nabla f(x),y-x\\rangle\n+\\frac{L}{2}\\|y-x\\|^2."
+      ],
+      "formula_refs": [
+        "FM-004"
+      ],
+      "conditions": [
+        "f is L-smooth.",
+        "The inequality holds for all x,y in R^d."
+      ],
+      "prohibited_drift": [
+        "Do not reverse the upper-bound inequality or change L/2."
+      ]
+    },
+    {
+      "item_id": "RC-006",
+      "item_type": "definition",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "Differentiable convexity is characterized by the global first-order lower bound.",
+      "canonical_latex": [
+        "f(y)\\geq f(x)+\\langle\\nabla f(x),y-x\\rangle."
+      ],
+      "formula_refs": [
+        "FM-006"
+      ],
+      "conditions": [
+        "The inequality holds for all x,y in R^d."
+      ],
+      "prohibited_drift": [
+        "Do not reverse the lower-bound inequality."
+      ]
+    },
+    {
+      "item_id": "RC-007",
+      "item_type": "definition",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "Mu-strong convexity strengthens the convex lower bound by a positive quadratic term.",
+      "canonical_latex": [
+        "f(y)\\geq f(x)+\\langle\\nabla f(x),y-x\\rangle\n+\\frac{\\mu}{2}\\|y-x\\|^2."
+      ],
+      "formula_refs": [
+        "FM-007"
+      ],
+      "conditions": [
+        "mu is positive.",
+        "The inequality holds for all x,y in R^d."
+      ],
+      "prohibited_drift": [
+        "Do not omit the quadratic term, change its sign, or replace mu/2."
+      ]
+    },
+    {
+      "item_id": "RC-008",
+      "item_type": "theorem",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "For C^2 objectives, Hessian bounds characterize smooth convexity and strong convexity as stated in the source.",
+      "canonical_latex": [
+        "  0\\preceq\\nabla^2 f(x)\\preceq LI,\n  \\qquad \\forall x.",
+        "  \\nabla^2 f(x)\\succeq\\mu I,\n  \\qquad \\forall x."
+      ],
+      "formula_refs": [
+        "FM-008",
+        "FM-009"
+      ],
+      "conditions": [
+        "f is C^2.",
+        "The two-sided Hessian bound additionally assumes convexity."
+      ],
+      "prohibited_drift": [
+        "Do not drop the convexity qualifier for the positive-semidefinite lower Hessian bound."
+      ]
+    },
+    {
+      "item_id": "RC-009",
+      "item_type": "definition",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "For an L-smooth and mu-strongly convex objective, the condition number is kappa=L/mu and is at least one.",
+      "canonical_latex": [
+        "  \\kappa=\\frac{L}{\\mu}\\geq 1."
+      ],
+      "formula_refs": [
+        "FM-010"
+      ],
+      "conditions": [
+        "f is both L-smooth and mu-strongly convex."
+      ],
+      "prohibited_drift": [
+        "Do not invert the ratio L/mu."
+      ]
+    },
+    {
+      "item_id": "RC-010",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "Gradient descent evaluates the gradient at the current iterate and subtracts a positive step-size multiple of it.",
+      "canonical_latex": [
+        "x_{k+1}=x_k-\\alpha_k\\nabla f(x_k),\n\\qquad k=0,1,2,\\ldots."
+      ],
+      "formula_refs": [
+        "FM-011"
+      ],
+      "conditions": [
+        "x_0 lies in R^d.",
+        "alpha_k is positive."
+      ],
+      "prohibited_drift": [
+        "Do not evaluate the gradient at a future or look-ahead iterate in standard GD.",
+        "Do not reverse the descent sign."
+      ]
+    },
+    {
+      "item_id": "RC-011",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "A constant GD step uses alpha_k=alpha; common source choices include alpha=1/L and, under usual smooth-convex assumptions, alpha in (0,2/L).",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "L is known for the listed common choices.",
+        "The interval statement is made under the usual smooth-convex assumptions."
+      ],
+      "prohibited_drift": [
+        "Do not claim the interval applies without its assumptions."
+      ]
+    },
+    {
+      "item_id": "RC-014",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "For L-smooth convex f with a global minimizer and GD step 1/L, the objective gap is bounded by L times the initial squared distance divided by 2k.",
+      "canonical_latex": [
+        "f(x_k)-f(x^*)\n\\leq\n\\frac{L\\|x_0-x^*\\|^2}{2k}."
+      ],
+      "formula_refs": [
+        "FM-014"
+      ],
+      "conditions": [
+        "f is L-smooth and convex.",
+        "x* is a global minimizer.",
+        "alpha_k=1/L.",
+        "k>=1."
+      ],
+      "prohibited_drift": [
+        "Do not state the O(1/k) bound without all hypotheses or change the denominator."
+      ]
+    },
+    {
+      "item_id": "RC-015",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "For L-smooth mu-strongly convex f, GD has the stated distance contraction at step 2/(L+mu) and objective contraction at step 1/L.",
+      "canonical_latex": [
+        "\\alpha=\\frac{2}{L+\\mu}",
+        "\\|x_k-x^*\\|^2\n\\leq\n\\left(\\frac{\\kappa-1}{\\kappa+1}\\right)^{2k}\n\\|x_0-x^*\\|^2,",
+        "f(x_k)-f(x^*)\n\\leq\n\\left(1-\\frac{\\mu}{L}\\right)^k\n\\bigl(f(x_0)-f(x^*)\\bigr)."
+      ],
+      "formula_refs": [
+        "FM-022",
+        "FM-023",
+        "FM-024"
+      ],
+      "conditions": [
+        "f is L-smooth and mu-strongly convex.",
+        "Each bound uses its stated step size."
+      ],
+      "prohibited_drift": [
+        "Do not attach either rate to the other step size or omit the strong-convexity assumption."
+      ]
+    }
+  ],
+  "conditional_items": [
+    {
+      "item_id": "RC-012",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "Exact line search chooses the positive step minimizing the objective along the negative current-gradient direction.",
+      "canonical_latex": [
+        "   \\alpha_k=\\arg\\min_{\\alpha>0}f\\bigl(x_k-\\alpha\\nabla f(x_k)\\bigr)."
+      ],
+      "formula_refs": [
+        "FM-012"
+      ],
+      "conditions": [
+        "The search is over alpha>0."
+      ],
+      "prohibited_drift": [
+        "Do not replace exact minimization with an acceptance inequality."
+      ]
+    },
+    {
+      "item_id": "RC-013",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "Armijo backtracking contracts a positive trial step until the stated sufficient-decrease inequality holds.",
+      "canonical_latex": [
+        "   f\\bigl(x_k-\\alpha_k\\nabla f(x_k)\\bigr)\n   \\leq f(x_k)-c\\alpha_k\\|\\nabla f(x_k)\\|^2."
+      ],
+      "formula_refs": [
+        "FM-013"
+      ],
+      "conditions": [
+        "bar alpha>0, eta in (0,1), c in (0,1), and m is the smallest nonnegative accepted integer."
+      ],
+      "prohibited_drift": [
+        "Do not reverse the acceptance inequality or omit the squared gradient norm."
+      ]
+    },
+    {
+      "item_id": "RC-016",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "Heavy Ball adds beta times the difference of the two most recent iterates to the current-gradient step.",
+      "canonical_latex": [
+        "x_{k+1}\n=x_k-\\alpha\\nabla f(x_k)+\\beta(x_k-x_{k-1}),"
+      ],
+      "formula_refs": [
+        "FM-025"
+      ],
+      "conditions": [
+        "beta lies in [0,1).",
+        "Parameters must keep the iteration stable."
+      ],
+      "prohibited_drift": [
+        "Do not evaluate the gradient at a look-ahead point or conflate Heavy Ball with NAG."
+      ]
+    },
+    {
+      "item_id": "RC-017",
+      "item_type": "convergence_result",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "The stated optimal Heavy-Ball parameters and improved condition-number dependence apply specifically to a symmetric-positive-definite quadratic with spectrum in [mu,L].",
+      "canonical_latex": [
+        "f(x)=\\frac{1}{2}x^TAx,",
+        "\\alpha^*=\\frac{4}{(\\sqrt{L}+\\sqrt{\\mu})^2},\n\\qquad\n\\beta^*=\n\\left(\n\\frac{\\sqrt{\\kappa}-1}{\\sqrt{\\kappa}+1}\n\\right)^2"
+      ],
+      "formula_refs": [
+        "FM-026",
+        "FM-027"
+      ],
+      "conditions": [
+        "The objective is the stated quadratic.",
+        "A is symmetric positive definite with spectrum in [mu,L]."
+      ],
+      "prohibited_drift": [
+        "Do not generalize the parameter or contraction claims beyond the stated quadratic setting."
+      ]
+    },
+    {
+      "item_id": "RC-018",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "The source NAG variant initializes y_0=x_0 and lambda_0=1, evaluates the gradient at y_k, then updates lambda and y_{k+1} with the stated indices.",
+      "canonical_latex": [
+        "x_{k+1}=y_k-\\frac{1}{L}\\nabla f(y_k),",
+        "\\lambda_{k+1}\n=\n\\frac{1+\\sqrt{1+4\\lambda_k^2}}{2},",
+        "y_{k+1}\n=\nx_{k+1}\n+\\frac{\\lambda_k-1}{\\lambda_{k+1}}\n(x_{k+1}-x_k)."
+      ],
+      "formula_refs": [
+        "FM-028",
+        "FM-029",
+        "FM-030"
+      ],
+      "conditions": [
+        "k starts at zero.",
+        "The gradient step uses 1/L."
+      ],
+      "prohibited_drift": [
+        "Do not use the replaced or off-by-one NAG recurrence.",
+        "Do not evaluate the gradient at x_k."
+      ]
+    },
+    {
+      "item_id": "RC-019",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "For an L-smooth convex objective with a global minimizer, the stated NAG parameterization has the given O(1/k^2) objective-gap bound.",
+      "canonical_latex": [
+        "f(x_k)-f(x^*)\n\\leq\n\\frac{2L\\|x_0-x^*\\|^2}{(k+1)^2}\n=O\\left(\\frac{1}{k^2}\\right)."
+      ],
+      "formula_refs": [
+        "FM-031"
+      ],
+      "conditions": [
+        "f is L-smooth and convex.",
+        "x* is a global minimizer.",
+        "The recurrence is the parameterization in RC-018."
+      ],
+      "prohibited_drift": [
+        "Do not claim the rate for a different recurrence or without convexity."
+      ]
+    },
+    {
+      "item_id": "RC-020",
+      "item_type": "assumption",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "For an empirical objective, the source stochastic-gradient model assumes conditional unbiasedness and bounded conditional variance.",
+      "canonical_latex": [
+        "f(x)=\\frac{1}{N}\\sum_{i=1}^N f_i(x),",
+        "\\mathbb{E}[g_k(x_k)\\mid x_k]=\\nabla f(x_k),",
+        "\\mathbb{E}\n\\left[\n\\|g_k(x_k)-\\nabla f(x_k)\\|^2\n\\mid x_k\n\\right]\n\\leq\\sigma^2."
+      ],
+      "formula_refs": [
+        "FM-032",
+        "FM-033",
+        "FM-034"
+      ],
+      "conditions": [
+        "The conditioning is on x_k.",
+        "The variance bound is sigma squared."
+      ],
+      "prohibited_drift": [
+        "Do not replace conditional expectations with unconditional ones or omit the variance model."
+      ]
+    },
+    {
+      "item_id": "RC-021",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "SGD subtracts eta_k times the stochastic gradient estimate; persistent nonzero variance with a small constant step generally yields a nonzero error floor rather than exact convergence.",
+      "canonical_latex": [
+        "x_{k+1}=x_k-\\eta_k g_k(x_k)."
+      ],
+      "formula_refs": [
+        "FM-035"
+      ],
+      "conditions": [
+        "The error-floor example additionally invokes standard smooth strongly convex assumptions."
+      ],
+      "prohibited_drift": [
+        "Do not claim exact convergence for a persistent-variance constant-step regime."
+      ]
+    },
+    {
+      "item_id": "RC-022",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "The Robbins-Monro diminishing-step conditions require a divergent sum of step sizes and a convergent sum of squared step sizes, but are not sufficient alone for convergence.",
+      "canonical_latex": [
+        "\\sum_{k=1}^{\\infty}\\eta_k=\\infty,\n\\qquad\n\\sum_{k=1}^{\\infty}\\eta_k^2<\\infty."
+      ],
+      "formula_refs": [
+        "FM-036"
+      ],
+      "conditions": [
+        "A theorem must also state objective, bias, moment, and iterate-stability assumptions."
+      ],
+      "prohibited_drift": [
+        "Do not present the two series conditions as sufficient by themselves."
+      ]
+    },
+    {
+      "item_id": "RC-023",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "AdaGrad initializes v_-1=0, accumulates element-wise squared gradients, and scales the update by sqrt(v_k)+epsilon.",
+      "canonical_latex": [
+        "v_k=v_{k-1}+g_k\\odot g_k,",
+        "x_{k+1}\n=\nx_k-\\frac{\\eta}{\\sqrt{v_k}+\\epsilon}\\odot g_k."
+      ],
+      "formula_refs": [
+        "FM-037",
+        "FM-038"
+      ],
+      "conditions": [
+        "Gradients are indexed from k=0.",
+        "epsilon is positive."
+      ],
+      "prohibited_drift": [
+        "Do not replace accumulation by exponential averaging or omit epsilon."
+      ]
+    },
+    {
+      "item_id": "RC-024",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "RMSProp initializes v_-1=0, forms an exponential moving average of element-wise squared gradients, and uses it in the scaled update.",
+      "canonical_latex": [
+        "v_k=\\gamma v_{k-1}+(1-\\gamma)g_k\\odot g_k,",
+        "x_{k+1}\n=\nx_k-\\frac{\\eta}{\\sqrt{v_k}+\\epsilon}\\odot g_k."
+      ],
+      "formula_refs": [
+        "FM-039",
+        "FM-040"
+      ],
+      "conditions": [
+        "gamma lies in [0,1).",
+        "epsilon is positive."
+      ],
+      "prohibited_drift": [
+        "Do not replace exponential averaging with cumulative summation or omit the (1-gamma) factor."
+      ]
+    },
+    {
+      "item_id": "RC-025",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "Adam initializes both moments at index -1, forms first and second exponential moments, applies k+1 bias correction for k starting at zero, and uses the corrected moments in the update.",
+      "canonical_latex": [
+        "m_k=\\beta_1m_{k-1}+(1-\\beta_1)g_k,",
+        "v_k=\\beta_2v_{k-1}+(1-\\beta_2)(g_k\\odot g_k).",
+        "\\hat{m}_k=\\frac{m_k}{1-\\beta_1^{k+1}},\n\\qquad\n\\hat{v}_k=\\frac{v_k}{1-\\beta_2^{k+1}},",
+        "x_{k+1}\n=\nx_k-\\frac{\\eta}{\\sqrt{\\hat{v}_k}+\\epsilon}\\odot\\hat{m}_k."
+      ],
+      "formula_refs": [
+        "FM-041",
+        "FM-042",
+        "FM-043",
+        "FM-044"
+      ],
+      "conditions": [
+        "beta_1 and beta_2 lie in [0,1).",
+        "epsilon is positive.",
+        "Iterations are indexed from k=0."
+      ],
+      "prohibited_drift": [
+        "Do not omit bias correction, change k+1 to k, or use uncorrected moments in the final update."
+      ]
+    },
+    {
+      "item_id": "RC-026",
+      "item_type": "definition",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "Newton's method is motivated by the stated second-order Taylor model around x_k.",
+      "canonical_latex": [
+        "f(x_k+p)\n\\approx\nf(x_k)+\\nabla f(x_k)^Tp\n+\\frac{1}{2}p^T\\nabla^2f(x_k)p."
+      ],
+      "formula_refs": [
+        "FM-045"
+      ],
+      "conditions": [
+        "The expression is an approximation in the step p."
+      ],
+      "prohibited_drift": [
+        "Do not present the Taylor model as an exact identity for a general objective."
+      ]
+    },
+    {
+      "item_id": "RC-027",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "The Newton step solves the Hessian linear system and updates x_k by p_k; the inverse expression is only a mathematical equivalent when the Hessian is invertible, and implementations should solve rather than explicitly invert.",
+      "canonical_latex": [
+        "\\nabla^2f(x_k)p_k=-\\nabla f(x_k),",
+        "x_{k+1}=x_k+p_k.",
+        "x_{k+1}\n=\nx_k-[\\nabla^2f(x_k)]^{-1}\\nabla f(x_k)."
+      ],
+      "formula_refs": [
+        "FM-046",
+        "FM-047",
+        "FM-048"
+      ],
+      "conditions": [
+        "The inverse form requires an invertible Hessian at x_k."
+      ],
+      "prohibited_drift": [
+        "Do not recommend explicit Hessian inversion in numerical implementation.",
+        "Do not omit the negative gradient in the linear system."
+      ]
+    },
+    {
+      "item_id": "RC-028",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "Newton iterates converge locally quadratically under stationarity, positive-definite Hessian, local Hessian Lipschitz continuity, and sufficiently close initialization.",
+      "canonical_latex": [
+        "\\|x_{k+1}-x^*\\|\n\\leq\nC\\|x_k-x^*\\|^2"
+      ],
+      "formula_refs": [
+        "FM-049"
+      ],
+      "conditions": [
+        "gradient f(x*)=0.",
+        "The Hessian at x* is positive definite.",
+        "The Hessian is locally Lipschitz.",
+        "x_0 is sufficiently close to x*."
+      ],
+      "prohibited_drift": [
+        "Do not claim global quadratic convergence or omit the close-initialization condition."
+      ]
+    },
+    {
+      "item_id": "RC-029",
+      "item_type": "definition",
+      "criticality": "required",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "BFGS uses step and gradient-difference vectors and imposes the secant equation on the next Hessian approximation.",
+      "canonical_latex": [
+        "s_k=x_{k+1}-x_k,\n\\qquad\ny_k=\\nabla f(x_{k+1})-\\nabla f(x_k).",
+        "B_{k+1}s_k=y_k."
+      ],
+      "formula_refs": [
+        "FM-050",
+        "FM-051"
+      ],
+      "conditions": [],
+      "prohibited_drift": [
+        "Do not interchange the step vector and gradient-difference vector in the secant equation."
+      ]
+    },
+    {
+      "item_id": "RC-030",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "content_basis": "approved_as_written",
+      "canonical_statement": "For positive curvature y_k^T s_k, inverse-Hessian BFGS uses the stated rank-two update, direction p_k=-H_k gradient f(x_k), and a suitable line search.",
+      "canonical_latex": [
+        "H_{k+1}\n=\n(I-\\rho_k s_ky_k^T)H_k(I-\\rho_k y_ks_k^T)\n+\\rho_k s_ks_k^T,\n\\qquad\n\\rho_k=\\frac{1}{y_k^Ts_k}."
+      ],
+      "formula_refs": [
+        "FM-052"
+      ],
+      "conditions": [
+        "y_k^T s_k>0.",
+        "A suitable line search supports the curvature condition."
+      ],
+      "prohibited_drift": [
+        "Do not omit the curvature condition, transpose placement, rho definition, negative search direction, or line search."
+      ]
+    }
+  ],
+  "excluded_item_ids": []
+}

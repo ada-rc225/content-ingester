@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "evaluation_protocol": "RQ1-EVAL-v1",
+  "generated_at": "2026-08-17T14:38:41.546906+00:00",
+  "status": "passed",
+  "input": {
+    "judgement_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/evaluation/gd-confirmatory-v1/judgements/S003/pass-01/judgement.json",
+    "judgement_sha256": "c92b593953ace05f8677170417311db32c73a60c78c6b0d56f7d8535adfb1e93",
+    "bundle_id": "gd-confirmatory-v1",
+    "sample_id": "S003",
+    "evaluator_run_id": "rq1-gd-judge-sol-S003-pass-01",
+    "pass_index": 1
+  },
+  "primary_outcome": {
+    "major_critical_error_count": 3,
+    "evaluable_required_item_count": 13,
+    "major_critical_error_rate": 0.230769
+  },
+  "fidelity_outcomes": {
+    "all_applicable_major_critical_error_count": 7,
+    "all_applicable_major_critical_error_rate": 0.233333,
+    "severity_counts": {
+      "none": 22,
+      "major": 7,
+      "minor": 1
+    },
+    "severity_weighted_error_burden": 15,
+    "severity_weighted_error_rate": 0.166667,
+    "drifted_item_count": 8,
+    "semantic_drift_rate": 0.266667,
+    "critical_contract_item_error_rate": 0.157895,
+    "formula_item_accuracy": 0.75,
+    "algorithm_item_accuracy": 0.75,
+    "condition_failure_rate": 0.314815,
+    "required_item_strict_coverage": 0.769231,
+    "required_item_omission_rate": 0.0,
+    "unsupported_or_contradicted_claim_count": 7,
+    "evaluable_atomic_claim_count": 18,
+    "unsupported_claim_rate": 0.388889,
+    "not_verifiable_claim_count": 0
+  },
+  "pedagogy_outcomes": {
+    "learner_alignment": 4,
+    "disciplinary_authenticity": 3,
+    "pedagogical_coherence": 4,
+    "theory_implementation_alignment": 3,
+    "readability": 4,
+    "analogy_safety": 4,
+    "exercise_validity": 4
+  },
+  "uncertainty": {
+    "item_abstention_count": 0,
+    "claim_abstention_count": 0,
+    "pedagogy_abstention_count": 0
+  },
+  "warnings": [
+    "These are automated operational measurements against the Frozen Contract, not expert ground truth.",
+    "Do not combine fidelity and pedagogy into one overall score."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "validator": "curriculum-dependency-revision-v1",
+  "valid": true,
+  "error_count": 0,
+  "errors": [],
+  "inputs": {
+    "parent_candidate": "curriculum-models/gradient-descent-v1/candidate-v3/contract-dependencies.json",
+    "parent_review": "curriculum-models/gradient-descent-v1/candidate-v3/curriculum-dependency-review.json",
+    "revision_receipt": "curriculum-models/gradient-descent-v1/candidate-v4/dependency-revision-receipt.json",
+    "candidate": "curriculum-models/gradient-descent-v1/candidate-v4/contract-dependencies.json",
+    "dependency_validation_report": "curriculum-models/gradient-descent-v1/candidate-v4/dependency-validation-report.json",
+    "parent_candidate_sha256": "3539291363083f65da28c12a61c9f785fb1a2837194e073e293172b59af6e7a0",
+    "parent_review_sha256": "f97dddaa39480cfc0bc3a4eeae9c73bf37af927574455487008b1839eddc35ce",
+    "revision_receipt_sha256": "4d54a3a2af543e1e21784397c7374035d4de885b1b3e1b374ead8d171067c604",
+    "candidate_sha256": "4ec388ca45f59b3594549b7615affc306ddd0d74e4f2f8b7bbade11b65c23c65",
+    "dependency_validation_report_sha256": "dabe5cc57a051da74570e9412b88a9b85861f4fc2c1abec73490a1090a9a0c2c"
+  },
+  "metrics": {
+    "changed_item_ids": [
+      "RC-030"
+    ],
+    "changed_item_fields": {
+      "RC-030": [
+        "external_prerequisite_concept_ids"
+      ]
+    },
+    "changed_concepts": {},
+    "added_concept_ids": [
+      "inverse-hessian-approximation-matrices"
+    ],
+    "removed_concept_ids": [
+      "inverse-hessian-approximations-and-line-search"
+    ]
+  }
+}

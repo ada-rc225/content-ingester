@@ -1,0 +1,30 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq2/lesson-runs/gradient-descent-v1/pilot/p1/applied-mathematics/run-01/lesson.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-02",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "4e4994c83f5576151b9b515c3b648afadeb309f4cea471221d09a07bb9a2c513",
+      "execution_status": "passed",
+      "stdout": "k=0, x=[2. 1.], f(x)=4.000000, grad=[2. 4.]\nk=1, x=[1.6 0.2], f(x)=1.360000, grad=[1.6 0.8]\nk=2, x=[1.28 0.04], f(x)=0.822400, grad=[1.28 0.16]\nk=3, x=[1.024 0.008], f(x)=0.524416, grad=[1.024 0.032]\nk=4, x=[0.8192 0.0016], f(x)=0.335549, grad=[0.8192 0.0064]\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 115
+    },
+    {
+      "block_id": "CODE-002",
+      "anchor": "SEC-06",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "7f4822bb100ce1ca4a23fc8d816c527f6ba46e38bbe3872b65a9f652d8b2d78a",
+      "execution_status": "passed",
+      "stdout": "accepted step: 0.25\ncandidate: [1.5 0. ]\nsufficient decrease: True\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 90
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Grounded Bridge Library"
+  short_description: "Build and validate grounded prerequisite bridge libraries"
+  default_prompt: "Use $build-grounded-bridge-library to build a sourced prerequisite bridge-library candidate and pending human-review template from approved P2 pathways."

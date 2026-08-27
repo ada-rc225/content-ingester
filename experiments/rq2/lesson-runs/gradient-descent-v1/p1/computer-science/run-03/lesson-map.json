@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "run_id": "gradient-descent-p1-computer-science-pilot-run-03",
+  "lesson_file": "lesson.md",
+  "sections": [
+    {
+      "section_id": "SEC-01",
+      "heading": "The optimisation problem and what stationarity tells us",
+      "unit_ids": ["GD-U01"],
+      "contract_item_ids": ["RC-001", "RC-002"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-02",
+      "heading": "Turning the gradient into an iteration",
+      "unit_ids": ["GD-U02"],
+      "contract_item_ids": ["RC-010"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-03",
+      "heading": "Smoothness, decrease, and a constant step",
+      "unit_ids": ["GD-U03"],
+      "contract_item_ids": ["RC-004", "RC-005", "RC-011"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-04",
+      "heading": "Convexity, strong convexity, and conditioning",
+      "unit_ids": ["GD-U04"],
+      "contract_item_ids": ["RC-006", "RC-007", "RC-009"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-05",
+      "heading": "Reading convergence guarantees as conditional specifications",
+      "unit_ids": ["GD-U05"],
+      "contract_item_ids": ["RC-014", "RC-015"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-06",
+      "heading": "Selecting a step with Armijo backtracking",
+      "unit_ids": ["GD-U06"],
+      "contract_item_ids": ["RC-013"],
+      "bridge_contract_ids": []
+    }
+  ]
+}

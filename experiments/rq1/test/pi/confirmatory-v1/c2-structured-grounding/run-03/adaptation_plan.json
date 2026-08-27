@@ -1,0 +1,34 @@
+{
+  "topic": "Eigenvalues, Eigenvectors, and the Power Iteration",
+  "profile_id": "mechanical-engineering-year-2",
+  "source_ids": ["eigenvalues-and-power-iteration"],
+  "grounding_contract": {"contract_id": "power-iteration", "contract_version": "1.0.0", "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"},
+  "entry_point": {
+    "discipline_context": "Use modal reasoning and matrix-vector calculations familiar from mechanical vibration to motivate an eigenvector as a direction preserved by a matrix.",
+    "rationale": "The learner knows matrices and NumPy but needs a scaffold from eigenpair definitions through one iteration, convergence assumptions, diagnostics, and implementation.",
+    "analogy_boundary": "Modal language provides intuition for a mathematical direction; it does not add physical claims beyond the stated matrix computation."
+  },
+  "required_contract_item_ids": ["RC-001","RC-003","RC-004","RC-005","RC-006","RC-007","RC-008","RC-009","RC-010","RC-011","RC-012","RC-013","RC-014"],
+  "conditional_item_decisions": [
+    {"item_id":"RC-002","included":true,"rationale":"The requested conceptual scope explicitly includes the characteristic equation before iterative computation."},
+    {"item_id":"RC-015","included":true,"rationale":"The requested scope explicitly asks for the non-symmetric limitation."},
+    {"item_id":"RC-016","included":true,"rationale":"Implementation-level Python and NumPy material are explicitly required."},
+    {"item_id":"RC-017","included":true,"rationale":"The requested implementation must preserve positive-integer max_iterations validation and stated return semantics."},
+    {"item_id":"RC-018","included":true,"rationale":"The requested scope explicitly includes the worked matrix result."}
+  ],
+  "chapter_sequence": [
+    {"section_id":"SEC-01","order":1,"title":"Eigenpairs and the characteristic equation","purpose":"Define eigenvalues and eigenvectors, explain the non-zero vector condition, and connect exact eigenvalue equations with the characteristic equation.","contract_item_ids":["RC-001","RC-002","RC-014"]},
+    {"section_id":"SEC-02","order":2,"title":"Symmetry, modal directions, and dominance","purpose":"Build the real symmetric eigenbasis, define dominant magnitude, and distinguish the power-iteration target from the largest algebraic eigenvalue.","contract_item_ids":["RC-003","RC-004"]},
+    {"section_id":"SEC-03","order":3,"title":"Deriving one power-iteration step","purpose":"Derive multiplication and normalization from the eigenbasis expansion, then connect the recurrence to a NumPy implementation.","contract_item_ids":["RC-005","RC-006","RC-016"]},
+    {"section_id":"SEC-04","order":4,"title":"Convergence, estimates, and diagnostics","purpose":"State the convergence assumptions and asymptotic rate, introduce the Rayleigh quotient and residual, and explain failure and scope limitations.","contract_item_ids":["RC-007","RC-008","RC-009","RC-010","RC-011","RC-012","RC-013","RC-015","RC-017","RC-018"]},
+    {"section_id":"SEC-05","order":5,"title":"Exercises and worked solutions","purpose":"Consolidate theorem scope, perform one structured power-iteration calculation, and diagnose implementation semantics.","contract_item_ids":[]}
+  ],
+  "exercise_section_id":"SEC-05",
+  "implementation_strategy":"Use floating NumPy arrays, explicit shape and max_iterations checks, matrix-vector multiplication, normalization before residual evaluation, and a four-value return tuple.",
+  "assessment_strategy":"Use exactly three final worked exercises: one concept check, one power-iteration hand calculation with a unified structured checker and consistency check, and one executable code diagnostic.",
+  "exercise_plan":[
+    {"exercise_id":"EX-001","order":1,"section_id":"SEC-05","exercise_type":"concept_check","difficulty":"intermediate","learning_objective":"Identify the assumptions needed for convergence and distinguish magnitude dominance, sign ambiguity, and repeated dominance.","contract_item_ids":["RC-004","RC-007","RC-008","RC-012","RC-013","RC-014","RC-015"],"discipline_context":"Interpret a modal-direction computation without confusing a negative eigenvalue or a non-symmetric matrix with the symmetric convergence case.","solution_required":true,"verification":{"method":"contract_binding","python_expression":null,"expected_value":null,"absolute_tolerance":0,"consistency_checks":[]}},
+    {"exercise_id":"EX-002","order":2,"section_id":"SEC-05","exercise_type":"hand_calculation","difficulty":"intermediate","learning_objective":"Carry out one multiplication-normalization step and compute the Rayleigh quotient and residual from the same chain.","contract_item_ids":["RC-005","RC-009","RC-010","RC-018"],"discipline_context":"Perform one modal iteration for a small symmetric matrix used as a compact engineering computation.","solution_required":true,"verification":{"method":"deterministic_calculation","python_expression":null,"expected_value":{"initial_vector_used":[1.0,1.0],"product":[5.0,3.0],"next_vector":[0.8574929257125441,0.5144957554275265],"rayleigh_quotient":4.352941176470587,"residual":[0.21185119341133563,-0.35308532235222323],"residual_norm":0.4117647058823528},"absolute_tolerance":1e-12,"consistency_checks":[{"check_id":"CK-001","kind":"power_iteration_step","matrix":[[4.0,1.0],[1.0,2.0]],"initial_vector":[1.0,1.0],"normalize_initial":false,"expected_value":{"initial_vector_used":[1.0,1.0],"product":[5.0,3.0],"next_vector":[0.8574929257125441,0.5144957554275265],"rayleigh_quotient":4.352941176470587,"residual":[0.21185119341133563,-0.35308532235222323],"residual_norm":0.4117647058823528},"absolute_tolerance":1e-12}]}},
+    {"exercise_id":"EX-003","order":3,"section_id":"SEC-05","exercise_type":"code_diagnostic","difficulty":"intermediate","learning_objective":"Diagnose missing validation and premature normalization, then connect corrected code to the stated algorithm and return structure.","contract_item_ids":["RC-005","RC-010","RC-011","RC-016","RC-017"],"discipline_context":"Inspect a short eigensolver used in a matrix-based vibration calculation and identify checks that protect iteration semantics.","solution_required":true,"verification":{"method":"code_execution","python_expression":null,"expected_value":null,"absolute_tolerance":0,"consistency_checks":[]}}
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "mode": "revision",
+  "source_contract": {
+    "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+    "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+  },
+  "parent_candidate": {
+    "model_id": "power-iteration-dependencies-v1",
+    "next_model_id": "power-iteration-dependencies-v2",
+    "file": "curriculum-models/power-iteration-v1/candidate/contract-dependencies.json",
+    "sha256": "6f0c214be11913e962eecd60fdeddb458d43bfaf12b59b1d05cbb817be99a89a",
+    "validation_report_file": "curriculum-models/power-iteration-v1/candidate/dependency-validation-report.json",
+    "validation_report_sha256": "10ff70f7415cffb3226d694c1f08e879a65bfc1fa736ad66ee35c35cfa1d8f5a"
+  },
+  "parent_review": {
+    "review_id": "power-iteration-dependencies-v1-review-v1",
+    "file": "curriculum-models/power-iteration-v1/candidate/curriculum-dependency-review.json",
+    "sha256": "cf6dec3703636b1f8b671b080095a3d5e4338844319ea5a2f8843ccf9d27e063",
+    "decision": "revision_required",
+    "reviewer_id": "tester-001",
+    "reviewer_role": "Curriculum Dependency Reviewer",
+    "reviewed_at": "2026-08-17T23:14:18Z"
+  },
+  "revision_scope": {
+    "item_changes": [
+      {
+        "item_id": "RC-006",
+        "fields": [
+          "hard_dependencies",
+          "explanatory_dependencies",
+          "fallback_when_explanatory_dependencies_omitted",
+          "rationale_and_confidence"
+        ],
+        "comment": "Move RC-005 from hard_dependencies to explanatory_dependencies. The spectral expansion requires RC-003 and RC-004, but the normalised update is application context rather than a mathematical prerequisite. Add an explicit repeated-matrix-product fallback and revise the rationale."
+      },
+      {
+        "item_id": "RC-007",
+        "fields": [
+          "external_prerequisite_concept_ids",
+          "rationale_and_confidence"
+        ],
+        "comment": "Add orthogonality-and-projection as an external prerequisite. The fallback omits the full spectral derivation but still relies on understanding a non-zero projection onto v_1. Update the rationale to distinguish minimal projection knowledge from the full RC-003 theorem."
+      },
+      {
+        "item_id": "RC-011",
+        "fields": [
+          "external_prerequisite_concept_ids"
+        ],
+        "comment": "Remove iterative-algorithms-and-stopping from external prerequisites. RC-011 itself introduces the iteration, tolerance, residual stopping rule, and maximum-iteration fallback, so the proposed bridge duplicates Contract content."
+      },
+      {
+        "item_id": "RC-017",
+        "fields": [
+          "external_prerequisite_concept_ids"
+        ],
+        "comment": "Remove iterative-algorithms-and-stopping. RC-011 already provides the algorithm and stopping semantics as an implementation dependency. Retain NumPy operations and vector norms as genuine external prerequisites."
+      },
+      {
+        "item_id": "RC-018",
+        "fields": [
+          "hard_dependencies",
+          "explanatory_dependencies",
+          "fallback_when_explanatory_dependencies_omitted",
+          "rationale_and_confidence"
+        ],
+        "comment": "Move RC-004 from hard_dependencies to explanatory_dependencies. The example-specific dominant eigenvalue can be identified by a short local magnitude comparison. Extend the fallback and rationale accordingly."
+      }
+    ],
+    "concept_changes": [
+      {
+        "concept_id": "orthogonality-and-projection",
+        "fields": [
+          "supports_item_ids",
+          "content_boundary_and_rationale"
+        ],
+        "record_removal_allowed": false,
+        "comment": "Add RC-007 to supports_item_ids. Narrow the bridge to inner products, orthogonality, and scalar projection coefficients; exclude the spectral theorem and eigenbasis expansion because those belong to RC-003 and RC-006."
+      },
+      {
+        "concept_id": "determinants-characteristic-polynomials",
+        "fields": [
+          "need_type",
+          "content_boundary_and_rationale"
+        ],
+        "record_removal_allowed": false,
+        "comment": "Change need_type from recommended to required conditional on RC-002 being selected. Revise the rationale so that pathway-level optionality is not confused with prerequisite strength within RC-002."
+      },
+      {
+        "concept_id": "iterative-algorithms-and-stopping",
+        "fields": [
+          "need_type",
+          "supports_item_ids",
+          "bridge_candidate_id",
+          "content_boundary_and_rationale"
+        ],
+        "record_removal_allowed": true,
+        "comment": "Remove this external prerequisite concept. Its content is already represented by RC-011 and reached by RC-017 through an implementation dependency. If a separate programming prerequisite is later needed, define a narrowly scoped basic-python-control-flow concept rather than duplicating algorithmic Contract content."
+      }
+    ],
+    "overall_comment": "Revision required for RC-006, RC-007, RC-011, RC-017, and RC-018. Revise the orthogonality/projection and determinant prerequisite concepts, and remove the iterative-algorithms-and-stopping concept because it duplicates RC-011."
+  },
+  "constraints": {
+    "preserve_unmarked_fields": true,
+    "require_next_model_version": true,
+    "reset_candidate_review_state": true,
+    "allow_new_external_concepts_only_from_revised_item_fields": true,
+    "inherit_prior_approvals": false
+  },
+  "generated_by": {
+    "agent": "grounded-curriculum-dependency-builder",
+    "agent_version": "1.1",
+    "skill": "build-curriculum-dependencies",
+    "skill_version": "1.1",
+    "generated_at": "2026-08-17T22:59:09Z"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "validator": "validate-composer-outputs-v1",
+  "run_id": "gradient-descent-p1-mechanical-engineering-pilot-run-01",
+  "condition": "P1",
+  "topic": "gradient descent",
+  "valid": true,
+  "error_count": 0,
+  "warning_count": 0,
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "selected_contract_item_count": 12,
+    "mapped_contract_item_count": 12,
+    "excluded_contract_item_count": 18,
+    "learning_unit_count": 6,
+    "mapped_learning_unit_count": 6,
+    "released_bridge_count": 0,
+    "mapped_bridge_count": 0,
+    "section_count": 6,
+    "python_code_block_count": 2,
+    "english_prose_word_count": 2253,
+    "word_count_compliant": true
+  },
+  "validation_scope": {
+    "input_bindings": true,
+    "condition_context_isolation": true,
+    "declared_selected_content_mapping": true,
+    "pathway_order": true,
+    "released_bridge_mapping": true,
+    "python_execution": true,
+    "word_count": true,
+    "semantic_mathematical_correctness_assessed": false,
+    "pedagogical_quality_assessed": false
+  },
+  "manifest": {
+    "file": "experiments/rq2/lesson-runs/gradient-descent-v1/pilot/p1/mechanical-engineering/run-01/lesson-manifest.json",
+    "sha256": "ad9d407f5075a367742e6ccbbcc333a4fda5018f9aa4acef84fb25f21e17e988"
+  },
+  "validated_at": "2026-08-20T00:00:00Z"
+}

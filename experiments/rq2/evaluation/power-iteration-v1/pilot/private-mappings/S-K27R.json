@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "RQ2-EVAL-v1",
+  "sample_id": "S-K27R",
+  "condition": "P1",
+  "topic": "power iteration",
+  "profile_id": "computer-science-year-2-rq2-pilot",
+  "run_id": "power-iteration-p1-computer-science-pilot-run-02",
+  "source_lesson_run": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/computer-science/run-02",
+  "source_pathway": "experiments/rq2/pathway-plans/power-iteration-v1/p1/computer-science/pathway-plan.json",
+  "blind_bundle": "experiments/rq2/evaluation/power-iteration-v1/pilot/blind-samples/S-K27R",
+  "blind_manifest_sha256": "a052a09ef575a68747c6d5d9613434d5a1bd8506510dcaff07f11801d7754559",
+  "created_at": "2026-08-26T20:30:00Z"
+}

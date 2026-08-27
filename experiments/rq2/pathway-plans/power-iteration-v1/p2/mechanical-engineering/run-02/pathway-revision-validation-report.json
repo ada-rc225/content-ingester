@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "validator": "validate-pathway-revision-v1",
+  "valid": true,
+  "error_count": 0,
+  "errors": [],
+  "inputs": {
+    "revision_receipt": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-02/pathway-revision-receipt.json",
+    "revision_receipt_sha256": "6f3a8c2795c064f1056653f026d77e750337de7f46c01e5c505b21386d7290e1",
+    "candidate_pathway": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-02/pathway-plan.json",
+    "candidate_pathway_sha256": "6f2f1c9add7b1a7b595e9e8d3a831100f28dda36649bdaba397db1f6642f4491",
+    "candidate_assessment": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-02/profile-concept-assessment.json",
+    "candidate_assessment_sha256": "fbbfbd996be6a2a6d286b723739de4c2ac8d063d3b04e197b15b53b5406fd777",
+    "candidate_validation_report": "experiments/rq2/pathway-plans/power-iteration-v1/p2/mechanical-engineering/run-02/pathway-validation-report.json",
+    "candidate_validation_report_sha256": "bdf068edf81fc8ee49ab2cd96f87067cf6a7fd3d020461365d03bac2c531a52e"
+  },
+  "validated_at": "2026-08-18T15:34:46Z"
+}

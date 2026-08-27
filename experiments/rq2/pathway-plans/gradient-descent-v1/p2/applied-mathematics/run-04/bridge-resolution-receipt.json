@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "materializer": "released-bridge-pathway-materializer-v1",
+  "materialized_at": "2026-08-20T00:45:00Z",
+  "rule_id": "first-consuming-unit-v1",
+  "parent_pathway": {
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-02/pathway-plan.json",
+    "sha256": "7fcb83b4bd0a4d137859d18844c15c867d89b6a71a41e06a1b9430180b8e1c77"
+  },
+  "parent_review": {
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-02/pathway-plan-review.json",
+    "sha256": "d05de962e70226fec66e84a598b600770c917d6707efd3962ea8616b5acccf7d"
+  },
+  "bridge_catalog": {
+    "file": "bridge-library/gradient-descent-v1/release/released-bridge-catalog.json",
+    "sha256": "54c433b923891dac7805c2531cb14be1f703ab745637db443c3cb93aa7a6b1cb"
+  },
+  "bridge_release_report": {
+    "file": "bridge-library/gradient-descent-v1/release/bridge-library-release-report.json",
+    "sha256": "a3918e9bc004be9de329d25225e0327c1036b1f180afd4ad75624cafa0a575db"
+  },
+  "resolved_bridges": [
+    {
+      "requirement_id": "BRQ-001",
+      "concept_id": "euclidean-norms-and-lipschitz-continuity",
+      "bridge_candidate_id": "BR-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "bridge_contract_id": "BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "bridge_unit_id": "BRIDGE-001",
+      "first_consumer_unit_id": "GD-P2-AM-U03",
+      "required_by_item_ids": [
+        "RC-004"
+      ],
+      "legacy_normalization_actions": [
+        "generated_requirement_id_from_requirement_order"
+      ]
+    },
+    {
+      "requirement_id": "BRQ-002",
+      "concept_id": "inner-products-and-convex-sets",
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "bridge_contract_id": "BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "bridge_unit_id": "BRIDGE-002",
+      "first_consumer_unit_id": "GD-P2-AM-U06",
+      "required_by_item_ids": [
+        "RC-006"
+      ],
+      "legacy_normalization_actions": [
+        "generated_requirement_id_from_requirement_order"
+      ]
+    },
+    {
+      "requirement_id": "BRQ-003",
+      "concept_id": "ratios-and-condition-numbers",
+      "bridge_candidate_id": "BR-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "bridge_contract_id": "BRC-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "bridge_unit_id": "BRIDGE-003",
+      "first_consumer_unit_id": "GD-P2-AM-U08",
+      "required_by_item_ids": [
+        "RC-009"
+      ],
+      "legacy_normalization_actions": [
+        "generated_requirement_id_from_requirement_order"
+      ]
+    }
+  ],
+  "output_pathway": {
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-04/pathway-plan.json",
+    "sha256": "fe3572563987d75a81725fdb1e5a691c7dda36460b41df240872351c928ff817"
+  }
+}

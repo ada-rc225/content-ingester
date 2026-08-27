@@ -1,0 +1,7 @@
+# Adaptation summary
+
+This RQ1 confirmatory C2 structured-grounding run produced one continuous lesson for second-year mechanical engineering students on eigenvalues, eigenvectors, and power iteration. The lesson uses six chapters, completes instruction before assessment, and ends with exactly three worked exercises: a concept check, a unified power-iteration hand calculation, and a NumPy code diagnostic.
+
+The generated artifacts are bound to the released power-iteration Frozen Reference Contract through the deterministic grounding receipt and generation view. Required items are distributed across the instructional chapters, and every conditional item is explicitly included with a scope rationale. The lesson includes the characteristic equation, symmetric spectral decomposition, convergence assumptions and asymptotic rate, Rayleigh quotient, residual, failure cases, non-symmetric scope limitation, implementation semantics, positive-integer `max_iterations` validation, and the supplied worked matrix result.
+
+Configured checks passed: Python blocks executed, exercise markers and solutions were validated, the power-iteration calculation used one unified structured checker with matching visible answers, and the code exercise’s expected stdout matched execution. The deterministic English prose count was 1,554 words within the requested 1,500–2,000 range. Final validation reports `treatment_valid=true` for grounding, structure, and configured automatic checks; this does not establish complete lesson correctness or answer the RQ1 evaluation question.

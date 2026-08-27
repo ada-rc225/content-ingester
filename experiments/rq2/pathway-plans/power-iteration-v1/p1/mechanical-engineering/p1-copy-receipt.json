@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "operation": "deterministic-p1-copy-v1",
+  "inputs": {
+    "P0_pathway": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p0/pathway-plan.json",
+      "sha256": "9cf1f1125924467e0bae738180bfdc2df0663dab56316caf849037dcacbe5480"
+    },
+    "learner_profile": {
+      "file": "experiments/rq2/profiles/mechanical-engineering-year-2.json",
+      "sha256": "12e0e94788e63f0429809c10a0da94113c1ec0b9e9fee0302045220d102e2307"
+    }
+  },
+  "P0_pathway_id": "power-iteration-p0-v1",
+  "P1_pathway_id": "power-iteration-mechanical-engineering-p1-v1",
+  "profile_id": "mechanical-engineering-year-2-rq2-pilot",
+  "controlled_copy_policy": {
+    "exact_P0_fields": [
+      "topic",
+      "source_authorities",
+      "profile_concept_assessment_binding",
+      "learning_request_binding",
+      "selection_authority",
+      "selection",
+      "learning_goal_mappings",
+      "learning_units",
+      "instruction_sequence",
+      "bridge_requirements",
+      "pathway_changes",
+      "scope_summary",
+      "rendering_policy",
+      "plan_status"
+    ],
+    "changed_fields": [
+      "pathway_id",
+      "condition",
+      "profile_binding",
+      "baseline_pathway_binding",
+      "generated_by"
+    ]
+  },
+  "generated_at": "2026-08-18T14:05:00Z",
+  "output": {
+    "file": "experiments/rq2/pathway-plans/power-iteration-v1/p1/mechanical-engineering/pathway-plan.json",
+    "sha256": "d3c6a96e8f1a0d2a8bd3a3cc9ca1b4f750701cb24d339c878a9681574ffe3aba"
+  }
+}

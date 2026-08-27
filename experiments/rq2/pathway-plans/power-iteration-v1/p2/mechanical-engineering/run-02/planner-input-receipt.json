@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "preflight": "adaptive-curriculum-pathway-planning-v1",
+  "valid": true,
+  "inputs": {
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+      "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+    },
+    "curriculum_model": {
+      "file": "curriculum-models/power-iteration-v1/release/frozen-contract-dependencies.json",
+      "sha256": "9952915a368244e7110233a06d9976ba76e6ff4f9a702886ff0db20b33170ee6"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/power-iteration-second-year.json",
+      "sha256": "c4cf0c6a4cf53653abab28123b4649dfd6459d894d3f85a310af0200468fe431"
+    },
+    "profile": {
+      "file": "experiments/rq2/profiles/mechanical-engineering-year-2.json",
+      "sha256": "12e0e94788e63f0429809c10a0da94113c1ec0b9e9fee0302045220d102e2307"
+    },
+    "baseline_pathway": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p0/pathway-plan.json",
+      "sha256": "9cf1f1125924467e0bae738180bfdc2df0663dab56316caf849037dcacbe5480"
+    }
+  },
+  "identities": {
+    "contract_id": "power-iteration",
+    "contract_version": "1.0.0",
+    "curriculum_model_id": "power-iteration-dependencies-v2",
+    "learning_request_id": "power-iteration-second-year-v1",
+    "profile_id": "mechanical-engineering-year-2-rq2-pilot",
+    "baseline_pathway_id": "power-iteration-p0-v1"
+  },
+  "review_state": {
+    "learning_request": "requires_supervisor_or_curriculum_review",
+    "learner_profile": "requires_discipline_educator_review",
+    "curriculum_model": "approved"
+  },
+  "bridge_release_status": "not_released",
+  "generated_at": "2026-08-18T15:33:48Z"
+}

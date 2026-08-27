@@ -1,0 +1,42 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/pi/confirmatory-v1/c2-structured-grounding/run-02/adapted_content.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-04",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "37c2dc1f08371afae621934337b521c80f90a36ba8899d7d6ed7bdfe8839ec45",
+      "execution_status": "passed",
+      "stdout": "4.414214 7e-11 23\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 96
+    },
+    {
+      "block_id": "CODE-002",
+      "anchor": "SEC-05",
+      "exercise_id": "EX-003",
+      "language": "python",
+      "code_sha256": "12ceb12139577cb0f0bfcdf63af58dd4704198962db7ac0709e87f23978258de",
+      "execution_status": "passed",
+      "stdout": "",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 35
+    },
+    {
+      "block_id": "CODE-003",
+      "anchor": "SEC-05",
+      "exercise_id": "EX-003",
+      "language": "python",
+      "code_sha256": "abc14ea84b7e2719d4251389dd4c41679e701ae8dae3bf4a0daa132155aabf11",
+      "execution_status": "passed",
+      "stdout": "{\"error\": \"max_iterations must be a positive integer\"}\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 103
+    }
+  ]
+}

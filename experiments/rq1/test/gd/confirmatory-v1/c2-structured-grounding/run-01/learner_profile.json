@@ -1,0 +1,12 @@
+{
+  "profile_id": "mechanical-engineering-year-2",
+  "discipline": "mechanical engineering",
+  "education_level": "second-year undergraduate",
+  "prior_knowledge": ["single-variable and multivariable calculus", "vectors and matrices", "basic Python"],
+  "computational_background": ["basic Python", "array arithmetic", "reading short numerical routines"],
+  "learning_goals": ["Understand, analyse, compare, and implement gradient-based and curvature-based optimisation methods for engineering models.", "Interpret convergence assumptions and distinguish local from global claims."],
+  "preferred_contexts": ["mechanical design", "parameter calibration", "finite-element model tuning"],
+  "target_depth": "Conceptual definitions, stated convergence results, algorithm semantics, and short implementation bridges.",
+  "proof_depth": "Explain why assumptions support the result without reproducing full proofs.",
+  "assumptions_requiring_review": ["Learners know multivariable calculus, vectors, matrices, and basic Python but not formal convex optimisation.", "Examples are unconstrained unless explicitly stated otherwise."]
+}

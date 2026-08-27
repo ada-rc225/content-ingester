@@ -1,0 +1,18 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/computer-science/run-01/lesson.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-07",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "7a658f30d3330b869a2df836dd074cdab07666898f6faef095bafe83be226a0c",
+      "execution_status": "passed",
+      "stdout": "estimate = 4.414213562373095\nresidual = 6.962575715097014e-11\niterations = 23\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 91
+    }
+  ]
+}

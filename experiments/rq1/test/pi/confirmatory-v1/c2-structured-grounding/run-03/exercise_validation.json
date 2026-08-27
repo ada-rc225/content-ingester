@@ -1,0 +1,61 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/pi/confirmatory-v1/c2-structured-grounding/run-03/adapted_content.md",
+  "content_sha256": "4f8e3fa88c61a03bd912f73d330405be6cc904ca506f18b866f4310a1395db6f",
+  "plan_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/pi/confirmatory-v1/c2-structured-grounding/run-03/adaptation_plan.json",
+  "plan_sha256": "2c34a17a392b0697e52f79c4e1fada1e0c9fb72e491ee1b5cc3f6724896348be",
+  "code_validation_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq1/test/pi/confirmatory-v1/c2-structured-grounding/run-03/code_validation.json",
+  "code_validation_sha256": "efbd76ff5518ddaced772c4a01647f7761eca63c54943c882ffa90aecec6892d",
+  "overall_status": "passed",
+  "exercise_count": 3,
+  "exercises": [
+    {
+      "exercise_id": "EX-001",
+      "exercise_type": "concept_check",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "contract_binding",
+      "model_consistency_passed": true,
+      "unified_calculation_passed": true,
+      "visible_derivation_consistent": true,
+      "stdout_claims_consistent": true,
+      "verification_status": "passed",
+      "details": []
+    },
+    {
+      "exercise_id": "EX-002",
+      "exercise_type": "hand_calculation",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "deterministic_calculation",
+      "model_consistency_passed": true,
+      "unified_calculation_passed": true,
+      "visible_derivation_consistent": true,
+      "stdout_claims_consistent": true,
+      "verification_status": "passed",
+      "details": [
+        "CK-001: power-iteration result={'initial_vector_used': [1.0, 1.0], 'product': [5.0, 3.0], 'next_vector': [0.8574929257125441, 0.5144957554275265], 'rayleigh_quotient': 4.352941176470588, 'residual': [0.21185119341133474, -0.3530853223522237], 'residual_norm': 0.41176470588235276}; expected={'initial_vector_used': [1.0, 1.0], 'product': [5.0, 3.0], 'next_vector': [0.8574929257125441, 0.5144957554275265], 'rayleigh_quotient': 4.352941176470587, 'residual': [0.21185119341133563, -0.35308532235222323], 'residual_norm': 0.4117647058823528}",
+        "unified structured checker produced {'initial_vector_used': [1.0, 1.0], 'product': [5.0, 3.0], 'next_vector': [0.8574929257125441, 0.5144957554275265], 'rayleigh_quotient': 4.352941176470588, 'residual': [0.21185119341133474, -0.3530853223522237], 'residual_norm': 0.41176470588235276}; expected {'initial_vector_used': [1.0, 1.0], 'product': [5.0, 3.0], 'next_vector': [0.8574929257125441, 0.5144957554275265], 'rayleigh_quotient': 4.352941176470587, 'residual': [0.21185119341133563, -0.35308532235222323], 'residual_norm': 0.4117647058823528}"
+      ]
+    },
+    {
+      "exercise_id": "EX-003",
+      "exercise_type": "code_diagnostic",
+      "markers_valid": true,
+      "solution_present": true,
+      "contract_binding_declared": true,
+      "verification_method": "code_execution",
+      "model_consistency_passed": true,
+      "unified_calculation_passed": true,
+      "visible_derivation_consistent": true,
+      "stdout_claims_consistent": true,
+      "verification_status": "passed",
+      "details": [
+        "1 exercise-linked Python block(s) found"
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": []
+}

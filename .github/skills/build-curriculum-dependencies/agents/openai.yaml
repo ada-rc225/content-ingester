@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Curriculum Dependencies"
+  short_description: "Build and revise dependency-model candidates"
+  default_prompt: "Use $build-curriculum-dependencies to build or review-boundedly revise a validated dependency-model candidate and create its pending review template."

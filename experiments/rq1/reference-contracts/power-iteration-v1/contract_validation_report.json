@@ -1,0 +1,20 @@
+{
+  "validator": "reference-contract-evidence-v4",
+  "valid": true,
+  "error_count": 0,
+  "coverage_metrics": {
+    "inventory_formula_count": 16,
+    "core_formula_count": 16,
+    "derivation_formula_count": 0,
+    "excluded_exercise_formula_count": 0,
+    "mapped_core_formula_count": 16,
+    "reference_only_formula_count": 0,
+    "core_formula_mapping_rate": 1.0,
+    "core_formula_classification_rate": 1.0,
+    "core_source_unit_count": 66,
+    "mapped_core_source_unit_count": 48,
+    "reference_only_source_unit_count": 18,
+    "core_source_unit_classification_rate": 1.0
+  },
+  "errors": []
+}

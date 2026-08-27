@@ -1,0 +1,679 @@
+{
+  "schema_version": "1.0",
+  "review_id": "gradient-descent-dependencies-v4-review-v1",
+  "review_status": "approved",
+  "candidate_binding": {
+    "model_id": "gradient-descent-dependencies-v4",
+    "candidate_file": "curriculum-models/gradient-descent-v1/candidate-v4/contract-dependencies.json",
+    "candidate_sha256": "4ec388ca45f59b3594549b7615affc306ddd0d74e4f2f8b7bbade11b65c23c65",
+    "validation_report_file": "curriculum-models/gradient-descent-v1/candidate-v4/dependency-validation-report.json",
+    "validation_report_sha256": "dabe5cc57a051da74570e9412b88a9b85861f4fc2c1abec73490a1090a9a0c2c",
+    "source_contract_file": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+    "source_contract_sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"
+  },
+  "template_generator": {
+    "agent": "grounded-curriculum-dependency-builder",
+    "agent_version": "1.1",
+    "skill": "build-curriculum-dependencies",
+    "skill_version": "1.1",
+    "generated_at": "2026-08-19T20:40:46Z"
+  },
+  "revision_binding": {
+    "receipt_file": "curriculum-models/gradient-descent-v1/candidate-v4/dependency-revision-receipt.json",
+    "receipt_sha256": "4d54a3a2af543e1e21784397c7374035d4de885b1b3e1b374ead8d171067c604",
+    "validation_report_file": "curriculum-models/gradient-descent-v1/candidate-v4/dependency-revision-validation-report.json",
+    "validation_report_sha256": "ab270d5ccb2e2a79f154ce39322b8349321b4d4d4e0659395bebe6d8fb378310",
+    "parent_candidate_sha256": "3539291363083f65da28c12a61c9f785fb1a2837194e073e293172b59af6e7a0",
+    "parent_review_sha256": "f97dddaa39480cfc0bc3a4eeae9c73bf37af927574455487008b1839eddc35ce"
+  },
+  "reviewer": {
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "Curriculum Dependency Reviewer"
+  },
+  "item_reviews": [
+    {
+      "item_id": "RC-001",
+      "field_decisions": {
+        "hard_dependencies": "not_applicable",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-002",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-003",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-004",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-005",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-006",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-007",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-008",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-009",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-010",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-011",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-012",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-013",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-014",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-015",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "approved",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "approved",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-016",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-017",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-018",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-019",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-020",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-021",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-022",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-023",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-024",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-025",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-026",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-027",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-028",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-029",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "not_applicable",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "not_applicable",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "item_id": "RC-030",
+      "field_decisions": {
+        "hard_dependencies": "approved",
+        "explanatory_dependencies": "not_applicable",
+        "implementation_dependencies": "approved",
+        "co_requisite_item_ids": "not_applicable",
+        "recommended_neighbours": "approved",
+        "external_prerequisite_concept_ids": "approved",
+        "fallback_when_explanatory_dependencies_omitted": "not_applicable",
+        "rationale_and_confidence": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. The legacy mixed line-search concept has been replaced by one required inverse-hessian-approximation-matrices concept. RC-013 correctly supplies line-search implementation knowledge, and the rationale, reverse binding, bridge identity, and content boundary are aligned."
+    }
+  ],
+  "external_prerequisite_reviews": [
+    {
+      "concept_id": "real-vector-spaces-and-functions",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "multivariable-calculus-and-local-extrema",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "euclidean-norms-and-lipschitz-continuity",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "inner-products-and-quadratic-terms",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "inner-products-and-convex-sets",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "symmetric-matrices-and-definiteness",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "hessian-matrix-ordering",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "ratios-and-condition-numbers",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "vectors-gradients-and-scalar-multiplication",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "symmetric-positive-definite-quadratics-and-spectra",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "conditional-expectation-and-variance",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "series-and-stochastic-convergence",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "element-wise-array-operations",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "second-order-taylor-expansions",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "linear-systems-and-hessian-solves",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "local-lipschitz-regularity",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": null
+    },
+    {
+      "concept_id": "inverse-hessian-approximation-matrices",
+      "field_decisions": {
+        "need_type": "approved",
+        "supports_item_ids": "approved",
+        "bridge_candidate_id": "approved",
+        "content_boundary_and_rationale": "approved"
+      },
+      "decision": "approved",
+      "comment": "Approved. The concept is narrowly and consistently named, is required only by RC-030, excludes line-search teaching already represented by RC-013, and uses an aligned bridge candidate ID."
+    }
+  ],
+  "overall_review": {
+    "decision": "approved",
+    "reviewed_at": "2026-08-19T20:41:28Z",
+    "comment": "Approved. Candidate-v4 resolves the final RC-030 concept-identity issue by replacing the legacy mixed line-search record with one narrowly scoped inverse-hessian-approximation-matrices prerequisite. All 30 item reviews and all 17 external prerequisite reviews are approved; absent relationships and inactive fallbacks are marked not_applicable. Both base and revision-scope validation reports are valid with zero errors."
+  }
+}

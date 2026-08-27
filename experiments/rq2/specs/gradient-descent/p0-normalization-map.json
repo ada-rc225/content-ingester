@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "mapping_id": "gradient-descent-p0-normalization-v1",
+  "status": "pilot_candidate",
+  "topic": "gradient-descent",
+  "bindings": {
+    "canonical_pathway": {
+      "file": "experiments/rq2/specs/gradient-descent/canonical-pathway.json",
+      "sha256": "e30c817941168fc1e6171e9c278c06883695e329d3ffeb57fa11e217f0966ace"
+    },
+    "common_core": {
+      "file": "experiments/rq2/specs/gradient-descent/common-core.json",
+      "sha256": "7e7666bb1af3f8052a56ebbf08a29173921154fc0109ae207227d10de15fa46e"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/gradient-descent-second-year.json",
+      "sha256": "bdd734fd2f2c56b38960e9938281952a55841d57b0a83047647d38ca4f90348d"
+    }
+  },
+  "selected_role_policy": {
+    "universal_core_item_ids": "target",
+    "selectable_item_ids": "supporting"
+  },
+  "learning_objective_to_capability_ids": {
+    "LO-GD-01": ["LG-001"],
+    "LO-GD-02": ["LG-002"],
+    "LO-GD-03": ["LG-003"],
+    "LO-GD-04": ["LG-004"]
+  },
+  "capability_supporting_item_ids": {
+    "LG-001": ["RC-001", "RC-002", "RC-010"],
+    "LG-002": ["RC-004", "RC-005", "RC-011", "RC-013"],
+    "LG-003": ["RC-006", "RC-007", "RC-009", "RC-014", "RC-015"],
+    "LG-004": ["RC-010", "RC-011", "RC-013"]
+  },
+  "review": {
+    "review_status": "requires_supervisor_or_curriculum_review",
+    "reviewer_id": null,
+    "reviewed_at": null,
+    "comment": "This map deterministically migrates the reviewed fixed Gradient Descent baseline objectives into the shared learning-request capabilities without changing content selection, grouping, prerequisites, or order. Review before confirmatory generation."
+  }
+}

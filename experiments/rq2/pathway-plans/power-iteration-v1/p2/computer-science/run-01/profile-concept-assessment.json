@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "assessment_id": "computer-science-year-2-concept-assessment-v1",
+  "assessment_status": "provisional",
+  "profile_binding": {
+    "profile_id": "computer-science-year-2-rq2-pilot",
+    "file": "experiments/rq2/profiles/computer-science-year-2.json",
+    "sha256": "8a2dba4d066785775f1c70169a8c18d84049c7eb65612dff8008a7a63c78dd50"
+  },
+  "curriculum_model_binding": {
+    "model_id": "power-iteration-dependencies-v2",
+    "file": "curriculum-models/power-iteration-v1/release/frozen-contract-dependencies.json",
+    "sha256": "9952915a368244e7110233a06d9976ba76e6ff4f9a702886ff0db20b33170ee6"
+  },
+  "concept_assessments": [
+    {
+      "concept_id": "matrix-vector-products",
+      "concept_name": "Matrix-vector products",
+      "mastery": "mastered",
+      "confidence": "medium",
+      "profile_evidence": [
+        {"profile_field": "prior_knowledge", "value": "matrices"},
+        {"profile_field": "prior_knowledge", "value": "Python/NumPy"}
+      ],
+      "rationale": "The profile explicitly lists matrices and Python/NumPy, which supports computing compatible matrix-vector products; confidence is medium because the profile does not state a demonstrated product example."
+    },
+    {
+      "concept_id": "vector-norms-and-normalization",
+      "concept_name": "Euclidean vector norms and normalization",
+      "mastery": "fragile",
+      "confidence": "medium",
+      "profile_evidence": [
+        {"profile_field": "prior_knowledge", "value": "vectors"},
+        {"profile_field": "prior_knowledge", "value": "Python/NumPy"}
+      ],
+      "rationale": "Vectors and NumPy suggest an operational starting point, but Euclidean norms and normalization are not explicitly listed, so the concept should be treated as fragile and reinforced in the pathway."
+    },
+    {
+      "concept_id": "orthogonality-and-projection",
+      "concept_name": "Orthogonality, orthonormal bases, and projection coefficients",
+      "mastery": "unknown",
+      "confidence": "low",
+      "profile_evidence": [
+        {"profile_field": "prior_knowledge", "value": "vectors and matrices"},
+        {"profile_field": "preferred_representations", "value": "pseudocode and iteration invariants"}
+      ],
+      "rationale": "The profile provides vector and matrix background but no explicit evidence of orthogonality, orthonormal bases, or projection coefficients; mastery is therefore unknown."
+    },
+    {
+      "concept_id": "determinants-characteristic-polynomials",
+      "concept_name": "Determinants and characteristic polynomials",
+      "mastery": "unknown",
+      "confidence": "low",
+      "profile_evidence": [
+        {"profile_field": "prior_knowledge", "value": "matrices"},
+        {"profile_field": "missing_or_fragile_prerequisites", "value": "calculus-based convergence arguments; mechanical vibration concepts"}
+      ],
+      "rationale": "Matrix familiarity does not establish determinant or characteristic-polynomial fluency, and the profile contains no direct evidence for this concept. It is not required because RC-002 is excluded from this computationally focused pathway."
+    },
+    {
+      "concept_id": "inner-products-and-quadratic-forms",
+      "concept_name": "Inner products and quadratic forms",
+      "mastery": "unknown",
+      "confidence": "low",
+      "profile_evidence": [
+        {"profile_field": "prior_knowledge", "value": "vectors and matrices"},
+        {"profile_field": "preferred_representations", "value": "complexity and stopping criteria"}
+      ],
+      "rationale": "The listed vector and matrix knowledge does not explicitly demonstrate inner products or quadratic-form computations, so mastery is unknown and a prerequisite bridge is required for the Rayleigh and residual calculations."
+    },
+    {
+      "concept_id": "numpy-vector-operations",
+      "concept_name": "Basic NumPy vector operations",
+      "mastery": "mastered",
+      "confidence": "high",
+      "profile_evidence": [
+        {"profile_field": "prior_knowledge", "value": "Python/NumPy"},
+        {"profile_field": "preferred_representations", "value": "pseudocode"}
+      ],
+      "rationale": "Python/NumPy is explicitly listed and directly matches the implementation operations required by the selected code items; the profile also prefers executable algorithm representations."
+    }
+  ],
+  "generated_by": {
+    "producer": "adaptive-curriculum-pathway-planner",
+    "producer_version": "1.0",
+    "generated_at": "2026-08-18T03:20:00Z"
+  }
+}

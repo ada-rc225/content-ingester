@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "mode": "revision",
+  "source_contract": {
+    "file": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+    "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"
+  },
+  "parent_candidate": {
+    "model_id": "gradient-descent-dependencies-v2",
+    "next_model_id": "gradient-descent-dependencies-v3",
+    "file": "curriculum-models/gradient-descent-v1/candidate-v2/contract-dependencies.json",
+    "sha256": "db5f23f22daace33fb9217018a379a294124902ec1a350b2e6ad136572529be1",
+    "validation_report_file": "curriculum-models/gradient-descent-v1/candidate-v2/dependency-validation-report.json",
+    "validation_report_sha256": "7f5b2b5b48a125a4c90e4138fa94be1c43266af7eba0ac3fab51da25f5005eb7"
+  },
+  "parent_review": {
+    "review_id": "gradient-descent-dependencies-v2-review-v1",
+    "file": "curriculum-models/gradient-descent-v1/candidate-v2/curriculum-dependency-review.json",
+    "sha256": "d33cda15e5749cbb1302e6e6593fdf9f16cd500cc7a42adc54fd5c49bc555ed4",
+    "decision": "revision_required",
+    "reviewer_id": "reviewer-001",
+    "reviewer_role": "Curriculum Dependency Reviewer",
+    "reviewed_at": "2026-08-19T20:16:29Z"
+  },
+  "revision_scope": {
+    "item_changes": [
+      {
+        "item_id": "RC-028",
+        "fields": [
+          "rationale_and_confidence"
+        ],
+        "comment": "Revision required only for the rationale. The prerequisite coverage is now adequate through symmetric-matrices-and-definiteness, but the rationale incorrectly says the positive-definite Hessian condition is represented by RC-002 and RC-003 even though RC-003 is not a dependency. State instead that RC-002 supplies stationarity, RC-027 supplies the Newton iteration, and the external definiteness concept supplies interpretation of the positive-definite Hessian hypothesis."
+      },
+      {
+        "item_id": "RC-030",
+        "fields": [
+          "external_prerequisite_concept_ids",
+          "rationale_and_confidence"
+        ],
+        "comment": "Revision required. RC-013 is correctly classified as an implementation dependency, but RC-030 lists two external concepts for the same inverse-Hessian knowledge. Retain exactly one required, narrowly scoped inverse-Hessian-approximation concept and remove the duplicate reference; then align the rationale with that single concept."
+      }
+    ],
+    "concept_changes": [
+      {
+        "concept_id": "inverse-hessian-approximations-and-line-search",
+        "fields": [
+          "need_type",
+          "content_boundary_and_rationale"
+        ],
+        "record_removal_allowed": false,
+        "comment": "Revision required. This legacy record has been narrowed in prose but still duplicates inverse-hessian-approximation-matrices, and its ID/name still imply line-search content that the boundary explicitly excludes. Because the revision workflow preserved the legacy record, use one canonical record only: preferably remove the newly added duplicate, make this retained concept required, and keep its bridge/boundary narrowly limited to inverse-Hessian approximation matrices; if identifier migration is permitted, rename it consistently instead."
+      },
+      {
+        "concept_id": "inverse-hessian-approximation-matrices",
+        "fields": [
+          "need_type",
+          "supports_item_ids",
+          "bridge_candidate_id",
+          "content_boundary_and_rationale"
+        ],
+        "record_removal_allowed": true,
+        "comment": "Revision required because this newly added record duplicates the retained legacy inverse-Hessian concept for the same RC-030 knowledge. Remove this duplicate if legacy concept identity must be preserved; otherwise replace the legacy record with this one, but do not retain both."
+      }
+    ],
+    "overall_comment": "Revision required for RC-028 rationale wording and RC-030 external-prerequisite deduplication. The v1 findings for RC-012, RC-013, RC-023, RC-024, RC-025, and RC-026 are resolved, and RC-028 prerequisite coverage plus RC-030 line-search implementation dependency are substantively corrected. Retain exactly one narrowly scoped inverse-Hessian external concept and align RC-030 with it."
+  },
+  "constraints": {
+    "preserve_unmarked_fields": true,
+    "require_next_model_version": true,
+    "reset_candidate_review_state": true,
+    "allow_new_external_concepts_only_from_revised_item_fields": true,
+    "inherit_prior_approvals": false
+  },
+  "generated_by": {
+    "agent": "grounded-curriculum-dependency-builder",
+    "agent_version": "1.1",
+    "skill": "build-curriculum-dependencies",
+    "skill_version": "1.1",
+    "generated_at": "2026-08-19T20:30:56Z"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "profile_id": "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+  "discipline": "applied mathematics",
+  "education_level": "second-year undergraduate",
+  "prior_knowledge": [
+    "real vector spaces and Euclidean norms",
+    "multivariable calculus and gradients",
+    "basic linear algebra and positive definiteness",
+    "introductory proof techniques",
+    "basic numerical computing"
+  ],
+  "missing_or_fragile_prerequisites": [
+    "implementation diagnostics for iterative optimisation",
+    "practical line-search behaviour",
+    "floating-point termination criteria"
+  ],
+  "preferred_representations": [
+    "geometric and analytic derivation",
+    "assumption-to-conclusion proof structure",
+    "rate and conditioning analysis"
+  ],
+  "authentic_context_boundary": "Prioritize mathematical structure, assumptions, and counterexamples. Applications may motivate the objective but must not imply that every differentiable objective is convex or that a local convergence statement is global.",
+  "review_status": "requires_discipline_educator_review"
+}

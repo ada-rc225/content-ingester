@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "rq2-gradient-descent-english-prose-pilot-v1",
+  "status": "draft_for_pilot",
+  "topic": "gradient descent",
+  "language": "English",
+  "enabled": true,
+  "minimum": 2200,
+  "maximum": 2500,
+  "counting_method": "english_prose_v1",
+  "applies_to_conditions": [
+    "P0",
+    "P1",
+    "P2"
+  ]
+}

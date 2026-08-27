@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "composer": "pathway-constrained-teaching-composer-v1",
+  "run_id": "gradient-descent-p2-applied-mathematics-run-01",
+  "condition": "P2",
+  "topic": "gradient descent",
+  "profile_id": "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+  "generation": {
+    "provider": "github-copilot",
+    "model": "GPT-5.6-Luna",
+    "access_route": "vscode-copilot-chat",
+    "prompt_version": "pathway-constrained-teaching-composer-v1",
+    "generated_at": "2026-08-20T00:00:00Z"
+  },
+  "inputs": {
+    "composition_input_receipt": {
+      "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p2/applied-mathematics/run-01/composition-input-receipt.json",
+      "sha256": "aefed74003833d26294a3d36c5f80828285bc4ec67191ad2169b9dfbb95f33ef"
+    },
+    "composition_input_view": {
+      "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p2/applied-mathematics/run-01/composition-input-view.json",
+      "sha256": "28dcd6865246d4f62fc7b7a45bcec4c16f8824c9402c77ae99fa697ffc324d5b"
+    },
+    "pathway": {
+      "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-04/pathway-plan.json",
+      "sha256": "fe3572563987d75a81725fdb1e5a691c7dda36460b41df240872351c928ff817"
+    },
+    "pathway_validation_report": {
+      "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-04/pathway-validation-report.json",
+      "sha256": "0c0b80cd745e78090d7c737b82b854b2c93a64db8336cf99425b8af2f1a995ea"
+    },
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+      "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/gradient-descent-second-year.json",
+      "sha256": "bdd734fd2f2c56b38960e9938281952a55841d57b0a83047647d38ca4f90348d"
+    },
+    "word_count_protocol": {
+      "file": "experiments/rq2/word-count-protocols/gradient-descent-pilot.json",
+      "sha256": "3031936fe3f42d325e01e92490e0cafebb6a58ae11a009df22a9f339cab7ab43"
+    },
+    "profile": {
+      "file": "experiments/rq2/profiles/gradient-descent/applied-mathematics-year-2.json",
+      "sha256": "778a5424fa87c15985ce64414200e34414ad9580d7db6620adeef098a0252fce"
+    },
+    "bridge_catalog": {
+      "file": "bridge-library/gradient-descent-v1/release/released-bridge-catalog.json",
+      "sha256": "54c433b923891dac7805c2531cb14be1f703ab745637db443c3cb93aa7a6b1cb"
+    }
+  },
+  "outputs": {
+    "lesson": {
+      "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p2/applied-mathematics/run-01/lesson.md",
+      "sha256": "0926cfe185ec28d0ff68901e9930aba91cc69183ae593ec521c1fcb83743cd40"
+    },
+    "lesson_map": {
+      "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p2/applied-mathematics/run-01/lesson-map.json",
+      "sha256": "9f7c1dacb3df21685194040877179d7773ba199371ee424ae3edb12a4dce1b30"
+    },
+    "code_validation": {
+      "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p2/applied-mathematics/run-01/code-validation.json",
+      "sha256": "de9b2387b2a0add2e59b28dd73c63306b7c21c9011b50d3f5589f741f987dadf"
+    }
+  },
+  "word_count_protocol": {
+    "schema_version": "1.0",
+    "protocol_id": "rq2-gradient-descent-english-prose-pilot-v1",
+    "status": "draft_for_pilot",
+    "topic": "gradient descent",
+    "language": "English",
+    "enabled": true,
+    "minimum": 2200,
+    "maximum": 2500,
+    "counting_method": "english_prose_v1",
+    "applies_to_conditions": [
+      "P0",
+      "P1",
+      "P2"
+    ]
+  },
+  "observed_english_prose_word_count": 2209
+}

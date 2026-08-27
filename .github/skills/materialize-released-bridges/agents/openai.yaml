@@ -1,0 +1,4 @@
+interface:
+  display_name: "Materialize Released Bridges"
+  short_description: "Resolve approved P2 bridge requirements deterministically"
+  default_prompt: "Use $materialize-released-bridges to bind an approved P2 pathway to a released bridge catalog and create a validated bridge-resolved pathway without replanning it."

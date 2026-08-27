@@ -1,0 +1,65 @@
+{
+  "schema_version": "0.1",
+  "protocol_id": "RQ2-PATHWAY-v0.2-pilot",
+  "topic": "power-iteration",
+  "policy": {
+    "preserve_semantic_roles": true,
+    "require_consistent_mapping_within_pathway": true,
+    "define_local_symbols_at_first_use": true,
+    "canonical_latex_must_be_verbatim": false,
+    "canonical_formula_or_explicit_mapping_must_appear": true,
+    "mapping_scope": "entire_pathway_unless_locally_redeclared"
+  },
+  "canonical_symbols": [
+    {"symbol_id": "SYM-A", "canonical": "A", "role": "real square iteration matrix", "object_type": "matrix"},
+    {"symbol_id": "SYM-X", "canonical": "x_k", "role": "normalized iterate", "object_type": "vector"},
+    {"symbol_id": "SYM-Y", "canonical": "y_{k+1}", "role": "unnormalized matrix-vector update", "object_type": "vector"},
+    {"symbol_id": "SYM-V", "canonical": "v_i", "role": "eigenvector", "object_type": "nonzero_vector"},
+    {"symbol_id": "SYM-LAMBDA", "canonical": "lambda_i", "role": "eigenvalue", "object_type": "scalar"},
+    {"symbol_id": "SYM-RHO", "canonical": "rho(x_k)", "role": "Rayleigh quotient", "object_type": "scalar"},
+    {"symbol_id": "SYM-R", "canonical": "r_k", "role": "eigenpair residual", "object_type": "vector"},
+    {"symbol_id": "SYM-EPS", "canonical": "epsilon", "role": "positive stopping tolerance", "object_type": "positive_scalar"}
+  ],
+  "allowed_transformations": [
+    {
+      "transformation": "consistent_symbol_renaming",
+      "requirements": ["preserve object type", "preserve semantic role", "record canonical-to-local mapping", "avoid collisions"]
+    },
+    {
+      "transformation": "iteration_index_style",
+      "requirements": ["preserve update order", "use one convention consistently"]
+    },
+    {
+      "transformation": "single_step_or_temporary_variable_form",
+      "requirements": ["matrix-vector multiplication precedes normalization", "normalize the same unnormalized update"]
+    },
+    {
+      "transformation": "algebraically_equivalent_residual_sign",
+      "requirements": ["only residual norm is used downstream or the sign change is propagated consistently"]
+    }
+  ],
+  "profile_examples": {
+    "mechanical-engineering-year-2-rq2-pilot": {
+      "permitted_aliases": {"x_k": ["u_k", "phi_k"], "lambda_i": ["mu_i"]},
+      "warning": "K phi = omega^2 M phi is a generalized eigenproblem, not a permitted renaming of A v = lambda v."
+    },
+    "computer-science-year-2-rq2-pilot": {
+      "permitted_aliases": {"A": ["M"], "x_k": ["q_k"], "lambda_i": ["mu_i"]},
+      "warning": "A ranking transition operator may require assumptions not present in the standard symmetric Contract."
+    },
+    "applied-mathematics-year-2-rq2-pilot": {
+      "permitted_aliases": {"x_k": ["q^{(k)}"], "y_{k+1}": ["z^{(k+1)}"]},
+      "warning": "Notation changes do not relax the real-symmetric convergence assumptions."
+    }
+  },
+  "forbidden_transformations": [
+    "replace the standard eigenproblem with a generalized eigenproblem",
+    "change dominant magnitude into largest algebraic value",
+    "remove the nonzero eigenvector or initial-vector requirement",
+    "normalize the previous iterate instead of the matrix-vector update",
+    "extend the symmetric spectral decomposition to arbitrary non-symmetric matrices",
+    "change residual stopping into iterate-difference stopping without a separately approved item",
+    "change scalar, vector or matrix roles",
+    "reuse one local symbol for different canonical roles"
+  ]
+}

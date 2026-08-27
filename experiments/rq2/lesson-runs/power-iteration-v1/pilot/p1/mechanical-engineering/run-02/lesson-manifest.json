@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "composer": "pathway-constrained-teaching-composer-v1",
+  "run_id": "power-iteration-p1-mechanical-engineering-pilot-run-02",
+  "condition": "P1",
+  "topic": "power iteration",
+  "profile_id": "mechanical-engineering-year-2-rq2-pilot",
+  "generation": {
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "access_route": "codex-exec-ephemeral",
+    "prompt_version": "pathway-constrained-teaching-composer-v1",
+    "generated_at": "2026-08-26T19:10:00Z"
+  },
+  "inputs": {
+    "composition_input_receipt": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/mechanical-engineering/run-02/composition-input-receipt.json",
+      "sha256": "07cc2b0535133b50463c91a33dbd3f136de3e5e60bef071e122e3ab8e4abdf56"
+    },
+    "composition_input_view": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/mechanical-engineering/run-02/composition-input-view.json",
+      "sha256": "1bbb2656061cc70bc00f194183b8378704a80b90e748f9282d702c6387093103"
+    },
+    "pathway": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p1/mechanical-engineering/pathway-plan.json",
+      "sha256": "d3c6a96e8f1a0d2a8bd3a3cc9ca1b4f750701cb24d339c878a9681574ffe3aba"
+    },
+    "pathway_validation_report": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p1/mechanical-engineering/pathway-validation-report.json",
+      "sha256": "95bb770d6c76482bd663bcebb55f945f2a17dbd82724b88d234839891d3ab7a9"
+    },
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+      "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/power-iteration-second-year.json",
+      "sha256": "c4cf0c6a4cf53653abab28123b4649dfd6459d894d3f85a310af0200468fe431"
+    },
+    "word_count_protocol": {
+      "file": "experiments/rq2/word-count-protocols/power-iteration-pilot.json",
+      "sha256": "474f78273ee6eec37f78edbea499b230218d30d94041240fb3d6ec87421d8246"
+    },
+    "profile": {
+      "file": "experiments/rq2/profiles/mechanical-engineering-year-2.json",
+      "sha256": "12e0e94788e63f0429809c10a0da94113c1ec0b9e9fee0302045220d102e2307"
+    },
+    "bridge_catalog": null
+  },
+  "outputs": {
+    "lesson": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/mechanical-engineering/run-02/lesson.md",
+      "sha256": "792f38f7375761f9ab59cd83befbf97c4482dc509e9843449e9255687fa53bcd"
+    },
+    "lesson_map": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/mechanical-engineering/run-02/lesson-map.json",
+      "sha256": "1a12e2f970079ccad3cfc216b3b96915c771da8789e3a807039bbef95eb17f6d"
+    },
+    "code_validation": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/mechanical-engineering/run-02/code-validation.json",
+      "sha256": "3d3a8e7d2ec9843013a42cb0c479e8266737f9c9c314fcf6edfa3749808da8d9"
+    }
+  },
+  "word_count_protocol": {
+    "schema_version": "1.0",
+    "protocol_id": "rq2-power-iteration-english-prose-pilot-v1",
+    "status": "draft_for_pilot",
+    "topic": "power iteration",
+    "language": "English",
+    "enabled": true,
+    "minimum": 1500,
+    "maximum": 2000,
+    "counting_method": "english_prose_v1",
+    "applies_to_conditions": [
+      "P0",
+      "P1",
+      "P2"
+    ]
+  },
+  "observed_english_prose_word_count": 1602
+}

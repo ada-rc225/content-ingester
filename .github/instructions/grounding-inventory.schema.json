@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/grounding-inventory.schema.json",
+  "title": "Deterministic Grounding Source and Formula Inventory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "inventory_id",
+    "source",
+    "scope_policy",
+    "source_units",
+    "formulas"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "inventory_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "path", "format", "sha256"],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "path": { "type": "string", "minLength": 1 },
+        "format": { "const": "markdown" },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "scope_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["included_roles", "excluded_roles", "exercise_detection"],
+      "properties": {
+        "included_roles": {
+          "const": ["core_material", "derivation"]
+        },
+        "excluded_roles": {
+          "const": ["exercise"]
+        },
+        "exercise_detection": {
+          "const": "markdown heading contains exercise or plural problems"
+        }
+      }
+    },
+    "source_units": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/sourceUnit" }
+    },
+    "formulas": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/formula" }
+    }
+  },
+  "$defs": {
+    "locator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["line_start", "line_end"],
+      "properties": {
+        "line_start": { "type": "integer", "minimum": 1 },
+        "line_end": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "sourceUnit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_unit_id",
+        "unit_type",
+        "scope_role",
+        "heading_path",
+        "locator",
+        "exact_text"
+      ],
+      "properties": {
+        "source_unit_id": {
+          "type": "string",
+          "pattern": "^SU-[0-9]{3,}$"
+        },
+        "unit_type": {
+          "type": "string",
+          "enum": ["heading", "paragraph", "display_math"]
+        },
+        "scope_role": {
+          "type": "string",
+          "enum": ["core_material", "derivation", "exercise"]
+        },
+        "heading_path": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "locator": { "$ref": "#/$defs/locator" },
+        "exact_text": { "type": "string", "minLength": 1 }
+      }
+    },
+    "formula": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "formula_id",
+        "source_unit_id",
+        "scope_role",
+        "heading_path",
+        "locator",
+        "exact_latex",
+        "exact_block"
+      ],
+      "properties": {
+        "formula_id": {
+          "type": "string",
+          "pattern": "^FM-[0-9]{3,}$"
+        },
+        "source_unit_id": {
+          "type": "string",
+          "pattern": "^SU-[0-9]{3,}$"
+        },
+        "scope_role": {
+          "type": "string",
+          "enum": ["core_material", "derivation", "exercise"]
+        },
+        "heading_path": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "locator": { "$ref": "#/$defs/locator" },
+        "exact_latex": { "type": "string", "minLength": 1 },
+        "exact_block": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

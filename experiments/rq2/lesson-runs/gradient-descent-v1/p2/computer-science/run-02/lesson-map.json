@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "run_id": "gradient-descent-p2-computer-science-run-02",
+  "lesson_file": "lesson.md",
+  "sections": [
+    {
+      "section_id": "SEC-01",
+      "heading": "From an optimisation problem to stationarity",
+      "unit_ids": ["GD-U01", "BRIDGE-001", "GD-U02"],
+      "contract_item_ids": ["RC-001", "RC-002"],
+      "bridge_contract_ids": ["BRC-MULTIVARIABLE-CALCULUS-AND-LOCAL-EXTREMA-v1"]
+    },
+    {
+      "section_id": "SEC-02",
+      "heading": "The gradient-descent state transition",
+      "unit_ids": ["GD-U08"],
+      "contract_item_ids": ["RC-010"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-03",
+      "heading": "Norms, smoothness, and a bound on one step",
+      "unit_ids": ["BRIDGE-002", "GD-U03", "GD-U04"],
+      "contract_item_ids": ["RC-004", "RC-005"],
+      "bridge_contract_ids": ["BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1"]
+    },
+    {
+      "section_id": "SEC-04",
+      "heading": "Choosing a constant step",
+      "unit_ids": ["GD-U09"],
+      "contract_item_ids": ["RC-011"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-05",
+      "heading": "Choosing a step by Armijo backtracking",
+      "unit_ids": ["GD-U10"],
+      "contract_item_ids": ["RC-013"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-06",
+      "heading": "Inner products, convexity, and strong convexity",
+      "unit_ids": ["BRIDGE-003", "GD-U05", "GD-U06"],
+      "contract_item_ids": ["RC-006", "RC-007"],
+      "bridge_contract_ids": ["BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1"]
+    },
+    {
+      "section_id": "SEC-07",
+      "heading": "Reading the condition ratio",
+      "unit_ids": ["BRIDGE-004", "GD-U07"],
+      "contract_item_ids": ["RC-009"],
+      "bridge_contract_ids": ["BRC-RATIOS-AND-CONDITION-NUMBERS-v1"]
+    },
+    {
+      "section_id": "SEC-08",
+      "heading": "The convex objective-gap guarantee",
+      "unit_ids": ["GD-U11"],
+      "contract_item_ids": ["RC-014"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-09",
+      "heading": "Strong-convexity contractions and their limits",
+      "unit_ids": ["GD-U12"],
+      "contract_item_ids": ["RC-015"],
+      "bridge_contract_ids": []
+    }
+  ]
+}

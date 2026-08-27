@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "validator": "bridge-library-release-v1",
+  "valid": true,
+  "error_count": 0,
+  "warning_count": 0,
+  "errors": [],
+  "warnings": [],
+  "checks": {
+    "candidate_validation_rerun": true,
+    "curriculum_and_pathway_authorities_current": true,
+    "candidate_review_binding_valid": true,
+    "review_complete_and_approved": true,
+    "review_coverage_exact": true,
+    "release_transition_content_preserved": true
+  },
+  "inputs": {
+    "candidate": "bridge-library/gradient-descent-v1/candidate-v3/bridge-library-candidate.json",
+    "candidate_sha256": "ff52b32097fd1dfd4c3a62db20bc838e0adf1662ca9a0a6d898f2268fdc61218",
+    "validation_report": "bridge-library/gradient-descent-v1/candidate-v3/bridge-library-validation-report.json",
+    "validation_report_sha256": "ffd4862fbf7ee27942e5d3c59a8bcd12af550fc559efca96dae0420a277d240e",
+    "review": "bridge-library/gradient-descent-v1/candidate-v3/bridge-library-review.json",
+    "review_sha256": "1f79b0061592eb0157f79bcb2d3d7f4f05f7a1938d7d2d427155266b5e8db682",
+    "catalog_schema": ".github/skills/release-bridge-library/references/released-bridge-catalog.schema.json",
+    "catalog_schema_sha256": "95ed734c5c80da3402b4f6f81dd5a5e40e6c4d7ed0d40e627a5331a169deac3a",
+    "release_report_schema": ".github/skills/release-bridge-library/references/bridge-library-release-report.schema.json",
+    "release_report_schema_sha256": "7a692b0b58e0dce346b016f81a5bfa1c962e622bae6bdfc66f635178feabe44d"
+  },
+  "metrics": {
+    "released_bridge_count": 4,
+    "approved_bridge_review_count": 4,
+    "source_count": 7,
+    "content_block_count": 15
+  }
+}

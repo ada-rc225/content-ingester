@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0",
+  "run_id": "power-iteration-p2-mechanical-engineering-pilot-run-01",
+  "lesson_file": "lesson.md",
+  "sections": [
+    {
+      "section_id": "SEC-01",
+      "heading": "Eigenpairs as modal directions",
+      "unit_ids": ["PI-ME-U01"],
+      "contract_item_ids": ["RC-001"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-02",
+      "heading": "Which mode does the method seek?",
+      "unit_ids": ["PI-ME-U02"],
+      "contract_item_ids": ["RC-014"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-03",
+      "heading": "Orthogonality and projection",
+      "unit_ids": ["BRIDGE-002"],
+      "contract_item_ids": [],
+      "bridge_contract_ids": ["BRC-ORTHOGONALITY-PROJECTION-v1"]
+    },
+    {
+      "section_id": "SEC-04",
+      "heading": "The symmetric modal setting",
+      "unit_ids": ["PI-ME-U03"],
+      "contract_item_ids": ["RC-003"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-05",
+      "heading": "The dominant-magnitude assumption",
+      "unit_ids": ["PI-ME-U04"],
+      "contract_item_ids": ["RC-004"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-06",
+      "heading": "Norms and safe normalization",
+      "unit_ids": ["BRIDGE-001"],
+      "contract_item_ids": [],
+      "bridge_contract_ids": ["BRC-VECTOR-NORMS-NORMALIZATION-v1"]
+    },
+    {
+      "section_id": "SEC-07",
+      "heading": "The matrix-vector update",
+      "unit_ids": ["PI-ME-U05"],
+      "contract_item_ids": ["RC-005"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-08",
+      "heading": "Sign-equivalent mode shapes",
+      "unit_ids": ["PI-ME-U08"],
+      "contract_item_ids": ["RC-008"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-09",
+      "heading": "Inner products for scalar calculations",
+      "unit_ids": ["BRIDGE-003"],
+      "contract_item_ids": [],
+      "bridge_contract_ids": ["BRC-INNER-PRODUCTS-QUADRATIC-FORMS-v1"]
+    },
+    {
+      "section_id": "SEC-10",
+      "heading": "Estimating the eigenvalue",
+      "unit_ids": ["PI-ME-U09"],
+      "contract_item_ids": ["RC-009"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-11",
+      "heading": "The residual as a quality check",
+      "unit_ids": ["PI-ME-U10"],
+      "contract_item_ids": ["RC-010"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-12",
+      "heading": "The complete algorithm",
+      "unit_ids": ["PI-ME-U11", "PI-ME-U12", "PI-ME-U13"],
+      "contract_item_ids": ["RC-011", "RC-016", "RC-017"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-13",
+      "heading": "Why the dominant direction emerges",
+      "unit_ids": ["PI-ME-U06"],
+      "contract_item_ids": ["RC-006"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-14",
+      "heading": "What convergence means here",
+      "unit_ids": ["PI-ME-U07"],
+      "contract_item_ids": ["RC-007"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-15",
+      "heading": "Missing dominant projection",
+      "unit_ids": ["PI-ME-U14"],
+      "contract_item_ids": ["RC-012"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-16",
+      "heading": "Ties and slow separation",
+      "unit_ids": ["PI-ME-U15"],
+      "contract_item_ids": ["RC-013"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-17",
+      "heading": "Scope of the engineering interpretation",
+      "unit_ids": ["PI-ME-U16"],
+      "contract_item_ids": ["RC-015"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-18",
+      "heading": "Worked modal calculation",
+      "unit_ids": ["PI-ME-U17"],
+      "contract_item_ids": ["RC-018"],
+      "bridge_contract_ids": []
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Adaptation summary
+
+This RQ1 C2 structured-grounding run presents eigenvalues, eigenvectors, and power iteration for second-year mechanical engineering students. It progresses from eigenpair definitions and the characteristic equation through the real symmetric eigenbasis, dominance by magnitude, the multiplication-normalization recurrence, convergence assumptions, Rayleigh quotient, residual stopping, implementation semantics, and failure cases. Modal reasoning is used as bounded pedagogical framing rather than as an additional physical claim.
+
+The lesson covers the required and selected conditional grounding items, including the non-symmetric scope limitation, positive-integer `max_iterations` validation, and the worked two-by-two matrix result. All exercises are in one final chapter: a concept check, a unified structured power-iteration hand calculation, and an executable code diagnostic. The hand calculation exposes identical derived and checked structured results, while the code exercise exposes expected stdout matching execution.
+
+Automatic checks passed for the released grounding preflight, artifact schemas and binding, section and exercise structure, required and conditional item coverage, prose length, deterministic exercise validation, and Python execution. These checks establish C2 protocol integrity and configured evidence consistency; they do not establish complete mathematical correctness or answer the RQ1 evaluation question. No post-generation human-review stage is requested.

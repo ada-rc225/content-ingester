@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "preparer": "prepare-composition-inputs-v1",
+  "prepared_at": "2026-08-26T21:16:00Z",
+  "run_id": "gradient-descent-p2-mechanical-engineering-run-02",
+  "condition": "P2",
+  "topic": "gradient descent",
+  "inputs": {
+    "pathway": {
+      "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-03/pathway-plan.json",
+      "sha256": "ccba9f1a3142334d21d99db2eb4804d300a5f76fc92b7e1a9b73bf0258418f44"
+    },
+    "pathway_validation_report": {
+      "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-03/pathway-validation-report.json",
+      "sha256": "dce55bdc9cd6cc06fa83590c0fa640c346e414f61a3fa3dbb866b2726d5aeee2"
+    },
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+      "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/gradient-descent-second-year.json",
+      "sha256": "bdd734fd2f2c56b38960e9938281952a55841d57b0a83047647d38ca4f90348d"
+    },
+    "word_count_protocol": {
+      "file": "experiments/rq2/word-count-protocols/gradient-descent-pilot.json",
+      "sha256": "3031936fe3f42d325e01e92490e0cafebb6a58ae11a009df22a9f339cab7ab43"
+    },
+    "profile": {
+      "file": "experiments/rq2/profiles/gradient-descent/mechanical-engineering-year-2.json",
+      "sha256": "3e107dcaa9f10ef339daa9136644d171f4849b0d3d5b7be9989524a2c51965a2"
+    },
+    "bridge_catalog": {
+      "file": "bridge-library/gradient-descent-v1/release/released-bridge-catalog.json",
+      "sha256": "54c433b923891dac7805c2531cb14be1f703ab745637db443c3cb93aa7a6b1cb"
+    }
+  },
+  "treatment_isolation": {
+    "external_retrieval_allowed": false,
+    "other_profiles_allowed": false,
+    "other_condition_outputs_allowed": false,
+    "evaluation_results_allowed": false,
+    "profile_visible": true,
+    "profile_adaptation_allowed": true,
+    "pathway_replanning_allowed": false,
+    "selected_contract_scope_exact": true,
+    "instruction_sequence_exact": true,
+    "discipline_neutral_required": false
+  },
+  "output_view": {
+    "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p2/mechanical-engineering/run-02/composition-input-view.json",
+    "sha256": "15278a8abf30ed08eb57ceee70f7ef972ed9220c2bfa68ed1ad95900f745fb1b"
+  }
+}

@@ -1,0 +1,1159 @@
+{
+  "schema_version": "1.0",
+  "topic": "gradient descent",
+  "selected_item_ids": [
+    "RC-001",
+    "RC-002",
+    "RC-004",
+    "RC-005",
+    "RC-006",
+    "RC-007",
+    "RC-009",
+    "RC-010",
+    "RC-011",
+    "RC-013",
+    "RC-014",
+    "RC-015"
+  ],
+  "excluded_item_ids": [
+    "RC-003",
+    "RC-008",
+    "RC-012",
+    "RC-016",
+    "RC-017",
+    "RC-018",
+    "RC-019",
+    "RC-020",
+    "RC-021",
+    "RC-022",
+    "RC-023",
+    "RC-024",
+    "RC-025",
+    "RC-026",
+    "RC-027",
+    "RC-028",
+    "RC-029",
+    "RC-030"
+  ],
+  "selection_decisions": [
+    {
+      "item_id": "RC-001",
+      "decision": "include",
+      "selected_role": "target",
+      "rationale": "Formulate the unconstrained differentiable objective before algorithm tracing, matching LG-001.",
+      "profile_basis": [
+        "The learner knows vectors and matrices.",
+        "The learner is a second-year computer-science student who prefers explicit algorithm assumptions."
+      ]
+    },
+    {
+      "item_id": "RC-002",
+      "decision": "include",
+      "selected_role": "supporting",
+      "rationale": "Connect minimisation to first-order stationarity and the negative-gradient direction.",
+      "profile_basis": [
+        "Basic partial derivatives are prior knowledge.",
+        "Stationarity provides the requested bridge from objective formulation to iteration."
+      ]
+    },
+    {
+      "item_id": "RC-003",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "Second-order local optimality conditions are not required for the first-order learning goal.",
+      "profile_basis": [
+        "The request prioritises first-order optimisation.",
+        "Hessian definiteness is not established and is unnecessary for the selected guarantees."
+      ]
+    },
+    {
+      "item_id": "RC-004",
+      "decision": "include",
+      "selected_role": "target",
+      "rationale": "Make gradient smoothness explicit because it controls descent and step-size reasoning.",
+      "profile_basis": [
+        "Formal smoothness arguments are fragile, so the pathway must teach the concept explicitly.",
+        "The learner prefers assumptions beside algorithm behaviour."
+      ]
+    },
+    {
+      "item_id": "RC-005",
+      "decision": "include",
+      "selected_role": "supporting",
+      "rationale": "Use the Descent Lemma to justify the bounded decrease behind the constant-step discussion.",
+      "profile_basis": [
+        "The learner needs a structured explanation of why step size affects descent.",
+        "Inner-product arithmetic can be connected to the learner's vector background."
+      ]
+    },
+    {
+      "item_id": "RC-006",
+      "decision": "include",
+      "selected_role": "target",
+      "rationale": "Provide the convex global first-order structure needed for the selected sublinear guarantee.",
+      "profile_basis": [
+        "Formal convexity arguments are fragile and are a stated prerequisite gap.",
+        "LG-003 requires convex-assumption interpretation."
+      ]
+    },
+    {
+      "item_id": "RC-007",
+      "decision": "include",
+      "selected_role": "target",
+      "rationale": "Distinguish strong convexity from ordinary convexity for the conditioning-dependent guarantee.",
+      "profile_basis": [
+        "Strong-convexity convergence proofs are explicitly fragile.",
+        "The learner needs assumptions stated beside algorithm behaviour."
+      ]
+    },
+    {
+      "item_id": "RC-008",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "Hessian-order characterization is explanatory rather than required; RC-015 is handled with its exact allowed fallback.",
+      "profile_basis": [
+        "Hessian matrix ordering is explicitly missing or fragile.",
+        "The shared request does not require a Hessian derivation."
+      ]
+    },
+    {
+      "item_id": "RC-009",
+      "decision": "include",
+      "selected_role": "target",
+      "rationale": "Interpret kappa=L/mu so the learner can relate conditioning to convergence speed.",
+      "profile_basis": [
+        "The learner has basic complexity analysis and benefits from a diagnostic condition measure.",
+        "LG-003 explicitly requires the role of conditioning."
+      ]
+    },
+    {
+      "item_id": "RC-010",
+      "decision": "include",
+      "selected_role": "target",
+      "rationale": "Teach and trace the central current-gradient update in executable or pseudocode form.",
+      "profile_basis": [
+        "Python, NumPy, basic algorithms, and iteration are prior knowledge.",
+        "Executable iteration and state traces are preferred representations."
+      ]
+    },
+    {
+      "item_id": "RC-011",
+      "decision": "include",
+      "selected_role": "target",
+      "rationale": "Relate constant step choices to L and to the assumptions supporting descent and convergence.",
+      "profile_basis": [
+        "Step-size selection is required LG-002 content.",
+        "The learner prefers explicit assumptions next to algorithm behaviour."
+      ]
+    },
+    {
+      "item_id": "RC-012",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "Exact line search is not needed when the constant rule and Armijo alternative cover the requested step-selection capability.",
+      "profile_basis": [
+        "The 90-minute intermediate request does not require multiple line-search variants.",
+        "The learner's implementation preference is satisfied by the selected bounded alternative."
+      ]
+    },
+    {
+      "item_id": "RC-013",
+      "decision": "include",
+      "selected_role": "supporting",
+      "rationale": "Provide a bounded practical step-selection alternative that is traceable in pseudocode.",
+      "profile_basis": [
+        "The request permits a bounded line-search alternative.",
+        "The learner prefers pseudocode, executable iteration, and diagnostic checks."
+      ]
+    },
+    {
+      "item_id": "RC-014",
+      "decision": "include",
+      "selected_role": "target",
+      "rationale": "RC-005 supplies the descent mechanism and RC-014 uses the selected smoothness, convexity, update, and step-size items to interpret the O(1/k) guarantee at concise proof depth suitable for this profile.",
+      "profile_basis": [
+        "LG-003 requires selected convex convergence behaviour.",
+        "The computer-science profile benefits from concise guarantee interpretation paired with an executable update trace."
+      ]
+    },
+    {
+      "item_id": "RC-015",
+      "decision": "include",
+      "selected_role": "target",
+      "rationale": "Contrast strong-convexity contractions with the convex rate and expose conditioning limits.",
+      "profile_basis": [
+        "Strong-convexity proofs are fragile, so the result is stated with explicit assumptions.",
+        "LG-003 requires conditioning and guarantee-boundary interpretation."
+      ]
+    },
+    {
+      "item_id": "RC-016",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "Heavy Ball is an acceleration extension outside the shared basic Gradient Descent task.",
+      "profile_basis": [
+        "The learning request explicitly excludes advanced acceleration methods.",
+        "The profile asks for a focused executable full-gradient pathway."
+      ]
+    },
+    {
+      "item_id": "RC-017",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "The quadratic Heavy-Ball result is outside scope when Heavy Ball is excluded.",
+      "profile_basis": [
+        "The request does not require Heavy-Ball guarantees.",
+        "SPD spectra are not evidenced in the profile."
+      ]
+    },
+    {
+      "item_id": "RC-018",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "Nesterov acceleration is outside the shared basic Gradient Descent task.",
+      "profile_basis": [
+        "The request excludes advanced acceleration methods.",
+        "The pathway prioritises the standard current-gradient update."
+      ]
+    },
+    {
+      "item_id": "RC-019",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "The NAG rate is outside scope when NAG is excluded.",
+      "profile_basis": [
+        "The requested lesson is focused on first-order Gradient Descent rather than acceleration comparisons.",
+        "LG-003 is covered by RC-014 and RC-015."
+      ]
+    },
+    {
+      "item_id": "RC-020",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "Stochastic-gradient assumptions define a different method family from the requested full-gradient task.",
+      "profile_basis": [
+        "The learning request does not require stochastic methods.",
+        "The profile context boundary does not justify expanding to stochastic training systems."
+      ]
+    },
+    {
+      "item_id": "RC-021",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "SGD and error-floor behaviour are outside the shared full-gradient task.",
+      "profile_basis": [
+        "The request focuses on standard Gradient Descent.",
+        "The learner's implementation target is the selected deterministic iteration."
+      ]
+    },
+    {
+      "item_id": "RC-022",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "Robbins-Monro conditions are outside scope when stochastic optimisation is excluded.",
+      "profile_basis": [
+        "No stochastic convergence capability is required.",
+        "The 90-minute lesson should preserve focus on deterministic guarantees."
+      ]
+    },
+    {
+      "item_id": "RC-023",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "AdaGrad is an optional adaptive stochastic method rather than basic Gradient Descent content.",
+      "profile_basis": [
+        "The request excludes adaptive and stochastic methods.",
+        "NumPy knowledge is better used for the selected standard iteration."
+      ]
+    },
+    {
+      "item_id": "RC-024",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "RMSProp is an optional adaptive stochastic method rather than basic Gradient Descent content.",
+      "profile_basis": [
+        "The request excludes adaptive and stochastic methods.",
+        "The selected pathway already covers step-size control through constant and Armijo rules."
+      ]
+    },
+    {
+      "item_id": "RC-025",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "Adam is an optional adaptive stochastic method rather than basic Gradient Descent content.",
+      "profile_basis": [
+        "The request excludes adaptive and stochastic methods.",
+        "Production training-system claims are outside the learner's stated context boundary."
+      ]
+    },
+    {
+      "item_id": "RC-026",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "The second-order Taylor model belongs to the Newton branch outside the shared first-order task.",
+      "profile_basis": [
+        "The request excludes Newton methods.",
+        "Second-order Taylor knowledge is not evidenced in the profile."
+      ]
+    },
+    {
+      "item_id": "RC-027",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "Newton's Hessian solve is outside the shared first-order Gradient Descent task.",
+      "profile_basis": [
+        "The request excludes Newton methods.",
+        "The pathway uses first-order executable iteration rather than Hessian solves."
+      ]
+    },
+    {
+      "item_id": "RC-028",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "Newton's local quadratic convergence result is outside scope when Newton's method is excluded.",
+      "profile_basis": [
+        "The request excludes Newton methods.",
+        "Local Hessian regularity is not evidenced in the profile."
+      ]
+    },
+    {
+      "item_id": "RC-029",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "The BFGS secant model is outside the shared basic Gradient Descent task.",
+      "profile_basis": [
+        "The request excludes quasi-Newton methods.",
+        "The pathway focuses on the standard gradient update and its assumptions."
+      ]
+    },
+    {
+      "item_id": "RC-030",
+      "decision": "exclude",
+      "selected_role": null,
+      "rationale": "The inverse-Hessian BFGS update is outside the shared basic Gradient Descent task.",
+      "profile_basis": [
+        "The request excludes quasi-Newton methods.",
+        "Inverse-Hessian approximation knowledge is not evidenced in the profile."
+      ]
+    }
+  ],
+  "learning_goal_mappings": [
+    {
+      "capability_id": "LG-001",
+      "supporting_item_ids": [
+        "RC-001",
+        "RC-002",
+        "RC-010"
+      ],
+      "coverage": "complete",
+      "rationale": "The objective, stationarity condition, and current-gradient update provide complete formulation and tracing coverage."
+    },
+    {
+      "capability_id": "LG-002",
+      "supporting_item_ids": [
+        "RC-004",
+        "RC-005",
+        "RC-011",
+        "RC-013"
+      ],
+      "coverage": "complete",
+      "rationale": "Smoothness, the descent bound, constant steps, and Armijo backtracking cover the required step-selection capability."
+    },
+    {
+      "capability_id": "LG-003",
+      "supporting_item_ids": [
+        "RC-006",
+        "RC-007",
+        "RC-009",
+        "RC-014",
+        "RC-015"
+      ],
+      "coverage": "complete",
+      "rationale": "Convexity, strong convexity, conditioning, and both selected convergence results cover the required guarantees and limits."
+    },
+    {
+      "capability_id": "LG-004",
+      "supporting_item_ids": [
+        "RC-010",
+        "RC-011",
+        "RC-013"
+      ],
+      "coverage": "complete",
+      "rationale": "The standard update, constant-step rules, and Armijo rule support traceable pseudocode or executable implementation without unsupported guarantees."
+    }
+  ],
+  "learning_units": [
+    {
+      "unit_id": "U-001",
+      "unit_type": "contract_content",
+      "purpose": "Optimisation objective",
+      "contract_item_ids": [
+        "RC-001"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [],
+      "learning_goal_ids": [
+        "LG-001"
+      ]
+    },
+    {
+      "unit_id": "U-002",
+      "unit_type": "prerequisite_bridge",
+      "purpose": "Prerequisite bridge: Multivariable calculus and local extrema",
+      "contract_item_ids": [],
+      "bridge_contract_id": "BRC-MULTIVARIABLE-CALCULUS-AND-LOCAL-EXTREMA-v1",
+      "prerequisite_unit_ids": [
+        "U-001"
+      ],
+      "learning_goal_ids": [
+        "LG-001"
+      ]
+    },
+    {
+      "unit_id": "U-003",
+      "unit_type": "contract_content",
+      "purpose": "First-order stationarity",
+      "contract_item_ids": [
+        "RC-002"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-001",
+        "U-002"
+      ],
+      "learning_goal_ids": [
+        "LG-001"
+      ]
+    },
+    {
+      "unit_id": "U-004",
+      "unit_type": "contract_content",
+      "purpose": "Trace the gradient-descent update with pseudocode, an executable iteration state trace, and explicit assumptions beside algorithm behaviour.",
+      "contract_item_ids": [
+        "RC-010"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-001"
+      ],
+      "learning_goal_ids": [
+        "LG-001",
+        "LG-004"
+      ]
+    },
+    {
+      "unit_id": "U-005",
+      "unit_type": "prerequisite_bridge",
+      "purpose": "Prerequisite bridge: Euclidean norms and Lipschitz continuity",
+      "contract_item_ids": [],
+      "bridge_contract_id": "BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "prerequisite_unit_ids": [
+        "U-001"
+      ],
+      "learning_goal_ids": [
+        "LG-002"
+      ]
+    },
+    {
+      "unit_id": "U-006",
+      "unit_type": "contract_content",
+      "purpose": "L-smoothness beside the update: state the assumption and diagnose how it controls step behaviour.",
+      "contract_item_ids": [
+        "RC-004"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-001",
+        "U-005"
+      ],
+      "learning_goal_ids": [
+        "LG-002"
+      ]
+    },
+    {
+      "unit_id": "U-007",
+      "unit_type": "contract_content",
+      "purpose": "Descent Lemma and quadratic upper bound",
+      "contract_item_ids": [
+        "RC-005"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-006"
+      ],
+      "learning_goal_ids": [
+        "LG-002"
+      ]
+    },
+    {
+      "unit_id": "U-008",
+      "unit_type": "contract_content",
+      "purpose": "Constant step size with pseudocode/state-trace checks and the assumptions beside the behaviour it controls.",
+      "contract_item_ids": [
+        "RC-011"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-006",
+        "U-004"
+      ],
+      "learning_goal_ids": [
+        "LG-002",
+        "LG-004"
+      ]
+    },
+    {
+      "unit_id": "U-009",
+      "unit_type": "contract_content",
+      "purpose": "Armijo backtracking with traceable pseudocode, executable acceptance diagnostics, and explicit assumptions beside algorithm behaviour.",
+      "contract_item_ids": [
+        "RC-013"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-004"
+      ],
+      "learning_goal_ids": [
+        "LG-002",
+        "LG-004"
+      ]
+    },
+    {
+      "unit_id": "U-010",
+      "unit_type": "prerequisite_bridge",
+      "purpose": "Prerequisite bridge: Inner products and convex sets",
+      "contract_item_ids": [],
+      "bridge_contract_id": "BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "prerequisite_unit_ids": [
+        "U-001"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "U-011",
+      "unit_type": "contract_content",
+      "purpose": "Differentiable convexity",
+      "contract_item_ids": [
+        "RC-006"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-001",
+        "U-010"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "U-012",
+      "unit_type": "contract_content",
+      "purpose": "Strong convexity",
+      "contract_item_ids": [
+        "RC-007"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-011"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "U-013",
+      "unit_type": "prerequisite_bridge",
+      "purpose": "Prerequisite bridge: Ratios and condition numbers",
+      "contract_item_ids": [],
+      "bridge_contract_id": "BRC-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "prerequisite_unit_ids": [
+        "U-006",
+        "U-012"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "U-014",
+      "unit_type": "contract_content",
+      "purpose": "Conditioning",
+      "contract_item_ids": [
+        "RC-009"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-006",
+        "U-012",
+        "U-013"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "U-015",
+      "unit_type": "contract_content",
+      "purpose": "Convex convergence guarantee",
+      "contract_item_ids": [
+        "RC-014"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-006",
+        "U-011",
+        "U-004",
+        "U-008"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "U-016",
+      "unit_type": "contract_content",
+      "purpose": "State the strong-convexity and smoothness hypotheses, each step-size/rate pairing, and both contractions without giving the Hessian-based derivation.",
+      "contract_item_ids": [
+        "RC-015"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-014",
+        "U-004",
+        "U-008"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    }
+  ],
+  "instruction_sequence": [
+    "U-001",
+    "U-002",
+    "U-003",
+    "U-004",
+    "U-005",
+    "U-006",
+    "U-007",
+    "U-008",
+    "U-009",
+    "U-010",
+    "U-011",
+    "U-012",
+    "U-013",
+    "U-014",
+    "U-015",
+    "U-016"
+  ],
+  "bridge_requirements": [
+    {
+      "requirement_id": "BRQ-001",
+      "concept_id": "multivariable-calculus-and-local-extrema",
+      "bridge_candidate_id": "BR-MULTIVARIABLE-CALCULUS-AND-LOCAL-EXTREMA-v1",
+      "required_by_item_ids": [
+        "RC-002"
+      ],
+      "learner_mastery": "fragile",
+      "resolution_status": "released",
+      "released_bridge_contract_id": "BRC-MULTIVARIABLE-CALCULUS-AND-LOCAL-EXTREMA-v1",
+      "rationale": "Basic partial derivatives support recognition of gradients, but local-minimum stationarity is not explicitly established. Resolved by released bridge BRC-MULTIVARIABLE-CALCULUS-AND-LOCAL-EXTREMA-v1 from gradient-descent-bridge-library-v1."
+    },
+    {
+      "requirement_id": "BRQ-002",
+      "concept_id": "euclidean-norms-and-lipschitz-continuity",
+      "bridge_candidate_id": "BR-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "required_by_item_ids": [
+        "RC-004"
+      ],
+      "learner_mastery": "fragile",
+      "resolution_status": "released",
+      "released_bridge_contract_id": "BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "rationale": "Euclidean vector operations are likely available, but the Lipschitz interpretation needed for L-smoothness is explicitly fragile. Resolved by released bridge BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1 from gradient-descent-bridge-library-v1."
+    },
+    {
+      "requirement_id": "BRQ-003",
+      "concept_id": "inner-products-and-convex-sets",
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "required_by_item_ids": [
+        "RC-006"
+      ],
+      "learner_mastery": "fragile",
+      "resolution_status": "released",
+      "released_bridge_contract_id": "BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "rationale": "Inner-product notation is supported, but the global first-order convexity interpretation requires formal convexity knowledge that is explicitly fragile. Resolved by released bridge BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1 from gradient-descent-bridge-library-v1."
+    },
+    {
+      "requirement_id": "BRQ-004",
+      "concept_id": "ratios-and-condition-numbers",
+      "bridge_candidate_id": "BR-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "required_by_item_ids": [
+        "RC-009"
+      ],
+      "learner_mastery": "unknown",
+      "resolution_status": "released",
+      "released_bridge_contract_id": "BRC-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "rationale": "The available profile evidence does not establish condition-number knowledge, so mastery is unknown. Resolved by released bridge BRC-RATIOS-AND-CONDITION-NUMBERS-v1 from gradient-descent-bridge-library-v1."
+    }
+  ],
+  "released_bridges": [
+    {
+      "bridge_contract_id": "BRC-MULTIVARIABLE-CALCULUS-AND-LOCAL-EXTREMA-v1",
+      "bridge_candidate_id": "BR-MULTIVARIABLE-CALCULUS-AND-LOCAL-EXTREMA-v1",
+      "concept_id": "multivariable-calculus-and-local-extrema",
+      "name": "Multivariable calculus and local extrema",
+      "status": "released",
+      "requested_by_profile_ids": [
+        "gradient-descent-computer-science-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-002"
+      ],
+      "content_boundary": "Recognize local minima, gradients, and Hessians in several variables; exclude proofs not represented in the Contract.",
+      "learning_outcomes": [
+        {
+          "outcome_id": "BO-01",
+          "text": "Recognize the neighbourhood-comparison meaning of a local minimum for a multivariable scalar function."
+        },
+        {
+          "outcome_id": "BO-02",
+          "text": "Assemble a gradient vector from first partial derivatives."
+        }
+      ],
+      "teaching_content": [
+        {
+          "content_id": "BC-01",
+          "kind": "definition",
+          "text": "A point a is a local minimum of f when there is a neighbourhood of a in which f(a) <= f(x) for every nearby x.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-02",
+          "kind": "procedure",
+          "text": "For f(x_1, ..., x_d), compute each first partial derivative and assemble them as the gradient vector (partial f/partial x_1, ..., partial f/partial x_d)^T.",
+          "source_ids": [
+            "SRC-02"
+          ]
+        },
+        {
+          "content_id": "BC-04",
+          "kind": "worked_example",
+          "text": "For f(x,y) = x^2 + xy, the gradient is (2x+y, x)^T. At (1,2), the gradient is (4,1)^T. This calculation makes no minimum or definiteness claim.",
+          "source_ids": [
+            "SRC-01",
+            "SRC-02"
+          ]
+        }
+      ],
+      "excluded_content": [
+        "Proof that differentiable local minima are stationary",
+        "Hessian definiteness tests or second-order optimality conditions",
+        "Gradient-descent updates, step sizes, or convergence claims"
+      ],
+      "sources": [
+        {
+          "source_id": "SRC-01",
+          "title": "Calculus of Several Variables, Lecture 20",
+          "provider": "MIT OpenCourseWare",
+          "url": "https://ocw.mit.edu/courses/18-022-calculus-of-several-variables-fall-2010/2f5db6e3161e65fe2e20f337f3c0beb3_MIT18_022F10_l_20.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "The local-minimum definition in the lecture's local-extrema discussion on pp. 1-2; BC-04 is a direct differentiation exercise using the stated scalar-function notation.",
+          "supports_content_ids": [
+            "BC-01",
+            "BC-04"
+          ]
+        },
+        {
+          "source_id": "SRC-02",
+          "title": "18.02 Multivariable Calculus, Fall 2007, Transcript - Lecture 12",
+          "provider": "MIT OpenCourseWare",
+          "url": "https://ocw.mit.edu/courses/18-02-multivariable-calculus-fall-2007/5628908f9b3f6cfe621f9ee38a65d199_18_022007L12.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "Transcript p. 1 defines the gradient as the vector formed from all first partial derivatives; BC-04 evaluates that gradient at (1,2).",
+          "supports_content_ids": [
+            "BC-02",
+            "BC-04"
+          ]
+        }
+      ]
+    },
+    {
+      "bridge_contract_id": "BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "bridge_candidate_id": "BR-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "concept_id": "euclidean-norms-and-lipschitz-continuity",
+      "name": "Euclidean norms and Lipschitz continuity",
+      "status": "released",
+      "requested_by_profile_ids": [
+        "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+        "gradient-descent-computer-science-year-2-rq2-pilot",
+        "gradient-descent-mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-004"
+      ],
+      "content_boundary": "Interpret Euclidean norms and a Lipschitz bound for a vector-valued gradient; exclude function-value Lipschitzness.",
+      "learning_outcomes": [
+        {
+          "outcome_id": "BO-01",
+          "text": "Compute the Euclidean norm of a vector and use it to measure the distance between two vectors."
+        },
+        {
+          "outcome_id": "BO-02",
+          "text": "Read a vector-valued Lipschitz inequality as a bound on output change relative to input change."
+        },
+        {
+          "outcome_id": "BO-03",
+          "text": "Apply that interpretation when the vector-valued map is a gradient, without confusing it with function-value Lipschitzness."
+        }
+      ],
+      "teaching_content": [
+        {
+          "content_id": "BC-01",
+          "kind": "definition",
+          "text": "For z in R^d, the Euclidean norm is ||z||_2 = sqrt(z^T z), and ||x-y||_2 measures Euclidean distance between x and y.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-02",
+          "kind": "definition",
+          "text": "For L>0 and all x,y in the domain, a vector-valued map G is L-Lipschitz when ||G(x)-G(y)||_2 <= L||x-y||_2. The inequality bounds output-vector change by input-vector change.",
+          "source_ids": [
+            "SRC-03"
+          ]
+        },
+        {
+          "content_id": "BC-03",
+          "kind": "explanation",
+          "text": "When G is the gradient map, compare the norm of the gradient difference with the norm of the point difference. This concerns changes in gradient vectors, not a bound on |f(x)-f(y)|.",
+          "source_ids": [
+            "SRC-03",
+            "SRC-02"
+          ]
+        },
+        {
+          "content_id": "BC-04",
+          "kind": "worked_example",
+          "text": "For G(x)=2x, ||G(x)-G(y)||_2 = 2||x-y||_2, so the Lipschitz inequality holds with L=2. The example concerns a vector map only and introduces no gradient-descent claim.",
+          "source_ids": [
+            "SRC-03",
+            "SRC-01"
+          ]
+        }
+      ],
+      "excluded_content": [
+        "Function-value Lipschitz continuity",
+        "The Descent Lemma or its proof",
+        "Gradient-descent step-size and convergence results"
+      ],
+      "sources": [
+        {
+          "source_id": "SRC-01",
+          "title": "Convex Optimization",
+          "provider": "Stanford University",
+          "url": "https://stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "Appendix A.1.1, p. 633 defines the standard inner product and Euclidean norm; BC-04 uses norm homogeneity.",
+          "supports_content_ids": [
+            "BC-01",
+            "BC-04"
+          ]
+        },
+        {
+          "source_id": "SRC-02",
+          "title": "Lecture 5: Scaling to complex models by learning with optimization algorithms",
+          "provider": "Cornell University",
+          "url": "https://www.cs.cornell.edu/courses/cs4787/2025fa/lectures/lecture5.html",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "Section 'Lipschitz continuous gradient assumption' states the gradient-specific all-x,y norm inequality with L>0; this directly supports BC-03's specialization to the gradient map.",
+          "supports_content_ids": [
+            "BC-03"
+          ]
+        },
+        {
+          "source_id": "SRC-03",
+          "title": "Econ 204 2022, Lecture 4",
+          "provider": "University of California, Berkeley",
+          "url": "https://eml.berkeley.edu/~cshannon/e204_22/lec4sl-marked.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "Definition 5 on printed p. 23 (PDF p. 44) defines a Lipschitz function between normed vector spaces by a norm inequality holding for all input pairs. BC-03 specializes that generic map to a gradient, and BC-04 is a direct vector-map example.",
+          "supports_content_ids": [
+            "BC-02",
+            "BC-03",
+            "BC-04"
+          ]
+        }
+      ]
+    },
+    {
+      "bridge_contract_id": "BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "concept_id": "inner-products-and-convex-sets",
+      "name": "Inner products and convex sets",
+      "status": "released",
+      "requested_by_profile_ids": [
+        "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+        "gradient-descent-computer-science-year-2-rq2-pilot",
+        "gradient-descent-mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-006"
+      ],
+      "content_boundary": "Interpret convex combinations and first-order inner-product inequalities; exclude advanced convex analysis.",
+      "learning_outcomes": [
+        {
+          "outcome_id": "BO-01",
+          "text": "Compute an inner product and recognize that its result is a scalar."
+        },
+        {
+          "outcome_id": "BO-02",
+          "text": "Form a convex combination and use it to recognize the defining closure property of a convex set."
+        },
+        {
+          "outcome_id": "BO-03",
+          "text": "Parse an expression of the form g^T(y-x) as an inner product with a displacement vector, without asserting an optimisation theorem."
+        }
+      ],
+      "teaching_content": [
+        {
+          "content_id": "BC-01",
+          "kind": "definition",
+          "text": "For real vectors u and v of the same dimension, u^T v is the scalar sum of their componentwise products.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-02",
+          "kind": "definition",
+          "text": "For x and y and a scalar theta in [0,1], theta x + (1-theta)y is a convex combination. A set is convex when it contains this combination for every pair of its points and every such theta.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-03",
+          "kind": "procedure",
+          "text": "To read g^T(y-x), first form the displacement d=y-x and then compute the scalar inner product g^T d. The sign describes alignment of g and the displacement; no convexity conclusion follows from this computation alone.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-04",
+          "kind": "worked_example",
+          "text": "For x=(0,0)^T, y=(2,4)^T, and theta=1/4, theta x+(1-theta)y=(3/2,3)^T. If g=(1,-1)^T, then g^T(y-x)=-2. These are arithmetic interpretations, not a first-order convexity theorem.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        }
+      ],
+      "excluded_content": [
+        "The first-order characterization theorem for differentiable convex functions",
+        "Proofs of convexity or global optimality",
+        "Subgradients, separation theorems, and other advanced convex analysis"
+      ],
+      "sources": [
+        {
+          "source_id": "SRC-01",
+          "title": "Convex Optimization",
+          "provider": "Stanford University",
+          "url": "https://stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "Section 2.1, pp. 21-23 defines line segments, convex combinations, and convex sets; Appendix A.1.1, p. 633 defines the inner product.",
+          "supports_content_ids": [
+            "BC-01",
+            "BC-02",
+            "BC-03",
+            "BC-04"
+          ]
+        }
+      ]
+    },
+    {
+      "bridge_contract_id": "BRC-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "bridge_candidate_id": "BR-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "concept_id": "ratios-and-condition-numbers",
+      "name": "Ratios and condition numbers",
+      "status": "released",
+      "requested_by_profile_ids": [
+        "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+        "gradient-descent-computer-science-year-2-rq2-pilot",
+        "gradient-descent-mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-009"
+      ],
+      "content_boundary": "Compute and interpret L/mu and the lower bound kappa>=1; exclude other condition measures.",
+      "learning_outcomes": [
+        {
+          "outcome_id": "BO-01",
+          "text": "Compute kappa=L/mu for positive constants with L>=mu."
+        },
+        {
+          "outcome_id": "BO-02",
+          "text": "Explain why L>=mu>0 implies kappa>=1."
+        },
+        {
+          "outcome_id": "BO-03",
+          "text": "Interpret kappa as the multiplicative separation between L and mu without importing another condition-number definition."
+        }
+      ],
+      "teaching_content": [
+        {
+          "content_id": "BC-01",
+          "kind": "definition",
+          "text": "For constants 0<mu<=L, define the condition ratio kappa=L/mu.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-02",
+          "kind": "explanation",
+          "text": "Because mu is positive, dividing 0<mu<=L by mu gives kappa=L/mu>=1. A value near 1 means the two constants are close; a larger value means they are more widely separated multiplicatively.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-03",
+          "kind": "worked_example",
+          "text": "If L=12 and mu=3, then kappa=4, so L is four times mu. If L=mu, then kappa=1.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-04",
+          "kind": "safeguard",
+          "text": "The ratio requires mu>0. Do not treat L/mu as a finite condition ratio when mu=0.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        }
+      ],
+      "excluded_content": [
+        "Matrix, spectral, or numerical linear-algebra condition numbers",
+        "Derivation of gradient-descent convergence rates",
+        "Step-size selection, acceleration, or stochastic optimisation claims"
+      ],
+      "sources": [
+        {
+          "source_id": "SRC-01",
+          "title": "Optimization Methods in Machine Learning",
+          "provider": "Purdue University",
+          "url": "https://www.math.purdue.edu/~zhan1966/teaching/598/Opt_notes.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "Section 2.4 on printed p. 30 (PDF p. 36) derives mu<=L from strong-convexity and Lipschitz-gradient inequalities and identifies L/mu as the condition number. BC-02 through BC-04 are bounded consequences and arithmetic examples; no convergence-rate or matrix-condition-number material is imported.",
+          "supports_content_ids": [
+            "BC-01",
+            "BC-02",
+            "BC-03",
+            "BC-04"
+          ]
+        }
+      ]
+    }
+  ],
+  "pathway_changes": [
+    {
+      "change_type": "regroup_contract_items",
+      "affected_ids": [
+        "RC-001",
+        "RC-002",
+        "RC-004",
+        "RC-005",
+        "RC-006",
+        "RC-007",
+        "RC-009",
+        "RC-010",
+        "RC-011",
+        "RC-013",
+        "RC-014",
+        "RC-015"
+      ],
+      "profile_basis": [
+        "The computer-science learner prefers explicit assumptions beside algorithm behaviour and state traces.",
+        "Formal smoothness, convexity, and strong-convexity reasoning are fragile, so prerequisite items are separated into dependency-ordered teaching units."
+      ],
+      "rationale": "Split the [condition-redacted] multi-item groups so every hard and implementation dependency is taught in an earlier unit while preserving the same selected scope and capability coverage."
+    },
+    {
+      "change_type": "reorder_learning_units",
+      "affected_ids": [
+        "GD-U01",
+        "GD-U02",
+        "GD-U03",
+        "GD-U04",
+        "GD-U05",
+        "GD-U06",
+        "GD-U07",
+        "GD-U08",
+        "GD-U09",
+        "GD-U10",
+        "GD-U11",
+        "GD-U12"
+      ],
+      "profile_basis": [
+        "The learner prefers explicit assumptions beside algorithm behaviour.",
+        "The dependency-ordered sequence supports state traces from objective formulation through convergence interpretation."
+      ],
+      "rationale": "Order the newly separated units so every hard dependency is visibly earlier than its dependant and convergence results follow their assumptions and update rules."
+    },
+    {
+      "change_type": "change_theory_implementation_application_depth",
+      "affected_ids": [
+        "RC-004",
+        "RC-005",
+        "RC-010",
+        "RC-011",
+        "RC-013",
+        "RC-014",
+        "RC-015"
+      ],
+      "profile_basis": [
+        "The profile prefers pseudocode and executable iteration.",
+        "The profile prefers state traces and diagnostic checks.",
+        "The profile requires explicit assumptions beside algorithm behaviour."
+      ],
+      "rationale": "Implementation-first depth is increased while formal proof remains concise and mathematically correct."
+    },
+    {
+      "change_type": "add_prerequisite_bridge",
+      "affected_ids": [
+        "BRC-MULTIVARIABLE-CALCULUS-AND-LOCAL-EXTREMA-v1",
+        "BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+        "BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+        "BRC-RATIOS-AND-CONDITION-NUMBERS-v1"
+      ],
+      "profile_basis": [
+        {
+          "profile_field": "missing_or_fragile_prerequisites",
+          "evidence": "multivariable-calculus-and-local-extrema: mastery=fragile; euclidean-norms-and-lipschitz-continuity: mastery=fragile; inner-products-and-convex-sets: mastery=fragile; ratios-and-condition-numbers: mastery=unknown"
+        }
+      ],
+      "rationale": "Materialize the previously approved prerequisite requirements from the released bridge catalog before each concept's first consuming Contract unit."
+    }
+  ],
+  "scope_summary": {
+    "selected_contract_item_count": 12,
+    "excluded_contract_item_count": 18,
+    "critical_item_count": 9,
+    "formula_count": 13,
+    "algorithm_or_code_item_count": 3,
+    "released_bridge_count": 4,
+    "estimated_duration_minutes": 90
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "materializer": "released-bridge-pathway-materializer-v1",
+  "materialized_at": "2026-08-20T00:45:00Z",
+  "rule_id": "first-consuming-unit-v1",
+  "parent_pathway": {
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-02/pathway-plan.json",
+    "sha256": "f0f97113e94e589ca065719bf0ba015d32bc66074c7f6c45e31b211376b6bf64"
+  },
+  "parent_review": {
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-02/pathway-plan-review.json",
+    "sha256": "77e4b57e7cc5bb8795b20d4e46656f8515c4d5833e2189a2275657d5b0ecef2d"
+  },
+  "bridge_catalog": {
+    "file": "bridge-library/gradient-descent-v1/release/released-bridge-catalog.json",
+    "sha256": "54c433b923891dac7805c2531cb14be1f703ab745637db443c3cb93aa7a6b1cb"
+  },
+  "bridge_release_report": {
+    "file": "bridge-library/gradient-descent-v1/release/bridge-library-release-report.json",
+    "sha256": "a3918e9bc004be9de329d25225e0327c1036b1f180afd4ad75624cafa0a575db"
+  },
+  "resolved_bridges": [
+    {
+      "requirement_id": "BRQ-001",
+      "concept_id": "euclidean-norms-and-lipschitz-continuity",
+      "bridge_candidate_id": "BR-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "bridge_contract_id": "BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "bridge_unit_id": "BRIDGE-001",
+      "first_consumer_unit_id": "GD-ME-U04",
+      "required_by_item_ids": [
+        "RC-004"
+      ],
+      "legacy_normalization_actions": [
+        "generated_requirement_id_from_requirement_order",
+        "renamed_legacy_reason_to_rationale",
+        "added_null_released_bridge_contract_id",
+        "removed_legacy_fields:bridge_requirement_id,reason,status,triggering_item_ids"
+      ]
+    },
+    {
+      "requirement_id": "BRQ-002",
+      "concept_id": "inner-products-and-convex-sets",
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "bridge_contract_id": "BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "bridge_unit_id": "BRIDGE-002",
+      "first_consumer_unit_id": "GD-ME-U07",
+      "required_by_item_ids": [
+        "RC-006"
+      ],
+      "legacy_normalization_actions": [
+        "generated_requirement_id_from_requirement_order",
+        "renamed_legacy_reason_to_rationale",
+        "added_null_released_bridge_contract_id",
+        "removed_legacy_fields:bridge_requirement_id,reason,status,triggering_item_ids"
+      ]
+    },
+    {
+      "requirement_id": "BRQ-003",
+      "concept_id": "ratios-and-condition-numbers",
+      "bridge_candidate_id": "BR-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "bridge_contract_id": "BRC-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "bridge_unit_id": "BRIDGE-003",
+      "first_consumer_unit_id": "GD-ME-U09",
+      "required_by_item_ids": [
+        "RC-009"
+      ],
+      "legacy_normalization_actions": [
+        "generated_requirement_id_from_requirement_order",
+        "renamed_legacy_reason_to_rationale",
+        "added_null_released_bridge_contract_id",
+        "removed_legacy_fields:bridge_requirement_id,reason,status,triggering_item_ids"
+      ]
+    }
+  ],
+  "output_pathway": {
+    "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-03/pathway-plan.json",
+    "sha256": "ccba9f1a3142334d21d99db2eb4804d300a5f76fc92b7e1a9b73bf0258418f44"
+  }
+}

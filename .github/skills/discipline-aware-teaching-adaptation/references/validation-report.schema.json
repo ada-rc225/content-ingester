@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Frozen-grounding Treatment Validation Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run_id", "generated_at", "validation_scope", "schema_checks", "frozen_contract_valid", "contract_binding_valid", "source_hashes_valid", "section_structure_valid", "prose_word_count", "word_count_compliant", "required_item_coverage_complete", "conditional_item_accounting_complete", "provenance_complete", "exercise_structure_valid", "exercise_verification_passed", "code_execution_passed", "treatment_valid", "errors", "warnings"],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "validation_scope": {"const": "grounding_and_configured_checks_only"},
+    "schema_checks": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["artifact", "status", "errors"],
+        "properties": {
+          "artifact": {"type": "string"},
+          "status": {"type": "string", "enum": ["passed", "failed"]},
+          "errors": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "frozen_contract_valid": {"type": "boolean"},
+    "contract_binding_valid": {"type": "boolean"},
+    "source_hashes_valid": {"type": "boolean"},
+    "section_structure_valid": {"type": "boolean"},
+    "prose_word_count": {"type": "integer", "minimum": 0},
+    "word_count_compliant": {"type": "boolean"},
+    "required_item_coverage_complete": {"type": "boolean"},
+    "conditional_item_accounting_complete": {"type": "boolean"},
+    "provenance_complete": {"type": "boolean"},
+    "exercise_structure_valid": {"type": "boolean"},
+    "exercise_verification_passed": {"type": "boolean"},
+    "code_execution_passed": {"type": "boolean"},
+    "treatment_valid": {"type": "boolean"},
+    "errors": {"type": "array", "items": {"type": "string"}},
+    "warnings": {"type": "array", "items": {"type": "string"}}
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "RQ2-EVAL-v1",
+  "sample_id": "S-L46P",
+  "condition": "P1",
+  "topic": "gradient descent",
+  "profile_id": "gradient-descent-computer-science-year-2-rq2-pilot",
+  "run_id": "gradient-descent-p1-computer-science-pilot-run-03",
+  "source_lesson_run": "experiments/rq2/lesson-runs/gradient-descent-v1/p1/computer-science/run-03",
+  "source_pathway": "experiments/rq2/pathway-plans/gradient-descent-v1/p1/computer-science/pathway-plan.json",
+  "blind_bundle": "experiments/rq2/evaluation/gradient-descent-v1/pilot/blind-samples/S-L46P",
+  "blind_manifest_sha256": "1c0aa643beabe2b6bd4af8708bb5b2b9740df15409a95367c00ba5114f08d84c",
+  "created_at": "2026-08-26T21:36:00Z"
+}

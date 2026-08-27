@@ -1,0 +1,4 @@
+interface:
+  display_name: "Discipline-aware Teaching Adaptation"
+  short_description: "Create grounded lessons with linked deterministic checks"
+  default_prompt: "Use $discipline-aware-teaching-adaptation with the named frozen_reference_contract.json to create a readable audience-specific lesson that satisfies the requested prose range, followed by one final chapter of Contract-bound worked exercises with unified calculations, visible answer/output checks, and no post-generation human-review stage."
