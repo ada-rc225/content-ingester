@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "composer": "pathway-constrained-teaching-composer-v1",
+  "run_id": "gradient-descent-p1-computer-science-pilot-run-03",
+  "condition": "P1",
+  "topic": "gradient descent",
+  "profile_id": "gradient-descent-computer-science-year-2-rq2-pilot",
+  "generation": {
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "access_route": "codex-exec-ephemeral",
+    "prompt_version": "pathway-constrained-teaching-composer-v1",
+    "generated_at": "2026-08-26T21:29:00Z"
+  },
+  "inputs": {
+    "composition_input_receipt": {
+      "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p1/computer-science/run-03/composition-input-receipt.json",
+      "sha256": "935aa6493468c98d3f4bbd2c7c0c8bbfa5e49fa436b8145f901be7e31988e81a"
+    },
+    "composition_input_view": {
+      "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p1/computer-science/run-03/composition-input-view.json",
+      "sha256": "4b6e4f6660da47b4e0e53eb9bb187b220e3aacbe380bfa7fb7db922745bee59f"
+    },
+    "pathway": {
+      "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p1/computer-science/pathway-plan.json",
+      "sha256": "6e9c22e6a485e436b68a1250e48c36210b55a68831d73f943d3ceb78f751164e"
+    },
+    "pathway_validation_report": {
+      "file": "experiments/rq2/pathway-plans/gradient-descent-v1/p1/computer-science/pathway-validation-report.json",
+      "sha256": "dce986c5e468bf2054eefbb38a88364a9471ae3b9946342024c9541704513b0a"
+    },
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+      "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/gradient-descent-second-year.json",
+      "sha256": "bdd734fd2f2c56b38960e9938281952a55841d57b0a83047647d38ca4f90348d"
+    },
+    "word_count_protocol": {
+      "file": "experiments/rq2/word-count-protocols/gradient-descent-pilot.json",
+      "sha256": "3031936fe3f42d325e01e92490e0cafebb6a58ae11a009df22a9f339cab7ab43"
+    },
+    "profile": {
+      "file": "experiments/rq2/profiles/gradient-descent/computer-science-year-2.json",
+      "sha256": "99474bea6b136bbe548c33273246c7525cd4fc8e28d01f47e02f17d2d54596c2"
+    },
+    "bridge_catalog": null
+  },
+  "outputs": {
+    "lesson": {
+      "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p1/computer-science/run-03/lesson.md",
+      "sha256": "0dc4f82da70cf300266272d08d3e691f7fe2afad2d249e124d752948dcaf6b9d"
+    },
+    "lesson_map": {
+      "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p1/computer-science/run-03/lesson-map.json",
+      "sha256": "0ee99229bda5b9ada83aca90579c357a537a6dbc60ea9e31b09eac260b0cfdc5"
+    },
+    "code_validation": {
+      "file": "experiments/rq2/lesson-runs/gradient-descent-v1/p1/computer-science/run-03/code-validation.json",
+      "sha256": "ab98d80e1c980b331c610382b2fec55225a004cac1e9923939e88d130d3b4056"
+    }
+  },
+  "word_count_protocol": {
+    "schema_version": "1.0",
+    "protocol_id": "rq2-gradient-descent-english-prose-pilot-v1",
+    "status": "draft_for_pilot",
+    "topic": "gradient descent",
+    "language": "English",
+    "enabled": true,
+    "minimum": 2200,
+    "maximum": 2500,
+    "counting_method": "english_prose_v1",
+    "applies_to_conditions": [
+      "P0",
+      "P1",
+      "P2"
+    ]
+  },
+  "observed_english_prose_word_count": 2272
+}

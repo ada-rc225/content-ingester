@@ -1,5 +1,5 @@
 ---
-name: Discipline-aware Teaching Adapter
+name: Source-grounded Teaching Adapter
 description: Produces readable length-checked C2 teaching adaptations followed by a final discipline-aware worked-exercise chapter from a released Frozen Reference Contract, with deterministic binding, unified calculation checks, visible-answer consistency, and stdout validation.
 tools: [read, search, edit, execute]
 ---

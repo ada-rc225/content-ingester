@@ -1,0 +1,30 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq2/lesson-runs/gradient-descent-v1/p1/mechanical-engineering/run-03/lesson.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-02",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "9e62504337e38254f65b4c9ba13a74c9a222781b654c18b39e460a6bb496fcf6",
+      "execution_status": "passed",
+      "stdout": " k        x[0]        x[1]          f(x)       ||grad||\n 0     2.000000    -1.000000      4.000000      4.472136\n 1     1.600000    -0.200000      1.360000      1.788854\n 2     1.280000    -0.040000      0.822400      1.289961\n 3     1.024000    -0.008000      0.524416      1.024500\n 4     0.819200    -0.001600      0.335549      0.819225\n 5     0.655360    -0.000320      0.214749      0.655361\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 75
+    },
+    {
+      "block_id": "CODE-002",
+      "anchor": "SEC-06",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "a4b9a87daf9fff094a41c468473d5d1a0f878a9f698fae996048a08372088a5e",
+      "execution_status": "passed",
+      "stdout": " k    accepted alpha          f(x)\n 0        0.500000        2.500000\n 1        0.250000        0.281250\n 2        1.000000        0.000000\n 3        1.000000        0.000000\n 4        1.000000        0.000000\n 5        1.000000        0.000000\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 49
+    }
+  ]
+}

@@ -1,0 +1,361 @@
+{
+  "schema_version": "1.0",
+  "topic": "power iteration",
+  "selected_item_ids": [
+    "RC-001",
+    "RC-002",
+    "RC-003",
+    "RC-004",
+    "RC-005",
+    "RC-006",
+    "RC-007",
+    "RC-008",
+    "RC-009",
+    "RC-010",
+    "RC-011",
+    "RC-012",
+    "RC-013",
+    "RC-014",
+    "RC-015",
+    "RC-016",
+    "RC-017",
+    "RC-018"
+  ],
+  "excluded_item_ids": [],
+  "selection_decisions": [
+    {
+      "item_id": "RC-001",
+      "decision": "include",
+      "selected_role": "target",
+      "rationale": "Included by the fixed canonical [condition-redacted] baseline as a universal-core item.",
+      "profile_basis": []
+    },
+    {
+      "item_id": "RC-002",
+      "decision": "include",
+      "selected_role": "supporting",
+      "rationale": "Contrast characteristic-polynomial reasoning with iterative matrix-vector computation.",
+      "profile_basis": []
+    },
+    {
+      "item_id": "RC-003",
+      "decision": "include",
+      "selected_role": "supporting",
+      "rationale": "Provide the symmetric spectral representation used by the comprehensive convergence explanation.",
+      "profile_basis": []
+    },
+    {
+      "item_id": "RC-004",
+      "decision": "include",
+      "selected_role": "target",
+      "rationale": "Included by the fixed canonical [condition-redacted] baseline as a universal-core item.",
+      "profile_basis": []
+    },
+    {
+      "item_id": "RC-005",
+      "decision": "include",
+      "selected_role": "target",
+      "rationale": "Included by the fixed canonical [condition-redacted] baseline as a universal-core item.",
+      "profile_basis": []
+    },
+    {
+      "item_id": "RC-006",
+      "decision": "include",
+      "selected_role": "supporting",
+      "rationale": "Show why the dominant component survives rather than only stating the rate.",
+      "profile_basis": []
+    },
+    {
+      "item_id": "RC-007",
+      "decision": "include",
+      "selected_role": "target",
+      "rationale": "Included by the fixed canonical [condition-redacted] baseline as a universal-core item.",
+      "profile_basis": []
+    },
+    {
+      "item_id": "RC-008",
+      "decision": "include",
+      "selected_role": "supporting",
+      "rationale": "Prevent sign alternation from being misclassified as algorithm failure.",
+      "profile_basis": []
+    },
+    {
+      "item_id": "RC-009",
+      "decision": "include",
+      "selected_role": "target",
+      "rationale": "Included by the fixed canonical [condition-redacted] baseline as a universal-core item.",
+      "profile_basis": []
+    },
+    {
+      "item_id": "RC-010",
+      "decision": "include",
+      "selected_role": "target",
+      "rationale": "Included by the fixed canonical [condition-redacted] baseline as a universal-core item.",
+      "profile_basis": []
+    },
+    {
+      "item_id": "RC-011",
+      "decision": "include",
+      "selected_role": "target",
+      "rationale": "Included by the fixed canonical [condition-redacted] baseline as a universal-core item.",
+      "profile_basis": []
+    },
+    {
+      "item_id": "RC-012",
+      "decision": "include",
+      "selected_role": "supporting",
+      "rationale": "Cover failure caused by a missing dominant component.",
+      "profile_basis": []
+    },
+    {
+      "item_id": "RC-013",
+      "decision": "include",
+      "selected_role": "supporting",
+      "rationale": "Cover tied dominant magnitude and slow convergence from a small spectral gap.",
+      "profile_basis": []
+    },
+    {
+      "item_id": "RC-014",
+      "decision": "include",
+      "selected_role": "target",
+      "rationale": "Included by the fixed canonical [condition-redacted] baseline as a universal-core item.",
+      "profile_basis": []
+    },
+    {
+      "item_id": "RC-015",
+      "decision": "include",
+      "selected_role": "supporting",
+      "rationale": "State why the symmetric explanation must not be generalized to arbitrary non-symmetric matrices.",
+      "profile_basis": []
+    },
+    {
+      "item_id": "RC-016",
+      "decision": "include",
+      "selected_role": "supporting",
+      "rationale": "Include robust input conversion, shape checks and initialization.",
+      "profile_basis": []
+    },
+    {
+      "item_id": "RC-017",
+      "decision": "include",
+      "selected_role": "supporting",
+      "rationale": "Include breakdown handling, residual stopping and return semantics.",
+      "profile_basis": []
+    },
+    {
+      "item_id": "RC-018",
+      "decision": "include",
+      "selected_role": "supporting",
+      "rationale": "Connect the mathematical sequence to one contract-supported numerical result.",
+      "profile_basis": []
+    }
+  ],
+  "learning_goal_mappings": [
+    {
+      "capability_id": "LG-001",
+      "supporting_item_ids": [
+        "RC-001",
+        "RC-005",
+        "RC-011"
+      ],
+      "coverage": "complete",
+      "rationale": "Deterministically migrated from the reviewed [condition-redacted] normalization map."
+    },
+    {
+      "capability_id": "LG-002",
+      "supporting_item_ids": [
+        "RC-009",
+        "RC-010",
+        "RC-011"
+      ],
+      "coverage": "complete",
+      "rationale": "Deterministically migrated from the reviewed [condition-redacted] normalization map."
+    },
+    {
+      "capability_id": "LG-003",
+      "supporting_item_ids": [
+        "RC-003",
+        "RC-004",
+        "RC-007",
+        "RC-008",
+        "RC-012",
+        "RC-013",
+        "RC-014",
+        "RC-015"
+      ],
+      "coverage": "complete",
+      "rationale": "Deterministically migrated from the reviewed [condition-redacted] normalization map."
+    },
+    {
+      "capability_id": "LG-004",
+      "supporting_item_ids": [
+        "RC-016",
+        "RC-017",
+        "RC-018"
+      ],
+      "coverage": "complete",
+      "rationale": "Deterministically migrated from the reviewed [condition-redacted] normalization map."
+    }
+  ],
+  "learning_units": [
+    {
+      "unit_id": "U-001",
+      "unit_type": "contract_content",
+      "purpose": "Eigenpairs and the motivation for iteration",
+      "contract_item_ids": [
+        "RC-001",
+        "RC-002",
+        "RC-014"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [],
+      "learning_goal_ids": [
+        "LG-001",
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "U-002",
+      "unit_type": "contract_content",
+      "purpose": "The symmetric spectral setting",
+      "contract_item_ids": [
+        "RC-003",
+        "RC-004"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-001"
+      ],
+      "learning_goal_ids": [
+        "LG-001",
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "U-003",
+      "unit_type": "contract_content",
+      "purpose": "The normalized power update",
+      "contract_item_ids": [
+        "RC-005"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-001"
+      ],
+      "learning_goal_ids": [
+        "LG-001"
+      ]
+    },
+    {
+      "unit_id": "U-004",
+      "unit_type": "contract_content",
+      "purpose": "Convergence mechanism and asymptotic rate",
+      "contract_item_ids": [
+        "RC-006",
+        "RC-007"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-002",
+        "U-003"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "U-005",
+      "unit_type": "contract_content",
+      "purpose": "Failure modes and scope boundaries",
+      "contract_item_ids": [
+        "RC-008",
+        "RC-012",
+        "RC-013",
+        "RC-015"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-003",
+        "U-004"
+      ],
+      "learning_goal_ids": [
+        "LG-003"
+      ]
+    },
+    {
+      "unit_id": "U-006",
+      "unit_type": "contract_content",
+      "purpose": "Rayleigh estimates and residual stopping",
+      "contract_item_ids": [
+        "RC-009",
+        "RC-010"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-003"
+      ],
+      "learning_goal_ids": [
+        "LG-002"
+      ]
+    },
+    {
+      "unit_id": "U-007",
+      "unit_type": "contract_content",
+      "purpose": "Algorithm and optional implementation detail",
+      "contract_item_ids": [
+        "RC-011",
+        "RC-016",
+        "RC-017"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-006"
+      ],
+      "learning_goal_ids": [
+        "LG-001",
+        "LG-002",
+        "LG-004"
+      ]
+    },
+    {
+      "unit_id": "U-008",
+      "unit_type": "contract_content",
+      "purpose": "Worked consolidation",
+      "contract_item_ids": [
+        "RC-018"
+      ],
+      "bridge_contract_id": null,
+      "prerequisite_unit_ids": [
+        "U-004",
+        "U-007"
+      ],
+      "learning_goal_ids": [
+        "LG-001",
+        "LG-002",
+        "LG-004"
+      ]
+    }
+  ],
+  "instruction_sequence": [
+    "U-001",
+    "U-002",
+    "U-003",
+    "U-004",
+    "U-005",
+    "U-006",
+    "U-007",
+    "U-008"
+  ],
+  "bridge_requirements": [],
+  "released_bridges": [],
+  "pathway_changes": [],
+  "scope_summary": {
+    "selected_contract_item_count": 18,
+    "excluded_contract_item_count": 0,
+    "critical_item_count": 9,
+    "formula_count": 16,
+    "algorithm_or_code_item_count": 4,
+    "released_bridge_count": 0,
+    "estimated_duration_minutes": 90
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq2/lesson-runs/gradient-descent-v1/p0/run-03/lesson.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-02",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "fb6a65da5865ccdf84e15ddd243a1d5b36988f9ba35b345635636238c233b88e",
+      "execution_status": "passed",
+      "stdout": "0 [ 2. -1.] 4.0\n1 [ 1.6 -0.2] 1.3600000000000003\n2 [ 1.28 -0.04] 0.8224\n3 [ 1.024 -0.008] 0.524416\n4 [ 0.8192 -0.0016] 0.33554944000000003\n5 [ 6.5536e-01 -3.2000e-04] 0.21474856960000002\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 44
+    },
+    {
+      "block_id": "CODE-002",
+      "anchor": "SEC-06",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "51758661d94de619a7cb6df4fd6fa1dce2aac0606d006266c460c0be18b4b5a0",
+      "execution_status": "passed",
+      "stdout": "0 4.0 0.25 2\n1 1.125 1.0 0\n2 0.0 1.0 0\n3 0.0 1.0 0\n4 0.0 1.0 0\n5 0.0 1.0 0\n6 0.0\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 43
+    }
+  ]
+}

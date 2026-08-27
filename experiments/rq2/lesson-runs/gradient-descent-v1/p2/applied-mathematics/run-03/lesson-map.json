@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0",
+  "run_id": "gradient-descent-p2-applied-mathematics-run-03",
+  "lesson_file": "lesson.md",
+  "sections": [
+    {
+      "section_id": "SEC-01",
+      "heading": "The optimisation problem",
+      "unit_ids": ["GD-P2-AM-U01"],
+      "contract_item_ids": ["RC-001"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-02",
+      "heading": "What a local minimiser must satisfy",
+      "unit_ids": ["GD-P2-AM-U02"],
+      "contract_item_ids": ["RC-002"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-03",
+      "heading": "Norms and Lipschitz change",
+      "unit_ids": ["BRIDGE-001"],
+      "contract_item_ids": [],
+      "bridge_contract_ids": ["BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1"]
+    },
+    {
+      "section_id": "SEC-04",
+      "heading": "Smoothness as a gradient assumption",
+      "unit_ids": ["GD-P2-AM-U03"],
+      "contract_item_ids": ["RC-004"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-05",
+      "heading": "The current-gradient update",
+      "unit_ids": ["GD-P2-AM-U04"],
+      "contract_item_ids": ["RC-010"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-06",
+      "heading": "The quadratic upper bound",
+      "unit_ids": ["GD-P2-AM-U05"],
+      "contract_item_ids": ["RC-005"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-07",
+      "heading": "Inner products and convex sets",
+      "unit_ids": ["BRIDGE-002"],
+      "contract_item_ids": [],
+      "bridge_contract_ids": ["BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1"]
+    },
+    {
+      "section_id": "SEC-08",
+      "heading": "The global first-order convexity bound",
+      "unit_ids": ["GD-P2-AM-U06"],
+      "contract_item_ids": ["RC-006"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-09",
+      "heading": "Strong convexity",
+      "unit_ids": ["GD-P2-AM-U07"],
+      "contract_item_ids": ["RC-007"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-10",
+      "heading": "Ratios of smoothness and strong convexity",
+      "unit_ids": ["BRIDGE-003"],
+      "contract_item_ids": [],
+      "bridge_contract_ids": ["BRC-RATIOS-AND-CONDITION-NUMBERS-v1"]
+    },
+    {
+      "section_id": "SEC-11",
+      "heading": "Conditioning of the objective",
+      "unit_ids": ["GD-P2-AM-U08"],
+      "contract_item_ids": ["RC-009"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-12",
+      "heading": "Constant step sizes",
+      "unit_ids": ["GD-P2-AM-U09"],
+      "contract_item_ids": ["RC-011"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-13",
+      "heading": "A smooth-convex objective-gap rate",
+      "unit_ids": ["GD-P2-AM-U10"],
+      "contract_item_ids": ["RC-014"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-14",
+      "heading": "Strongly convex contractions",
+      "unit_ids": ["GD-P2-AM-U11"],
+      "contract_item_ids": ["RC-015"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-15",
+      "heading": "Armijo backtracking",
+      "unit_ids": ["GD-P2-AM-U12"],
+      "contract_item_ids": ["RC-013"],
+      "bridge_contract_ids": []
+    }
+  ]
+}

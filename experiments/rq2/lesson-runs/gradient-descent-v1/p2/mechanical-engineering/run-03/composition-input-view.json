@@ -1,0 +1,1785 @@
+{
+  "schema_version": "1.0",
+  "run_id": "gradient-descent-p2-mechanical-engineering-run-03",
+  "condition": "P2",
+  "topic": "gradient descent",
+  "composition_policy": {
+    "external_retrieval_allowed": false,
+    "other_profiles_allowed": false,
+    "other_condition_outputs_allowed": false,
+    "evaluation_results_allowed": false,
+    "profile_visible": true,
+    "profile_adaptation_allowed": true,
+    "pathway_replanning_allowed": false,
+    "selected_contract_scope_exact": true,
+    "instruction_sequence_exact": true,
+    "discipline_neutral_required": false
+  },
+  "word_count_protocol": {
+    "schema_version": "1.0",
+    "protocol_id": "rq2-gradient-descent-english-prose-pilot-v1",
+    "status": "draft_for_pilot",
+    "topic": "gradient descent",
+    "language": "English",
+    "enabled": true,
+    "minimum": 2200,
+    "maximum": 2500,
+    "counting_method": "english_prose_v1",
+    "applies_to_conditions": [
+      "P0",
+      "P1",
+      "P2"
+    ]
+  },
+  "learning_request": {
+    "schema_version": "1.0",
+    "request_id": "gradient-descent-second-year-v1",
+    "request_version": "1.0.0",
+    "status": "pilot_candidate",
+    "topic": "gradient descent",
+    "source_contract": {
+      "contract_id": "gradient-descent",
+      "contract_version": "3.0.0",
+      "file": "experiments/rq1/reference-contracts/gradient-descent-v5/release/frozen_reference_contract.json",
+      "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"
+    },
+    "audience_scope": {
+      "education_level": "second-year undergraduate",
+      "discipline_neutral": true,
+      "shared_across_profiles": true
+    },
+    "learning_goal": "Understand gradient descent as a first-order optimisation method, relate its update and step-size choices to the assumptions that support descent and convergence, and interpret its principal limitations for a selected learner-appropriate pathway.",
+    "target_capabilities": [
+      {
+        "capability_id": "LG-001",
+        "description": "Formulate an unconstrained differentiable optimisation problem, explain first-order stationarity, and carry out or trace the gradient-descent update.",
+        "priority": "required"
+      },
+      {
+        "capability_id": "LG-002",
+        "description": "Explain how smoothness and step-size selection affect descent, including a constant-step rule and, when selected, a bounded line-search alternative.",
+        "priority": "required"
+      },
+      {
+        "capability_id": "LG-003",
+        "description": "State and interpret convergence behaviour under selected convex or strongly convex assumptions, including the role of conditioning and the limits of the guarantee.",
+        "priority": "required"
+      },
+      {
+        "capability_id": "LG-004",
+        "description": "Translate the selected gradient-descent and step-selection rules into a traceable algorithm, pseudocode, or executable implementation without adding unsupported guarantees.",
+        "priority": "optional"
+      }
+    ],
+    "delivery_constraints": {
+      "target_duration_minutes": 90,
+      "output_form": "one_continuous_student_facing_lesson",
+      "learning_units_are_pages": false,
+      "target_depth": "intermediate",
+      "proof_depth": "profile_adaptive",
+      "implementation_depth": "profile_adaptive"
+    },
+    "selection_policy": {
+      "profile_specific_contract_item_selection_allowed_for_P2": true,
+      "required_capabilities_may_be_removed": false,
+      "all_contract_items_require_include_or_exclude_decisions": true,
+      "selected_hard_dependencies_must_be_satisfied": true,
+      "unreleased_prerequisite_bridges_make_a_plan_provisional": true
+    },
+    "review": {
+      "review_status": "requires_supervisor_or_curriculum_review",
+      "reviewer_id": null,
+      "reviewed_at": null,
+      "comment": "Pilot candidate shared across all three Gradient Descent profiles. Freeze this request before confirmatory generation; advanced acceleration, stochastic, adaptive, Newton, and quasi-Newton methods are not required capabilities."
+    }
+  },
+  "learner_profile": {
+    "profile_id": "gradient-descent-mechanical-engineering-year-2-rq2-pilot",
+    "discipline": "mechanical engineering",
+    "education_level": "second-year undergraduate",
+    "prior_knowledge": [
+      "vectors and matrices",
+      "multivariable calculus and gradients",
+      "basic numerical methods",
+      "introductory mechanics and energy models",
+      "basic Python and NumPy"
+    ],
+    "missing_or_fragile_prerequisites": [
+      "formal convexity and smoothness terminology",
+      "condition-number-based convergence analysis",
+      "stochastic optimisation assumptions"
+    ],
+    "preferred_representations": [
+      "energy minimisation and parameter calibration",
+      "iteration tables and convergence histories",
+      "engineering assumptions linked to mathematical conditions"
+    ],
+    "authentic_context_boundary": "Use idealized energy minimisation or parameter calibration as pedagogical framing. Do not claim that every engineering objective is convex, that every stationary point is a physical optimum, or that gradient descent is universally appropriate for engineering design.",
+    "review_status": "requires_discipline_educator_review"
+  },
+  "pathway": {
+    "pathway_id": "gradient-descent-p2-mechanical-engineering-run-03-bridge-resolved-v1",
+    "selected_item_ids": [
+      "RC-001",
+      "RC-002",
+      "RC-004",
+      "RC-005",
+      "RC-006",
+      "RC-007",
+      "RC-009",
+      "RC-010",
+      "RC-011",
+      "RC-013",
+      "RC-014",
+      "RC-015"
+    ],
+    "excluded_item_ids": [
+      "RC-003",
+      "RC-008",
+      "RC-012",
+      "RC-016",
+      "RC-017",
+      "RC-018",
+      "RC-019",
+      "RC-020",
+      "RC-021",
+      "RC-022",
+      "RC-023",
+      "RC-024",
+      "RC-025",
+      "RC-026",
+      "RC-027",
+      "RC-028",
+      "RC-029",
+      "RC-030"
+    ],
+    "selection_decisions": [
+      {
+        "item_id": "RC-001",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Required formulation of an unconstrained differentiable engineering-framed objective.",
+        "profile_basis": [
+          "energy minimisation and parameter calibration"
+        ]
+      },
+      {
+        "item_id": "RC-002",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Supports first-order stationarity without treating stationarity as sufficient for optimality.",
+        "profile_basis": [
+          "multivariable calculus and gradients"
+        ]
+      },
+      {
+        "item_id": "RC-003",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Second-order local optimality conditions are not required for the first-order learning request.",
+        "profile_basis": [
+          "second-year intermediate target depth and shared first-order learning goal"
+        ]
+      },
+      {
+        "item_id": "RC-004",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Formal smoothness is needed to connect gradient variation to safe steps; it will be framed with explicit assumptions.",
+        "profile_basis": [
+          "formal convexity and smoothness terminology is fragile"
+        ]
+      },
+      {
+        "item_id": "RC-005",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Explains the descent mechanism and supports step-size reasoning.",
+        "profile_basis": [
+          "engineering assumptions linked to mathematical conditions"
+        ]
+      },
+      {
+        "item_id": "RC-006",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Required for the selected global convex convergence guarantee, while avoiding claims that engineering objectives are universally convex.",
+        "profile_basis": [
+          "formal convexity terminology is fragile"
+        ]
+      },
+      {
+        "item_id": "RC-007",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Required to interpret the stronger convergence guarantee and its assumptions.",
+        "profile_basis": [
+          "formal convexity terminology is fragile"
+        ]
+      },
+      {
+        "item_id": "RC-008",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Hessian characterization is explanatory rather than required; RC-015 uses its exact recorded fallback.",
+        "profile_basis": [
+          "profile-adaptive proof depth and fragile formal smoothness terminology"
+        ]
+      },
+      {
+        "item_id": "RC-009",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Required to interpret conditioning and convergence-history differences; terminology is explicitly fragile and needs a bridge.",
+        "profile_basis": [
+          "condition-number-based convergence analysis is fragile",
+          "convergence histories"
+        ]
+      },
+      {
+        "item_id": "RC-010",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Central update rule for tracing and implementation.",
+        "profile_basis": [
+          "basic numerical methods",
+          "basic Python and NumPy"
+        ]
+      },
+      {
+        "item_id": "RC-011",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Required constant-step rule and assumptions for the selected guarantees.",
+        "profile_basis": [
+          "iteration tables and convergence histories"
+        ]
+      },
+      {
+        "item_id": "RC-012",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Exact line search is not needed because constant steps and Armijo provide the requested step-selection coverage.",
+        "profile_basis": [
+          "optional bounded line-search capability is covered by RC-013"
+        ]
+      },
+      {
+        "item_id": "RC-013",
+        "decision": "include",
+        "selected_role": "supporting",
+        "rationale": "Provides the requested bounded practical line-search alternative with explicit acceptance conditions.",
+        "profile_basis": [
+          "basic numerical methods"
+        ]
+      },
+      {
+        "item_id": "RC-014",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Provides the convex objective-gap rate and its exact hypotheses.",
+        "profile_basis": [
+          "convergence histories"
+        ]
+      },
+      {
+        "item_id": "RC-015",
+        "decision": "include",
+        "selected_role": "target",
+        "rationale": "Provides the strongly convex contractions and conditioning interpretation with the exact scope limits.",
+        "profile_basis": [
+          "condition-number-based convergence analysis is fragile"
+        ],
+        "explanatory_fallback": "State the strong-convexity and smoothness hypotheses, each step-size/rate pairing, and both contractions without giving the Hessian-based derivation."
+      },
+      {
+        "item_id": "RC-016",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Heavy Ball is outside the shared basic Gradient Descent capability set.",
+        "profile_basis": [
+          "shared request excludes acceleration extensions"
+        ]
+      },
+      {
+        "item_id": "RC-017",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Heavy-Ball quadratic rates are outside scope with Heavy Ball excluded.",
+        "profile_basis": [
+          "shared request excludes acceleration extensions"
+        ]
+      },
+      {
+        "item_id": "RC-018",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Nesterov acceleration is outside the shared basic Gradient Descent task.",
+        "profile_basis": [
+          "shared request excludes acceleration extensions"
+        ]
+      },
+      {
+        "item_id": "RC-019",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "The NAG rate is outside scope with NAG excluded.",
+        "profile_basis": [
+          "shared request excludes acceleration extensions"
+        ]
+      },
+      {
+        "item_id": "RC-020",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Stochastic-gradient assumptions are explicitly outside the pilot request and profile scope.",
+        "profile_basis": [
+          "stochastic optimisation assumptions are missing or fragile"
+        ]
+      },
+      {
+        "item_id": "RC-021",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "SGD and error-floor behavior are outside the full-gradient pathway.",
+        "profile_basis": [
+          "shared request excludes stochastic methods"
+        ]
+      },
+      {
+        "item_id": "RC-022",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Robbins-Monro conditions are outside the pilot scope.",
+        "profile_basis": [
+          "shared request excludes stochastic methods"
+        ]
+      },
+      {
+        "item_id": "RC-023",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "AdaGrad is outside the shared basic Gradient Descent task.",
+        "profile_basis": [
+          "shared request excludes adaptive stochastic methods"
+        ]
+      },
+      {
+        "item_id": "RC-024",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "RMSProp is outside the shared basic Gradient Descent task.",
+        "profile_basis": [
+          "shared request excludes adaptive stochastic methods"
+        ]
+      },
+      {
+        "item_id": "RC-025",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Adam is outside the shared basic Gradient Descent task.",
+        "profile_basis": [
+          "shared request excludes adaptive stochastic methods"
+        ]
+      },
+      {
+        "item_id": "RC-026",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Newton's second-order model is outside the first-order pathway.",
+        "profile_basis": [
+          "shared request targets first-order optimisation"
+        ]
+      },
+      {
+        "item_id": "RC-027",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Newton's Hessian solve is outside the first-order pathway.",
+        "profile_basis": [
+          "shared request targets first-order optimisation"
+        ]
+      },
+      {
+        "item_id": "RC-028",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "Newton local convergence is outside scope.",
+        "profile_basis": [
+          "shared request targets first-order optimisation"
+        ]
+      },
+      {
+        "item_id": "RC-029",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "BFGS is outside the shared basic Gradient Descent task.",
+        "profile_basis": [
+          "shared request excludes quasi-Newton methods"
+        ]
+      },
+      {
+        "item_id": "RC-030",
+        "decision": "exclude",
+        "selected_role": null,
+        "rationale": "The BFGS inverse-Hessian update is outside scope.",
+        "profile_basis": [
+          "shared request excludes quasi-Newton methods"
+        ]
+      }
+    ],
+    "learning_goal_mappings": [
+      {
+        "capability_id": "LG-001",
+        "supporting_item_ids": [
+          "RC-001",
+          "RC-002",
+          "RC-010"
+        ],
+        "coverage": "complete",
+        "rationale": "Formulation, stationarity, and update are explicitly sequenced."
+      },
+      {
+        "capability_id": "LG-002",
+        "supporting_item_ids": [
+          "RC-004",
+          "RC-005",
+          "RC-011",
+          "RC-013"
+        ],
+        "coverage": "complete",
+        "rationale": "Smoothness, descent, constant step, and bounded backtracking are included."
+      },
+      {
+        "capability_id": "LG-003",
+        "supporting_item_ids": [
+          "RC-006",
+          "RC-007",
+          "RC-009",
+          "RC-014",
+          "RC-015"
+        ],
+        "coverage": "complete",
+        "rationale": "Convex and strongly convex guarantees, conditioning, and limits are included."
+      },
+      {
+        "capability_id": "LG-004",
+        "supporting_item_ids": [
+          "RC-010",
+          "RC-011",
+          "RC-013"
+        ],
+        "coverage": "complete",
+        "rationale": "The selected update and step rules support traceable algorithmic work."
+      }
+    ],
+    "instruction_sequence": [
+      "GD-ME-U01",
+      "GD-ME-U02",
+      "GD-ME-U03",
+      "BRIDGE-001",
+      "GD-ME-U04",
+      "GD-ME-U05",
+      "GD-ME-U06",
+      "GD-ME-U12",
+      "BRIDGE-002",
+      "GD-ME-U07",
+      "GD-ME-U08",
+      "BRIDGE-003",
+      "GD-ME-U09",
+      "GD-ME-U10",
+      "GD-ME-U11"
+    ],
+    "ordered_learning_units": [
+      {
+        "unit_id": "GD-ME-U01",
+        "unit_type": "contract_content",
+        "purpose": "Frame an idealized energy-minimisation or parameter-calibration objective.",
+        "contract_item_ids": [
+          "RC-001"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [],
+        "learning_goal_ids": [
+          "LG-001"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U02",
+        "unit_type": "contract_content",
+        "purpose": "Establish first-order stationarity without treating it as sufficient for optimality.",
+        "contract_item_ids": [
+          "RC-002"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "GD-ME-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-001"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U03",
+        "unit_type": "contract_content",
+        "purpose": "Trace the gradient-descent update in an engineering parameter table.",
+        "contract_item_ids": [
+          "RC-010"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "GD-ME-U02"
+        ],
+        "learning_goal_ids": [
+          "LG-001",
+          "LG-004"
+        ]
+      },
+      {
+        "unit_id": "BRIDGE-001",
+        "unit_type": "prerequisite_bridge",
+        "purpose": "Prerequisite bridge: Euclidean norms and Lipschitz continuity",
+        "contract_item_ids": [],
+        "bridge_contract_id": "BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+        "prerequisite_unit_ids": [
+          "GD-ME-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-002"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U04",
+        "unit_type": "contract_content",
+        "purpose": "Define smoothness and link gradient variation to explicit assumptions.",
+        "contract_item_ids": [
+          "RC-004"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "GD-ME-U01",
+          "BRIDGE-001"
+        ],
+        "learning_goal_ids": [
+          "LG-002"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U05",
+        "unit_type": "contract_content",
+        "purpose": "Use the Descent Lemma to explain a safe decrease mechanism.",
+        "contract_item_ids": [
+          "RC-005"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "GD-ME-U04"
+        ],
+        "learning_goal_ids": [
+          "LG-002"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U06",
+        "unit_type": "contract_content",
+        "purpose": "Apply constant-step choices with their stated assumptions.",
+        "contract_item_ids": [
+          "RC-011"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "GD-ME-U03",
+          "GD-ME-U04"
+        ],
+        "learning_goal_ids": [
+          "LG-002",
+          "LG-004"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U12",
+        "unit_type": "contract_content",
+        "purpose": "Trace Armijo backtracking as a practical step-selection extension.",
+        "contract_item_ids": [
+          "RC-013"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "GD-ME-U03"
+        ],
+        "learning_goal_ids": [
+          "LG-002",
+          "LG-004"
+        ]
+      },
+      {
+        "unit_id": "BRIDGE-002",
+        "unit_type": "prerequisite_bridge",
+        "purpose": "Prerequisite bridge: Inner products and convex sets",
+        "contract_item_ids": [],
+        "bridge_contract_id": "BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+        "prerequisite_unit_ids": [
+          "GD-ME-U01"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U07",
+        "unit_type": "contract_content",
+        "purpose": "Introduce differentiable convexity without inferring it from an engineering context.",
+        "contract_item_ids": [
+          "RC-006"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "GD-ME-U01",
+          "BRIDGE-002"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U08",
+        "unit_type": "contract_content",
+        "purpose": "Strengthen the convex lower bound and state its assumptions.",
+        "contract_item_ids": [
+          "RC-007"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "GD-ME-U07"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "BRIDGE-003",
+        "unit_type": "prerequisite_bridge",
+        "purpose": "Prerequisite bridge: Ratios and condition numbers",
+        "contract_item_ids": [],
+        "bridge_contract_id": "BRC-RATIOS-AND-CONDITION-NUMBERS-v1",
+        "prerequisite_unit_ids": [
+          "GD-ME-U04",
+          "GD-ME-U08"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U09",
+        "unit_type": "contract_content",
+        "purpose": "Interpret the condition number through convergence histories.",
+        "contract_item_ids": [
+          "RC-009"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "GD-ME-U04",
+          "GD-ME-U08",
+          "BRIDGE-003"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U10",
+        "unit_type": "contract_content",
+        "purpose": "State the convex objective-gap bound and its exact hypotheses.",
+        "contract_item_ids": [
+          "RC-014"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "GD-ME-U05",
+          "GD-ME-U06",
+          "GD-ME-U07",
+          "GD-ME-U03"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      },
+      {
+        "unit_id": "GD-ME-U11",
+        "unit_type": "contract_content",
+        "purpose": "State the strong-convexity and smoothness hypotheses, each step-size/rate pairing, and both contractions without giving the Hessian-based derivation.",
+        "contract_item_ids": [
+          "RC-015"
+        ],
+        "bridge_contract_id": null,
+        "prerequisite_unit_ids": [
+          "GD-ME-U09",
+          "GD-ME-U06",
+          "GD-ME-U03"
+        ],
+        "learning_goal_ids": [
+          "LG-003"
+        ]
+      }
+    ],
+    "rendering_policy": {
+      "output_form": "one_continuous_student_facing_lesson",
+      "learning_units_are_pages": false,
+      "target_duration_minutes": 90
+    }
+  },
+  "selected_contract_items": [
+    {
+      "item_id": "RC-001",
+      "item_type": "definition",
+      "criticality": "critical",
+      "required_for_generation": true,
+      "generation_requirement": "required",
+      "evidence": [
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-008",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 34-34"
+          },
+          "exact_excerpt": "In unconstrained mathematical optimization, we consider the canonical problem:"
+        },
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-010",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 40-40"
+          },
+          "exact_excerpt": "The objective $f: \\mathbb{R}^d \\to \\mathbb{R}$ is assumed to be at least continuously differentiable ($f \\in C^1$)."
+        },
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-009",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 36-38"
+          },
+          "exact_excerpt": "$$\n\\min_{x \\in \\mathbb{R}^d} f(x).\n$$"
+        }
+      ],
+      "canonical_statement": "Unconstrained optimisation minimizes a continuously differentiable objective f from R^d to R over R^d.",
+      "canonical_latex": [
+        "\\min_{x \\in \\mathbb{R}^d} f(x)."
+      ],
+      "formula_refs": [
+        "FM-001"
+      ],
+      "conditions": [
+        "The source assumes f is at least C^1."
+      ],
+      "prohibited_drift": [
+        "Do not add constraints or change the domain without identifying a new problem setting."
+      ],
+      "semantic_checks": [
+        {
+          "check_id": "CHK-001",
+          "check_type": "expert_review",
+          "specification": "Check the optimisation domain, codomain, and differentiability assumption against the source units.",
+          "expected_result": "The statement remains unconstrained over R^d and assumes f in C^1.",
+          "review_status": "approved"
+        }
+      ],
+      "review": {
+        "source_fidelity": "verified",
+        "mathematical_status": "verified_correct",
+        "algorithmic_status": "not_applicable",
+        "decision": "approved_as_written",
+        "reviewer_notes": [
+          "Verified against the source problem formulation. The domain, codomain and C1 differentiability assumption are preserved.",
+          "No constraints or additional optimisation assumptions have been introduced."
+        ]
+      }
+    },
+    {
+      "item_id": "RC-002",
+      "item_type": "theorem",
+      "criticality": "critical",
+      "required_for_generation": true,
+      "generation_requirement": "required",
+      "evidence": [
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-012",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 44-44"
+          },
+          "exact_excerpt": "If $x^*$ is a local minimizer of $f$ and $f$ is differentiable at $x^*$, then:"
+        },
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-013",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 46-48"
+          },
+          "exact_excerpt": "$$\n\\nabla f(x^*) = 0.\n$$"
+        }
+      ],
+      "canonical_statement": "At a differentiable local minimizer x*, the gradient must vanish.",
+      "canonical_latex": [
+        "\\nabla f(x^*) = 0."
+      ],
+      "formula_refs": [
+        "FM-002"
+      ],
+      "conditions": [
+        "x* is a local minimizer.",
+        "f is differentiable at x*."
+      ],
+      "prohibited_drift": [
+        "Do not present stationarity as sufficient for a minimum without additional assumptions."
+      ],
+      "semantic_checks": [
+        {
+          "check_id": "CHK-002",
+          "check_type": "symbolic_property",
+          "specification": "Verify that the first-order condition is stated as necessary and uses the gradient at x*.",
+          "expected_result": "The conclusion is exactly gradient f(x*) equals zero under the stated hypotheses.",
+          "review_status": "approved"
+        }
+      ],
+      "review": {
+        "source_fidelity": "verified",
+        "mathematical_status": "verified_correct",
+        "algorithmic_status": "not_applicable",
+        "decision": "approved_as_written",
+        "reviewer_notes": [
+          "Verified that stationarity is stated only as a necessary condition for a differentiable local minimizer.",
+          "The conclusion uses the gradient evaluated at x* and is not presented as sufficient."
+        ]
+      }
+    },
+    {
+      "item_id": "RC-004",
+      "item_type": "definition",
+      "criticality": "critical",
+      "required_for_generation": true,
+      "generation_requirement": "required",
+      "evidence": [
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-022",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 67-68"
+          },
+          "exact_excerpt": "**Definition 2.1 ($L$-Lipschitz Continuous Gradient):**  \nA continuously differentiable function $f: \\mathbb{R}^d \\to \\mathbb{R}$ is $L$-smooth ($L>0$) if"
+        },
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-024",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 75-75"
+          },
+          "exact_excerpt": "Here $\\|\\cdot\\|$ denotes the Euclidean norm."
+        },
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-023",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 70-73"
+          },
+          "exact_excerpt": "$$\n\\|\\nabla f(x)-\\nabla f(y)\\| \\leq L\\|x-y\\|,\n\\qquad \\forall x,y\\in\\mathbb{R}^d.\n$$"
+        }
+      ],
+      "canonical_statement": "L-smoothness means the gradient is L-Lipschitz with respect to the Euclidean norm.",
+      "canonical_latex": [
+        "\\|\\nabla f(x)-\\nabla f(y)\\| \\leq L\\|x-y\\|,\n\\qquad \\forall x,y\\in\\mathbb{R}^d."
+      ],
+      "formula_refs": [
+        "FM-003"
+      ],
+      "conditions": [
+        "L is positive.",
+        "The inequality holds for every x and y in R^d."
+      ],
+      "prohibited_drift": [
+        "Do not replace gradient Lipschitz continuity with function-value Lipschitz continuity."
+      ],
+      "semantic_checks": [
+        {
+          "check_id": "CHK-004",
+          "check_type": "formula_equivalence",
+          "specification": "Check both sides of the L-smoothness inequality and the universal quantifier.",
+          "expected_result": "The norm of the gradient difference is bounded by L times the norm of x-y for all x,y.",
+          "review_status": "approved"
+        }
+      ],
+      "review": {
+        "source_fidelity": "verified",
+        "mathematical_status": "verified_correct",
+        "algorithmic_status": "not_applicable",
+        "decision": "approved_as_written",
+        "reviewer_notes": [
+          "Verified the L-Lipschitz gradient definition, Euclidean norm and universal quantification over x and y.",
+          "The item does not confuse gradient Lipschitz continuity with function-value Lipschitz continuity."
+        ]
+      }
+    },
+    {
+      "item_id": "RC-005",
+      "item_type": "theorem",
+      "criticality": "critical",
+      "required_for_generation": true,
+      "generation_requirement": "required",
+      "evidence": [
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-025",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 77-78"
+          },
+          "exact_excerpt": "**Lemma 2.1 (Descent Lemma / Quadratic Upper Bound):**  \nIf $f$ is $L$-smooth, then for all $x,y\\in\\mathbb{R}^d$,"
+        },
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-026",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 80-83"
+          },
+          "exact_excerpt": "$$\nf(y)\\leq f(x)+\\langle\\nabla f(x),y-x\\rangle\n+\\frac{L}{2}\\|y-x\\|^2.\n$$"
+        }
+      ],
+      "canonical_statement": "The Descent Lemma gives the quadratic upper bound implied by L-smoothness.",
+      "canonical_latex": [
+        "f(y)\\leq f(x)+\\langle\\nabla f(x),y-x\\rangle\n+\\frac{L}{2}\\|y-x\\|^2."
+      ],
+      "formula_refs": [
+        "FM-004"
+      ],
+      "conditions": [
+        "f is L-smooth.",
+        "The inequality holds for all x,y in R^d."
+      ],
+      "prohibited_drift": [
+        "Do not reverse the upper-bound inequality or change L/2."
+      ],
+      "semantic_checks": [
+        {
+          "check_id": "CHK-005",
+          "check_type": "formula_equivalence",
+          "specification": "Verify the linear term, quadratic term, coefficient, and inequality direction.",
+          "expected_result": "The bound exactly matches FM-004 under L-smoothness.",
+          "review_status": "approved"
+        }
+      ],
+      "review": {
+        "source_fidelity": "verified",
+        "mathematical_status": "verified_correct",
+        "algorithmic_status": "not_applicable",
+        "decision": "approved_as_written",
+        "reviewer_notes": [
+          "Verified the upper-bound direction, gradient inner-product term and coefficient L/2.",
+          "The result remains conditional on L-smoothness."
+        ]
+      }
+    },
+    {
+      "item_id": "RC-006",
+      "item_type": "definition",
+      "criticality": "critical",
+      "required_for_generation": true,
+      "generation_requirement": "required",
+      "evidence": [
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-031",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 99-100"
+          },
+          "exact_excerpt": "**Definition 2.2 (Convexity):**  \nA differentiable function $f:\\mathbb{R}^d\\to\\mathbb{R}$ is convex if, for all $x,y\\in\\mathbb{R}^d$,"
+        },
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-032",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 102-104"
+          },
+          "exact_excerpt": "$$\nf(y)\\geq f(x)+\\langle\\nabla f(x),y-x\\rangle.\n$$"
+        }
+      ],
+      "canonical_statement": "Differentiable convexity is characterized by the global first-order lower bound.",
+      "canonical_latex": [
+        "f(y)\\geq f(x)+\\langle\\nabla f(x),y-x\\rangle."
+      ],
+      "formula_refs": [
+        "FM-006"
+      ],
+      "conditions": [
+        "The inequality holds for all x,y in R^d."
+      ],
+      "prohibited_drift": [
+        "Do not reverse the lower-bound inequality."
+      ],
+      "semantic_checks": [
+        {
+          "check_id": "CHK-006",
+          "check_type": "formula_equivalence",
+          "specification": "Verify the convex first-order inequality and its universal scope.",
+          "expected_result": "FM-006 is preserved exactly.",
+          "review_status": "approved"
+        }
+      ],
+      "review": {
+        "source_fidelity": "verified",
+        "mathematical_status": "verified_correct",
+        "algorithmic_status": "not_applicable",
+        "decision": "approved_as_written",
+        "reviewer_notes": [
+          "Verified the differentiable first-order characterization of convexity.",
+          "The lower-bound direction and quantification over all x and y are preserved."
+        ]
+      }
+    },
+    {
+      "item_id": "RC-007",
+      "item_type": "definition",
+      "criticality": "critical",
+      "required_for_generation": true,
+      "generation_requirement": "required",
+      "evidence": [
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-033",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 106-107"
+          },
+          "exact_excerpt": "**Definition 2.3 ($\\mu$-Strong Convexity):**  \nA differentiable function $f$ is $\\mu$-strongly convex ($\\mu>0$) if, for all $x,y\\in\\mathbb{R}^d$,"
+        },
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-034",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 109-112"
+          },
+          "exact_excerpt": "$$\nf(y)\\geq f(x)+\\langle\\nabla f(x),y-x\\rangle\n+\\frac{\\mu}{2}\\|y-x\\|^2.\n$$"
+        }
+      ],
+      "canonical_statement": "Mu-strong convexity strengthens the convex lower bound by a positive quadratic term.",
+      "canonical_latex": [
+        "f(y)\\geq f(x)+\\langle\\nabla f(x),y-x\\rangle\n+\\frac{\\mu}{2}\\|y-x\\|^2."
+      ],
+      "formula_refs": [
+        "FM-007"
+      ],
+      "conditions": [
+        "mu is positive.",
+        "The inequality holds for all x,y in R^d."
+      ],
+      "prohibited_drift": [
+        "Do not omit the quadratic term, change its sign, or replace mu/2."
+      ],
+      "semantic_checks": [
+        {
+          "check_id": "CHK-007",
+          "check_type": "formula_equivalence",
+          "specification": "Verify the strong-convexity inequality, coefficient mu/2, and inequality direction.",
+          "expected_result": "FM-007 is preserved exactly.",
+          "review_status": "approved"
+        }
+      ],
+      "review": {
+        "source_fidelity": "verified",
+        "mathematical_status": "verified_correct",
+        "algorithmic_status": "not_applicable",
+        "decision": "approved_as_written",
+        "reviewer_notes": [
+          "Verified the strong-convexity lower bound, positive mu assumption and coefficient mu/2.",
+          "The sign and squared-norm term are preserved."
+        ]
+      }
+    },
+    {
+      "item_id": "RC-009",
+      "item_type": "definition",
+      "criticality": "required",
+      "required_for_generation": true,
+      "generation_requirement": "required",
+      "evidence": [
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-041",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 128-128"
+          },
+          "exact_excerpt": "- If $f$ is both $L$-smooth and $\\mu$-strongly convex, its condition number is"
+        },
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-042",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 129-131"
+          },
+          "exact_excerpt": "  $$\n  \\kappa=\\frac{L}{\\mu}\\geq 1.\n  $$"
+        }
+      ],
+      "canonical_statement": "For an L-smooth and mu-strongly convex objective, the condition number is kappa=L/mu and is at least one.",
+      "canonical_latex": [
+        "  \\kappa=\\frac{L}{\\mu}\\geq 1."
+      ],
+      "formula_refs": [
+        "FM-010"
+      ],
+      "conditions": [
+        "f is both L-smooth and mu-strongly convex."
+      ],
+      "prohibited_drift": [
+        "Do not invert the ratio L/mu."
+      ],
+      "semantic_checks": [
+        {
+          "check_id": "CHK-009",
+          "check_type": "formula_equivalence",
+          "specification": "Verify the definition and lower bound for kappa.",
+          "expected_result": "kappa equals L divided by mu and is at least one.",
+          "review_status": "approved"
+        }
+      ],
+      "review": {
+        "source_fidelity": "verified",
+        "mathematical_status": "verified_correct",
+        "algorithmic_status": "not_applicable",
+        "decision": "approved_as_written",
+        "reviewer_notes": [
+          "Verified that the condition number is defined as kappa=L/mu under simultaneous L-smoothness and mu-strong convexity.",
+          "The lower bound kappa>=1 is consistent with the source assumptions."
+        ]
+      }
+    },
+    {
+      "item_id": "RC-010",
+      "item_type": "algorithm_rule",
+      "criticality": "critical",
+      "required_for_generation": true,
+      "generation_requirement": "required",
+      "evidence": [
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-046",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 139-139"
+          },
+          "exact_excerpt": "Given an initial point $x_0\\in\\mathbb{R}^d$ and positive step sizes $\\alpha_k$, gradient descent uses"
+        },
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-047",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 141-144"
+          },
+          "exact_excerpt": "$$\nx_{k+1}=x_k-\\alpha_k\\nabla f(x_k),\n\\qquad k=0,1,2,\\ldots.\n$$"
+        }
+      ],
+      "canonical_statement": "Gradient descent evaluates the gradient at the current iterate and subtracts a positive step-size multiple of it.",
+      "canonical_latex": [
+        "x_{k+1}=x_k-\\alpha_k\\nabla f(x_k),\n\\qquad k=0,1,2,\\ldots."
+      ],
+      "formula_refs": [
+        "FM-011"
+      ],
+      "conditions": [
+        "x_0 lies in R^d.",
+        "alpha_k is positive."
+      ],
+      "prohibited_drift": [
+        "Do not evaluate the gradient at a future or look-ahead iterate in standard GD.",
+        "Do not reverse the descent sign."
+      ],
+      "semantic_checks": [
+        {
+          "check_id": "CHK-010",
+          "check_type": "algorithm_property",
+          "specification": "Check the iteration index, gradient evaluation point, and subtraction sign.",
+          "expected_result": "The update exactly follows FM-011 for k starting at zero.",
+          "review_status": "approved"
+        }
+      ],
+      "review": {
+        "source_fidelity": "verified",
+        "mathematical_status": "verified_correct",
+        "algorithmic_status": "verified_correct",
+        "decision": "approved_as_written",
+        "reviewer_notes": [
+          "Verified the current-iterate gradient evaluation, negative update direction and positive step-size condition.",
+          "The indexing starts at k=0 and is not conflated with a look-ahead method."
+        ]
+      }
+    },
+    {
+      "item_id": "RC-011",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "required_for_generation": true,
+      "generation_requirement": "required",
+      "evidence": [
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-049",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 148-149"
+          },
+          "exact_excerpt": "1. **Constant step size:** $\\alpha_k=\\alpha$. When $L$ is known, common choices include $\\alpha=1/L$ and, under the usual smooth convex assumptions, $\\alpha\\in(0,2/L)$.\n2. **Exact line search:**"
+        }
+      ],
+      "canonical_statement": "A constant GD step uses alpha_k=alpha; common source choices include alpha=1/L and, under usual smooth-convex assumptions, alpha in (0,2/L).",
+      "canonical_latex": [],
+      "formula_refs": [],
+      "conditions": [
+        "L is known for the listed common choices.",
+        "The interval statement is made under the usual smooth-convex assumptions."
+      ],
+      "prohibited_drift": [
+        "Do not claim the interval applies without its assumptions."
+      ],
+      "semantic_checks": [
+        {
+          "check_id": "CHK-011",
+          "check_type": "expert_review",
+          "specification": "Check the constant-step values and the qualifier attached to the interval.",
+          "expected_result": "alpha_k is constant and the source's 1/L and (0,2/L) statements retain their qualifications.",
+          "review_status": "approved"
+        }
+      ],
+      "review": {
+        "source_fidelity": "verified",
+        "mathematical_status": "verified_correct",
+        "algorithmic_status": "verified_correct",
+        "decision": "approved_as_written",
+        "reviewer_notes": [
+          "Verified the constant-step rule and the source choices alpha=1/L and alpha in (0,2/L).",
+          "The interval retains its smooth-convex qualification and is not presented as universally valid."
+        ]
+      }
+    },
+    {
+      "item_id": "RC-013",
+      "item_type": "algorithm_rule",
+      "criticality": "required",
+      "required_for_generation": false,
+      "generation_requirement": "conditional",
+      "evidence": [
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-051",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 153-153"
+          },
+          "exact_excerpt": "3. **Backtracking line search (Armijo condition):** Choose an initial trial step $\\bar{\\alpha}>0$, a contraction factor $\\eta\\in(0,1)$, and $c\\in(0,1)$. Find the smallest integer $m\\geq0$ for which $\\alpha_k=\\eta^m\\bar{\\alpha}$ satisfies"
+        },
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-052",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 154-157"
+          },
+          "exact_excerpt": "   $$\n   f\\bigl(x_k-\\alpha_k\\nabla f(x_k)\\bigr)\n   \\leq f(x_k)-c\\alpha_k\\|\\nabla f(x_k)\\|^2.\n   $$"
+        }
+      ],
+      "canonical_statement": "Armijo backtracking contracts a positive trial step until the stated sufficient-decrease inequality holds.",
+      "canonical_latex": [
+        "   f\\bigl(x_k-\\alpha_k\\nabla f(x_k)\\bigr)\n   \\leq f(x_k)-c\\alpha_k\\|\\nabla f(x_k)\\|^2."
+      ],
+      "formula_refs": [
+        "FM-013"
+      ],
+      "conditions": [
+        "bar alpha>0, eta in (0,1), c in (0,1), and m is the smallest nonnegative accepted integer."
+      ],
+      "prohibited_drift": [
+        "Do not reverse the acceptance inequality or omit the squared gradient norm."
+      ],
+      "semantic_checks": [
+        {
+          "check_id": "CHK-013",
+          "check_type": "algorithm_property",
+          "specification": "Check the trial-step construction, parameter ranges, smallest-m rule, and acceptance formula.",
+          "expected_result": "The procedure and FM-013 match the source exactly.",
+          "review_status": "approved"
+        }
+      ],
+      "review": {
+        "source_fidelity": "verified",
+        "mathematical_status": "verified_correct",
+        "algorithmic_status": "verified_correct",
+        "decision": "approved_as_written",
+        "reviewer_notes": [
+          "Verified the parameter ranges, trial-step contraction, smallest nonnegative m rule and sufficient-decrease inequality.",
+          "The inequality direction and squared gradient norm are preserved."
+        ]
+      }
+    },
+    {
+      "item_id": "RC-014",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "required_for_generation": true,
+      "generation_requirement": "required",
+      "evidence": [
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-055",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 163-164"
+          },
+          "exact_excerpt": "**Theorem 3.1 ($O(1/k)$ Convergence Rate):**  \nLet $f:\\mathbb{R}^d\\to\\mathbb{R}$ be $L$-smooth and convex, let $x^*$ be a global minimizer, and use $\\alpha_k=1/L$. Then, for $k\\geq1$,"
+        },
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-056",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 166-170"
+          },
+          "exact_excerpt": "$$\nf(x_k)-f(x^*)\n\\leq\n\\frac{L\\|x_0-x^*\\|^2}{2k}.\n$$"
+        }
+      ],
+      "canonical_statement": "For L-smooth convex f with a global minimizer and GD step 1/L, the objective gap is bounded by L times the initial squared distance divided by 2k.",
+      "canonical_latex": [
+        "f(x_k)-f(x^*)\n\\leq\n\\frac{L\\|x_0-x^*\\|^2}{2k}."
+      ],
+      "formula_refs": [
+        "FM-014"
+      ],
+      "conditions": [
+        "f is L-smooth and convex.",
+        "x* is a global minimizer.",
+        "alpha_k=1/L.",
+        "k>=1."
+      ],
+      "prohibited_drift": [
+        "Do not state the O(1/k) bound without all hypotheses or change the denominator."
+      ],
+      "semantic_checks": [
+        {
+          "check_id": "CHK-014",
+          "check_type": "symbolic_property",
+          "specification": "Check every theorem hypothesis and the objective-gap bound.",
+          "expected_result": "The hypotheses and FM-014 are preserved as one convergence result.",
+          "review_status": "approved"
+        }
+      ],
+      "review": {
+        "source_fidelity": "verified",
+        "mathematical_status": "verified_correct",
+        "algorithmic_status": "verified_correct",
+        "decision": "approved_as_written",
+        "reviewer_notes": [
+          "Verified all theorem hypotheses: L-smoothness, convexity, existence of a global minimizer, step size 1/L and k>=1.",
+          "The O(1/k) objective-gap bound and coefficient are preserved."
+        ]
+      }
+    },
+    {
+      "item_id": "RC-015",
+      "item_type": "convergence_result",
+      "criticality": "critical",
+      "required_for_generation": true,
+      "generation_requirement": "required",
+      "evidence": [
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-075",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 236-237"
+          },
+          "exact_excerpt": "**Theorem 3.2 (Linear Convergence Rate):**  \nIf $f$ is $L$-smooth and $\\mu$-strongly convex, then gradient descent with"
+        },
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-077",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 243-243"
+          },
+          "exact_excerpt": "satisfies"
+        },
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-079",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 252-252"
+          },
+          "exact_excerpt": "where $\\kappa=L/\\mu$. With $\\alpha=1/L$,"
+        },
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-076",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 239-241"
+          },
+          "exact_excerpt": "$$\n\\alpha=\\frac{2}{L+\\mu}\n$$"
+        },
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-078",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 245-250"
+          },
+          "exact_excerpt": "$$\n\\|x_k-x^*\\|^2\n\\leq\n\\left(\\frac{\\kappa-1}{\\kappa+1}\\right)^{2k}\n\\|x_0-x^*\\|^2,\n$$"
+        },
+        {
+          "source_id": "gradient-descent-and-optimization",
+          "source_unit_id": "SU-080",
+          "locator": {
+            "locator_type": "markdown_heading_lines",
+            "value": "lines 254-259"
+          },
+          "exact_excerpt": "$$\nf(x_k)-f(x^*)\n\\leq\n\\left(1-\\frac{\\mu}{L}\\right)^k\n\\bigl(f(x_0)-f(x^*)\\bigr).\n$$"
+        }
+      ],
+      "canonical_statement": "For L-smooth mu-strongly convex f, GD has the stated distance contraction at step 2/(L+mu) and objective contraction at step 1/L.",
+      "canonical_latex": [
+        "\\alpha=\\frac{2}{L+\\mu}",
+        "\\|x_k-x^*\\|^2\n\\leq\n\\left(\\frac{\\kappa-1}{\\kappa+1}\\right)^{2k}\n\\|x_0-x^*\\|^2,",
+        "f(x_k)-f(x^*)\n\\leq\n\\left(1-\\frac{\\mu}{L}\\right)^k\n\\bigl(f(x_0)-f(x^*)\\bigr)."
+      ],
+      "formula_refs": [
+        "FM-022",
+        "FM-023",
+        "FM-024"
+      ],
+      "conditions": [
+        "f is L-smooth and mu-strongly convex.",
+        "Each bound uses its stated step size."
+      ],
+      "prohibited_drift": [
+        "Do not attach either rate to the other step size or omit the strong-convexity assumption."
+      ],
+      "semantic_checks": [
+        {
+          "check_id": "CHK-015",
+          "check_type": "symbolic_property",
+          "specification": "Pair each step size with its corresponding contraction bound and exponent.",
+          "expected_result": "FM-022 and FM-023 form one case; FM-024 is the 1/L objective-gap case.",
+          "review_status": "approved"
+        }
+      ],
+      "review": {
+        "source_fidelity": "verified",
+        "mathematical_status": "verified_correct",
+        "algorithmic_status": "verified_correct",
+        "decision": "approved_as_written",
+        "reviewer_notes": [
+          "Verified that each convergence bound is paired with its correct step size.",
+          "The distance contraction uses alpha=2/(L+mu), while the objective contraction uses alpha=1/L.",
+          "The L-smooth and mu-strongly convex assumptions are retained."
+        ]
+      }
+    }
+  ],
+  "released_bridge_contracts": [
+    {
+      "bridge_contract_id": "BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "bridge_candidate_id": "BR-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1",
+      "concept_id": "euclidean-norms-and-lipschitz-continuity",
+      "name": "Euclidean norms and Lipschitz continuity",
+      "status": "released",
+      "requested_by_profile_ids": [
+        "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+        "gradient-descent-computer-science-year-2-rq2-pilot",
+        "gradient-descent-mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-004"
+      ],
+      "content_boundary": "Interpret Euclidean norms and a Lipschitz bound for a vector-valued gradient; exclude function-value Lipschitzness.",
+      "learning_outcomes": [
+        {
+          "outcome_id": "BO-01",
+          "text": "Compute the Euclidean norm of a vector and use it to measure the distance between two vectors."
+        },
+        {
+          "outcome_id": "BO-02",
+          "text": "Read a vector-valued Lipschitz inequality as a bound on output change relative to input change."
+        },
+        {
+          "outcome_id": "BO-03",
+          "text": "Apply that interpretation when the vector-valued map is a gradient, without confusing it with function-value Lipschitzness."
+        }
+      ],
+      "teaching_content": [
+        {
+          "content_id": "BC-01",
+          "kind": "definition",
+          "text": "For z in R^d, the Euclidean norm is ||z||_2 = sqrt(z^T z), and ||x-y||_2 measures Euclidean distance between x and y.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-02",
+          "kind": "definition",
+          "text": "For L>0 and all x,y in the domain, a vector-valued map G is L-Lipschitz when ||G(x)-G(y)||_2 <= L||x-y||_2. The inequality bounds output-vector change by input-vector change.",
+          "source_ids": [
+            "SRC-03"
+          ]
+        },
+        {
+          "content_id": "BC-03",
+          "kind": "explanation",
+          "text": "When G is the gradient map, compare the norm of the gradient difference with the norm of the point difference. This concerns changes in gradient vectors, not a bound on |f(x)-f(y)|.",
+          "source_ids": [
+            "SRC-03",
+            "SRC-02"
+          ]
+        },
+        {
+          "content_id": "BC-04",
+          "kind": "worked_example",
+          "text": "For G(x)=2x, ||G(x)-G(y)||_2 = 2||x-y||_2, so the Lipschitz inequality holds with L=2. The example concerns a vector map only and introduces no gradient-descent claim.",
+          "source_ids": [
+            "SRC-03",
+            "SRC-01"
+          ]
+        }
+      ],
+      "excluded_content": [
+        "Function-value Lipschitz continuity",
+        "The Descent Lemma or its proof",
+        "Gradient-descent step-size and convergence results"
+      ],
+      "sources": [
+        {
+          "source_id": "SRC-01",
+          "title": "Convex Optimization",
+          "provider": "Stanford University",
+          "url": "https://stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "Appendix A.1.1, p. 633 defines the standard inner product and Euclidean norm; BC-04 uses norm homogeneity.",
+          "supports_content_ids": [
+            "BC-01",
+            "BC-04"
+          ]
+        },
+        {
+          "source_id": "SRC-02",
+          "title": "Lecture 5: Scaling to complex models by learning with optimization algorithms",
+          "provider": "Cornell University",
+          "url": "https://www.cs.cornell.edu/courses/cs4787/2025fa/lectures/lecture5.html",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "Section 'Lipschitz continuous gradient assumption' states the gradient-specific all-x,y norm inequality with L>0; this directly supports BC-03's specialization to the gradient map.",
+          "supports_content_ids": [
+            "BC-03"
+          ]
+        },
+        {
+          "source_id": "SRC-03",
+          "title": "Econ 204 2022, Lecture 4",
+          "provider": "University of California, Berkeley",
+          "url": "https://eml.berkeley.edu/~cshannon/e204_22/lec4sl-marked.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "Definition 5 on printed p. 23 (PDF p. 44) defines a Lipschitz function between normed vector spaces by a norm inequality holding for all input pairs. BC-03 specializes that generic map to a gradient, and BC-04 is a direct vector-map example.",
+          "supports_content_ids": [
+            "BC-02",
+            "BC-03",
+            "BC-04"
+          ]
+        }
+      ]
+    },
+    {
+      "bridge_contract_id": "BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "bridge_candidate_id": "BR-INNER-PRODUCTS-AND-CONVEX-SETS-v1",
+      "concept_id": "inner-products-and-convex-sets",
+      "name": "Inner products and convex sets",
+      "status": "released",
+      "requested_by_profile_ids": [
+        "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+        "gradient-descent-computer-science-year-2-rq2-pilot",
+        "gradient-descent-mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-006"
+      ],
+      "content_boundary": "Interpret convex combinations and first-order inner-product inequalities; exclude advanced convex analysis.",
+      "learning_outcomes": [
+        {
+          "outcome_id": "BO-01",
+          "text": "Compute an inner product and recognize that its result is a scalar."
+        },
+        {
+          "outcome_id": "BO-02",
+          "text": "Form a convex combination and use it to recognize the defining closure property of a convex set."
+        },
+        {
+          "outcome_id": "BO-03",
+          "text": "Parse an expression of the form g^T(y-x) as an inner product with a displacement vector, without asserting an optimisation theorem."
+        }
+      ],
+      "teaching_content": [
+        {
+          "content_id": "BC-01",
+          "kind": "definition",
+          "text": "For real vectors u and v of the same dimension, u^T v is the scalar sum of their componentwise products.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-02",
+          "kind": "definition",
+          "text": "For x and y and a scalar theta in [0,1], theta x + (1-theta)y is a convex combination. A set is convex when it contains this combination for every pair of its points and every such theta.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-03",
+          "kind": "procedure",
+          "text": "To read g^T(y-x), first form the displacement d=y-x and then compute the scalar inner product g^T d. The sign describes alignment of g and the displacement; no convexity conclusion follows from this computation alone.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-04",
+          "kind": "worked_example",
+          "text": "For x=(0,0)^T, y=(2,4)^T, and theta=1/4, theta x+(1-theta)y=(3/2,3)^T. If g=(1,-1)^T, then g^T(y-x)=-2. These are arithmetic interpretations, not a first-order convexity theorem.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        }
+      ],
+      "excluded_content": [
+        "The first-order characterization theorem for differentiable convex functions",
+        "Proofs of convexity or global optimality",
+        "Subgradients, separation theorems, and other advanced convex analysis"
+      ],
+      "sources": [
+        {
+          "source_id": "SRC-01",
+          "title": "Convex Optimization",
+          "provider": "Stanford University",
+          "url": "https://stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "Section 2.1, pp. 21-23 defines line segments, convex combinations, and convex sets; Appendix A.1.1, p. 633 defines the inner product.",
+          "supports_content_ids": [
+            "BC-01",
+            "BC-02",
+            "BC-03",
+            "BC-04"
+          ]
+        }
+      ]
+    },
+    {
+      "bridge_contract_id": "BRC-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "bridge_candidate_id": "BR-RATIOS-AND-CONDITION-NUMBERS-v1",
+      "concept_id": "ratios-and-condition-numbers",
+      "name": "Ratios and condition numbers",
+      "status": "released",
+      "requested_by_profile_ids": [
+        "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+        "gradient-descent-computer-science-year-2-rq2-pilot",
+        "gradient-descent-mechanical-engineering-year-2-rq2-pilot"
+      ],
+      "supports_item_ids": [
+        "RC-009"
+      ],
+      "content_boundary": "Compute and interpret L/mu and the lower bound kappa>=1; exclude other condition measures.",
+      "learning_outcomes": [
+        {
+          "outcome_id": "BO-01",
+          "text": "Compute kappa=L/mu for positive constants with L>=mu."
+        },
+        {
+          "outcome_id": "BO-02",
+          "text": "Explain why L>=mu>0 implies kappa>=1."
+        },
+        {
+          "outcome_id": "BO-03",
+          "text": "Interpret kappa as the multiplicative separation between L and mu without importing another condition-number definition."
+        }
+      ],
+      "teaching_content": [
+        {
+          "content_id": "BC-01",
+          "kind": "definition",
+          "text": "For constants 0<mu<=L, define the condition ratio kappa=L/mu.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-02",
+          "kind": "explanation",
+          "text": "Because mu is positive, dividing 0<mu<=L by mu gives kappa=L/mu>=1. A value near 1 means the two constants are close; a larger value means they are more widely separated multiplicatively.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-03",
+          "kind": "worked_example",
+          "text": "If L=12 and mu=3, then kappa=4, so L is four times mu. If L=mu, then kappa=1.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        },
+        {
+          "content_id": "BC-04",
+          "kind": "safeguard",
+          "text": "The ratio requires mu>0. Do not treat L/mu as a finite condition ratio when mu=0.",
+          "source_ids": [
+            "SRC-01"
+          ]
+        }
+      ],
+      "excluded_content": [
+        "Matrix, spectral, or numerical linear-algebra condition numbers",
+        "Derivation of gradient-descent convergence rates",
+        "Step-size selection, acceleration, or stochastic optimisation claims"
+      ],
+      "sources": [
+        {
+          "source_id": "SRC-01",
+          "title": "Optimization Methods in Machine Learning",
+          "provider": "Purdue University",
+          "url": "https://www.math.purdue.edu/~zhan1966/teaching/598/Opt_notes.pdf",
+          "source_type": "institutional_course_material",
+          "accessed_at": "2026-08-20",
+          "evidence_locator": "Section 2.4 on printed p. 30 (PDF p. 36) derives mu<=L from strong-convexity and Lipschitz-gradient inequalities and identifies L/mu as the condition number. BC-02 through BC-04 are bounded consequences and arithmetic examples; no convergence-rate or matrix-condition-number material is imported.",
+          "supports_content_ids": [
+            "BC-01",
+            "BC-02",
+            "BC-03",
+            "BC-04"
+          ]
+        }
+      ]
+    }
+  ]
+}

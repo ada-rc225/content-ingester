@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "preparer": "prepare-composition-inputs-v1",
+  "prepared_at": "2026-08-26T20:00:00Z",
+  "run_id": "power-iteration-p1-mechanical-engineering-pilot-run-03",
+  "condition": "P1",
+  "topic": "power iteration",
+  "inputs": {
+    "pathway": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p1/mechanical-engineering/pathway-plan.json",
+      "sha256": "d3c6a96e8f1a0d2a8bd3a3cc9ca1b4f750701cb24d339c878a9681574ffe3aba"
+    },
+    "pathway_validation_report": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p1/mechanical-engineering/pathway-validation-report.json",
+      "sha256": "95bb770d6c76482bd663bcebb55f945f2a17dbd82724b88d234839891d3ab7a9"
+    },
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+      "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/power-iteration-second-year.json",
+      "sha256": "c4cf0c6a4cf53653abab28123b4649dfd6459d894d3f85a310af0200468fe431"
+    },
+    "word_count_protocol": {
+      "file": "experiments/rq2/word-count-protocols/power-iteration-pilot.json",
+      "sha256": "474f78273ee6eec37f78edbea499b230218d30d94041240fb3d6ec87421d8246"
+    },
+    "profile": {
+      "file": "experiments/rq2/profiles/mechanical-engineering-year-2.json",
+      "sha256": "12e0e94788e63f0429809c10a0da94113c1ec0b9e9fee0302045220d102e2307"
+    },
+    "bridge_catalog": null
+  },
+  "treatment_isolation": {
+    "external_retrieval_allowed": false,
+    "other_profiles_allowed": false,
+    "other_condition_outputs_allowed": false,
+    "evaluation_results_allowed": false,
+    "profile_visible": true,
+    "profile_adaptation_allowed": true,
+    "pathway_replanning_allowed": false,
+    "selected_contract_scope_exact": true,
+    "instruction_sequence_exact": true,
+    "discipline_neutral_required": false
+  },
+  "output_view": {
+    "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/mechanical-engineering/run-03/composition-input-view.json",
+    "sha256": "5cefab3030ab940ccaf38338498f41e0a708de5f95c7b0ba79ae594f5eeb334f"
+  }
+}

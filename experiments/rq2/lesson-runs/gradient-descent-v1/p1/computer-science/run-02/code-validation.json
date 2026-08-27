@@ -1,0 +1,42 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq2/lesson-runs/gradient-descent-v1/p1/computer-science/run-02/lesson.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-02",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "0e446405817f5a3bb272f99cfb7a183ca0da280dce41bcaaac1187995911a736",
+      "execution_status": "passed",
+      "stdout": "k=0, x=[ 2. -1.], f=4.000000, ||g||=4.472136\nk=1, x=[ 1.6 -0.2], f=1.360000, ||g||=1.788854\nk=2, x=[ 1.28 -0.04], f=0.822400, ||g||=1.289961\nk=3, x=[ 1.024 -0.008], f=0.524416, ||g||=1.024500\nk=4, x=[ 0.8192 -0.0016], f=0.335549, ||g||=0.819225\nk=5, x=[ 6.5536e-01 -3.2000e-04], f=0.214749, ||g||=0.655361\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 44
+    },
+    {
+      "block_id": "CODE-002",
+      "anchor": "SEC-05",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "b1d00c9af0dbf4a05f05cc83f22533f4b20aae3cd6c6429d13d4b57303cdc695",
+      "execution_status": "passed",
+      "stdout": "k=1, gap=1.12500000, bound=3.00000000\nk=2, gap=0.63281250, bound=2.25000000\nk=3, gap=0.35595703, bound=1.68750000\nk=4, gap=0.20022583, bound=1.26562500\nk=5, gap=0.11262703, bound=0.94921875\nk=6, gap=0.06335270, bound=0.71191406\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 44
+    },
+    {
+      "block_id": "CODE-003",
+      "anchor": "SEC-06",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "3e155862eb53cf0a21a181d928496443907d5ad1991c77612486848ffa3f0d29",
+      "execution_status": "passed",
+      "stdout": "k=0, f=4.00000000, alpha=0.500000, contractions=1\nk=1, f=2.50000000, alpha=0.500000, contractions=1\nk=2, f=2.12500000, alpha=0.500000, contractions=1\nk=3, f=2.03125000, alpha=0.500000, contractions=1\nk=4, f=2.00781250, alpha=0.500000, contractions=1\nk=5, f=2.00195312, alpha=0.500000, contractions=1\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 44
+    }
+  ]
+}

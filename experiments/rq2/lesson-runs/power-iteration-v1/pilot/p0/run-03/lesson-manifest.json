@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "composer": "pathway-constrained-teaching-composer-v1",
+  "run_id": "power-iteration-p0-pilot-run-03",
+  "condition": "P0",
+  "topic": "power iteration",
+  "profile_id": null,
+  "generation": {
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "access_route": "codex-exec-ephemeral",
+    "prompt_version": "pathway-constrained-teaching-composer-v1",
+    "generated_at": "2026-08-26T19:40:00Z"
+  },
+  "inputs": {
+    "composition_input_receipt": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p0/run-03/composition-input-receipt.json",
+      "sha256": "5781a48d9cea72e9851386d4bf289490787a2b4b8411cb07066a47a592a1962b"
+    },
+    "composition_input_view": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p0/run-03/composition-input-view.json",
+      "sha256": "a3914ee2d4949226c9fc8b1197f8b7e1ae8a6e49384437ef79ed07fa05ade479"
+    },
+    "pathway": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p0/pathway-plan.json",
+      "sha256": "9cf1f1125924467e0bae738180bfdc2df0663dab56316caf849037dcacbe5480"
+    },
+    "pathway_validation_report": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p0/pathway-validation-report.json",
+      "sha256": "327fb17dc1dc8523b3e1ef22aac8738b5cb46e107e2b7e1d3769abea651b5fe1"
+    },
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+      "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/power-iteration-second-year.json",
+      "sha256": "c4cf0c6a4cf53653abab28123b4649dfd6459d894d3f85a310af0200468fe431"
+    },
+    "word_count_protocol": {
+      "file": "experiments/rq2/word-count-protocols/power-iteration-pilot.json",
+      "sha256": "474f78273ee6eec37f78edbea499b230218d30d94041240fb3d6ec87421d8246"
+    },
+    "profile": null,
+    "bridge_catalog": null
+  },
+  "outputs": {
+    "lesson": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p0/run-03/lesson.md",
+      "sha256": "3c1acd878f9210d4f2a5059c906b03b3bd89cd840ae06e82cfee6b538122937c"
+    },
+    "lesson_map": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p0/run-03/lesson-map.json",
+      "sha256": "f349465747605158d6855a4beca5672e21d04f701b44614f0c96b9b894235e69"
+    },
+    "code_validation": {
+      "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p0/run-03/code-validation.json",
+      "sha256": "7b723611f780c25c80f378719230a5ba2252875434f06958c79477ad6ca35086"
+    }
+  },
+  "word_count_protocol": {
+    "schema_version": "1.0",
+    "protocol_id": "rq2-power-iteration-english-prose-pilot-v1",
+    "status": "draft_for_pilot",
+    "topic": "power iteration",
+    "language": "English",
+    "enabled": true,
+    "minimum": 1500,
+    "maximum": 2000,
+    "counting_method": "english_prose_v1",
+    "applies_to_conditions": [
+      "P0",
+      "P1",
+      "P2"
+    ]
+  },
+  "observed_english_prose_word_count": 1705
+}

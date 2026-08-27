@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "validator": "validate-composer-outputs-v1",
+  "run_id": "power-iteration-p1-computer-science-pilot-run-03",
+  "condition": "P1",
+  "topic": "power iteration",
+  "valid": true,
+  "error_count": 0,
+  "warning_count": 0,
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "selected_contract_item_count": 18,
+    "mapped_contract_item_count": 18,
+    "excluded_contract_item_count": 0,
+    "learning_unit_count": 8,
+    "mapped_learning_unit_count": 8,
+    "released_bridge_count": 0,
+    "mapped_bridge_count": 0,
+    "section_count": 8,
+    "python_code_block_count": 1,
+    "english_prose_word_count": 1791,
+    "word_count_compliant": true
+  },
+  "validation_scope": {
+    "input_bindings": true,
+    "condition_context_isolation": true,
+    "declared_selected_content_mapping": true,
+    "pathway_order": true,
+    "released_bridge_mapping": true,
+    "python_execution": true,
+    "word_count": true,
+    "semantic_mathematical_correctness_assessed": false,
+    "pedagogical_quality_assessed": false
+  },
+  "manifest": {
+    "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/computer-science/run-03/lesson-manifest.json",
+    "sha256": "874b4b1c2214ae7cd16e1612daf7c64b6e2802c85eb84459dbb6b7f723d67adb"
+  },
+  "validated_at": "2026-08-26T19:40:00Z"
+}

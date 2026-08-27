@@ -1,0 +1,10 @@
+{
+  "profile_id": "computer-science-year-2-rq2-pilot",
+  "discipline": "computer science",
+  "education_level": "second-year undergraduate",
+  "prior_knowledge": ["vectors", "matrices", "discrete mathematics", "Python/NumPy", "basic algorithm analysis"],
+  "missing_or_fragile_prerequisites": ["calculus-based convergence arguments", "mechanical vibration concepts"],
+  "preferred_representations": ["pseudocode", "iteration invariants", "complexity and stopping criteria"],
+  "authentic_context_boundary": "Use ranking or spectral-computation examples only with their assumptions stated; do not equate simplified power iteration with a production ranking system.",
+  "review_status": "requires_discipline_educator_review"
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "pathway_valid": true,
+  "lesson_output_valid": true,
+  "pathway_metrics": {
+    "curriculum_release_status": "released",
+    "contract_item_count": 30,
+    "selected_item_count": 12,
+    "excluded_item_count": 18,
+    "learning_unit_count": 15,
+    "bridge_unit_count": 3,
+    "unresolved_bridge_count": 0,
+    "detected_change_types": [
+      "add_prerequisite_bridge",
+      "regroup_contract_items",
+      "reorder_learning_units"
+    ]
+  },
+  "lesson_metrics": {
+    "selected_contract_item_count": 12,
+    "mapped_contract_item_count": 12,
+    "excluded_contract_item_count": 18,
+    "learning_unit_count": 15,
+    "mapped_learning_unit_count": 15,
+    "released_bridge_count": 3,
+    "mapped_bridge_count": 3,
+    "section_count": 15,
+    "python_code_block_count": 2,
+    "english_prose_word_count": 2331,
+    "word_count_compliant": true
+  },
+  "validation_scope": {
+    "input_bindings": true,
+    "condition_context_isolation": true,
+    "declared_selected_content_mapping": true,
+    "pathway_order": true,
+    "released_bridge_mapping": true,
+    "python_execution": true,
+    "word_count": true,
+    "semantic_mathematical_correctness_assessed": false,
+    "pedagogical_quality_assessed": false
+  }
+}

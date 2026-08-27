@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "RQ2-EVAL-v1",
+  "sample_id": "S-M83C",
+  "condition": "P2",
+  "topic": "gradient descent",
+  "profile_id": "gradient-descent-mechanical-engineering-year-2-rq2-pilot",
+  "run_id": "gradient-descent-p2-mechanical-engineering-run-03",
+  "source_lesson_run": "experiments/rq2/lesson-runs/gradient-descent-v1/p2/mechanical-engineering/run-03",
+  "source_pathway": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/mechanical-engineering/run-03/pathway-plan.json",
+  "blind_bundle": "experiments/rq2/evaluation/gradient-descent-v1/pilot/blind-samples/S-M83C",
+  "blind_manifest_sha256": "424bae77e5314b3709d1d5961cd59caa2b15a8724737f3d611d5e78f465853b4",
+  "created_at": "2026-08-26T21:36:01Z"
+}

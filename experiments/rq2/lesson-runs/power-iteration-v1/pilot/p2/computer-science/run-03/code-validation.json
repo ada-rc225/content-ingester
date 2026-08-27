@@ -1,0 +1,30 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq2/lesson-runs/power-iteration-v1/pilot/p2/computer-science/run-03/lesson.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-10",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "1514541bc0bff065736b2e52092d6765acad37587401918e6847d34475cc55cb",
+      "execution_status": "passed",
+      "stdout": "",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 75
+    },
+    {
+      "block_id": "CODE-002",
+      "anchor": "SEC-13",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "b4c69e998298799ab1ef8d2806984acea32c0e277ad7e64cba28e6682913086f",
+      "execution_status": "passed",
+      "stdout": "Estimated dominant eigenvalue: 4.414213562373095\nEstimated eigenvector: [0.92387953 0.38268343]\nResidual norm: 6.962575715097014e-11\nIterations: 23\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 44
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq2/lesson-runs/gradient-descent-v1/p2/applied-mathematics/run-02/lesson.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-15",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "563d8851ce5acc9415bdc383796a1b4c442f61e1bf2b52b5fd33b20e4d05e07d",
+      "execution_status": "passed",
+      "stdout": "constant step\n(0, np.float64(4.0), 0.25, array([ 2., -1.]))\n(1, np.float64(1.125), 0.25, array([1.5, 0. ]))\n(2, np.float64(0.6328125), 0.25, array([1.125, 0.   ]))\n(3, np.float64(0.35595703125), 0.25, array([0.8438, 0.    ]))\n(4, np.float64(0.200225830078125), 0.25, array([0.6328, 0.    ]))\n(5, np.float64(0.11262702941894531), 0.25, array([0.4746, 0.    ]))\narmijo backtracking\n(0, np.float64(4.0), 0.25, 2, array([ 2., -1.]))\n(1, np.float64(1.125), 1.0, 0, array([1.5, 0. ]))\n(2, np.float64(0.0), 1.0, 0, array([0., 0.]))\n(3, np.float64(0.0), 1.0, 0, array([0., 0.]))\n(4, np.float64(0.0), 1.0, 0, array([0., 0.]))\n(5, np.float64(0.0), None, None, array([0., 0.]))\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 76
+    }
+  ]
+}

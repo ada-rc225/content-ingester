@@ -1,0 +1,10 @@
+{
+  "profile_id": "mechanical-engineering-year-2-rq2-pilot",
+  "discipline": "mechanical engineering",
+  "education_level": "second-year undergraduate",
+  "prior_knowledge": ["vectors", "matrices", "basic calculus", "basic Python/NumPy", "introductory vibration concepts"],
+  "missing_or_fragile_prerequisites": ["iterative eigensolvers", "formal convergence analysis"],
+  "preferred_representations": ["mode shapes", "matrix-vector updates", "numerical residuals"],
+  "authentic_context_boundary": "Use idealized modal analysis as a pedagogical bridge; do not claim that every engineering eigenproblem is symmetric or solved by basic power iteration.",
+  "review_status": "requires_discipline_educator_review"
+}

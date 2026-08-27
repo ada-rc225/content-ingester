@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "run_id": "gradient-descent-p2-mechanical-engineering-run-03",
+  "lesson_file": "lesson.md",
+  "sections": [
+    {
+      "section_id": "SEC-01",
+      "heading": "From an objective to an iterative update",
+      "unit_ids": [
+        "GD-ME-U01",
+        "GD-ME-U02",
+        "GD-ME-U03"
+      ],
+      "contract_item_ids": [
+        "RC-001",
+        "RC-002",
+        "RC-010"
+      ],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-02",
+      "heading": "Measuring change and defining smoothness",
+      "unit_ids": [
+        "BRIDGE-001",
+        "GD-ME-U04"
+      ],
+      "contract_item_ids": [
+        "RC-004"
+      ],
+      "bridge_contract_ids": [
+        "BRC-EUCLIDEAN-NORMS-AND-LIPSCHITZ-CONTINUITY-v1"
+      ]
+    },
+    {
+      "section_id": "SEC-03",
+      "heading": "From smoothness to step selection",
+      "unit_ids": [
+        "GD-ME-U05",
+        "GD-ME-U06",
+        "GD-ME-U12"
+      ],
+      "contract_item_ids": [
+        "RC-005",
+        "RC-011",
+        "RC-013"
+      ],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-04",
+      "heading": "Reading inner products and convex combinations",
+      "unit_ids": [
+        "BRIDGE-002"
+      ],
+      "contract_item_ids": [],
+      "bridge_contract_ids": [
+        "BRC-INNER-PRODUCTS-AND-CONVEX-SETS-v1"
+      ]
+    },
+    {
+      "section_id": "SEC-05",
+      "heading": "Convexity and its stronger form",
+      "unit_ids": [
+        "GD-ME-U07",
+        "GD-ME-U08"
+      ],
+      "contract_item_ids": [
+        "RC-006",
+        "RC-007"
+      ],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-06",
+      "heading": "A condition ratio beside the convergence history",
+      "unit_ids": [
+        "BRIDGE-003",
+        "GD-ME-U09"
+      ],
+      "contract_item_ids": [
+        "RC-009"
+      ],
+      "bridge_contract_ids": [
+        "BRC-RATIOS-AND-CONDITION-NUMBERS-v1"
+      ]
+    },
+    {
+      "section_id": "SEC-07",
+      "heading": "Reading the convergence guarantees and their limits",
+      "unit_ids": [
+        "GD-ME-U10",
+        "GD-ME-U11"
+      ],
+      "contract_item_ids": [
+        "RC-014",
+        "RC-015"
+      ],
+      "bridge_contract_ids": []
+    }
+  ]
+}

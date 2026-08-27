@@ -1,0 +1,30 @@
+{
+  "content_file": "/Users/rc225/Desktop/ic_acse/final work/content-ingester/experiments/rq2/lesson-runs/power-iteration-v1/pilot/p2/mechanical-engineering/run-03/lesson.md",
+  "overall_status": "passed",
+  "blocks": [
+    {
+      "block_id": "CODE-001",
+      "anchor": "SEC-05",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "7661a467e342e452266dd5a42bac4a8ca015b9fc3fbb76daec32728d82259c7f",
+      "execution_status": "passed",
+      "stdout": "",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 66
+    },
+    {
+      "block_id": "CODE-002",
+      "anchor": "SEC-08",
+      "exercise_id": null,
+      "language": "python",
+      "code_sha256": "f529cc70b95cd1233da44394af1099e18a7ffb986fbbc72542e4b6a2ec799934",
+      "execution_status": "passed",
+      "stdout": "Estimated dominant eigenvalue: 4.414213562373095\nAbsolute eigenvalue error: 0.0\nEstimated mode-shape direction: [0.92387953 0.38268343]\nResidual norm: 6.962575715097014e-11\nIterations: 23\n",
+      "stderr": "",
+      "return_code": 0,
+      "duration_ms": 42
+    }
+  ]
+}

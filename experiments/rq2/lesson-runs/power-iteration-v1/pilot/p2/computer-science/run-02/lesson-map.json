@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0",
+  "run_id": "power-iteration-p2-computer-science-pilot-run-02",
+  "lesson_file": "lesson.md",
+  "sections": [
+    {
+      "section_id": "SEC-01",
+      "heading": "The computational object we want",
+      "unit_ids": ["CS-PI-U01"],
+      "contract_item_ids": ["RC-001"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-02",
+      "heading": "Dominant means largest magnitude",
+      "unit_ids": ["CS-PI-U02"],
+      "contract_item_ids": ["RC-014"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-03",
+      "heading": "Orthogonality and projection coefficients",
+      "unit_ids": ["BRIDGE-002"],
+      "contract_item_ids": [],
+      "bridge_contract_ids": ["BRC-ORTHOGONALITY-PROJECTION-v1"]
+    },
+    {
+      "section_id": "SEC-04",
+      "heading": "The symmetric setting and the gap assumption",
+      "unit_ids": ["CS-PI-U03"],
+      "contract_item_ids": ["RC-003", "RC-004"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-05",
+      "heading": "Norms and safe normalization",
+      "unit_ids": ["BRIDGE-001"],
+      "contract_item_ids": [],
+      "bridge_contract_ids": ["BRC-VECTOR-NORMS-NORMALIZATION-v1"]
+    },
+    {
+      "section_id": "SEC-06",
+      "heading": "The power-iteration update",
+      "unit_ids": ["CS-PI-U04"],
+      "contract_item_ids": ["RC-005"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-07",
+      "heading": "Inner products and quadratic expressions",
+      "unit_ids": ["BRIDGE-003"],
+      "contract_item_ids": [],
+      "bridge_contract_ids": ["BRC-INNER-PRODUCTS-QUADRATIC-FORMS-v1"]
+    },
+    {
+      "section_id": "SEC-08",
+      "heading": "Estimating the eigenvalue",
+      "unit_ids": ["CS-PI-U07"],
+      "contract_item_ids": ["RC-009"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-09",
+      "heading": "Measuring approximate-eigenpair quality",
+      "unit_ids": ["CS-PI-U08"],
+      "contract_item_ids": ["RC-010"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-10",
+      "heading": "A safeguarded stopping policy",
+      "unit_ids": ["CS-PI-U09"],
+      "contract_item_ids": ["RC-011"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-11",
+      "heading": "Validate inputs before iterating",
+      "unit_ids": ["CS-PI-U10"],
+      "contract_item_ids": ["RC-016"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-12",
+      "heading": "Executable iteration semantics",
+      "unit_ids": ["CS-PI-U11"],
+      "contract_item_ids": ["RC-017"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-13",
+      "heading": "Why the dominant component emerges",
+      "unit_ids": ["CS-PI-U05"],
+      "contract_item_ids": ["RC-006", "RC-007"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-14",
+      "heading": "Failure modes and scope limits",
+      "unit_ids": ["CS-PI-U06"],
+      "contract_item_ids": ["RC-008", "RC-012", "RC-013", "RC-015"],
+      "bridge_contract_ids": []
+    },
+    {
+      "section_id": "SEC-15",
+      "heading": "Worked run and interpretation",
+      "unit_ids": ["CS-PI-U12"],
+      "contract_item_ids": ["RC-018"],
+      "bridge_contract_ids": []
+    }
+  ]
+}

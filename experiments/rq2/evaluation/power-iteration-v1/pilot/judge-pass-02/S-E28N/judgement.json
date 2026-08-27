@@ -1,0 +1,789 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "RQ2-EVAL-v1",
+  "sample_id": "S-E28N",
+  "evaluator": {
+    "evaluator_id": "codex-rq2-b",
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "access_route": "codex-exec-ephemeral",
+    "prompt_version": "RQ2-EVAL-v1",
+    "pass_index": 2,
+    "evaluated_at": "2026-08-26T23:16:00Z"
+  },
+  "primary_pedagogy_judgements": [
+    {
+      "dimension": "disciplinary_framing_appropriateness",
+      "score": 4,
+      "evidence_excerpts": [
+        "Power iteration takes a different numerical route: it repeatedly uses matrix-vector products to estimate a selected eigenpair. This is a computational strategy, not an algebraic replacement of the characteristic equation.",
+        "Computing these quantities in the right order avoids ambiguity.",
+        "Each iteration computes \\(y=Ax\\), checks for breakdown when \\(\\|y\\|_2=0\\), and only then divides by the norm."
+      ],
+      "rationale": "The lesson consistently frames power iteration as a computational method, emphasising operation order, breakdown handling, stopping criteria, and inspectable numerical semantics that fit a second-year computer-science profile. It falls short of a 5 because it makes little use of the profile's other preferred disciplinary representations, especially iteration invariants, pseudocode, or complexity analysis; the score does not depend on the mere presence of executable code.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "dimension": "prerequisite_match",
+      "score": 5,
+      "evidence_excerpts": [
+        "The condition \\(v\\ne 0\\) is essential: the zero vector satisfies \\(A0=\\lambda 0\\) for every scalar, so it cannot identify an eigenvalue or an eigendirection.",
+        "To read the expansion, think of the coefficients as coordinates in the eigenvector basis.",
+        "This is an asymptotic rate statement under all the listed assumptions, not an unconditional finite-iteration error bound."
+      ],
+      "rationale": "The lesson starts from vectors and matrices, defines eigenpairs before use, explains the eigenbasis expansion as coordinates, and connects asymptotic language to a ratio-power argument compatible with the learner's basic algorithm-analysis background. It does not rely on calculus-based convergence arguments or mechanical-vibration concepts, the two declared fragile areas, and material assumptions are supplied before their conclusions.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "dimension": "context_boundary_awareness",
+      "score": 5,
+      "evidence_excerpts": [
+        "The real-symmetric hypothesis and this strict gap must remain attached to the convergence explanation; neither may be silently replaced by a claim about arbitrary matrices or by ordering eigenvalues according to their algebraic values.",
+        "This is an asymptotic rate statement under all the listed assumptions, not an unconditional finite-iteration error bound.",
+        "Defective matrices, complex dominant eigenvalues, and non-normal behaviour require additional care. They are outside the scope of this symmetric convergence explanation, which must not be generalised to every non-symmetric matrix."
+      ],
+      "rationale": "Scope boundaries are stated at the first substantial convergence mapping and reinforced proportionately: symmetric-matrix assumptions, strict magnitude dominance, asymptotic rather than finite-iteration interpretation, sign equivalence, and non-symmetric non-mappings are all explicit. The lesson avoids an application analogy or production-system claim that would require an additional disciplinary boundary.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "dimension": "sequence_quality",
+      "score": 5,
+      "evidence_excerpts": [
+        "Keeping these tasks separate helps explain why the method first updates and normalises a vector and only later evaluates an eigenvalue estimate and its residual.",
+        "Keeping multiplication and normalisation as separate operations makes both the mathematics and a later implementation easier to inspect.",
+        "Computing these quantities in the right order avoids ambiguity. Begin with the new unit vector, use it in the Rayleigh quotient, and use that same vector and estimate in the residual."
+      ],
+      "rationale": "The ordering is dependency-valid and explicitly justified: eigenpairs and magnitude dominance precede the symmetric basis, the update precedes its convergence mechanism and limits, and the Rayleigh quotient precedes residual stopping and the safeguarded procedure. Grouping multiplication, normalization, estimation, and residual evaluation into inspectable stages aligns with the profile's algorithmic and stopping-criterion preferences.",
+      "confidence": "high",
+      "abstain": false
+    }
+  ],
+  "exploratory_judgements": [
+    {
+      "dimension": "example_authenticity",
+      "score": 3,
+      "evidence_excerpts": [
+        "For this symmetric matrix and starting vector, the exact eigenvalues are",
+        "The estimated eigenvalue can be compared with the dominant exact value, while the residual norm reports the defect in the approximate eigenpair equation."
+      ],
+      "rationale": "The worked task is a plausible educational spectral-computation exercise with a real implementation workflow, a known comparison value, and a residual diagnostic. It remains a small constructed matrix example rather than a credible domain application or production spectral-computation task, so authenticity is moderate rather than high.",
+      "confidence": "high",
+      "abstain": false
+    }
+  ],
+  "learning_goal_judgements": [
+    {
+      "capability_id": "LG-001",
+      "priority": "required",
+      "coverage": "complete",
+      "evidence_excerpts": [
+        "Choose a non-zero initial vector \\(x_0\\). At each step, compute",
+        "To trace one step, first calculate the complete matrix-vector product. Check its norm before dividing, and then divide every component by that same norm."
+      ],
+      "rationale": "The lesson explains the purpose of the iteration, displays the matrix-vector and normalization update, and gives an explicit tracing procedure with norm and direction checks.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "capability_id": "LG-002",
+      "priority": "required",
+      "coverage": "complete",
+      "evidence_excerpts": [
+        "Once a non-zero approximate eigenvector \\(x_k\\) is available, estimate its eigenvalue with the Rayleigh quotient",
+        "Thus \\(\\|r_k\\|_2\\) measures how closely the computed pair satisfies the eigenvector equation and provides a meaningful computational stopping measure."
+      ],
+      "rationale": "The Rayleigh estimate, residual construction, residual-quality interpretation, tolerance comparison, and maximum-iteration fallback fully support approximate-eigenpair assessment and a stopping decision.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "capability_id": "LG-003",
+      "priority": "required",
+      "coverage": "complete",
+      "evidence_excerpts": [
+        "Second, if \\(v_1^Tx_0=0\\), the starting vector contains no dominant component.",
+        "Third, if \\(|\\lambda_1|=|\\lambda_2|\\), there is no unique dominant magnitude.",
+        "Defective matrices, complex dominant eigenvalues, and non-normal behaviour require additional care."
+      ],
+      "rationale": "The lesson distinguishes zero dominant projection, tied dominant magnitudes, near-tied slow convergence, sign alternation, breakdown, and the limits of extending the symmetric explanation to non-symmetric matrices.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "capability_id": "LG-004",
+      "priority": "optional",
+      "coverage": "complete",
+      "evidence_excerpts": [
+        "The following block is self-contained and executable.",
+        "if tolerance <= 0:\n        raise ValueError(\"tolerance must be positive\")",
+        "if y_norm == 0:\n            raise RuntimeError(\"power iteration broke down because A @ x is zero\")"
+      ],
+      "rationale": "The executable implementation can be read, traced, or reconstructed and includes square/dimension checks, non-zero initialization, positive tolerance and iteration-cap validation, breakdown handling, residual stopping, and a capped return.",
+      "confidence": "high",
+      "abstain": false
+    }
+  ],
+  "selection_quality": {
+    "inclusion_appropriateness": {
+      "score": 5,
+      "not_applicable": false,
+      "evidence_excerpts": [
+        "There are therefore two linked tasks.",
+        "Several behaviours must be distinguished rather than labelled collectively as failure.",
+        "A complete procedure begins by converting the matrix and starting vector to floating arrays."
+      ],
+      "rationale": "The selected definitions, convergence mechanism, assumptions, failure modes, estimator, residual, algorithm safeguards, and worked result all contribute directly to the shared learning request. The implementation detail is optional in the request but appropriate for this Python- and algorithm-ready profile, and no selected topic is pedagogically unjustified.",
+      "confidence": "high",
+      "abstain": false
+    },
+    "exclusion_appropriateness": {
+      "score": null,
+      "not_applicable": true,
+      "evidence_excerpts": [],
+      "rationale": "No Contract items were excluded; exclusion appropriateness is not applicable.",
+      "confidence": "high",
+      "abstain": false
+    },
+    "unnecessary_content_load": {
+      "level": "none",
+      "evidence_excerpts": [],
+      "rationale": "No included passage is clearly unnecessary for the requested purpose, convergence interpretation, limitations, residual-based quality judgement, or profile-appropriate implementation capability; breadth alone is not treated as unnecessary load.",
+      "confidence": "high",
+      "abstain": false
+    },
+    "profile_rationale_quality": {
+      "score": 3,
+      "not_applicable": false,
+      "evidence_excerpts": [
+        "Keeping multiplication and normalisation as separate operations makes both the mathematics and a later implementation easier to inspect.",
+        "It also requires a positive tolerance and a positive integer iteration cap."
+      ],
+      "rationale": "The resulting scope broadly matches a computer-science learner through inspectable operations, safeguards, and stopping criteria, and it avoids the declared fragile calculus and vibration areas. However, the sanitized selection rationales provide no explicit profile basis and select the full Contract, so the rationale for why this exact breadth is preferable for this profile is generic rather than strong.",
+      "confidence": "high",
+      "abstain": false
+    }
+  },
+  "selected_item_judgements": [
+    {
+      "item_id": "RC-001",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "Av=\\lambda v.",
+        "The scalar \\(\\lambda\\) is the eigenvalue associated with \\(v\\). The condition \\(v\\ne 0\\) is essential: the zero vector satisfies \\(A0=\\lambda 0\\) for every scalar, so it cannot identify an eigenvalue or an eigendirection."
+      ],
+      "contract_requirements": [
+        "For A in R^{n x n}, a non-zero vector v is an eigenvector when Av=lambda v; lambda is its associated eigenvalue. The non-zero condition is essential.",
+        "A is a real n by n matrix.",
+        "v is non-zero."
+      ],
+      "rationale": "The lesson gives the eigenvector equation for a real square matrix, associates lambda with v, and explicitly explains why v must be non-zero. These statements match the selected Contract authority without drift.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-002",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "Eigenvalues are roots of the characteristic equation",
+        "where \\(I\\) is the identity matrix of compatible size. This equation is useful for characterising eigenvalues, but explicitly forming a characteristic polynomial is usually a poor numerical strategy for a large matrix.",
+        "This is a computational strategy, not an algebraic replacement of the characteristic equation."
+      ],
+      "contract_requirements": [
+        "Eigenvalues are roots of det(A-lambda I)=0; for large matrices, iterative matrix-vector products are presented as a preferable numerical strategy to explicitly forming the characteristic polynomial.",
+        "I is the identity matrix of compatible dimension."
+      ],
+      "rationale": "The characteristic equation, compatible identity matrix, large-matrix numerical warning, and non-equivalence boundary are all represented correctly and are Contract-supported.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-003",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "A clean explanation is available when \\(A\\) is real and symmetric, so \\(A=A^T\\). The spectral theorem then supplies an orthonormal basis of real eigenvectors.",
+        "If the eigenvectors form the columns of an orthogonal matrix \\(Q\\), then",
+        "Because the eigenvectors \\(v_1,\\ldots,v_n\\) are an orthonormal basis, every vector \\(x\\) has the expansion"
+      ],
+      "contract_requirements": [
+        "For a real symmetric matrix A=A^T, the spectral theorem supplies an orthonormal basis of real eigenvectors, giving A=Q Lambda Q^T and representing every x as a sum of eigenvector components with c_i=v_i^T x.",
+        "A is real and symmetric.",
+        "Q has eigenvectors as columns and is orthogonal."
+      ],
+      "rationale": "The real-symmetric condition, orthonormal real eigenbasis, orthogonal Q decomposition, diagonal Lambda, and coefficient expansion are all present and mathematically correct under the stated hypothesis.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-004",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "Order the eigenvalues by magnitude as",
+        "The strict first inequality makes \\(\\lambda_1\\) unique in magnitude. It is the dominant eigenvalue in this lesson."
+      ],
+      "contract_requirements": [
+        "The eigenvalues are ordered by magnitude as |lambda_1|>|lambda_2|>=...>=|lambda_n|, so lambda_1 is unique in magnitude and is the dominant eigenvalue.",
+        "The strict first inequality is required for a unique dominant magnitude."
+      ],
+      "rationale": "The lesson states the strict magnitude ordering and correctly links the strict first inequality to a unique dominant magnitude; it does not switch to algebraic ordering.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-005",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "Choose a non-zero initial vector \\(x_0\\). At each step, compute",
+        "The denominator must be non-zero. Multiplication by \\(A\\) changes the mixture of eigenvector components; normalisation then controls the scale without changing the direction of \\(y_{k+1}\\)."
+      ],
+      "contract_requirements": [
+        "Starting from a non-zero x_0, power iteration computes y_{k+1}=Ax_k and normalises x_{k+1}=y_{k+1}/||y_{k+1}||_2; normalisation controls scale without changing direction.",
+        "x_0 is non-zero.",
+        "The normalising denominator is non-zero."
+      ],
+      "rationale": "The non-zero initialization, multiply-then-normalize update, non-zero denominator, and direction-preserving role of normalization fully match the Contract algorithm rule.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-006",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "Write the starting vector in the symmetric eigenbasis as \\(x_0=\\sum_i c_i v_i\\). Before normalisation, repeated multiplication gives",
+        "Suppose \\(A\\) is real and symmetric, \\(|\\lambda_1|>|\\lambda_2|\\), and",
+        "For each subordinate component, \\(\\left|\\lambda_i/\\lambda_1\\right|^k\\) tends to zero."
+      ],
+      "contract_requirements": [
+        "Under the symmetric eigenbasis expansion, A^k x_0 separates the dominant term lambda_1^k c_1 v_1 from terms scaled by (lambda_i/lambda_1)^k; a non-zero c_1 and a strict magnitude gap make the subordinate ratios vanish.",
+        "A is in the real symmetric setting with the stated eigenbasis.",
+        "c_1=v_1^T x_0 is non-zero.",
+        "|lambda_1|>|lambda_2|."
+      ],
+      "rationale": "The lesson presents the complete eigenbasis expansion and factorization, requires real symmetry, a strict magnitude gap, and non-zero dominant projection, and correctly explains decay of subordinate ratios relative to the dominant term.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-007",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "Suppose \\(A\\) is real and symmetric, \\(|\\lambda_1|>|\\lambda_2|\\), and",
+        "More precisely, if the initial projection onto \\(v_1\\) is non-zero and no iterate produces \\(Ax_k=0\\), the direction error generally decreases asymptotically at a rate governed by",
+        "This is an asymptotic rate statement under all the listed assumptions, not an unconditional finite-iteration error bound."
+      ],
+      "contract_requirements": [
+        "For a real symmetric matrix, a unique dominant magnitude, non-zero initial projection onto v_1, and no zero Ax_k iterate imply that direction error generally decreases asymptotically at a rate governed by |lambda_2/lambda_1|^k.",
+        "A is real and symmetric.",
+        "|lambda_1|>|lambda_2|.",
+        "The initial vector has non-zero projection onto v_1.",
+        "No iterate produces Ax_k=0."
+      ],
+      "rationale": "All four convergence conditions are attached to the direction-error conclusion, and the magnitude-ratio rate is correctly bounded as a general asymptotic statement rather than a finite-step guarantee.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-008",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "First, if the dominant eigenvalue is negative, successive normalised iterates may alternate sign. This alone is not failure: \\(v_1\\) and \\(-v_1\\) represent the same eigendirection."
+      ],
+      "contract_requirements": [
+        "When lambda_1<0, successive normalised iterates may alternate sign; this is not failure because v_1 and -v_1 describe the same eigendirection.",
+        "The dominant eigenvalue is negative."
+      ],
+      "rationale": "The negative-dominant-eigenvalue condition, possible sign alternation, and equivalence of opposite representatives of one eigendirection are fully and correctly stated.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-009",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "Once a non-zero approximate eigenvector \\(x_k\\) is available, estimate its eigenvalue with the Rayleigh quotient",
+        "For a normalised iterate, \\(x_k^Tx_k=1\\), so this simplifies to",
+        "In the real-symmetric setting, if \\(x_k\\) approaches \\(v_1\\), then \\(\\rho(x_k)\\) approaches \\(\\lambda_1\\)."
+      ],
+      "contract_requirements": [
+        "The Rayleigh quotient rho(x_k)=x_k^T A x_k/(x_k^T x_k), reducing to x_k^T A x_k for a normalised vector, estimates lambda_1 as x_k approaches v_1 for symmetric A.",
+        "x_k is non-zero for the quotient.",
+        "The convergence-to-lambda_1 statement uses a symmetric matrix and x_k approaching v_1."
+      ],
+      "rationale": "The general quotient is restricted to non-zero x_k, its unit-norm simplification is correctly conditioned, and the convergence-to-lambda statement retains symmetry and approach to v_1.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-010",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "An eigenvalue estimate becomes more informative when paired with the eigenpair residual",
+        "For an exact eigenpair, substituting \\(Av=\\lambda v\\) and \\(\\rho(v)=\\lambda\\) gives the zero vector.",
+        "It is preferable to stopping only when successive vectors look similar, because sign flips can make two representatives of the same eigendirection look far apart."
+      ],
+      "contract_requirements": [
+        "The eigenpair residual is r_k=Ax_k-rho(x_k)x_k; an exact eigenpair has zero residual, and ||r_k||_2 is a meaningful computational stopping measure because vector differences can be distorted by sign flips.",
+        "rho(x_k) is the Rayleigh quotient used with x_k."
+      ],
+      "rationale": "The residual uses the Rayleigh estimate with the same iterate, is correctly zero for an exact eigenpair, and its norm is presented as a stopping diagnostic robust to eigenvector sign ambiguity.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-011",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "Each iteration computes \\(y=Ax\\), checks for breakdown when \\(\\|y\\|_2=0\\), and only then divides by the norm. It next computes the Rayleigh estimate, residual, and residual norm.",
+        "The procedure returns early when the residual norm is at most the tolerance; otherwise, it returns the final values after the iteration cap."
+      ],
+      "contract_requirements": [
+        "The stated algorithm normalises x_0, applies matrix-vector multiplication and normalisation, checks breakdown, computes the Rayleigh estimate and residual, stops when the residual norm is at most epsilon, and otherwise stops after K iterations.",
+        "x_0 is non-zero.",
+        "epsilon is positive.",
+        "K is the maximum iteration count."
+      ],
+      "rationale": "The complete abstract procedure preserves non-zero initialization, positive tolerance and iteration cap, pre-division breakdown detection, normalization, Rayleigh and residual calculations, tolerance stopping, and capped fallback.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-012",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "Second, if \\(v_1^Tx_0=0\\), the starting vector contains no dominant component. In exact arithmetic, repeated multiplication cannot create that missing eigencomponent, so the iterates will not converge to \\(v_1\\)."
+      ],
+      "contract_requirements": [
+        "If v_1^T x_0=0, the initial vector has no dominant eigendirection component, exact arithmetic cannot create it, and power iteration will not converge to v_1.",
+        "The dominant eigenvector is v_1 and the initial projection is exactly zero."
+      ],
+      "rationale": "The exact-zero projection condition, absence and non-creation of the dominant component in exact arithmetic, and non-convergence to v_1 are stated without conflating the case with slow convergence.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-013",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "Third, if \\(|\\lambda_1|=|\\lambda_2|\\), there is no unique dominant magnitude. The method need not select a unique eigenvector; it may remain in or oscillate within the invariant subspace associated with those dominant magnitudes.",
+        "By contrast, when \\(|\\lambda_2/\\lambda_1|\\) is below but close to one, dominance is unique but convergence can be very slow."
+      ],
+      "contract_requirements": [
+        "If the two largest eigenvalue magnitudes are equal, a unique eigenvector need not be selected; if their ratio is close to one while still separated, convergence can be very slow.",
+        "The equal-magnitude case has |lambda_1|=|lambda_2|.",
+        "The slow-convergence case has |lambda_2/lambda_1| close to one."
+      ],
+      "rationale": "The lesson correctly separates tied dominant magnitude, where unique-vector selection can fail, from a ratio below but near one, where dominance is unique but convergence is slow.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-014",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "Power iteration targets an eigenvalue with largest absolute value, not necessarily the most positive eigenvalue. For instance, if the relevant eigenvalues are \\(5\\) and \\(-8\\), then \\(-8\\) is dominant because \\(|-8|>|5|\\)."
+      ],
+      "contract_requirements": [
+        "Power iteration targets the eigenvalue of largest magnitude, not necessarily the most positive eigenvalue; between 5 and -8, -8 is dominant by magnitude.",
+        "Eigenvalues are compared by absolute value."
+      ],
+      "rationale": "Dominance is explicitly defined by absolute value, and the 5 versus -8 example correctly identifies -8 rather than the largest algebraic value.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-015",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "Finally, power iteration can be applied to some non-symmetric matrices, but the orthogonal decomposition used above is not generally available for them. Defective matrices, complex dominant eigenvalues, and non-normal behaviour require additional care.",
+        "They are outside the scope of this symmetric convergence explanation, which must not be generalised to every non-symmetric matrix."
+      ],
+      "contract_requirements": [
+        "Although power iteration applies to some non-symmetric matrices, the clean orthogonal decomposition is not generally available; defective matrices, complex dominant eigenvalues, and non-normal behaviour require additional care and are outside these notes' scope.",
+        "The core convergence explanation is restricted to the real symmetric setting."
+      ],
+      "rationale": "The lesson permits only bounded applicability to some non-symmetric matrices, denies general availability of the orthogonal argument, names the additional complications, and keeps them outside the selected explanation.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-016",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "A complete procedure begins by converting the matrix and starting vector to floating arrays. It checks that the matrix is square, that the starting vector is one-dimensional with a compatible length, and that the starting vector is non-zero before normalising it.",
+        "A = np.asarray(A, dtype=float)\n    x = np.asarray(x0, dtype=float)",
+        "x = x / x_norm"
+      ],
+      "contract_requirements": [
+        "The Python implementation converts A and x0 to floating NumPy arrays, requires A to be square and x0 to have compatible one-dimensional shape, rejects a zero initial vector, and normalises x before iteration.",
+        "NumPy is available.",
+        "A and x0 can be converted to floating arrays."
+      ],
+      "rationale": "The prose and implementation convert inputs to floating NumPy arrays, validate square and compatible one-dimensional shapes, reject zero x0 before division, and normalize x before iteration.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-017",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "It also requires a positive tolerance and a positive integer iteration cap.",
+        "Each iteration computes \\(y=Ax\\), checks for breakdown when \\(\\|y\\|_2=0\\), and only then divides by the norm. It next computes the Rayleigh estimate, residual, and residual norm.",
+        "In either case, the four returned values are the eigenvalue estimate, normalised vector, residual norm, and iterations performed."
+      ],
+      "contract_requirements": [
+        "Each Python iteration computes y=A@x, raises RuntimeError when A@x is zero, normalises x, computes the Rayleigh estimate and residual norm, returns early when residual_norm<=tolerance, and otherwise returns the final values at max_iterations.",
+        "The iteration range is 1 through max_iterations inclusive.",
+        "The returned tuple is (eigenvalue, x, residual_norm, iteration count)."
+      ],
+      "rationale": "The iteration range, breakdown-before-division behavior, normalization, Rayleigh and residual computations, early return, capped return, and four-value tuple are correct. The lesson also incorporates the Contract's approved correction by rejecting non-positive or non-integer iteration caps and enforcing a positive tolerance.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-018",
+      "coverage": "full",
+      "semantic_correctness": "correct",
+      "provenance": "supported",
+      "evidence_excerpts": [
+        "A = np.array([[4.0, 1.0],\n              [1.0, 2.0]])",
+        "3+\\sqrt{2}\n\\quad\\text{and}\\quad\n3-\\sqrt{2}.",
+        "The first has larger magnitude, so the code should estimate \\(3+\\sqrt{2}\\) and report a small residual."
+      ],
+      "contract_requirements": [
+        "For A=[[4,1],[1,2]] with x0=(1,1), the exact eigenvalues are 3+sqrt(2) and 3-sqrt(2); the implementation should estimate the dominant value 3+sqrt(2) and produce a small residual.",
+        "The implementation is run with the supplied initial vector and default parameters."
+      ],
+      "rationale": "The supplied matrix and initial vector are used, both exact eigenvalues are correct, 3+sqrt(2) is correctly identified as dominant, and the expected estimate and small residual match the Contract-supported worked result.",
+      "confidence": "high",
+      "abstain": false
+    }
+  ],
+  "formula_judgements": [
+    {
+      "formula_ref": "FM-001",
+      "item_ids": [
+        "RC-001"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": ["Av=\\lambda v."],
+      "rationale": "The eigenvector equation is present, source-mapped to RC-001, and mathematically correct.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-002",
+      "item_ids": [
+        "RC-002"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": ["\\det(A-\\lambda I)=0,"],
+      "rationale": "The characteristic equation is present, source-mapped to RC-002, and correct with a compatible identity matrix.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-003",
+      "item_ids": [
+        "RC-003"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": ["A=Q\\Lambda Q^T,"],
+      "rationale": "The orthogonal spectral decomposition is present, source-mapped to RC-003, and correctly conditioned on real symmetry.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-004",
+      "item_ids": [
+        "RC-003"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": ["\\Lambda=\\operatorname{diag}(\\lambda_1,\\ldots,\\lambda_n)."],
+      "rationale": "The diagonal eigenvalue matrix is present, source-mapped to RC-003, and correct.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-005",
+      "item_ids": [
+        "RC-003"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": ["x=\\sum_{i=1}^n c_i v_i,\n\\qquad c_i=v_i^T x."],
+      "rationale": "The eigenbasis expansion and coefficient relation are present, source-mapped to RC-003, and correct for an orthonormal basis.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-006",
+      "item_ids": [
+        "RC-004"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": ["|\\lambda_1|>|\\lambda_2|\\ge\\cdots\\ge|\\lambda_n|."],
+      "rationale": "The strict dominant-magnitude ordering is present, source-mapped to RC-004, and correct.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-007",
+      "item_ids": [
+        "RC-005"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": ["y_{k+1}=Ax_k,\n\\qquad\nx_{k+1}=\\frac{y_{k+1}}{\\|y_{k+1}\\|_2}."],
+      "rationale": "The multiply-and-normalize update is present, source-mapped to RC-005, and correct with the stated non-zero denominator.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-008",
+      "item_ids": [
+        "RC-006"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": ["A^k x_0\n=\\sum_{i=1}^n c_i\\lambda_i^k v_i\n=\\lambda_1^k\\left(c_1v_1+\n\\sum_{i=2}^n c_i\\left(\\frac{\\lambda_i}{\\lambda_1}\\right)^k v_i\\right)."],
+      "rationale": "The repeated-multiplication expansion and dominant-factor form are present, source-mapped to RC-006, and algebraically correct.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-009",
+      "item_ids": [
+        "RC-006"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": ["c_1=v_1^Tx_0\\ne0."],
+      "rationale": "The non-zero dominant projection formula is present, source-mapped to RC-006, and correct in the orthonormal eigenbasis.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-010",
+      "item_ids": [
+        "RC-006"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": ["\\left|\\lambda_i/\\lambda_1\\right|^k"],
+      "rationale": "The subordinate magnitude-ratio power is present in an equivalent inline form, source-mapped to RC-006, and correct under the strict gap.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-011",
+      "item_ids": [
+        "RC-007"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": ["\\left|\\frac{\\lambda_2}{\\lambda_1}\\right|^k."],
+      "rationale": "The asymptotic direction-error rate factor is present, source-mapped to RC-007, and correctly qualified by the convergence assumptions.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-012",
+      "item_ids": [
+        "RC-009"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": ["\\rho(x_k)=\\frac{x_k^TAx_k}{x_k^Tx_k}."],
+      "rationale": "The general Rayleigh quotient is present, source-mapped to RC-009, and correct for non-zero x_k.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-013",
+      "item_ids": [
+        "RC-009"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": ["\\rho(x_k)=x_k^TAx_k."],
+      "rationale": "The unit-norm Rayleigh quotient simplification is present, source-mapped to RC-009, and correctly conditioned on x_k^T x_k=1.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-014",
+      "item_ids": [
+        "RC-010"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": ["r_k=Ax_k-\\rho(x_k)x_k."],
+      "rationale": "The eigenpair residual formula is present, source-mapped to RC-010, and correct.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-015",
+      "item_ids": [
+        "RC-010"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": ["\\|r_k\\|_2"],
+      "rationale": "The residual 2-norm is present, source-mapped to RC-010, and correctly used as the stopping measure.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "formula_ref": "FM-016",
+      "item_ids": [
+        "RC-018"
+      ],
+      "occurrence_status": "present",
+      "provenance": "supported",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": ["3+\\sqrt{2}\n\\quad\\text{and}\\quad\n3-\\sqrt{2}."],
+      "rationale": "Both exact eigenvalues for the worked matrix are present, source-mapped to RC-018, and correct.",
+      "confidence": "high",
+      "abstain": false
+    }
+  ],
+  "algorithm_judgements": [
+    {
+      "item_id": "RC-005",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "At each step, compute",
+        "The denominator must be non-zero. Multiplication by \\(A\\) changes the mixture of eigenvector components; normalisation then controls the scale without changing the direction of \\(y_{k+1}\\)."
+      ],
+      "rationale": "The core algorithm performs multiplication before normalization, checks the denominator condition, produces a unit-norm rescaling, and preserves direction.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-011",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "Each iteration computes \\(y=Ax\\), checks for breakdown when \\(\\|y\\|_2=0\\), and only then divides by the norm. It next computes the Rayleigh estimate, residual, and residual norm.",
+        "The procedure returns early when the residual norm is at most the tolerance; otherwise, it returns the final values after the iteration cap."
+      ],
+      "rationale": "The safeguarded algorithm orders breakdown detection before division, then computes the normalized iterate, eigenvalue estimate, and residual, with both residual-based early stopping and a cap.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-016",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "if A.ndim != 2 or A.shape[0] != A.shape[1]:\n        raise ValueError(\"A must be square\")",
+        "if x_norm == 0:\n        raise ValueError(\"x0 must be non-zero\")\n    x = x / x_norm"
+      ],
+      "rationale": "The input semantics correctly validate square shape, compatible vector shape, and non-zero initialization before normalization, after converting inputs to floating arrays.",
+      "confidence": "high",
+      "abstain": false
+    },
+    {
+      "item_id": "RC-017",
+      "accuracy": "correct",
+      "severity": "none",
+      "evidence_excerpts": [
+        "if (isinstance(max_iterations, (bool, np.bool_)) or\n            not isinstance(max_iterations, (int, np.integer)) or\n            max_iterations <= 0):\n        raise ValueError(\"max_iterations must be a positive integer\")",
+        "if residual_norm <= tolerance:\n            return eigenvalue, x, residual_norm, iteration",
+        "return eigenvalue, x, residual_norm, max_iterations"
+      ],
+      "rationale": "The implementation correctly applies the approved positive-integer cap correction, checks breakdown before normalization, computes the Rayleigh estimate and residual, returns early on tolerance, and otherwise returns the four final values at the cap.",
+      "confidence": "high",
+      "abstain": false
+    }
+  ],
+  "unsupported_claims": [],
+  "dependency_coherence": {
+    "verdict": "pass",
+    "evidence_excerpts": [
+      "Keeping these tasks separate helps explain why the method first updates and normalises a vector and only later evaluates an eigenvalue estimate and its residual.",
+      "Computing these quantities in the right order avoids ambiguity. Begin with the new unit vector, use it in the Rayleigh quotient, and use that same vector and estimate in the residual."
+    ],
+    "rationale": "The lesson respects the selected prerequisite graph: definitions precede the spectral assumptions; the update precedes its convergence explanation and failure modes; and estimation and residual concepts precede the final algorithm and worked consolidation. No semantic dependency is introduced after first use.",
+    "confidence": "high",
+    "abstain": false
+  },
+  "overall_recommendation": {
+    "decision": "pass",
+    "rationale": "All requested capabilities and selected Contract obligations are fully covered; every selected formula and algorithm opportunity is resolved as supported and correct; dependency coherence passes; and no unsupported mathematical, algorithmic, disciplinary-application, or other factual claim requiring entry was identified. The primary and exploratory ratings remain separate from this selected-content safety recommendation."
+  }
+}

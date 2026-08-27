@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "RQ2-EVAL-v1",
+  "sample_id": "S-Q40X",
+  "condition": "P1",
+  "topic": "power iteration",
+  "profile_id": "applied-mathematics-year-2-rq2-pilot",
+  "run_id": "power-iteration-p1-applied-mathematics-pilot-run-02",
+  "source_lesson_run": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p1/applied-mathematics/run-02",
+  "source_pathway": "experiments/rq2/pathway-plans/power-iteration-v1/p1/applied-mathematics/pathway-plan.json",
+  "blind_bundle": "experiments/rq2/evaluation/power-iteration-v1/pilot/blind-samples/S-Q40X",
+  "blind_manifest_sha256": "95b5752d4e14dbe01042f9b556b186d2db2396a024682d58e0da3b9eb612fb86",
+  "created_at": "2026-08-26T20:30:00Z"
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "RQ2-EVAL-v1",
+  "sample_id": "S-W38F",
+  "evaluator": {
+    "evaluator_id": "codex-rq2-a",
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "access_route": "codex-exec-ephemeral",
+    "prompt_version": "RQ2-EVAL-v1",
+    "pass_index": 1,
+    "evaluated_at": "2026-08-26T21:30:00Z"
+  },
+  "inputs": {
+    "blind_manifest_sha256": "6a734ed9916efc8387ad1ddf67969ee7ce210106f941657517369b66843f0918",
+    "judgement_sha256": "47da5f5c45dce64510d773a17de6efc6a7b13baf3ff28d20a9abfe835616f453"
+  },
+  "primary_pedagogy_scores": {
+    "disciplinary_framing_appropriateness": 5,
+    "prerequisite_match": 5,
+    "context_boundary_awareness": 5,
+    "sequence_quality": 5
+  },
+  "exploratory_scores": {
+    "example_authenticity": 3
+  },
+  "selection_quality": {
+    "inclusion_appropriateness": 5,
+    "exclusion_appropriateness": 5,
+    "unnecessary_content_load": "low",
+    "profile_rationale_quality": 5
+  },
+  "selected_content_safety": {
+    "required_learning_goal_coverage": 1.0,
+    "selected_contract_item_full_coverage": 1.0,
+    "present_formula_provenance_coverage": 1.0,
+    "hard_dependency_structural_validation": 1.0,
+    "released_bridge_compliance": 1.0,
+    "dependency_coherence_verdict": "pass",
+    "formula_accuracy": 1.0,
+    "algorithm_accuracy": 1.0,
+    "critical_error_count": 0,
+    "unsupported_mathematical_or_algorithmic_claim_count": 0,
+    "safety_abstention_count": 0,
+    "gate_pass": true
+  },
+  "abstentions": {
+    "primary_pedagogy": 0,
+    "exploratory": 0,
+    "selected_content_safety": 0
+  },
+  "scope": {
+    "selected_contract_item_count": 17,
+    "selected_formula_reference_count": 15,
+    "present_formula_count": 15,
+    "selected_algorithm_or_code_item_count": 4,
+    "unsupported_claim_count": 1,
+    "student_facing_word_count": 1896
+  },
+  "overall_recommendation": {
+    "decision": "requires_adjudication",
+    "rationale": "All selected mathematical, formula, algorithm, and learning-goal opportunities are fully and correctly covered, with coherent dependencies and no mathematical or algorithmic unsupported claims. Human disciplinary adjudication is nevertheless appropriate for the bounded but externally unverified ranking-context motivation and the associated exploratory authenticity interpretation."
+  },
+  "interpretation_boundary": "Automated operational measurement; not student evidence or expert ground truth.",
+  "valid": true
+}

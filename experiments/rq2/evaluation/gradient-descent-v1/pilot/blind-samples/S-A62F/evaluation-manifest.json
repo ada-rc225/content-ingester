@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "RQ2-EVAL-v1",
+  "sample_id": "S-A62F",
+  "created_at": "2026-08-26T21:35:00Z",
+  "files": {
+    "lesson.md": {
+      "sha256": "44f052cda45a021a6bc67b1a4ecf6875901d49b3d09ea4b735039c2e8017e2ad"
+    },
+    "learner-profile.json": {
+      "sha256": "99474bea6b136bbe548c33273246c7525cd4fc8e28d01f47e02f17d2d54596c2"
+    },
+    "learning-request.json": {
+      "sha256": "5b53c7f72533c30f8c2f8364f6ec8a6ba56f3cf7eb10d68d1c864db6e57cc3e3"
+    },
+    "frozen-reference-contract.json": {
+      "sha256": "071543389a069de070b000d164e5bbfe75ffeb9f149b4568abb5356a3cbecb09"
+    },
+    "pathway-evidence.json": {
+      "sha256": "bbdbfd0e637b14319fd89de91a803f53ba4811b2a8f1d8e9b7ac65669845cc25"
+    },
+    "structural-validation-evidence.json": {
+      "sha256": "76964a53e41897dc7b57aa1a0d63f6b3f0bf83034b8e3371b5447958f28a4b91"
+    }
+  },
+  "independence_policy": {
+    "condition_hidden": true,
+    "profile_visible_for_fit_judgement": true,
+    "single_sample_pointwise_evaluation": true,
+    "other_samples_excluded": true
+  },
+  "authority_checks": {
+    "frozen_contract_release_verified": true,
+    "pathway_validation_verified": true,
+    "lesson_output_validation_verified": true
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "RQ2-EVAL-v1",
+  "sample_id": "S-D37V",
+  "condition": "P2",
+  "topic": "gradient descent",
+  "profile_id": "gradient-descent-applied-mathematics-year-2-rq2-pilot",
+  "run_id": "gradient-descent-p2-applied-mathematics-run-02",
+  "source_lesson_run": "experiments/rq2/lesson-runs/gradient-descent-v1/p2/applied-mathematics/run-02",
+  "source_pathway": "experiments/rq2/pathway-plans/gradient-descent-v1/p2/applied-mathematics/run-04/pathway-plan.json",
+  "blind_bundle": "experiments/rq2/evaluation/gradient-descent-v1/pilot/blind-samples/S-D37V",
+  "blind_manifest_sha256": "47f7e155f44c8dd504787446714ae0e474037e53253c7574a37c800cb96793f7",
+  "created_at": "2026-08-26T21:35:03Z"
+}

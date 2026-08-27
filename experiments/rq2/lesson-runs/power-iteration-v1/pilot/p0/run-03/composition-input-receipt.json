@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "preparer": "prepare-composition-inputs-v1",
+  "prepared_at": "2026-08-26T19:40:00Z",
+  "run_id": "power-iteration-p0-pilot-run-03",
+  "condition": "P0",
+  "topic": "power iteration",
+  "inputs": {
+    "pathway": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p0/pathway-plan.json",
+      "sha256": "9cf1f1125924467e0bae738180bfdc2df0663dab56316caf849037dcacbe5480"
+    },
+    "pathway_validation_report": {
+      "file": "experiments/rq2/pathway-plans/power-iteration-v1/p0/pathway-validation-report.json",
+      "sha256": "327fb17dc1dc8523b3e1ef22aac8738b5cb46e107e2b7e1d3769abea651b5fe1"
+    },
+    "reference_contract": {
+      "file": "experiments/rq1/reference-contracts/power-iteration-v1/release/frozen_reference_contract.json",
+      "sha256": "3c749a34a0bc3d1bacd3022a8e403c4f6b090afcd99359245d51987db45e2ce7"
+    },
+    "learning_request": {
+      "file": "experiments/rq2/learning-requests/power-iteration-second-year.json",
+      "sha256": "c4cf0c6a4cf53653abab28123b4649dfd6459d894d3f85a310af0200468fe431"
+    },
+    "word_count_protocol": {
+      "file": "experiments/rq2/word-count-protocols/power-iteration-pilot.json",
+      "sha256": "474f78273ee6eec37f78edbea499b230218d30d94041240fb3d6ec87421d8246"
+    },
+    "profile": null,
+    "bridge_catalog": null
+  },
+  "treatment_isolation": {
+    "external_retrieval_allowed": false,
+    "other_profiles_allowed": false,
+    "other_condition_outputs_allowed": false,
+    "evaluation_results_allowed": false,
+    "profile_visible": false,
+    "profile_adaptation_allowed": false,
+    "pathway_replanning_allowed": false,
+    "selected_contract_scope_exact": true,
+    "instruction_sequence_exact": true,
+    "discipline_neutral_required": true
+  },
+  "output_view": {
+    "file": "experiments/rq2/lesson-runs/power-iteration-v1/pilot/p0/run-03/composition-input-view.json",
+    "sha256": "a3914ee2d4949226c9fc8b1197f8b7e1ae8a6e49384437ef79ed07fa05ade479"
+  }
+}
